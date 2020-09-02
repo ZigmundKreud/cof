@@ -10,7 +10,7 @@ export class CofArmorSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "armor"],
+            classes: ["cof", "sheet", "item", "armor"],
             template: System.templatesPath + "/items/armor-sheet.hbs",
             width: 400,
             height: 600,

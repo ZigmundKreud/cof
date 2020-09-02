@@ -1,0 +1,93 @@
+/* ----------------------------------------- */
+/*  Layout                                   */
+/* ----------------------------------------- */
+.window-content {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  //border:4px solid darkred;
+  //background-color: red;
+
+  .editable {
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    //border:4px solid darkblue;
+    //background-color: blue;
+
+    .wrap {
+      padding: 0;
+      margin: 0;
+      min-height: 100%;
+      height: 100%;
+      max-height: 100%;
+      overflow: hidden;
+      //border:4px solid darkgreen;
+      //background-color: green;
+
+      .sheet-header {
+        min-height: $item-header-height;
+        height: $item-header-height;
+        max-height: $item-header-height;
+
+        .profile-img {
+          min-height: $item-header-height;
+          height: $item-header-height;
+          max-height: $item-header-height;
+        }
+      }
+
+      .main {
+        padding: $padding-sm;
+        margin: 0;
+        min-height: $item-main-height !important;
+        height: $item-main-height !important;
+        max-height: $item-main-height !important;
+        //border:4px solid gray;
+        //background-color: white;
+
+        .row {
+          min-height: $item-row-height;
+          height: $item-row-height;
+          max-height: $item-row-height;
+        }
+
+        .description {
+          margin: 0;
+          padding: 0;
+          min-height: calc(100% - 50px) !important;
+          height: calc(100% - 50px) !important;
+          max-height: calc(100% - 50px) !important;
+          //border:4px solid darkgreen;
+          //background-color: green;
+
+          .editor {
+            margin: 0;
+            overflow: hidden;
+            //border:4px solid black;
+            //background-color: lightgray;
+            min-height: 100%;
+            height: 100%;
+            max-height: 100%;
+
+            //min-height: calc(100% - 50px) !important;
+            //height: calc(100% - 50px) !important;
+            //max-height: calc(100% - 50px) !important;
+
+            .editor-content {
+              padding: 5px;
+              margin: 0;
+              overflow: auto;
+              height: 100% !important;
+              min-height: 100% !important;
+              max-height: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

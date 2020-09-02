@@ -10,7 +10,7 @@ export class CofProfileSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "profile"],
+            classes: ["cof", "sheet", "item", "profile"],
             template: System.templatesPath + "/items/profile-sheet.hbs",
             width: 400,
             height: 400,

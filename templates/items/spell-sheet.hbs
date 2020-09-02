@@ -1,115 +1,118 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <input class="field-value" name="data.id" type="hidden" value="{{item.data.id}}" placeholder="ID" data-dtype="String">
-        </div>
-    </header>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Rank</span>
-        </div>
-        <div class="flex4">
+    <div class="wrap">
+        <header class="sheet-header">
+            {{> "systems/cof/templates/partials/item/item-header.hbs"}}
+        </header>
+        <div class="main">
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Rank</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
-                <input class="field-value" name="data.rank" type="number" value="{{item.data.rank}}" placeholder="Rank" data-dtype="Number">
+                <input class="field-value" name="data.rank" type="number" value="{{item.data.rank}}" placeholder="Rank"
+                       data-dtype="Number">
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Scope</span>
-        </div>
-        <div class="flex4">
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Scope</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
                 <select name="data.scope" data-type="String" style="width:100%">
                     {{#select data.scope}}
-                    <option value="">{{localize "COF.None"}}</option>
+                        <option value="">{{localize "COF.None"}}</option>
                     <option value="profile">Profile</option>
                     <option value="species">Species</option>
                     <option value="creature">Creature</option>
                     <option value="alternative">Alternative</option>
-                    {{!#each data.abilities as |abl a|}}
-                    <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
+                        {{!#each data.abilities as |abl a|}}
+                        <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
                     {{!/each}}
                     {{/select}}
                 </select>
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Profile</span>
-        </div>
-        <div class="flex4">
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Profile</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
 <!--                <input class="field-value" name="data.profile" type="text" value="{{item.data.profile}}" placeholder="Profile" data-dtype="String">-->
                 <select name="data.profile" data-type="String" style="width:100%">
                     {{#select data.profile}}
-                    <option value="">{{localize "COF.None"}}</option>
+                        <option value="">{{localize "COF.None"}}</option>
                     <option value="guerrier">Guerrier</option>
                     <option value="pretre">Prêtre</option>
-                    {{!#each data.abilities as |abl a|}}
-                    <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
+                        {{!#each data.abilities as |abl a|}}
+                        <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
                     {{!/each}}
                     {{/select}}
                 </select>
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Path</span>
-        </div>
-        <div class="flex4">
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Path</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
                 <select name="data.path" data-type="String" style="width:100%">
                     {{#select data.path}}
-                    <option value="">{{localize "COF.None"}}</option>
+                        <option value="">{{localize "COF.None"}}</option>
                     <option value="voie-de-l-air">Voie de l'Air</option>
                     <option value="voie-de-l-eau">Voie de l'Eau</option>
-                    {{!#each data.abilities as |abl a|}}
-<!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
+                        {{!#each data.abilities as |abl a|}}
+                        <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
                     {{!/each}}
                     {{/select}}
                 </select>
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Limited</span>
-        </div>
-        <div class="flex4">
-            <input name="data.limited" type="checkbox" value="{{item.data.limited}}" data-dtype="Boolean" {{checked item.data.limited}}/>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Spell</span>
-        </div>
-        <div class="flex4">
-            <input name="data.spell" type="checkbox" value="{{item.data.spell}}" data-dtype="Boolean" {{checked item.data.spell}}/>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">Summary</span>
-        </div>
-        <div class="flex4">
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Limited</span>
+                </div>
+                <div class="flex4">
+                    <input name="data.limited" type="checkbox" value="{{item.data.limited}}"
+                           data-dtype="Boolean" {{checked
+                            item.data.limited}}/>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Spell</span>
+                </div>
+                <div class="flex4">
+                    <input name="data.spell" type="checkbox" value="{{item.data.spell}}" data-dtype="Boolean" {{checked
+                            item.data.spell}}/>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Summary</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
-                <input class="field-value" name="data.summary" type="text" value="{{item.data.summary}}" placeholder="Summary" data-dtype="String">
+                <input class="field-value" name="data.summary" type="text" value="{{item.data.summary}}"
+                       placeholder="Summary" data-dtype="String">
             </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.description"}}</span>
+                </div>
+            </div>
+            <div class="row flexrow" style="height: 100%">
+                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            </div>
         </div>
     </div>
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-    </nav>
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        <div class="tab" data-group="primary" data-tab="description">
-        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-    </section>
 </form>

@@ -1,0 +1,74 @@
+<div class="row flexrow">
+    <div class="flex1 layout">
+        <div class="row flexrow table-header purple">
+            <div class="flex3">
+                <div class="field-label">SORTS</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Portée(m)</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Usage</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Crit</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Mod.</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Bonus</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Dégâts</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Actions</div>
+            </div>
+        </div>
+        <ol class="item-list">
+            {{#if (isEmpty (getSpells actor.items))}}
+            <li class="flexrow item">
+                <div class="flex1 left">
+                    <span class="empty">Aucune sort disponible pour le moment</span>
+                </div>
+            </li>
+            {{/if}}
+            {{#each (getSpells actor.items) as |item id|}}
+            <li class="flexrow item" data-item-id="{{item._id}}">
+                <div class="flex3 left">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+                </div>
+                <div class="flex1 center">
+                    <input class="field-value item-range" readonly="true" name="spells.{{id}}.data.range" type="text" value="{{item.data.range}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center">
+                    {{#if (is2H item)}}
+                        <i class="fas fa-hand-paper"></i><i class="fas fa-hand-paper"></i>
+                    {{else}}
+                        <i class="fas fa-hand-paper"></i>
+                    {{/if}}
+                    <input class="field-value item-hands" readonly="true" name="spells.{{id}}.data.hands" type="hidden" value="{{item.data.hands}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-critrange" readonly="true" name="spells.{{id}}.critrange" type="text" value="{{item.data.critrange}}" data-dtype="String"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-mod" readonly="true" name="spells.{{id}}.data.mod" type="text" value="{{item.data.mod}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-bonus" readonly="true" name="spells.{{id}}.data.bonus" type="text" value="{{item.data.bonus}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-dmg" readonly="true" name="spells.{{id}}.data.dmg" type="text" value="{{item.data.dmg}}" data-dtype="String"/>
+                </div>
+                <div class="flex1 center">
+                    <div class="rollable" data-rolling="spells[{{id}}]" data-roll-type="spell"><i class="fas fa-dice-d20"></i></div>
+                    &nbsp;
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+</div>

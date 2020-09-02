@@ -688,7 +688,10 @@ select {
 }
 
 /* Styles limited to cof sheets */
-.cof {
+.cof.actor {
+  /* ----------------------------------------- */
+  /*  Layout                                   */
+  /* ----------------------------------------- */
   /* ----------------------------------------- */
   /*  Layout                                   */
   /* ----------------------------------------- */
@@ -706,7 +709,7 @@ select {
   /* ----------------------------------------- */
 }
 
-.cof .window-content {
+.cof.actor .window-content {
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -715,7 +718,7 @@ select {
   overflow: hidden;
 }
 
-.cof .window-content .editable {
+.cof.actor .window-content .editable {
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -724,7 +727,7 @@ select {
   overflow: hidden;
 }
 
-.cof .window-content .editable .wrap {
+.cof.actor .window-content .editable .wrap {
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -733,19 +736,19 @@ select {
   overflow: hidden;
 }
 
-.cof .window-content .editable .wrap .header .header-background {
+.cof.actor .window-content .editable .wrap .header .header-background {
   min-height: 65px;
   height: 65px;
   max-height: 65px;
 }
 
-.cof .window-content .editable .wrap .header .header-background #banner {
+.cof.actor .window-content .editable .wrap .header .header-background #banner {
   min-height: 65px;
   height: 65px;
   max-height: 65px;
 }
 
-.cof .window-content .editable .wrap .header .header-background #banner-left {
+.cof.actor .window-content .editable .wrap .header .header-background #banner-left {
   min-width: 331px;
   width: 331px;
   max-width: 331px;
@@ -754,7 +757,7 @@ select {
   max-height: 65px;
 }
 
-.cof .window-content .editable .wrap .header .header-background #banner-right {
+.cof.actor .window-content .editable .wrap .header .header-background #banner-right {
   float: right;
   min-width: 331px;
   width: 331px;
@@ -764,14 +767,14 @@ select {
   max-height: 65px;
 }
 
-.cof .window-content .editable .wrap .header #logo-banner {
+.cof.actor .window-content .editable .wrap .header #logo-banner {
   margin-top: -55px;
   min-height: 65px;
   height: 65px;
   max-height: 65px;
 }
 
-.cof .window-content .editable .wrap .header #logo-banner > img {
+.cof.actor .window-content .editable .wrap .header #logo-banner > img {
   min-width: 300px;
   width: 300px;
   max-width: 300px;
@@ -780,7 +783,7 @@ select {
   max-height: 100px;
 }
 
-.cof .window-content .editable .wrap .main {
+.cof.actor .window-content .editable .wrap .main {
   -ms-flex-wrap: nowrap !important;
   flex-wrap: nowrap !important;
   padding: 0;
@@ -791,13 +794,13 @@ select {
   max-height: calc(100% - 95px) !important;
 }
 
-.cof .window-content .editable .wrap .main .sidebar {
+.cof.actor .window-content .editable .wrap .main .sidebar {
   max-width: 250px;
   padding: 0 5px 0 5px;
   height: 100%;
 }
 
-.cof .window-content .editable .wrap .main .sidebar .profile-img {
+.cof.actor .window-content .editable .wrap .main .sidebar .profile-img {
   cursor: pointer;
   border: none;
   margin-top: 5px;
@@ -807,14 +810,14 @@ select {
   flex: 0 0 240px;
 }
 
-.cof .window-content .editable .wrap .main .separator {
+.cof.actor .window-content .editable .wrap .main .separator {
   min-width: 7px;
   width: 7px;
   max-width: 7px;
   height: 100%;
 }
 
-.cof .window-content .editable .wrap .main .content {
+.cof.actor .window-content .editable .wrap .main .content {
   margin: 0;
   padding: 35px 5px 5px 5px;
   height: 100% !important;
@@ -822,11 +825,11 @@ select {
   max-height: 100% !important;
 }
 
-.cof .window-content .editable .wrap .main .content .top {
+.cof.actor .window-content .editable .wrap .main .content .top {
   padding: 0;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body {
   padding: 0;
   margin: 0;
   min-height: calc(100% - 100px) !important;
@@ -835,7 +838,7 @@ select {
   overflow: auto;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab {
   height: 100% !important;
   min-height: 100% !important;
   max-height: 100% !important;
@@ -844,11 +847,11 @@ select {
   padding: 5px 0 0 0;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities {
   overflow: hidden;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list {
   -webkit-box-shadow: 0 4px 3px -3px gray;
   box-shadow: 0 4px 3px -3px gray;
   margin: 0;
@@ -859,14 +862,14 @@ select {
   overflow: hidden;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list .grid {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list .grid {
   min-height: 150px !important;
   height: 150px !important;
   max-height: 150px !important;
   overflow: auto;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list {
   gap: 3px;
   padding: 0;
   margin: 5px 0 0 0;
@@ -876,7 +879,7 @@ select {
   overflow: auto;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity {
   margin: 0;
   padding: 0;
   border: 1px solid #736953a6;
@@ -887,7 +890,7 @@ select {
   background: rgba(0, 0, 0, 0.02);
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title {
   padding: 5px;
   font-size: 14px;
   font-family: MyriadPro, sans-serif;
@@ -895,14 +898,14 @@ select {
   border-bottom: 1px solid #736953a6;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-description {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-description {
   padding: 5px;
   text-align: justify;
   font-size: 12px;
   font-family: MyriadPro, sans-serif;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.description .editor {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.description .editor {
   margin: 0;
   overflow: hidden;
   min-height: calc(100% - 225px) !important;
@@ -910,7 +913,7 @@ select {
   max-height: calc(100% - 225px) !important;
 }
 
-.cof .window-content .editable .wrap .main .content .sheet-body .tab.description .editor .editor-content {
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.description .editor .editor-content {
   padding: 5px;
   margin: 0;
   overflow: auto;
@@ -919,43 +922,38 @@ select {
   max-height: 100% !important;
 }
 
-.cof .table-header {
+.cof.actor .table-header {
   font-weight: bold;
   min-height: 28px;
   height: 28px;
   max-height: 28px;
 }
 
-.cof .half-spacer {
+.cof.actor .half-spacer {
   min-height: 14px;
   height: 14px;
   max-height: 14px;
 }
 
-.cof .spacer {
+.cof.actor .spacer {
   min-height: 28px;
   height: 28px;
   max-height: 28px;
 }
 
-.cof .editor,
-.cof .editor-content {
-  height: 100%;
-}
-
-.cof .layout {
+.cof.actor .layout {
   padding: 5px;
 }
 
-.cof .wrap {
+.cof.actor .window-content .editable .wrap {
   color: #3c3c3c;
 }
 
-.cof .wrap #logo-banner > img {
+.cof.actor .window-content .editable .wrap #logo-banner > img {
   border: none;
 }
 
-.cof .wrap .field-label {
+.cof.actor .window-content .editable .wrap .field-label {
   background: none;
   margin: 0;
   min-height: 28px;
@@ -966,7 +964,7 @@ select {
   vertical-align: middle;
 }
 
-.cof .wrap .field-value {
+.cof.actor .window-content .editable .wrap .field-value {
   width: 100%;
   min-height: 26px;
   height: 26px;
@@ -975,78 +973,78 @@ select {
   padding: 5px;
 }
 
-.cof .wrap .header .header-background {
+.cof.actor .window-content .editable .wrap .header .header-background {
   background: url("../ui/green-leather-bg.png") repeat-x white;
 }
 
-.cof .wrap .header .header-background #banner-left {
+.cof.actor .window-content .editable .wrap .header .header-background #banner-left {
   background: url("../ui/deco-left.png") no-repeat;
 }
 
-.cof .wrap .header .header-background #banner-right {
+.cof.actor .window-content .editable .wrap .header .header-background #banner-right {
   background: url("../ui/deco-right.png") no-repeat;
 }
 
-.cof .wrap .main {
+.cof.actor .window-content .editable .wrap .main {
   background: white;
 }
 
-.cof .wrap .main .sidebar {
+.cof.actor .window-content .editable .wrap .main .sidebar {
   background: url("../ui/parchemin1.png") no-repeat white;
 }
 
-.cof .wrap .main .separator {
+.cof.actor .window-content .editable .wrap .main .separator {
   background: url("../ui/separator.png") repeat-y white;
 }
 
-.cof .wrap .main .content .drop-field {
+.cof.actor .window-content .editable .wrap .main .content .drop-field {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.cof .wrap .main .content .drop-field .field-value {
+.cof.actor .window-content .editable .wrap .main .content .drop-field .field-value {
   background: transparent;
 }
 
-.cof .wrap .main .content .rollable:hover, .cof .wrap .main .content .rollable:focus {
+.cof.actor .window-content .editable .wrap .main .content .rollable:hover, .cof.actor .window-content .editable .wrap .main .content .rollable:focus {
   text-shadow: 0 0 10px red;
   cursor: pointer;
 }
 
-.cof .area-value {
+.cof.actor .area-value {
   border: none;
   background: #fff;
   font-size: 1em;
 }
 
-.cof .ellipsis {
+.cof.actor .ellipsis {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.cof .field-value {
+.cof.actor .field-value {
   border: none;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 0;
   color: #3c3c3c;
 }
 
-.cof .box-shadow {
+.cof.actor .box-shadow {
   -webkit-box-shadow: 1px 1px 2px gray;
   box-shadow: 1px 1px 2px gray;
 }
 
-.cof .stats .field-value {
+.cof.actor .stats .field-value {
   font: 1.2em 'ChN1Regular', cursive;
   color: #3c3c3c;
 }
 
-.cof .field-value.sans {
+.cof.actor .field-value.sans {
   font: 14px "Signika", sans-serif;
 }
 
-.cof .field-area {
+.cof.actor .field-area {
   border: none;
   width: 100%;
   vertical-align: middle;
@@ -1055,21 +1053,21 @@ select {
   font-size: 13px;
 }
 
-.cof .compendium-pack {
+.cof.actor .compendium-pack {
   cursor: pointer;
 }
 
-.cof .row {
+.cof.actor .row {
   margin-top: 1px;
   background: transparent;
 }
 
-.cof .cell {
+.cof.actor .cell {
   border: 1px solid #736953a6;
   margin-left: 1px;
 }
 
-.cof .btn {
+.cof.actor .btn {
   cursor: pointer;
   font-family: "Signika", sans-serif;
   color: #464331c4;
@@ -1080,26 +1078,26 @@ select {
   margin-left: 1px;
 }
 
-.cof .btn:hover {
+.cof.actor .btn:hover {
   color: #464331c4;
   background: rgba(0, 0, 0, 0.3);
   text-shadow: none;
   border: 1px outset #736953a6;
 }
 
-.cof .btn:active {
+.cof.actor .btn:active {
   border: 1px inset #736953a6;
   background: rgba(0, 0, 0, 0.3);
   color: #464331c4;
 }
 
-.cof .tabs {
+.cof.actor .tabs {
   font: 14px "Signika", sans-serif;
   color: #464331c4;
   text-align: center;
 }
 
-.cof .tabs .item {
+.cof.actor .tabs .item {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1114,59 +1112,59 @@ select {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.cof .tabs .item:hover {
+.cof.actor .tabs .item:hover {
   color: #464331c4;
   background: rgba(0, 0, 0, 0.2);
   text-shadow: none;
 }
 
-.cof .tabs .item.active {
+.cof.actor .tabs .item.active {
   color: #464331c4;
   border: 1px inset #736953a6;
   background: rgba(0, 0, 0, 0.2);
   text-shadow: none;
 }
 
-.cof .path-card {
+.cof.actor .path-card {
   margin-bottom: 5px;
 }
 
-.cof .path-card .path-name {
+.cof.actor .path-card .path-name {
   font-family: MyriadPro, sans-serif;
   font-weight: bold;
   font-size: 16px;
   min-height: 28px;
 }
 
-.cof .path-card .path-description {
+.cof.actor .path-card .path-description {
   font-size: 12px;
   font-family: MyriadPro, sans-serif;
 }
 
-.cof .path-controls {
+.cof.actor .path-controls {
   text-align: right;
 }
 
-.cof .item-list {
+.cof.actor .item-list {
   list-style: none;
   margin: 7px 0;
   padding: 0;
   overflow-y: auto;
 }
 
-.cof .item-list .item {
+.cof.actor .item-list .item {
   height: 28px;
   /*line-height: 28px;*/
 }
 
-.cof .item-list .item img {
+.cof.actor .item-list .item img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
   margin-right: 5px;
 }
 
-.cof .item-list .item-name {
+.cof.actor .item-list .item-name {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1178,21 +1176,21 @@ select {
   cursor: pointer;
 }
 
-.cof .item-list .equipment-controls {
+.cof.actor .item-list .equipment-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 54px;
   flex: 0 0 54px;
 }
 
-.cof .item-list .item-controls {
+.cof.actor .item-list .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 36px;
   flex: 0 0 36px;
 }
 
-.cof .species-controls,
-.cof .path-controls,
-.cof .profile-controls {
+.cof.actor .species-controls,
+.cof.actor .path-controls,
+.cof.actor .profile-controls {
   color: #464331c4;
   visibility: hidden;
   -webkit-box-flex: 0;
@@ -1201,13 +1199,13 @@ select {
   border: 1px solid transparent;
 }
 
-.cof div:hover > div.species-controls,
-.cof div:hover > span.path-controls,
-.cof div:hover > div.profile-controls {
+.cof.actor div:hover > div.species-controls,
+.cof.actor div:hover > span.path-controls,
+.cof.actor div:hover > div.profile-controls {
   visibility: visible;
 }
 
-.cof .sidebar .charname {
+.cof.actor .sidebar .charname {
   /*font: 5em 'Blackmoor', cursive;*/
   /*font: 5em 'FeroxAlternates', cursive;*/
   /*font: 3em 'Requiem', cursive;*/
@@ -1230,7 +1228,7 @@ select {
   background-color: transparent;
 }
 
-.cof .inventory h2 {
+.cof.actor .inventory h2 {
   font-family: "Signika", sans-serif;
   font-size: 16px;
   text-transform: uppercase;
@@ -1238,7 +1236,7 @@ select {
   border-bottom: 1px solid lightgray;
 }
 
-.cof label.input-label {
+.cof.actor label.input-label {
   border: 1px solid red;
   text-align: center;
   vertical-align: center;
@@ -1246,13 +1244,13 @@ select {
   margin: 0;
 }
 
-.cof .readonly {
+.cof.actor .readonly {
   -webkit-box-shadow: 0 0 10px #00000052 inset;
   box-shadow: 0 0 10px #00000052 inset;
   cursor: not-allowed;
 }
 
-.cof .label-text {
+.cof.actor .label-text {
   font-family: "Signika", sans-serif;
   font-size: 14px;
   color: #464331c4;
@@ -1269,13 +1267,120 @@ select {
   background: none;
 }
 
-.cof strong {
+.cof.actor strong {
   font-family: MyriadPro, sans-serif;
   font-weight: bold;
 }
 
-.cof .collapsed {
+.cof.actor .collapsed {
   display: none;
+}
+
+.cof.item {
+  /* ----------------------------------------- */
+  /*  Layout                                   */
+  /* ----------------------------------------- */
+  /* ----------------------------------------- */
+  /*  SKIN                                     */
+  /* ----------------------------------------- */
+}
+
+.cof.item .window-content {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.cof.item .window-content .editable {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.cof.item .window-content .editable .wrap {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.cof.item .window-content .editable .wrap .sheet-header {
+  min-height: 65px;
+  height: 65px;
+  max-height: 65px;
+}
+
+.cof.item .window-content .editable .wrap .sheet-header .profile-img {
+  min-height: 65px;
+  height: 65px;
+  max-height: 65px;
+}
+
+.cof.item .window-content .editable .wrap .main {
+  padding: 5px;
+  margin: 0;
+  min-height: calc(100% - 65px) !important;
+  height: calc(100% - 65px) !important;
+  max-height: calc(100% - 65px) !important;
+}
+
+.cof.item .window-content .editable .wrap .main .row {
+  min-height: 25px;
+  height: 25px;
+  max-height: 25px;
+}
+
+.cof.item .window-content .editable .wrap .main .description {
+  margin: 0;
+  padding: 0;
+  min-height: calc(100% - 50px) !important;
+  height: calc(100% - 50px) !important;
+  max-height: calc(100% - 50px) !important;
+}
+
+.cof.item .window-content .editable .wrap .main .description .editor {
+  margin: 0;
+  overflow: hidden;
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.cof.item .window-content .editable .wrap .main .description .editor .editor-content {
+  padding: 5px;
+  margin: 0;
+  overflow: auto;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+}
+
+.cof.item .window-content {
+  background: url("../ui/bg-2.png") no-repeat white;
+}
+
+.cof.item .window-content .editable .wrap {
+  -webkit-box-shadow: 0 0 20px #00000052 inset;
+  box-shadow: 0 0 20px #00000052 inset;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.cof.item .window-content .editable .wrap .sheet-header {
+  background: url("../ui/green-leather-bg.png") repeat-x white;
+}
+
+.cof.item .window-content .editable .wrap .sheet-header .profile-img {
+  border: none;
+}
+
+.cof.item .window-content .editable .wrap .sheet-header .header-fields .itemname input {
+  border: none;
+  color: #fff;
 }
 
 .cof .tabs {

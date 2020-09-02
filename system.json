@@ -92,7 +92,7 @@
   "gridDistance": 2,
   "gridUnits": "m",
   "primaryTokenAttribute": "attributes.hp",
-  "secondaryTokenAttribute": "optional.fp",
+  "secondaryTokenAttribute": "attributes.fp",
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://gitlab.com/cof-fvtt/cof/raw/master/system.json",
   "download": "https://gitlab.com/cof-fvtt/cof/-/archive/master/cof.zip",

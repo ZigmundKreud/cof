@@ -19,7 +19,6 @@ import {CofPathSheet} from "../items/path-sheet.js";
 import {CofSpeciesSheet} from "../items/species-sheet.js";
 
 import {CofCharacterSheet} from "../actors/character-sheet.js";
-import {CofNpcSheet} from "../actors/npc-sheet.js";
 import {CofEncounterSheet} from "../actors/encounter-sheet.js";
 import {Logger} from "../logger.js";
 import { preloadHandlebarsTemplates } from "../templates.js";
@@ -50,8 +49,7 @@ Hooks.once("init", async function () {
     Items.unregisterSheet("core", ItemSheet);
 
     // Register actor sheets
-    Actors.registerSheet("cof", CofCharacterSheet, {types: ["character"], makeDefault: true});
-    Actors.registerSheet("cof", CofNpcSheet, {types: ["npc"], makeDefault: true});
+    Actors.registerSheet("cof", CofCharacterSheet, {types: ["character", "npc"], makeDefault: true});
     Actors.registerSheet("cof", CofEncounterSheet, {types: ["encounter"], makeDefault: true});
     // Register item sheets
     Items.registerSheet("cof", CofItemSheet, {types: ["item"], makeDefault: true});

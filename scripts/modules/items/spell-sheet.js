@@ -7,7 +7,7 @@ export class CofSpellSheet extends ItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "spell"],
+            classes: ["cof", "sheet", "item", "spell"],
             template: System.templatesPath + "/items/spell-sheet.hbs",
             width: 400,
             height: 300,

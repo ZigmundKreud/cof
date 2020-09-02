@@ -1,0 +1,247 @@
+/* ----------------------------------------- */
+/*  Layout                                   */
+/* ----------------------------------------- */
+.window-content {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+
+  .editable {
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+
+    .wrap {
+      padding: 0;
+      margin: 0;
+      min-height: 100%;
+      height: 100%;
+      max-height: 100%;
+      overflow: hidden;
+
+      .header {
+        .header-background {
+          //display:none;
+          min-height: 65px;
+          height: 65px;
+          max-height: 65px;
+
+          #banner {
+            min-height: 65px;
+            height: 65px;
+            max-height: 65px;
+          }
+
+          #banner-left {
+            //float:right;
+            min-width: 331px;
+            width: 331px;
+            max-width: 331px;
+            min-height: 65px;
+            height: 65px;
+            max-height: 65px;
+          }
+
+          #banner-right {
+            float: right;
+            min-width: 331px;
+            width: 331px;
+            max-width: 331px;
+            min-height: 65px;
+            height: 65px;
+            max-height: 65px;
+          }
+        }
+
+        #logo-banner {
+          margin-top: -55px;
+          min-height: 65px;
+          height: 65px;
+          max-height: 65px;
+
+          & > img {
+            min-width: 300px;
+            width: 300px;
+            max-width: 300px;
+            min-height: 100px;
+            height: 100px;
+            max-height: 100px;
+          }
+        }
+      }
+
+      .main {
+        flex-wrap: nowrap !important;
+        padding: 0;
+        overflow: hidden;
+        margin: -10px 0 0 0;
+        height: calc(100% - 95px) !important;
+        min-height: calc(100% - 95px) !important;
+        max-height: calc(100% - 95px) !important;
+
+        .sidebar {
+          max-width: 250px;
+          padding: 0 5px 0 5px;
+          height: 100%;
+
+          .profile-img {
+            cursor: pointer;
+            border: none;
+            margin-top: 5px;
+            margin-left: 0;
+            flex: 0 0 240px;
+          }
+        }
+
+        .separator {
+          min-width: 7px;
+          width: 7px;
+          max-width: 7px;
+          height: 100%;
+        }
+
+        .content {
+          margin: 0;
+          padding: 35px 5px 5px 5px;
+          height: 100% !important;
+          min-height: 100% !important;
+          max-height: 100% !important;
+
+          .top {
+            padding: 0;
+          }
+
+          .sheet-body {
+            padding: 0;
+            margin: 0;
+            min-height: calc(100% - 100px) !important;
+            height: calc(100% - 100px) !important;
+            max-height: calc(100% - 100px) !important;
+            overflow: auto;
+
+            .tab {
+              height: 100% !important;
+              min-height: 100% !important;
+              max-height: 100% !important;
+              overflow: auto;
+              margin: 0;
+              //padding:5px;
+              padding: 5px 0 0 0;
+
+              &.capacities {
+                overflow: hidden;
+
+                .path-list {
+                  //border:1px solid $c-lightg;
+                  box-shadow: 0 4px 3px -3px gray;
+                  margin: 0;
+                  padding: 3px;
+                  min-height: 205px !important;
+                  height: 205px !important;
+                  max-height: 205px !important;
+                  overflow: hidden;
+
+                  .grid {
+                    min-height: 150px !important;
+                    height: 150px !important;
+                    max-height: 150px !important;
+                    overflow: auto;
+                  }
+                }
+
+                .capacity-list {
+                  gap: 3px;
+                  padding: 0;
+                  margin: 5px 0 0 0;
+                  min-height: calc(100% - 215px) !important;
+                  height: calc(100% - 215px) !important;
+                  max-height: calc(100% - 215px) !important;
+                  overflow: auto;
+
+                  .capacity {
+                    margin: 0;
+                    padding: 0;
+                    border: 1px solid $c-border;
+                    border-radius: 3px;
+                    color: $c-darkgreen;
+                    box-shadow: 0 0 10px $c-shadow inset;
+                    background: rgba(0, 0, 0, 0.02);
+
+                    .capacity-title {
+                      padding: 5px;
+                      font-size: 14px;
+                      font-family: $font-secondary;
+                      font-weight: bold;
+                      border-bottom: 1px solid $c-border;
+                    }
+
+                    .capacity-description {
+                      padding: 5px;
+                      text-align: justify;
+                      font-size: 12px;
+                      font-family: $font-secondary;
+                    }
+                  }
+                }
+              }
+
+              &.description {
+                .editor {
+                  margin: 0;
+                  overflow: hidden;
+                  min-height: calc(100% - 225px) !important;
+                  height: calc(100% - 225px) !important;
+                  max-height: calc(100% - 225px) !important;
+
+                  .editor-content {
+                    padding: 5px;
+                    margin: 0;
+                    overflow: auto;
+                    height: 100% !important;
+                    min-height: 100% !important;
+                    max-height: 100% !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//.area-value {
+//  width: 100%;
+//  height: 100%;
+//  overflow: auto;
+//}
+
+.table-header {
+  font-weight: bold;
+  min-height: 28px;
+  height: 28px;
+  max-height: 28px;
+}
+
+.half-spacer {
+  min-height: 14px;
+  height: 14px;
+  max-height: 14px;
+}
+
+.spacer {
+  min-height: 28px;
+  height: 28px;
+  max-height: 28px;
+}
+
+.layout {
+  padding: 5px;
+}

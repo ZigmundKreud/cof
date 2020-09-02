@@ -193,9 +193,6 @@
 
               &.description {
                 .editor {
-                  //background-color: greenyellow;
-                  //border:1px solid $c-lightg;
-                  //padding:5px;
                   margin: 0;
                   overflow: hidden;
                   min-height: calc(100% - 225px) !important;
@@ -203,8 +200,6 @@
                   max-height: calc(100% - 225px) !important;
 
                   .editor-content {
-                    //background-color: red;
-                    //border:1px solid darkred;
                     padding: 5px;
                     margin: 0;
                     overflow: auto;
@@ -245,11 +240,6 @@
   min-height: 28px;
   height: 28px;
   max-height: 28px;
-}
-
-.editor,
-.editor-content {
-  height: 100%;
 }
 
 .layout {

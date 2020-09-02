@@ -14,7 +14,12 @@ export class CofActor extends Actor {
 
         // Get the Actor's data object
         const actorData = this.data;
-        // const data = actorData.data;
+        const items = actorData.items;
+        Logger.log(items);
+        const data = actorData.data;
+        // Logger.log(data);
+        const flags = actorData.flags;
+        // Logger.log(flags);
 
         // Prepare Character data
         if (actorData.type === "character") this._prepareCharacterData(actorData);
@@ -26,7 +31,6 @@ export class CofActor extends Actor {
         const stats = actorData.data.stats;
         const attacks = actorData.data.attacks;
         const attributes = actorData.data.attributes;
-        const optional = actorData.data.optional;
         const alert = actorData.data.alert;
         const items = actorData.items;
         const xp = actorData.data.xp;
@@ -150,27 +154,27 @@ export class CofActor extends Actor {
         attributes.def.base = 10 + armorDef + shieldDef + dodge;
         attributes.def.value = attributes.def.base + attributes.def.bonus;
 
-        optional.fp.base = 3 + chaMod;
-        optional.fp.max = optional.fp.base + optional.fp.bonus;
-        optional.dr.value = optional.dr.base + optional.dr.bonus;
+        attributes.fp.base = 3 + chaMod;
+        attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
+        attributes.dr.value = attributes.dr.base + attributes.dr.bonus;
 
         switch (profId) {
             case "barde" :
             case "forgesort" :
             case "pretre" :
             case "druide" :
-                optional.mp.base = lvl + magicMod;
+                attributes.mp.base = lvl + magicMod;
                 break;
             case "ensorceleur" :
             case "magicien" :
             case "necromancien" :
-                optional.mp.base = 2 * lvl + magicMod;
+                attributes.mp.base = 2 * lvl + magicMod;
                 break;
             default :
-                optional.mp.base = 0;
+                attributes.mp.base = 0;
                 break;
         }
-        optional.mp.max = optional.mp.base + optional.mp.bonus;
+        attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
 
         // UPDATE HP
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;

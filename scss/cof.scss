@@ -2,7 +2,7 @@
 @import 'utils/colors';
 @import 'utils/typography';
 //@import 'utils/mixins';
-//@import 'utils/variables';
+@import 'utils/variables';
 
 /* Global styles */
 @import 'global/window';
@@ -13,9 +13,15 @@
 
 /* Styles limited to cof sheets */
 .cof {
-  @import 'components/layout';
-  @import 'components/skin';
-  //@import 'components/resource';
+  &.actor {
+    @import 'components/actor_layout';
+    @import 'components/actor_skin';
+  }
+  &.item {
+    @import 'components/item_layout';
+    @import 'components/item_skin';
+  }
   @import 'components/tabs';
   @import 'components/items';
 }
+

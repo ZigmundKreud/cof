@@ -10,7 +10,7 @@ export class CofMeleeSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "melee"],
+            classes: ["cof", "sheet", "item", "melee"],
             template: System.templatesPath + "/items/melee-sheet.hbs",
             width: 400,
             height: 500,

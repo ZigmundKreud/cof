@@ -10,7 +10,7 @@ export class CofRangedSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "ranged"],
+            classes: ["cof", "sheet", "item", "ranged"],
             template: System.templatesPath + "/items/ranged-sheet.hbs",
             width: 400,
             height: 500,

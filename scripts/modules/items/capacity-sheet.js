@@ -7,10 +7,10 @@ export class CofCapacitySheet extends ItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "capacity"],
+            classes: ["cof", "sheet", "item", "capacity"],
             template: System.templatesPath + "/items/capacity-sheet.hbs",
-            width: 400,
-            height: 300,
+            width: 500,
+            height: 600,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

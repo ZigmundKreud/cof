@@ -1,118 +1,149 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <input class="field-value" name="data.id" type="hidden" value="{{item.data.id}}" placeholder="ID" data-dtype="String">
-        </div>
-    </header>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.rank"}}</span>
-        </div>
-        <div class="flex4">
+    <div class="wrap">
+        <header class="sheet-header">
+            {{> "systems/cof/templates/partials/item/item-header.hbs"}}
+        </header>
+        <div class="main">
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.rank"}}</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
-                <input class="field-value" name="data.rank" type="text" value="{{item.data.rank}}" placeholder="{{localize "COF.ui.rank"}}" data-dtype="Number">
+                <input class="field-value" name="data.rank" type="text" value="{{item.data.rank}}"
+                       placeholder="{{localize "COF.ui.rank"}}" data-dtype="Number">
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.scope"}}</span>
-        </div>
-        <div class="flex4">
-<!--            <input class="field-value" name="data.scope" type="text" value="{{item.data.scope}}" placeholder="{{localize "COF.ui.scope"}}" data-dtype="String">-->
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.inPath"}} ?</span>
+                </div>
+                <div class="flex4">
+                    <input name="data.inPath" type="checkbox" value="{{item.data.inPath}}"
+                           data-dtype="Boolean" {{checked
+                            item.data.inPath}}/>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.scope"}}</span>
+                </div>
+                <div class="flex4">
             <span class="field-label">
                 <select name="data.scope" data-type="String" style="width:100%">
                     {{#select data.scope}}
-                    <option value="">{{localize "COF.None"}}</option>
+                        <option value="">{{localize "COF.None"}}</option>
                     <option value="profile">{{localize "COF.ui.profile"}}</option>
                     <option value="species">{{localize "COF.ui.species"}}</option>
                     <option value="creature">{{localize "COF.ui.creature"}}</option>
                     <option value="alternative">{{localize "COF.ui.alternative"}}</option>
-                    {{!#each data.abilities as |abl a|}}
-                    <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
+                        {{!#each data.abilities as |abl a|}}
+                        <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
                     {{!/each}}
                     {{/select}}
                 </select>
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.profile"}}</span>
-        </div>
-        <div class="flex4">
+                </div>
+            </div>
+            {{#if (equals data.scope "profile")}}
+                <div class="row flexrow">
+                    <div class="flex3 center">
+                        <span class="field-label label-text">{{localize "COF.ui.profile"}}</span>
+                    </div>
+                    <div class="flex4">
             <span class="field-label">
-                <input class="field-value" name="data.profile" type="text" value="{{item.data.profile}}" placeholder="{{localize "COF.ui.profile"}}" data-dtype="String">
-<!--                <select name="data.profile" data-type="String" style="width:100%">-->
-<!--                    {{!#select data.profile}}-->
-<!--                    <option value="">{{!localize "COF.None"}}</option>-->
-<!--                    <option value="guerrier">Guerrier</option>-->
-<!--                    <option value="pretre">Prêtre</option>-->
-<!--                    {{!#each data.abilities as |abl a|}}-->
-<!--                    &lt;!&ndash;                    <option value="{{!a}}">{{!abl.label}}</option>&ndash;&gt;-->
-<!--                    {{!/each}}-->
-<!--                    {{!/select}}-->
-<!--                </select>-->
+                <input class="field-value" name="data.profile" type="text" value="{{item.data.profile}}"
+                       placeholder="{{localize "COF.ui.profile"}}" data-dtype="String">
+                <!--                <select name="data.profile" data-type="String" style="width:100%">-->
+                <!--                    {{!#select data.profile}}-->
+                <!--                    <option value="">{{!localize "COF.None"}}</option>-->
+                <!--                    <option value="guerrier">Guerrier</option>-->
+                <!--                    <option value="pretre">Prêtre</option>-->
+                <!--                    {{!#each data.abilities as |abl a|}}-->
+                <!--                    &lt;!&ndash;                    <option value="{{!a}}">{{!abl.label}}</option>&ndash;&gt;-->
+                <!--                    {{!/each}}-->
+                <!--                    {{!/select}}-->
+                <!--                </select>-->
             </span>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.path"}}</span>
-        </div>
-        <div class="flex4">
+                    </div>
+                </div>
+            {{/if}}
+            {{#if (equals data.scope "species")}}
+                <div class="row flexrow">
+                    <div class="flex3 center">
+                        <span class="field-label label-text">{{localize "COF.ui.species"}}</span>
+                    </div>
+                    <div class="flex4">
             <span class="field-label">
-                <input class="field-value" name="data.path" type="text" value="{{item.data.path}}" placeholder="{{localize "COF.ui.path"}}" data-dtype="String">
+                <input class="field-value" name="data.species" type="text" value="{{item.data.species}}"
+                       placeholder="{{localize "COF.ui.species"}}" data-dtype="String">
+            </span>
+                    </div>
+                </div>
+            {{/if}}
+            {{#if data.inPath}}
+                <div class="row flexrow">
+                    <div class="flex3 center">
+                        <span class="field-label label-text">{{localize "COF.ui.path"}}</span>
+                    </div>
+                    <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.path" type="text" value="{{item.data.path}}"
+                       placeholder="{{localize "COF.ui.path"}}" data-dtype="String">
 
-<!--                <select name="data.path" data-type="String" style="width:100%">-->
-<!--                    {{!#select data.path}}-->
-<!--                    <option value="">{{!localize "COF.None"}}</option>-->
-<!--                    <option value="voie-de-l-air">Voie de l'Air</option>-->
-<!--                    <option value="voie-de-l-eau">Voie de l'Eau</option>-->
-<!--                    {{!#each data.abilities as |abl a|}}-->
-<!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
-<!--                    {{!/each}}-->
-<!--                    {{!/select}}-->
-<!--                </select>-->
+                <!--                <select name="data.path" data-type="String" style="width:100%">-->
+                <!--                    {{!#select data.path}}-->
+                <!--                    <option value="">{{!localize "COF.None"}}</option>-->
+                <!--                    <option value="voie-de-l-air">Voie de l'Air</option>-->
+                <!--                    <option value="voie-de-l-eau">Voie de l'Eau</option>-->
+                <!--                    {{!#each data.abilities as |abl a|}}-->
+                <!--                    <option value="{{!a}}">{{!abl.label}}</option>-->
+                <!--                    {{!/each}}-->
+                <!--                    {{!/select}}-->
+                <!--                </select>-->
             </span>
+                    </div>
+                </div>
+            {{/if}}
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.limited"}} ?</span>
+                </div>
+                <div class="flex4">
+                    <input name="data.limited" type="checkbox" value="{{item.data.limited}}"
+                           data-dtype="Boolean" {{checked
+                            item.data.limited}}/>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.spell"}} ?</span>
+                </div>
+                <div class="flex4">
+                    <input name="data.spell" type="checkbox" value="{{item.data.spell}}" data-dtype="Boolean" {{checked
+                            item.data.spell}}/>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.summary"}}</span>
+                </div>
+                <div class="flex4">
+                    <span class="field-label">
+                        <input class="field-value" name="data.summary" type="text" value="{{item.data.summary}}"
+                               placeholder="{{localize "COF.ui.summary"}}" data-dtype="String">
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">{{localize "COF.ui.description"}}</span>
+                </div>
+            </div>
+            <div class="row flexrow" style="height: 100%">
+                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            </div>
         </div>
     </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.limited"}}</span>
-        </div>
-        <div class="flex4">
-            <input name="data.limited" type="checkbox" value="{{item.data.limited}}" data-dtype="Boolean" {{checked item.data.limited}}/>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.spell"}}</span>
-        </div>
-        <div class="flex4">
-            <input name="data.spell" type="checkbox" value="{{item.data.spell}}" data-dtype="Boolean" {{checked item.data.spell}}/>
-        </div>
-    </div>
-    <div class="row flexrow">
-        <div class="flex3 center">
-            <span class="field-label label-text">{{localize "COF.ui.summary"}}</span>
-        </div>
-        <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.summary" type="text" value="{{item.data.summary}}" placeholder="{{localize "COF.ui.summary"}}" data-dtype="String">
-            </span>
-        </div>
-    </div>
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{localize "COF.ui.description"}}</a>
-    </nav>
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        <div class="tab" data-group="primary" data-tab="description">
-        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-    </section>
 </form>

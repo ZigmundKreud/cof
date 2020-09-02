@@ -10,7 +10,7 @@ export class CofSpeciesSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "species"],
+            classes: ["cof", "sheet", "item", "species"],
             template: System.templatesPath + "/items/species-sheet.hbs",
             width: 400,
             height: 400,

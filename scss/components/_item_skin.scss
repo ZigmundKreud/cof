@@ -1,0 +1,37 @@
+/* ----------------------------------------- */
+/*  SKIN                                     */
+/* ----------------------------------------- */
+.window-content {
+  background: url("../ui/bg-2.png") no-repeat white;
+  .editable {
+    .wrap {
+      box-shadow: 0 0 20px $c-shadow inset;
+      background:rgba(0,0,0,0.1);
+
+      .sheet-header{
+        background: url("../ui/green-leather-bg.png") repeat-x white;
+        .profile-img {
+          border:none;
+        }
+        .header-fields{
+          .itemname {
+            input {
+              border:none;
+              color:$c-white;
+            }
+          }
+        }
+      }
+      //.main {
+      //  .row {
+      //  }
+      //  .description{
+      //    .editor {
+      //      .editor-content {
+      //      }
+      //    }
+      //  }
+      //}
+    }
+  }
+}

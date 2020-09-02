@@ -10,7 +10,7 @@ export class CofPathSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "path"],
+            classes: ["cof", "sheet", "item", "path"],
             template: System.templatesPath + "/items/path-sheet.hbs",
             width: 400,
             height: 450,

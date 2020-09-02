@@ -10,7 +10,7 @@ export class CofTrappingSheet extends CofItemSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "trapping"],
+            classes: ["cof", "sheet", "item", "trapping"],
             template: System.templatesPath + "/items/trapping-sheet.hbs",
             width: 400,
             height: 400,

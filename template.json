@@ -6,6 +6,126 @@
       "encounter"
     ],
     "templates": {
+      "stats": {
+        "stats": {
+          "str" : {
+            "key" : "str",
+            "label" : "COF.stats.str.label",
+            "abbrev" : "COF.stats.str.abbrev",
+            "base": 10,
+            "racial": 0,
+            "bonus": 0,
+            "mod": 0,
+            "value": 10,
+            "tmpmod": null
+          },
+          "dex" : {
+            "key" : "dex",
+            "label" : "COF.stats.dex.label",
+            "abbrev" : "COF.stats.dex.abbrev",
+            "base": 10,
+            "racial": 0,
+            "bonus": 0,
+            "mod": 0,
+            "value": 10,
+            "tmpmod": null
+          },
+          "con" : {
+            "key" : "con",
+            "label" : "COF.stats.con.label",
+            "abbrev" : "COF.stats.con.abbrev",
+            "base": 10,
+            "racial": 0,
+            "bonus": 0,
+            "mod": 0,
+            "value": 10,
+            "tmpmod": null
+          },
+          "int" : {
+            "key" : "int",
+            "label" : "COF.stats.int.label",
+            "abbrev" : "COF.stats.int.abbrev",
+            "base": 10,
+            "racial": 0,
+            "bonus": 0,
+            "mod": 0,
+            "value": 10,
+            "tmpmod": null
+          },
+          "wis" : {
+            "key" : "wis",
+            "label" : "COF.stats.wis.label",
+            "abbrev" : "COF.stats.wis.abbrev",
+            "base": 10,
+            "racial": 0,
+            "bonus": 0,
+            "mod": 0,
+            "value": 10,
+            "tmpmod": null
+          },
+          "cha" : {
+            "key" : "cha",
+            "label" : "COF.stats.cha.label",
+            "abbrev" : "COF.stats.cha.abbrev",
+            "base": 10,
+            "racial": 0,
+            "bonus": 0,
+            "mod": 0,
+            "value": 10,
+            "tmpmod": null
+          }
+        }
+      },
+      "xp" : {
+        "level": {
+          "key" : "level",
+          "label" : "COF.attributes.level.label",
+          "abbrev" : "COF.attributes.level.abbrev",
+          "value": 1,
+          "max": 20
+        },
+        "xp": {
+          "key" : "xp",
+          "label" : "COF.attributes.xp.label",
+          "abbrev" : "COF.attributes.xp.abbrev",
+          "value": 2,
+          "max": 2
+        }
+      },
+      "attacks" : {
+        "attacks" : {
+          "melee" : {
+            "key" : "melee",
+            "label": "COF.attacks.melee.label",
+            "abbrev": "COF.attacks.melee.abbrev",
+            "stat": "str",
+            "enabled": true,
+            "base": 1,
+            "bonus": 0,
+            "mod": 1
+          },
+          "ranged" : {
+            "key" : "ranged",
+            "label": "COF.attacks.ranged.label",
+            "abbrev": "COF.attacks.ranged.abbrev",
+            "stat": "dex",
+            "enabled": true,
+            "base": 1,
+            "bonus": 0,
+            "mod": 1
+          },
+          "magic" : {
+            "key" : "magic",
+            "label": "COF.attacks.magic.label",
+            "abbrev": "COF.attacks.magic.abbrev",
+            "stat": null,
+            "enabled": false,
+            "base": 1,
+            "bonus": 0,
+            "mod": 1
+          }
+        }
+      },
       "common": {
         "description": "",
         "attributes": {
@@ -33,6 +153,52 @@
             "base": 10,
             "bonus": 0,
             "value": 10
+          },
+          "dr": {
+            "key" : "dr",
+            "label" : "COF.attributes.dr.label",
+            "abbrev" : "COF.attributes.dr.abbrev",
+            "enabled": false,
+            "base": 0,
+            "bonus": 0,
+            "value": 0
+          },
+          "rp": {
+            "key" : "rp",
+            "label" : "COF.attributes.rp.label",
+            "abbrev" : "COF.attributes.rp.abbrev",
+            "enabled": false,
+            "base": 5,
+            "bonus": 0,
+            "value": 5
+          },
+          "madness": {
+            "key" : "fp",
+            "label" : "COF.attributes.madness.label",
+            "abbrev" : "COF.attributes.madness.abbrev",
+            "enabled": false,
+            "base": 0,
+            "value": 0
+          },
+          "fp": {
+            "key" : "fp",
+            "label" : "COF.attributes.fp.label",
+            "abbrev" : "COF.attributes.fp.abbrev",
+            "enabled": false,
+            "base": 3,
+            "bonus": 0,
+            "value": 3,
+            "max": 3
+          },
+          "mp": {
+            "key" : "mp",
+            "label" : "COF.attributes.mp.label",
+            "abbrev" : "COF.attributes.mp.abbrev",
+            "enabled": false,
+            "base": 0,
+            "bonus": 0,
+            "value": 0,
+            "max": 0
           }
         },
         "currency": {
@@ -65,200 +231,37 @@
           "type": "error",
           "msg": ""
         },
-        "roll" : {
-          "difficulty" : 10
+        "details": {
+          "gender": "",
+          "age": "",
+          "weight": "",
+          "height": "",
+          "eyes": "",
+          "hair": "",
+          "size": "med",
+          "senses": "",
+          "languages": {
+            "value": [],
+            "custom": ""
+          }
         }
       }
     },
     "character": {
       "templates": [
+        "stats",
+        "attacks",
+        "xp",
         "common"
-      ],
-      "stats": {
-        "str" : {
-          "key" : "str",
-          "label" : "COF.stats.str.label",
-          "abbrev" : "COF.stats.str.abbrev",
-          "base": 10,
-          "racial": 0,
-          "bonus": 0,
-          "mod": 0,
-          "value": 10,
-          "tmpmod": null
-        },
-        "dex" : {
-          "key" : "dex",
-          "label" : "COF.stats.dex.label",
-          "abbrev" : "COF.stats.dex.abbrev",
-          "base": 10,
-          "racial": 0,
-          "bonus": 0,
-          "mod": 0,
-          "value": 10,
-          "tmpmod": null
-        },
-        "con" : {
-          "key" : "con",
-          "label" : "COF.stats.con.label",
-          "abbrev" : "COF.stats.con.abbrev",
-          "base": 10,
-          "racial": 0,
-          "bonus": 0,
-          "mod": 0,
-          "value": 10,
-          "tmpmod": null
-        },
-        "int" : {
-          "key" : "int",
-          "label" : "COF.stats.int.label",
-          "abbrev" : "COF.stats.int.abbrev",
-          "base": 10,
-          "racial": 0,
-          "bonus": 0,
-          "mod": 0,
-          "value": 10,
-          "tmpmod": null
-        },
-        "wis" : {
-          "key" : "wis",
-          "label" : "COF.stats.wis.label",
-          "abbrev" : "COF.stats.wis.abbrev",
-          "base": 10,
-          "racial": 0,
-          "bonus": 0,
-          "mod": 0,
-          "value": 10,
-          "tmpmod": null
-        },
-        "cha" : {
-          "key" : "cha",
-          "label" : "COF.stats.cha.label",
-          "abbrev" : "COF.stats.cha.abbrev",
-          "base": 10,
-          "racial": 0,
-          "bonus": 0,
-          "mod": 0,
-          "value": 10,
-          "tmpmod": null
-        }
-      },
-      "details": {
-        "gender": "",
-        "age": "",
-        "weight": "",
-        "height": "",
-        "eyes": "",
-        "hair": "",
-        "size": "med",
-        "senses": "",
-        "languages": {
-          "value": [],
-          "custom": ""
-        }
-      },
-      "level": {
-        "key" : "level",
-        "label" : "COF.attributes.level.label",
-        "abbrev" : "COF.attributes.level.abbrev",
-        "value": 1,
-        "max": 20
-      },
-      "xp": {
-        "key" : "xp",
-        "label" : "COF.attributes.xp.label",
-        "abbrev" : "COF.attributes.xp.abbrev",
-        "value": 2,
-        "max": 2
-      },
-      "attacks" : {
-        "melee" : {
-          "key" : "melee",
-          "label": "COF.attacks.melee.label",
-          "abbrev": "COF.attacks.melee.abbrev",
-          "stat": "str",
-          "enabled": true,
-          "base": 1,
-          "bonus": 0,
-          "mod": 1
-        },
-        "ranged" : {
-          "key" : "ranged",
-          "label": "COF.attacks.ranged.label",
-          "abbrev": "COF.attacks.ranged.abbrev",
-          "stat": "dex",
-          "enabled": true,
-          "base": 1,
-          "bonus": 0,
-          "mod": 1
-        },
-        "magic" : {
-          "key" : "magic",
-          "label": "COF.attacks.magic.label",
-          "abbrev": "COF.attacks.magic.abbrev",
-          "stat": null,
-          "enabled": false,
-          "base": 1,
-          "bonus": 0,
-          "mod": 1
-        }
-      },
-      "optional": {
-        "rp": {
-          "key" : "rp",
-          "label" : "COF.optional.rp.label",
-          "abbrev" : "COF.optional.rp.abbrev",
-          "enabled": false,
-          "base": 5,
-          "bonus": 0,
-          "value": 5
-        },
-        "madness": {
-          "key" : "fp",
-          "label" : "COF.optional.madness.label",
-          "abbrev" : "COF.optional.madness.abbrev",
-          "enabled": false,
-          "base": 0,
-          "value": 0
-        },
-        "fp": {
-          "key" : "fp",
-          "label" : "COF.optional.fp.label",
-          "abbrev" : "COF.optional.fp.abbrev",
-          "enabled": false,
-          "base": 3,
-          "bonus": 0,
-          "value": 3,
-          "max": 3
-        },
-        "mp": {
-          "key" : "mp",
-          "label" : "COF.optional.mp.label",
-          "abbrev" : "COF.optional.mp.abbrev",
-          "enabled": false,
-          "base": 0,
-          "bonus": 0,
-          "value": 0,
-          "max": 0
-        },
-        "dr": {
-          "key" : "dr",
-          "label" : "COF.optional.dr.label",
-          "abbrev" : "COF.optional.dr.abbrev",
-          "enabled": false,
-          "base": 0,
-          "bonus": 0,
-          "value": 0
-        }
-      }
+      ]
     },
     "npc": {
       "templates": [
+        "stats",
+        "attacks",
+        "xp",
         "common"
-      ],
-      "species": "",
-      "profile": "",
-      "weapons" : [],
-      "capacities" : []
+      ]
     },
     "encounter": {
       "templates": [
@@ -269,6 +272,7 @@
           "key" : "str",
           "label" : "COF.stats.str.label",
           "abbrev" : "COF.stats.str.abbrev",
+          "value": 10,
           "mod": 0,
           "tmpmod": null
         },
@@ -276,6 +280,7 @@
           "key" : "dex",
           "label" : "COF.stats.dex.label",
           "abbrev" : "COF.stats.dex.abbrev",
+          "value": 10,
           "mod": 0,
           "tmpmod": null
         },
@@ -283,6 +288,7 @@
           "key" : "con",
           "label" : "COF.stats.con.label",
           "abbrev" : "COF.stats.con.abbrev",
+          "value": 10,
           "mod": 0,
           "tmpmod": null
         },
@@ -290,6 +296,7 @@
           "key" : "int",
           "label" : "COF.stats.int.label",
           "abbrev" : "COF.stats.int.abbrev",
+          "value": 10,
           "mod": 0,
           "tmpmod": null
         },
@@ -297,6 +304,7 @@
           "key" : "wis",
           "label" : "COF.stats.wis.label",
           "abbrev" : "COF.stats.wis.abbrev",
+          "value": 10,
           "mod": 0,
           "tmpmod": null
         },
@@ -304,6 +312,7 @@
           "key" : "cha",
           "label" : "COF.stats.cha.label",
           "abbrev" : "COF.stats.cha.abbrev",
+          "value": 10,
           "mod": 0,
           "tmpmod": null
         }
@@ -314,40 +323,19 @@
         "abbrev" : "COF.attributes.nc.abbrev",
         "value": 1
       },
-      "dr": {
-        "key" : "dr",
-        "label" : "COF.optional.dr.label",
-        "abbrev" : "COF.optional.dr.abbrev",
-        "enabled": false,
-        "value": 0,
-        "tmpval": null
-      },
       "attacks" : [{
         "name" : "",
+        "critrange" : 20,
         "mod" : null,
         "dmg" : null
       }],
       "capacities" : [],
       "special" : [],
-      "details": {
-        "class": "",
-        "archetype": "",
-        "species": "",
-        "profile": "",
-        "milieu": "",
-        "gender": "",
-        "age": "",
-        "weight": "",
-        "height": "",
-        "eyes": "",
-        "hair": "",
-        "size": "med",
-        "senses": "",
-        "languages": {
-          "value": [],
-          "custom": ""
-        }
-      }
+      "class": "",
+      "archetype": "",
+      "species": "",
+      "profile": "",
+      "milieu": ""
     }
   },
   "Item": {
@@ -375,7 +363,8 @@
       "description": "",
       "checked": false,
       "limited": false,
-      "spell": false
+      "spell": false,
+      "inPath": true
     },
     "item": {
       "description" : ""

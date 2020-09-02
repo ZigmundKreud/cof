@@ -9,7 +9,7 @@ export class CofEncounterSheet extends CofActorSheet {
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "encounter"],
+            classes: ["cof", "sheet", "actor", "encounter"],
             template: System.templatesPath+"/actors/encounter-sheet.hbs",
             width: 770,
             height: 700,
