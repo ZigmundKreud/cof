@@ -1,0 +1,45 @@
+<div class="row flexrow">
+    <div class="flex1 layout">
+        <div class="row flexrow table-header blue">
+            <div class="flex2">
+                <div class="field-label">ARMURE</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Def.</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Bonus</div>
+            </div>
+        </div>
+        <ol class="item-list">
+            {{#if (isEmpty (getWornArmors actor.items))}}
+            <li class="flexrow item">
+                <div class="flex1 left">
+                    <span class="empty">Aucune armure équipée pour le moment</span>
+                </div>
+            </li>
+            {{/if}}
+            {{#each (getWornArmors actor.items) as |item id|}}
+            <li class="flexrow item" data-item-id="{{item._id}}" draggable="false">
+                <div class="flex2 left">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+                </div>
+                <div class="flex1 center cell">
+                    {{#if (isNull item.data.def)}}
+                    <input class="field-value" name="data.items.{{id}}.data.def" readonly="true" type="text" value="" data-dtype="Number"/>
+                    {{else}}
+                    <input class="field-value" name="data.items.{{id}}.data.def" readonly="true" type="text" value="{{numberFormat item.data.def decimals=0 sign=true}}" data-dtype="Number"/>
+                    {{/if}}
+                </div>
+                <div class="flex1 center cell">
+                    {{#if (isZeroOrNull item.data.bonus)}}
+                    <input class="field-value" name="data.items.{{id}}.data.bonus" type="text" value="" data-dtype="Number"/>
+                    {{else}}
+                    <input class="field-value" name="data.items.{{id}}.data.bonus" readonly="true" type="text" value="{{numberFormat item.data.bonus decimals=0 sign=true}}" data-dtype="Number"/>
+                    {{/if}}
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+</div>

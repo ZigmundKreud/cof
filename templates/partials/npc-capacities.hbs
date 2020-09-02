@@ -1,0 +1,28 @@
+{{#if (isEmpty (getCapacities actor.items))}}
+<p class="empty">Aucune capacité n'a été sélectionnée pour le moment</p>
+{{/if}}
+{{#each (getCapacities actor.items) as |capacity id|}}
+<div class="flexrow capacity item" data-item-id="{{capacity._id}}">
+    <div class="flex1 bg-darkgray center capacity-level">{{capacity.data.rank}}</div>
+    <div class="flex9 darkgray">
+        <div class="flexrow row capacity-title" style="justify-content: space-between;">
+            <div class="flex9">
+                {{capacity.name}}{{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}{{#if capacity.data.limited}}&nbsp;(L){{/if}}
+            </div>
+            <div class="flex1 path-controls">
+                <a class="path-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                &nbsp;
+                <a class="path-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </div>
+        <div class="capacity-description darkgray">
+            {{#with (getPath ../actor.items capacity.data.path)}}
+            <em>{{{name}}}</em>
+            {{/with}}
+        </div>
+        <div class="capacity-description darkgray">
+            <div>{{{capacity.data.description}}}</div>
+        </div>
+    </div>
+</div>
+{{/each}}

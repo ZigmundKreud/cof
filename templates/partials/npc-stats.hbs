@@ -1,0 +1,200 @@
+<div class="row flexrow">
+    <div class="flex1 layout">
+        <!-- NAME -->
+        <div class="row flexrow">
+            <div class="flex1 center bg-darkgreen">
+                <span class="field-label">{{ localize 'COF.details.name' }}</span>
+            </div>
+            <div class="flex2 center cell">
+                <input class="field-value sans" name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String"/>
+            </div>
+        </div>
+        <!-- /NAME -->
+        <!-- NC -->
+        <div class="row flexrow">
+            <div class="flex1 center bg-darkgreen">
+                <span class="field-label">{{ localize 'COF.attributes.nc.abbrev' }}</span>
+            </div>
+            <div class="flex2 center cell">
+                <input class="field-value" name="data.attributes.level.value" type="text" value="{{actor.data.attributes.level.value}}" placeholder="Level" data-dtype="Number"/>
+            </div>
+        </div>
+        <!-- /NC -->
+    </div>
+    <div class="flex1 layout">
+        <!-- CLASS -->
+        <div class="row flexrow">
+            <div class="flex1 center bg-darkgreen">
+                <span class="field-label">{{ localize "COF.details.class" }}</span>
+            </div>
+            <div class="flex2 center cell">
+                <input class="field-value sans" name="data.details.class" type="text" value="{{actor.data.details.class}}" placeholder="Classe" data-dtype="String"/>
+            </div>
+        </div>
+        <!-- /CLASS -->
+        <!-- SIZE -->
+        <div class="row flexrow">
+            <div class="flex1 center bg-darkgreen">
+                <span class="field-label">{{ localize "COF.details.size" }}</span>
+            </div>
+            <div class="flex2 center cell">
+                <input class="field-value sans" name="data.details.size" type="text" value="{{actor.data.details.size}}" placeholder="Description" data-dtype="String"/>
+            </div>
+        </div>
+        <!-- /SIZE -->
+    </div>
+</div>
+<!-- DESCRIPTION -->
+<div class="row flexrow layout">
+    <div class="flex1 center bg-darkgreen">
+        <span class="field-label">{{ localize "COF.details.description" }}</span>
+    </div>
+    <div class="flex5 center cell">
+        <input class="field-value sans" name="data.description" type="text" value="{{actor.data.description}}" placeholder="Description" data-dtype="String"/>
+    </div>
+</div>
+<!-- /DESCRIPTION -->
+<div class="row flexrow"><div class="flex1 half-spacer"></div></div>
+<div class="row flexrow">
+    <div class="flex1 layout">
+        <div class="row flexrow table-header darkgreen">
+            <div class="flex1 center">
+                <div class="field-label">{{ localize 'COF.stats.abbrev' }}</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">{{ localize 'COF.stats.mod.abbrev' }}</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">{{ localize 'COF.stats.tmpmod.abbrev' }}</div>
+            </div>
+        </div>
+        {{#each actor.data.stats as |stat id|}}
+        <div class="row flexrow">
+            <div class="flex1 center bg-darkgreen rollable" data-rolling="data.stats[{{id}}]" data-roll-type="skillcheck">
+                <div class="field-label"><i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}</div>
+                <input name="data.stats.{{id}}.abbrev" type="hidden" value="{{stat.abbrev}}" data-dtype="String"/>
+                <input name="data.stats.{{id}}.label" type="hidden" value="{{stat.label}}" data-dtype="String"/>
+                <input name="data.stats.{{id}}.key" type="hidden" value="{{stat.key}}" data-dtype="String"/>
+            </div>
+            <div class="flex1 center cell readonly">
+                <input class="field-value" name="data.stats.{{id}}.mod" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-dtype="Number"/>
+            </div>
+            <div class="flex1 center cell readonly">
+                {{#if (isNull stat.tmpmod)}}
+                <input class="field-value" name="data.stats.{{id}}.tmpmod" type="text" value="" data-dtype="Number"/>
+                {{else}}
+                <input class="field-value" name="data.stats.{{id}}.tmpmod" type="text" value="{{numberFormat stat.tmpmod decimals=0 sign=true}}" data-dtype="Number"/>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="flex1 layout">
+        <div class="row flexrow"><div class="flex1 spacer"></div></div>
+        <div class="row flexrow">
+            <div class="flex2 center bg-red">
+                <span class="field-label"><i class="fas fa-bolt"></i>&nbsp;{{ localize 'COF.attributes.init.abbrev' }}</span>
+            </div>
+            <div class="flex1 center cell">
+                <input class="field-value" name="data.attributes.init.value" type="text" value="{{actor.data.attributes.init.value}}" placeholder="Value" data-dtype="Number"/>
+            </div>
+            <div class="flex1 center cell">
+                <input class="field-value" name="data.attributes.init.tmpval" type="text" value="{{actor.data.attributes.init.tmpval}}" placeholder="Temp" data-dtype="Number"/>
+            </div>
+        </div>
+        <div class="row flexrow">
+            <div class="flex2 center bg-blue">
+                <span class="field-label"><i class="fas fa-shield-alt"></i>&nbsp;{{ localize 'COF.attributes.def.abbrev' }}</span>
+            </div>
+            <div class="flex1 center cell">
+                <input class="field-value" name="data.attributes.def.value" type="text" value="{{actor.data.attributes.def.value}}" placeholder="Value" data-dtype="Number"/>
+            </div>
+            <div class="flex1 center cell">
+                <input class="field-value" name="data.attributes.def.tmp" type="text" value="{{actor.data.attributes.def.tmp}}" placeholder="Temp" data-dtype="Number"/>
+            </div>
+        </div>
+        <div class="row flexrow">
+            <div class="flex2 center bg-blue">
+                <span class="field-label"><i class="fas fa-user-shield"></i>&nbsp;{{ localize 'COF.optional.dr.abbrev' }}</span>
+            </div>
+            <div class="flex1 center cell">
+                <input class="field-value" name="data.attributes.dr.value" type="text" value="{{actor.data.attributes.dr.value}}" placeholder="Value" data-dtype="Number"/>
+            </div>
+            <div class="flex1 center cell">
+                <input class="field-value" name="data.attributes.dr.tmp" type="text" value="{{actor.data.attributes.dr.tmp}}" placeholder="Temp" data-dtype="Number"/>
+            </div>
+        </div>
+        <div class="row flexrow"><div class="flex1 half-spacer"></div></div>
+        <div class="row flexrow">
+            <div class="flex1 layout">
+                <!-- VITALITE -->
+                <div class="row flexrow table-header green">
+                    <div class="flex2 center">
+                        <div class="field-label">{{ localize 'COF.attributes.vitality.label' }}&nbsp;{{#with (getProfile actor.items)}}({{data.dv}}){{/with}}</div>
+                    </div>
+                    <div class="flex1 center">
+                        <div class="field-label">{{ localize 'COF.attributes.val.abbrev' }}</div>
+                    </div>
+                    <div class="flex1 center">
+                        <div class="field-label">{{ localize 'COF.attributes.max.abbrev' }}</div>
+                    </div>
+                </div>
+                <div class="row flexrow">
+                    <div class="flex2 center bg-green">
+                        <span class="field-label"><i class="fas fa-heart"></i>&nbsp;{{ localize 'COF.attributes.hp.abbrev' }}</span>
+                    </div>
+                    <div class="flex1 center cell">
+                        <input class="field-value" name="data.attributes.hp.value" type="text" value="{{actor.data.attributes.hp.value}}" placeholder="Value" data-dtype="Number"/>
+                    </div>
+                    <div class="flex1 center cell">
+                        <input class="field-value" name="data.attributes.hp.max" type="text" value="{{actor.data.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row flexrow"><div class="flex1 half-spacer"></div></div>
+<div class="row flexrow table-header red">
+    <div class="flex2 center">
+        <div class="field-label">{{ localize 'COF.attacks.label' }}</div>
+<!--        <div class="field-label">{{ localize 'COF.attacks.name.abbrev' }}</div>-->
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.attacks.mod.abbrev' }}</div>
+    </div>
+    <div class="flex2 center">
+        <div class="field-label">{{ localize 'COF.attacks.dmg.abbrev' }}</div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">Actions</div>
+    </div>
+</div>
+{{#each actor.data.attacks as |attack id|}}
+<div class="row flexrow attack" data-item-id="{{id}}">
+    <div class="flex2 center">
+        <a class="attacks-control attack-add btn" title="Ajouter une attaque" style="padding:3px"><i class="fas fa-plus"></i></a>
+        <a class="attacks-control attack-remove btn" title="Supprimer une attaque" style="padding:3px"><i class="fas fa-minus"></i></a>
+        <div class="flex1 cell">
+            <input class="field-value" name="data.attacks.{{id}}.name" type="text" value="{{attack.name}}" placeholder="{{ localize 'COF.attacks.name.abbrev' }}" data-dtype="String"/>
+        </div>
+    </div>
+    <div class="flex1 center cell">
+        {{#if (isNull attack.mod)}}
+        <input class="field-value" name="data.attacks.{{id}}.mod" type="text" value="" placeholder="{{ localize 'COF.attacks.mod.abbrev' }}" data-dtype="Number"/>
+        {{else}}
+        <input class="field-value" name="data.attacks.{{id}}.mod" type="text" value="{{numberFormat attack.mod decimals=0 sign=true}}" placeholder="{{ localize 'COF.attacks.mod.abbrev' }}" data-dtype="Number"/>
+        {{/if}}
+    </div>
+    <div class="flex2 center cell">
+        <input class="field-value" name="data.attacks.{{id}}.dmg" type="text" value="{{attack.dmg}}" placeholder="{{ localize 'COF.attacks.dmg.abbrev' }}" data-dtype="String"/>
+    </div>
+    <div class="flex1 attacks-controls left">
+        <div class="flex1 center">
+            <div class="rollable" data-rolling="data.attacks[{{id}}]" data-roll-type="skillcheck"><i class="fas fa-dice-d20"></i></div>
+            &nbsp;
+            <div class="rollable" data-rolling="data.attacks[{{id}}]" data-roll-type="damage"><i class="fas fa-dice"></i></div>
+        </div>
+    </div>
+</div>
+{{/each}}

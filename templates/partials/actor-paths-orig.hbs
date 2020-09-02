@@ -1,0 +1,64 @@
+{{#if (isNegative actor.data.xp.value)}}
+<div class="row flexrow red">
+{{else}}
+<div class="row flexrow">
+{{/if}}
+    <div class="flex1 right">
+        <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
+        <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
+        <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
+    </div>
+</div>
+{{#if (isEmpty (getPaths actor.items))}}
+<p class="empty">Aucune voie n'a été ajoutée pour le moment.</p>
+<p class="empty">Vous pouvez : <br/>- soit choisir un profil pour ajouter automatiquement toutes ses voies,<br/>- soit ajouter des voies directement depuis le compendium "Voies".</p>
+{{/if}}
+{{#each (getPaths actor.items) as |path id|}}
+<div class="flexrow path-card">
+    <div class="flexcol path item" data-item-id="{{path._id}}">
+        <!-- PATH TITLE -->
+        <div class="flexrow">
+<!--            <div class="flex9 left darkgreen">-->
+<!--                {{!#if path.data.collapsed}}-->
+<!--                    <div class="path-name left"><a class="path-control path-collapse" title="Unfold"><i class="fas fa-caret-right"></i>&nbsp;{{path.name}}</a></div>-->
+<!--                {{!else}}-->
+<!--                    <div class="path-name left"><a class="path-control path-collapse" title="Fold"><i class="fas fa-caret-down"></i>&nbsp;{{path.name}}</a></div>-->
+<!--                {{!/if}}-->
+<!--            </div>-->
+            <div class="flex9 left darkgreen">
+                <div class="path-name left">{{path.name}}</a></div>
+            </div>
+            <div class="flex1 path-controls">
+                <a class="path-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                &nbsp;
+                <a class="path-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </div>
+        <!-- CAPACITIES -->
+<!--        <div class="flexcol capacity-list {{#if path.data.collapsed}}collapsed{{/if}}">-->
+        <div class="flexcol capacity-list">
+            {{#if path.data.description}}
+            <div class="flexrow path-description darkgreen"><p>{{{path.data.description}}}</p></div>
+            {{/if}}
+            {{#if path.data.note}}
+            <div class="flexrow path-note darkgreen"><i>{{{path.data.note}}}</i></div>
+            {{/if}}
+            {{#each (getCapacitiesByPath ../actor.items path.data.id) as |capacity id|}}
+            <div class="flexrow capacity item" data-item-id="{{capacity._id}}">
+                <div class="flex1 bg-darkgreen center capacity-level">{{capacity.data.rank}}</div>
+                <div class="flex9 darkgreen">
+                    <div>
+                        {{#if capacity.data.checked}}
+                        <a class="capacity-control capacity-checked" title="Uncheck"><i class="fas fa-square"></i>&nbsp;{{capacity.name}}{{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}{{#if capacity.data.limited}}&nbsp;(L){{/if}}</a>
+                        {{else}}
+                        <a class="capacity-control capacity-unchecked" title="Check"><i class="far fa-square"></i>&nbsp;{{capacity.name}}{{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}{{#if capacity.data.limited}}&nbsp;(L){{/if}}</a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<hr/>
+{{/each}}

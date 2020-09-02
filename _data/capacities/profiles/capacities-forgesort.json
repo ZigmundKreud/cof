@@ -1,0 +1,343 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Bâton de mage",
+    "data": {
+      "id": "voie-des-artefacts-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-artefacts",
+      "description": "<p>Le Forgesort crée un grand bâton magique. Avec cette arme à deux mains, il gagne un bonus de +1 aux tests d'attaque au contact et inflige [1d6+Mod. d'<strong>INT</strong>] <strong>DM</strong> magiques. A partir du rang 3, au prix d'une action limitée, il peut utiliser son score d'attaque magique pour une attaque au contact et infliger [2d6 + Mod. d'<strong>INT</strong>] <strong>DM</strong> dans un éclair d'énergie !</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Blocage",
+    "data": {
+      "id": "voie-des-artefacts-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-artefacts",
+      "description": "<p>Le Forgesort scelle une porte ou un coffre pour une durée en minutes égale à sa valeur d'<strong>INT</strong>. Seul un mot de commande qu'il choisit permet d'ouvrir l'objet. Celui-ci peut toujours être brisé par la force, mais il bénéficie d'un bonus de +5 en solidité et en <strong>RD</strong> (réduction des <strong>DM</strong>) pour toute la durée du sort.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sac sans fond",
+    "data": {
+      "id": "voie-des-artefacts-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-artefacts",
+      "description": "<p>Le Forgesort possède un sac dans lequel il peut entreposer 50 kg de matériel par rang dans la voie, tandis que le sac semble toujours ne peser qu’un kilo. Le sac ne fonctionne pas si on tente d’y mettre une créature vivante. Le sac est de plus capable de fournir au Forgesort les objets qu’il désire. Il peut en retirer une pelle, une corde, une épée ou tout objet dont la valeur ne dépasse pas 20 pa, le poids 50 kg, la circonférence 1 m et le volume 1 m3. Pas plus de 20 pa de valeur d’objet créés par le sac sans fond ne peuvent exister simultanément. Ces objets ont hélas la propriété de disparaître au bout d’une heure. De ce fait, la nourriture magique retirée du sac ne nourrit pas vraiment celui qui la consomme.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Frappe des arcanes",
+    "data": {
+      "id": "voie-des-artefacts-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-artefacts",
+      "description": "<p>Le Forgesort frappe le sol de son bâton et provoque une onde dévastatrice dans un rayon de 10 m autour de lui. Toutes les créatures dans la zone subissent automatiquement [2d6 + Mod. d'<strong>INT</strong>] <strong>DM</strong> et doivent réussir un test de <strong>FOR</strong> difficulté [10 + Mod. d'<strong>INT</strong>] pour ne pas tomber au sol.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Artefact majeur",
+    "data": {
+      "id": "voie-des-artefacts-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-artefacts",
+      "description": "<p>Le Forgesort peut enchanter des objets. Il peut créer une arme qui donne un bonus de +1 aux tests d’attaque et aux <strong>DM</strong> ou une armure qui donne un bonus de +1 en <strong>DEF</strong> et réduit le malus d’encombrement d’autant. Le bonus passe à +2 lorsque le personnage atteint le niveau 8 puis augmente de +1 tous les 3 niveaux (+5 au niveau 17).\nIl faut un mois de travail et la dépense de 100 po par point de bonus pour créer l’objet. A la fin, le Forgesort doit réaliser un test d’<strong>INT</strong> difficulté [10 + 3 x bonus de l’objet] avec un bonus égal au rang atteint dans la Voie du métal. En cas d’échec, l’objet n’est pas enchanté et il faut recommencer (l’argent est perdu !). En cas de succès, le Forgesort doit insuffler un peu d’énergie vitale dans l’objet : il sacrifie 1 PV qu’il perd définitivement sur son score de PV maximum.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Fortifiant",
+    "data": {
+      "id": "voie-des-elixirs-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-elixirs",
+      "description": "<p>Un breuvage étrange qui guérit [1d4 + rang] PV et permet de gagner un bonus de +3 aux [rang +1] prochains tests de réussite effectués (dans une limite de temps de 12 heures).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Feu grégeois",
+    "data": {
+      "id": "voie-des-elixirs-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-elixirs",
+      "description": "<p>Le Forgesort lance la fiole à une distance maximum de 10 m, grâce à une action d'attaque (réussite automatique). Le contenu explose dans un rayon de 3 m en infligeant 1d6 <strong>DM</strong> par rang dans la voie. Un test de <strong>DEX</strong> difficulté [10 + Mod. d'<strong>INT</strong>] réussi permet aux victimes de diviser les <strong>DM</strong> par 2.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Elixir de guérison",
+    "data": {
+      "id": "voie-des-elixirs-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-elixirs",
+      "description": "<p>Le Forgesort peut préparer un élixir qui soigne [3d6 + Mod. d'<strong>INT</strong>] PV ou un empoisonnement.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Potion magique",
+    "data": {
+      "id": "voie-des-elixirs-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-elixirs",
+      "description": "<p>Le Forgesort peut préparer une potion d’Agrandissement, de Forme gazeuse, de Protection contre les éléments, d’Armure de mage ou de Chute ralentie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Elixirs magiques",
+    "data": {
+      "id": "voie-des-elixirs-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-elixirs",
+      "description": "<p>Le Forgesort peut préparer une potion d’Invisibilité, de Vol, de Respiration aquatique, de Flou ou de Hâte.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Runes de défense",
+    "data": {
+      "id": "voie-des-runes-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-runes",
+      "description": "<p>Le Forgesort inscrit des runes de protection sur l'ensemble de son équipement et parfois jusque sur sa peau. Il obtient un bonus de +1 en <strong>DEF</strong> par rang dans la voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Rune d'énergie",
+    "data": {
+      "id": "voie-des-runes-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-runes",
+      "description": "<p>En réalisant un rituel de 5 minutes, le forgesort enchante un bijou pour 24 h. Celui-ci permet de relancer un d20 une fois par combat sur un test d'attaque, de <strong>FOR</strong>, <strong>DEX</strong> ou <strong>CON</strong>. Un seul bijou de ce type peut être porté.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Rune de protection",
+    "data": {
+      "id": "voie-des-runes-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-runes",
+      "description": "<p>En réalisant un rituel de 5 minutes, le Forgesort enchante une armure pour 24 h. Celle-ci permet d'ignorer les <strong>DM</strong> d'une attaque une fois par combat.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Rune de puissance",
+    "data": {
+      "id": "voie-des-runes-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-runes",
+      "description": "<p>En réalisant un rituel de 5 minutes, le Forgesort enchante une arme pour 24 h. Celle-ci permet d'infliger les <strong>DM</strong> maximum une fois par combat.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Rune de pouvoir",
+    "data": {
+      "id": "voie-des-runes-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-des-runes",
+      "description": "<p>Le Forgesort peut lier un sort à un objet par une inscription runique. S’il ne connaît pas lui-même le sort, il doit se faire aider par un personnage qui sait le lancer. Le sort ainsi lié peut être utilisé trois fois par jour. Le processus est le même que pour fabriquer une arme ou une armure magique, remplacez le bonus par le rang du sort à lier. Il peut aussi lier certains sorts à une potion (en général les sorts dont le personnage lui-même est la cible), mais pas au-delà de son rang dans la Voie des élixirs, au prix de un jour de travail et 10 pa par rang du sort. Le PV perdu pour la création d’une potion est récupéré dès que la potion est consommée ou au plus tard après 1 an.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Grosse tête",
+    "data": {
+      "id": "voie-du-golem-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-golem",
+      "description": "<p>Le Forgesort remplace la force brutale par un peu de réflexion. Il peut effectuer un test d'<strong>INT</strong> au lieu d'un test de <strong>FOR</strong> (exemple : il utilise un levier pour déplacer une lourde charge). Il obtient un bonus de +2 par rang dans la voie à tous les tests de bricolage ou de science.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Golem",
+    "data": {
+      "id": "voie-du-golem-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-golem",
+      "description": "<p>Le golem est une créature humanoïde fabriquée par le Forgesort pour lui servir de serviteur et de garde du corps.\nGolem : Créature non-vivante, Init [forgesort], <strong>DEF</strong> 14, PV [4 x niveau], Attaque [niveau + Mod. de <strong>FOR</strong>], <strong>DM</strong> 1d8+1. <strong>FOR</strong> +1, <strong>DEX</strong> -1, <strong>CON</strong> +10, <strong>INT</strong> -4, <strong>SAG</strong> -3, <strong>CHA</strong> -4.\nLe Forgesort peut réparer le golem au rythme de [1d6 par rang + Mod. d’<strong>INT</strong>] PV par heure.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Protecteur",
+    "data": {
+      "id": "voie-du-golem-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-golem",
+      "description": "<p>Une fois par tour, s'il est au contact d'un personnage, le golem peut s'interposer et subir les <strong>DM</strong> d'une attaque à sa place.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Golem supérieur",
+    "data": {
+      "id": "voie-du-golem-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-golem",
+      "description": "<p>Le Forgesort peut améliorer son golem en choisissant une option parmi :\n* Armure : +5 en <strong>DEF</strong> ;\n* Félin : +3 Mod. de <strong>DEX</strong> ;\n* Baliste : portée 20 m, 2d6 <strong>DM</strong> ;\n* Taille : +10 PV et +1 Mod. de <strong>FOR</strong> ;\n* Vol : des « sauts » de 40 m en action limitée ;\n* Cerveau amélioré : +2 Mod. d'<strong>INT</strong>, <strong>SAG</strong>, <strong>CHA</strong>, doué de parole ;\n* Puissant : +2 Mod. de <strong>FOR</strong> ;\n* Arme à deux mains : +1d8 aux <strong>DM</strong> au contact.\nLe joueur peut choisir une option de plus lorsque son personnage atteint les niveaux 9, 13 et 17. Les options peuvent êtres choisies plusieurs fois et cumulées.\n</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Intelligence héroïque",
+    "data": {
+      "id": "voie-du-golem-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-golem",
+      "description": "<p>Le personnage augmente sa valeur d'<strong>INT</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test d'<strong>INT</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Forgeron",
+    "data": {
+      "id": "voie-du-metal-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-metal",
+      "description": "<p>Le Forgesort obtient un bonus de +2 par Rang dans la Voie aux tests d'orfèvrerie ou de forge. Au prix d'une action de mouvement, il peut enflammer son marteau ou son bâton pour une durée de [5 + Mod. d'<strong>INT</strong>] tours et gagne alors un bonus aux <strong>DM</strong> de +1 par rang dans la voie avec cette arme (<strong>DM</strong> de feu).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Métal brûlant",
+    "data": {
+      "id": "voie-du-metal-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-metal",
+      "description": "<p>Le Forgesort doit réussir un test d'attaque magique (portée 20 m) pour faire chauffer un objet métallique que sa cible transporte pendant [5 + Mod. d'<strong>INT</strong>] tours. S'il s'agit d'une arme, elle inflige 1 point de <strong>DM</strong> par tour à son porteur et un malus de -2 aux tests d'attaque. S'il s'agit d'une armure, elle inflige 1d4 <strong>DM</strong> par tour à son porteur. La victime peut se débarrasser précipitamment de son armure au prix d'une action limitée.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Magnétisme",
+    "data": {
+      "id": "voie-du-metal-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-metal",
+      "description": "<p>Le Forgesort contrôle le magnétisme autour de lui pendant [3 + Mod. d'<strong>INT</strong>] tours. Il gagne un bonus de +5 en <strong>DEF</strong> et divise par 2 les <strong>DM</strong> de toutes les armes ou projectiles métalliques.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Métal hurlant",
+    "data": {
+      "id": "voie-du-metal-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-metal",
+      "description": "<p>Sur un test d'attaque magique réussi, le Forgesort déforme une pièce d'équipement métallique portée par sa cible. Une arme devient inutilisable et bonne pour le rebut, une armure inflige une pénalité de -5 à tous les tests de son porteur. La victime peut se débarrasser de son armure au prix d'une action limitée. Si l'objet est magique, le sort ne fait effet que 1d4 tours et ne peut viser à nouveau l'objet pour 24 heures. Appliqué à une structure (par exemple une porte blindée), ce sort inflige 4d6 <strong>DM</strong> en divisant par 2 sa <strong>RD</strong> (réduction des <strong>DM</strong>).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Endurer",
+    "data": {
+      "id": "voie-du-metal-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "forgesort",
+      "path": "voie-du-metal",
+      "description": "<p>Le Forgesort est habitué aux travaux et à la chaleur de la forge. Il réduit tous les <strong>DM</strong> de feu subits de 5 points et augmente sa valeur de <strong>CON</strong> de +2. Il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé, en gardant le meilleur résultat.</p>"
+    }
+  }
+]

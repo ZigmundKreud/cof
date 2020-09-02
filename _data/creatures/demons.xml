@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<articles>
+    <article id="post-1890">
+        <title>Balor</title>
+        <content>
+            <div>
+                <em>
+                    <p>Ces seigneurs du feu de près de 3 mètres possèdent d’immenses ailes de chauve-souris. Ils manient
+                        un fouet ardent d’une main et une immense épée enflammée de l’autre.
+                    </p>
+                </em>
+            </div>
+            <div>
+                <p>Les démons sont des créatures des enfers, ces mondes maléfiques d’une autre dimension ou les âmes
+                    corrompues sont torturées pour l’éternité. L’existence d’un démon est une lutte constante pour le
+                    pouvoir et la domination par la force, la ruse et la cruauté. Bien qu’ils ne quittent généralement
+                    pas leur plan d’origine, les démons peuvent être appelés par un mortel ou franchir un portail vers
+                    le monde des hommes. Ce qu’ils font avec joie car les faibles humains sont pour eux des proies
+                    faciles et leurs âmes une source importante de pouvoir.
+                </p>
+                <p>
+                    <strong>Diables :</strong>
+                    il ne faut pas confondre les démons et les diables. Les premiers œuvrent pour le chaos, la douleur
+                    et la destruction sauvage, là où les seconds prônent un ordre tyrannique, cruel et immuable. Ils
+                    sont au contraire ennemis depuis la nuit des temps dans une guerre sans fin appelée la Guerre de
+                    Sang. Toutefois, la plupart des mortels ne font pas la différence entre les deux catégories de
+                    créatures infernales et ils appellent sans discernement «démon» toutes les créatures maléfiques
+                    issues d’un autre monde.
+                    <br/>
+                    <em>CO fantasy</em>
+                    fait le choix de ne décrire que les démons, laissant les diables à votre imagination. Chaque type de
+                    démon possède son alter-égo chez les diables avec quelques variations d’apparence et de pouvoir. En
+                    particulier la résistance des diables concerne le froid et l’électricité plutôt que le feu et
+                    l’acide. Les plus connus des diables sont le Diantrefosse (équivalent du Balor), l’Érinye (Succube)
+                    et le Diablotin (Quasit).
+                </p>
+                <h2>Capacités des démons</h2>
+                <p>Tous les démons possèdent les capacités suivantes (NC+1).</p>
+                <p>
+                    <em>Démon :</em>
+                    les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec
+                    celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue
+                    et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du
+                    moins pas de nourritures terrestres.
+                </p>
+                <p>
+                    <em>Résistance :</em>
+                    par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités
+                    peuvent améliorer cette résistance.
+                </p>
+                <p>
+                    <em>Télépathie :</em>
+                    les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres
+                    sans avoir besoin de partager une langue commune. Ils parlent l’infernal.
+                </p>
+                <p>
+                    <em>Téléportation (L) :</em>
+                    un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance
+                    maximum de [NC x 100] mètres.
+                </p>
+                <p>
+                    <em>Vision dans le noir :</em>
+                    tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.
+                </p>
+            </div>
+            <div>
+                <p>Les Balors sont les plus célèbres et les plus puissants des démons.</p>
+                <p>Le Balrog de la Moria est un exemple illustre de balor qui apparaît dans le Seigneur des anneaux. Ce
+                    sont des créatures d’une puissance démesurée dont la rencontre est à réserver aux héros les plus
+                    puissants.
+                </p>
+            </div>
+            <milieu>spécial</milieu>
+            <archetype>rapide, Boss rang 4</archetype>
+            <nc>16</nc>
+            <type>créature humanoïde</type>
+            <size>énorme</size>
+            <characteristics>
+                <stats>
+                    <str>+9</str>
+                    <dex>+3*</dex>
+                    <con>+9*</con>
+                    <int>+6</int>
+                    <wis>+6</wis>
+                    <cha>+6</cha>
+                </stats>
+                <attributes>
+                    <def>28</def>
+                    <hp>150 (RD 15/ armes saintes)</hp>
+                    <init>17</init>
+                </attributes>
+                <div>
+                    <p>
+                        <strong>Épée enflammée</strong>
+                        +21 <strong>DM</strong> 3d6+9 + 2d6 feu
+                        <br/>
+                        <strong>Fouet ardent</strong>
+                        +21 (portée 10 mètres) <strong>DM</strong> 2d6 de feu + enchevêtrement
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <strong>
+                            <a href="http://co-drs.org/voies/voie-des-creatures-elementaire-du-feu/">Voie des créatures
+                                élémentaires
+                            </a>
+                        </strong>
+                        rang 3
+                        <br/>
+                        <strong>
+                            <a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des
+                                créatures magiques
+                            </a>
+                        </strong>
+                        rang 3
+                    </p>
+                </div>
+                <div>
+                    <strong>Capacités</strong>
+                </div>
+                <div>
+                    <p>
+                        <em>Domination (L) :</em>
+                        le Balor doit gagner un test opposé de SAG contre sa cible pour la dominer (portée 20 mètres)
+                        pendant [1d6 + 7 tours]. En cas de succès, le démon peut contrôler les faits et gestes de sa
+                        cible comme s’il s’agissait d’un simple pantin ou lui donner des ordres qu’elle est obligée
+                        d’exécuter. Les créatures de niveau 10 et plus sont immunisées à ce pouvoir de même que les
+                        créatures dépourvues d’esprit comme les créatures mécaniques ou certains mort-vivants.
+                    </p>
+                    <p>
+                        <em>Enchevêtrement :</em>
+                        lorsqu’un Balor réussit une attaque de fouet, la victime doit faire un test de FOR ou de DEX au
+                        choix difficulté 15 ou être <em>immobilisée</em> par le fouet pour un tour et subir 4d6 DM de
+                        feu au lieu de 2d6. Le Balor peut attirer à son contact une victime immobilisée en réussissant
+                        un test de FOR opposé.
+                    </p>
+                    <p>Attaquer avec son épée et son fouet au même tour demande au Balor une action limitée.</p>
+                    <p>
+                        <em>Épée de feu vorpale :</em>
+                        lorsqu’il attaque avec son épée de feu, le Balor obtient des critiques sur 18-20 et en cas de
+                        critique la victime doit réussir un test de CON difficulté 15 ou être décapitée ! Elle est
+                        morte…
+                    </p>
+                    <p>
+                        <em>Vol :</em>
+                        un Balor peut se déplacer en vol de 30 m par action de mouvement.
+                    </p>
+                </div>
+                <family><name>Démons et Diables</name><link>http://co-drs.org/familles-de-creatures/demons-et-diables/</link></family>
+            </characteristics>
+        </content>
+    </article>
+    <article id="post-1893">
+        <title>Marilith</title>
+        <content>
+            <div>
+                <em>
+                    <p>Une Marilith mesure près de 6 mètres de long et son buste féminin culmine à plus de deux mètres
+                        cinquante. Chacune de ses paires de bras manipule une arme à 2 mains ou 2 armes plus petites&#8230;
+                    </p>
+                </em>
+            </div>
+            <div>
+                <p>Les démons sont des créatures des enfers, ces mondes maléfiques d’une autre dimension ou les âmes
+                    corrompues sont torturées pour l’éternité. L’existence d’un démon est une lutte constante pour le
+                    pouvoir et la domination par la force, la ruse et la cruauté. Bien qu’ils ne quittent généralement
+                    pas leur plan d’origine, les démons peuvent être appelés par un mortel ou franchir un portail vers
+                    le monde des hommes. Ce qu’ils font avec joie car les faibles humains sont pour eux des proies
+                    faciles et leurs âmes une source importante de pouvoir.
+                </p>
+                <p>
+                    <strong>Diables :</strong>
+                    il ne faut pas confondre les démons et les diables. Les premiers œuvrent pour le chaos, la douleur
+                    et la destruction sauvage, là où les seconds prônent un ordre tyrannique, cruel et immuable. Ils
+                    sont au contraire ennemis depuis la nuit des temps dans une guerre sans fin appelée la Guerre de
+                    Sang. Toutefois, la plupart des mortels ne font pas la différence entre les deux catégories de
+                    créatures infernales et ils appellent sans discernement «démon» toutes les créatures maléfiques
+                    issues d’un autre monde.
+                    <br/>
+                    <em>CO fantasy</em>
+                    fait le choix de ne décrire que les démons, laissant les diables à votre imagination. Chaque type de
+                    démon possède son alter-égo chez les diables avec quelques variations d’apparence et de pouvoir. En
+                    particulier la résistance des diables concerne le froid et l’électricité plutôt que le feu et
+                    l’acide. Les plus connus des diables sont le Diantrefosse (équivalent du Balor), l’Érinye (Succube)
+                    et le Diablotin (Quasit).
+                </p>
+                <h2>Capacités des démons</h2>
+                <p>Tous les démons possèdent les capacités suivantes (NC+1).</p>
+                <p>
+                    <em>Démon :</em>
+                    les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec
+                    celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue
+                    et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du
+                    moins pas de nourritures terrestres.
+                </p>
+                <p>
+                    <em>Résistance :</em>
+                    par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités
+                    peuvent améliorer cette résistance.
+                </p>
+                <p>
+                    <em>Télépathie :</em>
+                    les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres
+                    sans avoir besoin de partager une langue commune. Ils parlent l’infernal.
+                </p>
+                <p>
+                    <em>Téléportation (L) :</em>
+                    un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance
+                    maximum de [NC x 100] mètres.
+                </p>
+                <p>
+                    <em>Vision dans le noir :</em>
+                    tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.
+                </p>
+            </div>
+            <div>
+                <p>&#8230;mais le résultat final est le même et correspond aux DM indiqués.
+                    <br/>
+                    Les Marilith sont des démons très puissants, de majestueuses femme-serpents dotées de trois paires
+                    de bras, ce qui en fait de véritables machines à tuer. Elles aiment démontrer leur science du combat
+                    et écraser leurs adversaires de leur supériorité en corps à corps.
+                </p>
+            </div>
+            <milieu>spécial</milieu>
+            <archetype>standard, Boss rapide rang 2</archetype>
+            <nc>11</nc>
+            <type>créature humanoïde</type>
+            <size>grande</size>
+            <characteristics>
+                <stats>
+                    <str>+6</str>
+                    <dex>+5</dex>
+                    <con>+6*</con>
+                    <int>+4</int>
+                    <wis>+2</wis>
+                    <cha>+4*</cha>
+                </stats>
+                <attributes>
+                    <def>20</def>
+                    <hp>140 (RD 10 / armes saintes)</hp>
+                    <init>20</init>
+                </attributes>
+                <attack><name>Épées (x3)</name><mod>+12</mod><dm>2d6+10</dm></attack>
+                <div>
+                    <p>
+                        <strong>
+                            <link href="http://co-drs.org/voies/voie-du-champion/">Voie du champion</link>
+                        </strong>
+                        au rang 2
+                        <br/>
+                        <strong>
+                            <a href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures
+                                magiques
+                            </a>
+                        </strong>
+                        rang 2 (rang 2 : PV doublés, pas de régénération)
+                    </p>
+                </div>
+                <div>
+                    <strong>Capacités</strong>
+                </div>
+                <div>
+                    <p>
+                        <em>Attaques multiples :</em>
+                        une Marilith peut attaquer 3 fois au prix d’une action d’attaque.
+                    </p>
+                </div>
+                <div>
+                    <h2>Développement</h2>
+                    <p>Les Marilith ont souvent des pouvoirs d’<link href="http://co-drs.org/profils/ensorceleur/">Ensorceleur</link> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-des-illusions/">Voie des
+                        illusions</a>).
+                    </p>
+                </div>
+                <family><name>Démons et Diables</name><link>http://co-drs.org/familles-de-creatures/demons-et-diables/</link></family>
+            </characteristics>
+        </content>
+    </article>
+    <article id="post-1896">
+        <title>Quasit</title>
+        <content>
+            <div>
+                <p>Les démons sont des créatures des enfers, ces mondes maléfiques d’une autre dimension ou les âmes
+                    corrompues sont torturées pour l’éternité. L’existence d’un démon est une lutte constante pour le
+                    pouvoir et la domination par la force, la ruse et la cruauté. Bien qu’ils ne quittent généralement
+                    pas leur plan d’origine, les démons peuvent être appelés par un mortel ou franchir un portail vers
+                    le monde des hommes. Ce qu’ils font avec joie car les faibles humains sont pour eux des proies
+                    faciles et leurs âmes une source importante de pouvoir.
+                </p>
+                <p>
+                    <strong>Diables :</strong>
+                    il ne faut pas confondre les démons et les diables. Les premiers œuvrent pour le chaos, la douleur
+                    et la destruction sauvage, là où les seconds prônent un ordre tyrannique, cruel et immuable. Ils
+                    sont au contraire ennemis depuis la nuit des temps dans une guerre sans fin appelée la Guerre de
+                    Sang. Toutefois, la plupart des mortels ne font pas la différence entre les deux catégories de
+                    créatures infernales et ils appellent sans discernement «démon» toutes les créatures maléfiques
+                    issues d’un autre monde.
+                    <br/>
+                    <em>CO fantasy</em>
+                    fait le choix de ne décrire que les démons, laissant les diables à votre imagination. Chaque type de
+                    démon possède son alter-égo chez les diables avec quelques variations d’apparence et de pouvoir. En
+                    particulier la résistance des diables concerne le froid et l’électricité plutôt que le feu et
+                    l’acide. Les plus connus des diables sont le Diantrefosse (équivalent du Balor), l’Érinye (Succube)
+                    et le Diablotin (Quasit).
+                </p>
+                <h2>Capacités des démons</h2>
+                <p>Tous les démons possèdent les capacités suivantes (NC+1).</p>
+                <p>
+                    <em>Démon :</em>
+                    les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec
+                    celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue
+                    et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du
+                    moins pas de nourritures terrestres.
+                </p>
+                <p>
+                    <em>Résistance :</em>
+                    par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités
+                    peuvent améliorer cette résistance.
+                </p>
+                <p>
+                    <em>Télépathie :</em>
+                    les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres
+                    sans avoir besoin de partager une langue commune. Ils parlent l’infernal.
+                </p>
+                <p>
+                    <em>Téléportation (L) :</em>
+                    un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance
+                    maximum de [NC x 100] mètres.
+                </p>
+                <p>
+                    <em>Vision dans le noir :</em>
+                    tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.
+                </p>
+            </div>
+            <div>
+                <p>À ne pas confondre avec son frère ennemi le Diablotin, le Quasit possède lui aussi des ailes de
+                    chauve-souris, des cornes et une queue reptilienne. Toutefois, les experts sauront le reconnaître
+                    grâce à ses cornes enroulées comme celles d’un bélier.
+                </p>
+            </div>
+            <milieu>spécial</milieu>
+            <archetype>standard</archetype>
+            <nc>2</nc>
+            <type>créature humanoïde</type>
+            <size>très petite</size>
+            <characteristics>
+                <stats>
+                    <str>-2</str>
+                    <dex>+3</dex>
+                    <con>-2*</con>
+                    <int>+0</int>
+                    <wis>+2</wis>
+                    <cha>+0</cha>
+                </stats>
+                <attributes>
+                    <def>15</def>
+                    <hp>11 (RD 5 / armes saintes)</hp>
+                    <init>17</init>
+                </attributes>
+                <attack><name>Griffes et morsure</name><mod>+7</mod><dm>1d4-1 + venin</dm></attack>
+                <div>
+                    <p>
+                        <strong>Magicien</strong>
+                        de niveau 3
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <strong>
+                            <a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-universelle/">Voie de
+                                la magie universelle
+                            </a>
+                        </strong>
+                        rang 3
+                        <br/>
+                        <strong>
+                            <a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-des-arcanes/">Voie de
+                                la magie des arcanes
+                            </a>
+                        </strong>
+                        rang 3
+                        <br/>
+                        <strong>
+                            <a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des
+                                créatures magiques
+                            </a>
+                        </strong>
+                        rang 1
+                    </p>
+                </div>
+                <div>
+                    <strong>Capacités</strong>
+                </div>
+                <div>
+                    <p>
+                        <em>Venin :</em>
+                        une créature blessée par le Quasit doit réussir un test de CON difficulté 12 ou être <em>
+                        affaiblie
+                    </em> (utiliser 1d12) pendant 1d6 minutes.
+                    </p>
+                    <p>
+                        <em>Transformation (L) :</em>
+                        le Quasit peut se transformer en n’importe quel animal de taille très petite (chien, chat, rat,
+                        corbeau, etc.).
+                    </p>
+                    <p>
+                        <em>Vol :</em>
+                        un Quasit peut se déplacer en vol de 20 mètres par action de mouvement.
+                    </p>
+                </div>
+                <family><name>Démons et Diables</name><link>http://co-drs.org/familles-de-creatures/demons-et-diables/</link></family>
+            </characteristics>
+        </content>
+    </article>
+    <article id="post-1899">
+        <title>Succube</title>
+        <content>
+            <div>
+                <em>
+                    <p>Malgré des attributs démoniaques comme de grandes ailes de chauve-souris, il faut bien avouer que
+                        la succube est dotée d’un corps de rêve.
+                    </p>
+                </em>
+            </div>
+            <div>
+                <p>Les démons sont des créatures des enfers, ces mondes maléfiques d’une autre dimension ou les âmes
+                    corrompues sont torturées pour l’éternité. L’existence d’un démon est une lutte constante pour le
+                    pouvoir et la domination par la force, la ruse et la cruauté. Bien qu’ils ne quittent généralement
+                    pas leur plan d’origine, les démons peuvent être appelés par un mortel ou franchir un portail vers
+                    le monde des hommes. Ce qu’ils font avec joie car les faibles humains sont pour eux des proies
+                    faciles et leurs âmes une source importante de pouvoir.
+                </p>
+                <p>
+                    <strong>Diables :</strong>
+                    il ne faut pas confondre les démons et les diables. Les premiers œuvrent pour le chaos, la douleur
+                    et la destruction sauvage, là où les seconds prônent un ordre tyrannique, cruel et immuable. Ils
+                    sont au contraire ennemis depuis la nuit des temps dans une guerre sans fin appelée la Guerre de
+                    Sang. Toutefois, la plupart des mortels ne font pas la différence entre les deux catégories de
+                    créatures infernales et ils appellent sans discernement «démon» toutes les créatures maléfiques
+                    issues d’un autre monde.
+                    <br/>
+                    <em>CO fantasy</em>
+                    fait le choix de ne décrire que les démons, laissant les diables à votre imagination. Chaque type de
+                    démon possède son alter-égo chez les diables avec quelques variations d’apparence et de pouvoir. En
+                    particulier la résistance des diables concerne le froid et l’électricité plutôt que le feu et
+                    l’acide. Les plus connus des diables sont le Diantrefosse (équivalent du Balor), l’Érinye (Succube)
+                    et le Diablotin (Quasit).
+                </p>
+                <h2>Capacités des démons</h2>
+                <p>Tous les démons possèdent les capacités suivantes (NC+1).</p>
+                <p>
+                    <em>Démon :</em>
+                    les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec
+                    celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue
+                    et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du
+                    moins pas de nourritures terrestres.
+                </p>
+                <p>
+                    <em>Résistance :</em>
+                    par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités
+                    peuvent améliorer cette résistance.
+                </p>
+                <p>
+                    <em>Télépathie :</em>
+                    les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres
+                    sans avoir besoin de partager une langue commune. Ils parlent l’infernal.
+                </p>
+                <p>
+                    <em>Téléportation (L) :</em>
+                    un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance
+                    maximum de [NC x 100] mètres.
+                </p>
+                <p>
+                    <em>Vision dans le noir :</em>
+                    tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.
+                </p>
+            </div>
+            <div>
+                <p>C’est une séductrice perverse et cruelle qui compte sur la ruse et la domination psychologique plutôt
+                    que sur le combat pour tuer et corrompre. Son jeu préféré consiste à utiliser son pouvoir de
+                    déguisement pour cacher ses attributs démoniaques afin de séduire ses proies et leur voler leur
+                    énergie vitale lors d’une étreinte mortelle.
+                </p>
+            </div>
+            <milieu>spécial</milieu>
+            <archetype>standard, Boss rang 2</archetype>
+            <nc>6</nc>
+            <type>créature humanoïde</type>
+            <size>moyenne</size>
+            <characteristics>
+                <stats>
+                    <str>+1</str>
+                    <dex>+3</dex>
+                    <con>+1*</con>
+                    <int>+2</int>
+                    <wis>+2</wis>
+                    <cha>+6</cha>
+                </stats>
+                <attributes>
+                    <def>18</def>
+                    <hp>49 (RD 10 / armes saintes)</hp>
+                    <init>16</init>
+                </attributes>
+                <attack><name>Griffes</name><mod>+6</mod><dm>1d6+4</dm></attack>
+                <div>
+                    <p>
+                        <strong>
+                            <a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des
+                                créatures magiques
+                            </a>
+                        </strong>
+                        rang 2
+                        <br/>
+                        <a href="http://co-drs.org/voies/voie-de-l-envouteur/">
+                            <strong>Voie de</strong>
+                            <b>envoûteur</b>
+                        </a>
+                        rang 5
+                    </p>
+                </div>
+                <div>
+                    <strong>Capacités</strong>
+                </div>
+                <div>
+                    <p>
+                        <em>Absorption d’énergie (L) :</em>
+                        une succube peut aspirer l’énergie vitale de sa victime en l’enlaçant ou en l’embrassant. Si la
+                        victime n’est pas consentante, la succube doit auparavant réussir un test d’attaque au contact
+                        puis gagner un test opposé de FOR. La victime de l’absorption d’énergie est <em>affaiblie (</em>utilise
+                        un d12 aux tests) pour 24 heures mais ressent une jouissance extatique lors de ce contact. Elle
+                        ressent le besoin impérieux de le renouveler pendant les 24 heures suivantes à moins de réussir
+                        un test de SAG difficulté 18. Si la victime résiste elle est immunisée à cet effet pour les
+                        prochaines 24 heures.
+                        <br/>
+                        En plus des autres effets, si la Succube le souhaite, à chaque fois qu’elle absorbe l’énergie,
+                        elle peut infliger 1d6 DM et guérir d’autant (les Points de vie acquis au-delà de son score
+                        maximum de PV sont perdus après 10 minutes).
+                    </p>
+                    <p>
+                        <em>Vol :</em>
+                        une Succube peut se déplacer en vol de 20 mètres par action de mouvement.
+                    </p>
+                </div>
+                <family><name>Démons et Diables</name><link>http://co-drs.org/familles-de-creatures/demons-et-diables/</link></family>
+            </characteristics>
+        </content>
+    </article>
+</articles>

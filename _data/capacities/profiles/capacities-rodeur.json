@@ -1,0 +1,402 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Endurant",
+    "data": {
+      "id": "voie-de-la-survie-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-la-survie",
+      "description": "<p>Pour chaque Rang dans cette Voie, le Rôdeur obtient un bonus de +2 sur tous ses  tests de <strong>CON</strong> destinés à résister à la fatigue, aux intempéries et liés de manière générale à la survie en milieu naturel.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Nature nourricière",
+    "data": {
+      "id": "voie-de-la-survie-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-la-survie",
+      "description": "<p>Si le Rôdeur passe 1 heure en forêt, il trouve de quoi nourrir deux personnes (pour une journée) pour chaque rang qu’il possède dans cette voie. En passant 1d6 heure(s) et en réussissant un test de <strong>SAG</strong> difficulté 10, le Rôdeur trouve des plantes médicinales qui lui permettent de soigner 1d6 PV par Rang. Ces plantes doivent être utilisées immédiatement. Ces soins peuvent toutefois être répartis sur plusieurs patients : le joueur alloue les d6 correspondant aux plantes médicinales à sa guise.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Grand pas",
+    "data": {
+      "id": "voie-de-la-survie-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-la-survie",
+      "description": "<p>Le Rôdeur augmente tous ses déplacements de 10 m. Il n'est pas gêné par les terrains accidentés et obtient +5 aux tests de natation et d'escalade.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Increvable",
+    "data": {
+      "id": "voie-de-la-survie-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-la-survie",
+      "description": "<p>Si vous croyez en avoir fini avec lui&#8230; Une fois par combat, lorsqu'il tombe à 0 PV, le Rôdeur peut récupérer [3d6 + Mod. de <strong>CON</strong>] PV au tour suivant.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Constitution héroïque",
+    "data": {
+      "id": "voie-de-la-survie-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-la-survie",
+      "description": "<p>Le personnage augmente son score de <strong>CON</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sens affûtés",
+    "data": {
+      "id": "voie-de-l-archer-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-archer",
+      "description": "<p>Pour chaque Rang dans cette Voie, le Rôdeur gagne un bonus de +2 à tous ses tests de <strong>SAG</strong> destinés à simuler la perception (vue, ouïe, vigilance, etc.). De plus, il ajoute son Mod. de <strong>SAG</strong> aux dégâts qu'il inflige à l'arc et à son Initiative.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir aveugle",
+    "data": {
+      "id": "voie-de-l-archer-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-archer",
+      "description": "<p>Le Rôdeur peut attaquer à distance un ennemi qu'il ne voit pas (par exemple invisible ou plongé dans le noir total), mais dont il connaît l'existence et la direction approximative, comme s'il le voyait, donc sans le malus causé par le fait qu'il ne la voit pas.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir rapide",
+    "data": {
+      "id": "voie-de-l-archer-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-archer",
+      "description": "<p>Le Rôdeur peut faire 2 attaques à distance pendant ce tour.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Flèche de mort",
+    "data": {
+      "id": "voie-de-l-archer-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-archer",
+      "description": "<p>Le Rôdeur lance deux d20 pour son attaque et conserve le meilleur résultat. Les dégâts de la flèche sont doublés.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dans le mille",
+    "data": {
+      "id": "voie-de-l-archer-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-archer",
+      "description": "<p>Pour une attaque à distance, le Rôdeur peut choisir d’utiliser 1d12 en attaque au lieu du d20 habituel (et il ajoute normalement son score d’attaque à distance). Si l’attaque est réussie, il ajoute 2d6 aux <strong>DM</strong>. Cette Capacité peut être utilisée avec Tir Rapide ou Flèche de mort (le bonus de 2d6 aux <strong>DM</strong> n’est pas doublé) par exemple.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Chasseur émérite",
+    "data": {
+      "id": "voie-de-l-escarmouche-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-escarmouche",
+      "description": "<p>Le Rôdeur obtient un bonus de +2 en attaque et aux <strong>DM</strong> lorsqu'il combat des animaux et un bonus de +2 par Rang dans cette Voie pour pister ou retrouver des traces.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Traquenard",
+    "data": {
+      "id": "voie-de-l-escarmouche-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-escarmouche",
+      "description": "<p>Le Rôdeur gagne un bonus de +2 en attaque et +2d6 aux <strong>DM</strong> sur sa première attaque contre une créature s'il possède un meilleur score d'Initiative.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Attaque éclair",
+    "data": {
+      "id": "voie-de-l-escarmouche-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-escarmouche",
+      "description": "<p>Le Rôdeur peut effectuer une attaque au contact très percutante. Il ajoute son Mod. de <strong>DEX</strong> en attaque et aux <strong>DM</strong> pour cette offensive.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Repli",
+    "data": {
+      "id": "voie-de-l-escarmouche-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-escarmouche",
+      "description": "<p>Le Rôdeur se déplace de 40 m en forêt en s'éloignant de ses ennemis. Le joueur fait un test de <strong>DEX</strong> difficulté 10, en cas de succès, il disparaît de la vue de ses poursuivants. Il peut s'éloigner ou rester caché sans risque d'être retrouvé ou rattrapé.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dextérité héroïque",
+    "data": {
+      "id": "voie-de-l-escarmouche-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-de-l-escarmouche",
+      "description": "<p>Le personnage augmente son score de <strong>DEX</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>DEX</strong> lui est demandé, et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Odorat",
+    "data": {
+      "id": "voie-du-compagnon-animal-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-compagnon-animal",
+      "description": "<p>Le loup du Rôdeur détecte les odeurs des animaux et des créatures là où ils sont passés. Le Rôdeur obtient un bonus de +5 aux tests de <strong>SAG</strong> pour pister et suivre des traces.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Surveillance",
+    "data": {
+      "id": "voie-du-compagnon-animal-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-compagnon-animal",
+      "description": "<p>Le loup est constamment sur ses gardes. Le Rôdeur a donc un temps d'avance quand des ennemis essaient de l'attaquer par surprise, il obtient un bonus de +5 pour les tests de surprise (<strong>SAG</strong>) et en Initiative. Lorsqu'il est surpris, il peut faire une attaque simple à distance AVANT que ne débute le premier tour de combat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Combat",
+    "data": {
+      "id": "voie-du-compagnon-animal-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-compagnon-animal",
+      "description": "<p>Le loup du Rôdeur peut désormais se battre comme un véritable personnage. Il attaque en même temps que le Rôdeur.\nLoup : Init 13, <strong>DEF</strong> 14, PV [niveau x 4], attaque au contact = [niveau du Rôdeur],  <strong>DM</strong> 1d6+1, <strong>FOR</strong> +1, <strong>DEX</strong> +1, <strong>CON</strong>* +1, <strong>INT</strong> -3, <strong>SAG</strong>* +2, <strong>CHA</strong> -2.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Empathie animale",
+    "data": {
+      "id": "voie-du-compagnon-animal-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-compagnon-animal",
+      "description": "<p>Le Rôdeur peut parler aux animaux. Il peut également communiquer avec son compagnon animal par télépathie et le guérir à distance en dépensant ses propres PV (1 PV du Rôdeur pour 1 PV octroyé au compagnon animal).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Animal fabuleux",
+    "data": {
+      "id": "voie-du-compagnon-animal-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-compagnon-animal",
+      "description": "<p>Le loup du Rôdeur devient un spécimen particulièrement puissant.\nMâle alpha : Init 13, <strong>DEF</strong> 16, PV [niveau x 4], attaque au contact = [niveau du Rôdeur+2], <strong>DM</strong> 1d6+3, <strong>FOR</strong> +3, <strong>DEX</strong> +1, <strong>CON</strong>* +3, <strong>INT</strong> -3, <strong>SAG</strong>* +2, <strong>CHA</strong> -2</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Pas de loup",
+    "data": {
+      "id": "voie-du-traqueur-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-traqueur",
+      "description": "<p>Quand il essaie de passer inaperçu en forêt, le Rôdeur bénéficie d'un bonus de +2 par Rang à son test de <strong>DEX</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Ennemi juré",
+    "data": {
+      "id": "voie-du-traqueur-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-traqueur",
+      "description": "<p>Après avoir tué une créature, le Rôdeur peut décider que tous ceux de sa race sont devenus des ennemis jurés. Contre ces créatures, il bénéficie d’un bonus égal à son Mod. de <strong>SAG</strong> pour ses attaques et il inflige +1d6 de <strong>DM</strong>. Le Rôdeur peut changer d’ennemi juré une fois au cours de chaque niveau.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Embuscade",
+    "data": {
+      "id": "voie-du-traqueur-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-traqueur",
+      "description": "<p>En quelques minutes, le Rôdeur peut cacher tous ses compagnons dans n’importe quel environnement naturel. Tant qu’ils ne bougent pas, le Rôdeur et ses compagnons sont totalement indétectables. S’ils attaquent des adversaires, ces  derniers sont automatiquement Surpris lors du premier tour du combat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Second ennemi juré",
+    "data": {
+      "id": "voie-du-traqueur-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-traqueur",
+      "description": "<p>Le Rôdeur choisit une nouvelle race ennemie. Les règles et avantages de la capacité Ennemi juré s’appliquent à l’identique.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Perception héroïque",
+    "data": {
+      "id": "voie-du-traqueur-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-traqueur",
+      "description": "<p>Le Rôdeur augmente sa valeur de <strong>SAG</strong> de +2 et il peut désormais lancer deux d20 à  chaque fois qu'un test de <strong>SAG</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Impressionnant",
+    "data": {
+      "id": "voie-du-montreur-dours-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-montreur-dours",
+      "description": "<p>L'ours n'est pas dressé à attaquer, mais les interlocuteurs du Rôdeur ne le savent pas, aussi gagne-t-il un bonus de +5 à tous ses tests d'intimidation lorsque l'animal est à ses cotés. L'ours n'attaque que pour se défendre s'il est blessé.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dressage",
+    "data": {
+      "id": "voie-du-montreur-dours-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-montreur-dours",
+      "description": "<p>Le Rôdeur a dressé l'ours, il peut lui faire faire des numéros comme marcher sur les pattes avant ou porter un objet en équilibre sur son museau, cela peut lui permettre de gagner un peu d'argent dans les villages (2d6 pa en 2d6 minutes). Il peut aussi faire croire que l'ours l'attaque et simuler un combat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Combat",
+    "data": {
+      "id": "voie-du-montreur-dours-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-montreur-dours",
+      "description": "<p>L’ours du Rôdeur peut désormais se battre comme un véritable personnage. Il attaque en même temps que le Rôdeur.\nJeune ours noir : Init 13, <strong>DEF</strong> 14, PV [niveau x 5], attaque au contact = [niveau du Rôdeur], <strong>DM</strong> 1d6+3, <strong>FOR</strong> +3*, <strong>DEX</strong> +1, <strong>CON</strong> +3, <strong>INT</strong> -4, <strong>SAG</strong> +2, <strong>CHA</strong> -2</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Empathie animale",
+    "data": {
+      "id": "voie-du-montreur-dours-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-montreur-dours",
+      "description": "<p>Le Rôdeur peut parler aux animaux. Il peut également communiquer avec son compagnon animal par télépathie et le guérir à distance en dépensant ses propres PV (1 PV du Rôdeur pour 1 PV octroyé au compagnon animal).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Animal fabuleux",
+    "data": {
+      "id": "voie-du-montreur-dours-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "rodeur",
+      "path": "voie-du-montreur-dours",
+      "description": "<p>L'ours du Rôdeur devient un spécimen en pleine possession de ses moyens. Ours noir : Init 15, <strong>DEF</strong> 17, PV [niveau x 5], attaque au contact = [niveau du  rôdeur+2], <strong>DM</strong> 1d6+5, <strong>FOR</strong> +5*, <strong>DEX</strong> +2, <strong>CON</strong> +5, <strong>INT</strong> -4, <strong>SAG</strong> +2, <strong>CHA</strong> -2\nExemple de variation de la Voie du compagnon animal.</p>"
+    }
+  }
+]

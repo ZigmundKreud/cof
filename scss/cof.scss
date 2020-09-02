@@ -1,0 +1,21 @@
+// Import utilities.
+@import 'utils/colors';
+@import 'utils/typography';
+//@import 'utils/mixins';
+//@import 'utils/variables';
+
+/* Global styles */
+@import 'global/window';
+@import 'global/grid';
+@import 'global/flex';
+@import 'components/chat';
+@import 'components/forms';
+
+/* Styles limited to cof sheets */
+.cof {
+  @import 'components/layout';
+  @import 'components/skin';
+  //@import 'components/resource';
+  @import 'components/tabs';
+  @import 'components/items';
+}

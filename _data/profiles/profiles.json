@@ -1,0 +1,509 @@
+[
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/arquebusier.png",
+    "name": "Arquebusier",
+    "data": {
+      "id": "arquebusier",
+      "description": "<p>L'Arquebusier est un dur à cuire, un soldat ou un mercenaire habitué des champs de bataille. C'est un spécialiste du combat à distance et plus particulièrement des armes à feu et des explosifs.</p>",
+      "dv": "1d8",
+      "proficiency": "<p>L'Arquebusier sait manier toutes les armes de contact à une main, les armes à distance et les armes à poudre. Il peut porter jusqu'à la chemise de maille et ne manie pas de bouclier.</p>",
+      "trappings": "<p>Pétoire (<strong>DM</strong> 1d10, portée 20m), épée longue (<strong>DM</strong> 1d8), dague (<strong>DM</strong> 1d4), armure de cuir (<strong>DEF</strong> +2).</p>",
+      "note": {
+        "title": "Poudre ou pas poudre ?",
+        "text": "<p>Ce personnage utilise des armes à feu et peut être joué dans un cadre équivalent à la Renaissance ou au XVIIe siècle, mais si votre contexte de jeu ne le permet pas, vous pouvez remplacer la pétoire par une arbalète de poing, le mousquet par une arbalète lourde et la couleuvrine par une baliste… Supprimez la Voie des explosifs et remplacez-la par la Voie du Maître d'arme de Guerrier, en la limitant aux arbalètes. Le nom du Profil devient alors « Arbalétrier ».</p>"
+      },
+      "paths": [
+        {
+          "id": "voie-de-l-artilleur",
+          "label": "Voie de l'artilleur"
+        },
+        {
+          "id": "voie-des-explosifs",
+          "label": "Voie des explosifs"
+        },
+        {
+          "id": "voie-du-champ-de-bataille",
+          "label": "Voie du champ de bataille"
+        },
+        {
+          "id": "voie-du-pistolero",
+          "label": "Voie du pistolero"
+        },
+        {
+          "id": "voie-de-la-precision",
+          "label": "Voie de la précision"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/barbare.png",
+    "name": "Barbare",
+    "data": {
+      "id": "barbare",
+      "description": "<p>Le Barbare est un combattant sauvage issu d'une culture primitive. Il affronte ses ennemis avec rage sans se cacher derrière une lourde armure.</p>",
+      "dv": "1d12",
+      "proficiency": "<p>Le Barbare sait manier toutes les armes au contact, toutes les armes à distance (sauf les arbalètes et les armes d'une technologie trop complexe). Il peut porter jusqu'à l'armure de cuir et manier le bouclier.</p>",
+      "trappings": "<p>Hache à 2 mains (<strong>DM</strong> 2d6), 2 javelots (<strong>DM</strong> 1d6, portée 20 m), dague (<strong>DM</strong> 1d4), armure de cuir (<strong>DEF</strong> +2).</p>",
+      "paths": [
+        {
+          "id": "voie-de-la-brute",
+          "label": "Voie de la brute"
+        },
+        {
+          "id": "voie-du-pagne",
+          "label": "Voie du pagne"
+        },
+        {
+          "id": "voie-du-pourfendeur",
+          "label": "Voie du pourfendeur"
+        },
+        {
+          "id": "voie-du-primitif",
+          "label": "Voie du primitif"
+        },
+        {
+          "id": "voie-de-la-rage",
+          "label": "Voie de la rage"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/barde.png",
+    "name": "Barde",
+    "data": {
+      "id": "barde",
+      "description": "<p>Le Barde est un personnage polyvalent qui utilise la magie et le spectacle pour divertir et parvenir à ses fins. Il est aussi habitué aux ruses qu'à la diplomatie.</p>",
+      "dv": "1d6",
+      "proficiency": "<p>Le Barde sait manier les armes à 1 main. Il peut porter jusqu'à l'armure de cuir renforcée et ne peut pas manier le bouclier.</p>",
+      "spellcasting": "cha",
+      "trappings": "<p>Rapière (<strong>DM</strong> 1d6, Crit 19-20), dague (<strong>DM</strong> 1d4), instrument de musique, armure de cuir (<strong>DEF</strong> +2).</p>",
+      "paths": [
+        {
+          "id": "voie-de-l-escrime",
+          "label": "Voie de l'escrime"
+        },
+        {
+          "id": "voie-du-musicien",
+          "label": "Voie du musicien"
+        },
+        {
+          "id": "voie-du-saltimbanque",
+          "label": "Voie du saltimbanque"
+        },
+        {
+          "id": "voie-de-la-seduction",
+          "label": "Voie de la séduction"
+        },
+        {
+          "id": "voie-du-vagabond",
+          "label": "Voie du vagabond"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/chevalier.png",
+    "name": "Chevalier",
+    "data": {
+      "id": "chevalier",
+      "description": "<p>Le Chevalier est un noble guerrier errant, monté sur un puissant destrier et protégé par une armure lourde. Il parcourt la campagne en quête de torts à redresser et d'occasions de mettre son courage à l'épreuve.</p>",
+      "dv": "1d10",
+      "proficiency": "<p>Le Chevalier sait manier toutes les armes de contact, mais il dédaigne les armes à distance qu'il considère comme des armes de couard. Il sait manier le bouclier et peut porter toutes les armures jusqu'à l'armure de plaques complète.</p>",
+      "trappings": "<p>Epée longue (<strong>DM</strong> 1d8), grand bouclier (<strong>DEF</strong> +2), lance de cavalerie (<strong>DM</strong> 2d6), dague (<strong>DM</strong> 1d4), armure de demi-plaque (<strong>DEF</strong> +6).</p>",
+      "paths": [
+        {
+          "id": "voie-du-cavalier",
+          "label": "Voie du cavalier"
+        },
+        {
+          "id": "voie-de-la-guerre",
+          "label": "Voie de la guerre"
+        },
+        {
+          "id": "voie-du-heros",
+          "label": "Voie du héros"
+        },
+        {
+          "id": "voie-du-meneur-d-homme",
+          "label": "Voie du meneur d'homme"
+        },
+        {
+          "id": "voie-de-la-noblesse",
+          "label": "Voie de la noblesse"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/druide.png",
+    "name": "Druide",
+    "data": {
+      "id": "druide",
+      "description": "<p>Le Druide est un prêtre de la nature qui défend sa pureté originelle et tire ses pouvoirs de la vie, des animaux et des plantes.</p>",
+      "dv": "1d8",
+      "proficiency": "<p>Le Druide (équivalent à un bâton ferré), l'épieu, le javelot et l'arc court. Il peut porter l'armure de cuir et peut manier le petit bouclier en bois (<strong>DEF</strong>+1).</p>",
+      "spellcasting": "wis",
+      "trappings": "<p>Bâton (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), arc court (<strong>DM</strong> 1d6, portée 30 m), armure de cuir (<strong>DEF</strong> +2).</p>",
+      "paths": [
+        {
+          "id": "voie-des-animaux",
+          "label": "Voie des animaux"
+        },
+        {
+          "id": "voie-du-fauve",
+          "label": "Voie du fauve"
+        },
+        {
+          "id": "voie-de-la-nature",
+          "label": "Voie de la nature"
+        },
+        {
+          "id": "voie-du-protecteur",
+          "label": "Voie du protecteur"
+        },
+        {
+          "id": "voie-des-vegetaux",
+          "label": "Voie des végétaux"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/ensorceleur.png",
+    "name": "Ensorceleur",
+    "data": {
+      "id": "ensorceleur",
+      "description": "<p>L'Ensorceleur tire son pouvoir d'un talent inné pour la magie. Il pratique une magie subtile à base de tromperie et de contrôle, et possède peu de sorts de destruction massive.</p>",
+      "dv": "1d4",
+      "proficiency": "<p>L'Ensorceleur sait manier la dague et le bâton ferré. Il ne peut porter aucune armure (sauf si elle est faite de tissu) et ne peut pas manier le bouclier.</p>",
+      "spellcasting": "cha",
+      "trappings": "<p>Bâton ferré (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), potion de soins (guérit 1d8 PV).</p>",
+      "paths": [
+        {
+          "id": "voie-de-l-air",
+          "label": "Voie de l'air"
+        },
+        {
+          "id": "voie-de-la-divination",
+          "label": "Voie de la divination"
+        },
+        {
+          "id": "voie-de-l-envouteur",
+          "label": "Voie de l'envoûteur"
+        },
+        {
+          "id": "voie-des-illusions",
+          "label": "Voie des illusions"
+        },
+        {
+          "id": "voie-de-l-invocation",
+          "label": "Voie de l'invocation"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/forgesort.png",
+    "name": "Forgesort",
+    "data": {
+      "id": "forgesort",
+      "description": "<p>A la fois artisan et enchanteur, artiste et magicien, le Forgesort lie les énergies occultes à la matière qu'il façonne pour créer des artefacts magiques ou des breuvages aux propriétés fantastiques.</p>",
+      "dv": "1d6",
+      "proficiency": "<p>Le Forgesort sait manier la dague, le bâton ferré, le marteau et l'arbalète légère. Il peut porter une armure de cuir simple seulement et ne peut pas manier de bouclier.</p>",
+      "spellcasting": "int",
+      "trappings": "<p>Dague (<strong>DM</strong> 1d4), bâton ferré (<strong>DM</strong> 1d6), marteau (<strong>DM</strong> 1d6).</p>",
+      "note": {
+        "title": "Science, pas science ?",
+        "text": "<p>Ce Profil est particulièrement adapté aux univers où le développement technologique n'est pas en reste (tendance Steampunk, Les Royaumes d'Acier ou Eberron par exemple). Dans ce genre d'univers, vous pouvez le typer plus fortement en renommant la Voie du golem en Voie du méca et plutôt que des sorts, tous les effets sont obtenus par de nombreux objets étranges portés, ingérés ou greffés.</p>"
+      },
+      "paths": [
+        {
+          "id": "voie-des-artefacts",
+          "label": "Voie des artefacts"
+        },
+        {
+          "id": "voie-des-elixirs",
+          "label": "Voie des élixirs"
+        },
+        {
+          "id": "voie-du-metal",
+          "label": "Voie du métal"
+        },
+        {
+          "id": "voie-du-golem",
+          "label": "Voie du golem"
+        },
+        {
+          "id": "voie-des-runes",
+          "label": "Voie des runes"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/guerrier.png",
+    "name": "Guerrier",
+    "data": {
+      "id": "guerrier",
+      "description": "<p>Le Guerrier est un combattant émérite qui n'a pas peur du danger et qui affronte ses ennemis l'arme à la main. De tous les profils de combattant, il est le plus spécialisé et le plus complet dans l'art du combat au corps à corps.</p>",
+      "dv": "1d10",
+      "proficiency": "<p>Le Guerrier sait manier toutes les armes de contact et toutes les armes à distance. Il peut porter jusqu'à l'armure de demi-plaque et manier le bouclier.</p>",
+      "trappings": "<p>Epée longue (<strong>DM</strong> 1d8), épée ou hache à 2 mains (<strong>DM</strong> 2d6), grand bouclier (<strong>DEF</strong> +2) et cotte de mailles (<strong>DEF</strong> +5).</p>",
+      "paths": [
+        {
+          "id": "voie-du-bouclier",
+          "label": "Voie du bouclier"
+        },
+        {
+          "id": "voie-du-combat",
+          "label": "Voie du combat"
+        },
+        {
+          "id": "voie-du-maitre-darmes",
+          "label": "Voie du maître d'armes"
+        },
+        {
+          "id": "voie-de-la-resistance",
+          "label": "Voie de la résistance"
+        },
+        {
+          "id": "voie-du-soldat",
+          "label": "Voie du soldat"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/magicien.png",
+    "name": "Magicien",
+    "data": {
+      "id": "magicien",
+      "description": "<p>Le Magicien n'est pas qu'un rat de bibliothèque. Il fait aussi appel à ses sorts pour se débarrasser de ses ennemis et pour aider ses compagnons.</p>",
+      "dv": "1d4",
+      "proficiency": "<p>Le Magicien sait manier la dague et le bâton ferré et ne porte que des vêtements en tissu, donc aucune armure.</p>",
+      "spellcasting": "int",
+      "trappings": "<p>Bâton (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), grimoire, potion de soin (guérit 1d8 PV).</p>",
+      "paths": [
+        {
+          "id": "voie-de-la-magie-des-arcanes",
+          "label": "Voie de la magie des arcanes"
+        },
+        {
+          "id": "voie-de-la-magie-destructrice",
+          "label": "Voie de la magie destructrice"
+        },
+        {
+          "id": "voie-de-la-magie-elementaire",
+          "label": "Voie de la magie élémentaire"
+        },
+        {
+          "id": "voie-de-la-magie-protectrice",
+          "label": "Voie de la magie protectrice"
+        },
+        {
+          "id": "voie-de-la-magie-universelle",
+          "label": "Voie de la magie universelle"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/moine.png",
+    "name": "Moine",
+    "data": {
+      "id": "moine",
+      "description": "<p>Le Moine combat à mains nues et utilise le contrôle qu'il a sur son esprit et son corps pour transformer ce dernier en arme de chair.</p>",
+      "dv": "1d8",
+      "proficiency": "<p>Le Moines n'y font pas appel et sont plus  efficaces à mains nues.</p>",
+      "trappings": "<p>Bâton ferré (<strong>DM</strong> 1d6).</p>",
+      "note": {
+        "title": "Adapter le moine à votre univers",
+        "text": "<p>Bien que d 'inspiration asiatique, ce Moine est un moine-guerrier qui peut être adapté à de nombreux mondes fantastiques. Si cela ne colle pas avec votre univers, vous pouvez facilement transposer les capacités de combat à mains nues avec une arme (l'épée par exemple) afin d 'occidentaliser ce profil.</p>"
+      },
+      "paths": [
+        {
+          "id": "voie-de-l-energie-vitale",
+          "label": "Voie de l'énergie vitale"
+        },
+        {
+          "id": "voie-de-la-maitrise",
+          "label": "Voie de la maîtrise"
+        },
+        {
+          "id": "voie-de-la-meditation",
+          "label": "Voie de la méditation"
+        },
+        {
+          "id": "voie-du-poing",
+          "label": "Voie du poing"
+        },
+        {
+          "id": "voie-du-vent",
+          "label": "Voie du vent"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/necromancien.png",
+    "name": "Nécromancien",
+    "data": {
+      "id": "necromancien",
+      "description": "<p>Les Nécromanciens sont généralement considérés comme maléfiques et sont peu appréciés. Interprétez-le de façon subtile afin d'en faire un personnage plutôt sombre ou désespéré, mais pas forcément « mauvais » !</p>",
+      "dv": "1d4",
+      "proficiency": "<p>Le Nécromancien sait manier la dague et le bâton ferré. Il ne peut porter aucune  armure (sauf si celle-ci est faite de tissu) et ne peut pas manier le bouclier.</p>",
+      "spellcasting": "int",
+      "trappings": "<p>Bâton ferré (<strong>DM</strong> 1d6), dague (<strong>DM</strong> 1d4), potion de soins (guérit 1d8 PV).</p>",
+      "paths": [
+        {
+          "id": "voie-du-demon",
+          "label": "Voie du démon"
+        },
+        {
+          "id": "voie-de-la-mort",
+          "label": "Voie de la mort"
+        },
+        {
+          "id": "voie-de-l-outre-tombe",
+          "label": "Voie de l'outre-tombe"
+        },
+        {
+          "id": "voie-du-sang",
+          "label": "Voie du sang"
+        },
+        {
+          "id": "voie-de-la-sombre-magie",
+          "label": "Voie de la sombre magie"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/pretre.png",
+    "name": "Prêtre",
+    "data": {
+      "id": "pretre",
+      "description": "<p>Le Prêtre utilise l'énergie transmise par son dieu pour mener à bien ses missions  avec la force de la foi mais aussi celle des armes si nécessaire.</p>",
+      "dv": "1d8",
+      "proficiency": "<p>Le Prêtre sait manier les armes contondantes à une main (marteau, masse) plus une arme sacrée qui dépend de son dieu. Il peut porter jusqu'à une chemise de mailles et manier le petit ou le grand bouclier (au choix du MJ en fonction de la divinité).</p>",
+      "spellcasting": "wis",
+      "trappings": "<p>Masse ou marteau de guerre (<strong>DM</strong> 1d6), petit bouclier (<strong>DEF</strong> +1), chemise de maille (<strong>DEF</strong> +4).</p>",
+      "note": {
+        "title": "Pouvoirs divins",
+        "text": "<p>Les voies présentées ici sont génériques mais chaque dieu est particulier. Afin de personnaliser votre Prêtre, choisissez une autre arme sacrée et inventez vous-même (ou choisissez parmi les voies des autres profils) un pouvoir de rang 1 ou 2 que le personnage prendra en remplacement d'une capacité de même rang. L'arme sacrée et le pouvoir devra symboliser fortement sa religion et les directives du culte.</p>"
+      },
+      "paths": [
+        {
+          "id": "voie-de-la-foi",
+          "label": "Voie de la foi"
+        },
+        {
+          "id": "voie-de-la-guerre-sainte",
+          "label": "Voie de la guerre sainte"
+        },
+        {
+          "id": "voie-de-la-priere",
+          "label": "Voie de la prière"
+        },
+        {
+          "id": "voie-des-soins",
+          "label": "Voie des soins"
+        },
+        {
+          "id": "voie-de-la-spiritualite",
+          "label": "Voie de la spiritualité"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/rodeur.png",
+    "name": "Rôdeur",
+    "data": {
+      "id": "rodeur",
+      "description": "<p>Le Rôdeur est à l'aise dans les forêts ténébreuses, où il traque les animaux dangereux et les créatures monstrueuses ou, au contraire, se fait l'ami des bêtes et le protecteur des lieux sauvages.</p>",
+      "dv": "1d8",
+      "proficiency": "<p>Le Rôdeur sait manier les armes de contact à une main et toutes les armes à distance, il peut porter toutes les armures à base de cuir mais ne manie pas de bouclier.</p>",
+      "trappings": "<p>Arc court (<strong>DM</strong> 1d6, portée 30m), carquois, épée longue (<strong>DM</strong> 1d8), dague (<strong>DM</strong> 1d4), armure de cuir renforcée (<strong>DEF</strong> +3).</p>",
+      "note": {
+        "title": "Compagnon animal",
+        "text": "<p>Si vous jouez dans un monde moins fantastique ou plus exotique, vous pouvez  remplacer le loup par un chien ou par tout autre animal adapté à vos aventures (hyène, panthère, chacal&#8230;). Si le joueur la choisit, la Voie du compagnon animal. Un Profil ne peut avoir plus de 5 Voies.</p>"
+      },
+      "paths": [
+        {
+          "id": "voie-de-l-archer",
+          "label": "Voie de l'archer"
+        },
+        {
+          "id": "voie-du-compagnon-animal",
+          "label": "Voie du compagnon animal"
+        },
+        {
+          "id": "voie-de-l-escarmouche",
+          "label": "Voie de l'escarmouche"
+        },
+        {
+          "id": "voie-de-la-survie",
+          "label": "Voie de la survie"
+        },
+        {
+          "id": "voie-du-traqueur",
+          "label": "Voie du traqueur"
+        },
+        {
+          "id": "voie-du-montreur-dours",
+          "label": "Voie du montreur d'ours"
+        }
+      ]
+    }
+  },
+  {
+    "type": "profile",
+    "img": "/systems/cof/ui/icons/profiles/voleur.png",
+    "name": "Voleur",
+    "data": {
+      "id": "voleur",
+      "description": "<p>Le Voleur crochète les portes, détecte les pièges et préfère piller les cadavres des ennemis que de se salir les mains pendant le combat.</p>",
+      "dv": "1d6",
+      "proficiency": "<p>Le Voleur sait manier les armes de contact à une main et toutes les armes à distance. Il peut seulement porter une armure de cuir simple et ne manie pas de bouclier.</p>",
+      "trappings": "<p>Rapière (<strong>DM</strong> 1d6, Crit 19-20), 5 dagues (<strong>DM</strong> 1d4, portée 5 m), outils de crochetage, armure de cuir (<strong>DEF</strong> +2).</p>",
+      "paths": [
+        {
+          "id": "voie-de-l-assassin",
+          "label": "Voie de l'assassin"
+        },
+        {
+          "id": "voie-de-l-aventurier",
+          "label": "Voie de l'aventurier"
+        },
+        {
+          "id": "voie-du-deplacement",
+          "label": "Voie du déplacement"
+        },
+        {
+          "id": "voie-du-roublard",
+          "label": "Voie du roublard"
+        },
+        {
+          "id": "voie-du-spadassin",
+          "label": "Voie du spadassin"
+        }
+      ]
+    }
+  }
+]

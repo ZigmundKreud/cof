@@ -1,0 +1,56 @@
+<div class="row flexrow">
+    <div class="flex1 right">
+        <span class="field-label">{{ localize 'COF.details.gender' }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value" name="data.details.gender" type="text" value="{{actor.data.details.gender}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow">
+    <div class="flex1 right">
+        <span class="field-label">{{ localize "COF.details.age" }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value" name="data.details.age" type="text" value="{{actor.data.details.age}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow">
+    <div class="flex1 right">
+        <span class="field-label">{{ localize "COF.details.height" }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value" name="data.details.height" type="text" value="{{actor.data.details.height}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow">
+    <div class="flex1 right">
+        <span class="field-label">{{ localize "COF.details.weight" }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value" name="data.details.weight" type="text" value="{{actor.data.details.weight}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow">
+    <div class="flex1 right">
+        <span class="field-label">{{ localize "COF.details.eyes" }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value" name="data.details.eyes" type="text" value="{{actor.data.details.eyes}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow">
+    <div class="flex1 right">
+        <span class="field-label">{{ localize "COF.details.hair" }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value" name="data.details.hair" type="text" value="{{actor.data.details.hair}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<hr/>
+<div class="row flexrow">
+    <div class="flex">
+        <span class="field-label">{{ localize "COF.details.description" }}</span>
+    </div>
+</div>
+<hr/>
+{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}

@@ -1,0 +1,22 @@
+.message-header {
+  h2.damage{
+    color: orangered !important;
+    font-weight: bold;
+  }
+  h2.critical{
+    color: green !important;
+    font-weight: bold;
+  }
+  h2.fumble{
+    color: red !important;
+    font-weight: bold;
+  }
+  h2.success{
+    color: $c-darkgreen;
+    font-weight: bold;
+  }
+  h2.failure{
+    color: $c-darkred;
+    font-weight: bold;
+  }
+}

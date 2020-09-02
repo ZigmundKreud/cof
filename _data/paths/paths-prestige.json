@@ -1,0 +1,38 @@
+[
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de prestige spécialisée",
+    "data": {
+      "id": "voie-de-prestige-specialisee",
+      "description": "<p>La voie de prestige spécialisée n’élargit pas le domaine de compétence du personnage, mais lui permet d’améliorer certaines capacités ou compétences en apportant des bonus sur ce qu’il sait déjà faire.\nLe héros devient un expert dans son domaine et accède aux capacités suivantes :</p>",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Expertise",
+          "description": "<p>Au choix, soit le personnage obtient un bonus de +5 sur les tests d’une Carac. (<strong>FOR</strong>, <strong>DEX</strong>, etc.), soit il obtient un bonus de +10 sur les tests d’une compétence (acrobatie, discrétion, connaissance, perception, survie, etc.), soit il gagne un bonus de +2 en attaque lorsqu’il utilise une capacité limitée à préciser.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Capacité signature",
+          "description": "<p>Le joueur choisit une capacité limitée de son personnage. Une fois par combat, il peut interrompre le court normal du tour pour utiliser cette capacité en plus de ses actions normales dans le tour.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Capacité supérieure",
+          "description": "<p>Le joueur choisit une capacité limitée que connaît son personnage, lorsqu’il utilise cette capacité, il ajoute +1d6 aux <strong>DM</strong> produits. Le joueur peut en profiter pour personnaliser cette capacité : par exemple un Magicien peut décider de transformer la Flèche enflammée en sort de « Flèche acide ».</p>"
+        },
+        {
+          "level": 4,
+          "title": "Caractéristique fabuleuse",
+          "description": "<p>Le joueur augmente de 2 points la valeur de la plus haute Caractéristique de son personnage.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Capacité fabuleuse",
+          "description": "<p>Le  joueur choisit une capacité limitée que son personnage connaît. Celle-ci ne nécessite dorénavant plus une action limitée pour être utilisée (une attaque spéciale ou un sort compte alors pour une action d’attaque, une autre capacité pour une action de mouvement). S’il choisit la même capacité que pour Capacité supérieure, il est tout de même obligé d’utiliser une action limitée s’il veut bénéficier du bonus aux <strong>DM</strong>.</p>"
+        }
+      ]
+    }
+  }
+]

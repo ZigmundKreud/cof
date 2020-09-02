@@ -1,0 +1,336 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Robustesse",
+    "data": {
+      "id": "voie-de-la-resistance-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-de-la-resistance",
+      "description": "<p>En prenant cette capacité, le Guerrier gagne 3 PV supplémentaires au Rang 1, puis 3 PV de plus au Rang 3 de cette Voie et enfin 3 PV au Rang 5.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Armure naturelle",
+    "data": {
+      "id": "voie-de-la-resistance-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-de-la-resistance",
+      "description": "<p>Le Guerrier a endurci son corps. Il bénéficie d'un bonus de +2 à la <strong>DEF</strong>. Ce bonus passe à +4 lorsqu'il atteint le rang 4 de la voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Second souffle",
+    "data": {
+      "id": "voie-de-la-resistance-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-de-la-resistance",
+      "description": "<p>Une fois par combat, le Guerrier peut décider de ne pas attaquer lors du tour de combat pour reprendre son souffle. Il récupère alors [1d10 + niveau + Mod. de <strong>CON</strong>] PV.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dur à cuire",
+    "data": {
+      "id": "voie-de-la-resistance-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-de-la-resistance",
+      "description": "<p>Le Guerrier reçoit un bonus de +5 à tous ses tests de <strong>CON</strong>. De plus, lorsqu'il tombe à 0 PV, il peut continuer à agir pendant un ultime tour avant de tomber inconscient.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Constitution héroïque",
+    "data": {
+      "id": "voie-de-la-resistance-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-de-la-resistance",
+      "description": "<p>Le personnage augmente son score de <strong>CON</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Protéger un allié",
+    "data": {
+      "id": "voie-du-bouclier-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-bouclier",
+      "description": "<p>Le Guerrier accorde le Mod. de <strong>DEF</strong> de son bouclier à un compagnon de son choix qui se trouve juste à côté de lui (il conserve ce bonus pour lui-même aussi). Il peut changer de compagnon à chaque tour durant sa phase d'Initiative. C'est une action gratuite.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Absorber un coup",
+    "data": {
+      "id": "voie-du-bouclier-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-bouclier",
+      "description": "<p>A son tour, le Guerrier fait seulement une action d’attaque ou de déplacement. Par la suite, à tout moment avant son prochain tour, le Guerrier peut effectuer un test d’attaque au contact en opposition à un test réussi d’attaque au contact ou à distance d’un adversaire. En cas de réussite, l’attaque adverse est bloquée par le bouclier.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Absorber un sort",
+    "data": {
+      "id": "voie-du-bouclier-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-bouclier",
+      "description": "<p>A son tour, le Guerrier fait seulement une action d’attaque ou de déplacement. Par la suite, à tout moment avant son prochain tour, le Guerrier peut effectuer un test d’attaque magique (Mod. de <strong>SAG</strong>) en opposition à un test d’attaque magique qui le visait. En cas de réussite, le sort est absorbé par le bouclier et n’a aucun effet sur le Guerrier.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Armure lourde",
+    "data": {
+      "id": "voie-du-bouclier-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-bouclier",
+      "description": "<p>Le Guerrier peut porter une Armure de Plaque. Celle-ci lui confère une <strong>DEF</strong> de +8 et le protège des attaques critiques (vous subissez des <strong>DM</strong> normaux au lieu des <strong>DM</strong> doublés).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Renvoi de sort",
+    "data": {
+      "id": "voie-du-bouclier-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-bouclier",
+      "description": "<p>Le Guerrier peut décider de renvoyer un sort qu’il vient d’absorber grâce à sa capacité Absorber un sort. Au lieu d’être annulé, le sort absorbé le tour précédent est retourné contre son expéditeur : le lanceur du sort subit alors les effets de sa propre attaque !</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Vivacité",
+    "data": {
+      "id": "voie-du-combat-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-combat",
+      "description": "<p>Le Guerrier gagne +3 en Initiative.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Désarmer",
+    "data": {
+      "id": "voie-du-combat-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-combat",
+      "description": "<p>Le Guerrier réalise une attaque au contact et sa victime doit faire un test d’attaque opposé. Si le Guerrier obtient le plus haut score, l’arme de son adversaire tombe au sol (une action de mouvement doit être employée pour la ramasser).\nSi le Guerrier réussit son test avec au moins 10 points de plus que son adversaire, il empêche celui-ci de récupérer son arme (en posant le pied dessus, en l’envoyant hors de portée, etc.).\nCette capacité est évidemment sans effet sur les armes naturelles (griffes, crocs, épine dorsale, etc.).\nLes adversaires qui utilisent des armes à 2 mains sont plus difficiles à désarmer, infligeant un malus de -5 au test.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Double attaque",
+    "data": {
+      "id": "voie-du-combat-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-combat",
+      "description": "<p>Le Guerrier peut tenter deux attaques au contact durant ce tour avec un malus de -2.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Attaque circulaire",
+    "data": {
+      "id": "voie-du-combat-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-combat",
+      "description": "<p>Le Guerrier peut tenter une attaque au contact contre chaque adversaire engagé au contact avec lui.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Attaque puissante",
+    "data": {
+      "id": "voie-du-combat-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-combat",
+      "description": "<p>Le Guerrier peut choisir d’utiliser 1d12 en attaque au contact au lieu du d20 habituel (il ajoute normalement son score d’attaque). Si une telle attaque est réussie, il ajoute +2d6 aux <strong>DM</strong>. Cette capacité peut être utilisée avec Double attaque, Attaque circulaire ou Attaque parfaite par exemple.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Arme de prédilection",
+    "data": {
+      "id": "voie-du-maitre-darmes-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-maitre-darmes",
+      "description": "<p>Le Guerrier choisit une arme de prédilection (par exemple épée longue ou hache à 1 main, arc court, etc.), et gagne +1 en attaque lorsqu'il l'utilise.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Science du critique",
+    "data": {
+      "id": "voie-du-maitre-darmes-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-maitre-darmes",
+      "description": "<p>Le Guerrier inflige des critiques sur 19-20 (18-20 lorsqu'il emploie une rapière ou une Vivelame).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Spécialisation",
+    "data": {
+      "id": "voie-du-maitre-darmes-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-maitre-darmes",
+      "description": "<p>Lorsque le Guerrier emploie son arme de prédilection, il gagne un bonus de +2 aux <strong>DM</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Attaque parfaite",
+    "data": {
+      "id": "voie-du-maitre-darmes-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-maitre-darmes",
+      "description": "<p>Lancez deux d20 en attaque au contact et gardez le meilleur résultat, ajoutez +1d6 aux <strong>DM</strong>.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Riposte",
+    "data": {
+      "id": "voie-du-maitre-darmes-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-maitre-darmes",
+      "description": "<p>En plus de ses actions normales, une fois par tour, lorsqu'un adversaire rate une attaque de contact contre le Guerrier, le joueur obtient une attaque supplémentaire contre cet adversaire.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Posture de combat",
+    "data": {
+      "id": "voie-du-soldat-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-soldat",
+      "description": "<p>Au début de votre tour, choisissez d'appliquer jusqu'à -1 par rang en attaque, en <strong>DEF</strong> ou aux <strong>DM</strong> et obtenez l'équivalent en bonus au choix en attaque, en <strong>DEF</strong> ou aux <strong>DM</strong> jusqu'à votre prochain tour.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Combat en phalange",
+    "data": {
+      "id": "voie-du-soldat-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-soldat",
+      "description": "<p>Lorsque vous combattez la même créature qu'un allié, vous gagnez +1 en attaque et en <strong>DEF</strong> par allié au contact avec vous et avec la créature.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Prouesse",
+    "data": {
+      "id": "voie-du-soldat-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-soldat",
+      "description": "<p>Le Guerrier réussit souvent des exploits physiques hors-norme. Une fois par tour, vous pouvez sacrifier 1d4 PV pour obtenir +5 sur un test de <strong>FOR</strong> ou de <strong>DEX</strong>. Vous pouvez annoncer l'utilisation de cette capacité après avoir pris connaissance du résultat du test de Caractéristique.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dernier rempart",
+    "data": {
+      "id": "voie-du-soldat-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-soldat",
+      "description": "<p>Le Guerrier effectue uniquement une attaque au contact durant ce tour. En contrepartie, il bénéficie d'une attaque supplémentaire contre tout ennemi qui se déplace à son contact. Un adversaire blessé par cette attaque voit son déplacement stoppé.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Force héroïque",
+    "data": {
+      "id": "voie-du-soldat-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "guerrier",
+      "path": "voie-du-soldat",
+      "description": "<p>Le personnage augmente sa valeur de <strong>FOR</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>FOR</strong> lui est demandé et garder le meilleur résultat.</p>"
+    }
+  }
+]

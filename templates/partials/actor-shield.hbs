@@ -1,0 +1,56 @@
+<div class="row flexrow">
+    <div class="flex1 layout">
+        <div class="row flexrow table-header blue">
+            <div class="flex3">
+                <div class="field-label">BOUCLIER</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Usage</div>
+            </div>
+            <div class="flex2 center">
+                <div class="field-label">Def.</div>
+            </div>
+            <div class="flex2 center">
+                <div class="field-label">Bonus</div>
+            </div>
+        </div>
+        <ol class="item-list">
+            {{#if (isEmpty (getWornShields actor.items))}}
+            <li class="flexrow item">
+                <div class="flex1 left">
+                    <span class="empty">Aucun bouclier équipé pour le moment</span>
+                </div>
+            </li>
+            {{/if}}
+            {{#each (getWornShields actor.items) as |item id|}}
+            <li class="flexrow item" data-item-id="{{item._id}}">
+                <div class="flex3 left">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+                </div>
+                <div class="flex1 center">
+                    {{#if (is2H item)}}
+                        <i class="fas fa-hand-paper"></i><i class="fas fa-hand-paper"></i>
+                    {{else}}
+                        <i class="fas fa-hand-paper"></i>
+                    {{/if}}
+                    <input class="field-value" readonly="true" name="melee.{{id}}.hands" type="hidden" value="{{item.data.hands}}" data-dtype="Number"/>
+                </div>
+                <div class="flex2 center cell">
+                    {{#if (isNull item.data.def)}}
+                    <input class="field-value" name="data.items.{{id}}.data.def" readonly="true" type="text" value="" data-dtype="Number"/>
+                    {{else}}
+                    <input class="field-value" name="data.items.{{id}}.data.def" readonly="true" type="text" value="{{numberFormat item.data.def decimals=0 sign=true}}" data-dtype="Number"/>
+                    {{/if}}
+                </div>
+                <div class="flex2 center cell">
+                    {{#if (isZeroOrNull item.data.bonus)}}
+                    <input class="field-value" name="data.items.{{id}}.data.bonus" type="text" value="" data-dtype="Number"/>
+                    {{else}}
+                    <input class="field-value" name="data.items.{{id}}.data.bonus" readonly="true" type="text" value="{{numberFormat item.data.bonus decimals=0 sign=true}}" data-dtype="Number"/>
+                    {{/if}}
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <input class="field-value" name="data.id" type="hidden" value="{{item.data.id}}" placeholder="ID" data-dtype="String">
+        </div>
+    </header>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Category</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}" placeholder="Category" data-dtype="String">
+            </span>
+        </div>
+    </div>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">DV</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.dv" type="text" value="{{item.data.dv}}" placeholder="DV" data-dtype="String">
+            </span>
+        </div>
+    </div>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Spellcasting</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.spellcasting" type="text" value="{{item.data.spellcasting}}" placeholder="None" data-dtype="String">
+            </span>
+        </div>
+    </div>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="prof">Proficiency</a>
+        <a class="item" data-tab="trap">Trappings</a>
+        <a class="item" data-tab="note">Notes</a>
+    </nav>
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab" data-group="primary" data-tab="description">
+        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+        <div class="tab" data-group="primary" data-tab="prof">
+            <div class="row flexrow">
+                {{editor content=data.proficiency target="data.proficiency" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        <div class="tab" data-group="primary" data-tab="trap">
+            <div class="row flexrow">
+                {{editor content=data.trappings target="data.trappings" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        <div class="tab" data-group="primary" data-tab="note">
+            <div class="row flexrow">
+                <div class="flex4">
+                    <span class="field-label">
+                        <h2><input class="field-value" name="data.note.title" type="text" value="{{item.data.note.title}}" placeholder="Title" data-dtype="String"></h2>
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                {{editor content=data.note.text target="data.note.text" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </section>
+</form>

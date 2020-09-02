@@ -1,0 +1,332 @@
+[
+  {
+  "type": "capacity",
+  "img": "/systems/cof/ui/icons/capacity.png",
+  "name": "Fidèle monture",
+  "data": {
+    "id": "voie-du-cavalier-1",
+    "rank": 1,
+    "scope": "profile",
+    "profile": "chevalier",
+    "path": "voie-du-cavalier",
+    "description": "<p>Le Chevalier possède un puissant destrier, c'est un cheval de guerre bien dressé qui comprend les ordres simples.\nA cheval, il peut ajouter un déplacement de 10 m avant ou après une action normale (par exemple faire 10 m et une action limitée). La monture n'attaque que si elle est elle-même attaquée au contact par une créature.\nFidèle monture : <strong>FOR</strong> +4, <strong>DEX</strong> +0, <strong>CON</strong> +4, <strong>INT</strong> -2, <strong>SAG</strong> +0, <strong>CHA</strong> +0, Init 10, <strong>DEF</strong> 13, PV 15, Ruade +5, <strong>DM</strong> 1d6+4</p>"
+  }
+},
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Cavalier émérite",
+    "data": {
+      "id": "voie-du-cavalier-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-cavalier",
+      "description": "<p>Lorsqu’il est en selle, le Chevalier gagne un bonus de +2 en attaque au contact, et sa monture obtient une <strong>DEF</strong> égale à celle du Chevalier. Monter ou descendre de cheval est désormais une action gratuite.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Monture magique",
+    "data": {
+      "id": "voie-du-cavalier-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-cavalier",
+      "description": "<p>Le chevalier obtient une monture magique, qui peut apparaître et disparaître depuis un autre plan à volonté. Il peut l'invoquer à tout moment (c'est une action limitée) et elle apparaît alors pour se mettre à son service. Lorsqu'il la laisse au moins une heure dans son plan d'origine, elle guérit l'ensemble de ses PV.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Charge",
+    "data": {
+      "id": "voie-du-cavalier-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-cavalier",
+      "description": "<p>A cheval, le chevalier peut effectuer un déplacement de  40 m en ligne droite, et une attaque de contact placée au moment son choix. Il doit parcourir au moins 10 m avant d'attaquer, mais peut réaliser le reste du déplacement à sa guise.\n\nLe joueur lance deux d20 à son test d'attaque et garde le meilleur résultat, tout en ajoutant +1d6 aux <strong>DM</strong>.\n\nUne créature située sur la trajectoire de la charge doit réussir un test de <strong>FOR</strong> difficulté 18 ou être contrainte de céder le passage en subissant 1d6 <strong>DM</strong>. Si elle réussit ce test, la Charge est bloquée et le tour du Chevalier se termine.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Monture fantastique",
+    "data": {
+      "id": "voie-du-cavalier-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-cavalier",
+      "description": "<p>Le chevalier obtient une monture volante (pégase, griffon, hippogriffe, drake, etc.). Init 15, <strong>DEF</strong> 16, PV [5 × niveau], Att +8, <strong>DM</strong> 1d6+4. Lorsqu'il est en selle, le chevalier peut faire attaquer sa monture une fois par tour (action gratuite), à la même Initiative que lui, avec un score d'attaque égal à son niveau +3. En vol, la monture couvre une distance de 30 m par action de mouvement. Les capacités de la #Monture magique s'appliquent également.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Armure sur mesure",
+    "data": {
+      "id": "voie-de-la-guerre-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-guerre",
+      "description": "<p>L'armure du Chevalier est parfaitement ajustée, aussi il n'ajoute que la moitié de sa <strong>DEF</strong> à la difficulté des tests pour lesquels l'armure inflige une pénalité (de même pour les casques). Si vous n'utilisez pas la règle de pénalité des armures, le chevalier obtient un bonus de +1 en <strong>DEF</strong> lorsqu'il porte une armure métallique.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Encaisser un coup",
+    "data": {
+      "id": "voie-de-la-guerre-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-guerre",
+      "description": "<p>Le chevalier se place de façon à dévier un coup sur son armure. A son tour, il fait seulement une action d'attaque ou une action de mouvement. Par la suite, à tout moment avant son prochain tour, il peut retrancher aux dégâts subits suite à une attaque au contact un total égal au Mod. de <strong>DEF</strong> de son armure (plus d'éventuels bonus de magie et de bouclier).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Coup de bouclier",
+    "data": {
+      "id": "voie-de-la-guerre-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-guerre",
+      "description": "<p>Le chevalier peut effectuer à chaque tour une attaque au bouclier avec un d12 au lieu du d20 (action gratuite) qui inflige [1d4 + Mod. de <strong>FOR</strong>] <strong>DM</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Frappe lourde",
+    "data": {
+      "id": "voie-de-la-guerre-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-guerre",
+      "description": "<p>Le chevalier effectue une attaque au contact avec 1d12 au lieu du d20 (en ajoutant normalement son score d'attaque). Si l'attaque est réussie, il ajoute +2d6 aux <strong>DM</strong>. Il ignore la moitié de la réduction des <strong>DM</strong> de la créature (<strong>RD</strong>), si elle possède cette capacité.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Force héroïque",
+    "data": {
+      "id": "voie-de-la-guerre-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-guerre",
+      "description": "<p>Le personnage augmente sa valeur de <strong>FOR</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>FOR</strong> lui est demandé et garder le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Ignorer la douleur",
+    "data": {
+      "id": "voie-du-heros-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-heros",
+      "description": "<p>Une fois par combat, le Chevalier peut descriptionr à part les <strong>DM</strong> subis par une attaque. Il n'en subira les effets que lorsque le combat sera terminé.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Piqûres d'insecte",
+    "data": {
+      "id": "voie-du-heros-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-heros",
+      "description": "<p>Lorsqu'il porte une armure lourde (demi-plaque ou plus), le Chevalier réduit les <strong>DM</strong> subis par les attaques à distances d'un montant égal au rang atteint dans cette voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Laissez-le-moi !",
+    "data": {
+      "id": "voie-du-heros-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-heros",
+      "description": "<p>Le chevalier met un point d'honneur à combattre le leader ennemi. Lorsqu'il peut aisément être identifié dans un groupe d'au moins 4 créatures, le Chevalier lui inflige +1d6 <strong>DM</strong> par attaque.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Seul contre tous",
+    "data": {
+      "id": "voie-du-heros-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-heros",
+      "description": "<p>Le chevalier sait faire face à de nombreux adversaires, en tentant de profiter d'une éventuelle faille dans leur garde. Chaque fois qu'un des adversaires l'attaque, il bénéficie d'une action d'attaque immédiate contre celui-ci (valable même si la créature l'attaque plusieurs fois).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Charisme héroïque",
+    "data": {
+      "id": "voie-du-heros-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-heros",
+      "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sans peur",
+    "data": {
+      "id": "voie-du-meneur-d-homme-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-meneur-d-homme",
+      "description": "<p>Le Chevalier est immunisé aux attaques de peur et il offre un bonus de [2 + Mod. de <strong>CHA</strong>] à tous ses alliés contre ce type d'effet.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Intercepter",
+    "data": {
+      "id": "voie-du-meneur-d-homme-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-meneur-d-homme",
+      "description": "<p>Une fois par tour, le Chevalier peut encaisser un coup à la place d'un allié à ses cotés. Il utilise sa <strong>DEF</strong> plutôt que celle de la cible initiale et retranche aux <strong>DM</strong> son rang dans la voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Exemplaire",
+    "data": {
+      "id": "voie-du-meneur-d-homme-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-meneur-d-homme",
+      "description": "<p>Une fois par tour, le Chevalier permet à un allié qui combat le même adversaire que lui de relancer le d20 d'un test d'attaque, s'il s'agissait d'un d'échec.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Ordre de bataille",
+    "data": {
+      "id": "voie-du-meneur-d-homme-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-meneur-d-homme",
+      "description": "<p>Le chevalier donne des ordres tactiques pertinents au cœur de la bataille. Une fois par tour, il octroie une action supplémentaire gratuite à un allié en vue (une action de mouvement ou une action d'attaque, mais pas une action limitée).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Charge fantastique",
+    "data": {
+      "id": "voie-du-meneur-d-homme-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-du-meneur-d-homme",
+      "description": "<p>Une fois par combat, à l’Initiative du Chevalier, lui-même et tous ses alliés en vue bénéficient immédiatement d’un déplacement d’un maximum de 20 m en ligne droite, suivi d’une action d’attaque avec un bonus de +3 au test de réussite et +1d6 aux dégâts.\nRésolvez d’abord tous les déplacements en commençant par le Chevalier, puis par ordre d’Initiative. Ensuite effectuez toutes les attaques dans le même ordre.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Eduqué",
+    "data": {
+      "id": "voie-de-la-noblesse-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-noblesse",
+      "description": "<p>Le Chevalier sait lire et écrire, il gagne +1 par rang dans la voie à tous les tests d'<strong>INT</strong> et de <strong>CHA</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Autorité naturelle",
+    "data": {
+      "id": "voie-de-la-noblesse-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-noblesse",
+      "description": "<p>Le chevalier obtient un bonus égal à [1 + Mod. de <strong>CHA</strong>] en Initiative et en <strong>DEF</strong>. De plus, il bénéficie d'un bonus de +5 aux tests de <strong>CHA</strong> réalisés pour donner des ordres ou intimider.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Ecuyer",
+    "data": {
+      "id": "voie-de-la-noblesse-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-noblesse",
+      "description": "<p>Le Chevalier dispose d’un écuyer à son service (Initiative 14, Défense 14, PV 13, Att +3, <strong>DM</strong> 1d8+1). Il est absolument loyal à son maître et lui sert de serviteur, il s’occupe de sa monture et de son équipement, prépare le campement, panse les blessures, etc.\nGrâce à l’écuyer, les armes du Chevalier sont parfaitement affûtées et infligent des critiques sur 19 ou 20. De plus, le Chevalier, sa monture et jusqu’à [1 + Mod. de <strong>CHA</strong>] alliés récupèrent 2d6 PV supplémentaires chaque nuit s’ils profitent des services de l’écuyer. Tous les frais sont pris en charge par la capacité.\nSi l’écuyer vient à mourir, le Chevalier en prendra un autre à son service au niveau suivant.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Massacrer la piétaille",
+    "data": {
+      "id": "voie-de-la-noblesse-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-noblesse",
+      "description": "<p>Le Chevalier ajoute +1d6 aux <strong>DM</strong> contre la piétaille. S'il y a au moins 4 créatures aux statistiques semblables impliquées dans le combat, elles sont assimilées à de la piétaille (même si leur nombre est par la suite réduit à moins de 4 au cours du combat). Les grandes créatures et les cavaliers ne sont jamais considérés comme de la piétaille.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Formation d'élite",
+    "data": {
+      "id": "voie-de-la-noblesse-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "chevalier",
+      "path": "voie-de-la-noblesse",
+      "description": "<p>Le chevalier possède les moyens et la culture nécessaire pour obtenir une formation dans n'importe quel domaine qui lui sied. Choisissez une capacité de rang 1 à 3 dans n'importe quel Profil issu de la famille des combattants ou des voyageurs.</p>"
+    }
+  }
+]

@@ -1,0 +1,117 @@
+$c-white: #fff;
+$c-black: #000;
+//$c-bright: whitesmoke;
+$c-bright: #E2F1F1;
+$c-lightg: lightgray;
+$c-darkg: #23221d;
+$c-dark: #3c3c3c;
+$c-darkslate: darkslategray;
+$c-darkgreen: #003c1e;
+$c-lightgreen: mintcream;
+$c-darkblue: midnightblue;
+$c-blue: #009ee0;
+$c-green: #44a12b;
+$c-red: #cd071e;
+$c-purple: purple;
+$c-darkred: darkred;
+$c-border:#736953a6;
+//$c-darkbrown: rgba(70, 67, 49, 0.93);
+$c-darkbrown: #464331c4;
+$c-shadow:#00000052;
+
+
+
+/* ----------------------------------------- */
+/*  Premade colors                           */
+/* ----------------------------------------- */
+
+.light {
+  //color:whitesmoke;
+  //color:antiquewhite;
+  color: $c-lightg;
+}
+.bg-light {
+  background: $c-lightg;
+}
+
+.darkgray {
+  color: $c-darkg;
+}
+.bg-darkgray {
+  background: $c-darkg;
+  color: $c-white;
+}
+
+.dark {
+  color: $c-darkbrown;
+}
+.bg-dark {
+  background: $c-darkbrown;
+  color: $c-white;
+}
+
+.darkslate {
+  color: $c-darkslate;
+}
+.bg-darkslate {
+  background: $c-darkslate;
+  color: $c-white;
+}
+.darkgreen {
+  color: $c-darkgreen;
+}
+
+.bg-darkgreen {
+  background: $c-darkgreen;
+  color: $c-white;
+}
+
+.darkblue {
+  color: $c-darkblue;
+}
+
+.bg-darkblue {
+  background: $c-darkblue;
+  color: $c-white;
+}
+
+.blue {
+  color: $c-blue;
+}
+
+.bg-blue {
+  background: $c-blue;
+  color: $c-white;
+}
+
+.green {
+  color: $c-green;
+}
+.bg-green {
+  background: $c-green;
+  color: $c-white;
+}
+
+.black {
+  color: $c-black;
+}
+.bg-black {
+  background: $c-black;
+  color: $c-white;
+}
+
+.red {
+  color: $c-red;
+}
+.bg-red {
+  background: $c-red;
+  color: $c-white;
+}
+
+.purple {
+  color: $c-purple;
+}
+.bg-purple {
+  background: $c-purple;
+  color: $c-white;
+}

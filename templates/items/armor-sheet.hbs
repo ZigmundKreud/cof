@@ -1,0 +1,58 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </div>
+    </header>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Category</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}" placeholder="Category" data-dtype="String">
+            </span>
+        </div>
+    </div>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Price (PA)</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.price" type="text" value="{{item.data.price}}" placeholder="Price" data-dtype="Number">
+            </span>
+        </div>
+    </div>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">DEF</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.def" type="text" value="{{item.data.def}}" placeholder="Defense" data-dtype="Number">
+            </span>
+        </div>
+    </div>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Bonus</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="Bonus" data-dtype="Number">
+            </span>
+        </div>
+    </div>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab" data-group="primary" data-tab="description">
+        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

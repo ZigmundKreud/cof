@@ -1,0 +1,90 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <input class="field-value" name="data.id" type="hidden" value="{{item.data.id}}" placeholder="ID" data-dtype="String">
+        </div>
+    </header>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Category</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}" placeholder="Category" data-dtype="String">
+            </span>
+        </div>
+    </div>
+    <div class="row flexrow">
+        <div class="flex3 center">
+            <span class="field-label label-text">Racial</span>
+        </div>
+        <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.racial" type="text" value="{{item.data.racial}}" placeholder="Racial" data-dtype="String">
+            </span>
+        </div>
+    </div>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="morph">Morphology</a>
+        <a class="item" data-tab="names">Names</a>
+    </nav>
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab" data-group="primary" data-tab="description">
+        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+        <div class="tab" data-group="primary" data-tab="details">
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Age</span>
+                </div>
+                <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.age" type="text" value="{{item.data.age}}" placeholder="Age" data-dtype="String">
+            </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Longevity</span>
+                </div>
+                <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.longevity" type="text" value="{{item.data.longevity}}" placeholder="Longevity" data-dtype="String">
+            </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Height</span>
+                </div>
+                <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.height" type="text" value="{{item.data.height}}" placeholder="Height" data-dtype="String">
+            </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Weight</span>
+                </div>
+                <div class="flex4">
+            <span class="field-label">
+                <input class="field-value" name="data.weight" type="text" value="{{item.data.weight}}" placeholder="Weight" data-dtype="String">
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class="tab" data-group="primary" data-tab="morph">
+            {{editor content=data.morphology target="data.morphology" button=true owner=owner editable=editable}}
+        </div>
+        <div class="tab" data-group="primary" data-tab="names">
+            {{editor content=data.names target="data.names" button=true owner=owner editable=editable}}
+        </div>
+    </section>
+</form>

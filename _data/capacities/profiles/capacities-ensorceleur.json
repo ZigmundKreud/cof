@@ -1,0 +1,368 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Murmures dans le vent",
+    "data": {
+      "id": "voie-de-l-air-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-air",
+      "description": "<p>L'Ensorceleur chuchote un message d'une dizaine de mots qui voyage jusqu'à son destinataire. Il peut entendre sa réponse immédiatement. La portée est de 100 m par Rang dans la voie et le personnage doit connaître la cible ou la voir.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sous tension",
+    "data": {
+      "id": "voie-de-l-air-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-air",
+      "description": "<p>L'Ensorceleur se charge d'énergie électrique pour [5 + Mod. de <strong>CHA</strong>] tours. Toute créature qui le blesse ou le touche reçoit une décharge infligeant 1d6 <strong>DM</strong>. Il peut également délivrer une décharge électrique (attaque magique, portée 10 m) infligeant [1d6 + Mod. de <strong>CHA</strong>] <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Télékinésie",
+    "data": {
+      "id": "voie-de-l-air-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-air",
+      "description": "<p>L'Ensorceleur peut déplacer dans les airs un objet inerte ou une cible volontaire (par exemple lui-même) dont le poids n'excède pas 50 kg par Rang, à une portée de 20 m et pendant [5+Mod. de <strong>CHA</strong>] tours. L'objet peut être déplacé de 10 m par tour au prix d'une action de mouvement. Il est possible de faire tomber un objet sur une cible surprise (<strong>DM</strong> 1d6 tous les 50 kg).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Foudre",
+    "data": {
+      "id": "voie-de-l-air-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-air",
+      "description": "<p>L'Ensorceleur produit un éclair sur une ligne de 10 mètres. Toutes les créatures sur la trajectoire sont soumises à un test d'attaque magique et subissent [4d6 + Mod. de <strong>CHA</strong>] <strong>DM</strong> en cas de réussite. Les victimes peuvent tenter un test de <strong>DEX</strong> difficulté [12 + Mod. de <strong>DEX</strong>] pour ne subir que la moitié des <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Forme éthérée",
+    "data": {
+      "id": "voie-de-l-air-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-air",
+      "description": "<p>L'Ensorceleur et tout son équipement deviennent translucides et intangibles pendant [5 + Mod. de <strong>CHA</strong>] tours. Sous cette forme, il peut passer à travers murs et obstacles, et ne peut subir aucun <strong>DM</strong> physiques.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Injonction",
+    "data": {
+      "id": "voie-de-l-envouteur-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-envouteur",
+      "description": "<p>L'Ensorceleur donne un ordre simple (mais pas dangereux pour elle) que la victime doit pouvoir comprendre. Il doit réussir un test d'attaque magique opposé avec la cible (contre attaque au contact si la créature n'en a pas) à une portée de 20 mètres. En cas d'échec, la cible exécutera l'ordre pendant son prochain tour.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sommeil",
+    "data": {
+      "id": "voie-de-l-envouteur-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-envouteur",
+      "description": "<p>plonge dans l'inconscience des créatures vivantes pendant [5 + Mod. de <strong>CHA</strong>] minutes. Affecte un nombre de PV égal au test d'attaque magique de l'Ensorceleur dans une zone de 10 m de diamètre (portée 20 m). Toutes les cibles doivent être d'un Niveau inférieur ou égal à la moitié du Niveau du personnage. Il est possible de les réveiller en les giflant (action d'attaque).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Confusion",
+    "data": {
+      "id": "voie-de-l-envouteur-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-envouteur",
+      "description": "<p>En réussissant un test d'Attaque magique (portée 20 m), l'Ensorceleur désoriente sa cible pendant [3 + Mod. de <strong>CHA</strong>] tours. Chaque tour, lancer 1d6 : 1-3 la victime n'agit pas, 4-6 elle attaque la créature la plus proche (au hasard). Chaque fin de tour, elle fait un test de <strong>SAG</strong> difficulté [10 + Mod. de <strong>CHA</strong>] pour mettre fin au sort.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Amitié",
+    "data": {
+      "id": "voie-de-l-envouteur-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-envouteur",
+      "description": "<p>Si l'Ensorceleur réussit un test d'Attaque magique (portée 10 m) contre le score max de PV d'une cible humanoïde, celle-ci se comporte comme un ami de longue date tant qu'elle n'est pas attaquée. Elle peut résister au sort avec un test de <strong>SAG</strong> difficulté [12 + Mod. de <strong>CHA</strong>], renouvelable une fois par jour.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Domination",
+    "data": {
+      "id": "voie-de-l-envouteur-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-envouteur",
+      "description": "<p>En réussissant un test d’Attaque magique (portée 20 m) en opposition contre un test d’Attaque magique de la cible (ou d’Attaque au contact si la créature n’en a pas), l’Ensorceleur prend contrôle de son esprit pendant [1d4 + Mod. <strong>CHA</strong>] minutes. Son propre corps devient inactif. La victime peut résister au sort avec un test de <strong>SAG</strong> difficulté [10 + Mod. de <strong>CHA</strong>] à chaque fois qu’elle subit des <strong>DM</strong>. Si la créature meurt pendant la domination, l’Ensorceleur réintègre son corps et subit 1d6 <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Familier",
+    "data": {
+      "id": "voie-de-l-invocation-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-invocation",
+      "description": "<p>Le personnage choisit un petit animal (corbeau, chat, furet, serpent…). Il peut utiliser les sens de son familier et communiquer avec lui à distance illimitée. Il gagne de plus +2 en Initiative lorsque son familier est en vue.\nFamilier : <strong>DEF</strong> [personnage], Init [personnage], PV [il les partage avec ceux de son maître], ils forment une cible unique pour les attaques de zone. <strong>FOR</strong> -4, <strong>DEX</strong> +3, <strong>CON</strong> 0, <strong>INT</strong> -2, <strong>SAG</strong> +1, <strong>CHA</strong> -2.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Serviteur invisible",
+    "data": {
+      "id": "voie-de-l-invocation-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-invocation",
+      "description": "<p>Ce sort crée une force invisible pendant [5 + Mod. de <strong>CHA</strong>] minutes. Le serviteur peut effectuer à distance des tâches simples ne nécessitant pas de test de réussite et aucun score de Caractéristique supérieur à 10 (portée 20 m).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Mur de force",
+    "data": {
+      "id": "voie-de-l-invocation-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-invocation",
+      "description": "<p>L'Ensorceleur crée un mur de force indestructible (portée 10 m, maximum 5 m de haut et 10 m de long), ou bien une hémisphère de 3 m de rayon centrée sur lui-même. Le sort dure pendant [5 + Mod. de <strong>CHA</strong>] tours.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Arme dansante",
+    "data": {
+      "id": "voie-de-l-invocation-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-invocation",
+      "description": "<p>Le sort crée une lame d’énergie lumineuse pendant [5 + Mod. de <strong>CHA</strong>] tours. Dès le premier tour, l’Ensorceleur peut lui ordonner d’attaquer une cible de son choix (action gratuite, portée 20 m). L’attaque magique de la lame = attaque magique de l’Ensorceleur, [1d8 + Mod de <strong>CHA</strong>] <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Charisme héroïque",
+    "data": {
+      "id": "voie-de-l-invocation-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-l-invocation",
+      "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "6ème sens",
+    "data": {
+      "id": "voie-de-la-divination-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-la-divination",
+      "description": "<p>L'Ensorceleur sait toujours légèrement en avance ce qui va arriver. Il gagne un bonus de +1 par Rang dans la Voie en Initiative et en <strong>DEF</strong>, ainsi qu'un bonus de +2 par Rang à tous les tests pour éviter d'être surpris.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Détection de l'invisible",
+    "data": {
+      "id": "voie-de-la-divination-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-la-divination",
+      "description": "<p>Pendant [5 + Mod. de <strong>CHA</strong>] tours, l’Ensorceleur détecte les créatures invisibles ou cachées à moins de 30 mètres et détecte si un sort de Clairvoyance affecte l’endroit. Aveuglé, ce sort lui permet de voir normalement.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Clairvoyance",
+    "data": {
+      "id": "voie-de-la-divination-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-la-divination",
+      "description": "<p>L'Ensorceleur peut voir et entendre à distance ce qui se passe dans un lieu qu'il connait, tant qu'il reste concentré (action limitée à chaque tour). Les créatures présentes ont droit à un test de <strong>SAG</strong> difficulté [12 + Mod. de <strong>CHA</strong>] : en cas de réussite, elles se sentent observées.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Prescience",
+    "data": {
+      "id": "voie-de-la-divination-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-la-divination",
+      "description": "<p>Une fois par combat, à la fin d'un tour, le joueur peut décider que tout ce qui s'est passé durant ce tour n'était que la vision d'un futur possible. On rejoue alors le tour depuis le début : les autres personnages ne peuvent pas changer leurs actions, contrairement à l'Ensorceleur qui bénéficie d'un bonus de +10 en Initiative et en <strong>DEF</strong>.</p>",
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Hyperconscience",
+    "data": {
+      "id": "voie-de-la-divination-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-de-la-divination",
+      "description": "<p>L'Ensorceleur augmente ses valeurs de <strong>SAG</strong> et d'<strong>INT</strong> de +2. Il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>SAG</strong> ou d'<strong>INT</strong> lui est demandé et garder le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Image décalée",
+    "data": {
+      "id": "voie-des-illusions-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-des-illusions",
+      "description": "<p>Pendant [5 + Mod. de <strong>CHA</strong>] tours, lorsqu'une attaque le touche, l'Ensorceleur lance 1d6 : sur 5-6, il ne subit pas les <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Mirage",
+    "data": {
+      "id": "voie-des-illusions-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-des-illusions",
+      "description": "<p>L'Ensorceleur crée une illusion visuelle et sonore immobile d'une durée de [5 + Mod. de <strong>CHA</strong>] minutes (ou tours si l'illusion est animée). Le volume maximum de l'illusion est de 10 m de coté par rang dans la voie (portée 500 m). Divisez ces paramètres par 10 si l'illusion est animée. Interagir avec l'illusion la fait disparaître.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Imitation",
+    "data": {
+      "id": "voie-des-illusions-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-des-illusions",
+      "description": "<p>L'ensorceleur peut prendre l'apparence d'une créature de taille proche (+ ou &#8211; 50 cm) qu'il voit au moment de l'incantation. Durée [5 + Mod. de <strong>CHA</strong>] minutes. Toucher l'Ensorceleur (une attaque ou non) met fin au sort.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dédoublement",
+    "data": {
+      "id": "voie-des-illusions-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-des-illusions",
+      "description": "<p>Sur une Attaque magique réussie (portée 20 m), l’Ensorceleur crée un double translucide de la cible pendant [5 + Mod. de <strong>CHA</strong>] tours. Le double est sous le contrôle de l’Ensorceleur. Il possède les mêmes Caractéristiques que l’original mais seulement la moitié de ses PV et tous les <strong>DM</strong> qu’il inflige sont divisés par deux. Il disparaît si ses PV tombent à 0. Une créature ne peut être dédoublée qu’une fois par combat.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tueur fantasmagorique",
+    "data": {
+      "id": "voie-des-illusions-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "ensorceleur",
+      "path": "voie-des-illusions",
+      "description": "<p>Ce sort invoque les pires terreurs d’une créature vivante et lui fait croire à sa propre mort. L’Ensorceleur doit réussir un test d’Attaque magique (portée 20 m) en opposition à un test d’Attaque magique de la cible (ou attaque au contact si la créature n’en a pas). La victime fait un test de <strong>SAG</strong> difficulté [10 + Mod. de <strong>CHA</strong>] pour résister. En cas d’échec, elle tombe à 0 PV. En cas de succès, elle perd l’équilibre et tombe par terre. Une créature ne peut être la cible de ce sort qu’une fois par jour, et l’Ensorceleur ne peut pas affecter un personnage ou une créature de niveau supérieur au sien.</p>",
+      "limited": true,
+      "spell": true
+    }
+  }
+]

@@ -1,0 +1,1593 @@
+[
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'air",
+    "data": {
+      "id": "voie-de-l-air",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-air-1",
+        "voie-de-l-air-2",
+        "voie-de-l-air-3",
+        "voie-de-l-air-4",
+        "voie-de-l-air-5"
+      ],
+      "profile" : "ensorceleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'artilleur",
+    "data": {
+      "id": "voie-de-l-artilleur",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-artilleur-1",
+        "voie-de-l-artilleur-2",
+        "voie-de-l-artilleur-3",
+        "voie-de-l-artilleur-4",
+        "voie-de-l-artilleur-5"
+      ],
+      "profile" : "arquebusier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'envoûteur",
+    "data": {
+      "id": "voie-de-l-envouteur",
+      "description": "si une victime résiste à un sort de cette voie, elle y est immunisée pendant 24h.",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-envouteur-1",
+        "voie-de-l-envouteur-2",
+        "voie-de-l-envouteur-3",
+        "voie-de-l-envouteur-4",
+        "voie-de-l-envouteur-5"
+      ],
+      "profile" : "ensorceleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'escrime",
+    "data": {
+      "id": "voie-de-l-escrime",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-escrime-1",
+        "voie-de-l-escrime-2",
+        "voie-de-l-escrime-3",
+        "voie-de-l-escrime-4",
+        "voie-de-l-escrime-5"
+      ],
+      "profile" : "barde"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'invocation",
+    "data": {
+      "id": "voie-de-l-invocation",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-invocation-1",
+        "voie-de-l-invocation-2",
+        "voie-de-l-invocation-3",
+        "voie-de-l-invocation-4",
+        "voie-de-l-invocation-5"
+      ],
+      "profile" : "ensorceleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la brute",
+    "data": {
+      "id": "voie-de-la-brute",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-brute-1",
+        "voie-de-la-brute-2",
+        "voie-de-la-brute-3",
+        "voie-de-la-brute-4",
+        "voie-de-la-brute-5"
+      ],
+      "profile" : "barbare"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la divination",
+    "data": {
+      "id": "voie-de-la-divination",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-divination-1",
+        "voie-de-la-divination-2",
+        "voie-de-la-divination-3",
+        "voie-de-la-divination-4",
+        "voie-de-la-divination-5"
+      ],
+      "profile" : "ensorceleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la foi",
+    "data": {
+      "id": "voie-de-la-foi",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-foi-1",
+        "voie-de-la-foi-2",
+        "voie-de-la-foi-3",
+        "voie-de-la-foi-4",
+        "voie-de-la-foi-5"
+      ],
+      "profile" : "pretre"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la guerre",
+    "data": {
+      "id": "voie-de-la-guerre",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-guerre-1",
+        "voie-de-la-guerre-2",
+        "voie-de-la-guerre-3",
+        "voie-de-la-guerre-4",
+        "voie-de-la-guerre-5"
+      ],
+      "profile" : "chevalier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la guerre sainte",
+    "data": {
+      "id": "voie-de-la-guerre-sainte",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-guerre-sainte-1",
+        "voie-de-la-guerre-sainte-2",
+        "voie-de-la-guerre-sainte-3",
+        "voie-de-la-guerre-sainte-4",
+        "voie-de-la-guerre-sainte-5"
+      ],
+      "profile" : "pretre"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie des arcanes",
+    "data": {
+      "id": "voie-de-la-magie-des-arcanes",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-magie-des-arcanes-1",
+        "voie-de-la-magie-des-arcanes-2",
+        "voie-de-la-magie-des-arcanes-3",
+        "voie-de-la-magie-des-arcanes-4",
+        "voie-de-la-magie-des-arcanes-5"
+      ],
+      "profile" : "magicien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie destructrice",
+    "data": {
+      "id": "voie-de-la-magie-destructrice",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-magie-destructrice-1",
+        "voie-de-la-magie-destructrice-2",
+        "voie-de-la-magie-destructrice-3",
+        "voie-de-la-magie-destructrice-4",
+        "voie-de-la-magie-destructrice-5"
+      ],
+      "profile" : "magicien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie élémentaire",
+    "data": {
+      "id": "voie-de-la-magie-elementaire",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-magie-elementaire-1",
+        "voie-de-la-magie-elementaire-2",
+        "voie-de-la-magie-elementaire-3",
+        "voie-de-la-magie-elementaire-4",
+        "voie-de-la-magie-elementaire-5"
+      ],
+      "profile" : "magicien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie protectrice",
+    "data": {
+      "id": "voie-de-la-magie-protectrice",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-magie-protectrice-1",
+        "voie-de-la-magie-protectrice-2",
+        "voie-de-la-magie-protectrice-3",
+        "voie-de-la-magie-protectrice-4",
+        "voie-de-la-magie-protectrice-5"
+      ],
+      "profile" : "magicien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie universelle",
+    "data": {
+      "id": "voie-de-la-magie-universelle",
+      "description": "Pour chaque Rang dans cette Voie, le Magicien obtient un bonus de +2 aux tests d'<strong>INT</strong> basés sur la connaissance et l'érudition.",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-magie-universelle-1",
+        "voie-de-la-magie-universelle-2",
+        "voie-de-la-magie-universelle-3",
+        "voie-de-la-magie-universelle-4",
+        "voie-de-la-magie-universelle-5"
+      ],
+      "profile" : "magicien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la maîtrise",
+    "data": {
+      "id": "voie-de-la-maitrise",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-maitrise-1",
+        "voie-de-la-maitrise-2",
+        "voie-de-la-maitrise-3",
+        "voie-de-la-maitrise-4",
+        "voie-de-la-maitrise-5"
+      ],
+      "profile" : "moine"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la méditation",
+    "data": {
+      "id": "voie-de-la-meditation",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-meditation-1",
+        "voie-de-la-meditation-2",
+        "voie-de-la-meditation-3",
+        "voie-de-la-meditation-4",
+        "voie-de-la-meditation-5"
+      ],
+      "profile" : "moine"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la mort",
+    "data": {
+      "id": "voie-de-la-mort",
+      "description": "Les sorts de cette voie n'affectent pas les créatures non vivantes (golem, élémentaires, mort-vivants).",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-mort-1",
+        "voie-de-la-mort-2",
+        "voie-de-la-mort-3",
+        "voie-de-la-mort-4",
+        "voie-de-la-mort-5"
+      ],
+      "profile" : "necromancien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la nature",
+    "data": {
+      "id": "voie-de-la-nature",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-nature-1",
+        "voie-de-la-nature-2",
+        "voie-de-la-nature-3",
+        "voie-de-la-nature-4",
+        "voie-de-la-nature-5"
+      ],
+      "profile" : "druide"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la noblesse",
+    "data": {
+      "id": "voie-de-la-noblesse",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-noblesse-1",
+        "voie-de-la-noblesse-2",
+        "voie-de-la-noblesse-3",
+        "voie-de-la-noblesse-4",
+        "voie-de-la-noblesse-5"
+      ],
+      "profile" : "chevalier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la précision",
+    "data": {
+      "id": "voie-de-la-precision",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-precision-1",
+        "voie-de-la-precision-2",
+        "voie-de-la-precision-3",
+        "voie-de-la-precision-4",
+        "voie-de-la-precision-5"
+      ],
+      "profile" : "arquebusier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la prière",
+    "data": {
+      "id": "voie-de-la-priere",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-priere-1",
+        "voie-de-la-priere-2",
+        "voie-de-la-priere-3",
+        "voie-de-la-priere-4",
+        "voie-de-la-priere-5"
+      ],
+      "profile" : "pretre"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la rage",
+    "data": {
+      "id": "voie-de-la-rage",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-rage-1",
+        "voie-de-la-rage-2",
+        "voie-de-la-rage-3",
+        "voie-de-la-rage-4",
+        "voie-de-la-rage-5"
+      ],
+      "profile" : "barbare"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la résistance",
+    "data": {
+      "id": "voie-de-la-resistance",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-resistance-1",
+        "voie-de-la-resistance-2",
+        "voie-de-la-resistance-3",
+        "voie-de-la-resistance-4",
+        "voie-de-la-resistance-5"
+      ],
+      "profile" : "guerrier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la séduction",
+    "data": {
+      "id": "voie-de-la-seduction",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-seduction-1",
+        "voie-de-la-seduction-2",
+        "voie-de-la-seduction-3",
+        "voie-de-la-seduction-4",
+        "voie-de-la-seduction-5"
+      ],
+      "profile" : "barde"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la sombre magie",
+    "data": {
+      "id": "voie-de-la-sombre-magie",
+      "description": "Le Nécromancien obtient un bonus de +2 par rang à tous les tests d'<strong>INT</strong> basés sur les connaissances occultes.",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-sombre-magie-1",
+        "voie-de-la-sombre-magie-2",
+        "voie-de-la-sombre-magie-3",
+        "voie-de-la-sombre-magie-4",
+        "voie-de-la-sombre-magie-5"
+      ],
+      "profile" : "necromancien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la spiritualité",
+    "data": {
+      "id": "voie-de-la-spiritualite",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-spiritualite-1",
+        "voie-de-la-spiritualite-2",
+        "voie-de-la-spiritualite-3",
+        "voie-de-la-spiritualite-4",
+        "voie-de-la-spiritualite-5"
+      ],
+      "profile" : "pretre"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la survie",
+    "data": {
+      "id": "voie-de-la-survie",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-la-survie-1",
+        "voie-de-la-survie-2",
+        "voie-de-la-survie-3",
+        "voie-de-la-survie-4",
+        "voie-de-la-survie-5"
+      ],
+      "profile" : "rodeur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'archer",
+    "data": {
+      "id": "voie-de-l-archer",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-archer-1",
+        "voie-de-l-archer-2",
+        "voie-de-l-archer-3",
+        "voie-de-l-archer-4",
+        "voie-de-l-archer-5"
+      ],
+      "profile" : "rodeur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'assassin",
+    "data": {
+      "id": "voie-de-l-assassin",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-assassin-1",
+        "voie-de-l-assassin-2",
+        "voie-de-l-assassin-3",
+        "voie-de-l-assassin-4",
+        "voie-de-l-assassin-5"
+      ],
+      "profile" : "voleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'aventurier",
+    "data": {
+      "id": "voie-de-l-aventurier",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-aventurier-1",
+        "voie-de-l-aventurier-2",
+        "voie-de-l-aventurier-3",
+        "voie-de-l-aventurier-4",
+        "voie-de-l-aventurier-5"
+      ],
+      "profile" : "voleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'énergie vitale",
+    "data": {
+      "id": "voie-de-l-energie-vitale",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-energie-vitale-1",
+        "voie-de-l-energie-vitale-2",
+        "voie-de-l-energie-vitale-3",
+        "voie-de-l-energie-vitale-4",
+        "voie-de-l-energie-vitale-5"
+      ],
+      "profile" : "moine"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'escarmouche",
+    "data": {
+      "id": "voie-de-l-escarmouche",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-escarmouche-1",
+        "voie-de-l-escarmouche-2",
+        "voie-de-l-escarmouche-3",
+        "voie-de-l-escarmouche-4",
+        "voie-de-l-escarmouche-5"
+      ],
+      "profile" : "rodeur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'outre-tombe",
+    "data": {
+      "id": "voie-de-l-outre-tombe",
+      "scope": "profile",
+      "capacities": [
+        "voie-de-l-outre-tombe-1",
+        "voie-de-l-outre-tombe-2",
+        "voie-de-l-outre-tombe-3",
+        "voie-de-l-outre-tombe-4",
+        "voie-de-l-outre-tombe-5"
+      ],
+      "profile" : "necromancien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des animaux",
+    "data": {
+      "id": "voie-des-animaux",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-animaux-1",
+        "voie-des-animaux-2",
+        "voie-des-animaux-3",
+        "voie-des-animaux-4",
+        "voie-des-animaux-5"
+      ],
+      "profile" : "druide"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des artefacts",
+    "data": {
+      "id": "voie-des-artefacts",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-artefacts-1",
+        "voie-des-artefacts-2",
+        "voie-des-artefacts-3",
+        "voie-des-artefacts-4",
+        "voie-des-artefacts-5"
+      ],
+      "profile" : "forgesort"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des élixirs",
+    "data": {
+      "id": "voie-des-elixirs",
+      "description": "Chaque jour, le Forgesort peut créer jusqu’à deux élixirs par rang acquis dans la Voie. Produire un lot d’élixirs prend une heure, quel qu’en soit le nombre. Ce sont des mélanges instables qui deviennent inopérants après 24h. Le joueur doit donc en noter l’heure de fabrication. Passé 24h, le Forgesort peut régénérer les élixirs en seulement 10 mn, mais ils comptent alors parmi les potions créés pour la journée.",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-elixirs-1",
+        "voie-des-elixirs-2",
+        "voie-des-elixirs-3",
+        "voie-des-elixirs-4",
+        "voie-des-elixirs-5"
+      ],
+      "profile" : "forgesort"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des explosifs",
+    "data": {
+      "id": "voie-des-explosifs",
+      "description": "Chaque jour l’Arquebusier peut utiliser un nombre de charges explosives égal au Rang dans la voie. Ces charges permettent indifféremment d’utiliser les capacités Démolition, Piège explosif ou Boulet explosif.",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-explosifs-1",
+        "voie-des-explosifs-2",
+        "voie-des-explosifs-3",
+        "voie-des-explosifs-4",
+        "voie-des-explosifs-5"
+      ],
+      "profile" : "arquebusier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des illusions",
+    "data": {
+      "id": "voie-des-illusions",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-illusions-1",
+        "voie-des-illusions-2",
+        "voie-des-illusions-3",
+        "voie-des-illusions-4",
+        "voie-des-illusions-5"
+      ],
+      "profile" : "ensorceleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des runes",
+    "data": {
+      "id": "voie-des-runes",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-runes-1",
+        "voie-des-runes-2",
+        "voie-des-runes-3",
+        "voie-des-runes-4",
+        "voie-des-runes-5"
+      ],
+      "profile" : "forgesort"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des soins",
+    "data": {
+      "id": "voie-des-soins",
+      "description": "Soins légers et soins modérés peuvent être utilisés un nombre de fois par jour égal au Rang que le Prêtre a atteint dans cette Voie. Au Rang 2 par exemple, il peut utiliser chaque capacité 2 fois par jour.",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-soins-1",
+        "voie-des-soins-2",
+        "voie-des-soins-3",
+        "voie-des-soins-4",
+        "voie-des-soins-5"
+      ],
+      "profile" : "pretre"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des végétaux",
+    "data": {
+      "id": "voie-des-vegetaux",
+      "scope": "profile",
+      "capacities": [
+        "voie-des-vegetaux-1",
+        "voie-des-vegetaux-2",
+        "voie-des-vegetaux-3",
+        "voie-des-vegetaux-4",
+        "voie-des-vegetaux-5"
+      ],
+      "profile" : "druide"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du bouclier",
+    "data": {
+      "id": "voie-du-bouclier",
+      "description": "Pour utiliser les capacités suivantes, le Guerrier doit obligatoirement manier un bouclier.",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-bouclier-1",
+        "voie-du-bouclier-2",
+        "voie-du-bouclier-3",
+        "voie-du-bouclier-4",
+        "voie-du-bouclier-5"
+      ],
+      "profile" : "guerrier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du cavalier",
+    "data": {
+      "id": "voie-du-cavalier",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-cavalier-1",
+        "voie-du-cavalier-2",
+        "voie-du-cavalier-3",
+        "voie-du-cavalier-4",
+        "voie-du-cavalier-5"
+      ],
+      "profile" : "chevalier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du champ de bataille",
+    "data": {
+      "id": "voie-du-champ-de-bataille",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-champ-de-bataille-1",
+        "voie-du-champ-de-bataille-2",
+        "voie-du-champ-de-bataille-3",
+        "voie-du-champ-de-bataille-4",
+        "voie-du-champ-de-bataille-5"
+      ],
+      "profile" : "arquebusier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du combat",
+    "data": {
+      "id": "voie-du-combat",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-combat-1",
+        "voie-du-combat-2",
+        "voie-du-combat-3",
+        "voie-du-combat-4",
+        "voie-du-combat-5"
+      ],
+      "profile" : "guerrier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du compagnon animal",
+    "data": {
+      "id": "voie-du-compagnon-animal",
+      "description": "Le Rôdeur obtient un loup pour compagnon animal dès qu'il prend au moins un Rang dans cette Voie.",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-compagnon-animal-1",
+        "voie-du-compagnon-animal-2",
+        "voie-du-compagnon-animal-3",
+        "voie-du-compagnon-animal-4",
+        "voie-du-compagnon-animal-5"
+      ],
+      "profile" : "rodeur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du démon",
+    "data": {
+      "id": "voie-du-demon",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-demon-1",
+        "voie-du-demon-2",
+        "voie-du-demon-3",
+        "voie-du-demon-4",
+        "voie-du-demon-5"
+      ],
+      "profile" : "necromancien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du déplacement",
+    "data": {
+      "id": "voie-du-deplacement",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-deplacement-1",
+        "voie-du-deplacement-2",
+        "voie-du-deplacement-3",
+        "voie-du-deplacement-4",
+        "voie-du-deplacement-5"
+      ],
+      "profile" : "voleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du fauve",
+    "data": {
+      "id": "voie-du-fauve",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-fauve-1",
+        "voie-du-fauve-2",
+        "voie-du-fauve-3",
+        "voie-du-fauve-4",
+        "voie-du-fauve-5"
+      ],
+      "profile" : "druide"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du golem",
+    "data": {
+      "id": "voie-du-golem",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-golem-1",
+        "voie-du-golem-2",
+        "voie-du-golem-3",
+        "voie-du-golem-4",
+        "voie-du-golem-5"
+      ],
+      "profile" : "forgesort"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du héros",
+    "data": {
+      "id": "voie-du-heros",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-heros-1",
+        "voie-du-heros-2",
+        "voie-du-heros-3",
+        "voie-du-heros-4",
+        "voie-du-heros-5"
+      ],
+      "profile" : "chevalier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du maître d'armes",
+    "data": {
+      "id": "voie-du-maitre-darmes",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-maitre-darmes-1",
+        "voie-du-maitre-darmes-2",
+        "voie-du-maitre-darmes-3",
+        "voie-du-maitre-darmes-4",
+        "voie-du-maitre-darmes-5"
+      ],
+      "profile" : "guerrier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du meneur d'homme",
+    "data": {
+      "id": "voie-du-meneur-d-homme",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-meneur-d-homme-1",
+        "voie-du-meneur-d-homme-2",
+        "voie-du-meneur-d-homme-3",
+        "voie-du-meneur-d-homme-4",
+        "voie-du-meneur-d-homme-5"
+      ],
+      "profile" : "chevalier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du métal",
+    "data": {
+      "id": "voie-du-metal",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-metal-1",
+        "voie-du-metal-2",
+        "voie-du-metal-3",
+        "voie-du-metal-4",
+        "voie-du-metal-5"
+      ],
+      "profile" : "forgesort"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du montreur d'ours",
+    "data": {
+      "id": "voie-du-montreur-dours",
+      "description": "(Exemple de variation de la Voie du compagnon animal)\n\nLe Rôdeur obtient un jeune ours noir pour compagnon animal dès qu'il prend au moins un Rang dans cette Voie",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-montreur-dours-1",
+        "voie-du-montreur-dours-2",
+        "voie-du-montreur-dours-3",
+        "voie-du-montreur-dours-4",
+        "voie-du-montreur-dours-5"
+      ],
+      "profile" : "rodeur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du musicien",
+    "data": {
+      "id": "voie-du-musicien",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-musicien-1",
+        "voie-du-musicien-2",
+        "voie-du-musicien-3",
+        "voie-du-musicien-4",
+        "voie-du-musicien-5"
+      ],
+      "profile" : "barde"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du pagne",
+    "data": {
+      "id": "voie-du-pagne",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-pagne-1",
+        "voie-du-pagne-2",
+        "voie-du-pagne-3",
+        "voie-du-pagne-4",
+        "voie-du-pagne-5"
+      ],
+      "profile" : "barbare"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du pistolero",
+    "data": {
+      "id": "voie-du-pistolero",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-pistolero-1",
+        "voie-du-pistolero-2",
+        "voie-du-pistolero-3",
+        "voie-du-pistolero-4",
+        "voie-du-pistolero-5"
+      ],
+      "profile" : "arquebusier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du poing",
+    "data": {
+      "id": "voie-du-poing",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-poing-1",
+        "voie-du-poing-2",
+        "voie-du-poing-3",
+        "voie-du-poing-4",
+        "voie-du-poing-5"
+      ],
+      "profile" : "moine"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du pourfendeur",
+    "data": {
+      "id": "voie-du-pourfendeur",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-pourfendeur-1",
+        "voie-du-pourfendeur-2",
+        "voie-du-pourfendeur-3",
+        "voie-du-pourfendeur-4",
+        "voie-du-pourfendeur-5"
+      ],
+      "profile" : "barbare"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du primitif",
+    "data": {
+      "id": "voie-du-primitif",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-primitif-1",
+        "voie-du-primitif-2",
+        "voie-du-primitif-3",
+        "voie-du-primitif-4",
+        "voie-du-primitif-5"
+      ],
+      "profile" : "barbare"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du protecteur",
+    "data": {
+      "id": "voie-du-protecteur",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-protecteur-1",
+        "voie-du-protecteur-2",
+        "voie-du-protecteur-3",
+        "voie-du-protecteur-4",
+        "voie-du-protecteur-5"
+      ],
+      "profile" : "druide"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du roublard",
+    "data": {
+      "id": "voie-du-roublard",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-roublard-1",
+        "voie-du-roublard-2",
+        "voie-du-roublard-3",
+        "voie-du-roublard-4",
+        "voie-du-roublard-5"
+      ],
+      "profile" : "voleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du saltimbanque",
+    "data": {
+      "id": "voie-du-saltimbanque",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-saltimbanque-1",
+        "voie-du-saltimbanque-2",
+        "voie-du-saltimbanque-3",
+        "voie-du-saltimbanque-4",
+        "voie-du-saltimbanque-5"
+      ],
+      "profile" : "barde"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du sang",
+    "data": {
+      "id": "voie-du-sang",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-sang-1",
+        "voie-du-sang-2",
+        "voie-du-sang-3",
+        "voie-du-sang-4",
+        "voie-du-sang-5"
+      ],
+      "profile" : "necromancien"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du soldat",
+    "data": {
+      "id": "voie-du-soldat",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-soldat-1",
+        "voie-du-soldat-2",
+        "voie-du-soldat-3",
+        "voie-du-soldat-4",
+        "voie-du-soldat-5"
+      ],
+      "profile" : "guerrier"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du spadassin",
+    "data": {
+      "id": "voie-du-spadassin",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-spadassin-1",
+        "voie-du-spadassin-2",
+        "voie-du-spadassin-3",
+        "voie-du-spadassin-4",
+        "voie-du-spadassin-5"
+      ],
+      "profile" : "voleur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du traqueur",
+    "data": {
+      "id": "voie-du-traqueur",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-traqueur-1",
+        "voie-du-traqueur-2",
+        "voie-du-traqueur-3",
+        "voie-du-traqueur-4",
+        "voie-du-traqueur-5"
+      ],
+      "profile" : "rodeur"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du vagabond",
+    "data": {
+      "id": "voie-du-vagabond",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-vagabond-1",
+        "voie-du-vagabond-2",
+        "voie-du-vagabond-3",
+        "voie-du-vagabond-4",
+        "voie-du-vagabond-5"
+      ],
+      "profile" : "barde"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du vent",
+    "data": {
+      "id": "voie-du-vent",
+      "scope": "profile",
+      "capacities": [
+        "voie-du-vent-1",
+        "voie-du-vent-2",
+        "voie-du-vent-3",
+        "voie-du-vent-4",
+        "voie-du-vent-5"
+      ],
+      "profile" : "moine"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du familier",
+    "data": {
+      "id": "voie-du-familier",
+      "scope": "alternative",
+      "capacities": [
+        "voie-du-familier-1",
+        "voie-du-familier-2",
+        "voie-du-familier-3",
+        "voie-du-familier-4",
+        "voie-du-familier-5"
+      ],
+      "description": "<p>La Voie du familier peut remplacer une Voie de base d'un personnage si le MJ l'y autorise.</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du combat à deux armes",
+    "data": {
+      "id": "voie-du-combat-a-deux-armes",
+      "scope": "alternative",
+      "capacities": [
+        "voie-du-combat-a-deux-armes-1",
+        "voie-du-combat-a-deux-armes-2",
+        "voie-du-combat-a-deux-armes-3",
+        "voie-du-combat-a-deux-armes-4",
+        "voie-du-combat-a-deux-armes-5"
+      ],
+      "description": "<p>Avec autorisation du MJ, la Voie du combat à deux armes peut aussi être choisie par un joueur pour un personnage dont le Profil est Guerrier dès sa création en remplacement d'une Voie de son choix. Toutefois, dans ce cas, les capacités de rang 1 et 5 deviennent des capacités limitées.\nAutres Profils possibles : tous sauf la famille des lanceurs de sort.\nRequis : Mod. de <strong>DEX</strong> de +1 minimum.\n</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du chef d’armée",
+    "data": {
+      "id": "voie-du-chef-d-armee",
+      "scope": "creature",
+      "capacities": [
+        "voie-du-chef-d-armee-1",
+        "voie-du-chef-d-armee-2",
+        "voie-du-chef-d-armee-3"
+      ],
+      "description": "<p>Cette voie est adaptée aux créatures assez intelligentes pour s’organiser militairement, généralement des humanoïdes (humains, gnolls, orques, hobgobelins, goblours, etc.). Les créatures dotées de cette voie obtiennent le CHA en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du champion",
+    "data": {
+      "id": "voie-du-champion",
+      "scope": "creature",
+      "capacities": [
+        "voie-du-champion-1",
+        "voie-du-champion-2",
+        "voie-du-champion-3"
+      ],
+      "description": "<p>Cette voie est destinée à un héros particulier, une figure ou un leader  charismatique au sein d’un peuple, généralement humanoïde. Les créatures dotées de cette voie obtiennent le CHA en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du cogneur",
+    "data": {
+      "id": "voie-du-cogneur",
+      "scope": "creature",
+      "capacities": [
+        "voie-du-cogneur-1",
+        "voie-du-cogneur-2",
+        "voie-du-cogneur-3"
+      ],
+      "description": "<p>Les créatures dotées de cette capacité obtiennent la <strong>CON</strong> en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du colosse",
+    "data": {
+      "id": "voie-du-colosse",
+      "scope": "creature",
+      "capacities": [
+        "voie-du-colosse-1",
+        "voie-du-colosse-2",
+        "voie-du-colosse-3"
+      ],
+      "description": "<p>Cette voie est à réserver aux créatures de grande taille, les capacités présentées  n’affectent que les cibles de taille inférieure à la créature. Les créatures dotées de cette voie obtiennent la <strong>FOR</strong> en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des créatures élémentaire [du feu]",
+    "data": {
+      "id": "voie-des-creatures-elementaire-du-feu",
+      "scope": "creature",
+      "capacities": [
+        "voie-des-creatures-elementaire-du-feu-1",
+        "voie-des-creatures-elementaire-du-feu-2",
+        "voie-des-creatures-elementaire-du-feu-3"
+      ],
+      "description": "<p>Cette voie, déclinée ici pour le feu, peut l’être pour d’autres éléments : froid, acide, foudre, etc. Quel que soit le rang atteint ou choisi dans cette voie, la créature est immunisée aux <strong>DM</strong> de l’élément choisi (ici feu).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des créatures magiques",
+    "data": {
+      "id": "voie-des-creatures-magiques",
+      "scope": "creature",
+      "capacities": [
+        "voie-des-creatures-magiques-1",
+        "voie-des-creatures-magiques-2",
+        "voie-des-creatures-magiques-3"
+      ],
+      "description": "<p>Cette voie s’applique aux golems, aux élémentaires et aux lycanthropes, à la plupart des démons et des mort-vivants. Une créature qui bénéficie de cette voie retranche de 5 à 15 points aux <strong>DM</strong> qui lui sont infligés par des armes ordinaires, ce qui augmente considérablement sa résistance. Toutefois, contre un groupe de personnage équipé d’armes appropriées ne permettant pas à la créature de profiter de cet avantage, n’hésitez pas à réduire le NC de 1. Les créatures dotées de cette voie obtiennent la <strong>CON</strong> en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie des créatures volantes",
+    "data": {
+      "id": "voie-des-creatures-volantes",
+      "scope": "creature",
+      "capacities": [
+        "voie-des-creatures-volantes-1",
+        "voie-des-creatures-volantes-2",
+        "voie-des-creatures-volantes-3"
+      ],
+      "description": "<p>Les créatures dotées de cette capacité obtiennent la <strong>SAG</strong> en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie de combat",
+    "data": {
+      "id": "voie-de-la-magie-de-combat",
+      "scope": "creature",
+      "capacities": [
+        "voie-de-la-magie-de-combat-1",
+        "voie-de-la-magie-de-combat-2",
+        "voie-de-la-magie-de-combat-3"
+      ],
+      "description": "<p>Les créatures dotées de cette voie obtiennent au choix l’<strong>INT</strong>, la <strong>SAG</strong> ou le CHA en  Carac. Supérieure.</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie de guérison",
+    "data": {
+      "id": "voie-de-la-magie-de-guerison",
+      "scope": "creature",
+      "capacities": [
+        "voie-de-la-magie-de-guerison-1",
+        "voie-de-la-magie-de-guerison-2",
+        "voie-de-la-magie-de-guerison-3"
+      ],
+      "description": "<p>Les créatures dotées de cette voie obtiennent au choix l’<strong>INT</strong>, la <strong>SAG</strong> ou le CHA en  Carac. Supérieure.</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la magie maléfique",
+    "data": {
+      "id": "voie-de-la-magie-malefique",
+      "scope": "creature",
+      "capacities": [
+        "voie-de-la-magie-malefique-1",
+        "voie-de-la-magie-malefique-2",
+        "voie-de-la-magie-malefique-3"
+      ],
+      "description": "<p>Les créatures dotées de cette voie obtiennent au choix l’<strong>INT</strong>, la <strong>SAG</strong> ou le CHA en Carac. Supérieure. Elles sont capables de voir dans le noir.</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de la meute",
+    "data": {
+      "id": "voie-de-la-meute",
+      "scope": "creature",
+      "capacities": [
+        "voie-de-la-meute-1",
+        "voie-de-la-meute-2",
+        "voie-de-la-meute-3"
+      ],
+      "description": "<p>Les créatures qui comptent sur le nombre plutôt que la puissance individuelle, appartiennent à cette catégorie. Ce sont généralement des créatures de petite taille (exemples : les loups ou les hyènes, les gobelins et les kobolds) mais on trouve aussi quelques prédateurs plus gros (lionne, vélociraptor). Les créatures dotées de cette voie obtiennent la <strong>CON</strong> en Carac. Supérieure (indiqué par un *). Dans le cas où une créature est rencontrée seule, ignorez ces capacités et retranchez au NC de la créature le rang qu’elle possédait dans cette Voie.</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du PNJ récurrent",
+    "data": {
+      "id": "voie-du-pnj-recurrent",
+      "scope": "creature",
+      "capacities": [
+        "voie-du-pnj-recurrent-1",
+        "voie-du-pnj-recurrent-2",
+        "voie-du-pnj-recurrent-3"
+      ],
+      "description": "<p>Cette voie est créée sur mesure pour un PNJ important et récurrent de votre campagne. Elle doit lui permettre de survivre à l’agressivité bien naturelle de vos PJ à son encontre et lui donner l’occasion de se tirer des plus mauvais pas pour mieux revenir plus tard&#8230; et le rendre encore plus détestable ! Les créatures dotées de cette voie obtiennent l’<strong>INT</strong> et le CHA en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du prédateur",
+    "data": {
+      "id": "voie-du-predateur",
+      "scope": "creature",
+      "capacities": [
+        "voie-du-predateur-1",
+        "voie-du-predateur-2",
+        "voie-du-predateur-3"
+      ],
+      "description": "<p>Les créatures dotées de cette voie obtiennent la <strong>DEX</strong> et la <strong>SAG</strong> en Carac. Supérieure (indiqué par un *).</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du tueur",
+    "data": {
+      "id": "voie-du-tueur",
+      "scope": "creature"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de prestige spécialisée",
+    "data": {
+      "id": "voie-de-prestige-specialisee",
+      "scope": "prestige",
+      "capacities": [
+        "voie-de-prestige-specialisee-1",
+        "voie-de-prestige-specialisee-2",
+        "voie-de-prestige-specialisee-3",
+        "voie-de-prestige-specialisee-4",
+        "voie-de-prestige-specialisee-5"
+      ],
+      "description": "<p>La voie de prestige spécialisée n’élargit pas le domaine de compétence du personnage, mais lui permet d’améliorer certaines capacités ou compétences en apportant des bonus sur ce qu’il sait déjà faire.\nLe héros devient un expert dans son domaine et accède aux capacités suivantes :</p>"
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'elfe sylvain",
+    "data": {
+      "id": "voie-de-l-elfe-sylvain",
+      "scope": "species",
+      "capacities": [
+        "voie-de-l-elfe-sylvain-1",
+        "voie-de-l-elfe-sylvain-2",
+        "voie-de-l-elfe-sylvain-3",
+        "voie-de-l-elfe-sylvain-4",
+        "voie-de-l-elfe-sylvain-5"
+      ],
+      "species" : ["elfe-sylvain", "demi-elfe"]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'humain",
+    "data": {
+      "id": "voie-de-l-humain",
+      "scope": "species",
+      "capacities": [
+        "voie-de-l-humain-1",
+        "voie-de-l-humain-2",
+        "voie-de-l-humain-3",
+        "voie-de-l-humain-4",
+        "voie-de-l-humain-5"
+      ],
+      "species" : ["humain", "demi-elfe"]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du demi-orque",
+    "data": {
+      "id": "voie-du-demi-orque",
+      "scope": "species",
+      "capacities": [
+        "voie-du-demi-orque-1",
+        "voie-du-demi-orque-2",
+        "voie-du-demi-orque-3",
+        "voie-du-demi-orque-4",
+        "voie-du-demi-orque-5"
+      ],
+      "species" : ["demi-orc"]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du gnome",
+    "data": {
+      "id": "voie-du-gnome",
+      "scope": "species",
+      "capacities": [
+        "voie-du-gnome-1",
+        "voie-du-gnome-2",
+        "voie-du-gnome-3",
+        "voie-du-gnome-4",
+        "voie-du-gnome-5"
+      ],
+      "species" : ["gnome"]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du halfelin",
+    "data": {
+      "id": "voie-du-halfelin",
+      "scope": "species",
+      "capacities": [
+        "voie-du-halfelin-1",
+        "voie-du-halfelin-2",
+        "voie-du-halfelin-3",
+        "voie-du-halfelin-4",
+        "voie-du-halfelin-5"
+      ],
+      "species" : ["halfelin"]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du haut-elfe",
+    "data": {
+      "id": "voie-du-haut-elfe",
+      "scope": "species",
+      "capacities": [
+        "voie-du-haut-elfe-1",
+        "voie-du-haut-elfe-2",
+        "voie-du-haut-elfe-3",
+        "voie-du-haut-elfe-4",
+        "voie-du-haut-elfe-5"
+      ],
+      "species" : ["haut-elfe", "demi-elfe"]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du nain",
+    "data": {
+      "id": "voie-du-nain",
+      "scope": "species",
+      "capacities": [
+        "voie-du-nain-1",
+        "voie-du-nain-2",
+        "voie-du-nain-3",
+        "voie-du-nain-4",
+        "voie-du-nain-5"
+      ],
+      "species" : ["nain"]
+    }
+  }
+]

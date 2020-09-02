@@ -1,0 +1,361 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Parole divine",
+    "data": {
+      "id": "voie-de-la-foi-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-foi",
+      "description": "<p>Pour chaque rang dans cette Voie, le Prêtre obtient un bonus de +2 aux tests de <strong>CHA</strong> visant à convaincre ou convertir son auditoire.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Arme d'argent",
+    "data": {
+      "id": "voie-de-la-foi-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-foi",
+      "description": "<p>Ce miracle crée pour la durée du combat une arme d'argent et de lumière que seul le Prêtre peut utiliser. Cette arme inflige [1d6 + Mod. de <strong>SAG</strong>] de <strong>DM</strong>. Contre les démons et les mort-vivants, elle offre un bonus de +2 en attaque et ajoute +1d6 aux <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Ailes célestes",
+    "data": {
+      "id": "voie-de-la-foi-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-foi",
+      "description": "<p>Des ailes divines poussent dans le dos du Prêtre, qui peut voler à une vitesse  équivalente à deux fois son déplacement normal pendant [5 + Mod. de <strong>SAG</strong>] tours. Rester en vol stationnaire avec les ailes céleste est une action de mouvement.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Foudres divines",
+    "data": {
+      "id": "voie-de-la-foi-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-foi",
+      "description": "<p>La foudre frappe toutes les créatures désignées dans un rayon de 10 mètres autour du Prêtre et leur inflige [1d6 + Mod. de <strong>SAG</strong>] de <strong>DM</strong>. Le Prêtre compare son test d’attaque magique à la <strong>DEF</strong> de chaque cible.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Charisme héroïque",
+    "data": {
+      "id": "voie-de-la-foi-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-foi",
+      "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Arme bénie",
+    "data": {
+      "id": "voie-de-la-guerre-sainte-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-guerre-sainte",
+      "description": "<p>Le Prêtre bénit son arme sacrée. S'il obtient un résultat de « 1 » sur son dé de <strong>DM</strong>, il relance le dé et garde le second résultat. Les <strong>DM</strong> de l'arme sont considérés  comme magiques.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Bouclier de la foi",
+    "data": {
+      "id": "voie-de-la-guerre-sainte-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-guerre-sainte",
+      "description": "<p>Le Prêtre porte le symbole de sa foi sur son bouclier, ce qui lui confère un bonus  supplémentaire de +1 en <strong>DEF</strong>. Ce bonus passe à +2 au Rang 4 de la Voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Marteau spirituel",
+    "data": {
+      "id": "voie-de-la-guerre-sainte-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-guerre-sainte",
+      "description": "<p>Le Prêtre effectue une attaque magique avec une portée de 30 mètres. Un projectile d’énergie prenant la forme de l’arme du Prêtre va percuter la cible, lui infligeant [1d8 + Mod. de <strong>SAG</strong>] de <strong>DM</strong>.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Châtiment divin",
+    "data": {
+      "id": "voie-de-la-guerre-sainte-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-guerre-sainte",
+      "description": "<p>Le Prêtre effectue une attaque de contact avec un bonus en attaque et aux dégâts égal à son Mod. de <strong>SAG</strong>.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Mot de pouvoir",
+    "data": {
+      "id": "voie-de-la-guerre-sainte-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-guerre-sainte",
+      "description": "<p>Une fois par combat, le Prêtre peut prononcer un mot avec la voix de son dieu. Cela dépasse l'entendement des mortels et ses ennemis à portée de vue sont paralysés de terreur pendant 1 tour tandis que tous ses alliés en vue bénéficient d'un bonus de +5 en attaque pendant cette période.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Bénédiction",
+    "data": {
+      "id": "voie-de-la-priere-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-priere",
+      "description": "<p>Le Prêtre) bénéficient d'un bonus de +1 à tous leurs tests de Caractéristique et d'attaque pendant [3 + Mod. de <strong>SAG</strong>] tours.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Destruction des morts-vivants",
+    "data": {
+      "id": "voie-de-la-priere-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-priere",
+      "description": "<p>Le Prêtre peut faire un test de <strong>SAG</strong> difficulté 13. S'il réussit, tous les morts-vivants en vue subissent 2d6 points de <strong>DM</strong>. Ces <strong>DM</strong> passent à 3d6 au rang 4 de la Voie.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sanctuaire",
+    "data": {
+      "id": "voie-de-la-priere-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-priere",
+      "description": "<p>Quand le Prêtre lance ce sort, tous les adversaires qui veulent l'attaquer doivent d'abord réussir un test de <strong>SAG</strong> difficulté 15. S'ils échouent, ils ne peuvent pas l'attaquer. Les effets de ce sort durent [5 + Mod de <strong>SAG</strong>] tours, mais s'il tente la moindre attaque, le sort prend fin immédiatement.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Intervention divine",
+    "data": {
+      "id": "voie-de-la-priere-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-priere",
+      "description": "<p>Le Prêtre fait appel à son dieu pour changer le cours des événements. Une fois par combat, il peut décider qu'un test du MJ ou des joueurs est une réussite ou un échec, même après que les dés aient révélé leur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sagesse héroïque",
+    "data": {
+      "id": "voie-de-la-priere-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-priere",
+      "description": "<p>Le personnage augmente sa valeur de <strong>SAG</strong> de +2. Il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>SAG</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Vêtements sacrés",
+    "data": {
+      "id": "voie-de-la-spiritualite-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-spiritualite",
+      "description": "<p>La tenue religieuse traditionnelle du Prêtre remplace une armure et a été bénie à cet effet : il obtient un bonus en <strong>DEF</strong> égal à +1 pour chaque Rang dans cette Voie (lorsqu'il ne porte aucune armure).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Protection contre le mal",
+    "data": {
+      "id": "voie-de-la-spiritualite-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-spiritualite",
+      "description": "<p>Le Prêtre peut lancer ce sort sur lui ou sur tout allié (portée : contact) pour la durée d'un combat. La cible obtient alors un bonus de +2 en <strong>DEF</strong> et pour tous les tests de résistance contre les attaques des mort-vivants, des démons, des élémentaires et des créatures conjurées (appelées d'un autre plan par magie).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Délivrance",
+    "data": {
+      "id": "voie-de-la-spiritualite-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-spiritualite",
+      "description": "<p>En touchant sa cible, le Prêtre annule les pénalités infligées par les sorts, les malédictions, la pétrification et les capacités spéciales d'autres personnages ou de créatures (douleur, mutilation, poisons etc.).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Marche des plans",
+    "data": {
+      "id": "voie-de-la-spiritualite-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-spiritualite",
+      "description": "<p>Une fois par jour et pour une durée maximale de [3 + Mod. de <strong>SAG</strong>] tours, le Prêtre peut passer dans une dimension entre les plans d’existence où le temps et l’espace sont déformés. Il se déplace dans une sorte de brouillard gris où le paysage défile à toute vitesse. Pour chaque tour de « Marche des plans », il se déplace en réalité de 10 km. Le lieu de sortie n’est cependant pas très précis et le MJ doit déterminer une position au hasard autour du point visé (à 1d6 km près).</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Messie",
+    "data": {
+      "id": "voie-de-la-spiritualite-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-de-la-spiritualite",
+      "description": "<p>Une fois par aventure, le Prêtre entre directement en contact avec la puissance divine et réalise un miracle. Il s'agit d'un pouvoir extraordinaire que le MJ accorde au joueur et qui permet des actes légendaires comme écarter les eaux, téléporter tout son groupe ou invoquer des nuées mortelles&#8230;</p>",
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Soins légers",
+    "data": {
+      "id": "voie-des-soins-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-des-soins",
+      "description": "<p>Le Prêtre peut toucher une cible, qui récupère alors [1d8 + niveau du prêtre] PV perdus. Le Prêtre peut utiliser ce sort sur lui-même.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Soins modérés",
+    "data": {
+      "id": "voie-des-soins-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-des-soins",
+      "description": "<p>Le Prêtre peut toucher une cible, qui récupère alors [2d8 + niveau du prêtre] PV perdus. Le Prêtre peut utiliser ce sort sur lui-même.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Soins de groupe",
+    "data": {
+      "id": "voie-des-soins-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-des-soins",
+      "description": "<p>Une fois par combat, le Prêtre peut libérer une décharge d'énergie bienfaitrice : tous ses compagnons en vue et lui récupèrent [1d8 + niveau du prêtre] PV perdus.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Guérison",
+    "data": {
+      "id": "voie-des-soins-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-des-soins",
+      "description": "<p>Une fois par jour, le Prêtre peut toucher une cible, qui récupère alors tous ses PV perdus et se trouve guérie des poisons, maladies et affaiblissements de Caractéristiques.</p>",
+      "limited": true,
+      "spell": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Rappel à la vie",
+    "data": {
+      "id": "voie-des-soins-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "pretre",
+      "path": "voie-des-soins",
+      "description": "<p>Une fois par jour, le Prêtre peut rappeler à la vie un personnage décédé depuis moins de [Mod. de <strong>SAG</strong> du prêtre] heures par un rituel de 10 minutes. Il doit connaître personnellement la personne rappelée et posséder une relique lui appartenant. Le personnage revient à la conscience avec 1d6 PV.</p>",
+      "limited": true,
+      "spell": true
+    }
+  }
+]

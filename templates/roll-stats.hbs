@@ -1,0 +1,20 @@
+<h3 style="font-size:2em; text-align: center"><strong>{{grandTotal}}</strong></h3>
+<hr/>
+{{#each rolls as |roll id|}}
+<div class="dice-roll">
+    <div class="dice-result">
+        <div class="dice-tooltip" style="display: none;">
+            <section class="tooltip-part">
+                <div class="dice">
+                    <ol class="dice-rolls">
+                        {{#each roll.dices as |dice id|}}
+                        <li class="roll die d6 {{#if dice.discarded}}discarded{{/if}} {{#if (equals dice.roll 1)}}min{{/if}} {{#if (equals dice.roll 6)}}max{{/if}}">{{dice.roll}}</li>
+                        {{/each}}
+                    </ol>
+                </div>
+            </section>
+        </div>
+        <h4 class="dice-total">{{roll.total}}</h4>
+    </div>
+</div>
+{{/each}}

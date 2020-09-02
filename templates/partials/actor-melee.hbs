@@ -1,0 +1,68 @@
+<div class="row flexrow">
+    <div class="flex1 layout">
+        <div class="row flexrow table-header red">
+            <div class="flex4">
+                <div class="field-label">ARMES DE CONTACT</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Usage</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Crit</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Mod.</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Bonus</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Dégâts</div>
+            </div>
+            <div class="flex1 center">
+                <div class="field-label">Actions</div>
+            </div>
+        </div>
+        <ol class="item-list">
+            {{#if (isEmpty (getWornMeleeWeapons actor.items))}}
+            <li class="flexrow item">
+                <div class="flex1 left">
+                    <span class="empty">Aucune arme de contact équipée pour le moment</span>
+                </div>
+            </li>
+            {{/if}}
+            {{#each (getWornMeleeWeapons actor.items) as |item id|}}
+            <li class="flexrow item" data-item-id="{{item._id}}">
+                <div class="flex4 left">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+                </div>
+                <div class="flex1 center">
+                    {{#if (is2H item)}}
+                    <i class="fas fa-hand-paper"></i><i class="fas fa-hand-paper"></i>
+                    {{else}}
+                    <i class="fas fa-hand-paper"></i>
+                    {{/if}}
+                    <input class="field-value item-hands" readonly="true" name="melee.{{id}}.hands" type="hidden" value="{{item.data.hands}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-critrange" readonly="true" name="melee.{{id}}.critrange" type="text" value="{{item.data.critrange}}" data-dtype="String"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-mod" readonly="true" name="melee.{{id}}.mod" type="text" value="{{item.data.mod}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-bonus" name="melee.{{id}}.bonus" type="text" value="{{item.data.bonus}}" data-dtype="Number"/>
+                </div>
+                <div class="flex1 center cell">
+                    <input class="field-value item-dmg" name="melee.{{id}}.dmg" type="text" value="{{item.data.dmg}}" data-dtype="String"/>
+                </div>
+                <div class="flex1 center">
+                    <div class="rollable" data-rolling="melee[{{id}}]" data-roll-type="weapon"><i class="fas fa-dice-d20"></i></div>
+                    &nbsp;
+                    <div class="rollable" data-rolling="melee[{{id}}]" data-roll-type="damage"><i class="fas fa-dice"></i></div>
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+{
+  "name": "cof",
+  "title": "Chroniques Oubliées Fantasy",
+  "description": "Système Foundry VTT pour les Chroniques Oubliées Fantasy.",
+  "version": 0.1,
+  "minimumCoreVersion": "0.6.3",
+  "compatibleCoreVersion": "0.6.3",
+  "templateVersion": 2,
+  "author": "Zigmund",
+  "esmodules": [
+    "scripts/modules/hooks/system-init.js",
+    "scripts/modules/hooks/system-ready.js",
+    "scripts/modules/hooks/chat-message.js",
+    "scripts/modules/hooks/hotbar-drop.js"
+  ],
+  "scripts": [
+    "./scripts/config.js"
+  ],
+  "styles": [
+    "./styles/cof.css"
+  ],
+  "packs": [
+    {
+      "name": "capacities",
+      "label": "Capacités",
+      "system": "cof",
+      "path": "./packs/capacities.db",
+      "entity": "Item",
+      "tag" : "capacity"
+    },
+    {
+      "name": "items",
+      "label": "Equipement",
+      "system": "cof",
+      "path": "./packs/items.db",
+      "entity": "Item",
+      "tag" : "item"
+    },
+    {
+      "name": "paths",
+      "label": "Voies",
+      "system": "cof",
+      "path": "./packs/paths.db",
+      "entity": "Item",
+      "tag" : "path"
+    },
+    {
+      "name": "profiles",
+      "label": "Profils",
+      "system": "cof",
+      "path": "./packs/profiles.db",
+      "entity": "Item",
+      "tag" : "profile"
+    },
+    {
+      "name": "species",
+      "label": "Races",
+      "system": "cof",
+      "path": "./packs/species.db",
+      "entity": "Item",
+      "tag" : "specie"
+    },
+    {
+      "name": "spells",
+      "label": "Sorts",
+      "system": "cof",
+      "path": "./packs/spells.db",
+      "entity": "Item",
+      "tag" : "spell"
+    },
+    {
+      "name": "tables",
+      "label": "Tables",
+      "system": "cof",
+      "path": "./packs/tables.db",
+      "entity": "RollTable",
+      "tag" : "table"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "gridDistance": 2,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "attributes.hp",
+  "secondaryTokenAttribute": "optional.fp",
+  "url": "https://github.com/ZigmundKreud/cof",
+  "manifest": "https://gitlab.com/cof-fvtt/cof/raw/master/system.json",
+  "download": "https://gitlab.com/cof-fvtt/cof/-/archive/master/cof.zip",
+  "license": "LICENSE.txt"
+}

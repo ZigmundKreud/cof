@@ -1,0 +1,96 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <input class="field-value" name="data.id" type="hidden" value="{{item.data.id}}" placeholder="ID" data-dtype="String">
+        </div>
+    </header>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+        <div class="tab" data-group="primary" data-tab="details">
+            <div class="row flexrow">
+                <div class="flex3 center"><span class="field-label label-text">Type de Voie</span></div>
+                <div class="flex4">
+                    <select name="data.scope" data-type="String" style="width:100%">
+                        {{#select data.scope}}
+                        <option value="">{{localize "COF.None"}}</option>
+                        <option value="profile">Voie de profil</option>
+                        <option value="species">Voie raciale</option>
+                        <option value="creature">Voie de créature</option>
+                        <option value="prestige">Voie de prestige</option>
+                        <option value="alternative">Voie alternative</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+            {{#if (or (equals data.scope "profile") (equals data.scope "prestige"))}}
+            <div class="row flexrow">
+                <div class="flex3 center"><span class="field-label label-text">Profil</span></div>
+                <div class="flex4">
+                    <select name="data.profile" data-type="String" style="width:100%">
+                        {{#select data.profile}}
+                        <option value="">{{localize "COF.None"}}</option>
+                        {{#each (listProfiles) as |prof id|}}
+                        <option value="{{prof.data.id}}">{{prof.name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+            {{/if}}
+            {{#if (equals data.scope "species")}}
+            <div class="row flexrow">
+                <div class="flex3 center"><span class="field-label label-text">Race</span></div>
+                <div class="flex4">
+                {{#if (isEmpty data.species)}}
+                    <select name="data.species.[0]" data-type="String" style="width:100%">
+                        <option value="">{{localize "COF.None"}}</option>
+                        {{#each (listSpecies) as |s sid|}}
+                        <option value="{{s.data.id}}">{{s.name}}</option>
+                        {{/each}}
+                    </select>
+                {{else}}
+                    {{#each data.species as |spec id|}}
+                    <select name="data.species.{{id}}" data-type="String" style="width:100%">
+                        {{#select spec}}
+                        <option value="">{{localize "COF.None"}}</option>
+                        {{#each (listSpecies) as |s sid|}}
+                        <option value="{{s.data.id}}">{{s.name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                    {{/each}}
+                {{/if}}
+                </div>
+            </div>
+            {{/if}}
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Note</span>
+                </div>
+                <div class="flex4">
+                    <input class="field-value box-shadow" name="data.note" type="text" value="{{item.data.note}}" placeholder="Note" data-dtype="String">
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex3 center">
+                    <span class="field-label label-text">Capacités</span>
+                </div>
+                <div class="flex4">
+                    {{#each (findCapacities data.capacities) as |cap id|}}
+                    <p><a class="entity-link" draggable="true" data-pack="cof.capacities" data-id="{{cap._id}}"><i class="fas fa-suitcase"></i>{{cap.name}}</a></p>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

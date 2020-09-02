@@ -1,0 +1,335 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Esquive du singe",
+    "data": {
+      "id": "voie-de-la-maitrise-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-maitrise",
+      "description": "<p>Pour chaque Rang dans cette Voie, le Moine gagne +1 en <strong>DEF</strong> et à tous ses tests de <strong>DEX</strong> pour effectuer des acrobaties.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Morsure du serpent",
+    "data": {
+      "id": "voie-de-la-maitrise-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-maitrise",
+      "description": "<p>Le Moine obtient des <strong>DM</strong> critiques (multipliés par 2) sur un résultat de 19 à 20 au d20 du test d'attaque à mains nues ou avec une arme de contact, et sur des résultats de 18 à 20 avec une rapière ou une Vivelame.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Griffes du tigre",
+    "data": {
+      "id": "voie-de-la-maitrise-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-maitrise",
+      "description": "<p>Les <strong>DM</strong> des attaques à mains nues du Moine sont désormais des jets sans limite : s'il obtient les <strong>DM</strong> maximum sur son dé, le joueur le relance et ajoute le nouveau résultat à ses <strong>DM</strong>. Tant que le dé donne le meilleur résultat possible, il est relancé et son score comptabilisé. Les dés en bonus (Puissance du Ki par exemple) ne sont jamais relancés, seulement ceux des <strong>DM</strong> à mains nues.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Fureur du dragon",
+    "data": {
+      "id": "voie-de-la-maitrise-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-maitrise",
+      "description": "<p>Une fois par combat, le Moine peut effectuer une attaque tournoyante qui inflige automatiquement [2d6+ Mod. de <strong>FOR</strong>] de <strong>DM</strong> à tous les adversaires au contact et oblige ceux-ci à réussir un test de <strong>FOR</strong> difficulté 10 pour ne pas tomber au sol.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Moment de perfection",
+    "data": {
+      "id": "voie-de-la-maitrise-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-maitrise",
+      "description": "<p>Une fois par combat, le Moine peut choisir de réussir toutes ses attaques automatiquement et d'esquiver toutes celles qui le prennent pour cible pendant un tour. Tout semble aller au ralenti autour de lui&#8230;</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Pacifisme",
+    "data": {
+      "id": "voie-de-la-meditation-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-meditation",
+      "description": "<p>Tant que le Moine n'a réalisé aucune action offensive dans un combat, il bénéficie d'un bonus en <strong>DEF</strong> de +5.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Transe de guérison",
+    "data": {
+      "id": "voie-de-la-meditation-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-meditation",
+      "description": "<p>Une fois après chaque combat, le Moine peut méditer pendant 10 minutes et récupérer ainsi [niveau + Mod de <strong>SAG</strong>] PV.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Maîtrise du ki",
+    "data": {
+      "id": "voie-de-la-meditation-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-meditation",
+      "description": "<p>Le Moine utilise son intuition et son empathie avec le monde pour augmenter son efficacité en combat. Il ajoute son Mod. de <strong>SAG</strong> à son Initiative et sa <strong>DEF</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Projection mentale",
+    "data": {
+      "id": "voie-de-la-meditation-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-meditation",
+      "description": "<p>Le Moine entre en méditation et projette son esprit hors de son corps. Celui-ci ressemble à un ectoplasme de couleur blanche qui se déplace en volant à la vitesse de 10 m par tour. Il peut passer au travers des murs, mais pas des êtres vivants, et il reste relié à son corps d’origine par un long filin argenté. La durée maximum de la projection est de [valeur de <strong>SAG</strong>] tours. Le Moine ne perçoit le monde que via sa projection mentale mais ressent si des <strong>DM</strong> sont infligés à son corps.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Sagesse héroïque",
+    "data": {
+      "id": "voie-de-la-meditation-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-la-meditation",
+      "description": "<p>Le personnage augmente sa valeur de <strong>SAG</strong> de +2. Il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>SAG</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Mains d'énergie",
+    "data": {
+      "id": "voie-de-l-energie-vitale-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-l-energie-vitale",
+      "description": "<p>Par un effort de concentration, le Moine peut rendre ses mains intangibles, à ce tour, il peut faire une attaque simple avec un bonus +2 en attaque, +5 si la cible porte une armure.\nDe plus, toutes les attaques à mains nues du Moine sont considérées comme magiques (même lorsqu’il n’utilise pas Mains d’énergie).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Pression mortelle",
+    "data": {
+      "id": "voie-de-l-energie-vitale-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-l-energie-vitale",
+      "description": "<p>Le Moine frappe les points par lesquels circule l'énergie vitale d'une créature vivante. En touchant un point précis, il libère ensuite des effets dévastateurs. Lorsqu'il combat à mains nues, le joueur peut choisir de ne pas infliger  immédiatement les <strong>DM</strong> de ses attaques. A tout moment dans l'heure qui suit, il peut annoncer une « Pression Mortelle ». Il doit alors réussir un test d'attaque contre la cible, ce qui libère instantanément la totalité des <strong>DM</strong> infligés jusqu'alors +1d6 <strong>DM</strong> supplémentaires.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Invulnérable",
+    "data": {
+      "id": "voie-de-l-energie-vitale-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-l-energie-vitale",
+      "description": "<p>Le Moine ne reçoit que la moitié des <strong>DM</strong> de toutes les sources «élémentaires» : feu, froid, foudre, acide&#8230; Il ne subit aucun <strong>DM</strong> des poisons ou des maladies.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Projection du ki",
+    "data": {
+      "id": "voie-de-l-energie-vitale-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-l-energie-vitale",
+      "description": "<p>Le Moine projette une vague de force avec son corps et son esprit à une distance maximum de 20 mètres. Un test d'attaque magique réussi (Mod. de <strong>SAG</strong>) lui permet d'infliger [2d6 + Mod. de <strong>SAG</strong>] de <strong>DM</strong>.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Ascétisme",
+    "data": {
+      "id": "voie-de-l-energie-vitale-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-de-l-energie-vitale",
+      "description": "<p>Le Moine peut subsister sans nourriture, sans eau et sans sommeil pendant [5 + Mod. <strong>SAG</strong>] jour. Il ne subit aucune pénalité durant cette période. De plus, il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Poings de fer",
+    "data": {
+      "id": "voie-du-poing-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-poing",
+      "description": "<p>Lorsqu'il combat à mains nues, le Moine peut (s'il le souhaite) utiliser son score d'attaque à distance au lieu de celui d'attaque au contact. Au rang 1 de cette voie, il inflige [1d6 + Mod. de <strong>FOR</strong>] <strong>DM</strong> létaux. Ces <strong>DM</strong> passent à 1d8 au Rang 3 et à 1d10 au rang 5.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Parade de projectiles",
+    "data": {
+      "id": "voie-du-poing-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-poing",
+      "description": "<p>Le Moine peut dévier un projectile (flèche, javelot,&#8230;) une fois par tour de combat (sauf si le test d'attaque est un critique ou si l'attaque vient d'une arme à poudre)&#8230;</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Peau de fer",
+    "data": {
+      "id": "voie-du-poing-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-poing",
+      "description": "<p>Le Moine gagne un bonus de +2 en <strong>DEF</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Déluge de coups",
+    "data": {
+      "id": "voie-du-poing-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-poing",
+      "description": "<p>A son tour, le Moine peut effectuer 2 attaques à mains nues sur des cibles de son choix ou 2 attaques avec une arme. Alternativement, il peut choisir de faire 3 attaques en utilisant un d12 en attaque pour chacune d'elle (au lieu d'un d20).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Puissance du ki",
+    "data": {
+      "id": "voie-du-poing-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-poing",
+      "description": "<p>Le Moine peut choisir d’utiliser 1d12 en attaque au lieu du d20 habituel (et il ajoute normalement son score d’attaque). Si l’attaque est réussie, il ajoute 2d6 aux <strong>DM</strong>. Cette capacité peut être utilisée avec Déluge de coups ou Projection du ki par exemple.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Pas du vent",
+    "data": {
+      "id": "voie-du-vent-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-vent",
+      "description": "<p>Le Moine peut se déplacer avant et après avoir attaqué (mais il couvre toujours une distance normale). De plus, il gagne +1 par rang dans la Voie en Initiative.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Course du vent",
+    "data": {
+      "id": "voie-du-vent-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-vent",
+      "description": "<p>Le Moine se déplace à une vitesse surhumaine. Il couvre une distance de 40 mètres par action de mouvement (la distance normale est de 20 mètres) et se relever est pour lui une action gratuite.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Course des airs",
+    "data": {
+      "id": "voie-du-vent-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-vent",
+      "description": "<p>Le Moine défie les lois de la pesanteur et peut se déplacer sur des surfaces qui ne devraient pas supporter son poids. Il peut se déplacer sur l'eau, la neige, le  feuillage des arbres ou courir sur un mur vertical. Il doit commencer et terminer son déplacement sur une surface normale.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Lévitation",
+    "data": {
+      "id": "voie-du-vent-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-vent",
+      "description": "<p>En se concentrant, le Moine peut « léviter » à une vitesse de 10 m par tour.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Passe-muraille",
+    "data": {
+      "id": "voie-du-vent-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "moine",
+      "path": "voie-du-vent",
+      "description": "<p>Le Moine peut rendre son corps intangible temps de passer au travers d'un mur d'une épaisseur maximum de [Mod. de <strong>SAG</strong>] mètres. Il ne peut rester immatériel  qu'un court instant et reprend corps dès qu'il émerge du mur. Il est insensible aux attaques tant qu'il est entièrement dans le mur, sauf si le mur est détruit.</p>",
+      "limited": true
+    }
+  }
+]

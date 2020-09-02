@@ -1,0 +1,114 @@
+.grid {
+  display: grid;
+  //gap: 10px;
+  margin: 0;
+  padding: 0;
+  //font-family: MyriadProLight, sans-serif;
+  font-weight: 100;
+  //font-size: smaller;
+
+  .gridheader{
+    //font-size: smaller;
+    font-weight: bold;
+  }
+
+  .gridrow{
+    display: grid;
+    height:24px;
+    margin: 0 0 1px 0;
+    padding: 0;
+    //border-bottom: 1px solid $c-darkgreen !important;
+  }
+  .gridcell{
+    text-align: center;
+    //border: 1px solid $c-darkgreen !important;
+    //border: 1px solid transparent;
+    margin: 0 1px 1px 0;
+    padding: 3px;
+    height:24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .no-border{
+    border: none !important;
+  }
+  .border{
+    //border-left: 1px solid $c-darkgreen !important;
+    //border-bottom: 1px solid $c-darkgreen !important;
+  }
+  .gridcell-sm{
+    font-weight: lighter;
+    //font-size: smaller;
+  }
+}
+
+.grid-1col {
+  grid-column: span 1 / span 1;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-2col {
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col-150 {
+  grid-column: span 6 / span 6;
+  grid-template-columns: 3fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+.grid-6col-200 {
+  grid-column: span 6 / span 6;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-6col {
+  grid-column: span 6 / span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}

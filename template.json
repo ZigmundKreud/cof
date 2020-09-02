@@ -1,0 +1,475 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "npc",
+      "encounter"
+    ],
+    "templates": {
+      "common": {
+        "description": "",
+        "attributes": {
+          "hp": {
+            "key" : "hp",
+            "label" : "COF.attributes.hp.label",
+            "abbrev" : "COF.attributes.hp.abbrev",
+            "base": 0,
+            "bonus": 0,
+            "value": 0,
+            "max": 0
+          },
+          "def": {
+            "key" : "def",
+            "label" : "COF.attributes.def.label",
+            "abbrev" : "COF.attributes.def.abbrev",
+            "base": 10,
+            "bonus": 0,
+            "value": 10
+          },
+          "init": {
+            "key" : "init",
+            "label" : "COF.attributes.init.label",
+            "abbrev" : "COF.attributes.init.abbrev",
+            "base": 10,
+            "bonus": 0,
+            "value": 10
+          }
+        },
+        "currency": {
+          "pp": {
+            "key" : "pp",
+            "label" : "COF.currency.pp.label",
+            "abbrev" : "COF.currency.pp.abbrev",
+            "qty" : 0
+          },
+          "gp": {
+            "key" : "gp",
+            "label" : "COF.currency.gp.label",
+            "abbrev" : "COF.currency.gp.abbrev",
+            "qty" : 0
+          },
+          "sp": {
+            "key" : "sp",
+            "label" : "COF.currency.sp.label",
+            "abbrev" : "COF.currency.sp.abbrev",
+            "qty" : 0
+          },
+          "cp": {
+            "key" : "cp",
+            "label" : "COF.currency.cp.label",
+            "abbrev" : "COF.currency.cp.abbrev",
+            "qty" : 0
+          }
+        },
+        "alert": {
+          "type": "error",
+          "msg": ""
+        },
+        "roll" : {
+          "difficulty" : 10
+        }
+      }
+    },
+    "character": {
+      "templates": [
+        "common"
+      ],
+      "stats": {
+        "str" : {
+          "key" : "str",
+          "label" : "COF.stats.str.label",
+          "abbrev" : "COF.stats.str.abbrev",
+          "base": 10,
+          "racial": 0,
+          "bonus": 0,
+          "mod": 0,
+          "value": 10,
+          "tmpmod": null
+        },
+        "dex" : {
+          "key" : "dex",
+          "label" : "COF.stats.dex.label",
+          "abbrev" : "COF.stats.dex.abbrev",
+          "base": 10,
+          "racial": 0,
+          "bonus": 0,
+          "mod": 0,
+          "value": 10,
+          "tmpmod": null
+        },
+        "con" : {
+          "key" : "con",
+          "label" : "COF.stats.con.label",
+          "abbrev" : "COF.stats.con.abbrev",
+          "base": 10,
+          "racial": 0,
+          "bonus": 0,
+          "mod": 0,
+          "value": 10,
+          "tmpmod": null
+        },
+        "int" : {
+          "key" : "int",
+          "label" : "COF.stats.int.label",
+          "abbrev" : "COF.stats.int.abbrev",
+          "base": 10,
+          "racial": 0,
+          "bonus": 0,
+          "mod": 0,
+          "value": 10,
+          "tmpmod": null
+        },
+        "wis" : {
+          "key" : "wis",
+          "label" : "COF.stats.wis.label",
+          "abbrev" : "COF.stats.wis.abbrev",
+          "base": 10,
+          "racial": 0,
+          "bonus": 0,
+          "mod": 0,
+          "value": 10,
+          "tmpmod": null
+        },
+        "cha" : {
+          "key" : "cha",
+          "label" : "COF.stats.cha.label",
+          "abbrev" : "COF.stats.cha.abbrev",
+          "base": 10,
+          "racial": 0,
+          "bonus": 0,
+          "mod": 0,
+          "value": 10,
+          "tmpmod": null
+        }
+      },
+      "details": {
+        "gender": "",
+        "age": "",
+        "weight": "",
+        "height": "",
+        "eyes": "",
+        "hair": "",
+        "size": "med",
+        "senses": "",
+        "languages": {
+          "value": [],
+          "custom": ""
+        }
+      },
+      "level": {
+        "key" : "level",
+        "label" : "COF.attributes.level.label",
+        "abbrev" : "COF.attributes.level.abbrev",
+        "value": 1,
+        "max": 20
+      },
+      "xp": {
+        "key" : "xp",
+        "label" : "COF.attributes.xp.label",
+        "abbrev" : "COF.attributes.xp.abbrev",
+        "value": 2,
+        "max": 2
+      },
+      "attacks" : {
+        "melee" : {
+          "key" : "melee",
+          "label": "COF.attacks.melee.label",
+          "abbrev": "COF.attacks.melee.abbrev",
+          "stat": "str",
+          "enabled": true,
+          "base": 1,
+          "bonus": 0,
+          "mod": 1
+        },
+        "ranged" : {
+          "key" : "ranged",
+          "label": "COF.attacks.ranged.label",
+          "abbrev": "COF.attacks.ranged.abbrev",
+          "stat": "dex",
+          "enabled": true,
+          "base": 1,
+          "bonus": 0,
+          "mod": 1
+        },
+        "magic" : {
+          "key" : "magic",
+          "label": "COF.attacks.magic.label",
+          "abbrev": "COF.attacks.magic.abbrev",
+          "stat": null,
+          "enabled": false,
+          "base": 1,
+          "bonus": 0,
+          "mod": 1
+        }
+      },
+      "optional": {
+        "rp": {
+          "key" : "rp",
+          "label" : "COF.optional.rp.label",
+          "abbrev" : "COF.optional.rp.abbrev",
+          "enabled": false,
+          "base": 5,
+          "bonus": 0,
+          "value": 5
+        },
+        "madness": {
+          "key" : "fp",
+          "label" : "COF.optional.madness.label",
+          "abbrev" : "COF.optional.madness.abbrev",
+          "enabled": false,
+          "base": 0,
+          "value": 0
+        },
+        "fp": {
+          "key" : "fp",
+          "label" : "COF.optional.fp.label",
+          "abbrev" : "COF.optional.fp.abbrev",
+          "enabled": false,
+          "base": 3,
+          "bonus": 0,
+          "value": 3,
+          "max": 3
+        },
+        "mp": {
+          "key" : "mp",
+          "label" : "COF.optional.mp.label",
+          "abbrev" : "COF.optional.mp.abbrev",
+          "enabled": false,
+          "base": 0,
+          "bonus": 0,
+          "value": 0,
+          "max": 0
+        },
+        "dr": {
+          "key" : "dr",
+          "label" : "COF.optional.dr.label",
+          "abbrev" : "COF.optional.dr.abbrev",
+          "enabled": false,
+          "base": 0,
+          "bonus": 0,
+          "value": 0
+        }
+      }
+    },
+    "npc": {
+      "templates": [
+        "common"
+      ],
+      "species": "",
+      "profile": "",
+      "weapons" : [],
+      "capacities" : []
+    },
+    "encounter": {
+      "templates": [
+        "common"
+      ],
+      "stats": {
+        "str" : {
+          "key" : "str",
+          "label" : "COF.stats.str.label",
+          "abbrev" : "COF.stats.str.abbrev",
+          "mod": 0,
+          "tmpmod": null
+        },
+        "dex" : {
+          "key" : "dex",
+          "label" : "COF.stats.dex.label",
+          "abbrev" : "COF.stats.dex.abbrev",
+          "mod": 0,
+          "tmpmod": null
+        },
+        "con" : {
+          "key" : "con",
+          "label" : "COF.stats.con.label",
+          "abbrev" : "COF.stats.con.abbrev",
+          "mod": 0,
+          "tmpmod": null
+        },
+        "int" : {
+          "key" : "int",
+          "label" : "COF.stats.int.label",
+          "abbrev" : "COF.stats.int.abbrev",
+          "mod": 0,
+          "tmpmod": null
+        },
+        "wis" : {
+          "key" : "wis",
+          "label" : "COF.stats.wis.label",
+          "abbrev" : "COF.stats.wis.abbrev",
+          "mod": 0,
+          "tmpmod": null
+        },
+        "cha" : {
+          "key" : "cha",
+          "label" : "COF.stats.cha.label",
+          "abbrev" : "COF.stats.cha.abbrev",
+          "mod": 0,
+          "tmpmod": null
+        }
+      },
+      "nc": {
+        "key" : "nc",
+        "label" : "COF.attributes.nc.label",
+        "abbrev" : "COF.attributes.nc.abbrev",
+        "value": 1
+      },
+      "dr": {
+        "key" : "dr",
+        "label" : "COF.optional.dr.label",
+        "abbrev" : "COF.optional.dr.abbrev",
+        "enabled": false,
+        "value": 0,
+        "tmpval": null
+      },
+      "attacks" : [{
+        "name" : "",
+        "mod" : null,
+        "dmg" : null
+      }],
+      "capacities" : [],
+      "special" : [],
+      "details": {
+        "class": "",
+        "archetype": "",
+        "species": "",
+        "profile": "",
+        "milieu": "",
+        "gender": "",
+        "age": "",
+        "weight": "",
+        "height": "",
+        "eyes": "",
+        "hair": "",
+        "size": "med",
+        "senses": "",
+        "languages": {
+          "value": [],
+          "custom": ""
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "capacity",
+      "item",
+      "trapping",
+      "species",
+      "profile",
+      "path",
+      "armor",
+      "shield",
+      "melee",
+      "ranged",
+      "spell"
+    ],
+    "capacity": {
+      "id" : "",
+      "summary" : "",
+      "description" : "",
+      "rank": null,
+      "scope": null,
+      "profile": null,
+      "path": null,
+      "description": "",
+      "checked": false,
+      "limited": false,
+      "spell": false
+    },
+    "item": {
+      "description" : ""
+    },
+    "trapping": {
+      "price" : 0,
+      "description" : ""
+    },
+    "profile": {
+      "id": "",
+      "description": "",
+      "dv": "",
+      "proficiency": "",
+      "spellcasting": "",
+      "trappings": "",
+      "note" : {
+        "title" : "",
+        "text" : ""
+      },
+      "paths" : []
+    },
+    "species": {
+      "id": "",
+      "description": "",
+      "age": "",
+      "longevity": "",
+      "height": "",
+      "weight": "",
+      "morphology": "",
+      "racial": "",
+      "names" : "",
+      "bonuses": [],
+      "capacities": []
+    },
+    "path": {
+      "id": "",
+      "collapsed" : true,
+      "description": "",
+      "note": "",
+      "scope": null,
+      "capacities": [],
+      "species": [],
+      "profile": ""
+    },
+    "armor": {
+      "def" : 0,
+      "bonus" : 0,
+      "price" : 0,
+      "description" : "",
+      "worn": false
+    },
+    "shield": {
+      "def" : 0,
+      "mod": "",
+      "dmg": "",
+      "bonus" : 0,
+      "description" : "",
+      "critrange": "",
+      "worn": false,
+      "hands": 1,
+      "price" : 0
+    },
+    "melee": {
+      "dmg": "",
+      "mod": "",
+      "bonus" : 0,
+      "description": "",
+      "critrange": "",
+      "worn": false,
+      "hands": 1,
+      "price": 0
+    },
+    "ranged": {
+      "dmg": "",
+      "totaldmg": "",
+      "mod": "",
+      "bonus" : 0,
+      "description": "",
+      "critrange": "",
+      "hands": 1,
+      "range": 0,
+      "worn": false,
+      "reload": "",
+      "price": 0
+    },
+    "spell": {
+      "dmg": "",
+      "totaldmg": "",
+      "mod": "",
+      "bonus" : 0,
+      "description": "",
+      "critrange": "",
+      "range": 0,
+      "reload": ""
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<div class="row flexrow table-header darkslate no-wrap">
+    <div class="flex8 center">
+        <div class="field-label ellipsis">{{ localize 'COF.optional.resources.label' }}</div>
+    </div>
+    <div class="flex3 center">
+        <div class="field-label">{{ localize 'COF.ui.current' }}</div>
+    </div>
+    <div class="flex3 center">
+        <div class="field-label">{{ localize 'COF.ui.base' }}</div>
+    </div>
+    <div class="flex3 center">
+        <div class="field-label">{{ localize 'COF.ui.bonus' }}</div>
+    </div>
+    <div class="flex3 center">
+        <div class="field-label">{{ localize 'COF.ui.max' }}</div>
+    </div>
+</div>
+{{#if (isEnabled "useFortune")}}
+<div class="row flexrow no-wrap">
+    <div class="flex8 center bg-darkslate">
+        <span class="field-label ellipsis"><i class="fas fa-star"></i>&nbsp;{{ localize 'COF.optional.fp.abbrev' }}</span>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value" name="data.optional.fp.value" type="text" value="{{actor.data.optional.fp.value}}" placeholder="Value" data-dtype="Number"/>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value readonly" name="data.optional.fp.base" readonly="true" type="text" value="{{actor.data.optional.fp.base}}" placeholder="Base" data-dtype="Number"/>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value" name="data.optional.fp.bonus" type="text" value="{{actor.data.optional.fp.bonus}}" placeholder="Bonus" data-dtype="Number"/>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value" name="data.optional.fp.max" type="text" readonly="true" value="{{actor.data.optional.fp.max}}" placeholder="Max" data-dtype="Number"/>
+    </div>
+</div>
+{{/if}}
+{{#if (isEnabled "useMana")}}
+<div class="row flexrow no-wrap">
+    <div class="flex8 center bg-darkslate">
+        <span class="field-label ellipsis"><i class="fas fa-hand-sparkles"></i>&nbsp;{{ localize 'COF.optional.mp.abbrev' }}</span>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value" name="data.optional.mp.value" type="text" value="{{actor.data.optional.mp.value}}" placeholder="Value" data-dtype="Number"/>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value readonly" name="data.optional.mp.base" type="text" readonly="true" value="{{actor.data.optional.mp.base}}" placeholder="Base" data-dtype="Number"/>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value" name="data.optional.mp.bonus" type="text" value="{{actor.data.optional.mp.bonus}}" placeholder="Bonus" data-dtype="Number"/>
+    </div>
+    <div class="flex3 center cell">
+        <input class="field-value" name="data.optional.mp.max" type="text" readonly="true" value="{{actor.data.optional.mp.max}}" placeholder="Max" data-dtype="Number"/>
+    </div>
+</div>
+{{/if}}

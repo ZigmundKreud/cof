@@ -1,0 +1,171 @@
+[
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/crossbow-light.jpg",
+    "name": "Arbalète de poing",
+    "data": {
+      "description": "",
+      "dmg": "1d6",
+      "critrange": "20",
+      "hands": 1,
+      "range": 10,
+      "reload": "S",
+      "price": 8
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/crossbow-light.jpg",
+    "name": "Arbalète légère",
+    "data": {
+      "description": "",
+      "dmg": "2d4",
+      "critrange": "20",
+      "hands": 2,
+      "range": 30,
+      "reload": "S",
+      "price": 10
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/crossbow-heavy.jpg",
+    "name": "Arbalète lourde",
+    "data": {
+      "description": "",
+      "dmg": "3d4",
+      "critrange": "20",
+      "hands": 2,
+      "range": 60,
+      "reload": "L",
+      "price": 12
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/bow-short.jpg",
+    "name": "Arc court",
+    "data": {
+      "description": "",
+      "dmg": "1d6",
+      "critrange": "20",
+      "hands": 2,
+      "range": 30,
+      "reload": "",
+      "price": 4
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/bow-long.jpg",
+    "name": "Arc long",
+    "data": {
+      "description": "",
+      "dmg": "1d8",
+      "critrange": "20",
+      "hands": 2,
+      "comment": "13 min en FOR",
+      "range": 50,
+      "reload": "",
+      "price": 5
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/dagger-leaf.jpg",
+    "name": "Dague",
+    "data": {
+      "description": "",
+      "dmg": "1d4",
+      "critrange": "20",
+      "hands": 1,
+      "range": 5,
+      "reload": "",
+      "price": 3
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/throwingknives.jpg",
+    "name": "Couteau de lancer",
+    "data": {
+      "description": "",
+      "dmg": "1d4",
+      "critrange": "20",
+      "hands": 1,
+      "range": 5,
+      "reload": "",
+      "price": 3
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/sling.jpg",
+    "name": "Fronde",
+    "data": {
+      "description": "",
+      "dmg": "1d4",
+      "critrange": "20",
+      "hands": 1,
+      "range": 20,
+      "reload": "",
+      "price": 0
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/hatchet.jpg",
+    "name": "Hachette",
+    "data": {
+      "description": "",
+      "dmg": "1d6",
+      "critrange": "20",
+      "hands": "1 main, lancée (5 m)",
+      "range": 5,
+      "reload": "",
+      "price": 2
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/spear.jpg",
+    "name": "Javelot",
+    "data": {
+      "description": "",
+      "dmg": "1d6",
+      "critrange": "20",
+      "hands": 1,
+      "range": 20,
+      "reload": "",
+      "price": 6
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/bullet.jpg",
+    "name": "Mousquet",
+    "data": {
+      "description": "",
+      "dmg": "2d6",
+      "critrange": "20",
+      "hands": 2,
+      "range": 50,
+      "reload": "L",
+      "price": 20
+    }
+  },
+  {
+    "type": "ranged",
+    "img":"/systems/cof/ui/icons/items/weapons/bullet.jpg",
+    "name": "Pétoire",
+    "data": {
+      "description": "",
+      "dmg": "1d10",
+      "critrange": "20",
+      "hands": 1,
+      "range": 20,
+      "reload": "L",
+      "price": 15
+    }
+  }
+]

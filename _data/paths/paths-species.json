@@ -1,0 +1,303 @@
+[
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'elfe sylvain",
+    "data": {
+      "id": "voie-de-l-elfe-sylvain",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Grâce elfique",
+          "description": "<p>L’elfe gagne un bonus de +5 en Initiative et à tous les tests de <strong>DEX</strong>.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Enfant de la forêt",
+          "description": "<p>Le joueur choisit une capacité de rang 1 de n’importe quelle voie de Druide ou de Rôdeur. Il peut utiliser cette capacité en armure sans pénalité. Au rang 4 de la voie, il pourra choisir une capacité supplémentaire de rang 2.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Archer émérite",
+          "description": "<p>Lorsqu’il utilise un arc, l’elfe sylvain obtient une réussite critique sur un résultat de 19-20 au d20. Il sait utiliser les arcs quel que soit son profil.</p>"
+        },
+        {
+          "level": 4,
+          "title": "Flèche sanglante",
+          "limited": true,
+          "description": "<p>L’elfe fait une attaque à distance qui provoque une hémorragie. En plus des <strong>DM</strong> normaux, la flèche produit un effet de saignement qui inflige à la victime +1d6 <strong>DM</strong> à chaque tour suivant jusqu’à ce que la cible réussisse un test de <strong>CON</strong> difficulté [12 + Mod. de <strong>DEX</strong>] ou qu’elle soit soignée. On ne peut cumuler plusieurs effets de saignement.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Supériorité elfique",
+          "description": "<p>L’elfe augmente ses valeurs de <strong>DEX</strong> et <strong>SAG</strong> de +2.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "elfe-sylvain",
+          "label": "Elfe Sylvain"
+        },
+        {
+          "id": "demi-elfe",
+          "label": "Demi-Elfe"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie de l'humain",
+    "data": {
+      "id": "voie-de-l-humain",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Adaptable",
+          "description": "<p>Après avoir raté un test de Carac., le personnage obtient un bonus de +5 au test s'il a la possibilité de retenter la même action au tour suivant. L'action réalisée doit habituellement permettre au PJ plusieurs essais, cette capacité n'octroie en aucun cas du temps ou des essais supplémentaires.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Loup parmi les loups",
+          "description": "<p>Le personnage gagne +1 aux <strong>DM</strong> lorsqu’il combat un adversaire humanoïde. Ce bonus passe à +2 au rang 4 de la voie.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Versatile",
+          "description": "<p>Le personnage obtient une capacité de rang 1 de n’importe quel Profil au choix du joueur ou une capacité de rang 2 d’un profil de la même famille que le sien.</p>"
+        },
+        {
+          "level": 4,
+          "title": "Increvable",
+          "description": "<p>Une fois par tour, lorsqu’une attaque fait tomber le personnage à 0 PV, ce dernier peut effectuer un test d’attaque (du même type) opposé à celui de l’adversaire. En cas de réussite, le personnage esquive ou résiste à cette attaque et ne subit aucun <strong>DM</strong>.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Polyvalence",
+          "description": "<p>Le personnage augmente de 2 points la valeur de sa Caractéristique la plus faible, ainsi que la valeur d’une autre Caractéristique au choix.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "humain",
+          "label": "Humain"
+        },
+        {
+          "id": "demi-elfe",
+          "label": "Demi-Elfe"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du demi-orque",
+    "data": {
+      "id": "voie-du-demi-orque",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Force de la nature",
+          "description": "<p>Le demi-orque gagne un bonus de +5 à tous les tests de <strong>FOR</strong> et ajoute son [Mod. de <strong>FOR</strong>] à son score total de PV.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Talent pour la violence",
+          "description": "<p>Le joueur choisit une capacité de rang 1 de n’importe quelle voie de Barbare, de Guerrier ou de la voie de l’homme. Au rang 4 de la voie, choisissez une capacité supplémentaire de rang 2.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Critique brutal",
+          "description": "<p>Les <strong>DM</strong> du demi-orque sont multipliés par 3 (au lieu de 2) lorsqu’il obtient une réussite critique sur une attaque au contact.</p>"
+        },
+        {
+          "level": 4,
+          "title": "Attaque sanglante",
+          "limited": true,
+          "description": "<p>Le demi-orque réalise une attaque de contact violente qui provoque une hémorragie. En plus des <strong>DM</strong> normaux, l’attaque produit un saignement qui inflige à la victime +1d6 <strong>DM</strong> à chaque tour suivant jusqu’à ce que la cible réussisse un test de <strong>CON</strong> difficulté [12 + Mod. de <strong>FOR</strong>] ou qu’elle soit soignée. On ne peut cumuler plusieurs effets de saignement.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Colosse",
+          "description": "<p>Le demi-orque augmente ses valeurs de <strong>FOR</strong> et de <strong>CON</strong> de +2.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "demi-orc",
+          "label": "Demi-Orque"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du gnome",
+    "data": {
+      "id": "voie-du-gnome",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Petit pote",
+          "description": "<p>Le gnome est un compagnon sympathique et difficile à prendre pour quelqu’un de dangereux ou de malintentionné. Il gagne un bonus de +5 à tous les tests de <strong>CHA</strong>.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Don occulte",
+          "description": "<p>Le joueur choisit une capacité de rang 1 ou 2 de n’importe quelle voie d’<em>Ensorceleur</em>. Il peut utiliser cette capacité en armure sans pénalité. Au rang 4 de la voie, il pourra choisir un autre sort supplémentaire de rang 2.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Insignifiant",
+          "description": "<p>Le gnome sait comment échapper aux attaques des grandes créatures comme les géants. Contre les grandes créatures, il gagne un bonus de +2 en <strong>DEF</strong> et contre les très grandes et plus, il obtient un bonus de +4.</p>"
+        },
+        {
+          "level": 4,
+          "title": "Merveille technologique",
+          "description": "<p>Le gnome sait utiliser les arbalètes (et les armes à poudre si votre MJ autorise leur usage) quel que soit son profil. Il ajoute son Mod. de <strong>DEX</strong> aux <strong>DM</strong> qu’il inflige avec ces armes.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Bonne nature",
+          "description": "<p>Le gnome augmente ses valeurs de <strong>CON</strong> et de <strong>CHA</strong> de +2.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "gnome",
+          "label": "Gnome"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du halfelin",
+    "data": {
+      "id": "voie-du-halfelin",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Petit veinard",
+          "description": "<p>Le halfelin peut relancer un dé de son choix une fois par combat. Au rang 3 de la voie, il peut esquiver une attaque de son choix par combat (après avoir pris connaissance des <strong>DM</strong>).</p>"
+        },
+        {
+          "level": 2,
+          "title": "Résistance légendaire",
+          "description": "<p>Le halfelin obtient un bonus de +5 à tous ses tests de <strong>CON</strong> et un bonus de +5 en <strong>DEF</strong> contre la magie.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Bon pour le moral",
+          "description": "<p>Un halfelin qui mange bien est un halfelin heureux. A chaque repas où le personnage boit ou mange un met de qualité, il récupère 1d6 PV. Une fois par jour, s’il participe à un véritable festin ou s’il fait une bonne sieste (au moins 1 heure en plein après midi), il récupère [2d6 + niveau] PV !</p>"
+        },
+        {
+          "level": 4,
+          "title": "Perception",
+          "description": "<p>Le halfelin obtient un bonus de +5 à tous les tests de perception et de discrétion. Il peut ajouter son Mod. de <strong>DEX</strong> aux <strong>DM</strong> à la fronde et il sait utiliser cette arme quel que soit son profil.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Vif et alerte",
+          "description": "<p>Le halfelin augmente ses valeurs de <strong>DEX</strong> et de <strong>CON</strong> de +2.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "halfelin",
+          "label": "Halfelin"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du haut-elfe",
+    "data": {
+      "id": "voie-du-haut-elfe",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Grâce elfique",
+          "description": "<p>L’elfe gagne +5 à tous les tests de <strong>CHA</strong> et de déplacement silencieux.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Talent pour la magie",
+          "description": "<p>Le joueur choisit une capacité de rang 1 de n’importe quelle voie de Magicien ou d’Ensorceleur. Il peut utiliser cette capacité en armure sans pénalité. Au rang 4 de la voie, il pourra choisir un sort supplémentaire de rang 2.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Force d'âme",
+          "description": "<p>L’elfe est immunisé à la peur et au sommeil magique. Il obtient un bonus de +5 en <strong>DEF</strong> contre les attaques magiques et à tous les tests de <strong>SAG</strong> destinés à résister à la magie.</p>"
+        },
+        {
+          "level": 4,
+          "title": "Immortel",
+          "description": "<p>L’elfe n’a besoin que de la moitié du repos, de la nourriture ou de la boisson d’un humain normal pour être en pleine forme. Il est immunisé aux effets des poisons et des maladies.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Supériorité elfique",
+          "description": "<p>L’elfe augmente ses valeurs d’<strong>INT</strong> et de <strong>SAG</strong> de +2.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "haut-elfe",
+          "label": "Haut Elfe"
+        },
+        {
+          "id": "demi-elfe",
+          "label": "Demi-Elfe"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "img": "/systems/cof/ui/icons/path.png",
+    "name": "Voie du nain",
+    "data": {
+      "id": "voie-du-nain",
+      "capacities": [
+        {
+          "level": 1,
+          "title": "Résistance",
+          "description": "<p>Le nain gagne un bonus de +5 à tous ses tests de <strong>CON</strong>.</p>"
+        },
+        {
+          "level": 2,
+          "title": "Solide comme un roc",
+          "description": "<p>Le nain réduit tous les <strong>DM</strong> subis de 2 points (mais il subit toujours au moins 1 point de <strong>DM</strong> par attaque reçue).Ce bonus est cumulable avec d’autres sources de réduction des <strong>DM</strong> comme la 'Peau d’acier du barbare'. Au rang 4, la réduction passe à 3 points.</p>"
+        },
+        {
+          "level": 3,
+          "title": "Haches et marteaux",
+          "description": "<p>Le nain gagne un bonus de +1 en attaque et aux <strong>DM</strong> lorsqu’il utilise une hache ou un marteau de guerre. Il sait utiliser ces armes quel que soit son profil.</p>"
+        },
+        {
+          "level": 4,
+          "title": "Résistance à la magie",
+          "description": "<p>Chaque fois que le personnage est la cible d’un sort (sauf un sort de zone), le joueur lance 1d6 : sur un résultat supérieur au rang du sort, il peut en ignorer les effets.</p>"
+        },
+        {
+          "level": 5,
+          "title": "Tenacité",
+          "description": "<p>Le nain augmente ses valeurs de <strong>CON</strong> et de <strong>SAG</strong> de +2.</p>"
+        }
+      ],
+      "species": [
+        {
+          "id": "nain",
+          "label": "Nain"
+        }
+      ]
+    }
+  }
+]

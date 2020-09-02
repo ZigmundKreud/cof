@@ -1,0 +1,335 @@
+[
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Mécanismes",
+    "data": {
+      "id": "voie-de-l-artilleur-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-l-artilleur",
+      "description": "<p>L'Arquebusier obtient un bonus de +1 par Rang dans cette voie à tous les tests visant à réparer ou à comprendre des mécanismes (cela inclut le fait de désamorcer des pièges mécaniques et de manipuler des armes de siège). Il peut appliquer ce bonus à tous les tests d'attaque avec des armes de siège (baliste, couleuvrine, canon, trébuchet, catapulte, etc.).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir de semonce",
+    "data": {
+      "id": "voie-de-l-artilleur-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-l-artilleur",
+      "description": "<p>Après avoir raté une attaque à distance au tour précédent, l'Arquebusier déclare qu'il s'agissait d'un tir de semonce. A ce tour, il tire sur la même cible et obtient +5 à son test et +1d6 aux <strong>DM</strong> sur sa première attaque.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir de barrage",
+    "data": {
+      "id": "voie-de-l-artilleur-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-l-artilleur",
+      "description": "<p>L'Arquebusier met en joue une cible sur laquelle il a l'Initiative et attend. Si elle se déplace à ce tour, il effectue une attaque à distance. En cas de succès la victime choisit entre deux possibilités : soit elle subit double dégâts, soit elle ne se déplace pas et ne subit pas de dégâts, tout en perdant son tour.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Couleuvrine",
+    "data": {
+      "id": "voie-de-l-artilleur-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-l-artilleur",
+      "description": "<p>L'Arquebusier obtient une couleuvrine, un petit canon portatif qui nécessite la mise en place d'un trépied (ou d'un appui). Utiliser cette arme demande une action limitée et ne peut avoir lieu qu'une seule fois par combat. Sur un test d'attaque à distance réussi, elle inflige [4d6 + Mod. de <strong>DEX</strong>] <strong>DM</strong>. La portée maximale de cette arme est de 100 mètres et sa portée minimale de 10 mètres.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Feu nourri",
+    "data": {
+      "id": "voie-de-l-artilleur-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-l-artilleur",
+      "description": "<p>Lorsqu'il utilise le Tir de barrage, l'Arquebusier peut affecter jusqu'à [1 + Mod. de <strong>DEX</strong>] cibles différentes dans le même tour. Toutes les cibles doivent être dans une zone frontale de 20 mètres de large au maximum. Chaque cible donne lieu à un test d'attaque à distance indépendant.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Joli coup !",
+    "data": {
+      "id": "voie-de-la-precision-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-la-precision",
+      "description": "<p>L'Arquebusier ignore les pénalités normalement appliquées lorsque la cible est à couvert (généralement -2 à -5).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir précis",
+    "data": {
+      "id": "voie-de-la-precision-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-la-precision",
+      "description": "<p>L'Arquebusier ajoute un bonus de +1 aux <strong>DM</strong> des armes de tir jusqu'à une portée de [5 x Mod. de <strong>DEX</strong>]. Ce bonus passe à +2 au Rang 4 de la voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Défaut dans la cuirasse",
+    "data": {
+      "id": "voie-de-la-precision-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-la-precision",
+      "description": "<p>L'Arquebusier passe un tour complet à analyser le point faible de son adversaire et à viser. Au tour suivant, il réalisera ses attaques à distance sur cette cible contre une <strong>DEF</strong> de [10 + Mod. de <strong>DEX</strong> de la cible]. Au lieu de cela, le joueur peut choisir d'ignorer la réduction des <strong>DM</strong> (<strong>RD</strong>) d'une créature (dans ce cas la <strong>DEF</strong> n'est pas modifiée).</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir parabolique",
+    "data": {
+      "id": "voie-de-la-precision-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-la-precision",
+      "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de Tir précis.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir mortel",
+    "data": {
+      "id": "voie-de-la-precision-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-de-la-precision",
+      "description": "<p>Pour une attaque à distance, l'Arquebusier peut choisir d'utiliser un d12 pour son attaque au lieu du d20 habituel (et il ajoute normalement son score d'attaque). Si l'attaque est réussie, il ajoute +2d6 aux <strong>DM</strong>.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Chimiste",
+    "data": {
+      "id": "voie-des-explosifs-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-des-explosifs",
+      "description": "<p>L'Arquebusier sait fabriquer sa propre poudre et d'autres substances explosives, et obtient un bonus de +2 par Rang à tous les tests de chimie ou d'alchimie. Les armes à poudre du personnage ne présentent plus de risque de « faire long feu » ou d'explosion et le joueur ne lance plus de dé de poudre.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Démolition",
+    "data": {
+      "id": "voie-des-explosifs-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-des-explosifs",
+      "description": "<p>L'Arquebusier peut préparer un explosif qui lui permet de démolir facilement des structures. Il lui faut 3 tours complets pour préparer et poser son explosif. Celui-ci inflige à la structure 2d6 <strong>DM</strong> par Rang dans la voie et 1d6 par rang dans un rayon de 6 mètres autour (en ignorant la moitié de la <strong>RD</strong> de la structure. Voir <strong>DM</strong> aux structures).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Poudre puissante",
+    "data": {
+      "id": "voie-des-explosifs-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-des-explosifs",
+      "description": "<p>L'Arquebusier sait préparer lui-même une poudre plus puissante, il ajoute +10 mètres à la portée et +2 aux dégâts de toutes ses armes à poudre.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Piège explosif",
+    "data": {
+      "id": "voie-des-explosifs-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-des-explosifs",
+      "description": "<p>il faut un tour complet à l’Arquebusier pour installer un piège qui explose dans un rayon de 3 mètres en infligeant 5d6 <strong>DM</strong> (test de <strong>DEX</strong> difficulté 15 pour ne subir que la moitié des <strong>DM</strong>). L’Arquebusier peut choisir entre deux modes de déclenchement, soit avec un retardateur allant de 1 à 10 tours au choix, soit à l’intrusion de toute créature dans une zone d’1 mètre autour du piège. Cette seconde solution demande 1 tour de préparation supplémentaire et un personnage attentif peut détecter et éviter le piège avec un test de <strong>SAG</strong> difficulté [12 + Mod. d’<strong>INT</strong> de l’Arquebusier].</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Boulet explosif",
+    "data": {
+      "id": "voie-des-explosifs-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-des-explosifs",
+      "description": "<p>L’Arquebusier sait fabriquer et lancer de petites boules de métal munies de poudre et d’une mèche. Un tel projectile a une portée de 20 mètres et explose dans un rayon de 5 mètres en infligeant 5d6 <strong>DM</strong>, divisé par 2 pour les victimes qui réussissent un test de <strong>DEX</strong> difficulté [12 + Mod. de <strong>DEX</strong> de l’Arquebusier].</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Action concertée",
+    "data": {
+      "id": "voie-du-champ-de-bataille-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-champ-de-bataille",
+      "description": "<p>Une fois par tour, l'Arquebusier peut échanger son Initiative avec un autre personnage volontaire. S'il cède son Initiative à un personnage plus lent, il gagne un bonus de +1 sur ses tests d'attaque à ce tour. Ce bonus passe à +2 au Rang 4 de la voie.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "A couvert",
+    "data": {
+      "id": "voie-du-champ-de-bataille-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-champ-de-bataille",
+      "description": "<p>Jusqu’à son prochain tour, l’Arquebusier divise par 2 les <strong>DM</strong> dus aux attaques à distance et de zone qu’il reçoit, et peut se déplacer de 20 mètres. Un compagnon de l’Arquebusier peut profiter de cette aptitude s’il a son accord et reste à son contact.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Combattant aguerri",
+    "data": {
+      "id": "voie-du-champ-de-bataille-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-champ-de-bataille",
+      "description": "<p>l’Arquebusier peut choisir n’importe quelle capacité de rang 2 d’une voie de Guerrier de son choix et gagne 3 PV supplémentaires. Il peut choisir une capacité de Rang 1 seulement et gagne alors 6 PV au lieu de 3.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Combat de masse",
+    "data": {
+      "id": "voie-du-champ-de-bataille-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-champ-de-bataille",
+      "description": "<p>L’Arquebusier obtient une action de mouvement ou une action d’attaque supplémentaire à chaque tour si le combat implique au moins 10 créatures (en comptant l’Arquebusier et ses alliés).</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Constitution héroïque",
+    "data": {
+      "id": "voie-du-champ-de-bataille-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-champ-de-bataille",
+      "description": "<p>Le personnage augmente son score de <strong>CON</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé et conserver le meilleur résultat.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Plus vite que son ombre",
+    "data": {
+      "id": "voie-du-pistolero-1",
+      "rank": 1,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-pistolero",
+      "description": "<p>Si son arme à poudre est prête (chargée et tenue en main), l'Arquebusier peut tirer avec un bonus de +10 à son Initiative.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Cadence de tir",
+    "data": {
+      "id": "voie-du-pistolero-2",
+      "rank": 2,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-pistolero",
+      "description": "<p>Recharger une pétoire ou un mousquet devient une action de mouvement. Dans le cas d'une arbalète de poing ou d'une arbalète légère, l'action devient gratuite. A partir du Rang 5 dans la voie, il peut recharger deux armes en une seule action.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Tir double",
+    "data": {
+      "id": "voie-du-pistolero-3",
+      "rank": 3,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-pistolero",
+      "description": "<p>L’Arquebusier est capable de tirer avec une pétoire dans chaque main sans pénalité. Si l’Arquebusier décharge simultanément ses deux armes sur la même cible, il fait un seul test à +2 en attaque (mais il lance séparément les <strong>DM</strong>). Le joueur peut choisir de ne pas réaliser les deux tirs simultanément, afin, par exemple, de pouvoir tirer sur une autre cible s’il tue la première. Dans ce cas, il n’obtient pas de bonus en attaque.</p>",
+      "limited": true
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "As de la gâchette",
+    "data": {
+      "id": "voie-du-pistolero-4",
+      "rank": 4,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-pistolero",
+      "description": "<p>Lorsqu'il atteint une <strong>DEF</strong> de 25 ou plus sur son attaque à distance avec une arme à poudre ou une arbalète, l'Arquebusier ajoute +1d6 aux <strong>DM</strong> de son attaque.</p>"
+    }
+  },
+  {
+    "type": "capacity",
+    "img": "/systems/cof/ui/icons/capacity.png",
+    "name": "Dextérité héroïque",
+    "data": {
+      "id": "voie-du-pistolero-5",
+      "rank": 5,
+      "scope": "profile",
+      "profile": "arquebusier",
+      "path": "voie-du-pistolero",
+      "description": "<p>Le personnage augmente son score de <strong>DEX</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>DEX</strong> lui est demandé, et conserver le meilleur résultat.</p>"
+    }
+  }
+]

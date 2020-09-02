@@ -1,0 +1,98 @@
+[
+  {
+    "type": "armor",
+    "name": "Tissu matelassé",
+    "img":"/systems/cof/ui/icons/items/armor/hide.png",
+    "data": {
+      "def": 1,
+      "price": 2,
+      "description": ""
+    }
+  },
+  {
+    "type": "shield",
+    "name": "Petit bouclier",
+    "img":"/systems/cof/ui/icons/items/armor/shield.png",
+    "data": {
+      "def": 1,
+      "dmg": "1d4",
+      "critrange": "20",
+      "hands": 1,
+      "price": 2,
+      "description": "<p>La <strong>DEF</strong> s'additionne à celle de l'armure.</p>"
+    }
+  },
+  {
+    "type": "armor",
+    "name": "Cuir",
+    "img":"/systems/cof/ui/icons/items/armor/leather.png",
+    "data": {
+      "def": 2,
+      "price": 4,
+      "description": ""
+    }
+  },
+  {
+    "type": "shield",
+    "name": "Grand bouclier",
+    "img":"/systems/cof/ui/icons/items/armor/shield.png",
+    "data": {
+      "def": 2,
+      "dmg": "1d4",
+      "critrange": "20",
+      "hands": 1,
+      "price": 4,
+      "description": "<p>La <strong>DEF</strong> s'additionne à celle de l'armure.</p>"
+    }
+  },
+  {
+    "type": "armor",
+    "name": "Cuir renforcé",
+    "img":"/systems/cof/ui/icons/items/armor/studded.png",
+    "data": {
+      "def": 3,
+      "price": 8,
+      "description": ""
+    }
+  },
+  {
+    "type": "armor",
+    "name": "Chemise de mailles",
+    "img":"/systems/cof/ui/icons/items/armor/scale.png",
+    "data": {
+      "def": 4,
+      "price": 15,
+      "description": ""
+    }
+  },
+  {
+    "type": "armor",
+    "name": "Cotte de mailles",
+    "img":"/systems/cof/ui/icons/items/armor/scale.png",
+    "data": {
+      "def": 5,
+      "price": 20,
+      "description": ""
+    }
+  },
+  {
+    "type": "armor",
+    "name": "Demi-plaque",
+    "img":"/systems/cof/ui/icons/items/armor/halfplate.png",
+    "data": {
+      "def": 6,
+      "price": 50,
+      "description": "<p>Très rare.</p>"
+    }
+  },
+  {
+    "type": "armor",
+    "name": "Plaque complète",
+    "img":"/systems/cof/ui/icons/items/armor/plate.png",
+    "data": {
+      "def": 8,
+      "price": 200,
+      "description": "<p>Très rare. Fabriquée sur mesure, seul le profil de Chevalier est formé au port de cette armure au niveau 1.</p>"
+    }
+  }
+]
