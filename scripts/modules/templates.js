@@ -30,11 +30,13 @@ export const preloadHandlebarsTemplates = async function () {
         // ENCOUNTER
         "systems/cof/templates/partials/encounter/encounter-stats.hbs",
         "systems/cof/templates/partials/encounter/encounter-combat.hbs",
-        "systems/cof/templates/partials/encounter/encounter-paths.hbs",
+        "systems/cof/templates/partials/encounter/encounter-capacities.hbs",
         "systems/cof/templates/partials/encounter/encounter-inventory.hbs",
         "systems/cof/templates/partials/encounter/encounter-description.hbs",
 
         // ENCOUNTER
+        "systems/cof/templates/partials/item/item-price.hbs",
+        "systems/cof/templates/partials/item/item-description.hbs",
         "systems/cof/templates/partials/item/item-header.hbs",
 
         // MISC

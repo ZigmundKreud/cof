@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bâton de mage",
     "data": {
-      "id": "voie-des-artefacts-1",
+      "key": "voie-des-artefacts-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Blocage",
     "data": {
-      "id": "voie-des-artefacts-2",
+      "key": "voie-des-artefacts-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -32,7 +32,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sac sans fond",
     "data": {
-      "id": "voie-des-artefacts-3",
+      "key": "voie-des-artefacts-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -45,7 +45,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Frappe des arcanes",
     "data": {
-      "id": "voie-des-artefacts-4",
+      "key": "voie-des-artefacts-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -60,7 +60,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Artefact majeur",
     "data": {
-      "id": "voie-des-artefacts-5",
+      "key": "voie-des-artefacts-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -73,7 +73,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fortifiant",
     "data": {
-      "id": "voie-des-elixirs-1",
+      "key": "voie-des-elixirs-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -86,7 +86,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feu grégeois",
     "data": {
-      "id": "voie-des-elixirs-2",
+      "key": "voie-des-elixirs-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -99,7 +99,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Elixir de guérison",
     "data": {
-      "id": "voie-des-elixirs-3",
+      "key": "voie-des-elixirs-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -112,7 +112,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Potion magique",
     "data": {
-      "id": "voie-des-elixirs-4",
+      "key": "voie-des-elixirs-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -125,7 +125,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Elixirs magiques",
     "data": {
-      "id": "voie-des-elixirs-5",
+      "key": "voie-des-elixirs-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -138,7 +138,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Runes de défense",
     "data": {
-      "id": "voie-des-runes-1",
+      "key": "voie-des-runes-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -151,7 +151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune d'énergie",
     "data": {
-      "id": "voie-des-runes-2",
+      "key": "voie-des-runes-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -166,7 +166,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune de protection",
     "data": {
-      "id": "voie-des-runes-3",
+      "key": "voie-des-runes-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -181,7 +181,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune de puissance",
     "data": {
-      "id": "voie-des-runes-4",
+      "key": "voie-des-runes-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -196,7 +196,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune de pouvoir",
     "data": {
-      "id": "voie-des-runes-5",
+      "key": "voie-des-runes-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -209,7 +209,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grosse tête",
     "data": {
-      "id": "voie-du-golem-1",
+      "key": "voie-du-golem-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -222,7 +222,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Golem",
     "data": {
-      "id": "voie-du-golem-2",
+      "key": "voie-du-golem-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -235,7 +235,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protecteur",
     "data": {
-      "id": "voie-du-golem-3",
+      "key": "voie-du-golem-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -248,7 +248,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Golem supérieur",
     "data": {
-      "id": "voie-du-golem-4",
+      "key": "voie-du-golem-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -261,7 +261,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence héroïque",
     "data": {
-      "id": "voie-du-golem-5",
+      "key": "voie-du-golem-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -274,7 +274,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forgeron",
     "data": {
-      "id": "voie-du-metal-1",
+      "key": "voie-du-metal-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -287,7 +287,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Métal brûlant",
     "data": {
-      "id": "voie-du-metal-2",
+      "key": "voie-du-metal-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -302,7 +302,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Magnétisme",
     "data": {
-      "id": "voie-du-metal-3",
+      "key": "voie-du-metal-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -317,7 +317,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Métal hurlant",
     "data": {
-      "id": "voie-du-metal-4",
+      "key": "voie-du-metal-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -332,7 +332,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Endurer",
     "data": {
-      "id": "voie-du-metal-5",
+      "key": "voie-du-metal-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",

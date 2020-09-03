@@ -12,8 +12,8 @@ export class CofProfileSheet extends CofItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "profile"],
             template: System.templatesPath + "/items/profile-sheet.hbs",
-            width: 400,
-            height: 400,
+            width: 430,
+            height: 430,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

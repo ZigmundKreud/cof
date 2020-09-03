@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Maître de la survie",
     "data": {
-      "id": "voie-de-la-nature-1",
+      "key": "voie-de-la-nature-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Marche sylvestre",
     "data": {
-      "id": "voie-de-la-nature-2",
+      "key": "voie-de-la-nature-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistant",
     "data": {
-      "id": "voie-de-la-nature-3",
+      "key": "voie-de-la-nature-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -43,7 +43,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bâton de druide",
     "data": {
-      "id": "voie-de-la-nature-4",
+      "key": "voie-de-la-nature-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-de-la-nature-5",
+      "key": "voie-de-la-nature-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -70,7 +70,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Langage des animaux",
     "data": {
-      "id": "voie-des-animaux-1",
+      "key": "voie-des-animaux-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -83,7 +83,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Nuée d'insectes",
     "data": {
-      "id": "voie-des-animaux-2",
+      "key": "voie-des-animaux-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -98,7 +98,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Le guetteur",
     "data": {
-      "id": "voie-des-animaux-3",
+      "key": "voie-des-animaux-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -111,7 +111,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Masque du prédateur",
     "data": {
-      "id": "voie-des-animaux-4",
+      "key": "voie-des-animaux-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -126,7 +126,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme animale",
     "data": {
-      "id": "voie-des-animaux-5",
+      "key": "voie-des-animaux-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -141,7 +141,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau d'écorce",
     "data": {
-      "id": "voie-des-vegetaux-1",
+      "key": "voie-des-vegetaux-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -156,7 +156,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Prison végétale",
     "data": {
-      "id": "voie-des-vegetaux-2",
+      "key": "voie-des-vegetaux-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -171,7 +171,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animation d'un arbre",
     "data": {
-      "id": "voie-des-vegetaux-3",
+      "key": "voie-des-vegetaux-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -186,7 +186,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Gland de pouvoir",
     "data": {
-      "id": "voie-des-vegetaux-4",
+      "key": "voie-des-vegetaux-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -201,7 +201,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Porte végétale",
     "data": {
-      "id": "voie-des-vegetaux-5",
+      "key": "voie-des-vegetaux-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -216,7 +216,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vitesse du félin",
     "data": {
-      "id": "voie-du-fauve-1",
+      "key": "voie-du-fauve-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -229,7 +229,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Panthère",
     "data": {
-      "id": "voie-du-fauve-2",
+      "key": "voie-du-fauve-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -242,7 +242,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque bondissante",
     "data": {
-      "id": "voie-du-fauve-3",
+      "key": "voie-du-fauve-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -256,7 +256,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grand félin",
     "data": {
-      "id": "voie-du-fauve-4",
+      "key": "voie-du-fauve-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -269,7 +269,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Les sept vies du chat",
     "data": {
-      "id": "voie-du-fauve-5",
+      "key": "voie-du-fauve-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -282,7 +282,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Baies magiques",
     "data": {
-      "id": "voie-du-protecteur-1",
+      "key": "voie-du-protecteur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -297,7 +297,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forêt vivante",
     "data": {
-      "id": "voie-du-protecteur-2",
+      "key": "voie-du-protecteur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -312,7 +312,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Régénération",
     "data": {
-      "id": "voie-du-protecteur-3",
+      "key": "voie-du-protecteur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -327,7 +327,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme d'arbre",
     "data": {
-      "id": "voie-du-protecteur-4",
+      "key": "voie-du-protecteur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -342,7 +342,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sagesse héroïque",
     "data": {
-      "id": "voie-du-protecteur-5",
+      "key": "voie-du-protecteur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",

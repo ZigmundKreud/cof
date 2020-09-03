@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Siphon des âmes",
     "data": {
-      "id": "voie-de-la-mort-1",
+      "key": "voie-de-la-mort-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -18,7 +18,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Masque mortuaire",
     "data": {
-      "id": "voie-de-la-mort-2",
+      "key": "voie-de-la-mort-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -33,7 +33,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Baiser du vampire",
     "data": {
-      "id": "voie-de-la-mort-3",
+      "key": "voie-de-la-mort-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -48,7 +48,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Briser les cœurs",
     "data": {
-      "id": "voie-de-la-mort-4",
+      "key": "voie-de-la-mort-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -63,7 +63,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mot de mort",
     "data": {
-      "id": "voie-de-la-mort-5",
+      "key": "voie-de-la-mort-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -78,7 +78,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ténèbres",
     "data": {
-      "id": "voie-de-la-sombre-magie-1",
+      "key": "voie-de-la-sombre-magie-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -93,7 +93,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pattes d'araignée",
     "data": {
-      "id": "voie-de-la-sombre-magie-2",
+      "key": "voie-de-la-sombre-magie-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -108,7 +108,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Strangulation",
     "data": {
-      "id": "voie-de-la-sombre-magie-3",
+      "key": "voie-de-la-sombre-magie-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -123,7 +123,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ombre mortelle",
     "data": {
-      "id": "voie-de-la-sombre-magie-4",
+      "key": "voie-de-la-sombre-magie-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -138,7 +138,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence héroïque",
     "data": {
-      "id": "voie-de-la-sombre-magie-5",
+      "key": "voie-de-la-sombre-magie-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -151,7 +151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peur",
     "data": {
-      "id": "voie-de-l-outre-tombe-1",
+      "key": "voie-de-l-outre-tombe-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -166,7 +166,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animation des morts",
     "data": {
-      "id": "voie-de-l-outre-tombe-2",
+      "key": "voie-de-l-outre-tombe-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -181,7 +181,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Putréfaction",
     "data": {
-      "id": "voie-de-l-outre-tombe-3",
+      "key": "voie-de-l-outre-tombe-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -196,7 +196,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ensevelissement",
     "data": {
-      "id": "voie-de-l-outre-tombe-4",
+      "key": "voie-de-l-outre-tombe-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -211,7 +211,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armée des morts",
     "data": {
-      "id": "voie-de-l-outre-tombe-5",
+      "key": "voie-de-l-outre-tombe-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -226,7 +226,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Malédiction",
     "data": {
-      "id": "voie-du-demon-1",
+      "key": "voie-du-demon-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -241,7 +241,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Aspect de la succube",
     "data": {
-      "id": "voie-du-demon-2",
+      "key": "voie-du-demon-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -256,7 +256,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pacte sanglant",
     "data": {
-      "id": "voie-du-demon-3",
+      "key": "voie-du-demon-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -270,7 +270,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Aspect du démon",
     "data": {
-      "id": "voie-du-demon-4",
+      "key": "voie-du-demon-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -285,7 +285,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Invocation d'un démon",
     "data": {
-      "id": "voie-du-demon-5",
+      "key": "voie-du-demon-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -300,7 +300,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Saignements",
     "data": {
-      "id": "voie-du-sang-1",
+      "key": "voie-du-sang-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -315,7 +315,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sang mordant",
     "data": {
-      "id": "voie-du-sang-2",
+      "key": "voie-du-sang-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -330,7 +330,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Exsangue",
     "data": {
-      "id": "voie-du-sang-3",
+      "key": "voie-du-sang-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -344,7 +344,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hémorragie",
     "data": {
-      "id": "voie-du-sang-4",
+      "key": "voie-du-sang-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -359,7 +359,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lien de sang",
     "data": {
-      "id": "voie-du-sang-5",
+      "key": "voie-du-sang-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",

@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Argument de taille",
     "data": {
-      "id": "voie-de-la-brute-1",
+      "key": "voie-de-la-brute-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tour de force",
     "data": {
-      "id": "voie-de-la-brute-2",
+      "key": "voie-de-la-brute-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque brutale",
     "data": {
-      "id": "voie-de-la-brute-3",
+      "key": "voie-de-la-brute-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -44,7 +44,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Briseur d'os",
     "data": {
-      "id": "voie-de-la-brute-4",
+      "key": "voie-de-la-brute-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force héroïque",
     "data": {
-      "id": "voie-de-la-brute-5",
+      "key": "voie-de-la-brute-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -70,7 +70,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vigueur",
     "data": {
-      "id": "voie-du-pagne-1",
+      "key": "voie-du-pagne-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -83,7 +83,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau de pierre",
     "data": {
-      "id": "voie-du-pagne-2",
+      "key": "voie-du-pagne-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -96,7 +96,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tatouages",
     "data": {
-      "id": "voie-du-pagne-3",
+      "key": "voie-du-pagne-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -109,7 +109,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau d'acier",
     "data": {
-      "id": "voie-du-pagne-4",
+      "key": "voie-du-pagne-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -122,7 +122,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-du-pagne-5",
+      "key": "voie-du-pagne-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -135,7 +135,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Réflexes félins",
     "data": {
-      "id": "voie-du-pourfendeur-1",
+      "key": "voie-du-pourfendeur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -148,7 +148,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge",
     "data": {
-      "id": "voie-du-pourfendeur-2",
+      "key": "voie-du-pourfendeur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -162,7 +162,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Enchaînement",
     "data": {
-      "id": "voie-du-pourfendeur-3",
+      "key": "voie-du-pourfendeur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -175,7 +175,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déchaînement d'acier",
     "data": {
-      "id": "voie-du-pourfendeur-4",
+      "key": "voie-du-pourfendeur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -189,7 +189,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque tourbillon",
     "data": {
-      "id": "voie-du-pourfendeur-5",
+      "key": "voie-du-pourfendeur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -203,7 +203,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Proche de la nature",
     "data": {
-      "id": "voie-du-primitif-1",
+      "key": "voie-du-primitif-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -216,7 +216,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure de vent",
     "data": {
-      "id": "voie-du-primitif-2",
+      "key": "voie-du-primitif-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -229,7 +229,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vigilance",
     "data": {
-      "id": "voie-du-primitif-3",
+      "key": "voie-du-primitif-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -242,7 +242,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance à la magie",
     "data": {
-      "id": "voie-du-primitif-4",
+      "key": "voie-du-primitif-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -255,7 +255,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vitalité débordante",
     "data": {
-      "id": "voie-du-primitif-5",
+      "key": "voie-du-primitif-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -268,7 +268,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cri de guerre",
     "data": {
-      "id": "voie-de-la-rage-1",
+      "key": "voie-de-la-rage-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -282,7 +282,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Défier la mort",
     "data": {
-      "id": "voie-de-la-rage-2",
+      "key": "voie-de-la-rage-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -295,7 +295,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rage du berserk",
     "data": {
-      "id": "voie-de-la-rage-3",
+      "key": "voie-de-la-rage-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -309,7 +309,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Même pas mal",
     "data": {
-      "id": "voie-de-la-rage-4",
+      "key": "voie-de-la-rage-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -322,7 +322,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Furie du berserk",
     "data": {
-      "id": "voie-de-la-rage-5",
+      "key": "voie-de-la-rage-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",

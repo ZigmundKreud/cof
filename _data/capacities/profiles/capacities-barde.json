@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Précision",
     "data": {
-      "id": "voie-de-l-escrime-1",
+      "key": "voie-de-l-escrime-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence du combat",
     "data": {
-      "id": "voie-de-l-escrime-2",
+      "key": "voie-de-l-escrime-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feinte",
     "data": {
-      "id": "voie-de-l-escrime-3",
+      "key": "voie-de-l-escrime-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -44,7 +44,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque flamboyante",
     "data": {
-      "id": "voie-de-l-escrime-4",
+      "key": "voie-de-l-escrime-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -58,7 +58,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Botte mortelle",
     "data": {
-      "id": "voie-de-l-escrime-5",
+      "key": "voie-de-l-escrime-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -71,7 +71,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chant des héros",
     "data": {
-      "id": "voie-du-musicien-1",
+      "key": "voie-du-musicien-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -85,7 +85,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque sonore",
     "data": {
-      "id": "voie-du-musicien-2",
+      "key": "voie-du-musicien-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -100,7 +100,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Zone de silence",
     "data": {
-      "id": "voie-du-musicien-3",
+      "key": "voie-du-musicien-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -115,7 +115,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Danse irrésistible",
     "data": {
-      "id": "voie-du-musicien-4",
+      "key": "voie-du-musicien-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -130,7 +130,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Musique fascinante",
     "data": {
-      "id": "voie-du-musicien-5",
+      "key": "voie-du-musicien-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -145,7 +145,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Acrobate",
     "data": {
-      "id": "voie-du-saltimbanque-1",
+      "key": "voie-du-saltimbanque-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -158,7 +158,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce féline",
     "data": {
-      "id": "voie-du-saltimbanque-2",
+      "key": "voie-du-saltimbanque-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -171,7 +171,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lanceur de couteau",
     "data": {
-      "id": "voie-du-saltimbanque-3",
+      "key": "voie-du-saltimbanque-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -184,7 +184,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive acrobatique",
     "data": {
-      "id": "voie-du-saltimbanque-4",
+      "key": "voie-du-saltimbanque-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -197,7 +197,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Liberté d'action",
     "data": {
-      "id": "voie-du-saltimbanque-5",
+      "key": "voie-du-saltimbanque-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -210,7 +210,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charmant",
     "data": {
-      "id": "voie-de-la-seduction-1",
+      "key": "voie-de-la-seduction-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -223,7 +223,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dentelles et rapière",
     "data": {
-      "id": "voie-de-la-seduction-2",
+      "key": "voie-de-la-seduction-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -236,7 +236,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme secrète",
     "data": {
-      "id": "voie-de-la-seduction-3",
+      "key": "voie-de-la-seduction-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -249,7 +249,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Suggestion",
     "data": {
-      "id": "voie-de-la-seduction-4",
+      "key": "voie-de-la-seduction-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -264,7 +264,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-la-seduction-5",
+      "key": "voie-de-la-seduction-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -277,7 +277,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rumeurs et légendes",
     "data": {
-      "id": "voie-du-vagabond-1",
+      "key": "voie-du-vagabond-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -290,7 +290,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Compréhension des langues",
     "data": {
-      "id": "voie-du-vagabond-2",
+      "key": "voie-du-vagabond-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -305,7 +305,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Débrouillard",
     "data": {
-      "id": "voie-du-vagabond-3",
+      "key": "voie-du-vagabond-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -318,7 +318,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déguisement",
     "data": {
-      "id": "voie-du-vagabond-4",
+      "key": "voie-du-vagabond-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -333,7 +333,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Touche à tout",
     "data": {
-      "id": "voie-du-vagabond-5",
+      "key": "voie-du-vagabond-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",

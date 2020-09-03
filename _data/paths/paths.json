@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'air",
     "data": {
-      "id": "voie-de-l-air",
+      "key": "voie-de-l-air",
       "scope": "profile",
       "capacities": [
         "voie-de-l-air-1",
@@ -21,7 +21,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'artilleur",
     "data": {
-      "id": "voie-de-l-artilleur",
+      "key": "voie-de-l-artilleur",
       "scope": "profile",
       "capacities": [
         "voie-de-l-artilleur-1",
@@ -38,7 +38,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'envoûteur",
     "data": {
-      "id": "voie-de-l-envouteur",
+      "key": "voie-de-l-envouteur",
       "description": "si une victime résiste à un sort de cette voie, elle y est immunisée pendant 24h.",
       "scope": "profile",
       "capacities": [
@@ -56,7 +56,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'escrime",
     "data": {
-      "id": "voie-de-l-escrime",
+      "key": "voie-de-l-escrime",
       "scope": "profile",
       "capacities": [
         "voie-de-l-escrime-1",
@@ -73,7 +73,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'invocation",
     "data": {
-      "id": "voie-de-l-invocation",
+      "key": "voie-de-l-invocation",
       "scope": "profile",
       "capacities": [
         "voie-de-l-invocation-1",
@@ -90,7 +90,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la brute",
     "data": {
-      "id": "voie-de-la-brute",
+      "key": "voie-de-la-brute",
       "scope": "profile",
       "capacities": [
         "voie-de-la-brute-1",
@@ -107,7 +107,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la divination",
     "data": {
-      "id": "voie-de-la-divination",
+      "key": "voie-de-la-divination",
       "scope": "profile",
       "capacities": [
         "voie-de-la-divination-1",
@@ -124,7 +124,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la foi",
     "data": {
-      "id": "voie-de-la-foi",
+      "key": "voie-de-la-foi",
       "scope": "profile",
       "capacities": [
         "voie-de-la-foi-1",
@@ -141,7 +141,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la guerre",
     "data": {
-      "id": "voie-de-la-guerre",
+      "key": "voie-de-la-guerre",
       "scope": "profile",
       "capacities": [
         "voie-de-la-guerre-1",
@@ -158,7 +158,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la guerre sainte",
     "data": {
-      "id": "voie-de-la-guerre-sainte",
+      "key": "voie-de-la-guerre-sainte",
       "scope": "profile",
       "capacities": [
         "voie-de-la-guerre-sainte-1",
@@ -175,7 +175,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie des arcanes",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes",
+      "key": "voie-de-la-magie-des-arcanes",
       "scope": "profile",
       "capacities": [
         "voie-de-la-magie-des-arcanes-1",
@@ -192,7 +192,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie destructrice",
     "data": {
-      "id": "voie-de-la-magie-destructrice",
+      "key": "voie-de-la-magie-destructrice",
       "scope": "profile",
       "capacities": [
         "voie-de-la-magie-destructrice-1",
@@ -209,7 +209,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie élémentaire",
     "data": {
-      "id": "voie-de-la-magie-elementaire",
+      "key": "voie-de-la-magie-elementaire",
       "scope": "profile",
       "capacities": [
         "voie-de-la-magie-elementaire-1",
@@ -226,7 +226,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie protectrice",
     "data": {
-      "id": "voie-de-la-magie-protectrice",
+      "key": "voie-de-la-magie-protectrice",
       "scope": "profile",
       "capacities": [
         "voie-de-la-magie-protectrice-1",
@@ -243,7 +243,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie universelle",
     "data": {
-      "id": "voie-de-la-magie-universelle",
+      "key": "voie-de-la-magie-universelle",
       "description": "Pour chaque Rang dans cette Voie, le Magicien obtient un bonus de +2 aux tests d'<strong>INT</strong> basés sur la connaissance et l'érudition.",
       "scope": "profile",
       "capacities": [
@@ -261,7 +261,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la maîtrise",
     "data": {
-      "id": "voie-de-la-maitrise",
+      "key": "voie-de-la-maitrise",
       "scope": "profile",
       "capacities": [
         "voie-de-la-maitrise-1",
@@ -278,7 +278,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la méditation",
     "data": {
-      "id": "voie-de-la-meditation",
+      "key": "voie-de-la-meditation",
       "scope": "profile",
       "capacities": [
         "voie-de-la-meditation-1",
@@ -295,7 +295,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la mort",
     "data": {
-      "id": "voie-de-la-mort",
+      "key": "voie-de-la-mort",
       "description": "Les sorts de cette voie n'affectent pas les créatures non vivantes (golem, élémentaires, mort-vivants).",
       "scope": "profile",
       "capacities": [
@@ -313,7 +313,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la nature",
     "data": {
-      "id": "voie-de-la-nature",
+      "key": "voie-de-la-nature",
       "scope": "profile",
       "capacities": [
         "voie-de-la-nature-1",
@@ -330,7 +330,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la noblesse",
     "data": {
-      "id": "voie-de-la-noblesse",
+      "key": "voie-de-la-noblesse",
       "scope": "profile",
       "capacities": [
         "voie-de-la-noblesse-1",
@@ -347,7 +347,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la précision",
     "data": {
-      "id": "voie-de-la-precision",
+      "key": "voie-de-la-precision",
       "scope": "profile",
       "capacities": [
         "voie-de-la-precision-1",
@@ -364,7 +364,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la prière",
     "data": {
-      "id": "voie-de-la-priere",
+      "key": "voie-de-la-priere",
       "scope": "profile",
       "capacities": [
         "voie-de-la-priere-1",
@@ -381,7 +381,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la rage",
     "data": {
-      "id": "voie-de-la-rage",
+      "key": "voie-de-la-rage",
       "scope": "profile",
       "capacities": [
         "voie-de-la-rage-1",
@@ -398,7 +398,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la résistance",
     "data": {
-      "id": "voie-de-la-resistance",
+      "key": "voie-de-la-resistance",
       "scope": "profile",
       "capacities": [
         "voie-de-la-resistance-1",
@@ -415,7 +415,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la séduction",
     "data": {
-      "id": "voie-de-la-seduction",
+      "key": "voie-de-la-seduction",
       "scope": "profile",
       "capacities": [
         "voie-de-la-seduction-1",
@@ -432,7 +432,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la sombre magie",
     "data": {
-      "id": "voie-de-la-sombre-magie",
+      "key": "voie-de-la-sombre-magie",
       "description": "Le Nécromancien obtient un bonus de +2 par rang à tous les tests d'<strong>INT</strong> basés sur les connaissances occultes.",
       "scope": "profile",
       "capacities": [
@@ -450,7 +450,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la spiritualité",
     "data": {
-      "id": "voie-de-la-spiritualite",
+      "key": "voie-de-la-spiritualite",
       "scope": "profile",
       "capacities": [
         "voie-de-la-spiritualite-1",
@@ -467,7 +467,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la survie",
     "data": {
-      "id": "voie-de-la-survie",
+      "key": "voie-de-la-survie",
       "scope": "profile",
       "capacities": [
         "voie-de-la-survie-1",
@@ -484,7 +484,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'archer",
     "data": {
-      "id": "voie-de-l-archer",
+      "key": "voie-de-l-archer",
       "scope": "profile",
       "capacities": [
         "voie-de-l-archer-1",
@@ -501,7 +501,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'assassin",
     "data": {
-      "id": "voie-de-l-assassin",
+      "key": "voie-de-l-assassin",
       "scope": "profile",
       "capacities": [
         "voie-de-l-assassin-1",
@@ -518,7 +518,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'aventurier",
     "data": {
-      "id": "voie-de-l-aventurier",
+      "key": "voie-de-l-aventurier",
       "scope": "profile",
       "capacities": [
         "voie-de-l-aventurier-1",
@@ -535,7 +535,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'énergie vitale",
     "data": {
-      "id": "voie-de-l-energie-vitale",
+      "key": "voie-de-l-energie-vitale",
       "scope": "profile",
       "capacities": [
         "voie-de-l-energie-vitale-1",
@@ -552,7 +552,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'escarmouche",
     "data": {
-      "id": "voie-de-l-escarmouche",
+      "key": "voie-de-l-escarmouche",
       "scope": "profile",
       "capacities": [
         "voie-de-l-escarmouche-1",
@@ -569,7 +569,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'outre-tombe",
     "data": {
-      "id": "voie-de-l-outre-tombe",
+      "key": "voie-de-l-outre-tombe",
       "scope": "profile",
       "capacities": [
         "voie-de-l-outre-tombe-1",
@@ -586,7 +586,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des animaux",
     "data": {
-      "id": "voie-des-animaux",
+      "key": "voie-des-animaux",
       "scope": "profile",
       "capacities": [
         "voie-des-animaux-1",
@@ -603,7 +603,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des artefacts",
     "data": {
-      "id": "voie-des-artefacts",
+      "key": "voie-des-artefacts",
       "scope": "profile",
       "capacities": [
         "voie-des-artefacts-1",
@@ -620,7 +620,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des élixirs",
     "data": {
-      "id": "voie-des-elixirs",
+      "key": "voie-des-elixirs",
       "description": "Chaque jour, le Forgesort peut créer jusqu’à deux élixirs par rang acquis dans la Voie. Produire un lot d’élixirs prend une heure, quel qu’en soit le nombre. Ce sont des mélanges instables qui deviennent inopérants après 24h. Le joueur doit donc en noter l’heure de fabrication. Passé 24h, le Forgesort peut régénérer les élixirs en seulement 10 mn, mais ils comptent alors parmi les potions créés pour la journée.",
       "scope": "profile",
       "capacities": [
@@ -638,7 +638,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des explosifs",
     "data": {
-      "id": "voie-des-explosifs",
+      "key": "voie-des-explosifs",
       "description": "Chaque jour l’Arquebusier peut utiliser un nombre de charges explosives égal au Rang dans la voie. Ces charges permettent indifféremment d’utiliser les capacités Démolition, Piège explosif ou Boulet explosif.",
       "scope": "profile",
       "capacities": [
@@ -656,7 +656,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des illusions",
     "data": {
-      "id": "voie-des-illusions",
+      "key": "voie-des-illusions",
       "scope": "profile",
       "capacities": [
         "voie-des-illusions-1",
@@ -673,7 +673,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des runes",
     "data": {
-      "id": "voie-des-runes",
+      "key": "voie-des-runes",
       "scope": "profile",
       "capacities": [
         "voie-des-runes-1",
@@ -690,7 +690,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des soins",
     "data": {
-      "id": "voie-des-soins",
+      "key": "voie-des-soins",
       "description": "Soins légers et soins modérés peuvent être utilisés un nombre de fois par jour égal au Rang que le Prêtre a atteint dans cette Voie. Au Rang 2 par exemple, il peut utiliser chaque capacité 2 fois par jour.",
       "scope": "profile",
       "capacities": [
@@ -708,7 +708,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des végétaux",
     "data": {
-      "id": "voie-des-vegetaux",
+      "key": "voie-des-vegetaux",
       "scope": "profile",
       "capacities": [
         "voie-des-vegetaux-1",
@@ -725,7 +725,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du bouclier",
     "data": {
-      "id": "voie-du-bouclier",
+      "key": "voie-du-bouclier",
       "description": "Pour utiliser les capacités suivantes, le Guerrier doit obligatoirement manier un bouclier.",
       "scope": "profile",
       "capacities": [
@@ -743,7 +743,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du cavalier",
     "data": {
-      "id": "voie-du-cavalier",
+      "key": "voie-du-cavalier",
       "scope": "profile",
       "capacities": [
         "voie-du-cavalier-1",
@@ -760,7 +760,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du champ de bataille",
     "data": {
-      "id": "voie-du-champ-de-bataille",
+      "key": "voie-du-champ-de-bataille",
       "scope": "profile",
       "capacities": [
         "voie-du-champ-de-bataille-1",
@@ -777,7 +777,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du combat",
     "data": {
-      "id": "voie-du-combat",
+      "key": "voie-du-combat",
       "scope": "profile",
       "capacities": [
         "voie-du-combat-1",
@@ -794,7 +794,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du compagnon animal",
     "data": {
-      "id": "voie-du-compagnon-animal",
+      "key": "voie-du-compagnon-animal",
       "description": "Le Rôdeur obtient un loup pour compagnon animal dès qu'il prend au moins un Rang dans cette Voie.",
       "scope": "profile",
       "capacities": [
@@ -812,7 +812,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du démon",
     "data": {
-      "id": "voie-du-demon",
+      "key": "voie-du-demon",
       "scope": "profile",
       "capacities": [
         "voie-du-demon-1",
@@ -829,7 +829,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du déplacement",
     "data": {
-      "id": "voie-du-deplacement",
+      "key": "voie-du-deplacement",
       "scope": "profile",
       "capacities": [
         "voie-du-deplacement-1",
@@ -846,7 +846,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du fauve",
     "data": {
-      "id": "voie-du-fauve",
+      "key": "voie-du-fauve",
       "scope": "profile",
       "capacities": [
         "voie-du-fauve-1",
@@ -863,7 +863,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du golem",
     "data": {
-      "id": "voie-du-golem",
+      "key": "voie-du-golem",
       "scope": "profile",
       "capacities": [
         "voie-du-golem-1",
@@ -880,7 +880,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du héros",
     "data": {
-      "id": "voie-du-heros",
+      "key": "voie-du-heros",
       "scope": "profile",
       "capacities": [
         "voie-du-heros-1",
@@ -897,7 +897,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du maître d'armes",
     "data": {
-      "id": "voie-du-maitre-darmes",
+      "key": "voie-du-maitre-darmes",
       "scope": "profile",
       "capacities": [
         "voie-du-maitre-darmes-1",
@@ -914,7 +914,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du meneur d'homme",
     "data": {
-      "id": "voie-du-meneur-d-homme",
+      "key": "voie-du-meneur-d-homme",
       "scope": "profile",
       "capacities": [
         "voie-du-meneur-d-homme-1",
@@ -931,7 +931,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du métal",
     "data": {
-      "id": "voie-du-metal",
+      "key": "voie-du-metal",
       "scope": "profile",
       "capacities": [
         "voie-du-metal-1",
@@ -948,7 +948,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du montreur d'ours",
     "data": {
-      "id": "voie-du-montreur-dours",
+      "key": "voie-du-montreur-dours",
       "description": "(Exemple de variation de la Voie du compagnon animal)\n\nLe Rôdeur obtient un jeune ours noir pour compagnon animal dès qu'il prend au moins un Rang dans cette Voie",
       "scope": "profile",
       "capacities": [
@@ -966,7 +966,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du musicien",
     "data": {
-      "id": "voie-du-musicien",
+      "key": "voie-du-musicien",
       "scope": "profile",
       "capacities": [
         "voie-du-musicien-1",
@@ -983,7 +983,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du pagne",
     "data": {
-      "id": "voie-du-pagne",
+      "key": "voie-du-pagne",
       "scope": "profile",
       "capacities": [
         "voie-du-pagne-1",
@@ -1000,7 +1000,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du pistolero",
     "data": {
-      "id": "voie-du-pistolero",
+      "key": "voie-du-pistolero",
       "scope": "profile",
       "capacities": [
         "voie-du-pistolero-1",
@@ -1017,7 +1017,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du poing",
     "data": {
-      "id": "voie-du-poing",
+      "key": "voie-du-poing",
       "scope": "profile",
       "capacities": [
         "voie-du-poing-1",
@@ -1034,7 +1034,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du pourfendeur",
     "data": {
-      "id": "voie-du-pourfendeur",
+      "key": "voie-du-pourfendeur",
       "scope": "profile",
       "capacities": [
         "voie-du-pourfendeur-1",
@@ -1051,7 +1051,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du primitif",
     "data": {
-      "id": "voie-du-primitif",
+      "key": "voie-du-primitif",
       "scope": "profile",
       "capacities": [
         "voie-du-primitif-1",
@@ -1068,7 +1068,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du protecteur",
     "data": {
-      "id": "voie-du-protecteur",
+      "key": "voie-du-protecteur",
       "scope": "profile",
       "capacities": [
         "voie-du-protecteur-1",
@@ -1085,7 +1085,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du roublard",
     "data": {
-      "id": "voie-du-roublard",
+      "key": "voie-du-roublard",
       "scope": "profile",
       "capacities": [
         "voie-du-roublard-1",
@@ -1102,7 +1102,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du saltimbanque",
     "data": {
-      "id": "voie-du-saltimbanque",
+      "key": "voie-du-saltimbanque",
       "scope": "profile",
       "capacities": [
         "voie-du-saltimbanque-1",
@@ -1119,7 +1119,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du sang",
     "data": {
-      "id": "voie-du-sang",
+      "key": "voie-du-sang",
       "scope": "profile",
       "capacities": [
         "voie-du-sang-1",
@@ -1136,7 +1136,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du soldat",
     "data": {
-      "id": "voie-du-soldat",
+      "key": "voie-du-soldat",
       "scope": "profile",
       "capacities": [
         "voie-du-soldat-1",
@@ -1153,7 +1153,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du spadassin",
     "data": {
-      "id": "voie-du-spadassin",
+      "key": "voie-du-spadassin",
       "scope": "profile",
       "capacities": [
         "voie-du-spadassin-1",
@@ -1170,7 +1170,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du traqueur",
     "data": {
-      "id": "voie-du-traqueur",
+      "key": "voie-du-traqueur",
       "scope": "profile",
       "capacities": [
         "voie-du-traqueur-1",
@@ -1187,7 +1187,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du vagabond",
     "data": {
-      "id": "voie-du-vagabond",
+      "key": "voie-du-vagabond",
       "scope": "profile",
       "capacities": [
         "voie-du-vagabond-1",
@@ -1204,7 +1204,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du vent",
     "data": {
-      "id": "voie-du-vent",
+      "key": "voie-du-vent",
       "scope": "profile",
       "capacities": [
         "voie-du-vent-1",
@@ -1221,7 +1221,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du familier",
     "data": {
-      "id": "voie-du-familier",
+      "key": "voie-du-familier",
       "scope": "alternative",
       "capacities": [
         "voie-du-familier-1",
@@ -1238,7 +1238,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du combat à deux armes",
     "data": {
-      "id": "voie-du-combat-a-deux-armes",
+      "key": "voie-du-combat-a-deux-armes",
       "scope": "alternative",
       "capacities": [
         "voie-du-combat-a-deux-armes-1",
@@ -1255,7 +1255,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du chef d’armée",
     "data": {
-      "id": "voie-du-chef-d-armee",
+      "key": "voie-du-chef-d-armee",
       "scope": "creature",
       "capacities": [
         "voie-du-chef-d-armee-1",
@@ -1270,7 +1270,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du champion",
     "data": {
-      "id": "voie-du-champion",
+      "key": "voie-du-champion",
       "scope": "creature",
       "capacities": [
         "voie-du-champion-1",
@@ -1285,7 +1285,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du cogneur",
     "data": {
-      "id": "voie-du-cogneur",
+      "key": "voie-du-cogneur",
       "scope": "creature",
       "capacities": [
         "voie-du-cogneur-1",
@@ -1300,7 +1300,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du colosse",
     "data": {
-      "id": "voie-du-colosse",
+      "key": "voie-du-colosse",
       "scope": "creature",
       "capacities": [
         "voie-du-colosse-1",
@@ -1315,7 +1315,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des créatures élémentaire [du feu]",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu",
+      "key": "voie-des-creatures-elementaire-du-feu",
       "scope": "creature",
       "capacities": [
         "voie-des-creatures-elementaire-du-feu-1",
@@ -1330,7 +1330,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des créatures magiques",
     "data": {
-      "id": "voie-des-creatures-magiques",
+      "key": "voie-des-creatures-magiques",
       "scope": "creature",
       "capacities": [
         "voie-des-creatures-magiques-1",
@@ -1345,7 +1345,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des créatures volantes",
     "data": {
-      "id": "voie-des-creatures-volantes",
+      "key": "voie-des-creatures-volantes",
       "scope": "creature",
       "capacities": [
         "voie-des-creatures-volantes-1",
@@ -1360,7 +1360,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie de combat",
     "data": {
-      "id": "voie-de-la-magie-de-combat",
+      "key": "voie-de-la-magie-de-combat",
       "scope": "creature",
       "capacities": [
         "voie-de-la-magie-de-combat-1",
@@ -1375,7 +1375,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie de guérison",
     "data": {
-      "id": "voie-de-la-magie-de-guerison",
+      "key": "voie-de-la-magie-de-guerison",
       "scope": "creature",
       "capacities": [
         "voie-de-la-magie-de-guerison-1",
@@ -1390,7 +1390,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie maléfique",
     "data": {
-      "id": "voie-de-la-magie-malefique",
+      "key": "voie-de-la-magie-malefique",
       "scope": "creature",
       "capacities": [
         "voie-de-la-magie-malefique-1",
@@ -1405,7 +1405,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la meute",
     "data": {
-      "id": "voie-de-la-meute",
+      "key": "voie-de-la-meute",
       "scope": "creature",
       "capacities": [
         "voie-de-la-meute-1",
@@ -1420,7 +1420,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du PNJ récurrent",
     "data": {
-      "id": "voie-du-pnj-recurrent",
+      "key": "voie-du-pnj-recurrent",
       "scope": "creature",
       "capacities": [
         "voie-du-pnj-recurrent-1",
@@ -1435,7 +1435,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du prédateur",
     "data": {
-      "id": "voie-du-predateur",
+      "key": "voie-du-predateur",
       "scope": "creature",
       "capacities": [
         "voie-du-predateur-1",
@@ -1450,7 +1450,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du tueur",
     "data": {
-      "id": "voie-du-tueur",
+      "key": "voie-du-tueur",
       "scope": "creature"
     }
   },
@@ -1459,7 +1459,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de prestige spécialisée",
     "data": {
-      "id": "voie-de-prestige-specialisee",
+      "key": "voie-de-prestige-specialisee",
       "scope": "prestige",
       "capacities": [
         "voie-de-prestige-specialisee-1",
@@ -1476,7 +1476,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'elfe sylvain",
     "data": {
-      "id": "voie-de-l-elfe-sylvain",
+      "key": "voie-de-l-elfe-sylvain",
       "scope": "species",
       "capacities": [
         "voie-de-l-elfe-sylvain-1",
@@ -1493,7 +1493,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'humain",
     "data": {
-      "id": "voie-de-l-humain",
+      "key": "voie-de-l-humain",
       "scope": "species",
       "capacities": [
         "voie-de-l-humain-1",
@@ -1510,7 +1510,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du demi-orque",
     "data": {
-      "id": "voie-du-demi-orque",
+      "key": "voie-du-demi-orque",
       "scope": "species",
       "capacities": [
         "voie-du-demi-orque-1",
@@ -1527,7 +1527,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du gnome",
     "data": {
-      "id": "voie-du-gnome",
+      "key": "voie-du-gnome",
       "scope": "species",
       "capacities": [
         "voie-du-gnome-1",
@@ -1544,7 +1544,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du halfelin",
     "data": {
-      "id": "voie-du-halfelin",
+      "key": "voie-du-halfelin",
       "scope": "species",
       "capacities": [
         "voie-du-halfelin-1",
@@ -1561,7 +1561,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du haut-elfe",
     "data": {
-      "id": "voie-du-haut-elfe",
+      "key": "voie-du-haut-elfe",
       "scope": "species",
       "capacities": [
         "voie-du-haut-elfe-1",
@@ -1578,7 +1578,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du nain",
     "data": {
-      "id": "voie-du-nain",
+      "key": "voie-du-nain",
       "scope": "species",
       "capacities": [
         "voie-du-nain-1",

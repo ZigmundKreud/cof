@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'elfe sylvain",
     "data": {
-      "id": "voie-de-l-elfe-sylvain",
+      "key": "voie-de-l-elfe-sylvain",
       "capacities": [
         {
           "level": 1,
@@ -35,11 +35,11 @@
       ],
       "species": [
         {
-          "id": "elfe-sylvain",
+          "key": "elfe-sylvain",
           "label": "Elfe Sylvain"
         },
         {
-          "id": "demi-elfe",
+          "key": "demi-elfe",
           "label": "Demi-Elfe"
         }
       ]
@@ -50,7 +50,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de l'humain",
     "data": {
-      "id": "voie-de-l-humain",
+      "key": "voie-de-l-humain",
       "capacities": [
         {
           "level": 1,
@@ -80,11 +80,11 @@
       ],
       "species": [
         {
-          "id": "humain",
+          "key": "humain",
           "label": "Humain"
         },
         {
-          "id": "demi-elfe",
+          "key": "demi-elfe",
           "label": "Demi-Elfe"
         }
       ]
@@ -95,7 +95,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du demi-orque",
     "data": {
-      "id": "voie-du-demi-orque",
+      "key": "voie-du-demi-orque",
       "capacities": [
         {
           "level": 1,
@@ -126,7 +126,7 @@
       ],
       "species": [
         {
-          "id": "demi-orc",
+          "key": "demi-orc",
           "label": "Demi-Orque"
         }
       ]
@@ -137,7 +137,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du gnome",
     "data": {
-      "id": "voie-du-gnome",
+      "key": "voie-du-gnome",
       "capacities": [
         {
           "level": 1,
@@ -167,7 +167,7 @@
       ],
       "species": [
         {
-          "id": "gnome",
+          "key": "gnome",
           "label": "Gnome"
         }
       ]
@@ -178,7 +178,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du halfelin",
     "data": {
-      "id": "voie-du-halfelin",
+      "key": "voie-du-halfelin",
       "capacities": [
         {
           "level": 1,
@@ -208,7 +208,7 @@
       ],
       "species": [
         {
-          "id": "halfelin",
+          "key": "halfelin",
           "label": "Halfelin"
         }
       ]
@@ -219,7 +219,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du haut-elfe",
     "data": {
-      "id": "voie-du-haut-elfe",
+      "key": "voie-du-haut-elfe",
       "capacities": [
         {
           "level": 1,
@@ -249,11 +249,11 @@
       ],
       "species": [
         {
-          "id": "haut-elfe",
+          "key": "haut-elfe",
           "label": "Haut Elfe"
         },
         {
-          "id": "demi-elfe",
+          "key": "demi-elfe",
           "label": "Demi-Elfe"
         }
       ]
@@ -264,7 +264,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du nain",
     "data": {
-      "id": "voie-du-nain",
+      "key": "voie-du-nain",
       "capacities": [
         {
           "level": 1,
@@ -294,7 +294,7 @@
       ],
       "species": [
         {
-          "id": "nain",
+          "key": "nain",
           "label": "Nain"
         }
       ]

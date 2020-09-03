@@ -12,9 +12,8 @@ export class CofArmorSheet extends CofItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "armor"],
             template: System.templatesPath + "/items/armor-sheet.hbs",
-            width: 400,
-            height: 600,
-            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
+            width: 430,
+            height: 430
         });
     }
 }

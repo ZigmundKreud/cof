@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Endurant",
     "data": {
-      "id": "voie-de-la-survie-1",
+      "key": "voie-de-la-survie-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Nature nourricière",
     "data": {
-      "id": "voie-de-la-survie-2",
+      "key": "voie-de-la-survie-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grand pas",
     "data": {
-      "id": "voie-de-la-survie-3",
+      "key": "voie-de-la-survie-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -43,7 +43,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Increvable",
     "data": {
-      "id": "voie-de-la-survie-4",
+      "key": "voie-de-la-survie-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-de-la-survie-5",
+      "key": "voie-de-la-survie-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -70,7 +70,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sens affûtés",
     "data": {
-      "id": "voie-de-l-archer-1",
+      "key": "voie-de-l-archer-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -83,7 +83,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir aveugle",
     "data": {
-      "id": "voie-de-l-archer-2",
+      "key": "voie-de-l-archer-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -97,7 +97,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir rapide",
     "data": {
-      "id": "voie-de-l-archer-3",
+      "key": "voie-de-l-archer-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -111,7 +111,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flèche de mort",
     "data": {
-      "id": "voie-de-l-archer-4",
+      "key": "voie-de-l-archer-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -125,7 +125,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dans le mille",
     "data": {
-      "id": "voie-de-l-archer-5",
+      "key": "voie-de-l-archer-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -138,7 +138,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chasseur émérite",
     "data": {
-      "id": "voie-de-l-escarmouche-1",
+      "key": "voie-de-l-escarmouche-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -151,7 +151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Traquenard",
     "data": {
-      "id": "voie-de-l-escarmouche-2",
+      "key": "voie-de-l-escarmouche-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -165,7 +165,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque éclair",
     "data": {
-      "id": "voie-de-l-escarmouche-3",
+      "key": "voie-de-l-escarmouche-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -179,7 +179,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Repli",
     "data": {
-      "id": "voie-de-l-escarmouche-4",
+      "key": "voie-de-l-escarmouche-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -193,7 +193,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dextérité héroïque",
     "data": {
-      "id": "voie-de-l-escarmouche-5",
+      "key": "voie-de-l-escarmouche-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -206,7 +206,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Odorat",
     "data": {
-      "id": "voie-du-compagnon-animal-1",
+      "key": "voie-du-compagnon-animal-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -219,7 +219,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Surveillance",
     "data": {
-      "id": "voie-du-compagnon-animal-2",
+      "key": "voie-du-compagnon-animal-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -232,7 +232,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat",
     "data": {
-      "id": "voie-du-compagnon-animal-3",
+      "key": "voie-du-compagnon-animal-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -245,7 +245,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Empathie animale",
     "data": {
-      "id": "voie-du-compagnon-animal-4",
+      "key": "voie-du-compagnon-animal-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -259,7 +259,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animal fabuleux",
     "data": {
-      "id": "voie-du-compagnon-animal-5",
+      "key": "voie-du-compagnon-animal-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -272,7 +272,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pas de loup",
     "data": {
-      "id": "voie-du-traqueur-1",
+      "key": "voie-du-traqueur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -285,7 +285,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ennemi juré",
     "data": {
-      "id": "voie-du-traqueur-2",
+      "key": "voie-du-traqueur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -298,7 +298,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Embuscade",
     "data": {
-      "id": "voie-du-traqueur-3",
+      "key": "voie-du-traqueur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -311,7 +311,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Second ennemi juré",
     "data": {
-      "id": "voie-du-traqueur-4",
+      "key": "voie-du-traqueur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -324,7 +324,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Perception héroïque",
     "data": {
-      "id": "voie-du-traqueur-5",
+      "key": "voie-du-traqueur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -338,7 +338,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Impressionnant",
     "data": {
-      "id": "voie-du-montreur-dours-1",
+      "key": "voie-du-montreur-dours-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -351,7 +351,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dressage",
     "data": {
-      "id": "voie-du-montreur-dours-2",
+      "key": "voie-du-montreur-dours-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -364,7 +364,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat",
     "data": {
-      "id": "voie-du-montreur-dours-3",
+      "key": "voie-du-montreur-dours-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -377,7 +377,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Empathie animale",
     "data": {
-      "id": "voie-du-montreur-dours-4",
+      "key": "voie-du-montreur-dours-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -391,7 +391,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animal fabuleux",
     "data": {
-      "id": "voie-du-montreur-dours-5",
+      "key": "voie-du-montreur-dours-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",

@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du familier",
     "data": {
-      "id": "voie-du-familier",
+      "key": "voie-du-familier",
       "description": "<p>La Voie du familier peut remplacer une Voie de base d'un personnage si le MJ l'y autorise.</p>",
       "capacities": [
         {
@@ -41,7 +41,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du combat à deux armes",
     "data": {
-      "id": "voie-du-combat-a-deux-armes",
+      "key": "voie-du-combat-a-deux-armes",
       "description": "<p>Avec autorisation du MJ, la Voie du combat à deux armes peut aussi être choisie par un joueur pour un personnage dont le Profil est Guerrier dès sa création en remplacement d'une Voie de son choix. Toutefois, dans ce cas, les capacités de rang 1 et 5 deviennent des capacités limitées.\nAutres Profils possibles : tous sauf la famille des lanceurs de sort.\nRequis : Mod. de <strong>DEX</strong> de +1 minimum.\n</p>",
       "capacities": [
         {

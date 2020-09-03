@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sergent",
     "data": {
-      "id": "voie-du-chef-d-armee-1",
+      "key": "voie-du-chef-d-armee-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-chef-d-armee",
@@ -16,7 +16,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capitaine",
     "data": {
-      "id": "voie-du-chef-d-armee-2",
+      "key": "voie-du-chef-d-armee-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-chef-d-armee",
@@ -28,7 +28,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Commandant",
     "data": {
-      "id": "voie-du-chef-d-armee-3",
+      "key": "voie-du-chef-d-armee-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-chef-d-armee",
@@ -40,7 +40,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Imparable",
     "data": {
-      "id": "voie-du-champion-1",
+      "key": "voie-du-champion-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-champion",
@@ -53,7 +53,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Riposte",
     "data": {
-      "id": "voie-du-champion-2",
+      "key": "voie-du-champion-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-champion",
@@ -65,7 +65,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hausser le ton",
     "data": {
-      "id": "voie-du-champion-3",
+      "key": "voie-du-champion-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-champion",
@@ -77,7 +77,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge",
     "data": {
-      "id": "voie-du-cogneur-1",
+      "key": "voie-du-cogneur-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-cogneur",
@@ -90,7 +90,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Enrager",
     "data": {
-      "id": "voie-du-cogneur-2",
+      "key": "voie-du-cogneur-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-cogneur",
@@ -102,7 +102,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Percuter",
     "data": {
-      "id": "voie-du-cogneur-3",
+      "key": "voie-du-cogneur-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-cogneur",
@@ -115,7 +115,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fauchage",
     "data": {
-      "id": "voie-du-colosse-1",
+      "key": "voie-du-colosse-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-colosse",
@@ -127,7 +127,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Balayage",
     "data": {
-      "id": "voie-du-colosse-2",
+      "key": "voie-du-colosse-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-colosse",
@@ -139,7 +139,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projection",
     "data": {
-      "id": "voie-du-colosse-3",
+      "key": "voie-du-colosse-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-colosse",
@@ -151,7 +151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Souffle enflammé",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu-1",
+      "key": "voie-des-creatures-elementaire-du-feu-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-des-creatures-elementaire-du-feu",
@@ -164,7 +164,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Corps enflammé",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu-2",
+      "key": "voie-des-creatures-elementaire-du-feu-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-des-creatures-elementaire-du-feu",
@@ -176,7 +176,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Explosion finale",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu-3",
+      "key": "voie-des-creatures-elementaire-du-feu-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-des-creatures-elementaire-du-feu",
@@ -188,7 +188,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Réduction des <strong>DM</strong>",
     "data": {
-      "id": "voie-des-creatures-magiques-1",
+      "key": "voie-des-creatures-magiques-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-des-creatures-magiques",
@@ -200,7 +200,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vitalité surnaturelle",
     "data": {
-      "id": "voie-des-creatures-magiques-2",
+      "key": "voie-des-creatures-magiques-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-des-creatures-magiques",
@@ -212,7 +212,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Immortel",
     "data": {
-      "id": "voie-des-creatures-magiques-3",
+      "key": "voie-des-creatures-magiques-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-des-creatures-magiques",
@@ -224,7 +224,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vol rapide",
     "data": {
-      "id": "voie-des-creatures-volantes-1",
+      "key": "voie-des-creatures-volantes-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-des-creatures-volantes",
@@ -236,7 +236,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Agripper",
     "data": {
-      "id": "voie-des-creatures-volantes-2",
+      "key": "voie-des-creatures-volantes-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-des-creatures-volantes",
@@ -248,7 +248,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Emporter dans les airs",
     "data": {
-      "id": "voie-des-creatures-volantes-3",
+      "key": "voie-des-creatures-volantes-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-des-creatures-volantes",
@@ -260,7 +260,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque magique",
     "data": {
-      "id": "voie-de-la-magie-de-combat-1",
+      "key": "voie-de-la-magie-de-combat-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-magie-de-combat",
@@ -273,7 +273,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure magique",
     "data": {
-      "id": "voie-de-la-magie-de-combat-2",
+      "key": "voie-de-la-magie-de-combat-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-magie-de-combat",
@@ -286,7 +286,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déplacement magique",
     "data": {
-      "id": "voie-de-la-magie-de-combat-3",
+      "key": "voie-de-la-magie-de-combat-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-magie-de-combat",
@@ -299,7 +299,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soigner",
     "data": {
-      "id": "voie-de-la-magie-de-guerison-1",
+      "key": "voie-de-la-magie-de-guerison-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-magie-de-guerison",
@@ -312,7 +312,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Guérir",
     "data": {
-      "id": "voie-de-la-magie-de-guerison-2",
+      "key": "voie-de-la-magie-de-guerison-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-magie-de-guerison",
@@ -325,7 +325,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soutenir",
     "data": {
-      "id": "voie-de-la-magie-de-guerison-3",
+      "key": "voie-de-la-magie-de-guerison-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-magie-de-guerison",
@@ -338,7 +338,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vampirisation",
     "data": {
-      "id": "voie-de-la-magie-malefique-1",
+      "key": "voie-de-la-magie-malefique-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-magie-malefique",
@@ -351,7 +351,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animer un cadavre",
     "data": {
-      "id": "voie-de-la-magie-malefique-2",
+      "key": "voie-de-la-magie-malefique-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-magie-malefique",
@@ -364,7 +364,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Injonction mortelle",
     "data": {
-      "id": "voie-de-la-magie-malefique-3",
+      "key": "voie-de-la-magie-malefique-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-magie-malefique",
@@ -377,7 +377,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Interchangeables",
     "data": {
-      "id": "voie-de-la-meute-1",
+      "key": "voie-de-la-meute-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-meute",
@@ -389,7 +389,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque en traître",
     "data": {
-      "id": "voie-de-la-meute-2",
+      "key": "voie-de-la-meute-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-meute",
@@ -402,7 +402,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "L’hallali",
     "data": {
-      "id": "voie-de-la-meute-3",
+      "key": "voie-de-la-meute-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-meute",
@@ -414,7 +414,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Instinct de survie",
     "data": {
-      "id": "voie-du-pnj-recurrent-1",
+      "key": "voie-du-pnj-recurrent-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-pnj-recurrent",
@@ -426,7 +426,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chair à canon",
     "data": {
-      "id": "voie-du-pnj-recurrent-2",
+      "key": "voie-du-pnj-recurrent-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-pnj-recurrent",
@@ -438,7 +438,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Porteur de poisse",
     "data": {
-      "id": "voie-du-pnj-recurrent-3",
+      "key": "voie-du-pnj-recurrent-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-pnj-recurrent",
@@ -450,7 +450,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Embuscade",
     "data": {
-      "id": "voie-du-predateur-1",
+      "key": "voie-du-predateur-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-predateur",
@@ -462,7 +462,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dévorer",
     "data": {
-      "id": "voie-du-predateur-2",
+      "key": "voie-du-predateur-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-predateur",
@@ -474,7 +474,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Gober",
     "data": {
-      "id": "voie-du-predateur-3",
+      "key": "voie-du-predateur-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-predateur",
@@ -486,7 +486,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque mortelle",
     "data": {
-      "id": "voie-du-tueur-1",
+      "key": "voie-du-tueur-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-tueur",
@@ -499,7 +499,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Disparition",
     "data": {
-      "id": "voie-du-tueur-2",
+      "key": "voie-du-tueur-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-tueur",
@@ -512,7 +512,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Assassinat",
     "data": {
-      "id": "voie-du-tueur-3",
+      "key": "voie-du-tueur-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-tueur",

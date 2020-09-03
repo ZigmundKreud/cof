@@ -42,12 +42,6 @@ export class CofActorSheet extends ActorSheet {
             this._onReset();
         });
 
-        // Toggle collapse on path
-        html.find('.path-collapse').click(ev => {
-            ev.preventDefault();
-            this._onCollapsePath(ev);
-        });
-
         // Equip/Unequip items
         html.find('.item-equip').click(ev => {
             ev.preventDefault();
@@ -533,45 +527,40 @@ export class CofActorSheet extends ActorSheet {
      */
     async _onDropItem(event, data) {
         if (!this.actor.owner) return false;
-        let authorized = true;
+        // let authorized = true;
 
         let itemData = await this._getItemDropData(event, data);
 
         switch (itemData.type) {
             case "path"    :
-                authorized = await this._onDropPathItem(event, itemData);
-                break;
+                return await this._onDropPathItem(event, itemData);
             case "profile" :
-                authorized = await this._onDropProfileItem(event, itemData);
-                break;
+                return await this._onDropProfileItem(event, itemData);
             case "species" :
-                authorized = await this._onDropSpeciesItem(event, itemData);
-                break;
+                return await this._onDropSpeciesItem(event, itemData);
             case "capacity" :
             case "shield" :
             case "armor" :
             case "melee" :
             case "ranged" :
             default:
-                // // Handle item sorting within the same Actor
-                // const actor = this.actor;
-                // let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-                // if (sameActor) return this._onSortItem(event, itemData);
-                // // Create the owned item
-                // return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+                // Handle item sorting within the same Actor
+                const actor = this.actor;
+                let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
+                if (sameActor) return this._onSortItem(event, itemData);
+                // Create the owned item
+                return this.actor.createEmbeddedEntity("OwnedItem", itemData);
         }
-        if (authorized) {
-            // Handle item sorting within the same Actor
-            const actor = this.actor;
-            let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-            if (sameActor) return this._onSortItem(event, itemData);
-            // Create the owned item
-            return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-        } else {
-            return false;
-        }
-
-        return authorized;
+        // if (authorized) {
+        //     // Handle item sorting within the same Actor
+        //     const actor = this.actor;
+        //     let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
+        //     if (sameActor) return this._onSortItem(event, itemData);
+        //     // Create the owned item
+        //     return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+        // } else {
+        //     return false;
+        // }
     }
 
     /* -------------------------------------------- */
@@ -581,10 +570,16 @@ export class CofActorSheet extends ActorSheet {
             return false;
         } else {
             const capsContent = await game.packs.get("cof.capacities").getContent();
-            let items = duplicate(capsContent.filter(entity => entity.data.data.path === itemData.data.id));
+            let items = duplicate(capsContent.filter(entity => {
+                if(entity.data.data.path === itemData.data.id) {
+                    console.log(entity.data.data.path, itemData.data.id);
+                    return true;
+                }
+                else return false;
+            }));
+            console.log(items);
             items.push(itemData);
-            await this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
-            return true;
+            return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
         }
     }
 
@@ -600,8 +595,7 @@ export class CofActorSheet extends ActorSheet {
             items.push(...capsContent.filter(entity => entity.data.data.profile === profileItemData.data.id));
             items.push(profileItemData);
             // console.log(items);
-            await this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
-            return true;
+            return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
         }
     }
 
@@ -617,9 +611,11 @@ export class CofActorSheet extends ActorSheet {
                 // Object.values(stats).racial = itemData.data.bonuses[i];
                 Object.values(stats)[i].racial = itemData.data.bonuses[i];
             }
-            this.actor.createEmbeddedEntity("OwnedItem", itemData);
-            await this.actor.update({ 'data.stats' : stats }).then(() => this._render(false));
-            return true;
+            return this.actor.createEmbeddedEntity("OwnedItem", itemData).then(()=>
+                this.actor.update({ 'data.stats' : stats }).then(() => this._render(false))
+            );
+            // await this.actor.update({ 'data.stats' : stats }).then(() => this._render(false));
+            // return true;
         }
     }
 
@@ -654,15 +650,6 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
 
-    _onCollapsePath(ev) {
-        const elt = $(ev.currentTarget).parents(".path");
-        const path = duplicate(this.actor.getOwnedItem(elt.data("itemId")));
-        path.data.collapsed = !path.data.collapsed;
-        this.actor.updateOwnedItem(path);
-    }
-
-    /* -------------------------------------------- */
-
     _onEquipItem(ev) {
         const elt = $(ev.currentTarget).parents(".item");
         const item = duplicate(this.actor.getOwnedItem(elt.data("itemId")));
@@ -688,7 +675,7 @@ export class CofActorSheet extends ActorSheet {
             item.data.checked = !isUncheck;
             // trigger capacities
         });
-        this.actor.updateOwnedItem(items);
+        return this.actor.updateOwnedItem(items);
     }
 
     /* -------------------------------------------- */

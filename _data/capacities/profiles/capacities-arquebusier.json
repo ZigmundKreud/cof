@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mécanismes",
     "data": {
-      "id": "voie-de-l-artilleur-1",
+      "key": "voie-de-l-artilleur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir de semonce",
     "data": {
-      "id": "voie-de-l-artilleur-2",
+      "key": "voie-de-l-artilleur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -31,7 +31,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir de barrage",
     "data": {
-      "id": "voie-de-l-artilleur-3",
+      "key": "voie-de-l-artilleur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -45,7 +45,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Couleuvrine",
     "data": {
-      "id": "voie-de-l-artilleur-4",
+      "key": "voie-de-l-artilleur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -59,7 +59,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feu nourri",
     "data": {
-      "id": "voie-de-l-artilleur-5",
+      "key": "voie-de-l-artilleur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -72,7 +72,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Joli coup !",
     "data": {
-      "id": "voie-de-la-precision-1",
+      "key": "voie-de-la-precision-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -85,7 +85,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir précis",
     "data": {
-      "id": "voie-de-la-precision-2",
+      "key": "voie-de-la-precision-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -98,7 +98,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Défaut dans la cuirasse",
     "data": {
-      "id": "voie-de-la-precision-3",
+      "key": "voie-de-la-precision-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -112,7 +112,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir parabolique",
     "data": {
-      "id": "voie-de-la-precision-4",
+      "key": "voie-de-la-precision-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -125,7 +125,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir mortel",
     "data": {
-      "id": "voie-de-la-precision-5",
+      "key": "voie-de-la-precision-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -138,7 +138,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chimiste",
     "data": {
-      "id": "voie-des-explosifs-1",
+      "key": "voie-des-explosifs-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -151,7 +151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Démolition",
     "data": {
-      "id": "voie-des-explosifs-2",
+      "key": "voie-des-explosifs-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -164,7 +164,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Poudre puissante",
     "data": {
-      "id": "voie-des-explosifs-3",
+      "key": "voie-des-explosifs-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -177,7 +177,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Piège explosif",
     "data": {
-      "id": "voie-des-explosifs-4",
+      "key": "voie-des-explosifs-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -191,7 +191,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Boulet explosif",
     "data": {
-      "id": "voie-des-explosifs-5",
+      "key": "voie-des-explosifs-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -205,7 +205,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Action concertée",
     "data": {
-      "id": "voie-du-champ-de-bataille-1",
+      "key": "voie-du-champ-de-bataille-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -218,7 +218,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "A couvert",
     "data": {
-      "id": "voie-du-champ-de-bataille-2",
+      "key": "voie-du-champ-de-bataille-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -232,7 +232,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combattant aguerri",
     "data": {
-      "id": "voie-du-champ-de-bataille-3",
+      "key": "voie-du-champ-de-bataille-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -245,7 +245,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat de masse",
     "data": {
-      "id": "voie-du-champ-de-bataille-4",
+      "key": "voie-du-champ-de-bataille-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -258,7 +258,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-du-champ-de-bataille-5",
+      "key": "voie-du-champ-de-bataille-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -271,7 +271,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Plus vite que son ombre",
     "data": {
-      "id": "voie-du-pistolero-1",
+      "key": "voie-du-pistolero-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -284,7 +284,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cadence de tir",
     "data": {
-      "id": "voie-du-pistolero-2",
+      "key": "voie-du-pistolero-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -297,7 +297,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir double",
     "data": {
-      "id": "voie-du-pistolero-3",
+      "key": "voie-du-pistolero-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -311,7 +311,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "As de la gâchette",
     "data": {
-      "id": "voie-du-pistolero-4",
+      "key": "voie-du-pistolero-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -324,7 +324,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dextérité héroïque",
     "data": {
-      "id": "voie-du-pistolero-5",
+      "key": "voie-du-pistolero-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",

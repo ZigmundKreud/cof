@@ -9,8 +9,8 @@ export class CofSpellSheet extends ItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "spell"],
             template: System.templatesPath + "/items/spell-sheet.hbs",
-            width: 400,
-            height: 300,
+            width: 430,
+            height: 430,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

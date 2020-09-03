@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Familier",
     "data": {
-      "id": "voie-du-familier-1",
+      "key": "voie-du-familier-1",
       "rank": 1,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -16,7 +16,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance",
     "data": {
-      "id": "voie-du-familier-2",
+      "key": "voie-du-familier-2",
       "rank": 2,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -28,7 +28,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sens développés",
     "data": {
-      "id": "voie-du-familier-3",
+      "key": "voie-du-familier-3",
       "rank": 3,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -40,7 +40,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rappel",
     "data": {
-      "id": "voie-du-familier-4",
+      "key": "voie-du-familier-4",
       "rank": 4,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -52,7 +52,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lilliputien",
     "data": {
-      "id": "voie-du-familier-5",
+      "key": "voie-du-familier-5",
       "rank": 5,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -65,7 +65,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat à deux armes amélioré",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-1",
+      "key": "voie-du-combat-a-deux-armes-1",
       "rank": 1,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -77,7 +77,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Parade croisée",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-2",
+      "key": "voie-du-combat-a-deux-armes-2",
       "rank": 2,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -90,7 +90,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Symétrie",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-3",
+      "key": "voie-du-combat-a-deux-armes-3",
       "rank": 3,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -102,7 +102,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Double peine",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-4",
+      "key": "voie-du-combat-a-deux-armes-4",
       "rank": 4,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -114,7 +114,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat à deux armes parfait",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-5",
+      "key": "voie-du-combat-a-deux-armes-5",
       "rank": 5,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",

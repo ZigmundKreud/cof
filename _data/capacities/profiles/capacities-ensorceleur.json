@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Murmures dans le vent",
     "data": {
-      "id": "voie-de-l-air-1",
+      "key": "voie-de-l-air-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -19,7 +19,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sous tension",
     "data": {
-      "id": "voie-de-l-air-2",
+      "key": "voie-de-l-air-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -34,7 +34,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Télékinésie",
     "data": {
-      "id": "voie-de-l-air-3",
+      "key": "voie-de-l-air-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -49,7 +49,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Foudre",
     "data": {
-      "id": "voie-de-l-air-4",
+      "key": "voie-de-l-air-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -64,7 +64,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme éthérée",
     "data": {
-      "id": "voie-de-l-air-5",
+      "key": "voie-de-l-air-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -79,7 +79,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Injonction",
     "data": {
-      "id": "voie-de-l-envouteur-1",
+      "key": "voie-de-l-envouteur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -94,7 +94,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sommeil",
     "data": {
-      "id": "voie-de-l-envouteur-2",
+      "key": "voie-de-l-envouteur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -109,7 +109,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Confusion",
     "data": {
-      "id": "voie-de-l-envouteur-3",
+      "key": "voie-de-l-envouteur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -124,7 +124,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Amitié",
     "data": {
-      "id": "voie-de-l-envouteur-4",
+      "key": "voie-de-l-envouteur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -139,7 +139,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Domination",
     "data": {
-      "id": "voie-de-l-envouteur-5",
+      "key": "voie-de-l-envouteur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -154,7 +154,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Familier",
     "data": {
-      "id": "voie-de-l-invocation-1",
+      "key": "voie-de-l-invocation-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -167,7 +167,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Serviteur invisible",
     "data": {
-      "id": "voie-de-l-invocation-2",
+      "key": "voie-de-l-invocation-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -182,7 +182,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mur de force",
     "data": {
-      "id": "voie-de-l-invocation-3",
+      "key": "voie-de-l-invocation-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -197,7 +197,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme dansante",
     "data": {
-      "id": "voie-de-l-invocation-4",
+      "key": "voie-de-l-invocation-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -212,7 +212,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-l-invocation-5",
+      "key": "voie-de-l-invocation-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -225,7 +225,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "6ème sens",
     "data": {
-      "id": "voie-de-la-divination-1",
+      "key": "voie-de-la-divination-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -238,7 +238,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Détection de l'invisible",
     "data": {
-      "id": "voie-de-la-divination-2",
+      "key": "voie-de-la-divination-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -253,7 +253,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Clairvoyance",
     "data": {
-      "id": "voie-de-la-divination-3",
+      "key": "voie-de-la-divination-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -268,7 +268,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Prescience",
     "data": {
-      "id": "voie-de-la-divination-4",
+      "key": "voie-de-la-divination-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -282,7 +282,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hyperconscience",
     "data": {
-      "id": "voie-de-la-divination-5",
+      "key": "voie-de-la-divination-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -295,7 +295,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Image décalée",
     "data": {
-      "id": "voie-des-illusions-1",
+      "key": "voie-des-illusions-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -310,7 +310,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mirage",
     "data": {
-      "id": "voie-des-illusions-2",
+      "key": "voie-des-illusions-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -325,7 +325,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Imitation",
     "data": {
-      "id": "voie-des-illusions-3",
+      "key": "voie-des-illusions-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -340,7 +340,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dédoublement",
     "data": {
-      "id": "voie-des-illusions-4",
+      "key": "voie-des-illusions-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -355,7 +355,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tueur fantasmagorique",
     "data": {
-      "id": "voie-des-illusions-5",
+      "key": "voie-des-illusions-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",

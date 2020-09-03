@@ -1,11 +1,9 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="wrap">
-        <header class="sheet-header">
-            {{> "systems/cof/templates/partials/item/item-header.hbs"}}
-        </header>
+        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Rank</span>
                 </div>
                 <div class="flex4">
@@ -16,7 +14,7 @@
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Scope</span>
                 </div>
                 <div class="flex4">
@@ -37,7 +35,7 @@
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Profile</span>
                 </div>
                 <div class="flex4">
@@ -57,7 +55,7 @@
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Path</span>
                 </div>
                 <div class="flex4">
@@ -76,7 +74,7 @@
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Limited</span>
                 </div>
                 <div class="flex4">
@@ -86,7 +84,7 @@
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Spell</span>
                 </div>
                 <div class="flex4">
@@ -95,7 +93,7 @@
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
+                <div class="flex3 center field-header">
                     <span class="field-label label-text">Summary</span>
                 </div>
                 <div class="flex4">
@@ -105,14 +103,7 @@
             </span>
                 </div>
             </div>
-            <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">{{localize "COF.ui.description"}}</span>
-                </div>
-            </div>
-            <div class="row flexrow" style="height: 100%">
-                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-            </div>
+            {{> "systems/cof/templates/partials/item/item-description.hbs"}}
         </div>
     </div>
 </form>

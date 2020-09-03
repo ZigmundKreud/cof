@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/species/demi-elfe.png",
     "name": "Demi-elfe",
     "data": {
-      "id": "demi-elfe",
+      "key": "demi-elfe",
       "description": "<p>Le Demi-elfe a hérité des qualités de ses deux parents (humain et Elfe). Il est généralement traité avec condescendance parmi les Elfes et est considéré comme un Elfe parmi les humains.</p><p>Préjugés typiques : les Demi-elfes sont des artistes hors-pair dotés d&rsquo;une grande sensibilité. Toutefois, attention car ils sont beaux parleurs et manipulateurs : cachez vos filles et vos femmes, ils ont brisé plus d&rsquo;un cœur et corrompu bien des dames de réputation vertueuse.</p>",
       "age": "20+",
       "longevity": "150 ans",
@@ -31,7 +31,7 @@
     "img": "/systems/cof/ui/icons/species/demi-orque.png",
     "name": "Demi-orque",
     "data": {
-      "id": "demi-orque",
+      "key": "demi-orque",
       "description": "<p>Le Demi-orque est de grande taille. Issu de l’union souvent forcée d’une humaine et d’un Orque, il possède une force physique hors du commun. Il est généralement méprisé par les autres races, en particulier par les Nains et les Elfes.</p><p>Préjugés typiques : Les Demi-orques sont violents, sales et stupides, ils en veulent au monde entier de leur ignoble naissance et mieux vaut les éviter</p>",
       "age": "15+",
       "longevity": "60 ans",
@@ -54,7 +54,7 @@
     "img": "/systems/cof/ui/icons/species/elfe-sylvain.png",
     "name": "Elfe, sylvain",
     "data": {
-      "id": "elfe-sylvain",
+      "key": "elfe-sylvain",
       "description": "<p>L’Elfe sylvain est issu d’une culture différente de celle des Hauts-elfes. Légèrement plus petits, ils vivent au plus profond des forêts, s’abritant dans les arbres et vivant simplement de la chasse et de la cueillette. Moins arrogants que leurs cousins Hauts-elfes, ils sont cependant beaucoup plus méfiants. Ils maitrisent particulièrement l’art du camouflage et l’utilisation de l’arc.</p><p>Préjugés typiques : les Elfes sylvains sont de redoutables archers, ils détestent les cités et les gens qui y vivent, ils peuvent tuer d’une flèche dans le dos un paysan juste parce qu&rsquo;il a coupé le mauvais arbre.</p>",
       "age": "50+",
       "longevity": "350 ans",
@@ -77,7 +77,7 @@
     "img": "/systems/cof/ui/icons/species/gnome.png",
     "name": "Gnome",
     "data": {
-      "id": "gnome",
+      "key": "gnome",
       "description": "<p>Le Gnome est une créature de petite taille pourvue d’un gros nez, d’une bonne nature et d’une curiosité insatiable pour la magie et les sciences. C’est un compagnon souvent agréable bien qu’un peu original. Les Nains et les Halfelins l’apprécient, tandis que les « grandes » races se montrent plutôt indifférentes à leur égard.</p><p>Préjugés typiques : les Gnomes sont sympathiques mais à moitié fous, méfiez-vous comme de la peste de leurs inventions ou de leurs projets farfelus.</p>",
       "age": "40+",
       "longevity": "250 ans",
@@ -100,7 +100,7 @@
     "img": "/systems/cof/ui/icons/species/halfelin.png",
     "name": "Halfelin",
     "data": {
-      "id": "halfelin",
+      "key": "halfelin",
       "description": "<p>Le Halfelin est la plus petite des races jouables. Toujours bon vivant, souvent vif, curieux, et parfois farceur, c’est un incompris que les autres Races considèrent souvent comme turbulent, pénible, voire parfois comme un voleur.</p><p>Préjugés typiques : les Halfelins sont inoffensifs et ne pensent qu’à bien manger. Toutefois, ne perdez jamais de vue leurs mains car se sont aussi des voleurs sans scrupules.</p>",
       "age": "20+",
       "longevity": "150 ans",
@@ -123,7 +123,7 @@
     "img": "/systems/cof/ui/icons/species/haut-elfe.png",
     "name": "Elfe, haut",
     "data": {
-      "id": "haut-elfe",
+      "key": "haut-elfe",
       "description": "<p>Le Haut-elfe est un être féerique qui vit extrêmement longtemps. Il est méprisant envers les Nains et arrogant envers les autres races. Proche de la nature, il maîtrise aussi bien les arts de la magie que ceux de la guerre.</p><p>Préjugés typiques : les Elfes se croient supérieurs à tous les autres, ce sont de puissants magiciens mais leur cœur est sans pitié. Ils obéissent à de très anciennes règles et à des serments incompréhensibles pour les Races à l’espérance de vie ordinaire.</p>",
       "age": "80+",
       "longevity": "450 ans",
@@ -146,7 +146,7 @@
     "img": "/systems/cof/ui/icons/species/humain.png",
     "name": "Humain",
     "data": {
-      "id": "humain",
+      "key": "humain",
       "description": "<p>L’humain se distingue par sa capacité d’adaptation et son instinct qui le pousse à coloniser tous les territoires qui l’entourent. La Race humaine est la plus représentée et la plus répandue dans les zones dites « civilisées ».</p><p>Préjugés typiques : les humains sont de jeunes loups ignorants, ils croissent et se multiplient sans aucun respect pour l’équilibre du monde, leur égoïsme et leur égocentrisme semblent sans limite. Ils mèneront le monde entier à la catastrophe si personne ne les arrête.</p>",
       "age": "18+",
       "longevity": "100 ans",
@@ -169,7 +169,7 @@
     "img": "/systems/cof/ui/icons/species/nain.png",
     "name": "Nain",
     "data": {
-      "id": "nain",
+      "key": "nain",
       "description": "<p>Le Nain est petit mais robuste. Célèbre pour sa barbe, il aime les profondeurs de la terre, dont il extrait des métaux et des pierres précieuses. Isolé, il est généralement ouvert et chaleureux, mais la société naine peut paraître sévère car le travail et l’entraînement militaire y sont des obligations.</p><p>Préjugés typiques : les Nains aiment amasser de l’or et boire de la bière en compagnie d’autres Nains. Ils sont un peu rustres et très susceptibles, un Nain peut se mettre en colère et devenir violent pour des raisons qui semblent étranges voire futiles à un autre peuple…</p>",
       "age": "40+",
       "longevity": "250 ans",

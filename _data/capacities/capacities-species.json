@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce elfique",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-1",
+      "key": "voie-de-l-elfe-sylvain-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -20,7 +20,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Enfant de la forêt",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-2",
+      "key": "voie-de-l-elfe-sylvain-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -36,7 +36,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Archer émérite",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-3",
+      "key": "voie-de-l-elfe-sylvain-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -52,7 +52,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flèche sanglante",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-4",
+      "key": "voie-de-l-elfe-sylvain-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -69,7 +69,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Supériorité elfique",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-5",
+      "key": "voie-de-l-elfe-sylvain-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -85,7 +85,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Adaptable",
     "data": {
-      "id": "voie-de-l-humain-1",
+      "key": "voie-de-l-humain-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -101,7 +101,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Loup parmi les loups",
     "data": {
-      "id": "voie-de-l-humain-2",
+      "key": "voie-de-l-humain-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -117,7 +117,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Versatile",
     "data": {
-      "id": "voie-de-l-humain-3",
+      "key": "voie-de-l-humain-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -133,7 +133,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Increvable",
     "data": {
-      "id": "voie-de-l-humain-4",
+      "key": "voie-de-l-humain-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -149,7 +149,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Polyvalence",
     "data": {
-      "id": "voie-de-l-humain-5",
+      "key": "voie-de-l-humain-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -165,7 +165,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force de la nature",
     "data": {
-      "id": "voie-du-demi-orque-1",
+      "key": "voie-du-demi-orque-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -180,7 +180,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Talent pour la violence",
     "data": {
-      "id": "voie-du-demi-orque-2",
+      "key": "voie-du-demi-orque-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -195,7 +195,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Critique brutal",
     "data": {
-      "id": "voie-du-demi-orque-3",
+      "key": "voie-du-demi-orque-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -210,7 +210,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque sanglante",
     "data": {
-      "id": "voie-du-demi-orque-4",
+      "key": "voie-du-demi-orque-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -226,7 +226,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Colosse",
     "data": {
-      "id": "voie-du-demi-orque-5",
+      "key": "voie-du-demi-orque-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -241,7 +241,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Petit pote",
     "data": {
-      "id": "voie-du-gnome-1",
+      "key": "voie-du-gnome-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -256,7 +256,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Don occulte",
     "data": {
-      "id": "voie-du-gnome-2",
+      "key": "voie-du-gnome-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -271,7 +271,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Insignifiant",
     "data": {
-      "id": "voie-du-gnome-3",
+      "key": "voie-du-gnome-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -286,7 +286,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Merveille technologique",
     "data": {
-      "id": "voie-du-gnome-4",
+      "key": "voie-du-gnome-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -301,7 +301,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bonne nature",
     "data": {
-      "id": "voie-du-gnome-5",
+      "key": "voie-du-gnome-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -316,7 +316,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Petit veinard",
     "data": {
-      "id": "voie-du-halfelin-1",
+      "key": "voie-du-halfelin-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -331,7 +331,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance légendaire",
     "data": {
-      "id": "voie-du-halfelin-2",
+      "key": "voie-du-halfelin-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -346,7 +346,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bon pour le moral",
     "data": {
-      "id": "voie-du-halfelin-3",
+      "key": "voie-du-halfelin-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -361,7 +361,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Perception",
     "data": {
-      "id": "voie-du-halfelin-4",
+      "key": "voie-du-halfelin-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -376,7 +376,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vif et alerte",
     "data": {
-      "id": "voie-du-halfelin-5",
+      "key": "voie-du-halfelin-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -391,7 +391,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce elfique",
     "data": {
-      "id": "voie-du-haut-elfe-1",
+      "key": "voie-du-haut-elfe-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -407,7 +407,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Talent pour la magie",
     "data": {
-      "id": "voie-du-haut-elfe-2",
+      "key": "voie-du-haut-elfe-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -423,7 +423,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force d'âme",
     "data": {
-      "id": "voie-du-haut-elfe-3",
+      "key": "voie-du-haut-elfe-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -439,7 +439,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Immortel",
     "data": {
-      "id": "voie-du-haut-elfe-4",
+      "key": "voie-du-haut-elfe-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -455,7 +455,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Supériorité elfique",
     "data": {
-      "id": "voie-du-haut-elfe-5",
+      "key": "voie-du-haut-elfe-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -471,7 +471,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance",
     "data": {
-      "id": "voie-du-nain-1",
+      "key": "voie-du-nain-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-nain",
@@ -486,7 +486,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Solide comme un roc",
     "data": {
-      "id": "voie-du-nain-2",
+      "key": "voie-du-nain-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-nain",
@@ -501,7 +501,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Haches et marteaux",
     "data": {
-      "id": "voie-du-nain-3",
+      "key": "voie-du-nain-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-nain",
@@ -516,7 +516,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance à la magie",
     "data": {
-      "id": "voie-du-nain-4",
+      "key": "voie-du-nain-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-nain",
@@ -531,7 +531,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tenacité",
     "data": {
-      "id": "voie-du-nain-5",
+      "key": "voie-du-nain-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-nain",

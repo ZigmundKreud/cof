@@ -1,0 +1,75 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="wrap">
+        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
+        <div class="main">
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.def"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.def" type="text" value="{{item.data.def}}" placeholder="{{localize "COF.ui.defence"}}" data-dtype="Number">
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.damage"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.dmg" type="text" value="{{item.data.dmg}}" placeholder="{{localize "COF.ui.dmg"}}" data-dtype="String">
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.usage"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <select name="data.hands" data-type="Number" style="width:100%">
+                            {{#select data.hands}}
+                            <option value="0">{{localize "COF.None"}}</option>
+                            <option value="1">{{localize "COF.ui.1H"}}</option>
+                            <option value="2">{{localize "COF.ui.2H"}}</option>
+                            {{/select}}
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.critrange"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.critrange" type="text" value="{{item.data.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.bonus"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number">
+                    </span>
+                </div>
+            </div>
+<!--            <div class="row flexrow">-->
+<!--                <div class="flex1 center field-header">-->
+<!--                    <span class="field-label label-text">{{!localize "COF.attributes.dr.label"}}</span>-->
+<!--                </div>-->
+<!--                <div class="flex1">-->
+<!--                    <span class="field-label">-->
+<!--                        <input class="field-value" name="data.dr" type="text" value="{{!item.data.dr}}" placeholder="COF.attributes.dr.abbrev" data-dtype="Number">-->
+<!--                    </span>-->
+<!--                </div>-->
+<!--            </div>-->
+            {{> "systems/cof/templates/partials/item/item-price.hbs"}}
+            {{> "systems/cof/templates/partials/item/item-description.hbs"}}
+        </div>
+    </div>
+</form>

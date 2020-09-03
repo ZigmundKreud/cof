@@ -1,63 +1,39 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="wrap">
-        <header class="sheet-header">
-            {{> "systems/cof/templates/partials/item/item-header.hbs"}}
-        </header>
+        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
-        <div class="row flexrow">
-            <div class="flex3 center">
-                <span class="field-label label-text">Category</span>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.def"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.def" type="text" value="{{item.data.def}}" placeholder="{{localize "COF.ui.defence"}}" data-dtype="Number">
+                    </span>
+                </div>
             </div>
-            <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}"
-                       placeholder="Category" data-dtype="String">
-            </span>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.bonus"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="Bonus" data-dtype="Number">
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="row flexrow">
-            <div class="flex3 center">
-                <span class="field-label label-text">Price (PA)</span>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.attributes.dr.label"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.dr" type="text" value="{{item.data.dr}}" placeholder="COF.attributes.dr.abbrev" data-dtype="Number">
+                    </span>
+                </div>
             </div>
-            <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.price" type="text" value="{{item.data.price}}" placeholder="Price"
-                       data-dtype="Number">
-            </span>
-            </div>
-        </div>
-        <div class="row flexrow">
-            <div class="flex3 center">
-                <span class="field-label label-text">DEF</span>
-            </div>
-            <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.def" type="text" value="{{item.data.def}}" placeholder="Defense"
-                       data-dtype="Number">
-            </span>
-            </div>
-        </div>
-        <div class="row flexrow">
-            <div class="flex3 center">
-                <span class="field-label label-text">Bonus</span>
-            </div>
-            <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="Bonus"
-                       data-dtype="Number">
-            </span>
-            </div>
-        </div>
-        {{!-- Sheet Tab Navigation --}}
-        <nav class="sheet-tabs tabs" data-group="primary">
-            <a class="item" data-tab="description">Description</a>
-        </nav>
-        {{!-- Sheet Body --}}
-        <section class="sheet-body">
-            <div class="tab" data-group="primary" data-tab="description">
-                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-            </div>
-        </section>
+            {{> "systems/cof/templates/partials/item/item-price.hbs"}}
+            {{> "systems/cof/templates/partials/item/item-description.hbs"}}
         </div>
     </div>
 </form>

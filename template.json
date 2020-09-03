@@ -353,7 +353,7 @@
       "spell"
     ],
     "capacity": {
-      "id" : "",
+      "key": "",
       "summary" : "",
       "description" : "",
       "rank": null,
@@ -374,7 +374,7 @@
       "description" : ""
     },
     "profile": {
-      "id": "",
+      "key": "",
       "description": "",
       "dv": "",
       "proficiency": "",
@@ -387,7 +387,7 @@
       "paths" : []
     },
     "species": {
-      "id": "",
+      "key": "",
       "description": "",
       "age": "",
       "longevity": "",
@@ -400,7 +400,7 @@
       "capacities": []
     },
     "path": {
-      "id": "",
+      "key": "",
       "collapsed" : true,
       "description": "",
       "note": "",
@@ -412,6 +412,7 @@
     "armor": {
       "def" : 0,
       "bonus" : 0,
+      "dr" : 0,
       "price" : 0,
       "description" : "",
       "worn": false
@@ -419,31 +420,31 @@
     "shield": {
       "def" : 0,
       "mod": "",
-      "dmg": "",
+      "dmg": "1d4 + @stats.str.mod",
       "bonus" : 0,
       "description" : "",
-      "critrange": "",
+      "critrange": "20",
       "worn": false,
       "hands": 1,
       "price" : 0
     },
     "melee": {
-      "dmg": "",
+      "dmg": "1d6 + @stats.str.mod",
       "mod": "",
       "bonus" : 0,
       "description": "",
-      "critrange": "",
+      "critrange": "20",
       "worn": false,
       "hands": 1,
       "price": 0
     },
     "ranged": {
-      "dmg": "",
+      "dmg": "1d6",
       "totaldmg": "",
       "mod": "",
       "bonus" : 0,
       "description": "",
-      "critrange": "",
+      "critrange": "20",
       "hands": 1,
       "range": 0,
       "worn": false,
@@ -456,7 +457,7 @@
       "mod": "",
       "bonus" : 0,
       "description": "",
-      "critrange": "",
+      "critrange": "20",
       "range": 0,
       "reload": ""
     }

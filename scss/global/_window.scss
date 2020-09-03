@@ -1,8 +1,26 @@
 .window-app {
   font-family: $font-primary;
 
+  a:hover {
+    text-shadow: 0 0 8px $c-linkshadow;
+  }
+
+  .rollable {
+    &:hover,
+    &:focus {
+      //color: #000;
+      text-shadow: 0 0 8px $c-linkshadow;
+      cursor: pointer;
+    }
+  }
+
   &.cof.sheet.actor {
     min-width: 765px;
+    overflow: hidden;
+  }
+
+  &.cof.sheet.item {
+    min-width: 430px;
     overflow: hidden;
   }
 }

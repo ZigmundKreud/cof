@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Murmures dans le vent",
     "data": {
-      "id": "voie-de-l-air-1",
+      "key": "voie-de-l-air-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -19,7 +19,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sous tension",
     "data": {
-      "id": "voie-de-l-air-2",
+      "key": "voie-de-l-air-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -34,7 +34,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Télékinésie",
     "data": {
-      "id": "voie-de-l-air-3",
+      "key": "voie-de-l-air-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -49,7 +49,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Foudre",
     "data": {
-      "id": "voie-de-l-air-4",
+      "key": "voie-de-l-air-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -64,7 +64,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme éthérée",
     "data": {
-      "id": "voie-de-l-air-5",
+      "key": "voie-de-l-air-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -79,7 +79,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mécanismes",
     "data": {
-      "id": "voie-de-l-artilleur-1",
+      "key": "voie-de-l-artilleur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -92,7 +92,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir de semonce",
     "data": {
-      "id": "voie-de-l-artilleur-2",
+      "key": "voie-de-l-artilleur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -106,7 +106,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir de barrage",
     "data": {
-      "id": "voie-de-l-artilleur-3",
+      "key": "voie-de-l-artilleur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -120,7 +120,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Couleuvrine",
     "data": {
-      "id": "voie-de-l-artilleur-4",
+      "key": "voie-de-l-artilleur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -134,7 +134,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feu nourri",
     "data": {
-      "id": "voie-de-l-artilleur-5",
+      "key": "voie-de-l-artilleur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -147,7 +147,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Injonction",
     "data": {
-      "id": "voie-de-l-envouteur-1",
+      "key": "voie-de-l-envouteur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -162,7 +162,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sommeil",
     "data": {
-      "id": "voie-de-l-envouteur-2",
+      "key": "voie-de-l-envouteur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -177,7 +177,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Confusion",
     "data": {
-      "id": "voie-de-l-envouteur-3",
+      "key": "voie-de-l-envouteur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -192,7 +192,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Amitié",
     "data": {
-      "id": "voie-de-l-envouteur-4",
+      "key": "voie-de-l-envouteur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -207,7 +207,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Domination",
     "data": {
-      "id": "voie-de-l-envouteur-5",
+      "key": "voie-de-l-envouteur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -222,7 +222,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Précision",
     "data": {
-      "id": "voie-de-l-escrime-1",
+      "key": "voie-de-l-escrime-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -235,7 +235,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence du combat",
     "data": {
-      "id": "voie-de-l-escrime-2",
+      "key": "voie-de-l-escrime-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -248,7 +248,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feinte",
     "data": {
-      "id": "voie-de-l-escrime-3",
+      "key": "voie-de-l-escrime-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -262,7 +262,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque flamboyante",
     "data": {
-      "id": "voie-de-l-escrime-4",
+      "key": "voie-de-l-escrime-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -276,7 +276,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Botte mortelle",
     "data": {
-      "id": "voie-de-l-escrime-5",
+      "key": "voie-de-l-escrime-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -289,7 +289,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Familier",
     "data": {
-      "id": "voie-de-l-invocation-1",
+      "key": "voie-de-l-invocation-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -302,7 +302,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Serviteur invisible",
     "data": {
-      "id": "voie-de-l-invocation-2",
+      "key": "voie-de-l-invocation-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -317,7 +317,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mur de force",
     "data": {
-      "id": "voie-de-l-invocation-3",
+      "key": "voie-de-l-invocation-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -332,7 +332,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme dansante",
     "data": {
-      "id": "voie-de-l-invocation-4",
+      "key": "voie-de-l-invocation-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -347,7 +347,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-l-invocation-5",
+      "key": "voie-de-l-invocation-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -360,7 +360,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Argument de taille",
     "data": {
-      "id": "voie-de-la-brute-1",
+      "key": "voie-de-la-brute-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -373,7 +373,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tour de force",
     "data": {
-      "id": "voie-de-la-brute-2",
+      "key": "voie-de-la-brute-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -386,7 +386,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque brutale",
     "data": {
-      "id": "voie-de-la-brute-3",
+      "key": "voie-de-la-brute-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -400,7 +400,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Briseur d'os",
     "data": {
-      "id": "voie-de-la-brute-4",
+      "key": "voie-de-la-brute-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -413,7 +413,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force héroïque",
     "data": {
-      "id": "voie-de-la-brute-5",
+      "key": "voie-de-la-brute-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -426,7 +426,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "6ème sens",
     "data": {
-      "id": "voie-de-la-divination-1",
+      "key": "voie-de-la-divination-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -439,7 +439,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Détection de l'invisible",
     "data": {
-      "id": "voie-de-la-divination-2",
+      "key": "voie-de-la-divination-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -454,7 +454,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Clairvoyance",
     "data": {
-      "id": "voie-de-la-divination-3",
+      "key": "voie-de-la-divination-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -469,7 +469,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Prescience",
     "data": {
-      "id": "voie-de-la-divination-4",
+      "key": "voie-de-la-divination-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -483,7 +483,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hyperconscience",
     "data": {
-      "id": "voie-de-la-divination-5",
+      "key": "voie-de-la-divination-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -496,7 +496,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Parole divine",
     "data": {
-      "id": "voie-de-la-foi-1",
+      "key": "voie-de-la-foi-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -509,7 +509,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme d'argent",
     "data": {
-      "id": "voie-de-la-foi-2",
+      "key": "voie-de-la-foi-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -524,7 +524,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ailes célestes",
     "data": {
-      "id": "voie-de-la-foi-3",
+      "key": "voie-de-la-foi-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -539,7 +539,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Foudres divines",
     "data": {
-      "id": "voie-de-la-foi-4",
+      "key": "voie-de-la-foi-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -554,7 +554,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-la-foi-5",
+      "key": "voie-de-la-foi-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -567,7 +567,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure sur mesure",
     "data": {
-      "id": "voie-de-la-guerre-1",
+      "key": "voie-de-la-guerre-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -580,7 +580,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Encaisser un coup",
     "data": {
-      "id": "voie-de-la-guerre-2",
+      "key": "voie-de-la-guerre-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -594,7 +594,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Coup de bouclier",
     "data": {
-      "id": "voie-de-la-guerre-3",
+      "key": "voie-de-la-guerre-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -607,7 +607,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Frappe lourde",
     "data": {
-      "id": "voie-de-la-guerre-4",
+      "key": "voie-de-la-guerre-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -621,7 +621,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force héroïque",
     "data": {
-      "id": "voie-de-la-guerre-5",
+      "key": "voie-de-la-guerre-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -634,7 +634,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme bénie",
     "data": {
-      "id": "voie-de-la-guerre-sainte-1",
+      "key": "voie-de-la-guerre-sainte-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -647,7 +647,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bouclier de la foi",
     "data": {
-      "id": "voie-de-la-guerre-sainte-2",
+      "key": "voie-de-la-guerre-sainte-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -660,7 +660,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Marteau spirituel",
     "data": {
-      "id": "voie-de-la-guerre-sainte-3",
+      "key": "voie-de-la-guerre-sainte-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -675,7 +675,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Châtiment divin",
     "data": {
-      "id": "voie-de-la-guerre-sainte-4",
+      "key": "voie-de-la-guerre-sainte-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -689,7 +689,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mot de pouvoir",
     "data": {
-      "id": "voie-de-la-guerre-sainte-5",
+      "key": "voie-de-la-guerre-sainte-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -704,7 +704,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Agrandissement",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-1",
+      "key": "voie-de-la-magie-des-arcanes-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -719,7 +719,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme gazeuse",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-2",
+      "key": "voie-de-la-magie-des-arcanes-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -734,7 +734,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hâte",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-3",
+      "key": "voie-de-la-magie-des-arcanes-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -749,7 +749,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Téléportation",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-4",
+      "key": "voie-de-la-magie-des-arcanes-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -764,7 +764,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Désintégration",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-5",
+      "key": "voie-de-la-magie-des-arcanes-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -779,7 +779,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projectile magique",
     "data": {
-      "id": "voie-de-la-magie-destructrice-1",
+      "key": "voie-de-la-magie-destructrice-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -794,7 +794,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rayon affaiblissant",
     "data": {
-      "id": "voie-de-la-magie-destructrice-2",
+      "key": "voie-de-la-magie-destructrice-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -809,7 +809,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flèche enflammée",
     "data": {
-      "id": "voie-de-la-magie-destructrice-3",
+      "key": "voie-de-la-magie-destructrice-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -824,7 +824,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Boule de feu",
     "data": {
-      "id": "voie-de-la-magie-destructrice-4",
+      "key": "voie-de-la-magie-destructrice-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -839,7 +839,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rituel de puissance",
     "data": {
-      "id": "voie-de-la-magie-destructrice-5",
+      "key": "voie-de-la-magie-destructrice-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -852,7 +852,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Asphyxie",
     "data": {
-      "id": "voie-de-la-magie-elementaire-1",
+      "key": "voie-de-la-magie-elementaire-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -867,7 +867,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protection contre les éléments",
     "data": {
-      "id": "voie-de-la-magie-elementaire-2",
+      "key": "voie-de-la-magie-elementaire-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -882,7 +882,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme enflammée",
     "data": {
-      "id": "voie-de-la-magie-elementaire-3",
+      "key": "voie-de-la-magie-elementaire-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -897,7 +897,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Respiration aquatique",
     "data": {
-      "id": "voie-de-la-magie-elementaire-4",
+      "key": "voie-de-la-magie-elementaire-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -912,7 +912,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau de pierre",
     "data": {
-      "id": "voie-de-la-magie-elementaire-5",
+      "key": "voie-de-la-magie-elementaire-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -927,7 +927,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure de mage",
     "data": {
-      "id": "voie-de-la-magie-protectrice-1",
+      "key": "voie-de-la-magie-protectrice-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -942,7 +942,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chute ralentie",
     "data": {
-      "id": "voie-de-la-magie-protectrice-2",
+      "key": "voie-de-la-magie-protectrice-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -957,7 +957,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flou",
     "data": {
-      "id": "voie-de-la-magie-protectrice-3",
+      "key": "voie-de-la-magie-protectrice-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -972,7 +972,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cercle de protection",
     "data": {
-      "id": "voie-de-la-magie-protectrice-4",
+      "key": "voie-de-la-magie-protectrice-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -987,7 +987,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arrêt du temps",
     "data": {
-      "id": "voie-de-la-magie-protectrice-5",
+      "key": "voie-de-la-magie-protectrice-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -1002,7 +1002,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lumière",
     "data": {
-      "id": "voie-de-la-magie-universelle-1",
+      "key": "voie-de-la-magie-universelle-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -1017,7 +1017,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Détection de la magie",
     "data": {
-      "id": "voie-de-la-magie-universelle-2",
+      "key": "voie-de-la-magie-universelle-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -1032,7 +1032,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Invisibilité",
     "data": {
-      "id": "voie-de-la-magie-universelle-3",
+      "key": "voie-de-la-magie-universelle-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -1047,7 +1047,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vol",
     "data": {
-      "id": "voie-de-la-magie-universelle-4",
+      "key": "voie-de-la-magie-universelle-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -1062,7 +1062,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence héroïque",
     "data": {
-      "id": "voie-de-la-magie-universelle-5",
+      "key": "voie-de-la-magie-universelle-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -1075,7 +1075,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive du singe",
     "data": {
-      "id": "voie-de-la-maitrise-1",
+      "key": "voie-de-la-maitrise-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -1088,7 +1088,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Morsure du serpent",
     "data": {
-      "id": "voie-de-la-maitrise-2",
+      "key": "voie-de-la-maitrise-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -1101,7 +1101,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Griffes du tigre",
     "data": {
-      "id": "voie-de-la-maitrise-3",
+      "key": "voie-de-la-maitrise-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -1114,7 +1114,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fureur du dragon",
     "data": {
-      "id": "voie-de-la-maitrise-4",
+      "key": "voie-de-la-maitrise-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -1128,7 +1128,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Moment de perfection",
     "data": {
-      "id": "voie-de-la-maitrise-5",
+      "key": "voie-de-la-maitrise-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -1141,7 +1141,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pacifisme",
     "data": {
-      "id": "voie-de-la-meditation-1",
+      "key": "voie-de-la-meditation-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -1154,7 +1154,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Transe de guérison",
     "data": {
-      "id": "voie-de-la-meditation-2",
+      "key": "voie-de-la-meditation-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -1167,7 +1167,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Maîtrise du ki",
     "data": {
-      "id": "voie-de-la-meditation-3",
+      "key": "voie-de-la-meditation-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -1180,7 +1180,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projection mentale",
     "data": {
-      "id": "voie-de-la-meditation-4",
+      "key": "voie-de-la-meditation-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -1194,7 +1194,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sagesse héroïque",
     "data": {
-      "id": "voie-de-la-meditation-5",
+      "key": "voie-de-la-meditation-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -1207,7 +1207,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Siphon des âmes",
     "data": {
-      "id": "voie-de-la-mort-1",
+      "key": "voie-de-la-mort-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -1221,7 +1221,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Masque mortuaire",
     "data": {
-      "id": "voie-de-la-mort-2",
+      "key": "voie-de-la-mort-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -1236,7 +1236,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Baiser du vampire",
     "data": {
-      "id": "voie-de-la-mort-3",
+      "key": "voie-de-la-mort-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -1251,7 +1251,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Briser les cœurs",
     "data": {
-      "id": "voie-de-la-mort-4",
+      "key": "voie-de-la-mort-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -1266,7 +1266,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mot de mort",
     "data": {
-      "id": "voie-de-la-mort-5",
+      "key": "voie-de-la-mort-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -1281,7 +1281,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Maître de la survie",
     "data": {
-      "id": "voie-de-la-nature-1",
+      "key": "voie-de-la-nature-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -1294,7 +1294,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Marche sylvestre",
     "data": {
-      "id": "voie-de-la-nature-2",
+      "key": "voie-de-la-nature-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -1307,7 +1307,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistant",
     "data": {
-      "id": "voie-de-la-nature-3",
+      "key": "voie-de-la-nature-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -1320,7 +1320,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bâton de druide",
     "data": {
-      "id": "voie-de-la-nature-4",
+      "key": "voie-de-la-nature-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -1334,7 +1334,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-de-la-nature-5",
+      "key": "voie-de-la-nature-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -1347,7 +1347,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Eduqué",
     "data": {
-      "id": "voie-de-la-noblesse-1",
+      "key": "voie-de-la-noblesse-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -1360,7 +1360,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Autorité naturelle",
     "data": {
-      "id": "voie-de-la-noblesse-2",
+      "key": "voie-de-la-noblesse-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -1373,7 +1373,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ecuyer",
     "data": {
-      "id": "voie-de-la-noblesse-3",
+      "key": "voie-de-la-noblesse-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -1386,7 +1386,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Massacrer la piétaille",
     "data": {
-      "id": "voie-de-la-noblesse-4",
+      "key": "voie-de-la-noblesse-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -1399,7 +1399,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Formation d'élite",
     "data": {
-      "id": "voie-de-la-noblesse-5",
+      "key": "voie-de-la-noblesse-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -1412,7 +1412,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Joli coup !",
     "data": {
-      "id": "voie-de-la-precision-1",
+      "key": "voie-de-la-precision-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -1425,7 +1425,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir précis",
     "data": {
-      "id": "voie-de-la-precision-2",
+      "key": "voie-de-la-precision-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -1438,7 +1438,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Défaut dans la cuirasse",
     "data": {
-      "id": "voie-de-la-precision-3",
+      "key": "voie-de-la-precision-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -1452,7 +1452,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir parabolique",
     "data": {
-      "id": "voie-de-la-precision-4",
+      "key": "voie-de-la-precision-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -1465,7 +1465,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir mortel",
     "data": {
-      "id": "voie-de-la-precision-5",
+      "key": "voie-de-la-precision-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -1478,7 +1478,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bénédiction",
     "data": {
-      "id": "voie-de-la-priere-1",
+      "key": "voie-de-la-priere-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -1493,7 +1493,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Destruction des morts-vivants",
     "data": {
-      "id": "voie-de-la-priere-2",
+      "key": "voie-de-la-priere-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -1508,7 +1508,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sanctuaire",
     "data": {
-      "id": "voie-de-la-priere-3",
+      "key": "voie-de-la-priere-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -1523,7 +1523,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intervention divine",
     "data": {
-      "id": "voie-de-la-priere-4",
+      "key": "voie-de-la-priere-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -1536,7 +1536,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sagesse héroïque",
     "data": {
-      "id": "voie-de-la-priere-5",
+      "key": "voie-de-la-priere-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -1549,7 +1549,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cri de guerre",
     "data": {
-      "id": "voie-de-la-rage-1",
+      "key": "voie-de-la-rage-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -1563,7 +1563,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Défier la mort",
     "data": {
-      "id": "voie-de-la-rage-2",
+      "key": "voie-de-la-rage-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -1576,7 +1576,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rage du berserk",
     "data": {
-      "id": "voie-de-la-rage-3",
+      "key": "voie-de-la-rage-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -1590,7 +1590,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Même pas mal",
     "data": {
-      "id": "voie-de-la-rage-4",
+      "key": "voie-de-la-rage-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -1603,7 +1603,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Furie du berserk",
     "data": {
-      "id": "voie-de-la-rage-5",
+      "key": "voie-de-la-rage-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -1617,7 +1617,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Robustesse",
     "data": {
-      "id": "voie-de-la-resistance-1",
+      "key": "voie-de-la-resistance-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -1630,7 +1630,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure naturelle",
     "data": {
-      "id": "voie-de-la-resistance-2",
+      "key": "voie-de-la-resistance-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -1643,7 +1643,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Second souffle",
     "data": {
-      "id": "voie-de-la-resistance-3",
+      "key": "voie-de-la-resistance-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -1657,7 +1657,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dur à cuire",
     "data": {
-      "id": "voie-de-la-resistance-4",
+      "key": "voie-de-la-resistance-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -1670,7 +1670,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-de-la-resistance-5",
+      "key": "voie-de-la-resistance-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -1683,7 +1683,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charmant",
     "data": {
-      "id": "voie-de-la-seduction-1",
+      "key": "voie-de-la-seduction-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -1696,7 +1696,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dentelles et rapière",
     "data": {
-      "id": "voie-de-la-seduction-2",
+      "key": "voie-de-la-seduction-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -1709,7 +1709,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme secrète",
     "data": {
-      "id": "voie-de-la-seduction-3",
+      "key": "voie-de-la-seduction-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -1722,7 +1722,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Suggestion",
     "data": {
-      "id": "voie-de-la-seduction-4",
+      "key": "voie-de-la-seduction-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -1737,7 +1737,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-la-seduction-5",
+      "key": "voie-de-la-seduction-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -1750,7 +1750,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ténèbres",
     "data": {
-      "id": "voie-de-la-sombre-magie-1",
+      "key": "voie-de-la-sombre-magie-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -1765,7 +1765,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pattes d'araignée",
     "data": {
-      "id": "voie-de-la-sombre-magie-2",
+      "key": "voie-de-la-sombre-magie-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -1780,7 +1780,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Strangulation",
     "data": {
-      "id": "voie-de-la-sombre-magie-3",
+      "key": "voie-de-la-sombre-magie-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -1795,7 +1795,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ombre mortelle",
     "data": {
-      "id": "voie-de-la-sombre-magie-4",
+      "key": "voie-de-la-sombre-magie-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -1810,7 +1810,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence héroïque",
     "data": {
-      "id": "voie-de-la-sombre-magie-5",
+      "key": "voie-de-la-sombre-magie-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -1823,7 +1823,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vêtements sacrés",
     "data": {
-      "id": "voie-de-la-spiritualite-1",
+      "key": "voie-de-la-spiritualite-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -1836,7 +1836,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protection contre le mal",
     "data": {
-      "id": "voie-de-la-spiritualite-2",
+      "key": "voie-de-la-spiritualite-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -1851,7 +1851,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Délivrance",
     "data": {
-      "id": "voie-de-la-spiritualite-3",
+      "key": "voie-de-la-spiritualite-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -1866,7 +1866,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Marche des plans",
     "data": {
-      "id": "voie-de-la-spiritualite-4",
+      "key": "voie-de-la-spiritualite-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -1881,7 +1881,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Messie",
     "data": {
-      "id": "voie-de-la-spiritualite-5",
+      "key": "voie-de-la-spiritualite-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -1895,7 +1895,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Endurant",
     "data": {
-      "id": "voie-de-la-survie-1",
+      "key": "voie-de-la-survie-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -1908,7 +1908,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Nature nourricière",
     "data": {
-      "id": "voie-de-la-survie-2",
+      "key": "voie-de-la-survie-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -1921,7 +1921,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grand pas",
     "data": {
-      "id": "voie-de-la-survie-3",
+      "key": "voie-de-la-survie-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -1934,7 +1934,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Increvable",
     "data": {
-      "id": "voie-de-la-survie-4",
+      "key": "voie-de-la-survie-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -1948,7 +1948,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-de-la-survie-5",
+      "key": "voie-de-la-survie-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -1961,7 +1961,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sens affûtés",
     "data": {
-      "id": "voie-de-l-archer-1",
+      "key": "voie-de-l-archer-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -1974,7 +1974,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir aveugle",
     "data": {
-      "id": "voie-de-l-archer-2",
+      "key": "voie-de-l-archer-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -1988,7 +1988,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir rapide",
     "data": {
-      "id": "voie-de-l-archer-3",
+      "key": "voie-de-l-archer-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -2002,7 +2002,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flèche de mort",
     "data": {
-      "id": "voie-de-l-archer-4",
+      "key": "voie-de-l-archer-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -2016,7 +2016,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dans le mille",
     "data": {
-      "id": "voie-de-l-archer-5",
+      "key": "voie-de-l-archer-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -2029,7 +2029,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Discrétion",
     "data": {
-      "id": "voie-de-l-assassin-1",
+      "key": "voie-de-l-assassin-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -2042,7 +2042,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque sournoise",
     "data": {
-      "id": "voie-de-l-assassin-2",
+      "key": "voie-de-l-assassin-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -2056,7 +2056,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ombre mouvante",
     "data": {
-      "id": "voie-de-l-assassin-3",
+      "key": "voie-de-l-assassin-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -2070,7 +2070,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Surprise",
     "data": {
-      "id": "voie-de-l-assassin-4",
+      "key": "voie-de-l-assassin-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -2083,7 +2083,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ouverture mortelle",
     "data": {
-      "id": "voie-de-l-assassin-5",
+      "key": "voie-de-l-assassin-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -2096,7 +2096,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sprint",
     "data": {
-      "id": "voie-de-l-aventurier-1",
+      "key": "voie-de-l-aventurier-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -2109,7 +2109,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Provocation",
     "data": {
-      "id": "voie-de-l-aventurier-2",
+      "key": "voie-de-l-aventurier-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -2123,7 +2123,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce féline",
     "data": {
-      "id": "voie-de-l-aventurier-3",
+      "key": "voie-de-l-aventurier-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -2136,7 +2136,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feindre la mort",
     "data": {
-      "id": "voie-de-l-aventurier-4",
+      "key": "voie-de-l-aventurier-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -2149,7 +2149,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-l-aventurier-5",
+      "key": "voie-de-l-aventurier-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -2162,7 +2162,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mains d'énergie",
     "data": {
-      "id": "voie-de-l-energie-vitale-1",
+      "key": "voie-de-l-energie-vitale-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -2176,7 +2176,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pression mortelle",
     "data": {
-      "id": "voie-de-l-energie-vitale-2",
+      "key": "voie-de-l-energie-vitale-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -2190,7 +2190,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Invulnérable",
     "data": {
-      "id": "voie-de-l-energie-vitale-3",
+      "key": "voie-de-l-energie-vitale-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -2203,7 +2203,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projection du ki",
     "data": {
-      "id": "voie-de-l-energie-vitale-4",
+      "key": "voie-de-l-energie-vitale-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -2217,7 +2217,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ascétisme",
     "data": {
-      "id": "voie-de-l-energie-vitale-5",
+      "key": "voie-de-l-energie-vitale-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -2230,7 +2230,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chasseur émérite",
     "data": {
-      "id": "voie-de-l-escarmouche-1",
+      "key": "voie-de-l-escarmouche-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -2243,7 +2243,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Traquenard",
     "data": {
-      "id": "voie-de-l-escarmouche-2",
+      "key": "voie-de-l-escarmouche-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -2257,7 +2257,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque éclair",
     "data": {
-      "id": "voie-de-l-escarmouche-3",
+      "key": "voie-de-l-escarmouche-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -2271,7 +2271,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Repli",
     "data": {
-      "id": "voie-de-l-escarmouche-4",
+      "key": "voie-de-l-escarmouche-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -2285,7 +2285,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dextérité héroïque",
     "data": {
-      "id": "voie-de-l-escarmouche-5",
+      "key": "voie-de-l-escarmouche-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -2298,7 +2298,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peur",
     "data": {
-      "id": "voie-de-l-outre-tombe-1",
+      "key": "voie-de-l-outre-tombe-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -2313,7 +2313,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animation des morts",
     "data": {
-      "id": "voie-de-l-outre-tombe-2",
+      "key": "voie-de-l-outre-tombe-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -2328,7 +2328,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Putréfaction",
     "data": {
-      "id": "voie-de-l-outre-tombe-3",
+      "key": "voie-de-l-outre-tombe-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -2343,7 +2343,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ensevelissement",
     "data": {
-      "id": "voie-de-l-outre-tombe-4",
+      "key": "voie-de-l-outre-tombe-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -2358,7 +2358,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armée des morts",
     "data": {
-      "id": "voie-de-l-outre-tombe-5",
+      "key": "voie-de-l-outre-tombe-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -2373,7 +2373,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Langage des animaux",
     "data": {
-      "id": "voie-des-animaux-1",
+      "key": "voie-des-animaux-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -2386,7 +2386,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Nuée d'insectes",
     "data": {
-      "id": "voie-des-animaux-2",
+      "key": "voie-des-animaux-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -2401,7 +2401,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Le guetteur",
     "data": {
-      "id": "voie-des-animaux-3",
+      "key": "voie-des-animaux-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -2414,7 +2414,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Masque du prédateur",
     "data": {
-      "id": "voie-des-animaux-4",
+      "key": "voie-des-animaux-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -2429,7 +2429,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme animale",
     "data": {
-      "id": "voie-des-animaux-5",
+      "key": "voie-des-animaux-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -2444,7 +2444,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bâton de mage",
     "data": {
-      "id": "voie-des-artefacts-1",
+      "key": "voie-des-artefacts-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -2457,7 +2457,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Blocage",
     "data": {
-      "id": "voie-des-artefacts-2",
+      "key": "voie-des-artefacts-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -2472,7 +2472,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sac sans fond",
     "data": {
-      "id": "voie-des-artefacts-3",
+      "key": "voie-des-artefacts-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -2485,7 +2485,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Frappe des arcanes",
     "data": {
-      "id": "voie-des-artefacts-4",
+      "key": "voie-des-artefacts-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -2500,7 +2500,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Artefact majeur",
     "data": {
-      "id": "voie-des-artefacts-5",
+      "key": "voie-des-artefacts-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -2513,7 +2513,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fortifiant",
     "data": {
-      "id": "voie-des-elixirs-1",
+      "key": "voie-des-elixirs-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -2526,7 +2526,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feu grégeois",
     "data": {
-      "id": "voie-des-elixirs-2",
+      "key": "voie-des-elixirs-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -2539,7 +2539,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Elixir de guérison",
     "data": {
-      "id": "voie-des-elixirs-3",
+      "key": "voie-des-elixirs-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -2552,7 +2552,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Potion magique",
     "data": {
-      "id": "voie-des-elixirs-4",
+      "key": "voie-des-elixirs-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -2565,7 +2565,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Elixirs magiques",
     "data": {
-      "id": "voie-des-elixirs-5",
+      "key": "voie-des-elixirs-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -2578,7 +2578,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chimiste",
     "data": {
-      "id": "voie-des-explosifs-1",
+      "key": "voie-des-explosifs-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -2591,7 +2591,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Démolition",
     "data": {
-      "id": "voie-des-explosifs-2",
+      "key": "voie-des-explosifs-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -2604,7 +2604,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Poudre puissante",
     "data": {
-      "id": "voie-des-explosifs-3",
+      "key": "voie-des-explosifs-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -2617,7 +2617,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Piège explosif",
     "data": {
-      "id": "voie-des-explosifs-4",
+      "key": "voie-des-explosifs-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -2631,7 +2631,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Boulet explosif",
     "data": {
-      "id": "voie-des-explosifs-5",
+      "key": "voie-des-explosifs-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -2645,7 +2645,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Image décalée",
     "data": {
-      "id": "voie-des-illusions-1",
+      "key": "voie-des-illusions-1",
       "rank": 1,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -2660,7 +2660,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mirage",
     "data": {
-      "id": "voie-des-illusions-2",
+      "key": "voie-des-illusions-2",
       "rank": 2,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -2675,7 +2675,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Imitation",
     "data": {
-      "id": "voie-des-illusions-3",
+      "key": "voie-des-illusions-3",
       "rank": 3,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -2690,7 +2690,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dédoublement",
     "data": {
-      "id": "voie-des-illusions-4",
+      "key": "voie-des-illusions-4",
       "rank": 4,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -2705,7 +2705,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tueur fantasmagorique",
     "data": {
-      "id": "voie-des-illusions-5",
+      "key": "voie-des-illusions-5",
       "rank": 5,
       "scope": "profile",
       "profile": "ensorceleur",
@@ -2720,7 +2720,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Runes de défense",
     "data": {
-      "id": "voie-des-runes-1",
+      "key": "voie-des-runes-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -2733,7 +2733,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune d'énergie",
     "data": {
-      "id": "voie-des-runes-2",
+      "key": "voie-des-runes-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -2748,7 +2748,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune de protection",
     "data": {
-      "id": "voie-des-runes-3",
+      "key": "voie-des-runes-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -2763,7 +2763,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune de puissance",
     "data": {
-      "id": "voie-des-runes-4",
+      "key": "voie-des-runes-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -2778,7 +2778,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rune de pouvoir",
     "data": {
-      "id": "voie-des-runes-5",
+      "key": "voie-des-runes-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -2791,7 +2791,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soins légers",
     "data": {
-      "id": "voie-des-soins-1",
+      "key": "voie-des-soins-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -2806,7 +2806,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soins modérés",
     "data": {
-      "id": "voie-des-soins-2",
+      "key": "voie-des-soins-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -2821,7 +2821,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soins de groupe",
     "data": {
-      "id": "voie-des-soins-3",
+      "key": "voie-des-soins-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -2836,7 +2836,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Guérison",
     "data": {
-      "id": "voie-des-soins-4",
+      "key": "voie-des-soins-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -2851,7 +2851,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rappel à la vie",
     "data": {
-      "id": "voie-des-soins-5",
+      "key": "voie-des-soins-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -2866,7 +2866,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau d'écorce",
     "data": {
-      "id": "voie-des-vegetaux-1",
+      "key": "voie-des-vegetaux-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -2881,7 +2881,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Prison végétale",
     "data": {
-      "id": "voie-des-vegetaux-2",
+      "key": "voie-des-vegetaux-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -2896,7 +2896,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animation d'un arbre",
     "data": {
-      "id": "voie-des-vegetaux-3",
+      "key": "voie-des-vegetaux-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -2911,7 +2911,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Gland de pouvoir",
     "data": {
-      "id": "voie-des-vegetaux-4",
+      "key": "voie-des-vegetaux-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -2926,7 +2926,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Porte végétale",
     "data": {
-      "id": "voie-des-vegetaux-5",
+      "key": "voie-des-vegetaux-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -2941,7 +2941,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protéger un allié",
     "data": {
-      "id": "voie-du-bouclier-1",
+      "key": "voie-du-bouclier-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -2954,7 +2954,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Absorber un coup",
     "data": {
-      "id": "voie-du-bouclier-2",
+      "key": "voie-du-bouclier-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -2968,7 +2968,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Absorber un sort",
     "data": {
-      "id": "voie-du-bouclier-3",
+      "key": "voie-du-bouclier-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -2982,7 +2982,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure lourde",
     "data": {
-      "id": "voie-du-bouclier-4",
+      "key": "voie-du-bouclier-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -2995,7 +2995,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Renvoi de sort",
     "data": {
-      "id": "voie-du-bouclier-5",
+      "key": "voie-du-bouclier-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -3009,7 +3009,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fidèle monture",
     "data": {
-      "id": "voie-du-cavalier-1",
+      "key": "voie-du-cavalier-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -3022,7 +3022,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cavalier émérite",
     "data": {
-      "id": "voie-du-cavalier-2",
+      "key": "voie-du-cavalier-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -3035,7 +3035,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Monture magique",
     "data": {
-      "id": "voie-du-cavalier-3",
+      "key": "voie-du-cavalier-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -3048,7 +3048,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge",
     "data": {
-      "id": "voie-du-cavalier-4",
+      "key": "voie-du-cavalier-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -3062,7 +3062,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Monture fantastique",
     "data": {
-      "id": "voie-du-cavalier-5",
+      "key": "voie-du-cavalier-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -3075,7 +3075,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Action concertée",
     "data": {
-      "id": "voie-du-champ-de-bataille-1",
+      "key": "voie-du-champ-de-bataille-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -3088,7 +3088,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "A couvert",
     "data": {
-      "id": "voie-du-champ-de-bataille-2",
+      "key": "voie-du-champ-de-bataille-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -3102,7 +3102,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combattant aguerri",
     "data": {
-      "id": "voie-du-champ-de-bataille-3",
+      "key": "voie-du-champ-de-bataille-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -3115,7 +3115,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat de masse",
     "data": {
-      "id": "voie-du-champ-de-bataille-4",
+      "key": "voie-du-champ-de-bataille-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -3128,7 +3128,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-du-champ-de-bataille-5",
+      "key": "voie-du-champ-de-bataille-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -3141,7 +3141,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vivacité",
     "data": {
-      "id": "voie-du-combat-1",
+      "key": "voie-du-combat-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -3154,7 +3154,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Désarmer",
     "data": {
-      "id": "voie-du-combat-2",
+      "key": "voie-du-combat-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -3168,7 +3168,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Double attaque",
     "data": {
-      "id": "voie-du-combat-3",
+      "key": "voie-du-combat-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -3182,7 +3182,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque circulaire",
     "data": {
-      "id": "voie-du-combat-4",
+      "key": "voie-du-combat-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -3196,7 +3196,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque puissante",
     "data": {
-      "id": "voie-du-combat-5",
+      "key": "voie-du-combat-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -3209,7 +3209,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Odorat",
     "data": {
-      "id": "voie-du-compagnon-animal-1",
+      "key": "voie-du-compagnon-animal-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -3222,7 +3222,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Surveillance",
     "data": {
-      "id": "voie-du-compagnon-animal-2",
+      "key": "voie-du-compagnon-animal-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -3235,7 +3235,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat",
     "data": {
-      "id": "voie-du-compagnon-animal-3",
+      "key": "voie-du-compagnon-animal-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -3248,7 +3248,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Empathie animale",
     "data": {
-      "id": "voie-du-compagnon-animal-4",
+      "key": "voie-du-compagnon-animal-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -3262,7 +3262,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animal fabuleux",
     "data": {
-      "id": "voie-du-compagnon-animal-5",
+      "key": "voie-du-compagnon-animal-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -3275,7 +3275,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Malédiction",
     "data": {
-      "id": "voie-du-demon-1",
+      "key": "voie-du-demon-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -3290,7 +3290,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Aspect de la succube",
     "data": {
-      "id": "voie-du-demon-2",
+      "key": "voie-du-demon-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -3305,7 +3305,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pacte sanglant",
     "data": {
-      "id": "voie-du-demon-3",
+      "key": "voie-du-demon-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -3319,7 +3319,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Aspect du démon",
     "data": {
-      "id": "voie-du-demon-4",
+      "key": "voie-du-demon-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -3334,7 +3334,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Invocation d'un démon",
     "data": {
-      "id": "voie-du-demon-5",
+      "key": "voie-du-demon-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -3349,7 +3349,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive",
     "data": {
-      "id": "voie-du-deplacement-1",
+      "key": "voie-du-deplacement-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -3362,7 +3362,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chute",
     "data": {
-      "id": "voie-du-deplacement-2",
+      "key": "voie-du-deplacement-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -3375,7 +3375,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Acrobaties",
     "data": {
-      "id": "voie-du-deplacement-3",
+      "key": "voie-du-deplacement-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -3388,7 +3388,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive de la magie",
     "data": {
-      "id": "voie-du-deplacement-4",
+      "key": "voie-du-deplacement-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -3401,7 +3401,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dextérité héroïque",
     "data": {
-      "id": "voie-du-deplacement-5",
+      "key": "voie-du-deplacement-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -3414,7 +3414,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vitesse du félin",
     "data": {
-      "id": "voie-du-fauve-1",
+      "key": "voie-du-fauve-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -3427,7 +3427,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Panthère",
     "data": {
-      "id": "voie-du-fauve-2",
+      "key": "voie-du-fauve-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -3440,7 +3440,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque bondissante",
     "data": {
-      "id": "voie-du-fauve-3",
+      "key": "voie-du-fauve-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -3454,7 +3454,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grand félin",
     "data": {
-      "id": "voie-du-fauve-4",
+      "key": "voie-du-fauve-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -3467,7 +3467,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Les sept vies du chat",
     "data": {
-      "id": "voie-du-fauve-5",
+      "key": "voie-du-fauve-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -3480,7 +3480,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grosse tête",
     "data": {
-      "id": "voie-du-golem-1",
+      "key": "voie-du-golem-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -3493,7 +3493,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Golem",
     "data": {
-      "id": "voie-du-golem-2",
+      "key": "voie-du-golem-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -3506,7 +3506,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protecteur",
     "data": {
-      "id": "voie-du-golem-3",
+      "key": "voie-du-golem-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -3519,7 +3519,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Golem supérieur",
     "data": {
-      "id": "voie-du-golem-4",
+      "key": "voie-du-golem-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -3532,7 +3532,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence héroïque",
     "data": {
-      "id": "voie-du-golem-5",
+      "key": "voie-du-golem-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -3545,7 +3545,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ignorer la douleur",
     "data": {
-      "id": "voie-du-heros-1",
+      "key": "voie-du-heros-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -3558,7 +3558,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Piqûres d'insecte",
     "data": {
-      "id": "voie-du-heros-2",
+      "key": "voie-du-heros-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -3571,7 +3571,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Laissez-le-moi !",
     "data": {
-      "id": "voie-du-heros-3",
+      "key": "voie-du-heros-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -3584,7 +3584,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Seul contre tous",
     "data": {
-      "id": "voie-du-heros-4",
+      "key": "voie-du-heros-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -3598,7 +3598,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-du-heros-5",
+      "key": "voie-du-heros-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -3611,7 +3611,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme de prédilection",
     "data": {
-      "id": "voie-du-maitre-darmes-1",
+      "key": "voie-du-maitre-darmes-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -3624,7 +3624,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Science du critique",
     "data": {
-      "id": "voie-du-maitre-darmes-2",
+      "key": "voie-du-maitre-darmes-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -3637,7 +3637,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Spécialisation",
     "data": {
-      "id": "voie-du-maitre-darmes-3",
+      "key": "voie-du-maitre-darmes-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -3650,7 +3650,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque parfaite",
     "data": {
-      "id": "voie-du-maitre-darmes-4",
+      "key": "voie-du-maitre-darmes-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -3664,7 +3664,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Riposte",
     "data": {
-      "id": "voie-du-maitre-darmes-5",
+      "key": "voie-du-maitre-darmes-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -3677,7 +3677,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sans peur",
     "data": {
-      "id": "voie-du-meneur-d-homme-1",
+      "key": "voie-du-meneur-d-homme-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -3690,7 +3690,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intercepter",
     "data": {
-      "id": "voie-du-meneur-d-homme-2",
+      "key": "voie-du-meneur-d-homme-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -3703,7 +3703,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Exemplaire",
     "data": {
-      "id": "voie-du-meneur-d-homme-3",
+      "key": "voie-du-meneur-d-homme-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -3716,7 +3716,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ordre de bataille",
     "data": {
-      "id": "voie-du-meneur-d-homme-4",
+      "key": "voie-du-meneur-d-homme-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -3729,7 +3729,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge fantastique",
     "data": {
-      "id": "voie-du-meneur-d-homme-5",
+      "key": "voie-du-meneur-d-homme-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -3743,7 +3743,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forgeron",
     "data": {
-      "id": "voie-du-metal-1",
+      "key": "voie-du-metal-1",
       "rank": 1,
       "scope": "profile",
       "profile": "forgesort",
@@ -3756,7 +3756,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Métal brûlant",
     "data": {
-      "id": "voie-du-metal-2",
+      "key": "voie-du-metal-2",
       "rank": 2,
       "scope": "profile",
       "profile": "forgesort",
@@ -3771,7 +3771,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Magnétisme",
     "data": {
-      "id": "voie-du-metal-3",
+      "key": "voie-du-metal-3",
       "rank": 3,
       "scope": "profile",
       "profile": "forgesort",
@@ -3786,7 +3786,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Métal hurlant",
     "data": {
-      "id": "voie-du-metal-4",
+      "key": "voie-du-metal-4",
       "rank": 4,
       "scope": "profile",
       "profile": "forgesort",
@@ -3801,7 +3801,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Endurer",
     "data": {
-      "id": "voie-du-metal-5",
+      "key": "voie-du-metal-5",
       "rank": 5,
       "scope": "profile",
       "profile": "forgesort",
@@ -3814,7 +3814,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Impressionnant",
     "data": {
-      "id": "voie-du-montreur-dours-1",
+      "key": "voie-du-montreur-dours-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -3827,7 +3827,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dressage",
     "data": {
-      "id": "voie-du-montreur-dours-2",
+      "key": "voie-du-montreur-dours-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -3840,7 +3840,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat",
     "data": {
-      "id": "voie-du-montreur-dours-3",
+      "key": "voie-du-montreur-dours-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -3853,7 +3853,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Empathie animale",
     "data": {
-      "id": "voie-du-montreur-dours-4",
+      "key": "voie-du-montreur-dours-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -3867,7 +3867,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animal fabuleux",
     "data": {
-      "id": "voie-du-montreur-dours-5",
+      "key": "voie-du-montreur-dours-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -3880,7 +3880,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chant des héros",
     "data": {
-      "id": "voie-du-musicien-1",
+      "key": "voie-du-musicien-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -3894,7 +3894,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque sonore",
     "data": {
-      "id": "voie-du-musicien-2",
+      "key": "voie-du-musicien-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -3909,7 +3909,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Zone de silence",
     "data": {
-      "id": "voie-du-musicien-3",
+      "key": "voie-du-musicien-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -3924,7 +3924,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Danse irrésistible",
     "data": {
-      "id": "voie-du-musicien-4",
+      "key": "voie-du-musicien-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -3939,7 +3939,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Musique fascinante",
     "data": {
-      "id": "voie-du-musicien-5",
+      "key": "voie-du-musicien-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -3954,7 +3954,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vigueur",
     "data": {
-      "id": "voie-du-pagne-1",
+      "key": "voie-du-pagne-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -3967,7 +3967,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau de pierre",
     "data": {
-      "id": "voie-du-pagne-2",
+      "key": "voie-du-pagne-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -3980,7 +3980,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tatouages",
     "data": {
-      "id": "voie-du-pagne-3",
+      "key": "voie-du-pagne-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -3993,7 +3993,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau d'acier",
     "data": {
-      "id": "voie-du-pagne-4",
+      "key": "voie-du-pagne-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -4006,7 +4006,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-du-pagne-5",
+      "key": "voie-du-pagne-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -4019,7 +4019,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Plus vite que son ombre",
     "data": {
-      "id": "voie-du-pistolero-1",
+      "key": "voie-du-pistolero-1",
       "rank": 1,
       "scope": "profile",
       "profile": "arquebusier",
@@ -4032,7 +4032,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cadence de tir",
     "data": {
-      "id": "voie-du-pistolero-2",
+      "key": "voie-du-pistolero-2",
       "rank": 2,
       "scope": "profile",
       "profile": "arquebusier",
@@ -4045,7 +4045,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tir double",
     "data": {
-      "id": "voie-du-pistolero-3",
+      "key": "voie-du-pistolero-3",
       "rank": 3,
       "scope": "profile",
       "profile": "arquebusier",
@@ -4059,7 +4059,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "As de la gâchette",
     "data": {
-      "id": "voie-du-pistolero-4",
+      "key": "voie-du-pistolero-4",
       "rank": 4,
       "scope": "profile",
       "profile": "arquebusier",
@@ -4072,7 +4072,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dextérité héroïque",
     "data": {
-      "id": "voie-du-pistolero-5",
+      "key": "voie-du-pistolero-5",
       "rank": 5,
       "scope": "profile",
       "profile": "arquebusier",
@@ -4085,7 +4085,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Poings de fer",
     "data": {
-      "id": "voie-du-poing-1",
+      "key": "voie-du-poing-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -4098,7 +4098,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Parade de projectiles",
     "data": {
-      "id": "voie-du-poing-2",
+      "key": "voie-du-poing-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -4111,7 +4111,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau de fer",
     "data": {
-      "id": "voie-du-poing-3",
+      "key": "voie-du-poing-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -4124,7 +4124,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déluge de coups",
     "data": {
-      "id": "voie-du-poing-4",
+      "key": "voie-du-poing-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -4138,7 +4138,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Puissance du ki",
     "data": {
-      "id": "voie-du-poing-5",
+      "key": "voie-du-poing-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -4151,7 +4151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Réflexes félins",
     "data": {
-      "id": "voie-du-pourfendeur-1",
+      "key": "voie-du-pourfendeur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -4164,7 +4164,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge",
     "data": {
-      "id": "voie-du-pourfendeur-2",
+      "key": "voie-du-pourfendeur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -4178,7 +4178,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Enchaînement",
     "data": {
-      "id": "voie-du-pourfendeur-3",
+      "key": "voie-du-pourfendeur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -4191,7 +4191,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déchaînement d'acier",
     "data": {
-      "id": "voie-du-pourfendeur-4",
+      "key": "voie-du-pourfendeur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -4205,7 +4205,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque tourbillon",
     "data": {
-      "id": "voie-du-pourfendeur-5",
+      "key": "voie-du-pourfendeur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -4219,7 +4219,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Proche de la nature",
     "data": {
-      "id": "voie-du-primitif-1",
+      "key": "voie-du-primitif-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barbare",
@@ -4232,7 +4232,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure de vent",
     "data": {
-      "id": "voie-du-primitif-2",
+      "key": "voie-du-primitif-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barbare",
@@ -4245,7 +4245,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vigilance",
     "data": {
-      "id": "voie-du-primitif-3",
+      "key": "voie-du-primitif-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barbare",
@@ -4258,7 +4258,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance à la magie",
     "data": {
-      "id": "voie-du-primitif-4",
+      "key": "voie-du-primitif-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barbare",
@@ -4271,7 +4271,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vitalité débordante",
     "data": {
-      "id": "voie-du-primitif-5",
+      "key": "voie-du-primitif-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barbare",
@@ -4284,7 +4284,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Baies magiques",
     "data": {
-      "id": "voie-du-protecteur-1",
+      "key": "voie-du-protecteur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "druide",
@@ -4299,7 +4299,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forêt vivante",
     "data": {
-      "id": "voie-du-protecteur-2",
+      "key": "voie-du-protecteur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "druide",
@@ -4314,7 +4314,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Régénération",
     "data": {
-      "id": "voie-du-protecteur-3",
+      "key": "voie-du-protecteur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "druide",
@@ -4329,7 +4329,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme d'arbre",
     "data": {
-      "id": "voie-du-protecteur-4",
+      "key": "voie-du-protecteur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "druide",
@@ -4344,7 +4344,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sagesse héroïque",
     "data": {
-      "id": "voie-du-protecteur-5",
+      "key": "voie-du-protecteur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "druide",
@@ -4357,7 +4357,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Doigts agiles",
     "data": {
-      "id": "voie-du-roublard-1",
+      "key": "voie-du-roublard-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -4370,7 +4370,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Détecter les pièges",
     "data": {
-      "id": "voie-du-roublard-2",
+      "key": "voie-du-roublard-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -4383,7 +4383,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Croc-en-jambe",
     "data": {
-      "id": "voie-du-roublard-3",
+      "key": "voie-du-roublard-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -4396,7 +4396,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque paralysante",
     "data": {
-      "id": "voie-du-roublard-4",
+      "key": "voie-du-roublard-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -4410,7 +4410,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque en traître",
     "data": {
-      "id": "voie-du-roublard-5",
+      "key": "voie-du-roublard-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -4423,7 +4423,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Acrobate",
     "data": {
-      "id": "voie-du-saltimbanque-1",
+      "key": "voie-du-saltimbanque-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -4436,7 +4436,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce féline",
     "data": {
-      "id": "voie-du-saltimbanque-2",
+      "key": "voie-du-saltimbanque-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -4449,7 +4449,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lanceur de couteau",
     "data": {
-      "id": "voie-du-saltimbanque-3",
+      "key": "voie-du-saltimbanque-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -4462,7 +4462,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive acrobatique",
     "data": {
-      "id": "voie-du-saltimbanque-4",
+      "key": "voie-du-saltimbanque-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -4475,7 +4475,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Liberté d'action",
     "data": {
-      "id": "voie-du-saltimbanque-5",
+      "key": "voie-du-saltimbanque-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -4488,7 +4488,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Saignements",
     "data": {
-      "id": "voie-du-sang-1",
+      "key": "voie-du-sang-1",
       "rank": 1,
       "scope": "profile",
       "profile": "necromancien",
@@ -4503,7 +4503,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sang mordant",
     "data": {
-      "id": "voie-du-sang-2",
+      "key": "voie-du-sang-2",
       "rank": 2,
       "scope": "profile",
       "profile": "necromancien",
@@ -4518,7 +4518,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Exsangue",
     "data": {
-      "id": "voie-du-sang-3",
+      "key": "voie-du-sang-3",
       "rank": 3,
       "scope": "profile",
       "profile": "necromancien",
@@ -4532,7 +4532,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hémorragie",
     "data": {
-      "id": "voie-du-sang-4",
+      "key": "voie-du-sang-4",
       "rank": 4,
       "scope": "profile",
       "profile": "necromancien",
@@ -4547,7 +4547,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lien de sang",
     "data": {
-      "id": "voie-du-sang-5",
+      "key": "voie-du-sang-5",
       "rank": 5,
       "scope": "profile",
       "profile": "necromancien",
@@ -4562,7 +4562,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Posture de combat",
     "data": {
-      "id": "voie-du-soldat-1",
+      "key": "voie-du-soldat-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -4575,7 +4575,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat en phalange",
     "data": {
-      "id": "voie-du-soldat-2",
+      "key": "voie-du-soldat-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -4588,7 +4588,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Prouesse",
     "data": {
-      "id": "voie-du-soldat-3",
+      "key": "voie-du-soldat-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -4601,7 +4601,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dernier rempart",
     "data": {
-      "id": "voie-du-soldat-4",
+      "key": "voie-du-soldat-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -4615,7 +4615,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force héroïque",
     "data": {
-      "id": "voie-du-soldat-5",
+      "key": "voie-du-soldat-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -4628,7 +4628,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque en finesse",
     "data": {
-      "id": "voie-du-spadassin-1",
+      "key": "voie-du-spadassin-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -4641,7 +4641,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive fatale",
     "data": {
-      "id": "voie-du-spadassin-2",
+      "key": "voie-du-spadassin-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -4654,7 +4654,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Frappe chirurgicale",
     "data": {
-      "id": "voie-du-spadassin-3",
+      "key": "voie-du-spadassin-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -4667,7 +4667,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ambidextrie",
     "data": {
-      "id": "voie-du-spadassin-4",
+      "key": "voie-du-spadassin-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -4680,7 +4680,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Botte secrète",
     "data": {
-      "id": "voie-du-spadassin-5",
+      "key": "voie-du-spadassin-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -4693,7 +4693,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pas de loup",
     "data": {
-      "id": "voie-du-traqueur-1",
+      "key": "voie-du-traqueur-1",
       "rank": 1,
       "scope": "profile",
       "profile": "rodeur",
@@ -4706,7 +4706,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ennemi juré",
     "data": {
-      "id": "voie-du-traqueur-2",
+      "key": "voie-du-traqueur-2",
       "rank": 2,
       "scope": "profile",
       "profile": "rodeur",
@@ -4719,7 +4719,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Embuscade",
     "data": {
-      "id": "voie-du-traqueur-3",
+      "key": "voie-du-traqueur-3",
       "rank": 3,
       "scope": "profile",
       "profile": "rodeur",
@@ -4732,7 +4732,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Second ennemi juré",
     "data": {
-      "id": "voie-du-traqueur-4",
+      "key": "voie-du-traqueur-4",
       "rank": 4,
       "scope": "profile",
       "profile": "rodeur",
@@ -4745,7 +4745,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Perception héroïque",
     "data": {
-      "id": "voie-du-traqueur-5",
+      "key": "voie-du-traqueur-5",
       "rank": 5,
       "scope": "profile",
       "profile": "rodeur",
@@ -4758,7 +4758,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rumeurs et légendes",
     "data": {
-      "id": "voie-du-vagabond-1",
+      "key": "voie-du-vagabond-1",
       "rank": 1,
       "scope": "profile",
       "profile": "barde",
@@ -4771,7 +4771,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Compréhension des langues",
     "data": {
-      "id": "voie-du-vagabond-2",
+      "key": "voie-du-vagabond-2",
       "rank": 2,
       "scope": "profile",
       "profile": "barde",
@@ -4786,7 +4786,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Débrouillard",
     "data": {
-      "id": "voie-du-vagabond-3",
+      "key": "voie-du-vagabond-3",
       "rank": 3,
       "scope": "profile",
       "profile": "barde",
@@ -4799,7 +4799,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déguisement",
     "data": {
-      "id": "voie-du-vagabond-4",
+      "key": "voie-du-vagabond-4",
       "rank": 4,
       "scope": "profile",
       "profile": "barde",
@@ -4814,7 +4814,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Touche à tout",
     "data": {
-      "id": "voie-du-vagabond-5",
+      "key": "voie-du-vagabond-5",
       "rank": 5,
       "scope": "profile",
       "profile": "barde",
@@ -4827,7 +4827,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pas du vent",
     "data": {
-      "id": "voie-du-vent-1",
+      "key": "voie-du-vent-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -4840,7 +4840,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Course du vent",
     "data": {
-      "id": "voie-du-vent-2",
+      "key": "voie-du-vent-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -4853,7 +4853,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Course des airs",
     "data": {
-      "id": "voie-du-vent-3",
+      "key": "voie-du-vent-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -4866,7 +4866,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lévitation",
     "data": {
-      "id": "voie-du-vent-4",
+      "key": "voie-du-vent-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -4880,7 +4880,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Passe-muraille",
     "data": {
-      "id": "voie-du-vent-5",
+      "key": "voie-du-vent-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -4894,7 +4894,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Familier",
     "data": {
-      "id": "voie-du-familier-1",
+      "key": "voie-du-familier-1",
       "rank": 1,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -4906,7 +4906,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance",
     "data": {
-      "id": "voie-du-familier-2",
+      "key": "voie-du-familier-2",
       "rank": 2,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -4918,7 +4918,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sens développés",
     "data": {
-      "id": "voie-du-familier-3",
+      "key": "voie-du-familier-3",
       "rank": 3,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -4930,7 +4930,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rappel",
     "data": {
-      "id": "voie-du-familier-4",
+      "key": "voie-du-familier-4",
       "rank": 4,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -4942,7 +4942,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lilliputien",
     "data": {
-      "id": "voie-du-familier-5",
+      "key": "voie-du-familier-5",
       "rank": 5,
       "scope": "alternative",
       "path": "voie-du-familier",
@@ -4955,7 +4955,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat à deux armes amélioré",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-1",
+      "key": "voie-du-combat-a-deux-armes-1",
       "rank": 1,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -4967,7 +4967,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Parade croisée",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-2",
+      "key": "voie-du-combat-a-deux-armes-2",
       "rank": 2,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -4980,7 +4980,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Symétrie",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-3",
+      "key": "voie-du-combat-a-deux-armes-3",
       "rank": 3,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -4992,7 +4992,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Double peine",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-4",
+      "key": "voie-du-combat-a-deux-armes-4",
       "rank": 4,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -5004,7 +5004,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat à deux armes parfait",
     "data": {
-      "id": "voie-du-combat-a-deux-armes-5",
+      "key": "voie-du-combat-a-deux-armes-5",
       "rank": 5,
       "scope": "alternative",
       "path": "voie-du-combat-a-deux-armes",
@@ -5016,7 +5016,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sergent",
     "data": {
-      "id": "voie-du-chef-d-armee-1",
+      "key": "voie-du-chef-d-armee-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-chef-d-armee",
@@ -5028,7 +5028,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capitaine",
     "data": {
-      "id": "voie-du-chef-d-armee-2",
+      "key": "voie-du-chef-d-armee-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-chef-d-armee",
@@ -5040,7 +5040,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Commandant",
     "data": {
-      "id": "voie-du-chef-d-armee-3",
+      "key": "voie-du-chef-d-armee-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-chef-d-armee",
@@ -5052,7 +5052,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Imparable",
     "data": {
-      "id": "voie-du-champion-1",
+      "key": "voie-du-champion-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-champion",
@@ -5065,7 +5065,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Riposte",
     "data": {
-      "id": "voie-du-champion-2",
+      "key": "voie-du-champion-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-champion",
@@ -5077,7 +5077,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hausser le ton",
     "data": {
-      "id": "voie-du-champion-3",
+      "key": "voie-du-champion-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-champion",
@@ -5089,7 +5089,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge",
     "data": {
-      "id": "voie-du-cogneur-1",
+      "key": "voie-du-cogneur-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-cogneur",
@@ -5102,7 +5102,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Enrager",
     "data": {
-      "id": "voie-du-cogneur-2",
+      "key": "voie-du-cogneur-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-cogneur",
@@ -5114,7 +5114,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Percuter",
     "data": {
-      "id": "voie-du-cogneur-3",
+      "key": "voie-du-cogneur-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-cogneur",
@@ -5127,7 +5127,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fauchage",
     "data": {
-      "id": "voie-du-colosse-1",
+      "key": "voie-du-colosse-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-colosse",
@@ -5139,7 +5139,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Balayage",
     "data": {
-      "id": "voie-du-colosse-2",
+      "key": "voie-du-colosse-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-colosse",
@@ -5151,7 +5151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projection",
     "data": {
-      "id": "voie-du-colosse-3",
+      "key": "voie-du-colosse-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-colosse",
@@ -5163,7 +5163,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Souffle enflammé",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu-1",
+      "key": "voie-des-creatures-elementaire-du-feu-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-des-creatures-elementaire-du-feu",
@@ -5176,7 +5176,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Corps enflammé",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu-2",
+      "key": "voie-des-creatures-elementaire-du-feu-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-des-creatures-elementaire-du-feu",
@@ -5188,7 +5188,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Explosion finale",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu-3",
+      "key": "voie-des-creatures-elementaire-du-feu-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-des-creatures-elementaire-du-feu",
@@ -5200,7 +5200,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Réduction des <strong>DM</strong>",
     "data": {
-      "id": "voie-des-creatures-magiques-1",
+      "key": "voie-des-creatures-magiques-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-des-creatures-magiques",
@@ -5212,7 +5212,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vitalité surnaturelle",
     "data": {
-      "id": "voie-des-creatures-magiques-2",
+      "key": "voie-des-creatures-magiques-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-des-creatures-magiques",
@@ -5224,7 +5224,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Immortel",
     "data": {
-      "id": "voie-des-creatures-magiques-3",
+      "key": "voie-des-creatures-magiques-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-des-creatures-magiques",
@@ -5236,7 +5236,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vol rapide",
     "data": {
-      "id": "voie-des-creatures-volantes-1",
+      "key": "voie-des-creatures-volantes-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-des-creatures-volantes",
@@ -5248,7 +5248,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Agripper",
     "data": {
-      "id": "voie-des-creatures-volantes-2",
+      "key": "voie-des-creatures-volantes-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-des-creatures-volantes",
@@ -5260,7 +5260,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Emporter dans les airs",
     "data": {
-      "id": "voie-des-creatures-volantes-3",
+      "key": "voie-des-creatures-volantes-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-des-creatures-volantes",
@@ -5272,7 +5272,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque magique",
     "data": {
-      "id": "voie-de-la-magie-de-combat-1",
+      "key": "voie-de-la-magie-de-combat-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-magie-de-combat",
@@ -5285,7 +5285,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure magique",
     "data": {
-      "id": "voie-de-la-magie-de-combat-2",
+      "key": "voie-de-la-magie-de-combat-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-magie-de-combat",
@@ -5298,7 +5298,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déplacement magique",
     "data": {
-      "id": "voie-de-la-magie-de-combat-3",
+      "key": "voie-de-la-magie-de-combat-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-magie-de-combat",
@@ -5311,7 +5311,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soigner",
     "data": {
-      "id": "voie-de-la-magie-de-guerison-1",
+      "key": "voie-de-la-magie-de-guerison-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-magie-de-guerison",
@@ -5324,7 +5324,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Guérir",
     "data": {
-      "id": "voie-de-la-magie-de-guerison-2",
+      "key": "voie-de-la-magie-de-guerison-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-magie-de-guerison",
@@ -5337,7 +5337,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soutenir",
     "data": {
-      "id": "voie-de-la-magie-de-guerison-3",
+      "key": "voie-de-la-magie-de-guerison-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-magie-de-guerison",
@@ -5350,7 +5350,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vampirisation",
     "data": {
-      "id": "voie-de-la-magie-malefique-1",
+      "key": "voie-de-la-magie-malefique-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-magie-malefique",
@@ -5363,7 +5363,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Animer un cadavre",
     "data": {
-      "id": "voie-de-la-magie-malefique-2",
+      "key": "voie-de-la-magie-malefique-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-magie-malefique",
@@ -5376,7 +5376,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Injonction mortelle",
     "data": {
-      "id": "voie-de-la-magie-malefique-3",
+      "key": "voie-de-la-magie-malefique-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-magie-malefique",
@@ -5389,7 +5389,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Interchangeables",
     "data": {
-      "id": "voie-de-la-meute-1",
+      "key": "voie-de-la-meute-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-de-la-meute",
@@ -5401,7 +5401,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque en traître",
     "data": {
-      "id": "voie-de-la-meute-2",
+      "key": "voie-de-la-meute-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-de-la-meute",
@@ -5414,7 +5414,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "L’hallali",
     "data": {
-      "id": "voie-de-la-meute-3",
+      "key": "voie-de-la-meute-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-de-la-meute",
@@ -5426,7 +5426,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Instinct de survie",
     "data": {
-      "id": "voie-du-pnj-recurrent-1",
+      "key": "voie-du-pnj-recurrent-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-pnj-recurrent",
@@ -5438,7 +5438,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chair à canon",
     "data": {
-      "id": "voie-du-pnj-recurrent-2",
+      "key": "voie-du-pnj-recurrent-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-pnj-recurrent",
@@ -5450,7 +5450,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Porteur de poisse",
     "data": {
-      "id": "voie-du-pnj-recurrent-3",
+      "key": "voie-du-pnj-recurrent-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-pnj-recurrent",
@@ -5462,7 +5462,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Embuscade",
     "data": {
-      "id": "voie-du-predateur-1",
+      "key": "voie-du-predateur-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-predateur",
@@ -5474,7 +5474,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dévorer",
     "data": {
-      "id": "voie-du-predateur-2",
+      "key": "voie-du-predateur-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-predateur",
@@ -5486,7 +5486,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Gober",
     "data": {
-      "id": "voie-du-predateur-3",
+      "key": "voie-du-predateur-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-predateur",
@@ -5498,7 +5498,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque mortelle",
     "data": {
-      "id": "voie-du-tueur-1",
+      "key": "voie-du-tueur-1",
       "rank": 1,
       "scope": "creature",
       "path": "voie-du-tueur",
@@ -5511,7 +5511,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Disparition",
     "data": {
-      "id": "voie-du-tueur-2",
+      "key": "voie-du-tueur-2",
       "rank": 2,
       "scope": "creature",
       "path": "voie-du-tueur",
@@ -5524,7 +5524,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Assassinat",
     "data": {
-      "id": "voie-du-tueur-3",
+      "key": "voie-du-tueur-3",
       "rank": 3,
       "scope": "creature",
       "path": "voie-du-tueur",
@@ -5536,7 +5536,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Expertise",
     "data": {
-      "id": "voie-de-prestige-specialisee-1",
+      "key": "voie-de-prestige-specialisee-1",
       "rank": 1,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -5548,7 +5548,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capacité signature",
     "data": {
-      "id": "voie-de-prestige-specialisee-2",
+      "key": "voie-de-prestige-specialisee-2",
       "rank": 2,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -5560,7 +5560,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capacité supérieure",
     "data": {
-      "id": "voie-de-prestige-specialisee-3",
+      "key": "voie-de-prestige-specialisee-3",
       "rank": 3,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -5572,7 +5572,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Caractéristique fabuleuse",
     "data": {
-      "id": "voie-de-prestige-specialisee-4",
+      "key": "voie-de-prestige-specialisee-4",
       "rank": 4,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -5584,7 +5584,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capacité fabuleuse",
     "data": {
-      "id": "voie-de-prestige-specialisee-5",
+      "key": "voie-de-prestige-specialisee-5",
       "rank": 5,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -5596,7 +5596,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce elfique",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-1",
+      "key": "voie-de-l-elfe-sylvain-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -5612,7 +5612,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Enfant de la forêt",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-2",
+      "key": "voie-de-l-elfe-sylvain-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -5628,7 +5628,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Archer émérite",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-3",
+      "key": "voie-de-l-elfe-sylvain-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -5644,7 +5644,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flèche sanglante",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-4",
+      "key": "voie-de-l-elfe-sylvain-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -5661,7 +5661,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Supériorité elfique",
     "data": {
-      "id": "voie-de-l-elfe-sylvain-5",
+      "key": "voie-de-l-elfe-sylvain-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-de-l-elfe-sylvain",
@@ -5677,7 +5677,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Adaptable",
     "data": {
-      "id": "voie-de-l-humain-1",
+      "key": "voie-de-l-humain-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -5693,7 +5693,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Loup parmi les loups",
     "data": {
-      "id": "voie-de-l-humain-2",
+      "key": "voie-de-l-humain-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -5709,7 +5709,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Versatile",
     "data": {
-      "id": "voie-de-l-humain-3",
+      "key": "voie-de-l-humain-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -5725,7 +5725,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Increvable",
     "data": {
-      "id": "voie-de-l-humain-4",
+      "key": "voie-de-l-humain-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -5741,7 +5741,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Polyvalence",
     "data": {
-      "id": "voie-de-l-humain-5",
+      "key": "voie-de-l-humain-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-de-l-humain",
@@ -5757,7 +5757,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force de la nature",
     "data": {
-      "id": "voie-du-demi-orque-1",
+      "key": "voie-du-demi-orque-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -5772,7 +5772,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Talent pour la violence",
     "data": {
-      "id": "voie-du-demi-orque-2",
+      "key": "voie-du-demi-orque-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -5787,7 +5787,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Critique brutal",
     "data": {
-      "id": "voie-du-demi-orque-3",
+      "key": "voie-du-demi-orque-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -5802,7 +5802,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque sanglante",
     "data": {
-      "id": "voie-du-demi-orque-4",
+      "key": "voie-du-demi-orque-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -5818,7 +5818,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Colosse",
     "data": {
-      "id": "voie-du-demi-orque-5",
+      "key": "voie-du-demi-orque-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-demi-orque",
@@ -5833,7 +5833,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Petit pote",
     "data": {
-      "id": "voie-du-gnome-1",
+      "key": "voie-du-gnome-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -5848,7 +5848,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Don occulte",
     "data": {
-      "id": "voie-du-gnome-2",
+      "key": "voie-du-gnome-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -5863,7 +5863,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Insignifiant",
     "data": {
-      "id": "voie-du-gnome-3",
+      "key": "voie-du-gnome-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -5878,7 +5878,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Merveille technologique",
     "data": {
-      "id": "voie-du-gnome-4",
+      "key": "voie-du-gnome-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -5893,7 +5893,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bonne nature",
     "data": {
-      "id": "voie-du-gnome-5",
+      "key": "voie-du-gnome-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-gnome",
@@ -5908,7 +5908,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Petit veinard",
     "data": {
-      "id": "voie-du-halfelin-1",
+      "key": "voie-du-halfelin-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -5923,7 +5923,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance légendaire",
     "data": {
-      "id": "voie-du-halfelin-2",
+      "key": "voie-du-halfelin-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -5938,7 +5938,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bon pour le moral",
     "data": {
-      "id": "voie-du-halfelin-3",
+      "key": "voie-du-halfelin-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -5953,7 +5953,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Perception",
     "data": {
-      "id": "voie-du-halfelin-4",
+      "key": "voie-du-halfelin-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -5968,7 +5968,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vif et alerte",
     "data": {
-      "id": "voie-du-halfelin-5",
+      "key": "voie-du-halfelin-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-halfelin",
@@ -5983,7 +5983,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce elfique",
     "data": {
-      "id": "voie-du-haut-elfe-1",
+      "key": "voie-du-haut-elfe-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -5999,7 +5999,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Talent pour la magie",
     "data": {
-      "id": "voie-du-haut-elfe-2",
+      "key": "voie-du-haut-elfe-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -6015,7 +6015,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force d'âme",
     "data": {
-      "id": "voie-du-haut-elfe-3",
+      "key": "voie-du-haut-elfe-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -6031,7 +6031,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Immortel",
     "data": {
-      "id": "voie-du-haut-elfe-4",
+      "key": "voie-du-haut-elfe-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -6047,7 +6047,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Supériorité elfique",
     "data": {
-      "id": "voie-du-haut-elfe-5",
+      "key": "voie-du-haut-elfe-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-haut-elfe",
@@ -6063,7 +6063,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance",
     "data": {
-      "id": "voie-du-nain-1",
+      "key": "voie-du-nain-1",
       "rank": 1,
       "scope": "species",
       "path": "voie-du-nain",
@@ -6078,7 +6078,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Solide comme un roc",
     "data": {
-      "id": "voie-du-nain-2",
+      "key": "voie-du-nain-2",
       "rank": 2,
       "scope": "species",
       "path": "voie-du-nain",
@@ -6093,7 +6093,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Haches et marteaux",
     "data": {
-      "id": "voie-du-nain-3",
+      "key": "voie-du-nain-3",
       "rank": 3,
       "scope": "species",
       "path": "voie-du-nain",
@@ -6108,7 +6108,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Résistance à la magie",
     "data": {
-      "id": "voie-du-nain-4",
+      "key": "voie-du-nain-4",
       "rank": 4,
       "scope": "species",
       "path": "voie-du-nain",
@@ -6123,7 +6123,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Tenacité",
     "data": {
-      "id": "voie-du-nain-5",
+      "key": "voie-du-nain-5",
       "rank": 5,
       "scope": "species",
       "path": "voie-du-nain",

@@ -12,6 +12,7 @@ import {CofCapacitySheet} from "../items/capacity-sheet.js";
 import {CofSpellSheet} from "../items/spell-sheet.js";
 import {CofTrappingSheet} from "../items/trapping-sheet.js";
 import {CofArmorSheet} from "../items/armor-sheet.js";
+import {CofShieldSheet} from "../items/shield-sheet.js";
 import {CofRangedSheet} from "../items/ranged-sheet.js";
 import {CofMeleeSheet} from "../items/melee-sheet.js";
 import {CofProfileSheet} from "../items/profile-sheet.js";
@@ -55,7 +56,8 @@ Hooks.once("init", async function () {
     Items.registerSheet("cof", CofItemSheet, {types: ["item"], makeDefault: true});
     Items.registerSheet("cof", CofCapacitySheet, {types: ["capacity"], makeDefault: true});
     Items.registerSheet("cof", CofTrappingSheet, {types: ["trapping"], makeDefault: true});
-    Items.registerSheet("cof", CofArmorSheet, {types: ["armor", "shield"], makeDefault: true});
+    Items.registerSheet("cof", CofArmorSheet, {types: ["armor"], makeDefault: true});
+    Items.registerSheet("cof", CofShieldSheet, {types: ["shield"], makeDefault: true});
     Items.registerSheet("cof", CofRangedSheet, {types: ["ranged"], makeDefault: true});
     Items.registerSheet("cof", CofMeleeSheet, {types: ["melee"], makeDefault: true});
     Items.registerSheet("cof", CofSpellSheet, {types: ["spell"], makeDefault: true});

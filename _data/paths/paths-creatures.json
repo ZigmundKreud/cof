@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du chef d’armée",
     "data": {
-      "id": "voie-du-chef-d-armee",
+      "key": "voie-du-chef-d-armee",
       "description": "<p>Cette voie est adaptée aux créatures assez intelligentes pour s’organiser militairement, généralement des humanoïdes (humains, gnolls, orques, hobgobelins, goblours, etc.). Les créatures dotées de cette voie obtiennent le CHA en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du champion",
     "data": {
-      "id": "voie-du-champion",
+      "key": "voie-du-champion",
       "description": "<p>Cette voie est destinée à un héros particulier, une figure ou un leader  charismatique au sein d’un peuple, généralement humanoïde. Les créatures dotées de cette voie obtiennent le CHA en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du cogneur",
     "data": {
-      "id": "voie-du-cogneur",
+      "key": "voie-du-cogneur",
       "description": "<p>Les créatures dotées de cette capacité obtiennent la <strong>CON</strong> en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -85,7 +85,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du colosse",
     "data": {
-      "id": "voie-du-colosse",
+      "key": "voie-du-colosse",
       "description": "<p>Cette voie est à réserver aux créatures de grande taille, les capacités présentées  n’affectent que les cibles de taille inférieure à la créature. Les créatures dotées de cette voie obtiennent la <strong>FOR</strong> en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -111,7 +111,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des créatures élémentaire [du feu]",
     "data": {
-      "id": "voie-des-creatures-elementaire-du-feu",
+      "key": "voie-des-creatures-elementaire-du-feu",
       "description": "<p>Cette voie, déclinée ici pour le feu, peut l’être pour d’autres éléments : froid, acide, foudre, etc. Quel que soit le rang atteint ou choisi dans cette voie, la créature est immunisée aux <strong>DM</strong> de l’élément choisi (ici feu).</p>",
       "capacities": [
         {
@@ -138,7 +138,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des créatures magiques",
     "data": {
-      "id": "voie-des-creatures-magiques",
+      "key": "voie-des-creatures-magiques",
       "description": "<p>Cette voie s’applique aux golems, aux élémentaires et aux lycanthropes, à la plupart des démons et des mort-vivants. Une créature qui bénéficie de cette voie retranche de 5 à 15 points aux <strong>DM</strong> qui lui sont infligés par des armes ordinaires, ce qui augmente considérablement sa résistance. Toutefois, contre un groupe de personnage équipé d’armes appropriées ne permettant pas à la créature de profiter de cet avantage, n’hésitez pas à réduire le NC de 1. Les créatures dotées de cette voie obtiennent la <strong>CON</strong> en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -164,7 +164,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie des créatures volantes",
     "data": {
-      "id": "voie-des-creatures-volantes",
+      "key": "voie-des-creatures-volantes",
       "description": "<p>Les créatures dotées de cette capacité obtiennent la <strong>SAG</strong> en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -190,7 +190,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie de combat",
     "data": {
-      "id": "voie-de-la-magie-de-combat",
+      "key": "voie-de-la-magie-de-combat",
       "description": "<p>Les créatures dotées de cette voie obtiennent au choix l’<strong>INT</strong>, la <strong>SAG</strong> ou le CHA en  Carac. Supérieure.</p>",
       "capacities": [
         {
@@ -219,7 +219,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie de guérison",
     "data": {
-      "id": "voie-de-la-magie-de-guerison",
+      "key": "voie-de-la-magie-de-guerison",
       "description": "<p>Les créatures dotées de cette voie obtiennent au choix l’<strong>INT</strong>, la <strong>SAG</strong> ou le CHA en  Carac. Supérieure.</p>",
       "capacities": [
         {
@@ -248,7 +248,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la magie maléfique",
     "data": {
-      "id": "voie-de-la-magie-malefique",
+      "key": "voie-de-la-magie-malefique",
       "description": "<p>Les créatures dotées de cette voie obtiennent au choix l’<strong>INT</strong>, la <strong>SAG</strong> ou le CHA en Carac. Supérieure. Elles sont capables de voir dans le noir.</p>",
       "capacities": [
         {
@@ -277,7 +277,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de la meute",
     "data": {
-      "id": "voie-de-la-meute",
+      "key": "voie-de-la-meute",
       "description": "<p>Les créatures qui comptent sur le nombre plutôt que la puissance individuelle, appartiennent à cette catégorie. Ce sont généralement des créatures de petite taille (exemples : les loups ou les hyènes, les gobelins et les kobolds) mais on trouve aussi quelques prédateurs plus gros (lionne, vélociraptor). Les créatures dotées de cette voie obtiennent la <strong>CON</strong> en Carac. Supérieure (indiqué par un *). Dans le cas où une créature est rencontrée seule, ignorez ces capacités et retranchez au NC de la créature le rang qu’elle possédait dans cette Voie.</p>",
       "capacities": [
         {
@@ -304,7 +304,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du PNJ récurrent",
     "data": {
-      "id": "voie-du-pnj-recurrent",
+      "key": "voie-du-pnj-recurrent",
       "description": "<p>Cette voie est créée sur mesure pour un PNJ important et récurrent de votre campagne. Elle doit lui permettre de survivre à l’agressivité bien naturelle de vos PJ à son encontre et lui donner l’occasion de se tirer des plus mauvais pas pour mieux revenir plus tard&#8230; et le rendre encore plus détestable ! Les créatures dotées de cette voie obtiennent l’<strong>INT</strong> et le CHA en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -330,7 +330,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du prédateur",
     "data": {
-      "id": "voie-du-predateur",
+      "key": "voie-du-predateur",
       "description": "<p>Les créatures dotées de cette voie obtiennent la <strong>DEX</strong> et la <strong>SAG</strong> en Carac. Supérieure (indiqué par un *).</p>",
       "capacities": [
         {
@@ -356,7 +356,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie du tueur",
     "data": {
-      "id": "voie-du-tueur",
+      "key": "voie-du-tueur",
       "capacities": [
         {
           "level": 1,

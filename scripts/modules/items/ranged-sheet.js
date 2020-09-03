@@ -12,8 +12,8 @@ export class CofRangedSheet extends CofItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "ranged"],
             template: System.templatesPath + "/items/ranged-sheet.hbs",
-            width: 400,
-            height: 500,
+            width: 430,
+            height: 430,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

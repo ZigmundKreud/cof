@@ -12,8 +12,8 @@ export class CofTrappingSheet extends CofItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "trapping"],
             template: System.templatesPath + "/items/trapping-sheet.hbs",
-            width: 400,
-            height: 400,
+            width: 430,
+            height: 430,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

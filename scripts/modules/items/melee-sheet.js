@@ -12,8 +12,8 @@ export class CofMeleeSheet extends CofItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "melee"],
             template: System.templatesPath + "/items/melee-sheet.hbs",
-            width: 400,
-            height: 500,
+            width: 430,
+            height: 430,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

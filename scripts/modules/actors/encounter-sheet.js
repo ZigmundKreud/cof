@@ -22,6 +22,18 @@ export class CofEncounterSheet extends CofActorSheet {
     activateListeners(html) {
         super.activateListeners(html);
 
+        // Click to open
+        html.find('.compendium-pack.capacity-add').click(ev => {
+            ev.preventDefault();
+            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            if ( li.attr("data-open") === "1" ) pack.close();
+            else {
+                li.attr("data-open", "1");
+                li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
+                pack.render(true);
+            }
+        });
+
         html.find('.attack-add').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".attack");

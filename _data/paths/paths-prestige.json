@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/path.png",
     "name": "Voie de prestige spécialisée",
     "data": {
-      "id": "voie-de-prestige-specialisee",
+      "key": "voie-de-prestige-specialisee",
       "description": "<p>La voie de prestige spécialisée n’élargit pas le domaine de compétence du personnage, mais lui permet d’améliorer certaines capacités ou compétences en apportant des bonus sur ce qu’il sait déjà faire.\nLe héros devient un expert dans son domaine et accède aux capacités suivantes :</p>",
       "capacities": [
         {

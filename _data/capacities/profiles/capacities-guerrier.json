@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Robustesse",
     "data": {
-      "id": "voie-de-la-resistance-1",
+      "key": "voie-de-la-resistance-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure naturelle",
     "data": {
-      "id": "voie-de-la-resistance-2",
+      "key": "voie-de-la-resistance-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Second souffle",
     "data": {
-      "id": "voie-de-la-resistance-3",
+      "key": "voie-de-la-resistance-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -44,7 +44,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dur à cuire",
     "data": {
-      "id": "voie-de-la-resistance-4",
+      "key": "voie-de-la-resistance-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Constitution héroïque",
     "data": {
-      "id": "voie-de-la-resistance-5",
+      "key": "voie-de-la-resistance-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -70,7 +70,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protéger un allié",
     "data": {
-      "id": "voie-du-bouclier-1",
+      "key": "voie-du-bouclier-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -83,7 +83,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Absorber un coup",
     "data": {
-      "id": "voie-du-bouclier-2",
+      "key": "voie-du-bouclier-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -97,7 +97,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Absorber un sort",
     "data": {
-      "id": "voie-du-bouclier-3",
+      "key": "voie-du-bouclier-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -111,7 +111,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure lourde",
     "data": {
-      "id": "voie-du-bouclier-4",
+      "key": "voie-du-bouclier-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -124,7 +124,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Renvoi de sort",
     "data": {
-      "id": "voie-du-bouclier-5",
+      "key": "voie-du-bouclier-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -138,7 +138,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vivacité",
     "data": {
-      "id": "voie-du-combat-1",
+      "key": "voie-du-combat-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -151,7 +151,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Désarmer",
     "data": {
-      "id": "voie-du-combat-2",
+      "key": "voie-du-combat-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -165,7 +165,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Double attaque",
     "data": {
-      "id": "voie-du-combat-3",
+      "key": "voie-du-combat-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -179,7 +179,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque circulaire",
     "data": {
-      "id": "voie-du-combat-4",
+      "key": "voie-du-combat-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -193,7 +193,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque puissante",
     "data": {
-      "id": "voie-du-combat-5",
+      "key": "voie-du-combat-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -206,7 +206,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme de prédilection",
     "data": {
-      "id": "voie-du-maitre-darmes-1",
+      "key": "voie-du-maitre-darmes-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -219,7 +219,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Science du critique",
     "data": {
-      "id": "voie-du-maitre-darmes-2",
+      "key": "voie-du-maitre-darmes-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -232,7 +232,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Spécialisation",
     "data": {
-      "id": "voie-du-maitre-darmes-3",
+      "key": "voie-du-maitre-darmes-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -245,7 +245,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque parfaite",
     "data": {
-      "id": "voie-du-maitre-darmes-4",
+      "key": "voie-du-maitre-darmes-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -259,7 +259,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Riposte",
     "data": {
-      "id": "voie-du-maitre-darmes-5",
+      "key": "voie-du-maitre-darmes-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",
@@ -272,7 +272,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Posture de combat",
     "data": {
-      "id": "voie-du-soldat-1",
+      "key": "voie-du-soldat-1",
       "rank": 1,
       "scope": "profile",
       "profile": "guerrier",
@@ -285,7 +285,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Combat en phalange",
     "data": {
-      "id": "voie-du-soldat-2",
+      "key": "voie-du-soldat-2",
       "rank": 2,
       "scope": "profile",
       "profile": "guerrier",
@@ -298,7 +298,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Prouesse",
     "data": {
-      "id": "voie-du-soldat-3",
+      "key": "voie-du-soldat-3",
       "rank": 3,
       "scope": "profile",
       "profile": "guerrier",
@@ -311,7 +311,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dernier rempart",
     "data": {
-      "id": "voie-du-soldat-4",
+      "key": "voie-du-soldat-4",
       "rank": 4,
       "scope": "profile",
       "profile": "guerrier",
@@ -325,7 +325,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force héroïque",
     "data": {
-      "id": "voie-du-soldat-5",
+      "key": "voie-du-soldat-5",
       "rank": 5,
       "scope": "profile",
       "profile": "guerrier",

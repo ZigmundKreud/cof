@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Discrétion",
     "data": {
-      "id": "voie-de-l-assassin-1",
+      "key": "voie-de-l-assassin-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque sournoise",
     "data": {
-      "id": "voie-de-l-assassin-2",
+      "key": "voie-de-l-assassin-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -31,7 +31,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ombre mouvante",
     "data": {
-      "id": "voie-de-l-assassin-3",
+      "key": "voie-de-l-assassin-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -45,7 +45,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Surprise",
     "data": {
-      "id": "voie-de-l-assassin-4",
+      "key": "voie-de-l-assassin-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -58,7 +58,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ouverture mortelle",
     "data": {
-      "id": "voie-de-l-assassin-5",
+      "key": "voie-de-l-assassin-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -71,7 +71,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sprint",
     "data": {
-      "id": "voie-de-l-aventurier-1",
+      "key": "voie-de-l-aventurier-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -84,7 +84,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Provocation",
     "data": {
-      "id": "voie-de-l-aventurier-2",
+      "key": "voie-de-l-aventurier-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -98,7 +98,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Grâce féline",
     "data": {
-      "id": "voie-de-l-aventurier-3",
+      "key": "voie-de-l-aventurier-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -111,7 +111,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Feindre la mort",
     "data": {
-      "id": "voie-de-l-aventurier-4",
+      "key": "voie-de-l-aventurier-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -124,7 +124,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-l-aventurier-5",
+      "key": "voie-de-l-aventurier-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -137,7 +137,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive",
     "data": {
-      "id": "voie-du-deplacement-1",
+      "key": "voie-du-deplacement-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -150,7 +150,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chute",
     "data": {
-      "id": "voie-du-deplacement-2",
+      "key": "voie-du-deplacement-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -163,7 +163,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Acrobaties",
     "data": {
-      "id": "voie-du-deplacement-3",
+      "key": "voie-du-deplacement-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -176,7 +176,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive de la magie",
     "data": {
-      "id": "voie-du-deplacement-4",
+      "key": "voie-du-deplacement-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -189,7 +189,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Dextérité héroïque",
     "data": {
-      "id": "voie-du-deplacement-5",
+      "key": "voie-du-deplacement-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -202,7 +202,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Doigts agiles",
     "data": {
-      "id": "voie-du-roublard-1",
+      "key": "voie-du-roublard-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -215,7 +215,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Détecter les pièges",
     "data": {
-      "id": "voie-du-roublard-2",
+      "key": "voie-du-roublard-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -228,7 +228,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Croc-en-jambe",
     "data": {
-      "id": "voie-du-roublard-3",
+      "key": "voie-du-roublard-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -241,7 +241,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque paralysante",
     "data": {
-      "id": "voie-du-roublard-4",
+      "key": "voie-du-roublard-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -255,7 +255,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque en traître",
     "data": {
-      "id": "voie-du-roublard-5",
+      "key": "voie-du-roublard-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",
@@ -268,7 +268,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Attaque en finesse",
     "data": {
-      "id": "voie-du-spadassin-1",
+      "key": "voie-du-spadassin-1",
       "rank": 1,
       "scope": "profile",
       "profile": "voleur",
@@ -281,7 +281,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive fatale",
     "data": {
-      "id": "voie-du-spadassin-2",
+      "key": "voie-du-spadassin-2",
       "rank": 2,
       "scope": "profile",
       "profile": "voleur",
@@ -294,7 +294,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Frappe chirurgicale",
     "data": {
-      "id": "voie-du-spadassin-3",
+      "key": "voie-du-spadassin-3",
       "rank": 3,
       "scope": "profile",
       "profile": "voleur",
@@ -307,7 +307,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ambidextrie",
     "data": {
-      "id": "voie-du-spadassin-4",
+      "key": "voie-du-spadassin-4",
       "rank": 4,
       "scope": "profile",
       "profile": "voleur",
@@ -320,7 +320,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Botte secrète",
     "data": {
-      "id": "voie-du-spadassin-5",
+      "key": "voie-du-spadassin-5",
       "rank": 5,
       "scope": "profile",
       "profile": "voleur",

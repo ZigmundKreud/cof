@@ -1,94 +1,83 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="wrap">
-        <header class="sheet-header">
-            {{> "systems/cof/templates/partials/item/item-header.hbs"}}
-        </header>
+        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
             <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Category</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.damage"}}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}"
-                       placeholder="Category" data-dtype="String">
-            </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Price (PA)</span>
-                </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.price" type="text" value="{{item.data.price}}" placeholder="Price"
-                       data-dtype="Number">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.dmg" type="text" value="{{item.data.dmg}}" placeholder="{{localize "COF.ui.dmg"}}" data-dtype="String">
+                    </span>
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Damage</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.usage"}}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.dmg" type="text" value="{{item.data.dmg}}" placeholder="Damage"
-                       data-dtype="String">
-            </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Range</span>
-                </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.range" type="text" value="{{item.data.range}}" placeholder="Range"
-                       data-dtype="Number">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <select name="data.hands" data-type="Number" style="width:100%">
+                            {{#select data.hands}}
+                            <option value="0">{{localize "COF.None"}}</option>
+                            <option value="1">{{localize "COF.ui.1H"}}</option>
+                            <option value="2">{{localize "COF.ui.2H"}}</option>
+                            {{/select}}
+                        </select>
+                    </span>
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Hands</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.critrange"}}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.hands" type="text" value="{{item.data.hands}}" placeholder="Hands"
-                       data-dtype="Number">
-            </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Reload</span>
-                </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.reload" type="text" value="{{item.data.reload}}"
-                       placeholder="Reload" data-dtype="String">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.critrange" type="text" value="{{item.data.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
+                    </span>
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">Bonus</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.bonus"}}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="Bonus"
-                       data-dtype="Number">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number">
+                    </span>
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center">
-                    <span class="field-label label-text">{{localize "COF.ui.description"}}</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.range"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.range" type="text" value="{{item.data.range}}" placeholder="Range" data-dtype="Number">
+                    </span>
                 </div>
             </div>
-            <div class="row flexrow" style="height: 100%">
-                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{localize "COF.ui.reload"}}</span>
+                </div>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.reload" type="text" value="{{item.data.reload}}" placeholder="Reload" data-dtype="String">
+                        <select name="data.reload" data-type="String" style="width:100%">
+                            {{#select data.reload}}
+                            <option value="">{{localize "COF.ui.no.action"}}</option>
+                            <option value="S">{{localize "COF.ui.simple.action"}}</option>
+                            <option value="L">{{localize "COF.ui.limited.action"}}</option>
+                            {{/select}}
+                        </select>
+
+                    </span>
+                </div>
             </div>
+            {{> "systems/cof/templates/partials/item/item-price.hbs"}}
+            {{> "systems/cof/templates/partials/item/item-description.hbs"}}
         </div>
     </div>
 </form>

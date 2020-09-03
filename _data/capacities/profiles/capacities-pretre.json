@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Parole divine",
     "data": {
-      "id": "voie-de-la-foi-1",
+      "key": "voie-de-la-foi-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme d'argent",
     "data": {
-      "id": "voie-de-la-foi-2",
+      "key": "voie-de-la-foi-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -32,7 +32,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ailes célestes",
     "data": {
-      "id": "voie-de-la-foi-3",
+      "key": "voie-de-la-foi-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -47,7 +47,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Foudres divines",
     "data": {
-      "id": "voie-de-la-foi-4",
+      "key": "voie-de-la-foi-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -62,7 +62,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-de-la-foi-5",
+      "key": "voie-de-la-foi-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -75,7 +75,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme bénie",
     "data": {
-      "id": "voie-de-la-guerre-sainte-1",
+      "key": "voie-de-la-guerre-sainte-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -88,7 +88,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bouclier de la foi",
     "data": {
-      "id": "voie-de-la-guerre-sainte-2",
+      "key": "voie-de-la-guerre-sainte-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -101,7 +101,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Marteau spirituel",
     "data": {
-      "id": "voie-de-la-guerre-sainte-3",
+      "key": "voie-de-la-guerre-sainte-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -116,7 +116,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Châtiment divin",
     "data": {
-      "id": "voie-de-la-guerre-sainte-4",
+      "key": "voie-de-la-guerre-sainte-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -130,7 +130,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mot de pouvoir",
     "data": {
-      "id": "voie-de-la-guerre-sainte-5",
+      "key": "voie-de-la-guerre-sainte-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -145,7 +145,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Bénédiction",
     "data": {
-      "id": "voie-de-la-priere-1",
+      "key": "voie-de-la-priere-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -160,7 +160,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Destruction des morts-vivants",
     "data": {
-      "id": "voie-de-la-priere-2",
+      "key": "voie-de-la-priere-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -175,7 +175,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sanctuaire",
     "data": {
-      "id": "voie-de-la-priere-3",
+      "key": "voie-de-la-priere-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -190,7 +190,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intervention divine",
     "data": {
-      "id": "voie-de-la-priere-4",
+      "key": "voie-de-la-priere-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -203,7 +203,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sagesse héroïque",
     "data": {
-      "id": "voie-de-la-priere-5",
+      "key": "voie-de-la-priere-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -216,7 +216,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vêtements sacrés",
     "data": {
-      "id": "voie-de-la-spiritualite-1",
+      "key": "voie-de-la-spiritualite-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -229,7 +229,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protection contre le mal",
     "data": {
-      "id": "voie-de-la-spiritualite-2",
+      "key": "voie-de-la-spiritualite-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -244,7 +244,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Délivrance",
     "data": {
-      "id": "voie-de-la-spiritualite-3",
+      "key": "voie-de-la-spiritualite-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -259,7 +259,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Marche des plans",
     "data": {
-      "id": "voie-de-la-spiritualite-4",
+      "key": "voie-de-la-spiritualite-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -274,7 +274,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Messie",
     "data": {
-      "id": "voie-de-la-spiritualite-5",
+      "key": "voie-de-la-spiritualite-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",
@@ -288,7 +288,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soins légers",
     "data": {
-      "id": "voie-des-soins-1",
+      "key": "voie-des-soins-1",
       "rank": 1,
       "scope": "profile",
       "profile": "pretre",
@@ -303,7 +303,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soins modérés",
     "data": {
-      "id": "voie-des-soins-2",
+      "key": "voie-des-soins-2",
       "rank": 2,
       "scope": "profile",
       "profile": "pretre",
@@ -318,7 +318,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Soins de groupe",
     "data": {
-      "id": "voie-des-soins-3",
+      "key": "voie-des-soins-3",
       "rank": 3,
       "scope": "profile",
       "profile": "pretre",
@@ -333,7 +333,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Guérison",
     "data": {
-      "id": "voie-des-soins-4",
+      "key": "voie-des-soins-4",
       "rank": 4,
       "scope": "profile",
       "profile": "pretre",
@@ -348,7 +348,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rappel à la vie",
     "data": {
-      "id": "voie-des-soins-5",
+      "key": "voie-des-soins-5",
       "rank": 5,
       "scope": "profile",
       "profile": "pretre",

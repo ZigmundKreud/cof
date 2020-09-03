@@ -139,6 +139,10 @@ export const registerHandlebarsHelpers = async function () {
         return list.length == 0;
     });
 
+    Handlebars.registerHelper('notEmpty', function (list) {
+        return list.length > 0;
+    });
+
     Handlebars.registerHelper('isZeroOrNull', function (val) {
         return val == null || val == 0;
     });
@@ -209,6 +213,12 @@ export const registerHandlebarsHelpers = async function () {
 
     Handlebars.registerHelper('listSpecies', function () {
         return COF.species;
+    });
+
+    Handlebars.registerHelper('listPaths', function () {
+        const gamepaths = game.items.filter(item => item.type === "path").map(entity => entity.data);
+        // const compendiums = COF.paths;
+        return gamepaths.concat(COF.paths);
     });
 
     Handlebars.registerHelper('findCapacities', function (caps) {

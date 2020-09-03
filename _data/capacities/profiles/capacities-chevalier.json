@@ -4,7 +4,7 @@
   "img": "/systems/cof/ui/icons/capacity.png",
   "name": "Fidèle monture",
   "data": {
-    "id": "voie-du-cavalier-1",
+    "key": "voie-du-cavalier-1",
     "rank": 1,
     "scope": "profile",
     "profile": "chevalier",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cavalier émérite",
     "data": {
-      "id": "voie-du-cavalier-2",
+      "key": "voie-du-cavalier-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Monture magique",
     "data": {
-      "id": "voie-du-cavalier-3",
+      "key": "voie-du-cavalier-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -43,7 +43,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge",
     "data": {
-      "id": "voie-du-cavalier-4",
+      "key": "voie-du-cavalier-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Monture fantastique",
     "data": {
-      "id": "voie-du-cavalier-5",
+      "key": "voie-du-cavalier-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -70,7 +70,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure sur mesure",
     "data": {
-      "id": "voie-de-la-guerre-1",
+      "key": "voie-de-la-guerre-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -83,7 +83,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Encaisser un coup",
     "data": {
-      "id": "voie-de-la-guerre-2",
+      "key": "voie-de-la-guerre-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -97,7 +97,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Coup de bouclier",
     "data": {
-      "id": "voie-de-la-guerre-3",
+      "key": "voie-de-la-guerre-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -110,7 +110,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Frappe lourde",
     "data": {
-      "id": "voie-de-la-guerre-4",
+      "key": "voie-de-la-guerre-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -124,7 +124,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Force héroïque",
     "data": {
-      "id": "voie-de-la-guerre-5",
+      "key": "voie-de-la-guerre-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -137,7 +137,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ignorer la douleur",
     "data": {
-      "id": "voie-du-heros-1",
+      "key": "voie-du-heros-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -150,7 +150,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Piqûres d'insecte",
     "data": {
-      "id": "voie-du-heros-2",
+      "key": "voie-du-heros-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -163,7 +163,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Laissez-le-moi !",
     "data": {
-      "id": "voie-du-heros-3",
+      "key": "voie-du-heros-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -176,7 +176,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Seul contre tous",
     "data": {
-      "id": "voie-du-heros-4",
+      "key": "voie-du-heros-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -190,7 +190,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charisme héroïque",
     "data": {
-      "id": "voie-du-heros-5",
+      "key": "voie-du-heros-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -203,7 +203,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sans peur",
     "data": {
-      "id": "voie-du-meneur-d-homme-1",
+      "key": "voie-du-meneur-d-homme-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -216,7 +216,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intercepter",
     "data": {
-      "id": "voie-du-meneur-d-homme-2",
+      "key": "voie-du-meneur-d-homme-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -229,7 +229,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Exemplaire",
     "data": {
-      "id": "voie-du-meneur-d-homme-3",
+      "key": "voie-du-meneur-d-homme-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -242,7 +242,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ordre de bataille",
     "data": {
-      "id": "voie-du-meneur-d-homme-4",
+      "key": "voie-du-meneur-d-homme-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -255,7 +255,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Charge fantastique",
     "data": {
-      "id": "voie-du-meneur-d-homme-5",
+      "key": "voie-du-meneur-d-homme-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",
@@ -269,7 +269,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Eduqué",
     "data": {
-      "id": "voie-de-la-noblesse-1",
+      "key": "voie-de-la-noblesse-1",
       "rank": 1,
       "scope": "profile",
       "profile": "chevalier",
@@ -282,7 +282,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Autorité naturelle",
     "data": {
-      "id": "voie-de-la-noblesse-2",
+      "key": "voie-de-la-noblesse-2",
       "rank": 2,
       "scope": "profile",
       "profile": "chevalier",
@@ -295,7 +295,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ecuyer",
     "data": {
-      "id": "voie-de-la-noblesse-3",
+      "key": "voie-de-la-noblesse-3",
       "rank": 3,
       "scope": "profile",
       "profile": "chevalier",
@@ -308,7 +308,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Massacrer la piétaille",
     "data": {
-      "id": "voie-de-la-noblesse-4",
+      "key": "voie-de-la-noblesse-4",
       "rank": 4,
       "scope": "profile",
       "profile": "chevalier",
@@ -321,7 +321,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Formation d'élite",
     "data": {
-      "id": "voie-de-la-noblesse-5",
+      "key": "voie-de-la-noblesse-5",
       "rank": 5,
       "scope": "profile",
       "profile": "chevalier",

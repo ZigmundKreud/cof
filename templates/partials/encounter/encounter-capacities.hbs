@@ -42,13 +42,17 @@
 <div class="grid grid-3col capacity-list">
     {{#each (getCapacities actor.items) as |capacity id|}}
         <div class="capacity item" data-item-id="{{capacity._id}}">
-            <div class="capacity-title">
-        <a class="capacity-control capacity-edit" title="{{capacity.name}}">&nbsp;{{capacity.name}}{{#if capacity.data.rank}}({{capacity.data.rank}}){{/if}}{{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}{{#if capacity.data.limited}}&nbsp;(L){{/if}}</a>
+            <div class="capacity-title center">
+                <a class="flex1 capacity-control capacity-edit" title="{{capacity.name}}">
+                    {{capacity.name}}
+                    {{#if capacity.data.rank}}({{capacity.data.rank}}){{/if}}
+                    {{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}
+                    {{#if capacity.data.limited}}&nbsp;(L){{/if}}
+                </a>
                 &nbsp;
-                <a class="capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                <a class="flex0 capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </div>
-            </div>
-            <div class="capacity-description">
+            <div class="capacity-path">
                 {{#with (getPath ../actor.items capacity.data.path)}}
                     <em>{{{name}}}</em>
                 {{/with}}
@@ -58,5 +62,13 @@
             </div>
         </div>
     {{/each}}
+    <div class="capacity item">
+        <p class="center light"><strong>Ajouter une capacité.</strong></p>
+        <p class="center light">
+            <a class="capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité" style="padding-top: 25px">
+                <i class="fas fa-plus-square fa-10x"></i>
+            </a>
+        </p>
+    </div>
 </div>
 {{/if}}

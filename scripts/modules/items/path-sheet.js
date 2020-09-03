@@ -12,15 +12,14 @@ export class CofPathSheet extends CofItemSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", "path"],
             template: System.templatesPath + "/items/path-sheet.hbs",
-            width: 400,
-            height: 450,
+            width: 430,
+            height: 430,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details"}]
         });
     }
 
     activateListeners(html) {
         super.activateListeners(html);
-
         // // Initiate a roll
         // html.find('#species-select').click(ev => {
         //     ev.preventDefault();

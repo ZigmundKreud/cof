@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Agrandissement",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-1",
+      "key": "voie-de-la-magie-des-arcanes-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -19,7 +19,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Forme gazeuse",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-2",
+      "key": "voie-de-la-magie-des-arcanes-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -34,7 +34,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Hâte",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-3",
+      "key": "voie-de-la-magie-des-arcanes-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -49,7 +49,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Téléportation",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-4",
+      "key": "voie-de-la-magie-des-arcanes-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -64,7 +64,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Désintégration",
     "data": {
-      "id": "voie-de-la-magie-des-arcanes-5",
+      "key": "voie-de-la-magie-des-arcanes-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -79,7 +79,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projectile magique",
     "data": {
-      "id": "voie-de-la-magie-destructrice-1",
+      "key": "voie-de-la-magie-destructrice-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -94,7 +94,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rayon affaiblissant",
     "data": {
-      "id": "voie-de-la-magie-destructrice-2",
+      "key": "voie-de-la-magie-destructrice-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -109,7 +109,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flèche enflammée",
     "data": {
-      "id": "voie-de-la-magie-destructrice-3",
+      "key": "voie-de-la-magie-destructrice-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -124,7 +124,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Boule de feu",
     "data": {
-      "id": "voie-de-la-magie-destructrice-4",
+      "key": "voie-de-la-magie-destructrice-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -139,7 +139,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Rituel de puissance",
     "data": {
-      "id": "voie-de-la-magie-destructrice-5",
+      "key": "voie-de-la-magie-destructrice-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -152,7 +152,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Asphyxie",
     "data": {
-      "id": "voie-de-la-magie-elementaire-1",
+      "key": "voie-de-la-magie-elementaire-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -167,7 +167,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Protection contre les éléments",
     "data": {
-      "id": "voie-de-la-magie-elementaire-2",
+      "key": "voie-de-la-magie-elementaire-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -182,7 +182,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arme enflammée",
     "data": {
-      "id": "voie-de-la-magie-elementaire-3",
+      "key": "voie-de-la-magie-elementaire-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -197,7 +197,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Respiration aquatique",
     "data": {
-      "id": "voie-de-la-magie-elementaire-4",
+      "key": "voie-de-la-magie-elementaire-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -212,7 +212,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau de pierre",
     "data": {
-      "id": "voie-de-la-magie-elementaire-5",
+      "key": "voie-de-la-magie-elementaire-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -227,7 +227,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Armure de mage",
     "data": {
-      "id": "voie-de-la-magie-protectrice-1",
+      "key": "voie-de-la-magie-protectrice-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -242,7 +242,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Chute ralentie",
     "data": {
-      "id": "voie-de-la-magie-protectrice-2",
+      "key": "voie-de-la-magie-protectrice-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -257,7 +257,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Flou",
     "data": {
-      "id": "voie-de-la-magie-protectrice-3",
+      "key": "voie-de-la-magie-protectrice-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -272,7 +272,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Cercle de protection",
     "data": {
-      "id": "voie-de-la-magie-protectrice-4",
+      "key": "voie-de-la-magie-protectrice-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -287,7 +287,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Arrêt du temps",
     "data": {
-      "id": "voie-de-la-magie-protectrice-5",
+      "key": "voie-de-la-magie-protectrice-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",
@@ -302,7 +302,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lumière",
     "data": {
-      "id": "voie-de-la-magie-universelle-1",
+      "key": "voie-de-la-magie-universelle-1",
       "rank": 1,
       "scope": "profile",
       "profile": "magicien",
@@ -317,7 +317,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Détection de la magie",
     "data": {
-      "id": "voie-de-la-magie-universelle-2",
+      "key": "voie-de-la-magie-universelle-2",
       "rank": 2,
       "scope": "profile",
       "profile": "magicien",
@@ -332,7 +332,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Invisibilité",
     "data": {
-      "id": "voie-de-la-magie-universelle-3",
+      "key": "voie-de-la-magie-universelle-3",
       "rank": 3,
       "scope": "profile",
       "profile": "magicien",
@@ -347,7 +347,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Vol",
     "data": {
-      "id": "voie-de-la-magie-universelle-4",
+      "key": "voie-de-la-magie-universelle-4",
       "rank": 4,
       "scope": "profile",
       "profile": "magicien",
@@ -362,7 +362,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Intelligence héroïque",
     "data": {
-      "id": "voie-de-la-magie-universelle-5",
+      "key": "voie-de-la-magie-universelle-5",
       "rank": 5,
       "scope": "profile",
       "profile": "magicien",

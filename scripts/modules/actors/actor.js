@@ -15,7 +15,7 @@ export class CofActor extends Actor {
         // Get the Actor's data object
         const actorData = this.data;
         const items = actorData.items;
-        Logger.log(items);
+        // Logger.log(items);
         const data = actorData.data;
         // Logger.log(data);
         const flags = actorData.flags;
@@ -198,6 +198,7 @@ export class CofActor extends Actor {
     }
 
     _prepareNPCData(actorData) {
+        this._prepareCharacterData(actorData);
     }
 
     _prepareEncounterData(actorData) {

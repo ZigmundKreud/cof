@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Esquive du singe",
     "data": {
-      "id": "voie-de-la-maitrise-1",
+      "key": "voie-de-la-maitrise-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -17,7 +17,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Morsure du serpent",
     "data": {
-      "id": "voie-de-la-maitrise-2",
+      "key": "voie-de-la-maitrise-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -30,7 +30,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Griffes du tigre",
     "data": {
-      "id": "voie-de-la-maitrise-3",
+      "key": "voie-de-la-maitrise-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -43,7 +43,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Fureur du dragon",
     "data": {
-      "id": "voie-de-la-maitrise-4",
+      "key": "voie-de-la-maitrise-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -57,7 +57,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Moment de perfection",
     "data": {
-      "id": "voie-de-la-maitrise-5",
+      "key": "voie-de-la-maitrise-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -70,7 +70,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pacifisme",
     "data": {
-      "id": "voie-de-la-meditation-1",
+      "key": "voie-de-la-meditation-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -83,7 +83,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Transe de guérison",
     "data": {
-      "id": "voie-de-la-meditation-2",
+      "key": "voie-de-la-meditation-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -96,7 +96,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Maîtrise du ki",
     "data": {
-      "id": "voie-de-la-meditation-3",
+      "key": "voie-de-la-meditation-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -109,7 +109,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projection mentale",
     "data": {
-      "id": "voie-de-la-meditation-4",
+      "key": "voie-de-la-meditation-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -123,7 +123,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Sagesse héroïque",
     "data": {
-      "id": "voie-de-la-meditation-5",
+      "key": "voie-de-la-meditation-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -136,7 +136,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Mains d'énergie",
     "data": {
-      "id": "voie-de-l-energie-vitale-1",
+      "key": "voie-de-l-energie-vitale-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -150,7 +150,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pression mortelle",
     "data": {
-      "id": "voie-de-l-energie-vitale-2",
+      "key": "voie-de-l-energie-vitale-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -164,7 +164,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Invulnérable",
     "data": {
-      "id": "voie-de-l-energie-vitale-3",
+      "key": "voie-de-l-energie-vitale-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -177,7 +177,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Projection du ki",
     "data": {
-      "id": "voie-de-l-energie-vitale-4",
+      "key": "voie-de-l-energie-vitale-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -191,7 +191,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Ascétisme",
     "data": {
-      "id": "voie-de-l-energie-vitale-5",
+      "key": "voie-de-l-energie-vitale-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -204,7 +204,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Poings de fer",
     "data": {
-      "id": "voie-du-poing-1",
+      "key": "voie-du-poing-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -217,7 +217,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Parade de projectiles",
     "data": {
-      "id": "voie-du-poing-2",
+      "key": "voie-du-poing-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -230,7 +230,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Peau de fer",
     "data": {
-      "id": "voie-du-poing-3",
+      "key": "voie-du-poing-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -243,7 +243,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Déluge de coups",
     "data": {
-      "id": "voie-du-poing-4",
+      "key": "voie-du-poing-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -257,7 +257,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Puissance du ki",
     "data": {
-      "id": "voie-du-poing-5",
+      "key": "voie-du-poing-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",
@@ -270,7 +270,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Pas du vent",
     "data": {
-      "id": "voie-du-vent-1",
+      "key": "voie-du-vent-1",
       "rank": 1,
       "scope": "profile",
       "profile": "moine",
@@ -283,7 +283,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Course du vent",
     "data": {
-      "id": "voie-du-vent-2",
+      "key": "voie-du-vent-2",
       "rank": 2,
       "scope": "profile",
       "profile": "moine",
@@ -296,7 +296,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Course des airs",
     "data": {
-      "id": "voie-du-vent-3",
+      "key": "voie-du-vent-3",
       "rank": 3,
       "scope": "profile",
       "profile": "moine",
@@ -309,7 +309,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Lévitation",
     "data": {
-      "id": "voie-du-vent-4",
+      "key": "voie-du-vent-4",
       "rank": 4,
       "scope": "profile",
       "profile": "moine",
@@ -323,7 +323,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Passe-muraille",
     "data": {
-      "id": "voie-du-vent-5",
+      "key": "voie-du-vent-5",
       "rank": 5,
       "scope": "profile",
       "profile": "moine",

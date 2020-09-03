@@ -4,7 +4,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Expertise",
     "data": {
-      "id": "voie-de-prestige-specialisee-1",
+      "key": "voie-de-prestige-specialisee-1",
       "rank": 1,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -16,7 +16,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capacité signature",
     "data": {
-      "id": "voie-de-prestige-specialisee-2",
+      "key": "voie-de-prestige-specialisee-2",
       "rank": 2,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -28,7 +28,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capacité supérieure",
     "data": {
-      "id": "voie-de-prestige-specialisee-3",
+      "key": "voie-de-prestige-specialisee-3",
       "rank": 3,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -40,7 +40,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Caractéristique fabuleuse",
     "data": {
-      "id": "voie-de-prestige-specialisee-4",
+      "key": "voie-de-prestige-specialisee-4",
       "rank": 4,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
@@ -52,7 +52,7 @@
     "img": "/systems/cof/ui/icons/capacity.png",
     "name": "Capacité fabuleuse",
     "data": {
-      "id": "voie-de-prestige-specialisee-5",
+      "key": "voie-de-prestige-specialisee-5",
       "rank": 5,
       "scope": "prestige",
       "path": "voie-de-prestige-specialisee",
