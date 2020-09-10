@@ -4,7 +4,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/brawl.jpg",
     "name": "Mains nues",
     "data": {
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "description": "<p>Dégâts temporaires</p>",
       "critrange": "20",
       "hands": 2,
@@ -16,7 +16,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/staff.png",
     "name": "Bâton",
     "data": {
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "description": "<p>Dégâts temp. possibles</p>",
       "critrange": "20",
       "hands": 2,
@@ -28,8 +28,8 @@
     "img":"/systems/cof/ui/icons/items/weapons/quarterstaff.jpg",
     "name": "Bâton ferré",
     "data": {
-      "dmg": "1d6",
-      "description": "",
+      "dmgBase": "1d6",
+      "description": "<p>Dégâts temp. possibles</p>",
       "critrange": "20",
       "hands": 2,
       "price": 2
@@ -40,7 +40,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/dagger.jpg",
     "name": "Dague",
     "data": {
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -52,7 +52,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/sword-great.jpg",
     "name": "Epée à 2 mains",
     "data": {
-      "dmg": "2d6",
+      "dmgBase": "2d6",
       "description": "",
       "critrange": "20",
       "hands": 2,
@@ -64,7 +64,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/sword-bastard.jpg",
     "name": "Epée bâtarde",
     "data": {
-      "dmg": "1d8",
+      "dmgBase": "1d8",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -76,7 +76,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/sword-bastard.jpg",
     "name": "Epée bâtarde (2M)",
     "data": {
-      "dmg": "1d12",
+      "dmgBase": "1d12",
       "description": "",
       "critrange": "20",
       "hands": 2,
@@ -88,7 +88,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/sword-short.jpg",
     "name": "Epée courte",
     "data": {
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -100,7 +100,7 @@
     "img": "/systems/cof/ui/icons/items/weapons/sword-long.jpg",
     "name": "Epée longue",
     "data": {
-      "dmg": "1d8",
+      "dmgBase": "1d8",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -112,7 +112,7 @@
     "img": "/systems/cof/ui/icons/items/weapons/club-spikes.jpg",
     "name": "Gourdin",
     "data": {
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "description": "<p>Dégâts temp. possibles</p>",
       "critrange": "20",
       "hands": 1,
@@ -124,7 +124,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/axe-wood.jpg",
     "name": "Hache",
     "data": {
-      "dmg": "1d8",
+      "dmgBase": "1d8",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -136,7 +136,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/greataxe.jpg",
     "name": "Hache à 2 mains",
     "data": {
-      "dmg": "2d6",
+      "dmgBase": "2d6",
       "description": "",
       "critrange": "20",
       "hands": 2,
@@ -148,7 +148,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/sword-curved.jpg",
     "name": "Katana",
     "data": {
-      "dmg": "1d10",
+      "dmgBase": "1d10",
       "description": "<p>Critique sur 19-20</p>",
       "critrange": "19-20",
       "hands": 2,
@@ -160,7 +160,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/warhammer.png",
     "name": "Marteau de guerre",
     "data": {
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -172,7 +172,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/morningstar.jpg",
     "name": "Masse d'armes",
     "data": {
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "description": "",
       "critrange": "20",
       "hands": 1,
@@ -184,7 +184,7 @@
     "img":"/systems/cof/ui/icons/items/weapons/sword-ice.jpg",
     "name": "Rapière",
     "data": {
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "description": "<p>Critique sur 19-20</p>",
       "critrange": "19-20",
       "hands": 1,
@@ -196,7 +196,7 @@
     "img": "/systems/cof/ui/icons/items/weapons/sword-fire.jpg",
     "name": "Vivelame",
     "data": {
-      "dmg": "1d10",
+      "dmgBase": "1d10",
       "description": "<p>Critique sur 19-20</p>",
       "critrange": "19-20",
       "hands": 2,

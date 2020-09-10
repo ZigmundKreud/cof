@@ -10,7 +10,7 @@ System.label = "Chroniques Oubliées Fantasy";
 System.abbrev = "COF VTT";
 System.name = "cof";
 System.rootPath = "/systems/" + System.name;
-System.dataPath = System.rootPath + "/data";
+System.dataPath = System.rootPath + "/_data";
 System.templatesPath = System.rootPath + "/templates";
 System.logPrefix = System.abbrev;
 System.logLevel = LogLevel.DEBUG;
@@ -25,6 +25,9 @@ const StringUtils = {};
 
 StringUtils.normalize = function (str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+};
+StringUtils.toKey = function (str) {
+    return StringUtils.normalize(str).split(/[\s;:,\']+/).join('-');
 };
 
 const SystemMacros = {};

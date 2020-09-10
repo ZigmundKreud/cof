@@ -142,7 +142,7 @@ export class CofActorSheet extends ActorSheet {
             title: "Supprimer la voie ?",
             content: `<p>Etes-vous sûr de vouloir supprimer la voie ${itemData.name} ?</p>`,
             yes: () => {
-                let itemsToDelete = actor.items.filter(item => item.data.type === "capacity" && item.data.data.path === itemData.data.data.id).map(c => c.data._id);
+                let itemsToDelete = actor.items.filter(item => item.data.type === "capacity" && item.data.data.path === itemData.data.data.key).map(c => c.data._id);
                 itemsToDelete.push(li.data("itemId"));
                 actor.deleteOwnedItem(itemsToDelete);
                 li.slideUp(200, () => parent.render(false));
@@ -164,10 +164,10 @@ export class CofActorSheet extends ActorSheet {
                 // delete profile related capacities
                 let itemsToDelete = actor.items.filter(item => {
                     console.log(item);
-                    return item.data.type === "capacity" && item.data.data.profile === itemData.data.data.id
+                    return item.data.type === "capacity" && item.data.data.profile === itemData.data.data.key
                 }).map(c => c.data._id);
                 // add profile related paths
-                itemsToDelete.push(...actor.items.filter(item => item.data.type === "path" && item.data.data.profile.id === itemData.data.data.id).map(c => c.data._id));
+                itemsToDelete.push(...actor.items.filter(item => item.data.type === "path" && item.data.data.profile.id === itemData.data.data.key).map(c => c.data._id));
                 // add the profile item to be removed
                 itemsToDelete.push(li.data("itemId"));
                 actor.deleteOwnedItem(itemsToDelete);
@@ -530,6 +530,7 @@ export class CofActorSheet extends ActorSheet {
         // let authorized = true;
 
         let itemData = await this._getItemDropData(event, data);
+        console.log(itemData);
 
         switch (itemData.type) {
             case "path"    :
@@ -571,8 +572,8 @@ export class CofActorSheet extends ActorSheet {
         } else {
             const capsContent = await game.packs.get("cof.capacities").getContent();
             let items = duplicate(capsContent.filter(entity => {
-                if(entity.data.data.path === itemData.data.id) {
-                    console.log(entity.data.data.path, itemData.data.id);
+                if(entity.data.data.path === itemData.data.key) {
+                    console.log(entity.data.data.path, itemData.data.key);
                     return true;
                 }
                 else return false;
@@ -589,10 +590,13 @@ export class CofActorSheet extends ActorSheet {
             ui.notifications.error("Vous avez déjà un profil.");
             return false;
         } else {
+            console.log(profileItemData);
             const pathsContent = await game.packs.get("cof.paths").getContent();
-            let items = pathsContent.filter(entity => entity.data.data.profile === profileItemData.data.id);
+            console.log(pathsContent);
+            let items = pathsContent.filter(entity => entity.data.data.profile === profileItemData.data.key);
+            console.log(items);
             const capsContent = await game.packs.get("cof.capacities").getContent();
-            items.push(...capsContent.filter(entity => entity.data.data.profile === profileItemData.data.id));
+            items.push(...capsContent.filter(entity => entity.data.data.profile === profileItemData.data.key));
             items.push(profileItemData);
             // console.log(items);
             return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
@@ -630,6 +634,7 @@ export class CofActorSheet extends ActorSheet {
         let itemData = null;
         // Case 1 - Import from a Compendium pack
         if (data.pack) {
+            console.log(data);
             const pack = game.packs.get(data.pack);
             if (pack.metadata.entity !== "Item") return;
             itemData = await pack.getEntry(data.id);
@@ -640,6 +645,7 @@ export class CofActorSheet extends ActorSheet {
         }
         // Case 3 - Import from World entity
         else {
+            console.log(data);
             let item = game.items.get(data.id);
             if (!item) return;
             itemData = item.data;

@@ -12,7 +12,7 @@ export class CofEncounterSheet extends CofActorSheet {
             classes: ["cof", "sheet", "actor", "encounter"],
             template: System.templatesPath+"/actors/encounter-sheet.hbs",
             width: 770,
-            height: 700,
+            height: 460,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats"}],
             dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
         });

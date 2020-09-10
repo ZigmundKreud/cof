@@ -33,7 +33,7 @@
                             {{#select data.profile}}
                                 <option value="">{{localize "COF.None"}}</option>
                                 {{#each (listProfiles) as |profile id|}}
-                                <option value="{{profile.data.id}}">{{profile.name}}</option>
+                                <option value="{{profile.data.key}}">{{profile.name}}</option>
                                 {{/each}}
                             {{/select}}
                         </select>
@@ -53,7 +53,7 @@
                                 {{#select data.species}}
                                     <option value="">{{localize "COF.None"}}</option>
                                     {{#each (listSpecies) as |species id|}}
-                                        <option value="{{species.data.id}}">{{species.name}}</option>
+                                        <option value="{{species.data.key}}">{{species.name}}</option>
                                     {{/each}}
                                 {{/select}}
                             </select>
@@ -64,22 +64,22 @@
             {{/if}}
             <div class="row flexrow">
                 <div class="flex1 center field-header">
-                    <span class="field-label label-text">Note</span>
+                    <span class="field-label label-text">{{ localize "COF.ui.note" }}</span>
                 </div>
                 <div class="flex1">
-                    <input class="field-value box-shadow" name="data.note" type="text" value="{{item.data.note}}" placeholder="Note" data-dtype="String">
+                    <input class="field-value" name="data.note" type="text" value="{{item.data.note}}" placeholder="{{ localize "COF.ui.note" }}" data-dtype="String">
                 </div>
             </div>
             <div class="row flexrow">
                 <div class="flex1 center field-header">
-                    <span class="field-label label-text">ID</span>
+                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>
                 </div>
                 <div class="flex1">
-                    <input class="field-value box-shadow" name="data.key" type="text" value="{{item.data.key}}" placeholder="ID" data-dtype="String">
+                    <input class="field-value" name="data.key" type="text" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
                 </div>
             </div>
             <nav class="sheet-tabs tabs" data-group="primary">
-                <a class="item compendium-pack" data-pack="cof.capacities" data-open="0" data-tab="capacities">{{ localize "COF.tabs.capacities" }}</a>
+                <a class="item compendium-pack" data-pack="cof.capacities" data-open="0" data-tab="capacities">{{ localize "COF.ui.capacities" }}</a>
                 <a class="item" data-tab="description">{{ localize "COF.tabs.description" }}</a>
             </nav>
 

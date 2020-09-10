@@ -7,8 +7,6 @@ import {DataLoader} from "../data.js";
 
 Hooks.once("ready", async () => {
 
-    Logger.info("System ready");
-
     if (game.settings.get("cof", "importData")) {
         Logger.info("Importing data");
         DataLoader.loadData("capacities");
@@ -23,4 +21,8 @@ Hooks.once("ready", async () => {
     await COF.getSpecies();
     await COF.getPaths();
     await COF.getCapacities();
+
+
+    Logger.info("System Initialized.");
+
 });

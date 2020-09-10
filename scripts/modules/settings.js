@@ -19,7 +19,7 @@ export const registerSystemSettings = function() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: mode => {}
+        onChange: lang => window.location.reload()
     });
 
     game.settings.register("cof", "useFortune", {
@@ -29,7 +29,7 @@ export const registerSystemSettings = function() {
         config: true,
         default: true,
         type: Boolean,
-        onChange: mode => {}
+        onChange: lang => window.location.reload()
     });
 
     game.settings.register("cof", "useMana", {
@@ -39,7 +39,7 @@ export const registerSystemSettings = function() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: mode => {}
+        onChange: lang => window.location.reload()
     });
 
     game.settings.register("cof", "useDamageResistance", {
@@ -49,7 +49,7 @@ export const registerSystemSettings = function() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: mode => {}
+        onChange: lang => window.location.reload()
     });
 
     game.settings.register("cof", "developerMode", {
@@ -59,7 +59,7 @@ export const registerSystemSettings = function() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: mode => {}
+        onChange: lang => window.location.reload()
     });
 
     game.settings.register("cof", "importData", {
@@ -69,6 +69,6 @@ export const registerSystemSettings = function() {
         config: true,
         default: false,
         type: Boolean,
-        onChange: mode => {}
+        onChange: lang => window.location.reload()
     });
 };

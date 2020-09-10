@@ -5,7 +5,7 @@
     "name": "Arbalète de poing",
     "data": {
       "description": "",
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "critrange": "20",
       "hands": 1,
       "range": 10,
@@ -19,7 +19,7 @@
     "name": "Arbalète légère",
     "data": {
       "description": "",
-      "dmg": "2d4",
+      "dmgBase": "2d4",
       "critrange": "20",
       "hands": 2,
       "range": 30,
@@ -33,7 +33,7 @@
     "name": "Arbalète lourde",
     "data": {
       "description": "",
-      "dmg": "3d4",
+      "dmgBase": "3d4",
       "critrange": "20",
       "hands": 2,
       "range": 60,
@@ -47,7 +47,7 @@
     "name": "Arc court",
     "data": {
       "description": "",
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "critrange": "20",
       "hands": 2,
       "range": 30,
@@ -61,7 +61,7 @@
     "name": "Arc long",
     "data": {
       "description": "",
-      "dmg": "1d8",
+      "dmgBase": "1d8",
       "critrange": "20",
       "hands": 2,
       "comment": "13 min en FOR",
@@ -76,7 +76,7 @@
     "name": "Dague",
     "data": {
       "description": "",
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "critrange": "20",
       "hands": 1,
       "range": 5,
@@ -90,7 +90,7 @@
     "name": "Couteau de lancer",
     "data": {
       "description": "",
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "critrange": "20",
       "hands": 1,
       "range": 5,
@@ -104,7 +104,7 @@
     "name": "Fronde",
     "data": {
       "description": "",
-      "dmg": "1d4",
+      "dmgBase": "1d4",
       "critrange": "20",
       "hands": 1,
       "range": 20,
@@ -118,7 +118,7 @@
     "name": "Hachette",
     "data": {
       "description": "",
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "critrange": "20",
       "hands": "1 main, lancée (5 m)",
       "range": 5,
@@ -132,7 +132,7 @@
     "name": "Javelot",
     "data": {
       "description": "",
-      "dmg": "1d6",
+      "dmgBase": "1d6",
       "critrange": "20",
       "hands": 1,
       "range": 20,
@@ -146,7 +146,7 @@
     "name": "Mousquet",
     "data": {
       "description": "",
-      "dmg": "2d6",
+      "dmgBase": "2d6",
       "critrange": "20",
       "hands": 2,
       "range": 50,
@@ -160,7 +160,7 @@
     "name": "Pétoire",
     "data": {
       "description": "",
-      "dmg": "1d10",
+      "dmgBase": "1d10",
       "critrange": "20",
       "hands": 1,
       "range": 20,

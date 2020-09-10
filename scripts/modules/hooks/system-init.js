@@ -74,5 +74,4 @@ Hooks.once("init", async function () {
     // Register Handlebars helpers
     registerHandlebarsHelpers();
 
-    Logger.info("System Initialized.");
 });

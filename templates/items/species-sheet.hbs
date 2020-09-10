@@ -3,25 +3,21 @@
         {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
             <div class="row flexrow">
-                <div class="flex3 center field-header">
-                    <span class="field-label label-text">Category</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">Racial</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}"
-                       placeholder="Category" data-dtype="String">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.racial" type="text" value="{{item.data.racial}}" placeholder="Racial" data-dtype="String">
+                    </span>
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center field-header">
-                    <span class="field-label label-text">Racial</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.racial" type="text" value="{{item.data.racial}}"
-                       placeholder="Racial" data-dtype="String">
-            </span>
+                <div class="flex1">
+                    <input class="field-value" name="data.key" type="text" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
                 </div>
             </div>
             {{!-- Sheet Tab Navigation --}}
@@ -34,58 +30,52 @@
             {{!-- Sheet Body --}}
             <section class="sheet-body">
                 <div class="tab" data-group="primary" data-tab="description">
-                    {{editor content=data.description target="data.description" button=true owner=owner
-                             editable=editable}}
+                    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="details">
                     <div class="row flexrow">
-                        <div class="flex3 center field-header">
+                        <div class="flex1 center field-header">
                             <span class="field-label label-text">Age</span>
                         </div>
-                        <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.age" type="text" value="{{item.data.age}}" placeholder="Age"
-                       data-dtype="String">
-            </span>
+                        <div class="flex1">
+                            <span class="field-label">
+                                <input class="field-value" name="data.age" type="text" value="{{item.data.age}}" placeholder="Age" data-dtype="String">
+                            </span>
                         </div>
                     </div>
                     <div class="row flexrow">
-                        <div class="flex3 center field-header">
+                        <div class="flex1 center field-header">
                             <span class="field-label label-text">Longevity</span>
                         </div>
-                        <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.longevity" type="text" value="{{item.data.longevity}}"
-                       placeholder="Longevity" data-dtype="String">
-            </span>
+                        <div class="flex1">
+                            <span class="field-label">
+                                <input class="field-value" name="data.longevity" type="text" value="{{item.data.longevity}}" placeholder="Longevity" data-dtype="String">
+                            </span>
                         </div>
                     </div>
                     <div class="row flexrow">
-                        <div class="flex3 center field-header">
+                        <div class="flex1 center field-header">
                             <span class="field-label label-text">Height</span>
                         </div>
-                        <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.height" type="text" value="{{item.data.height}}"
-                       placeholder="Height" data-dtype="String">
-            </span>
+                        <div class="flex1">
+                            <span class="field-label">
+                                <input class="field-value" name="data.height" type="text" value="{{item.data.height}}" placeholder="Height" data-dtype="String">
+                            </span>
                         </div>
                     </div>
                     <div class="row flexrow">
-                        <div class="flex3 center field-header">
+                        <div class="flex1 center field-header">
                             <span class="field-label label-text">Weight</span>
                         </div>
-                        <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.weight" type="text" value="{{item.data.weight}}"
-                       placeholder="Weight" data-dtype="String">
-            </span>
+                        <div class="flex1">
+                            <span class="field-label">
+                                <input class="field-value" name="data.weight" type="text" value="{{item.data.weight}}" placeholder="Weight" data-dtype="String">
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="tab" data-group="primary" data-tab="morph">
-                    {{editor content=data.morphology target="data.morphology" button=true owner=owner
-                             editable=editable}}
+                    {{editor content=data.morphology target="data.morphology" button=true owner=owner editable=editable}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="names">
                     {{editor content=data.names target="data.names" button=true owner=owner editable=editable}}

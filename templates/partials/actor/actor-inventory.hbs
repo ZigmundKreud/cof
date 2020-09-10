@@ -1,14 +1,17 @@
+{{#if (notEmpty (getInventory actor.items))}}
+{{#if (notEmpty (getArmors actor.items))}}
 <h2>Armure</h2>
 <ol class="item-list">
     {{#each (getArmors actor.items) as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-        <h4 class="item-name">{{item.name}}</h4>
+    <li class="flexrow item" data-item-id="{{item._id}}">
+        <div class="flex2 left">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+        </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
-            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
+                <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
             {{else}}
-            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
+                <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
             {{/if}}
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -16,17 +19,20 @@
     </li>
     {{/each}}
 </ol>
+{{/if}}
+{{#if (notEmpty (getShields actor.items))}}
 <h2>Bouclier</h2>
 <ol class="item-list">
     {{#each (getShields actor.items) as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-        <h4 class="item-name">{{item.name}}</h4>
+    <li class="flexrow item" data-item-id="{{item._id}}">
+        <div class="flex2 left">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+        </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
-            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
+                <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
             {{else}}
-            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
+                <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
             {{/if}}
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -34,17 +40,20 @@
     </li>
     {{/each}}
 </ol>
+{{/if}}
+{{#if (notEmpty (getMeleeWeapons actor.items))}}
 <h2>Armes de contact</h2>
 <ol class="item-list">
     {{#each (getMeleeWeapons actor.items) as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-        <h4 class="item-name">{{item.name}}</h4>
+    <li class="flexrow item" data-item-id="{{item._id}}">
+        <div class="flex2 left">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+        </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
-            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
+                <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
             {{else}}
-            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
+                <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
             {{/if}}
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -52,17 +61,20 @@
     </li>
     {{/each}}
 </ol>
+{{/if}}
+{{#if (notEmpty (getRangedWeapons actor.items))}}
 <h2>Armes à distance</h2>
 <ol class="item-list">
     {{#each (getRangedWeapons actor.items) as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-        <h4 class="item-name">{{item.name}}</h4>
+    <li class="flexrow item" data-item-id="{{item._id}}">
+        <div class="flex2 left">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+        </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
-            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
+                <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
             {{else}}
-            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
+                <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
             {{/if}}
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -70,16 +82,23 @@
     </li>
     {{/each}}
 </ol>
+{{/if}}
+{{#if (notEmpty (getTrappings actor.items))}}
 <h2>Divers</h2>
 <ol class="item-list">
     {{#each (getTrappings actor.items) as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-        <h4 class="item-name">{{item.name}}</h4>
-        <div class="item-controls">
+    <li class="flexrow item" data-item-id="{{item._id}}">
+        <div class="flex2 left">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+        </div>
+        <div class="equipment-controls">
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
         </div>
     </li>
     {{/each}}
 </ol>
+{{/if}}
+{{else}}
+    <p class="empty">Votre inventaire est vide.</p>
+{{/if}}

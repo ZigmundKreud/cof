@@ -3,36 +3,31 @@
         {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
             <div class="row flexrow">
-                <div class="flex3 center field-header">
-                    <span class="field-label label-text">Category</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{ localize "COF.ui.hd" }}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="type" readonly="true" type="text" value="{{item.type}}"
-                       placeholder="Category" data-dtype="String">
-            </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex3 center field-header">
-                    <span class="field-label label-text">DV</span>
-                </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.dv" type="text" value="{{item.data.dv}}" placeholder="DV"
-                       data-dtype="String">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.dv" type="text" value="{{item.data.dv}}" placeholder="{{ localize "COF.ui.hd" }}" data-dtype="String">
+                    </span>
                 </div>
             </div>
             <div class="row flexrow">
-                <div class="flex3 center field-header">
-                    <span class="field-label label-text">Spellcasting</span>
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{ localize "COF.ui.spellcasting" }}</span>
                 </div>
-                <div class="flex4">
-            <span class="field-label">
-                <input class="field-value" name="data.spellcasting" type="text" value="{{item.data.spellcasting}}"
-                       placeholder="None" data-dtype="String">
-            </span>
+                <div class="flex1">
+                    <span class="field-label">
+                        <input class="field-value" name="data.spellcasting" type="text" value="{{item.data.spellcasting}}" placeholder="{{ localize "COF.ui.spellcasting" }}" data-dtype="String">
+                    </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>
+                </div>
+                <div class="flex1">
+                    <input class="field-value" name="data.key" type="text" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
                 </div>
             </div>
             {{!-- Sheet Tab Navigation --}}
@@ -45,33 +40,28 @@
             {{!-- Sheet Body --}}
             <section class="sheet-body">
                 <div class="tab" data-group="primary" data-tab="description">
-                    {{editor content=data.description target="data.description" button=true owner=owner
-                             editable=editable}}
+                    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
                 </div>
                 <div class="tab" data-group="primary" data-tab="prof">
                     <div class="row flexrow">
-                        {{editor content=data.proficiency target="data.proficiency" button=true owner=owner
-                                 editable=editable}}
+                        {{editor content=data.proficiency target="data.proficiency" button=true owner=owner editable=editable}}
                     </div>
                 </div>
                 <div class="tab" data-group="primary" data-tab="trap">
                     <div class="row flexrow">
-                        {{editor content=data.trappings target="data.trappings" button=true owner=owner
-                                 editable=editable}}
+                        {{editor content=data.trappings target="data.trappings" button=true owner=owner editable=editable}}
                     </div>
                 </div>
                 <div class="tab" data-group="primary" data-tab="note">
                     <div class="row flexrow">
-                        <div class="flex4">
-                    <span class="field-label">
-                        <h2><input class="field-value" name="data.note.title" type="text"
-                                   value="{{item.data.note.title}}" placeholder="Title" data-dtype="String"></h2>
-                    </span>
+                        <div class="flex1">
+                            <span class="field-label">
+                                <h2><input class="field-value" name="data.note.title" type="text" value="{{item.data.note.title}}" placeholder="Title" data-dtype="String"></h2>
+                            </span>
                         </div>
                     </div>
                     <div class="row flexrow">
-                        {{editor content=data.note.text target="data.note.text" button=true owner=owner
-                                 editable=editable}}
+                        {{editor content=data.note.text target="data.note.text" button=true owner=owner editable=editable}}
                     </div>
                 </div>
             </section>

@@ -15,7 +15,8 @@
     "img":"/systems/cof/ui/icons/items/armor/shield.png",
     "data": {
       "def": 1,
-      "dmg": "1d4",
+      "dmgBase": "1d4",
+      "dmgStat": "@stats.str.mod",
       "critrange": "20",
       "hands": 1,
       "price": 2,
@@ -38,7 +39,8 @@
     "img":"/systems/cof/ui/icons/items/armor/shield.png",
     "data": {
       "def": 2,
-      "dmg": "1d4",
+      "dmgBase": "1d4",
+      "dmgStat": "@stats.str.mod",
       "critrange": "20",
       "hands": 1,
       "price": 4,

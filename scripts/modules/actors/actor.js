@@ -10,7 +10,7 @@ export class CofActor extends Actor {
     prepareData() {
         super.prepareData();
         Logger.debug("prepareData");
-        Logger.log(this);
+        // Logger.log(this);
 
         // Get the Actor's data object
         const actorData = this.data;
@@ -66,7 +66,7 @@ export class CofActor extends Actor {
         let shieldBonus = 0;
         let currxp = 0;
         const maxxp = 2 * lvl;
-        let sc, hd, profId;
+        let sc, hd, profileKey;
 
         items.forEach(item => {
             switch (item.type) {
@@ -89,6 +89,8 @@ export class CofActor extends Actor {
                         shield += item.data.def;
                         shieldBonus += item.data.bonus;
                     }
+                    item.data.mod = melee.mod;
+                    item.data.totaldmg = `${item.data.dmg} + ${strMod}`;
                     break;
                 }
                 case "melee" :
@@ -104,7 +106,7 @@ export class CofActor extends Actor {
                     item.data.critrange = (item.data.critrange) ? item.data.critrange : 20;
                     break;
                 case "profile" :
-                    profId = item.data.id;
+                    profileKey = item.data.key;
                     sc = item.data.spellcasting;
                     hd = item.data.dv;
                     break;
@@ -158,7 +160,7 @@ export class CofActor extends Actor {
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
         attributes.dr.value = attributes.dr.base + attributes.dr.bonus;
 
-        switch (profId) {
+        switch (profileKey) {
             case "barde" :
             case "forgesort" :
             case "pretre" :

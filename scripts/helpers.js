@@ -47,6 +47,14 @@ export const registerHandlebarsHelpers = async function () {
         return items.filter(item => item.type === "spell");
     });
 
+    Handlebars.registerHelper('getInventory', function (items) {
+        return items.filter(item => item.type === "armor" || item.type === "shield" || item.type === "melee" || item.type === "ranged" || item.type === "trapping");
+    });
+
+    Handlebars.registerHelper('getWornItems', function (items) {
+        return items.filter(item => item.data.worn || item.type === "spell");
+    });
+
     Handlebars.registerHelper('getWornArmors', function (items) {
         return items.filter(item => item.type === "armor" && item.data.worn);
     });
@@ -74,7 +82,7 @@ export const registerHandlebarsHelpers = async function () {
     Handlebars.registerHelper('getActiveCapacities', function (items) {
         let caps = items.filter(item => item.type === "capacity" && item.data.checked);
         caps.sort(function (a, b) {
-            return (a.data.id > b.data.id) ? 1 : -1
+            return (a.data.key > b.data.key) ? 1 : -1
         });
         return caps;
     });
@@ -82,7 +90,7 @@ export const registerHandlebarsHelpers = async function () {
     Handlebars.registerHelper('getCapacities', function (items) {
         let caps = items.filter(item => item.type === "capacity");
         caps.sort(function (a, b) {
-            return (a.data.id > b.data.id) ? 1 : -1
+            return (a.data.key > b.data.key) ? 1 : -1
         });
         return caps;
     });
@@ -90,13 +98,13 @@ export const registerHandlebarsHelpers = async function () {
     Handlebars.registerHelper('getCapacitiesByPath', function (items, pathKey) {
         let caps = items.filter(item => item.type === "capacity" && item.data.path === pathKey);
         caps.sort(function (a, b) {
-            return (a.data.id > b.data.id) ? 1 : -1
+            return (a.data.key > b.data.key) ? 1 : -1
         });
         return caps;
     });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
-        return items.filter(item => item.type === "path").find(p => p.data.id === pathKey);
+        return items.filter(item => item.type === "path").find(p => p.data.key === pathKey);
     });
 
     Handlebars.registerHelper('isArmor', function (item) {
@@ -222,7 +230,7 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('findCapacities', function (caps) {
-        return COF.capacities.filter(c => caps.includes(c.data.id));
+        return COF.capacities.filter(c => caps.includes(c.data.key));
     });
 
     Handlebars.registerHelper('getValueAtIndex', function (array, index) {

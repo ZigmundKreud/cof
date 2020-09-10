@@ -21,7 +21,7 @@
                     </span>
                 </div>
             </div>
-            {{#if (equals data.scope "profile")}}
+            {{#if (or (equals data.scope "profile") (equals data.scope "prestige"))}}
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.ui.profile"}}</span>
@@ -33,7 +33,7 @@
                         {{#select data.profile}}
                             <option value="">{{localize "COF.None"}}</option>
                             {{#each (listProfiles) as |profile id|}}
-                            <option value="{{profile.data.id}}">{{profile.name}}</option>
+                            <option value="{{profile.data.key}}">{{profile.name}}</option>
                             {{/each}}
                         {{/select}}
                         </select>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             {{/if}}
-            {{#if (or (equals data.scope "profile") (equals data.scope "creature"))}}
+            {{#if (or (equals data.scope "prestige") (or (equals data.scope "profile") (equals data.scope "creature")))}}
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.ui.rank"}}</span>
@@ -63,7 +63,7 @@
                             {{#select data.path}}
                                 <option value="">{{localize "COF.None"}}</option>
                                 {{#each (listPaths) as |path id|}}
-                                    <option value="{{path.data.id}}">{{path.name}}</option>
+                                    <option value="{{path.data.key}}">{{path.name}}</option>
                                 {{/each}}
                             {{/select}}
                         </select>
@@ -83,7 +83,7 @@
                                 {{#select data.species}}
                                     <option value="">{{localize "COF.None"}}</option>
                                     {{#each (listSpecies) as |species id|}}
-                                        <option value="{{species.data.id}}">{{species.name}}</option>
+                                        <option value="{{species.data.key}}">{{species.name}}</option>
                                     {{/each}}
                                 {{/select}}
                             </select>
@@ -116,6 +116,14 @@
                     <span class="field-label">
                         <input class="field-value" name="data.summary" type="text" value="{{item.data.summary}}" placeholder="{{localize "COF.ui.summary"}}" data-dtype="String">
                     </span>
+                </div>
+            </div>
+            <div class="row flexrow">
+                <div class="flex1 center field-header">
+                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>
+                </div>
+                <div class="flex1">
+                    <input class="field-value" name="data.key" type="text" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
                 </div>
             </div>
             {{> "systems/cof/templates/partials/item/item-description.hbs"}}
