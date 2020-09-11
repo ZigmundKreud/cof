@@ -13,7 +13,7 @@ export class CofRangedSheet extends CofItemSheet {
             classes: ["cof", "sheet", "item", "ranged"],
             template: System.templatesPath + "/items/ranged-sheet.hbs",
             width: 430,
-            height: 430,
+            height: 600,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

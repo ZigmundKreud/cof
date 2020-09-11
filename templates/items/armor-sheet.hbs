@@ -2,26 +2,7 @@
     <div class="wrap">
         {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{localize "COF.ui.def"}}</span>
-                </div>
-                <div class="flex1">
-                    <span class="field-label">
-                        <input class="field-value" name="data.def" type="text" value="{{item.data.def}}" placeholder="{{localize "COF.ui.defence"}}" data-dtype="Number">
-                    </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{localize "COF.ui.bonus"}}</span>
-                </div>
-                <div class="flex1">
-                    <span class="field-label">
-                        <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="Bonus" data-dtype="Number">
-                    </span>
-                </div>
-            </div>
+            {{> "systems/cof/templates/partials/item/item-def-stats.hbs"}}
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.attributes.dr.label"}}</span>

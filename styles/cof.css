@@ -883,6 +883,20 @@ select {
   overflow: auto;
 }
 
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list.encounter {
+  min-height: 100px !important;
+  height: 100px !important;
+  max-height: 100px !important;
+  overflow: hidden;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list.encounter .grid {
+  min-height: 100px !important;
+  height: 100px !important;
+  max-height: 100px !important;
+  overflow: auto;
+}
+
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list {
   gap: 3px;
   padding: 0;
@@ -917,6 +931,13 @@ select {
   text-align: justify;
   font-size: 12px;
   font-family: MyriadPro, sans-serif;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.encounter {
+  min-height: calc(100% - 140px) !important;
+  height: calc(100% - 140px) !important;
+  max-height: calc(100% - 140px) !important;
+  overflow: auto;
 }
 
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.description .editor {

@@ -11,9 +11,6 @@
                 <div class="field-label">Usage</div>
             </div>
             <div class="flex1 center">
-                <div class="field-label">Bonus</div>
-            </div>
-            <div class="flex1 center">
                 <div class="field-label">Crit</div>
             </div>
             <div class="flex1 center">
@@ -55,13 +52,6 @@
                     <input class="field-value" readonly="true" name="melee.{{id}}.hands" type="hidden" value="{{item.data.hands}}" data-dtype="Number"/>
                 </div>
                 <div class="flex1 center cell">
-                    {{#if (isZeroOrNull item.data.bonus)}}
-                    <input class="field-value" name="data.items.{{id}}.data.bonus" type="text" value="" data-dtype="Number"/>
-                    {{else}}
-                    <input class="field-value" name="data.items.{{id}}.data.bonus" readonly="true" type="text" value="{{numberFormat item.data.bonus decimals=0 sign=true}}" data-dtype="Number"/>
-                    {{/if}}
-                </div>
-                <div class="flex1 center cell">
                     <input class="field-value item-critrange" readonly="true" name="melee.{{id}}.critrange" type="text" value="{{item.data.critrange}}" data-dtype="String"/>
                 </div>
                 <div class="flex1 center cell">
@@ -75,7 +65,6 @@
                     &nbsp;
                     <div class="rollable" data-rolling="melee[{{id}}]" data-roll-type="damage"><i class="fas fa-dice"></i></div>
                 </div>
-
             </li>
             {{/each}}
         </ol>

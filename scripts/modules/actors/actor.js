@@ -61,7 +61,7 @@ export class CofActor extends Actor {
         attributes.init.value = attributes.init.base + attributes.init.bonus;
 
         let armor = 0;
-        let armorBonus = 0;
+        // let armorBonus = 0;
         let shield = 0;
         let shieldBonus = 0;
         let currxp = 0;
@@ -71,10 +71,8 @@ export class CofActor extends Actor {
         items.forEach(item => {
             switch (item.type) {
                 case "armor" : {
-                    if(item.data.worn){
-                        armor += item.data.def;
-                        armorBonus += item.data.bonus;
-                    }
+                    item.data.def = item.data.defBase + item.data.defBonus;
+                    if (item.data.worn) armor += parseInt(item.data.def);
                     break;
                 }
                 case "capacity" : {
@@ -85,24 +83,49 @@ export class CofActor extends Actor {
                     break;
                 }
                 case "shield" : {
-                    if(item.data.worn){
-                        shield += item.data.def;
-                        shieldBonus += item.data.bonus;
-                    }
-                    item.data.mod = melee.mod;
-                    item.data.totaldmg = `${item.data.dmg} + ${strMod}`;
+                    var skillMod = eval(item.data.skill.split("@")[1]);
+                    var dmgStat = eval(item.data.dmgStat.split("@")[1]);
+                    var r = new Roll("@dmgBase + @bonuses", {
+                        dmgBase: item.data.dmgBase,
+                        bonuses: parseInt(dmgStat) + parseInt(item.data.dmgBonus)
+                    });
+                    item.data.mod = parseInt(skillMod) + parseInt(item.data.skillBonus);
+                    item.data.dmg = r.formula;
+                    item.data.def = parseInt(item.data.defBase) + parseInt(item.data.defBonus);
+
+                    if (item.data.worn) shield += item.data.def;
                     break;
                 }
                 case "melee" :
-                    item.data.mod = melee.mod;
-                    item.data.totaldmg = `${item.data.dmg} + ${strMod}`;
+                    var skillMod = eval(item.data.skill.split("@")[1]);
+                    var dmgStat = eval(item.data.dmgStat.split("@")[1]);
+                    var r = new Roll("@dmgBase + @bonuses", {
+                        dmgBase: item.data.dmgBase,
+                        bonuses: parseInt(dmgStat) + parseInt(item.data.dmgBonus)
+                    });
+                    item.data.mod = parseInt(skillMod) + parseInt(item.data.skillBonus);
+                    item.data.dmg = r.formula;
                     break;
                 case "ranged" :
-                    item.data.mod = ranged.mod;
+                    var skillMod = eval(item.data.skill.split("@")[1]);
+                    var dmgStat = eval(item.data.dmgStat.split("@")[1]);
+                    var r = new Roll("@dmgBase + @bonuses", {
+                        dmgBase: item.data.dmgBase,
+                        bonuses: parseInt(dmgStat) + parseInt(item.data.dmgBonus)
+                    });
+                    item.data.mod = parseInt(skillMod) + parseInt(item.data.skillBonus);
+                    item.data.dmg = r.formula;
                     item.data.critrange = (item.data.critrange) ? item.data.critrange : 20;
                     break;
                 case "spell" :
-                    item.data.mod = magic.mod;
+                    var skillMod = eval(item.data.skill.split("@")[1]);
+                    var dmgStat = eval(item.data.dmgStat.split("@")[1]);
+                    var r = new Roll("@dmgBase + @bonuses", {
+                        dmgBase: item.data.dmgBase,
+                        bonuses: parseInt(dmgStat) + parseInt(item.data.dmgBonus)
+                    });
+                    item.data.mod = parseInt(skillMod) + parseInt(item.data.skillBonus);
+                    item.data.dmg = r.formula;
                     item.data.critrange = (item.data.critrange) ? item.data.critrange : 20;
                     break;
                 case "profile" :
@@ -149,11 +172,7 @@ export class CofActor extends Actor {
         }
 
         // UPDATE ARMOR, SHIELD & DEF FROM ITEMS IN INVENTORY
-        const armorDef = (armorBonus) ? armor + armorBonus : armor;
-        const shieldDef = (shieldBonus) ? shield + shieldBonus : shield;
-        const dodge = (dexMod) ? dexMod : 0;
-
-        attributes.def.base = 10 + armorDef + shieldDef + dodge;
+        attributes.def.base = 10 + armor + shield + dexMod;
         attributes.def.value = attributes.def.base + attributes.def.bonus;
 
         attributes.fp.base = 3 + chaMod;
@@ -204,5 +223,33 @@ export class CofActor extends Actor {
     }
 
     _prepareEncounterData(actorData) {
+        const stats = actorData.data.stats;
+
+        // COMPUTE MODS
+        for (const stat of Object.values(stats)) {
+            stat.value = Stats.getStatValueFromMod(stat.mod);
+        }
+
+        // MODIFY TOKEN REGARDING SIZE
+        switch (actorData.data.details.size) {
+            case "big":
+                actorData.token.width = 2;
+                actorData.token.height = 2;
+                break;
+            case "huge":
+                actorData.token.width = 3;
+                actorData.token.height = 3;
+                break;
+            case "colossal":
+                actorData.token.width = 4;
+                actorData.token.height = 4;
+                break;
+            case "tiny":
+            case "small":
+            case "short":
+            case "med":
+            default:
+                break;
+        }
     }
 }

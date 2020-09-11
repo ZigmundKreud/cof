@@ -13,7 +13,7 @@ export class CofShieldSheet extends CofItemSheet {
             classes: ["cof", "sheet", "item", "shield"],
             template: System.templatesPath + "/items/shield-sheet.hbs",
             width: 430,
-            height: 430
+            height: 700
         });
     }
 }

@@ -2,52 +2,7 @@
     <div class="wrap">
         {{> "systems/cof/templates/partials/item/item-header.hbs"}}
         <div class="main">
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{localize "COF.ui.damage"}}</span>
-                </div>
-                <div class="flex1">
-                    <span class="field-label">
-                        <input class="field-value" name="data.dmgBase" type="text" value="{{item.data.dmgBase}}" placeholder="{{localize "COF.ui.dmg"}}" data-dtype="String">
-                    </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{localize "COF.ui.usage"}}</span>
-                </div>
-                <div class="flex1">
-                    <span class="field-label">
-                        <select name="data.hands" data-type="Number" style="width:100%">
-                            {{#select data.hands}}
-                            <option value="0">{{localize "COF.None"}}</option>
-                            <option value="1">{{localize "COF.ui.1H"}}</option>
-                            <option value="2">{{localize "COF.ui.2H"}}</option>
-                            {{/select}}
-                        </select>
-                    </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{localize "COF.ui.critrange"}}</span>
-                </div>
-                <div class="flex1">
-                    <span class="field-label">
-                        <input class="field-value" name="data.critrange" type="text" value="{{item.data.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
-                    </span>
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{localize "COF.ui.bonus"}}</span>
-                </div>
-                <div class="flex1">
-                    <span class="field-label">
-                        <input class="field-value" name="data.bonus" type="text" value="{{item.data.bonus}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number">
-                    </span>
-                </div>
-            </div>
+            {{> "systems/cof/templates/partials/item/item-weapon-stats.hbs"}}
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.ui.range"}}</span>
@@ -64,15 +19,13 @@
                 </div>
                 <div class="flex1">
                     <span class="field-label">
-                        <input class="field-value" name="data.reload" type="text" value="{{item.data.reload}}" placeholder="Reload" data-dtype="String">
                         <select name="data.reload" data-type="String" style="width:100%">
                             {{#select data.reload}}
-                            <option value="">{{localize "COF.ui.no.action"}}</option>
-                            <option value="S">{{localize "COF.ui.simple.action"}}</option>
-                            <option value="L">{{localize "COF.ui.limited.action"}}</option>
+                            <option value="">{{localize "COF.ui.noAction"}}</option>
+                            <option value="s">{{localize "COF.ui.simpleAction"}}</option>
+                            <option value="l">{{localize "COF.ui.limitedAction"}}</option>
                             {{/select}}
                         </select>
-
                     </span>
                 </div>
             </div>

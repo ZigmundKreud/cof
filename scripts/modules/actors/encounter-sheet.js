@@ -12,7 +12,7 @@ export class CofEncounterSheet extends CofActorSheet {
             classes: ["cof", "sheet", "actor", "encounter"],
             template: System.templatesPath+"/actors/encounter-sheet.hbs",
             width: 770,
-            height: 460,
+            height: 740,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats"}],
             dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
         });
@@ -39,8 +39,6 @@ export class CofEncounterSheet extends CofActorSheet {
             const elt = $(ev.currentTarget).parents(".attack");
             const idx = elt.data("itemId");
             const data = this.getData().data;
-            console.log(data.attacks);
-            console.log(Object.entries(data.attacks));
             data.attacks = Object.values(data.attacks);
             data.attacks.push({"name":"", "mod":null, "dmg":null});
             this.actor.update({'data.attacks': data.attacks});
@@ -51,8 +49,6 @@ export class CofEncounterSheet extends CofActorSheet {
             const elt = $(ev.currentTarget).parents(".attack");
             const idx = elt.data("itemId");
             const data = this.getData().data;
-            console.log(data.attacks);
-            console.log(Object.entries(data.attacks));
             data.attacks = Object.values(data.attacks);
             if(data.attacks.length == 1) data.attacks[0] = {"name":"", "mod":null, "dmg":null};
             else data.attacks.splice(idx, 1);

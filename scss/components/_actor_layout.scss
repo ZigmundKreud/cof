@@ -153,8 +153,22 @@
                     max-height: 150px !important;
                     overflow: auto;
                   }
-                }
 
+                  &.encounter {
+                    min-height: 100px !important;
+                    height: 100px !important;
+                    max-height: 100px !important;
+                    overflow: hidden;
+
+                    .grid {
+                      min-height: 100px !important;
+                      height: 100px !important;
+                      max-height: 100px !important;
+                      overflow: auto;
+                    }
+                  }
+
+                }
                 .capacity-list {
                   gap: 3px;
                   padding: 0;
@@ -187,6 +201,13 @@
                       font-size: 12px;
                       font-family: $font-secondary;
                     }
+                  }
+
+                  &.encounter {
+                    min-height: calc(100% - 140px) !important;
+                    height: calc(100% - 140px) !important;
+                    max-height: calc(100% - 140px) !important;
+                    overflow: auto;
                   }
                 }
               }

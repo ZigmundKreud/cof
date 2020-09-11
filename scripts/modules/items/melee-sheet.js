@@ -13,7 +13,7 @@ export class CofMeleeSheet extends CofItemSheet {
             classes: ["cof", "sheet", "item", "melee"],
             template: System.templatesPath + "/items/melee-sheet.hbs",
             width: 430,
-            height: 430,
+            height: 600,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
         });
     }

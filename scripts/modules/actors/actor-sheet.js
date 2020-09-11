@@ -2,7 +2,6 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-import {Logger} from "../logger.js";
 import {CharacterGeneration} from "../chargen.js";
 
 export class CofActorSheet extends ActorSheet {
@@ -22,7 +21,7 @@ export class CofActorSheet extends ActorSheet {
         html.find('.compendium-pack').dblclick(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
-            if ( li.attr("data-open") === "1" ) pack.close();
+            if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
                 li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
@@ -63,6 +62,10 @@ export class CofActorSheet extends ActorSheet {
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
+        html.find('.capacity-create').click(ev => {
+            ev.preventDefault();
+            return this._onCapacityCreate(ev);
+        });
 
 
         // Display item sheet
@@ -82,6 +85,21 @@ export class CofActorSheet extends ActorSheet {
         html.find('.item-delete').click(ev => {
             return this._onDeleteItem(ev);
         });
+    }
+
+    /* -------------------------------------------- */
+    /**
+     * Callback on capacity create action
+     * @param event the create event
+     * @private
+     */
+    async _onCapacityCreate(event) {
+        const data = {name: "New Capacity", type: "capacity", data: {checked: true}};
+        const created = await this.actor.createOwnedItem(data, {renderSheet: true}); // Returns one Entity, saved to the database
+        // const created = await Item.create(data); // Returns one Entity, saved to the database
+        // game.items.insert(item);
+        // const li = $(ev.currentTarget).closest(".capacity");
+        // const item = this.actor.getOwnedItem(li.data("itemId"));
     }
 
     /* -------------------------------------------- */
@@ -125,7 +143,7 @@ export class CofActorSheet extends ActorSheet {
                 let data = this.getData();
                 let stats = data.data.stats;
                 Object.values(stats).map(s => s.racial = 0);
-                actor.update({ 'data.stats' : stats });
+                actor.update({'data.stats': stats});
                 actor.deleteOwnedItem(li.data("itemId"));
                 li.slideUp(200, () => parent.render(false));
             },
@@ -160,10 +178,8 @@ export class CofActorSheet extends ActorSheet {
             title: "Supprimer le profil ?",
             content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${this.actor.name} ?</p>`,
             yes: () => {
-                console.log(itemData);
                 // delete profile related capacities
                 let itemsToDelete = actor.items.filter(item => {
-                    console.log(item);
                     return item.data.type === "capacity" && item.data.data.profile === itemData.data.data.key
                 }).map(c => c.data._id);
                 // add profile related paths
@@ -242,9 +258,9 @@ export class CofActorSheet extends ActorSheet {
         let label = item.find(".item-name").text();
         let mod = item.find(".item-mod").val();
         let critrange = item.find(".item-critrange").val();
-        let bonus = item.find(".item-bonus").val();
-        console.log(mod, bonus);
-        this._rollDialog(label, mod, bonus, critrange);
+        // let bonus = item.find(".item-bonus").val();
+        let dmg = item.find(".item-dmg").val();
+        this._rollWeaponDialog(label, mod, 0, critrange, dmg);
     }
 
     /* -------------------------------------------- */
@@ -260,7 +276,6 @@ export class CofActorSheet extends ActorSheet {
         let mod = item.find(".item-mod").val();
         let critrange = item.find(".item-critrange").val();
         let bonus = item.find(".item-bonus").val();
-        console.log(mod, bonus);
         this._rollDialog(label, mod, bonus, critrange);
     }
 
@@ -276,7 +291,7 @@ export class CofActorSheet extends ActorSheet {
         const item = $(event.currentTarget).parents(".item");
         let label = item.find(".item-name").text();
         let dmg = item.find(".item-dmg").val();
-        this._rollDamageDialog(label, dmg);
+        this._rollDamageDialog(label, dmg, 0);
     }
 
     /* -------------------------------------------- */
@@ -287,7 +302,6 @@ export class CofActorSheet extends ActorSheet {
      * @private
      */
     _rollHitPoints(event, key) {
-        console.log("_rollHitPoints");
         let data = this.getData().data;
         let hp = data.attributes.hp;
         const lvl = data.level.value;
@@ -299,19 +313,17 @@ export class CofActorSheet extends ActorSheet {
             title: "Roll Hit Points",
             content: `<p>Êtes sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
             yes: () => {
-                if(profile){
+                if (profile) {
                     const hd = profile.data.data.dv;
                     const hdmax = parseInt(hd.split("d")[1]);
-                    console.log(profile.data.data.dv);
                     // If LVL 1 COMPUTE HIT POINTS
-                    if(lvl == 1){
+                    if (lvl == 1) {
                         hp.base = hdmax + conMod;
                         hp.max = hp.base + hp.bonus;
                         hp.value = hp.max;
-                    }
-                    else{
+                    } else {
                         const hpLvl1 = hdmax + conMod;
-                        const dice2Roll = lvl -1;
+                        const dice2Roll = lvl - 1;
                         const formula = `${dice2Roll}d${hdmax} + ${dice2Roll * conMod}`;
                         const r = new Roll(formula);
                         r.roll();
@@ -325,9 +337,8 @@ export class CofActorSheet extends ActorSheet {
                         hp.value = hp.max;
                     }
 
-                    actor.update({ 'data.attributes.hp' : hp }).then(()=>this._render(false));
-                }
-                else ui.notifications.error("Vous devez sélectionner un profil.");
+                    actor.update({'data.attributes.hp': hp}).then(() => this._render(false));
+                } else ui.notifications.error("Vous devez sélectionner un profil.");
             },
             defaultYes: false
         });
@@ -351,12 +362,12 @@ export class CofActorSheet extends ActorSheet {
             content: `<p>Êtes sûr de vouloir remplacer les caractériques de <strong>${actor.name}</strong></p>`,
             yes: () => {
                 const rolls = CharacterGeneration.statsCommand(actor);
-                let i =0;
+                let i = 0;
                 for (const stat of Object.values(stats)) {
                     stat.base = rolls[i].total;
                     ++i;
                 }
-                actor.update({ 'data.stats' : stats }).then(()=>this._render(false));
+                actor.update({'data.stats': stats}).then(() => this._render(false));
             },
             defaultYes: false
         });
@@ -365,11 +376,12 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
     /* ROLL DIALOGS                                 */
+
     /* -------------------------------------------- */
 
     async _rollDialog(label, mod, bonus, critrange) {
         const rollOptionTpl = 'systems/cof/templates/roll-options-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange:critrange});
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange});
 
         let d = new Dialog({
             title: label,
@@ -417,9 +429,76 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
 
-    async _rollDamageDialog(label, formula) {
+    async _rollWeaponDialog(label, mod, bonus, critrange, formula) {
+        const rollOptionTpl = 'systems/cof/templates/roll-weapon-dialog.hbs';
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {
+            mod: mod,
+            bonus: bonus,
+            critrange: critrange,
+            formula: formula
+        });
+
+        let d = new Dialog({
+            title: "Damage Roll",
+            content: rollOptionContent,
+            buttons: {
+                cancel: {
+                    icon: '<i class="fas fa-times"></i>',
+                    label: "Cancel",
+                    callback: () => {
+                    }
+                },
+                submit: {
+                    icon: '<i class="fas fa-check"></i>',
+                    label: "Submit",
+                    callback: (html) => {
+                        const dice = html.find("#dice").val();
+                        const diff = html.find('#difficulty').val();
+                        const critrange = html.find('input#critrange').val();
+                        const m = html.find('input#mod').val();
+                        const b = html.find('input#bonus').val();
+                        const t = parseInt(m) + parseInt(b);
+                        const skillFormula = `${dice} + ${t}`;
+                        const skillRoll = new Roll(skillFormula);
+                        skillRoll.roll();
+                        const kept = skillRoll.parts[0].rolls.filter(r => !r.discarded)[0].roll;
+                        const isCritical = kept >= critrange.split("-")[0];
+                        const isFumble = kept === 1;
+                        const isSuccess = skillRoll.total >= diff;
+                        const skillCheckFlavor = this._buildRollMessage(label, diff, isCritical, isFumble, isSuccess);
+                        skillRoll.toMessage({
+                            user: game.user._id,
+                            flavor: skillCheckFlavor,
+                            speaker: ChatMessage.getSpeaker({actor: this.actor})
+                        });
+
+                        if (isSuccess) {
+                            const dmgFormula = html.find("#formula").val();
+                            const damageRoll = new Roll(dmgFormula);
+                            damageRoll.roll();
+                            if (isCritical) damageRoll._total = damageRoll._total * 2;
+                            const dmgCheckFlavor = this._buildDamageRollMessage(label, isCritical);
+                            damageRoll.toMessage({
+                                user: game.user._id,
+                                flavor: dmgCheckFlavor,
+                                speaker: ChatMessage.getSpeaker({actor: this.actor})
+                            });
+                        }
+                    }
+                }
+            },
+            default: "submit",
+            close: () => {
+            }
+        });
+        d.render(true);
+    }
+
+    /* -------------------------------------------- */
+
+    async _rollDamageDialog(label, formula, bonus) {
         const rollOptionTpl = 'systems/cof/templates/roll-dmg-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {formula: formula, bonus: 0, custom: ""});
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {formula: formula, bonus: bonus, custom: ""});
 
         let d = new Dialog({
             title: "Damage Roll",
@@ -442,7 +521,7 @@ export class CofActorSheet extends ActorSheet {
                         // const isCritical = kept === 20;
                         // const isFumble = kept === 1;
                         // const isSuccess = r.total >= diff;
-                        const msgFlavor = this._buildDamageRollMessage(label);
+                        const msgFlavor = this._buildDamageRollMessage(label, false);
                         r.toMessage({
                             user: game.user._id,
                             flavor: msgFlavor,
@@ -470,12 +549,9 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
 
-    _buildDamageRollMessage(label) {
+    _buildDamageRollMessage(label, isCritical) {
         let subtitle = `<h3><strong>${label}</strong></h3>`;
-        // if(isCritical) return `<h2 class="success critical">Critique !</h2>${subtitle}`;
-        // if(isFumble) return `<h2 class="failure fumble">Fumble !</h2>${subtitle}`;
-        // if(isSuccess) return `<h2 class="success">Réussite !</h2>${subtitle}`;
-        // else return `<h2 class="failure">Echec...</h2>${subtitle}`;
+        if (isCritical) return `<h2 class="damage">Jet de dommages critique !</h2>${subtitle}`;
         return `<h2 class="damage">Jet de dommages</h2>${subtitle}`;
     }
 
@@ -530,7 +606,6 @@ export class CofActorSheet extends ActorSheet {
         // let authorized = true;
 
         let itemData = await this._getItemDropData(event, data);
-        console.log(itemData);
 
         switch (itemData.type) {
             case "path"    :
@@ -545,6 +620,8 @@ export class CofActorSheet extends ActorSheet {
             case "melee" :
             case "ranged" :
             default:
+                // activate the capacity as it is droped on an actor sheet
+                if (itemData.type === "capacity") itemData.data.checked = true;
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
                 let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
@@ -571,14 +648,7 @@ export class CofActorSheet extends ActorSheet {
             return false;
         } else {
             const capsContent = await game.packs.get("cof.capacities").getContent();
-            let items = duplicate(capsContent.filter(entity => {
-                if(entity.data.data.path === itemData.data.key) {
-                    console.log(entity.data.data.path, itemData.data.key);
-                    return true;
-                }
-                else return false;
-            }));
-            console.log(items);
+            let items = duplicate(capsContent.filter(entity => entity.data.data.path === itemData.data.key));
             items.push(itemData);
             return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
         }
@@ -590,15 +660,11 @@ export class CofActorSheet extends ActorSheet {
             ui.notifications.error("Vous avez déjà un profil.");
             return false;
         } else {
-            console.log(profileItemData);
             const pathsContent = await game.packs.get("cof.paths").getContent();
-            console.log(pathsContent);
             let items = pathsContent.filter(entity => entity.data.data.profile === profileItemData.data.key);
-            console.log(items);
             const capsContent = await game.packs.get("cof.capacities").getContent();
             items.push(...capsContent.filter(entity => entity.data.data.profile === profileItemData.data.key));
             items.push(profileItemData);
-            // console.log(items);
             return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
         }
     }
@@ -611,12 +677,12 @@ export class CofActorSheet extends ActorSheet {
         } else {
             let data = this.getData();
             let stats = data.data.stats;
-            for(let i=0; i<6; i++){
+            for (let i = 0; i < 6; i++) {
                 // Object.values(stats).racial = itemData.data.bonuses[i];
                 Object.values(stats)[i].racial = itemData.data.bonuses[i];
             }
-            return this.actor.createEmbeddedEntity("OwnedItem", itemData).then(()=>
-                this.actor.update({ 'data.stats' : stats }).then(() => this._render(false))
+            return this.actor.createEmbeddedEntity("OwnedItem", itemData).then(() =>
+                this.actor.update({'data.stats': stats}).then(() => this._render(false))
             );
             // await this.actor.update({ 'data.stats' : stats }).then(() => this._render(false));
             // return true;
@@ -634,7 +700,6 @@ export class CofActorSheet extends ActorSheet {
         let itemData = null;
         // Case 1 - Import from a Compendium pack
         if (data.pack) {
-            console.log(data);
             const pack = game.packs.get(data.pack);
             if (pack.metadata.entity !== "Item") return;
             itemData = await pack.getEntry(data.id);
@@ -645,7 +710,6 @@ export class CofActorSheet extends ActorSheet {
         }
         // Case 3 - Import from World entity
         else {
-            console.log(data);
             let item = game.items.get(data.id);
             if (!item) return;
             itemData = item.data;
@@ -671,11 +735,10 @@ export class CofActorSheet extends ActorSheet {
         let data = this.getData();
         // Get all capacities from the same path with an inferior rank
         let items = data.items.filter(item => {
-            if(item.type === "capacity" && item.data.path === capacity.data.data.path){
-                if(isUncheck) return item.data.rank >= capacity.data.data.rank;
+            if (item.type === "capacity" && item.data.path === capacity.data.data.path) {
+                if (isUncheck) return item.data.rank >= capacity.data.data.rank;
                 else return item.data.rank <= capacity.data.data.rank;
-            }
-            else return false;
+            } else return false;
         });
         items.forEach(item => {
             item.data.checked = !isUncheck;
@@ -722,6 +785,6 @@ export class CofActorSheet extends ActorSheet {
             s.bonus = 0;
             s.tmpval = null;
         });
-        this.actor.update({ 'data.stats' : stats });
+        this.actor.update({'data.stats': stats});
     }
 }

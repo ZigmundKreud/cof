@@ -20,6 +20,11 @@ const Stats = {};
 Stats.getModFromStatValue = function (value) {
     return (value < 4) ? -4 : Math.floor(value / 2) - 5;
 };
+Stats.getStatValueFromMod = function (mod) {
+    if(mod >=0) return mod * 2 + 10;
+    else if(mod >= -5) return 10 - mod * 2;
+    else return 0;
+};
 
 const StringUtils = {};
 
