@@ -3,11 +3,14 @@
     <div class="entry-content">
         <div>
             <div>
-                <div><h2><a href="http://co-drs.org/creatures/elfe-des-bois/">Elfe des bois</a></h2></div>
-                <div><p>Les Caractéristiques présentées&nbsp;ici correspondent à des elfes archers&nbsp;qui sillonnent et défendent&nbsp;leur territoire. Ils sont généralement&nbsp;très discrets et n’apprécient pas les étrangers, encore&nbsp;moins les nains ou les sang-mêlé.&nbsp;Ils sont généralement une demi douzaine,&nbsp;guidés par un chef&nbsp;(Boss rang 1).</p></div>
-                <div>Milieu naturel : forêt</div>
+                <key>elfe-des-bois</key>
+                <name>Elfe des bois</name>
+                <div><p>Les Caractéristiques présentées ici correspondent à des elfes archers qui sillonnent et défendent leur territoire. Ils sont généralement très discrets et n’apprécient pas les étrangers, encore moins les nains ou les sang-mêlé. Ils sont généralement une demi douzaine, guidés par un chef (Boss rang 1).</p></div>
+                <milieu>forêt</milieu>
                 <archetype>rapide</archetype>
-                <boss><rank>0.5</rank></boss>
+                <boss>
+                    <rank>0.5</rank>
+                </boss>
                 <nc>2</nc>
                 <category>créature humanoïde</category>
                 <size>taille moyenne</size>
@@ -36,114 +39,6 @@
                     <dmg>1d6+1</dmg>
                 </attack>
                 <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-predateur/">Voie du prédateur</a></strong> rang 1</p></div>
-            </div>
-            <div>
-                <div><h2><a href="http://co-drs.org/creatures/guerrier-elfe-noir/">Guerrier elfe noir</a></h2></div>
-                <div>Milieu naturel : souterrain</div>
-                <archetype>standard</archetype>
-                <nc>3</nc>
-                <category>créature humanoïde</category>
-                <size>taille moyenne</size>
-                <stats>
-                    <str>+0</str>
-                    <dex>+4*</dex>
-                    <con>+0</con>
-                    <int>+0</int>
-                    <wis>+2*</wis>
-                    <cha>+0</cha>
-                </stats>
-                <attributes>
-                    <def>17</def>
-                    <hp>16</hp>
-                    <init>23</init>
-                </attributes>
-                <attack>
-                    <name>Arbalète légère</name>
-                    <mod>+8</mod>
-                    <range>30m</range>
-                    <dmg>2d4+1 + poison</dmg>
-                </attack>
-                <attack>
-                    <name>Épée courte</name>
-                    <mod>+6</mod>
-                    <dmg>1d6+1</dmg>
-                </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-predateur/">Voie du prédateur</a></strong> rang 1</p></div>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Poison :</em> les carreaux d’arbalète des drows sont enduits de poison. La victime d’une attaque réussie doit faire un test de CON difficulté 12 ou sombrer dans l’inconscience en 1d6 tours pour une durée de 1d6 minutes.</p></div>
-            </div>
-            <div>
-                <div><h2><a href="http://co-drs.org/creatures/guerriere-elfe-noir/">Guerrière elfe noir</a></h2></div>
-                <div>Milieu naturel : souterrain</div>
-                <archetype>rapide</archetype>
-                <boss><rank>1.5</rank></boss>
-                <nc>5</nc>
-                <category>créature humanoïde</category>
-                <size>taille moyenne</size>
-                <stats>
-                    <str>+1</str>
-                    <dex>+4*</dex>
-                    <con>+1</con>
-                    <int>+2</int>
-                    <wis>+2*</wis>
-                    <cha>+2</cha>
-                </stats>
-                <attributes>
-                    <def>19</def>
-                    <hp>36</hp>
-                    <init>23</init>
-                </attributes>
-                <attack>
-                    <name>Arbalète légère</name>
-                    <mod>+8</mod>
-                    <range>30m</range>
-                    <dmg>2d4+3</dmg>
-                </attack>
-                <attack>
-                    <name>Épée courte (2 attaques)</name>
-                    <mod>+8</mod>
-                    <dmg>1d6+3</dmg>
-                </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-predateur/">Voie du prédateur</a></strong> rang 1</p></div>
-                <div><strong>Capacités</strong></div>
-                <div><p><em><a class="fc-autolink" href="http://co-drs.org/capacites/capitaine/">Capitaine</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-du-chef-d-armee/">Voie du chef d’armée</a> rang 2)<br> <em>Poison :</em> les carreaux d’arbalète des drows sont enduits de poison. La victime d’une attaque réussie doit faire un test de CON difficulté 12 ou sombrer dans l’inconscience en 1d6 tours pour une durée de 1d6 minutes.</p></div>
-            </div>
-            <div>
-                <div><h2><a href="http://co-drs.org/creatures/pretresse-elfe-noir/">Prêtresse elfe noir</a>
-                </h2></div>
-                <div>Milieu naturel : souterrain</div>
-                <archetype>rapide</archetype>
-                <boss><rank>2.5</rank></boss>
-                <nc>7</nc>
-                <category>créature humanoïde</category>
-                <size>taille moyenne</size>
-                <stats>
-                    <str>+2</str>
-                    <dex>+4*</dex>
-                    <con>+2</con>
-                    <int>+2</int>
-                    <wis>+4*</wis>
-                    <cha>+2</cha>
-                </stats>
-                <attributes>
-                    <def>21</def>
-                    <hp>56</hp>
-                    <init>18</init>
-                </attributes>
-                <attack>
-                    <name>Masse serpent</name>
-                    <mod>+10</mod>
-                    <dmg>1d6+4</dmg>
-                </attack>
-                <attack>
-                    <name>Attaque magique</name>
-                    <mod>+10</mod>
-                    <range>30m</range>
-                    <dmg>7d6</dmg>
-                </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-de-combat/">Voie de la magie de combat</a></strong> rang 1</p></div>
-                <div><strong>Capacités</strong></div>
-                <div><p><em><a class="fc-autolink" href="http://co-drs.org/capacites/chair-a-canon/">Chair à canon</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-du-pnj-recurrent/">Voie du PNJ récurrent</a> rang 2)<br> <em><a class="fc-autolink" href="http://co-drs.org/capacites/injonction-mortelle/">Injonction mortelle</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-malefique/">Voie de la magie maléfique</a> rang 3)<br> <em>Poison :</em> la masse serpent de la prêtresse inocule du poison à sa victime à chaque attaque. Elle doit faire un test de CON difficulté 14 ou sombrer dans l’inconscience immédiatement pour une durée de 1d6 minutes.</p></div>
             </div>
         </div>
     </div>
