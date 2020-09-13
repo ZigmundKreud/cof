@@ -1,7 +1,6 @@
 <article id="post-2362" class="post-2362 fc_creature_group type-fc_creature_group status-publish hentry">
     <header class="entry-header"><h1 class="entry-title">Pixies</h1></header>
     <div class="entry-content">
-        <div><p>Un pixie est un être féérique de petite taille (environ 75 cm pour 15 kg) d’apparence humaine doté d’ailes diaphanes similaires à celles des libellules. Ils vivent cachés dans les forêts les plus sauvages qu’ils protègent sans peur même devant les créatures les plus malfaisantes. De nombreux pixies sont passés maître dans l’art de la magie de l’esprit ce qui les rend beaucoup plus dangereux que leurs compatriotes non-initiés.</p></div>
         <div>
             <div>
                 <key>pixie</key>
@@ -9,6 +8,7 @@
                 <family>
                     <name>Pixies</name>
                     <key>pixies</key>
+                    <description><p>Un pixie est un être féérique de petite taille (environ 75 cm pour 15 kg) d’apparence humaine doté d’ailes diaphanes similaires à celles des libellules. Ils vivent cachés dans les forêts les plus sauvages qu’ils protègent sans peur même devant les créatures les plus malfaisantes. De nombreux pixies sont passés maître dans l’art de la magie de l’esprit ce qui les rend beaucoup plus dangereux que leurs compatriotes non-initiés.</p></description>
                 </family>
                 <milieu>forêt</milieu>
                 <archetype>rapide</archetype>
@@ -49,7 +49,9 @@
                 <family>
                     <name>Pixies</name>
                     <key>pixies</key>
+                    <description><p>Un pixie est un être féérique de petite taille (environ 75 cm pour 15 kg) d’apparence humaine doté d’ailes diaphanes similaires à celles des libellules. Ils vivent cachés dans les forêts les plus sauvages qu’ils protègent sans peur même devant les créatures les plus malfaisantes. De nombreux pixies sont passés maître dans l’art de la magie de l’esprit ce qui les rend beaucoup plus dangereux que leurs compatriotes non-initiés.</p></description>
                 </family>
+                <description><p><strong>Ensorceleur</strong> de niveau 6</p></description>
                 <milieu>forêt</milieu>
                 <archetype>standard</archetype>
                 <nc>4</nc>
@@ -73,9 +75,31 @@
                     <mod>+10</mod>
                     <dmg>1d4</dmg>
                 </attack>
-                <div><p><strong>Attaque magique</strong> +8</p></div>
-                <div><p><strong>Ensorceleur</strong> de niveau 6</p></div>
-                <div><p><strong>Voie de l’envouteur</strong> rang 4</p></div>
+                <attack>
+                    <name>Attaque magique</name>
+                    <mod>+8</mod>
+                    <dmg></dmg>
+                </attack>
+                <path>
+                    <key>voie-de-l-envouteur</key>
+                    <name>Voie de l’envoûteur</name>
+                    <rank>1</rank>
+                </path>
+                <path>
+                    <key>voie-de-l-envouteur</key>
+                    <name>Voie de l’envoûteur</name>
+                    <rank>2</rank>
+                </path>
+                <path>
+                    <key>voie-de-l-envouteur</key>
+                    <name>Voie de l’envoûteur</name>
+                    <rank>3</rank>
+                </path>
+                <path>
+                    <key>voie-de-l-envouteur</key>
+                    <name>Voie de l’envoûteur</name>
+                    <rank>4</rank>
+                </path>
                 <path>
                     <key>voie-des-illusions</key>
                     <name>Voie des illusions</name>
