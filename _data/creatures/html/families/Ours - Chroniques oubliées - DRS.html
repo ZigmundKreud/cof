@@ -5,6 +5,10 @@
             <div>
                 <key>ours-noir</key>
                 <name>Ours noir</name>
+                <family>
+                    <name>Ours</name>
+                    <key>ours</key>
+                </family>
                 <div><p>Ce Profil correspond aux espèces d’ours de petite taille ne dépassant pas 150 kg. Plus agile et plus rapide que son cousin l’ours brun, il est tout à fait capable de grimper aux arbres.</p></div>
                 <milieu>forêt</milieu>
                 <archetype>puissant</archetype>
@@ -37,6 +41,10 @@
             <div>
                 <key>ours-brun</key>
                 <name>Ours brun</name>
+                <family>
+                    <name>Ours</name>
+                    <key>ours</key>
+                </family>
                 <div><p>L’ours brun mesure environ 1,50 m au garrot et jusqu’à 2m50 lorsqu’il se dresse sur ses pattes postérieures pour un poids d’environ 300 kg. On peut aussi trouver des spécimens d’ours noir particulièrement massifs (jusqu’à 400kg) qui correspondent à ce profil.</p></div>
                 <milieu>forêt</milieu>
                 <archetype>standard</archetype>
@@ -64,11 +72,15 @@
                     <mod>+10</mod>
                     <dmg>2d6+6</dmg>
                 </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-cogneur/">Voie du cogneur</a></strong> rang 1</p></div>
+                 <path><key>voie-du-cogneur</key><name>Voie du cogneur</name><rank>1</rank></path>
             </div>
             <div>
                 <key>ours-polaire</key>
                 <name>Ours polaire</name>
+                <family>
+                    <name>Ours</name>
+                    <key>ours</key>
+                </family>
                 <div><p>Avec des mensurations moyennes de 500kg pour 3m le grand ours polaire mâle est le plus gros prédateur terrestre avec l’ours Kodiak (encore un peu plus gros).</p></div>
                 <milieu>montagne</milieu>
                 <archetype>puissant</archetype>
@@ -96,11 +108,15 @@
                     <mod>+12</mod>
                     <dmg>2d8+7</dmg>
                 </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-cogneur/">Voie du cogneur</a></strong> rang 2</p></div>
+                <path><key>voie-du-cogneur</key><name>Voie du cogneur</name><rank>1</rank></path>
+                 <path><key>voie-du-cogneur</key><name>Voie du cogneur</name><rank>2</rank></path>
             </div>
             <div>
-                <div><h2><a href="http://co-drs.org/creatures/ours-prehistorique/">Ours préhistorique</a>
-                </h2></div>
+                <div><h2><a href="http://co-drs.org/creatures/ours-prehistorique/">Ours préhistorique</a></h2></div>
+                <family>
+                    <name>Ours</name>
+                    <key>ours</key>
+                </family>
                 <div><p>On a retrouvé en Amérique du sud les restes d’un ours qui pesait probablement 1600 kg, la taille de son humérus laisserait entendre qu’il était aussi massif qu’un éléphant…</p></div>
                 <milieu>montagne</milieu>
                 <archetype>standard</archetype>
@@ -129,45 +145,16 @@
                     <mod>+17</mod>
                     <dmg>3d6+13</dmg>
                 </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-colosse/">Voie du colosse</a></strong> rang 1</p></div>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-cogneur/">Voie du cogneur</a></strong> rang 1</p></div>
-            </div>
-            <div>
-                <div><h2><a href="http://co-drs.org/creatures/ours-hibou-zombi/">Ours hibou zombi</a>
-                </h2></div>
-                <div><p>L’ours hibou zombi voit son NC réduit par rapport à la créature originale : la <a class="fc-autolink" href="http://co-drs.org/voies/voie-du-cogneur/">Voie du cogneur</a> a été supprimée car elle ne correspondait pas à la lenteur du zombi. C’est une formidable machine à tuer, résistante et dangereuse, heureusement, il ne se déplace que très lentement.</p></div>
-                <milieu>spécial</milieu>
-                <archetype>standard</archetype>
-                <nc>4</nc>
-                <category>créature non-vivante</category>
-                <size>taille grande</size>
-                <stats>
-                    <str>+6</str>
-                    <dex>-1</dex>
-                    <con>+6*</con>
-                    <int>-4</int>
-                    <wis>+2</wis>
-                    <cha>-2</cha>
-                </stats>
-                <attributes>
-                    <def>12</def>
-                    <hp>80</hp>
-                    <init>10</init>
-                </attributes>
-                <attack>
-                    <name>Bec et griffes</name>
-                    <mod>+14</mod>
-                    <dmg>3d6+6</dmg>
-                </attack>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Réduction des DM :</em> retrancher 5 points à tous les DM infligés au zombi par des armes saufs s’il s’agit d’armes tranchantes comme les épées ou les haches.</p>
-                    <p><em>Sans esprit :</em> aucune âme n’habite la carcasse morte, le zombi est immunisé à tous les sorts qui affectent l’esprit (INT, SAG et CHA).</p>
-                    <p><em>Lenteur :</em> le zombi voit sa DEX réduite à 8 et il ne se déplace que de 10 mètres par action de mouvement.</p>
-                    <p><em>Insensible à la douleur :</em> la DEF du zombi est réduite de 4 points par rapport à une créature de son type mais ses PV augmentent de 100% et il gagne +2 en attaque.</p></div>
+                 <path><key>voie-du-colosse</key><name>Voie du colosse</name><rank>1</rank></path>
+                 <path><key>voie-du-cogneur</key><name>Voie du cogneur</name><rank>1</rank></path>
             </div>
             <div>
                 <key>ours-hibou</key>
                 <name>Ours-hibou</name>
+                <family>
+                    <name>Ours</name>
+                    <key>ours</key>
+                </family>
                 <div><em><p>Cette créature est similaire à un ours brun pourvu d’une tête de rapace. Ses épaules sont massives et ses membres supérieurs hypertrophiés prolongés de griffes puissantes.</p>
                 </em></div>
                 <div><p>Très agressif, l’ours-hibou attaque sans sommation, les yeux injectés de sang et le regard fou.</p></div>
@@ -198,7 +185,8 @@
                     <mod>+12</mod>
                     <dmg>3d6+6</dmg>
                 </attack>
-                <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-cogneur/">Voie du cogneur</a></strong> rang 2</p></div>
+                <path><key>voie-du-cogneur</key><name>Voie du cogneur</name><rank>1</rank></path>
+                 <path><key>voie-du-cogneur</key><name>Voie du cogneur</name><rank>2</rank></path>
             </div>
         </div>
     </div>
