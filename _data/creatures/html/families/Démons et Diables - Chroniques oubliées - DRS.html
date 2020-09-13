@@ -36,8 +36,17 @@
                     <hp>150 (RD 15/ armes saintes)</hp>
                     <init>17</init>
                 </attributes>
-                <div><p><strong>Épée enflammée</strong> +21 <strong>DM</strong> 3d6+9 + 2d6 feu</p></div>
-                <div><p><strong>Fouet ardent</strong> +21 (portée 10&nbsp;mètres) <strong>DM</strong> 2d6 de feu + enchevêtrement</p></div>
+                <attack>
+                    <name>Épée enflammée</name>
+                    <mod>+21</mod>
+                    <dmg>3d6+9 + 2d6 feu</dmg>
+                </attack>
+                <attack>
+                    <name>Fouet ardent</name>
+                    <mod>+21</mod>
+                    <range>10m</range>
+                    <dmg>2d6 de feu + enchevêtrement</dmg>
+                </attack>
                 <div><p><strong><a href="http://co-drs.org/voies/voie-des-creatures-elementaire-du-feu/">Voie des créatures élémentaires</a></strong> rang 3</p></div>
                 <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a></strong> rang 3</p></div>
                 <div><strong>Capacités</strong></div>
@@ -49,8 +58,7 @@
             </div>
             <div>
                 <div><h2><a href="http://co-drs.org/creatures/marilith/">Marilith</a></h2></div>
-                <div><em><p>Une Marilith mesure près de 6&nbsp;mètres de long et son buste féminin culmine à plus de deux mètres cinquante. Chacune de ses paires de bras manipule une arme à 2 mains ou 2 armes plus petites…</p>
-                </em></div>
+                <div><em><p>Une Marilith mesure près de 6&nbsp;mètres de long et son buste féminin culmine à plus de deux mètres cinquante. Chacune de ses paires de bras manipule une arme à 2 mains ou 2 armes plus petites…</p></em></div>
                 <div><p>…mais le résultat final est le même et correspond aux DM indiqués.<br> Les Marilith sont des démons très puissants, de majestueuses femme-serpents dotées de trois paires de bras, ce qui en fait de véritables machines à tuer. Elles aiment démontrer leur science du combat et écraser leurs adversaires de leur supériorité en corps à&nbsp;corps.</p></div>
                 <div>Milieu naturel : spécial</div>
                 <archetype>Archétype standard, Boss rapide rang 2</archetype>
@@ -70,7 +78,11 @@
                     <hp>140 (RD 10 / armes saintes)</hp>
                     <init>20</init>
                 </attributes>
-                <div><p><strong>Épées (x3)</strong> +12 <strong>DM</strong> 2d6+10</p></div>
+                <attack>
+                    <name>Épées (x3)</name>
+                    <mod>+12</mod>
+                    <dmg>2d6+10</dmg>
+                </attack>
                 <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-du-champion/">Voie du champion</a></strong> au rang 2</p></div>
                 <div><p><strong><a href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a>&nbsp;</strong>rang&nbsp;2 (rang&nbsp;2&nbsp;: PV doublés, pas de régénération)</p></div>
                 <div><strong>Capacités</strong></div>
@@ -99,7 +111,11 @@
                     <hp>11 (RD 5 / armes saintes)</hp>
                     <init>17</init>
                 </attributes>
-                <div><p><strong>Griffes et morsure</strong> +7 <strong>DM</strong> 1d4-1 + venin</p></div>
+                <attack>
+                    <name>Griffes et morsure</name>
+                    <mod>+7</mod>
+                    <dmg>1d4-1 + venin</dmg>
+                </attack>
                 <div><p><strong>Magicien</strong> de niveau 3</p></div>
                 <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-universelle/">Voie de la magie universelle</a></strong> rang&nbsp;3</p></div>
                 <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-des-arcanes/">Voie de la magie des arcanes</a></strong> rang&nbsp;3</p></div>
@@ -132,7 +148,11 @@
                     <hp>49 (RD 10 / armes saintes)</hp>
                     <init>16</init>
                 </attributes>
-                <div><p><strong>Griffes</strong> +6 <strong>DM</strong> 1d6+4</p></div>
+                <attack>
+                    <name>Griffes</name>
+                    <mod>+6</mod>
+                    <dmg>1d6+4</dmg>
+                </attack>
                 <div><p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a></strong> rang 2<br> <a href="http://co-drs.org/voies/voie-de-l-envouteur/"><strong>Voie de&nbsp;</strong><b>envoûteur</b></a>&nbsp;rang 5</p></div>
                 <div><strong>Capacités</strong></div>
                 <div><p><em>Absorption d’énergie (L) :</em> une succube peut aspirer l’énergie vitale de sa victime en l’enlaçant ou en l’embrassant. Si la victime n’est pas consentante, la succube doit auparavant réussir un test d’attaque au contact puis gagner un test opposé de FOR. La victime de l’absorption d’énergie est <em>affaiblie (</em>utilise un d12 aux tests) pour 24 heures mais ressent une jouissance extatique lors de ce contact. Elle ressent le besoin impérieux de le renouveler pendant les 24 heures suivantes à&nbsp;moins de réussir un&nbsp;test de SAG difficulté 18. Si la victime résiste elle est immunisée à cet effet pour les prochaines 24 heures.<br> En plus des autres effets, si la Succube le souhaite, à&nbsp;chaque fois qu’elle absorbe l’énergie, elle peut infliger 1d6 DM et guérir d’autant (les Points de vie acquis au-delà de son score maximum de PV sont perdus après 10 minutes).</p>
