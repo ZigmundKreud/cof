@@ -71,6 +71,7 @@
                     <name>PNJ</name>
                     <key>pnj</key>
                 </family>
+                <description><p>Un groupe de miliciens est dirigé par un soldat.</p></description>
                 <milieu>tous</milieu>
                 <archetype>standard</archetype>
                 <nc>½</nc>
@@ -94,7 +95,6 @@
                     <mod>+2</mod>
                     <dmg>1d6+1</dmg>
                 </attack>
-                <div><p>Un groupe de miliciens est dirigé par un soldat.</p></div>
             </div>
             <div>
                 <key>marchand</key>
@@ -434,8 +434,11 @@
                     <mod>+5</mod>
                     <dmg>1d6</dmg>
                 </attack>
-                <div><strong>Capacités</strong></div>
-                <div><p><em><a class="fc-autolink" href="http://co-drs.org/capacites/attaque-en-traitre-2/">Attaque en traître</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-meute/">voie de la meute</a>, rang 2)</p></div>
+                <path>
+                    <key>voie-de-la-meute</key>
+                    <name>Voie de la meute</name>
+                    <rank>2</rank>
+                </path>
             </div>
             <div>
                 <key>gros-bras</key>
@@ -550,8 +553,7 @@
                     <name>Voie du tueur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Poison :</em> vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</p></div>
+                <capacity><name>Poison</name><type>creature</type><description>vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</description></capacity>
             </div>
             <div>
                 <key>assassin-majeur</key>
@@ -596,8 +598,7 @@
                     <name>Voie du tueur</name>
                     <rank>2</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Poison :</em> vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</p></div>
+                <capacity><name>Poison</name><type>creature</type><description>vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</description></capacity>
             </div>
             <div>
                 <key>maitre-assassin</key>
@@ -647,8 +648,7 @@
                     <name>Voie du tueur</name>
                     <rank>3</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Poison :</em> vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</p></div>
+                <capacity><name>Poison</name><type>creature</type><description>vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</description></capacity>
             </div>
             <div>
                 <key>grand-maitre-assassin</key>
@@ -709,7 +709,7 @@
                     <rank>2</rank>
                     <note><em>Spécial</em> : le grand maître des assassins peut utiliser tout adversaire à son contact, à l’exception de celui à l’origine de l’attaque, pour utiliser sa capacité <em><a class="fc-autolink" href="http://co-drs.org/capacites/chair-a-canon/">Chair à canon</a></em>.</note>
                 </path>
-                <div><p><em>Poison :</em> vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</p></div>
+                <capacity><name>Poison</name><type>creature</type><description>vous pouvez équiper l’assassin de poison, cela augmente leur NC de +1. Lors de la première attaque réussie par l’assassin, la cible doit faire un test de CON difficulté [10+NC] ou subir [NC x 1d6] DM et être <em>Affaiblie</em> pour le reste du combat. En cas de réussite, elle subit seulement la moitié des DM et elle n’est pas Affaiblie.</description></capacity>
             </div>
         </div>
     </div>

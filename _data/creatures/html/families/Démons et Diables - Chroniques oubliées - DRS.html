@@ -21,7 +21,9 @@
                 </family>
                 <description><em><p>Ces seigneurs du feu de près de 3 mètres possèdent d’immenses ailes de chauve-souris. Ils manient un fouet ardent d’une main et une immense épée enflammée de l’autre.</p></em>
                     <p>Les Balors sont les plus célèbres et les plus puissants des démons.</p>
-                    <p>Le Balrog de la Moria est un exemple illustre de balor qui apparaît dans le Seigneur des anneaux. Ce sont des créatures d’une puissance démesurée dont la rencontre est à réserver aux héros les plus puissants.</p></description>
+                    <p>Le Balrog de la Moria est un exemple illustre de balor qui apparaît dans le Seigneur des anneaux. Ce sont des créatures d’une puissance démesurée dont la rencontre est à réserver aux héros les plus puissants.</p>
+                    <p>Attaquer avec son épée et son fouet au même tour demande au Balor une action limitée.</p>
+                </description>
                 <milieu>spécial</milieu>
                 <archetype>rapide</archetype>
                 <boss>
@@ -85,12 +87,15 @@
                     <name>Voie des créatures magiques</name>
                     <rank>3</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Domination (L) :</em> le Balor doit gagner un test opposé de SAG contre sa cible pour la dominer (portée 20 mètres) pendant [1d6 + 7 tours]. En cas de succès, le démon peut contrôler les faits et gestes de sa cible comme s’il s’agissait d’un simple pantin ou lui donner des ordres qu’elle est obligée d’exécuter. Les créatures de niveau 10 et plus sont immunisées à ce pouvoir de même que les créatures dépourvues d’esprit comme les créatures mécaniques ou certains mort-vivants.</p>
-                    <p><em>Enchevêtrement :</em> lorsqu’un Balor réussit une attaque de fouet, la victime doit faire un test de FOR ou de DEX au choix difficulté 15 ou être <em>immobilisée</em> par le fouet pour un tour et subir 4d6 DM de feu au lieu de 2d6. Le Balor peut attirer à son contact une victime immobilisée en réussissant un test de FOR opposé.</p>
-                    <p>Attaquer avec son épée et son fouet au même tour demande au Balor une action limitée.</p>
-                    <p><em>Épée de feu vorpale :</em> lorsqu’il attaque avec son épée de feu, le Balor obtient des critiques sur 18-20 et en cas de critique la victime doit réussir un test de CON difficulté 15 ou être décapitée ! Elle est morte…</p>
-                    <p><em>Vol :</em> un Balor peut se déplacer en vol de 30 m par action de mouvement.</p></div>
+                <capacity><name>Démon</name><type>creature</type><description>les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du moins pas de nourritures terrestres.</description></capacity>
+                <capacity><name>Résistance</name><type>creature</type><description>par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités peuvent améliorer cette résistance.</description></capacity>
+                <capacity><name>Télépathie</name><type>creature</type><description>les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres sans avoir besoin de partager une langue commune. Ils parlent l’infernal.</description></capacity>
+                <capacity><name>Téléportation (L)</name><type>creature</type><description>un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance maximum de [NC x 100] mètres.</description></capacity>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.</description></capacity>
+                <capacity><name>Domination (L)</name><type>creature</type><description>le Balor doit gagner un test opposé de SAG contre sa cible pour la dominer (portée 20 mètres) pendant [1d6 + 7 tours]. En cas de succès, le démon peut contrôler les faits et gestes de sa cible comme s’il s’agissait d’un simple pantin ou lui donner des ordres qu’elle est obligée d’exécuter. Les créatures de niveau 10 et plus sont immunisées à ce pouvoir de même que les créatures dépourvues d’esprit comme les créatures mécaniques ou certains mort-vivants.</description></capacity>
+                <capacity><name>Enchevêtrement</name><type>creature</type><description>lorsqu’un Balor réussit une attaque de fouet, la victime doit faire un test de FOR ou de DEX au choix difficulté 15 ou être <em>immobilisée</em> par le fouet pour un tour et subir 4d6 DM de feu au lieu de 2d6. Le Balor peut attirer à son contact une victime immobilisée en réussissant un test de FOR opposé.</description></capacity>
+                <capacity><name>Épée de feu vorpale</name><type>creature</type><description>lorsqu’il attaque avec son épée de feu, le Balor obtient des critiques sur 18-20 et en cas de critique la victime doit réussir un test de CON difficulté 15 ou être décapitée ! Elle est morte…</description></capacity>
+                <capacity><name>Vol</name><type>creature</type><description>un Balor peut se déplacer en vol de 30 m par action de mouvement.</description></capacity>
             </div>
             <div>
                 <key>marilith</key>
@@ -110,7 +115,8 @@
                     </description>
                 </family>
                 <description><em><p>Une Marilith mesure près de 6 mètres de long et son buste féminin culmine à plus de deux mètres cinquante. Chacune de ses paires de bras manipule une arme à 2 mains ou 2 armes plus petites…</p></em>
-                    <p>…mais le résultat final est le même et correspond aux DM indiqués.<br> Les Marilith sont des démons très puissants, de majestueuses femme-serpents dotées de trois paires de bras, ce qui en fait de véritables machines à tuer. Elles aiment démontrer leur science du combat et écraser leurs adversaires de leur supériorité en corps à corps.</p></description>
+                    <p>…mais le résultat final est le même et correspond aux DM indiqués.<br> Les Marilith sont des démons très puissants, de majestueuses femme-serpents dotées de trois paires de bras, ce qui en fait de véritables machines à tuer. Elles aiment démontrer leur science du combat et écraser leurs adversaires de leur supériorité en corps à corps.</p>
+                    <h2>Développement</h2><p>Les Marilith ont souvent des pouvoirs d’<a class="fc-autolink" href="http://co-drs.org/profils/ensorceleur/">Ensorceleur</a> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-des-illusions/">Voie des illusions</a>).</p></description>
                 <milieu>spécial</milieu>
                 <archetype>standard</archetype>
                 <boss>
@@ -160,10 +166,12 @@
                     <rank>2</rank>
                     <note>PV doublés, pas de régénération</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Attaques multiples :</em> une Marilith peut attaquer 3 fois au prix d’une action d’attaque.</p></div>
-                <div><h2>Développement</h2>
-                    <p>Les Marilith ont souvent des pouvoirs d’<a class="fc-autolink" href="http://co-drs.org/profils/ensorceleur/">Ensorceleur</a> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-des-illusions/">Voie des illusions</a>).</p></div>
+                <capacity><name>Démon</name><type>creature</type><description>les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du moins pas de nourritures terrestres.</description></capacity>
+                <capacity><name>Résistance</name><type>creature</type><description>par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités peuvent améliorer cette résistance.</description></capacity>
+                <capacity><name>Télépathie</name><type>creature</type><description>les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres sans avoir besoin de partager une langue commune. Ils parlent l’infernal.</description></capacity>
+                <capacity><name>Téléportation (L)</name><type>creature</type><description>un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance maximum de [NC x 100] mètres.</description></capacity>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.</description></capacity>
+                <capacity><name>Attaques multiples</name><type>creature</type><description>une Marilith peut attaquer 3 fois au prix d’une action d’attaque.</description></capacity>
             </div>
             <div>
                 <key>quasit</key>
@@ -243,10 +251,14 @@
                     <name>Voie des créatures magiques</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Venin :</em> une créature blessée par le Quasit doit réussir un test de CON difficulté 12 ou être <em>affaiblie</em> (utiliser 1d12) pendant 1d6 minutes.</p>
-                    <p><em>Transformation (L) :</em> le Quasit peut se transformer en n’importe quel animal de taille très petite (chien, chat, rat, corbeau, etc.).</p>
-                    <p><em>Vol :</em> un Quasit peut se déplacer en vol de 20 mètres par action de mouvement.</p></div>
+                <capacity><name>Démon</name><type>creature</type><description>les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du moins pas de nourritures terrestres.</description></capacity>
+                <capacity><name>Résistance</name><type>creature</type><description>par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités peuvent améliorer cette résistance.</description></capacity>
+                <capacity><name>Télépathie</name><type>creature</type><description>les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres sans avoir besoin de partager une langue commune. Ils parlent l’infernal.</description></capacity>
+                <capacity><name>Téléportation (L)</name><type>creature</type><description>un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance maximum de [NC x 100] mètres.</description></capacity>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.</description></capacity>
+                <capacity><name>Venin</name><type>creature</type><description>une créature blessée par le Quasit doit réussir un test de CON difficulté 12 ou être <em>affaiblie</em> (utiliser 1d12) pendant 1d6 minutes.</description></capacity>
+                <capacity><name>Transformation (L)</name><type>creature</type><description>le Quasit peut se transformer en n’importe quel animal de taille très petite (chien, chat, rat, corbeau, etc.).</description></capacity>
+                <capacity><name>Vol</name><type>creature</type><description>un Quasit peut se déplacer en vol de 20 mètres par action de mouvement.</description></capacity>
             </div>
             <div>
                 <key>succube</key>
@@ -329,9 +341,13 @@
                     <name>Voie de l'envoûteur</name>
                     <rank>5</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Absorption d’énergie (L) :</em> une succube peut aspirer l’énergie vitale de sa victime en l’enlaçant ou en l’embrassant. Si la victime n’est pas consentante, la succube doit auparavant réussir un test d’attaque au contact puis gagner un test opposé de FOR. La victime de l’absorption d’énergie est <em>affaiblie (</em>utilise un d12 aux tests) pour 24 heures mais ressent une jouissance extatique lors de ce contact. Elle ressent le besoin impérieux de le renouveler pendant les 24 heures suivantes à moins de réussir un test de SAG difficulté 18. Si la victime résiste elle est immunisée à cet effet pour les prochaines 24 heures.<br> En plus des autres effets, si la Succube le souhaite, à chaque fois qu’elle absorbe l’énergie, elle peut infliger 1d6 DM et guérir d’autant (les Points de vie acquis au-delà de son score maximum de PV sont perdus après 10 minutes).</p>
-                    <p><em>Vol :</em> une Succube peut se déplacer en vol de 20 mètres par action de mouvement.</p></div>
+                <capacity><name>Démon</name><type>creature</type><description>les démons ne sont pas considérés comme des créatures non-vivantes toutefois ils partagent avec celles-ci de nombreux traits. Ils ne respirent pas, ne dorment jamais, ne connaissent pas la fatigue et sont immunisées au poison et aux maladies non-magiques. Ils n’ont pas besoin de se sustenter, du moins pas de nourritures terrestres.</description></capacity>
+                <capacity><name>Résistance</name><type>creature</type><description>par défaut, tous les démons réduisent les DM de feu et d’acide de 10 points. D’autres capacités peuvent améliorer cette résistance.</description></capacity>
+                <capacity><name>Télépathie</name><type>creature</type><description>les démons peuvent communiquer avec toutes les créatures par télépathie à une distance de 50 mètres sans avoir besoin de partager une langue commune. Ils parlent l’infernal.</description></capacity>
+                <capacity><name>Téléportation (L)</name><type>creature</type><description>un démon peut se téléporter à n’importe quel endroit qu’il voit ou qu’il connaît à une distance maximum de [NC x 100] mètres.</description></capacity>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>tous les démons voient dans le noir comme en plein jour à une distance de 30 mètres.</description></capacity>
+                <capacity><name>Absorption d’énergie (L)</name><type>creature</type><description>une succube peut aspirer l’énergie vitale de sa victime en l’enlaçant ou en l’embrassant. Si la victime n’est pas consentante, la succube doit auparavant réussir un test d’attaque au contact puis gagner un test opposé de FOR. La victime de l’absorption d’énergie est <em>affaiblie (</em>utilise un d12 aux tests) pour 24 heures mais ressent une jouissance extatique lors de ce contact. Elle ressent le besoin impérieux de le renouveler pendant les 24 heures suivantes à moins de réussir un test de SAG difficulté 18. Si la victime résiste elle est immunisée à cet effet pour les prochaines 24 heures.<br> En plus des autres effets, si la Succube le souhaite, à chaque fois qu’elle absorbe l’énergie, elle peut infliger 1d6 DM et guérir d’autant (les Points de vie acquis au-delà de son score maximum de PV sont perdus après 10 minutes).</description></capacity>
+                <capacity><name>Vol</name><type>creature</type><description>une Succube peut se déplacer en vol de 20 mètres par action de mouvement.</description></capacity>
             </div>
         </div>
     </div>

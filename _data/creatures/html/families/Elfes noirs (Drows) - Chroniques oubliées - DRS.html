@@ -6,6 +6,10 @@
                 <key>guerrier-elfe-noir</key>
                 <name>Guerrier elfe noir</name>
                 <family>
+                    <name>Elfes</name>
+                    <key>elfes</key>
+                </family>
+                <family>
                     <name>Elfes noirs (Drows)</name>
                     <key>elfes-noirs-drows</key>
                     <description><p>Il y a une éternité certains elfes se sont réfugiés sous terre pour une obscure raison. Loin de la lumière et de la vie que leur peuple chérissait, ils se sont racornis et ont failli disparaître. Une déesse maléfique s’est alors emparée de leur âme et ils sont redevenus un peuple puissant et fier qui domine et terrorise les royaumes souterrains. Ils vouent une haine sans borne à leurs cousins de la surface.<br> Leur société est une tyrannie matriarcale et les femmes sont plus grandes et plus fortes que leurs homologues masculins.</p><p>Les elfes noirs ont les cheveux blancs et la peau noire, ils sont vifs et agiles, vicieux, rusés et cruels.</p></description>
@@ -44,12 +48,15 @@
                     <name>Voie du prédateur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Poison :</em> les carreaux d’arbalète des drows sont enduits de poison. La victime d’une attaque réussie doit faire un test de CON difficulté 12 ou sombrer dans l’inconscience en 1d6 tours pour une durée de 1d6 minutes.</p></div>
+                <capacity><name>Poison</name><type>creature</type><description>les carreaux d’arbalète des drows sont enduits de poison. La victime d’une attaque réussie doit faire un test de CON difficulté 12 ou sombrer dans l’inconscience en 1d6 tours pour une durée de 1d6 minutes.</description></capacity>
             </div>
             <div>
                 <key>guerriere-elfe-noir</key>
                 <name>Guerrière elfe noir</name>
+                <family>
+                    <name>Elfes</name>
+                    <key>elfes</key>
+                </family>
                 <family>
                     <name>Elfes noirs (Drows)</name>
                     <key>elfes-noirs-drows</key>
@@ -92,12 +99,20 @@
                     <name>Voie du prédateur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em><a class="fc-autolink" href="http://co-drs.org/capacites/capitaine/">Capitaine</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-du-chef-d-armee/">Voie du chef d’armée</a> rang 2)<br> <em>Poison :</em> les carreaux d’arbalète des drows sont enduits de poison. La victime d’une attaque réussie doit faire un test de CON difficulté 12 ou sombrer dans l’inconscience en 1d6 tours pour une durée de 1d6 minutes.</p></div>
+                <path>
+                    <key>voie-du-chef-d-armee</key>
+                    <name>Voie du chef d’armée</name>
+                    <rank>2</rank>
+                </path>
+                <capacity><name>Poison</name><type>creature</type><description>les carreaux d’arbalète des drows sont enduits de poison. La victime d’une attaque réussie doit faire un test de CON difficulté 12 ou sombrer dans l’inconscience en 1d6 tours pour une durée de 1d6 minutes.</description></capacity>
             </div>
             <div>
                 <key>pretresse-elfe-noir</key>
                 <name>Prêtresse elfe noir</name>
+                <family>
+                    <name>Elfes</name>
+                    <key>elfes</key>
+                </family>
                 <family>
                     <name>Elfes noirs (Drows)</name>
                     <key>elfes-noirs-drows</key>
@@ -140,8 +155,17 @@
                     <name>Voie de la magie de combat</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em><a class="fc-autolink" href="http://co-drs.org/capacites/chair-a-canon/">Chair à canon</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-du-pnj-recurrent/">Voie du PNJ récurrent</a> rang 2)<br> <em><a class="fc-autolink" href="http://co-drs.org/capacites/injonction-mortelle/">Injonction mortelle</a></em> (<a class="fc-autolink" href="http://co-drs.org/voies/voie-de-la-magie-malefique/">Voie de la magie maléfique</a> rang 3)<br> <em>Poison :</em> la masse serpent de la prêtresse inocule du poison à sa victime à chaque attaque. Elle doit faire un test de CON difficulté 14 ou sombrer dans l’inconscience immédiatement pour une durée de 1d6 minutes.</p></div>
+                <path>
+                    <key>voie-du-pnj-recurrent</key>
+                    <name>Voie du PNJ récurrent</name>
+                    <rank>2</rank>
+                </path>
+                <path>
+                    <key>voie-de-la-magie-malefique</key>
+                    <name>Voie de la magie maléfique</name>
+                    <rank>3</rank>
+                </path>
+                <capacity><name>Poison</name><type>creature</type><description>la masse serpent de la prêtresse inocule du poison à sa victime à chaque attaque. Elle doit faire un test de CON difficulté 14 ou sombrer dans l’inconscience immédiatement pour une durée de 1d6 minutes.</description></capacity>
             </div>
         </div>
     </div>

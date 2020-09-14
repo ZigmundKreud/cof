@@ -9,12 +9,16 @@
                     <name>Lycanthropes</name>
                     <key>lycanthropes</key>
                     <description><p>Les légendes et les superstitions présentent la lycanthropie comme une horrible malédiction, dans cette vision populaire, un loup-garou est un humain qui se transforme involontairement en loup ou en créature mi-homme mi-loup à chaque pleine lune pour dévorer de la chair humaine et massacrer tous ceux qu’il croise. Toutefois Chroniques Oubliées distingue deux catégories de créatures, les lycanthropes infectés et les lycanthropes naturels.</p>
-                        <p>Tous les lycanthropes partagent les capacités suivantes :<br> <em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
+                        <p>Tous les lycanthropes partagent les capacités suivantes :</p>
+                        <p><em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
                         <p><em>Soigner :</em> si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</p>
                         <p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a></strong> rang 1 (RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</p>
                     </description>
                 </family>
-                <description><p>Les lycanthropes infectés sont de pauvres créatures qui ne contrôlent pas leurs changements de forme et se métamorphosent en loups assoiffés de sang à la pleine lune ou parfois suite à une blessure ou une émotion forte comme la colère ou la vision de violences. Lorsqu’ils reprennent forme humaine, ils n’ont généralement aucun souvenir de leurs méfaits. Les Caractéristiques proposées ici correspondent à celles d’un humanoïde de taille moyenne. Si vous voulez créer un loup-garou à partir d’une petite créature remplacez ce Profil par celui d’un loup ordinaire et réduisez le NC de 1 point.</p></description>
+                <description>
+                    <p>Les lycanthropes infectés sont de pauvres créatures qui ne contrôlent pas leurs changements de forme et se métamorphosent en loups assoiffés de sang à la pleine lune ou parfois suite à une blessure ou une émotion forte comme la colère ou la vision de violences. Lorsqu’ils reprennent forme humaine, ils n’ont généralement aucun souvenir de leurs méfaits. Les Caractéristiques proposées ici correspondent à celles d’un humanoïde de taille moyenne. Si vous voulez créer un loup-garou à partir d’une petite créature remplacez ce Profil par celui d’un loup ordinaire et réduisez le NC de 1 point.</p>
+                    <p><strong>Loup-garou infecté et personnage :</strong> si un personnage ou PNJ possède plus de 16 PV, il garde son propre score de PV même pendant la transformation. Éventuellement si son Mod. de FOR est supérieur à +3, conservez-le aussi et modifiez les scores d’attaque et de DM en conséquence.</p>
+                </description>
                 <milieu>forêt</milieu>
                 <archetype>puissant</archetype>
                 <nc>3</nc>
@@ -44,11 +48,17 @@
                     <name>Voie du prédateur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Transformation en loup (L) :</em> un humanoïde infecté se transforme en un loup énorme et sanguinaire dont les Caractéristiques sont indiquées ci-dessus lorsque la pleine lune apparaît ou si une émotion importante le saisit.</p>
-                    <p><em>Résister :</em> un personnage infecté peut toutefois résister à l’appel de la pleine lune (ou de la transformation) en réussissant un test de SAG difficulté 18.</p>
-                    <p><em>Se souvenir :</em> un personnage peut se souvenir de ses agissements de la nuit en réussissant un test de SAG difficulté 18.</p></div>
-                <div><p><strong>Loup-garou infecté et personnage :</strong> si un personnage ou PNJ possède plus de 16 PV, il garde son propre score de PV même pendant la transformation. Éventuellement si son Mod. de FOR est supérieur à +3, conservez-le aussi et modifiez les scores d’attaque et de DM en conséquence.</p></div>
+                <path>
+                    <key>voie-des-creatures-magiques</key>
+                    <name>Voie des créatures magiques</name>
+                    <rank>1</rank>
+                    <note>(RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</note>
+                </path>
+                <capacity><name>Infection</name><type>creature</type><description>toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</description></capacity>
+                <capacity><name>Soigner</name><type>creature</type><description>si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</description></capacity>
+                <capacity><name>Transformation en loup (L)</name><type>creature</type><description>un humanoïde infecté se transforme en un loup énorme et sanguinaire dont les Caractéristiques sont indiquées ci-dessus lorsque la pleine lune apparaît ou si une émotion importante le saisit.</description></capacity>
+                <capacity><name>Résister</name><type>creature</type><description>un personnage infecté peut toutefois résister à l’appel de la pleine lune (ou de la transformation) en réussissant un test de SAG difficulté 18.</description></capacity>
+                <capacity><name>Se souvenir</name><type>creature</type><description>un personnage peut se souvenir de ses agissements de la nuit en réussissant un test de SAG difficulté 18.</description></capacity>
             </div>
             <div>
                 <key>loup-garou-naturel</key>
@@ -57,7 +67,8 @@
                     <name>Lycanthropes</name>
                     <key>lycanthropes</key>
                     <description><p>Les légendes et les superstitions présentent la lycanthropie comme une horrible malédiction, dans cette vision populaire, un loup-garou est un humain qui se transforme involontairement en loup ou en créature mi-homme mi-loup à chaque pleine lune pour dévorer de la chair humaine et massacrer tous ceux qu’il croise. Toutefois Chroniques Oubliées distingue deux catégories de créatures, les lycanthropes infectés et les lycanthropes naturels.</p>
-                        <p>Tous les lycanthropes partagent les capacités suivantes :<br> <em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
+                        <p>Tous les lycanthropes partagent les capacités suivantes :</p>
+                        <p><em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
                         <p><em>Soigner :</em> si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</p>
                         <p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a></strong> rang 1 (RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</p>
                     </description>
@@ -100,10 +111,17 @@
                     <name>Voie du prédateur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Transformation en loup(L) :</em> la créature peut se transformer à volonté en loup. </p>
-                    <p><em>Forme hybride (L) :</em> le personnage adopte une forme qui reflète totalement sa nature duale, mi-loup mi-humanoïde. Il peut à la fois faire des attaques de morsure et utiliser une arme. En termes de jeu, cela lui accorde une attaque de chaque type (loup + humanoïde) par tour en utilisant une action limitée.</p>
-                    <p><em>Empathie avec les loups :</em> un loup-garou possède un don naturel pour apaiser les loups et parfois même les commander.</p></div>
+                <path>
+                    <key>voie-des-creatures-magiques</key>
+                    <name>Voie des créatures magiques</name>
+                    <rank>1</rank>
+                    <note>(RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</note>
+                </path>
+                <capacity><name>Infection</name><type>creature</type><description>toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</description></capacity>
+                <capacity><name>Soigner</name><type>creature</type><description>si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</description></capacity>
+                <capacity><name>Transformation en loup(L)</name><type>creature</type><description>la créature peut se transformer à volonté en loup. </description></capacity>
+                <capacity><name>Forme hybride (L)</name><type>creature</type><description>le personnage adopte une forme qui reflète totalement sa nature duale, mi-loup mi-humanoïde. Il peut à la fois faire des attaques de morsure et utiliser une arme. En termes de jeu, cela lui accorde une attaque de chaque type (loup + humanoïde) par tour en utilisant une action limitée.</description></capacity>
+                <capacity><name>Empathie avec les loups</name><type>creature</type><description>un loup-garou possède un don naturel pour apaiser les loups et parfois même les commander.</description></capacity>
             </div>
             <div>
                 <key>rat-garou-infecte</key>
@@ -112,12 +130,16 @@
                     <name>Lycanthropes</name>
                     <key>lycanthropes</key>
                     <description><p>Les légendes et les superstitions présentent la lycanthropie comme une horrible malédiction, dans cette vision populaire, un loup-garou est un humain qui se transforme involontairement en loup ou en créature mi-homme mi-loup à chaque pleine lune pour dévorer de la chair humaine et massacrer tous ceux qu’il croise. Toutefois Chroniques Oubliées distingue deux catégories de créatures, les lycanthropes infectés et les lycanthropes naturels.</p>
-                        <p>Tous les lycanthropes partagent les capacités suivantes :<br> <em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
+                        <p>Tous les lycanthropes partagent les capacités suivantes :</p>
+                        <p><em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
                         <p><em>Soigner :</em> si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</p>
                         <p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a></strong> rang 1 (RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</p>
                     </description>
                 </family>
-                <description><p>Vous pouvez imaginez que d’autres espèces que le loup peuvent conférer cette malédiction, on obtient alors des sangliers-garous, des ours-garous ou encore des rats-garous. Ces derniers sont généralement rencontré dans les villes de taille importante où ils se fondent dans la population ou se cachent dans les égouts. Les rats-garous infectés prennent la forme d’un rat géant lorsqu’ils se transforment.</p></description>
+                <description>
+                    <p>Vous pouvez imaginez que d’autres espèces que le loup peuvent conférer cette malédiction, on obtient alors des sangliers-garous, des ours-garous ou encore des rats-garous. Ces derniers sont généralement rencontré dans les villes de taille importante où ils se fondent dans la population ou se cachent dans les égouts. Les rats-garous infectés prennent la forme d’un rat géant lorsqu’ils se transforment.</p>
+                    <p><strong>Rat-garou infecté et personnage :</strong> si un personnage ou PNJ possède plus de 16 PV, il garde son propre score de PV même pendant la transformation. Éventuellement si son Mod. de FOR est supérieur à +1, conservez-le aussi et modifiez les scores d’attaque et de DM en conséquence.</p>
+                </description>
                 <milieu>marais</milieu>
                 <archetype>standard</archetype>
                 <nc>1</nc>
@@ -142,11 +164,17 @@
                     <mod>+2</mod>
                     <dmg>1d4+1</dmg>
                 </attack>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Transformation en rat (L) :</em> un humanoïde infecté se transforme en un rat énorme et sanguinaire dont les Caractéristiques sont indiquées ci-dessus lorsque la pleine<br> lune apparaît ou si une émotion importante le saisit.</p>
-                    <p><em>Résister :</em> un personnage infecté peut toutefois résister à l’appel de la pleine lune (ou de la transformation) en réussissant un test de SAG difficulté 18. </p>
-                    <p><em>Se souvenir :</em> un personnage peut se souvenir de ses agissements de la nuit en réussissant un test de SAG difficulté 18.</p></div>
-                <div><p><strong>Rat-garou infecté et personnage :</strong> si un personnage ou PNJ possède plus de 16 PV, il garde son propre score de PV même pendant la transformation. Éventuellement si son Mod. de FOR est supérieur à +1, conservez-le aussi et modifiez les scores d’attaque et de DM en conséquence.</p></div>
+                <path>
+                    <key>voie-des-creatures-magiques</key>
+                    <name>Voie des créatures magiques</name>
+                    <rank>1</rank>
+                    <note>(RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</note>
+                </path>
+                <capacity><name>Infection</name><type>creature</type><description>toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</description></capacity>
+                <capacity><name>Soigner</name><type>creature</type><description>si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</description></capacity>
+                <capacity><name>Transformation en rat (L)</name><type>creature</type><description>un humanoïde infecté se transforme en un rat énorme et sanguinaire dont les Caractéristiques sont indiquées ci-dessus lorsque la pleine lune apparaît ou si une émotion importante le saisit.</description></capacity>
+                <capacity><name>Résister</name><type>creature</type><description>un personnage infecté peut toutefois résister à l’appel de la pleine lune (ou de la transformation) en réussissant un test de SAG difficulté 18. </description></capacity>
+                <capacity><name>Se souvenir</name><type>creature</type><description>un personnage peut se souvenir de ses agissements de la nuit en réussissant un test de SAG difficulté 18.</description></capacity>
             </div>
             <div>
                 <key>rat-garou-naturel</key>
@@ -155,7 +183,8 @@
                     <name>Lycanthropes</name>
                     <key>lycanthropes</key>
                     <description><p>Les légendes et les superstitions présentent la lycanthropie comme une horrible malédiction, dans cette vision populaire, un loup-garou est un humain qui se transforme involontairement en loup ou en créature mi-homme mi-loup à chaque pleine lune pour dévorer de la chair humaine et massacrer tous ceux qu’il croise. Toutefois Chroniques Oubliées distingue deux catégories de créatures, les lycanthropes infectés et les lycanthropes naturels.</p>
-                        <p>Tous les lycanthropes partagent les capacités suivantes :<br> <em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
+                        <p>Tous les lycanthropes partagent les capacités suivantes :</p>
+                        <p><em>Infection :</em> toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</p>
                         <p><em>Soigner :</em> si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</p>
                         <p><strong><a class="fc-autolink" href="http://co-drs.org/voies/voie-des-creatures-magiques/">Voie des créatures magiques</a></strong> rang 1 (RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</p>
                     </description>
@@ -194,10 +223,17 @@
                     <mod>+4</mod>
                     <dmg>1d8+3</dmg>
                 </attack>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Transformation en rat (L) :</em> la créature peut se transformer à volonté en rat.</p>
-                    <p><em>Forme hybride (L) :</em> le personnage adopte une forme qui reflète totalement sa nature duale, mi-rat mi-humanoïde. Il peut à la fois faire des attaques de morsure et utiliser une arme. En termes de jeu, cela lui accorde une attaque de chaque type (rat + humanoïde) par tour en utilisant une action limitée.</p>
-                    <p><em>Empathie avec les rats :</em> un rat-garou possède un don naturel pour apaiser les rats et parfois même les commander.</p></div>
+                <path>
+                    <key>voie-des-creatures-magiques</key>
+                    <name>Voie des créatures magiques</name>
+                    <rank>1</rank>
+                    <note>(RD 5 / argent) : cette réduction des DM ne s’applique que sous forme animale ou sous forme hybride.</note>
+                </path>
+                <capacity><name>Infection</name><type>creature</type><description>toute créature humanoïde de taille petite ou moyenne blessée par les armes naturelles d’un Lycanthrope (morsure et griffes) doit réussir un test de CON difficulté 15 à la fin du combat ou être infecté par la maladie. Demandez à chaque joueur de réaliser ce test en secret, les autres joueurs ne doivent pas savoir si leur camarade est atteint ou non.</description></capacity>
+                <capacity><name>Soigner</name><type>creature</type><description>si elle est traitée dans les 3 jours suivant la morsure, l’infection peut être guéries par certaines herbes médicinales rares (aconit) ou par les sorts de <em><a class="fc-autolink" href="http://co-drs.org/capacites/guerison/">Guérison</a></em> ou de <em><a class="fc-autolink" href="http://co-drs.org/capacites/delivrance/">Délivrance</a></em> du Profil de <a class="fc-autolink" href="http://co-drs.org/profils/pretre/">Prêtre</a>. Au-delà de ce laps de temps aucun traitement connu ne permet de guérir l’infection.</description></capacity>
+                <capacity><name>Transformation en rat (L)</name><type>creature</type><description>la créature peut se transformer à volonté en rat.</description></capacity>
+                <capacity><name>Forme hybride (L)</name><type>creature</type><description>le personnage adopte une forme qui reflète totalement sa nature duale, mi-rat mi-humanoïde. Il peut à la fois faire des attaques de morsure et utiliser une arme. En termes de jeu, cela lui accorde une attaque de chaque type (rat + humanoïde) par tour en utilisant une action limitée.</description></capacity>
+                <capacity><name>Empathie avec les rats</name><type>creature</type><description>un rat-garou possède un don naturel pour apaiser les rats et parfois même les commander.</description></capacity>
             </div>
         </div>
     </div>

@@ -38,7 +38,6 @@
                     <name>Voie du prédateur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
                 <div><p><i>Étreinte</i><em> :</em> à chaque fois que le serpent réussit une attaque il peut faire un test de FOR opposé contre sa victime (toutefois celle-ci peut choisir de résister par un test de DEX). En cas de succès, il s’enroule autour d’elle et commence à l’étouffer, infligeant automatiquement 1d6 DM supplémentaire par tour. La victime est <em>Immobilisée</em>. Elle peut tenter de se libérer au prix d’une action de mouvement à chaque tour, en réussissant un test de FOR difficulté 15.</p></div>
             </div>
             <div>
@@ -77,9 +76,8 @@
                     <name>Voie du prédateur</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Venin :</em> la victime d’une morsure de serpent venimeux doit faire un test de CON difficulté 15 lors de chaque morsure. En cas d’échec la victime subit 1 point de DM supplémentaire par tour pendant 1d6 tours et de plus la victime est <em>Affaiblie</em> pour une durée similaire exprimée en heures. Une nouvelle morsure n’augmente pas les DM à chaque tour mais cumule la durée d’effet (3 morsures venimeuses par serpent au maximum).</p>
-                    <p><em>Crachat (L) :</em> certains serpents crachent leur venin dans les yeux de leur adversaire pour l’aveugler. La victime doit réussir un test de DEX difficulté 12 ou être <em>Aveuglée</em> pour 1d6 tours.</p></div>
+                <capacity><name>Venin</name><type>creature</type><description>la victime d’une morsure de serpent venimeux doit faire un test de CON difficulté 15 lors de chaque morsure. En cas d’échec la victime subit 1 point de DM supplémentaire par tour pendant 1d6 tours et de plus la victime est <em>Affaiblie</em> pour une durée similaire exprimée en heures. Une nouvelle morsure n’augmente pas les DM à chaque tour mais cumule la durée d’effet (3 morsures venimeuses par serpent au maximum).</description></capacity>
+                <capacity><name>Crachat (L)</name><type>creature</type><description>certains serpents crachent leur venin dans les yeux de leur adversaire pour l’aveugler. La victime doit réussir un test de DEX difficulté 12 ou être <em>Aveuglée</em> pour 1d6 tours.</description></capacity>
             </div>
             <div>
                 <key>serpent-geant</key>
@@ -88,7 +86,7 @@
                     <name>Serpents</name>
                     <key>serpents</key>
                 </family>
-                <description><p>Ce serpent constricteur est digne de l’animal sacré de la tour de l’éléphant, rencontré par Arnold Schwarzenegger dans Conan. Soit une bête de plus de 15 mètres de long pourvue d’un corps aussi épais que celui d’un homme.</p></description>
+                <description><p>Ce serpent constricteur est digne de l’animal sacré de la tour de l’éléphant, rencontré par Arnold Schwarzenegger dans Conan. Soit une bête de plus de 15 mètres de long pourvue d’un corps aussi épais que celui d’un homme.</p><p>Note : si vous souhaitez créer un serpent géant venimeux, utilisez les règles de poison développées pour les insectes géants (+1 NC).</p></description>
                 <milieu>marais</milieu>
                 <archetype>puissant</archetype>
                 <nc>4</nc>
@@ -112,9 +110,7 @@
                     <mod>+10</mod>
                     <dmg>2d6+8</dmg>
                 </attack>
-                <div><strong>Capacités</strong></div>
-                <div><p><i>Étreinte</i><em> :</em> à chaque fois que le serpent réussit une attaque il peut faire un test de FOR opposé contre sa victime (toutefois celle-ci peut choisir de résister par un test de DEX). En cas de succès, il s’enroule autour d’elle et commence à l’étouffer, infligeant automatiquement 1d6 DM supplémentaire par tour. La victime est <em>Immobilisée</em>. Elle peut tenter de se libérer au prix d’une action de mouvement à chaque tour, en réussissant un test de FOR difficulté 20.</p></div>
-                <div><p>Note : si vous souhaitez créer un serpent géant venimeux, utilisez les règles de poison développées pour les insectes géants (+1 NC).</p></div>
+                <capacity><name>Étreinte</name><type>creature</type><description>à chaque fois que le serpent réussit une attaque il peut faire un test de FOR opposé contre sa victime (toutefois celle-ci peut choisir de résister par un test de DEX). En cas de succès, il s’enroule autour d’elle et commence à l’étouffer, infligeant automatiquement 1d6 DM supplémentaire par tour. La victime est <em>Immobilisée</em>. Elle peut tenter de se libérer au prix d’une action de mouvement à chaque tour, en réussissant un test de FOR difficulté 20.</description></capacity>
             </div>
         </div>
     </div>

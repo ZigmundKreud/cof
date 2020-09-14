@@ -8,7 +8,11 @@
                 <family>
                     <name>Elémentaires</name>
                     <key>elementaires</key>
-                    <description><p>Les élémentaires sont les incarnations des quatre éléments primordiaux : le feu, l’eau, la terre et l’air. Ils peuvent être invoqués par magie et se manifestent dans notre monde sous la forme d’une créature au buste vaguement humanoïde mêlée à un tourbillon de matière élémentaire.</p><p>Tous les élémentaires partagent les capacités suivantes :<br> <em>Ils voient dans le noir</em> à 30 mètres et ils peuvent déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.<br> <em>Cyclone (L) :</em> une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</p></description>
+                    <description><p>Les élémentaires sont les incarnations des quatre éléments primordiaux : le feu, l’eau, la terre et l’air. Ils peuvent être invoqués par magie et se manifestent dans notre monde sous la forme d’une créature au buste vaguement humanoïde mêlée à un tourbillon de matière élémentaire.</p>
+                        <p>Tous les élémentaires partagent les capacités suivantes :<br>
+                            <em>Ils voient dans le noir</em> à 30 mètres et ils peuvent déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.<br>
+                            <em>Cyclone (L) :</em> une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</p>
+                    </description>
                 </family>
                 <milieu>spécial</milieu>
                 <archetype>standard</archetype>
@@ -43,10 +47,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’air sont immunisés aux DM d’électricité.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement.</p></div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’air sont immunisés aux DM d’électricité.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-air-moyen</key>
@@ -89,10 +95,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’air sont immunisés aux DM d’électricité.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement.</p></div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’air sont immunisés aux DM d’électricité.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-air-grand</key>
@@ -140,10 +148,12 @@
                     <name>Voie du colosse</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’air sont immunisés aux DM d’électricité. </p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement.</p></div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’air sont immunisés aux DM d’électricité. </description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-air-enorme</key>
@@ -196,11 +206,12 @@
                     <name>Voie du colosse</name>
                     <rank>2</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’air sont immunisés aux DM d’électricité.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’air sont immunisés aux DM d’électricité.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-air-colossal</key>
@@ -258,11 +269,12 @@
                     <name>Voie du colosse</name>
                     <rank>3</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’air sont immunisés aux DM d’électricité.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’air sont immunisés aux DM d’électricité.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’air projette des objets sur l’adversaire (cailloux, meubles, armes), les plus gros projettent l’adversaire lui-même. L’asphyxie est un autre mode d’attaque de ce type d’élémentaire.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’air obtient un bonus de +3 en Initiative et à tous les tests de DEX. Il peut se déplacer en vol de 30 mètres par action de mouvement (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-eau-petit</key>
@@ -305,11 +317,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’eau sont immunisés aux DM d’acide.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’eau percute l’adversaire ou le noie.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’eau obtient un bonus de +10 PV.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’eau sont immunisés aux DM d’acide.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’eau percute l’adversaire ou le noie.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’eau obtient un bonus de +10 PV (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-eau-moyen</key>
@@ -352,11 +365,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’eau sont immunisés aux DM d’acide.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’eau percute l’adversaire ou le noie.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’eau obtient un bonus de +10 PV.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’eau sont immunisés aux DM d’acide.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’eau percute l’adversaire ou le noie.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’eau obtient un bonus de +10 PV (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-eau-grand</key>
@@ -404,11 +418,12 @@
                     <name>Voie du colosse</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’eau sont immunisés aux DM d’acide.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’eau percute l’adversaire ou le noie.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’eau obtient un bonus de +10 PV.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’eau sont immunisés aux DM d’acide.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’eau percute l’adversaire ou le noie.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’eau obtient un bonus de +10 PV (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-eau-enorme</key>
@@ -461,11 +476,12 @@
                     <name>Voie du colosse</name>
                     <rank>2</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’eau sont immunisés aux DM d’acide.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’eau percute l’adversaire ou le noie.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’eau obtient un bonus de +10 PV.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’eau sont immunisés aux DM d’acide.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’eau percute l’adversaire ou le noie.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’eau obtient un bonus de +10 PV (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-eau-colossal</key>
@@ -523,11 +539,12 @@
                     <name>Voie du colosse</name>
                     <rank>3</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires d’eau sont immunisés aux DM d’acide.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire d’eau percute l’adversaire ou le noie.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire d’eau obtient un bonus de +10 PV.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires d’eau sont immunisés aux DM d’acide.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire d’eau percute l’adversaire ou le noie.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire d’eau obtient un bonus de +10 PV (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-feu-petit</key>
@@ -570,11 +587,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de feu sont immunisés aux DM de feu.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de feu brûle ses adversaires.</p>
-                    <p><em>Avantages :</em> l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de feu sont immunisés aux DM de feu.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de feu brûle ses adversaires.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-feu-moyen</key>
@@ -617,11 +635,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de feu sont immunisés aux DM de feu.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de feu brûle ses adversaires.</p>
-                    <p><em>Avantages :</em> l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de feu sont immunisés aux DM de feu.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de feu brûle ses adversaires.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-feu-grand</key>
@@ -669,11 +688,12 @@
                     <name>Voie du colosse</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de feu sont immunisés aux DM de feu.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de feu brûle ses adversaires.</p>
-                    <p><em>Avantages :</em> l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de feu sont immunisés aux DM de feu.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de feu brûle ses adversaires.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-feu-enorme</key>
@@ -726,11 +746,12 @@
                     <name>Voie du colosse</name>
                     <rank>2</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de feu sont immunisés aux DM de feu.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de feu brûle ses adversaires.</p>
-                    <p><em>Avantages :</em> l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de feu sont immunisés aux DM de feu.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de feu brûle ses adversaires.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-feu-colossal</key>
@@ -788,11 +809,12 @@
                     <name>Voie du colosse</name>
                     <rank>3</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de feu sont immunisés aux DM de feu.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de feu brûle ses adversaires.</p>
-                    <p><em>Avantages :</em> l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de feu sont immunisés aux DM de feu.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de feu brûle ses adversaires.</description></capacity>
+                <capacity><name>Avantages</name><type>creature</type><description>l’élémentaire de feu inflige 1d6 DM à toute créature qui l’attaque au contact.</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-terre-petit</key>
@@ -835,10 +857,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de terre sont immunisés aux DM de froid.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de terre frappe l’adversaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire de terre obtient un bonus de +3 en DEF.</p></div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de terre sont immunisés aux DM de froid.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de terre frappe l’adversaire.</description></capacity>
+                <capacity><name>Avantages </name><type>creature</type><description>l’élémentaire de terre obtient un bonus de +3 en DEF (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-terre-moyen</key>
@@ -881,10 +905,12 @@
                     <rank>1</rank>
                     <note>(RD 5 / magie)</note>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de terre sont immunisés aux DM de froid.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de terre frappe l’adversaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire de terre obtient un bonus de +3 en DEF.</p></div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de terre sont immunisés aux DM de froid.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de terre frappe l’adversaire.</description></capacity>
+                <capacity><name>Avantages </name><type>creature</type><description>l’élémentaire de terre obtient un bonus de +3 en DEF (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-terre-grand</key>
@@ -932,10 +958,12 @@
                     <name>Voie du colosse</name>
                     <rank>1</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div><p><em>Immunité :</em> les élémentaires de terre sont immunisés aux DM de froid.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de terre frappe l’adversaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire de terre obtient un bonus de +3 en DEF.</p></div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de terre sont immunisés aux DM de froid.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de terre frappe l’adversaire.</description></capacity>
+                <capacity><name>Avantages </name><type>creature</type><description>l’élémentaire de terre obtient un bonus de +3 en DEF (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-terre-enorme</key>
@@ -988,12 +1016,12 @@
                     <name>Voie du colosse</name>
                     <rank>2</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div>
-                    <p><em>Immunité :</em> les élémentaires de terre sont immunisés aux DM de froid.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de terre frappe l’adversaire.</p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire de terre obtient un bonus de +3 en DEF. </p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de terre sont immunisés aux DM de froid.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de terre frappe l’adversaire.</description></capacity>
+                <capacity><name>Avantages </name><type>creature</type><description>l’élémentaire de terre obtient un bonus de +3 en DEF (pris en compte dans le profil).</description></capacity>
             </div>
             <div>
                 <key>elementaire-de-terre-colossal</key>
@@ -1051,12 +1079,12 @@
                     <name>Voie du colosse</name>
                     <rank>3</rank>
                 </path>
-                <div><strong>Capacités</strong></div>
-                <div>
-                    <p><em>Immunité :</em> les élémentaires de terre sont immunisés aux DM de froid.</p>
-                    <p><em>Mode d’attaque :</em> l’élémentaire de terre frappe l’adversaire. </p>
-                    <p><em>Avantages</em> (pris en compte dans le profil) : l’élémentaire de terre obtient un bonus de +3 en DEF.</p>
-                </div>
+                <capacity><name>Vision dans le noir</name><type>creature</type><description>un élémentaire peut voir dans le noir à 30 mètres.</description></capacity>
+                <capacity><name>Localisation</name><type>creature</type><description>un élémentaire peut déterminer la localisation de toute créature en contact avec leur élément à moins de 30 mètres, même si celle-ci est invisible.</description></capacity>
+                <capacity><name>Cyclone (L)</name><type>creature</type><description>une fois par combat, un élémentaire peut se transformer en tourbillon de matière élémentaire. Pendant [1d4+1] tours, il peut se déplacer à travers les créatures et les objets à la vitesse de 30 mètres par tour. Toute créature sur son passage doit faire un test de DEX ou de FOR au choix de difficulté [10 + Mod. de FOR de l’élémentaire]. En cas d’échec, la cible subit automatiquement les DM de base de l’élémentaire (selon la taille) et elle est <em>renversée</em> au sol (si sa taille ne dépasse pas celle de l’élémentaire). En cas de succès, elle ne subit que la moitié des DM et peut rester debout. Lorsqu’il est sous forme de cyclone, l’élémentaire gagne un bonus de +5 en DEF.</description></capacity>
+                <capacity><name>Immunité</name><type>creature</type><description>les élémentaires de terre sont immunisés aux DM de froid.</description></capacity>
+                <capacity><name>Mode d’attaque</name><type>creature</type><description>l’élémentaire de terre frappe l’adversaire. </description></capacity>
+                <capacity><name>Avantages </name><type>creature</type><description>l’élémentaire de terre obtient un bonus de +3 en DEF (pris en compte dans le profil).</description></capacity>
             </div>
         </div>
     </div>
