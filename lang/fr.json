@@ -156,7 +156,6 @@
   "COF.attributes.resources.label": "RESSOURCES",
   "COF.attributes.resources.abbrev": "Res",
   "COF.attributes.val.abbrev" : "Val",
-  "COF.attributes.max.abbrev" : "Max",
   "COF.attributes.tmpval.abbrev" : "Temp",
 
   "COF.attributes.rp.label" : "Points de récupération",

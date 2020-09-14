@@ -150,7 +150,7 @@
       "scope": "profile",
       "profile": "pretre",
       "path": "voie-de-la-priere",
-      "description": "<p>Le Prêtre) bénéficient d'un bonus de +1 à tous leurs tests de Caractéristique et d'attaque pendant [3 + Mod. de <strong>SAG</strong>] tours.</p>",
+      "description": "<p>Le Prêtre bénéficient d'un bonus de +1 à tous leurs tests de Caractéristique et d'attaque pendant [3 + Mod. de <strong>SAG</strong>] tours.</p>",
       "limited": true,
       "spell": true
     }
