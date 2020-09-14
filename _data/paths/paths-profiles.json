@@ -916,7 +916,7 @@
         {
           "level": 4,
           "title": "Tir parabolique",
-          "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de Tir précis.</p>"
+          "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de <i>Tir précis</i>.</p>"
         },
         {
           "level": 5,
