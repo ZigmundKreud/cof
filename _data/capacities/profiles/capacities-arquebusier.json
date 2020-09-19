@@ -117,7 +117,7 @@
       "scope": "profile",
       "profile": "arquebusier",
       "path": "voie-de-la-precision",
-      "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de Tir précis.</p>"
+      "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de <i>Tir précis</i>.</p>"
     }
   },
   {
@@ -263,7 +263,7 @@
       "scope": "profile",
       "profile": "arquebusier",
       "path": "voie-du-champ-de-bataille",
-      "description": "<p>Le personnage augmente son score de <strong>CON</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé et conserver le meilleur résultat.</p>"
+      "description": "<p>L'Arquebusier augmente son score de <strong>CON</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CON</strong> lui est demandé et conserver le meilleur résultat.</p>"
     }
   },
   {

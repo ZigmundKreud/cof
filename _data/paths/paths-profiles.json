@@ -39,7 +39,7 @@
           "title": "Forme éthérée",
           "limited": true,
           "spell": true,
-          "description": "<p>L'Ensorceleur et tout son équipement deviennent translucides et intangibles pendant [5 + Mod. de <strong>CHA</strong>] tours. Sous cette forme, il peut passer à travers murs et obstacles, et ne peut subir aucun <strong>DM</strong> physiques.</p>"
+          "description": "<p>L'Ensorceleur et tout son équipement deviennent translucides et intangibles pendant [5 + Mod. de <strong>CHA</strong>] tours. Sous cette forme, il peut passer à travers murs et obstacles, et ne peut subir aucun <strong>DM</strong> physiques, ni en infliger, ni lancer des sorts.</p>"
         }
       ],
       "class": {
@@ -110,14 +110,14 @@
           "title": "Sommeil",
           "limited": true,
           "spell": true,
-          "description": "<p>plonge dans l'inconscience des créatures vivantes pendant [5 + Mod. de <strong>CHA</strong>] minutes. Affecte un nombre de PV égal au test d'attaque magique de l'Ensorceleur dans une zone de 10 m de diamètre (portée 20 m). Toutes les cibles doivent être d'un Niveau inférieur ou égal à la moitié du Niveau du personnage. Il est possible de les réveiller en les giflant (action d'attaque).</p>"
+          "description":  "<p>[1d6 + Mod. de <strong>CHA</strong>] cibles vivantes dans une zone de 10 m de diamètre (portée 20 m) et dont le score max de PV ne dépasse pas le score d’attaque magique de l’ensorceleur* sombrent dans l’inconscience pendant [5 + Mod. de <strong>CHA</strong>] minutes. Il est possible de les réveiller en les giflant (action d’attaque).</p><p><i> * Les créatures dont les PV sont compris entre le score d’attaque magique du magicien et le double de celui-ci peuvent faire un test de <strong>SAG</strong> difficulté [10 + Mod. de <strong>CHA</strong>] pour résister au sort. Les créatures avec des PV supérieur ne sont pas affectées.</i></p>"
         },
         {
           "level": 3,
           "title": "Confusion",
           "limited": true,
           "spell": true,
-          "description": "<p>En réussissant un test d'Attaque magique (portée 20 m), l'Ensorceleur désoriente sa cible pendant [3 + Mod. de <strong>CHA</strong>] tours. Chaque tour, lancer 1d6 : 1-3 la victime n'agit pas, 4-6 elle attaque la créature la plus proche (au hasard). Chaque fin de tour, elle fait un test de <strong>SAG</strong> difficulté [10 + Mod. de <strong>CHA</strong>] pour mettre fin au sort.</p>"
+          "description": "<p>En réussissant un test d'Attaque magique (portée 20 m), l'Ensorceleur désoriente sa cible pendant [3 + Mod. de <strong>CHA</strong>] tours. Chaque tour, lancer 1d6 : <strong>1-3</strong> la victime n'agit pas, <strong>4-6</strong> elle attaque la créature la plus proche (au hasard). Chaque fin de tour, elle fait un test de <strong>SAG</strong> difficulté [10 + Mod. de <strong>CHA</strong>] pour mettre fin au sort.</p>"
         },
         {
           "level": 4,
@@ -191,7 +191,7 @@
         {
           "level": 1,
           "title": "Familier",
-          "description": "<p>Le personnage choisit un petit animal (corbeau, chat, furet, serpent…). Il peut utiliser les sens de son familier et communiquer avec lui à distance illimitée. Il gagne de plus +2 en Initiative lorsque son familier est en vue.\nFamilier : <strong>DEF</strong> [personnage], Init [personnage], PV [il les partage avec ceux de son maître], ils forment une cible unique pour les attaques de zone. <strong>FOR</strong> -4, <strong>DEX</strong> +3, <strong>CON</strong> 0, <strong>INT</strong> -2, <strong>SAG</strong> +1, <strong>CHA</strong> -2.</p>"
+          "description": "<p>Le personnage choisit un petit animal (corbeau, chat, furet, serpent…). Il peut utiliser les sens de son familier et communiquer avec lui à distance illimitée. Il gagne de plus +2 en Initiative lorsque son familier est en vue.\n<i>Familier</i> : <strong>DEF</strong> [personnage], Init [personnage], PV [il les partage avec ceux de son maître], ils forment une cible unique pour les attaques de zone. <strong>FOR</strong> -4, <strong>DEX</strong> +3, <strong>CON</strong> 0, <strong>INT</strong> -2, <strong>SAG</strong> +1, <strong>CHA</strong> -2.</p>"
         },
         {
           "level": 2,
@@ -205,7 +205,7 @@
           "title": "Mur de force",
           "limited": true,
           "spell": true,
-          "description": "<p>L'Ensorceleur crée un mur de force indestructible (portée 10 m, maximum 5 m de haut et 10 m de long), ou bien une hémisphère de 3 m de rayon centrée sur lui-même. Le sort dure pendant [5 + Mod. de <strong>CHA</strong>] tours.</p>"
+          "description": "<p>L'Ensorceleur crée un mur de force indestructible (portée 10 m, maximum 5 m de haut et 10 m de long), ou bien un hémisphère de 3 m de rayon centré sur lui-même. Le sort dure pendant [5 + Mod. de <strong>CHA</strong>] tours.</p>"
         },
         {
           "level": 4,
@@ -217,7 +217,7 @@
         {
           "level": 5,
           "title": "Charisme héroïque",
-          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
         }
       ],
       "class": {
@@ -283,7 +283,7 @@
           "title": "Détection de l'invisible",
           "limited": true,
           "spell": true,
-          "description": "<p>Pendant [5 + Mod. de <strong>CHA</strong>] tours, l’Ensorceleur détecte les créatures invisibles ou cachées à moins de 30 mètres et détecte si un sort de Clairvoyance affecte l’endroit. Aveuglé, ce sort lui permet de voir normalement.</p>"
+          "description": "<p>Pendant [5 + Mod. de <strong>CHA</strong>] tours, l’Ensorceleur détecte les créatures invisibles ou cachées à moins de 30 mètres et détecte si un sort de <i>Clairvoyance</i> affecte l’endroit. Aveuglé, ce sort lui permet de voir normalement.</p>"
         },
         {
           "level": 3,
@@ -346,7 +346,7 @@
         {
           "level": 5,
           "title": "Charisme héroïque",
-          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
         }
       ],
       "class": {
@@ -916,7 +916,7 @@
         {
           "level": 4,
           "title": "Tir parabolique",
-          "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de Tir précis.</p>"
+          "description": "<p>L’Arquebusier est capable de réaliser un tir à longue distance sans pénalité : il double la portée des armes à distance. Il peut aussi tirer jusqu’au triple de la portée indiquée avec une pénalité de -5 en attaque et aux <strong>DM</strong>. Cette capacité ne modifie pas la portée de <i>Tir précis</i>.</p>"
         },
         {
           "level": 5,
@@ -1089,7 +1089,7 @@
         {
           "level": 5,
           "title": "Charisme héroïque",
-          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
         }
       ],
       "class": {
@@ -1346,7 +1346,7 @@
         {
           "level": 5,
           "title": "Charisme héroïque",
-          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
         }
       ],
       "class": {
@@ -1684,7 +1684,7 @@
           "title": "Imitation",
           "limited": true,
           "spell": true,
-          "description": "<p>L'ensorceleur peut prendre l'apparence d'une créature de taille proche (+ ou &#8211; 50 cm) qu'il voit au moment de l'incantation. Durée [5 + Mod. de <strong>CHA</strong>] minutes. Toucher l'Ensorceleur (une attaque ou non) met fin au sort.</p>"
+          "description": "<p>L'ensorceleur peut prendre l'apparence d'une créature de taille proche (+ ou - 50 cm) qu'il voit au moment de l'incantation. Durée [5 + Mod. de <strong>CHA</strong>] minutes. Toucher l'Ensorceleur (une attaque ou non) met fin au sort.</p>"
         },
         {
           "level": 4,
@@ -2254,7 +2254,7 @@
         {
           "level": 5,
           "title": "Charisme héroïque",
-          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2. Il peut de plus lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
+          "description": "<p>Le personnage augmente sa valeur de <strong>CHA</strong> de +2 et il peut désormais lancer deux d20 à chaque fois qu'un test de <strong>CHA</strong> lui est demandé et conserver le meilleur résultat.</p>"
         }
       ],
       "class": {
