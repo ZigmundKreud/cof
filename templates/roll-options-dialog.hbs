@@ -46,12 +46,14 @@
         <input class="field-value" id="bonus" name="bonus" type="text" value="{{numberFormat bonus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
+{{#if (isEnabled "displayDifficulty")}}
 <hr/>
 <div class="row flexrow" style="margin-bottom: 5px;">
     <div class="flex1 center bg-darkslate">
         <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" id="difficulty" name="difficulty" type="text" value="10" data-dtype="Number"/>
+        <input class="field-value" id="difficulty" name="difficulty" type="text" value="" data-dtype="Number"/>
     </div>
 </div>
+{{/if}}

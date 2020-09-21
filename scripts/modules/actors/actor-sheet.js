@@ -414,8 +414,13 @@ export class CofActorSheet extends ActorSheet {
 
                         const isCritical = kept >= critrange.split("-")[0];
                         const isFumble = kept === 1;
-                        const isSuccess = r.total >= diff;
-                        const msgFlavor = this._buildRollMessage(label, diff, isCritical, isFumble, isSuccess);
+                        let msgFlavor = "";
+                        if(diff){
+                            const isSuccess = r.total >= diff;
+                            msgFlavor = this._buildRollMessage(label, diff, isCritical, isFumble, isSuccess);
+                        }else{
+                            msgFlavor = this._buildRollMessageNoDifficulty(label, isCritical, isFumble);
+                        }
                         r.toMessage({
                             user: game.user._id,
                             flavor: msgFlavor,
@@ -443,7 +448,7 @@ export class CofActorSheet extends ActorSheet {
         });
 
         let d = new Dialog({
-            title: "Damage Roll",
+            title: "Weapon Roll",
             content: rollOptionContent,
             buttons: {
                 cancel: {
@@ -468,15 +473,36 @@ export class CofActorSheet extends ActorSheet {
                         const kept = skillRoll.parts[0].rolls.filter(r => !r.discarded)[0].roll;
                         const isCritical = kept >= critrange.split("-")[0];
                         const isFumble = kept === 1;
-                        const isSuccess = skillRoll.total >= diff;
-                        const skillCheckFlavor = this._buildRollMessage(label, diff, isCritical, isFumble, isSuccess);
-                        skillRoll.toMessage({
-                            user: game.user._id,
-                            flavor: skillCheckFlavor,
-                            speaker: ChatMessage.getSpeaker({actor: this.actor})
-                        });
+                        let skillCheckFlavor = "";
+                        if(diff){
+                            const isSuccess = skillRoll.total >= diff;
+                            skillCheckFlavor = this._buildRollMessage(label, diff, isCritical, isFumble, isSuccess);
+                            skillRoll.toMessage({
+                                user: game.user._id,
+                                flavor: skillCheckFlavor,
+                                speaker: ChatMessage.getSpeaker({actor: this.actor})
+                            });
 
-                        if (isSuccess) {
+                            if (isSuccess) {
+                                const dmgFormula = html.find("#formula").val();
+                                const damageRoll = new Roll(dmgFormula);
+                                damageRoll.roll();
+                                if (isCritical) damageRoll._total = damageRoll._total * 2;
+                                const dmgCheckFlavor = this._buildDamageRollMessage(label, isCritical);
+                                damageRoll.toMessage({
+                                    user: game.user._id,
+                                    flavor: dmgCheckFlavor,
+                                    speaker: ChatMessage.getSpeaker({actor: this.actor})
+                                });
+                            }
+                        } else {
+                            skillCheckFlavor = this._buildRollMessageNoDifficulty(label, isCritical, isFumble);
+                            skillRoll.toMessage({
+                                user: game.user._id,
+                                flavor: skillCheckFlavor,
+                                speaker: ChatMessage.getSpeaker({actor: this.actor})
+                            });
+
                             const dmgFormula = html.find("#formula").val();
                             const damageRoll = new Roll(dmgFormula);
                             damageRoll.roll();
@@ -487,6 +513,7 @@ export class CofActorSheet extends ActorSheet {
                                 flavor: dmgCheckFlavor,
                                 speaker: ChatMessage.getSpeaker({actor: this.actor})
                             });
+
                         }
                     }
                 }
@@ -549,6 +576,15 @@ export class CofActorSheet extends ActorSheet {
         if (isFumble) return `<h2 class="failure fumble">Fumble !</h2>${subtitle}`;
         if (isSuccess) return `<h2 class="success">Réussite !</h2>${subtitle}`;
         else return `<h2 class="failure">Echec...</h2>${subtitle}`;
+    }
+
+    /* -------------------------------------------- */
+
+    _buildRollMessageNoDifficulty(label, isCritical, isFumble) {
+        let subtitle = `<h3><strong>${label}</strong></h3>`;
+        if (isCritical) return `<h2 class="success critical">Critique !</h2>${subtitle}`;
+        if (isFumble) return `<h2 class="failure fumble">Fumble !</h2>${subtitle}`;
+        else return subtitle;
     }
 
     /* -------------------------------------------- */
