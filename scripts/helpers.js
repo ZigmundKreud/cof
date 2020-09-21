@@ -144,7 +144,8 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('isEmpty', function (list) {
-        return list.length == 0;
+        if(list) return list.length == 0;
+        else return 0;
     });
 
     Handlebars.registerHelper('notEmpty', function (list) {
@@ -229,7 +230,15 @@ export const registerHandlebarsHelpers = async function () {
         return gamepaths.concat(COF.paths);
     });
 
-    Handlebars.registerHelper('findCapacities', function (caps) {
+    Handlebars.registerHelper('findPath', function (key) {
+        return COF.paths.find(p => p.data.key === key);
+    });
+
+    Handlebars.registerHelper('findCapacity', function (key) {
+        return COF.capacities.find(c => c.data.key === key);
+    });
+
+    Handlebars.registerHelper('filterCapacities', function (caps) {
         return COF.capacities.filter(c => caps.includes(c.data.key));
     });
 

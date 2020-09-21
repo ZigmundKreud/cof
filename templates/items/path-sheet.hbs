@@ -57,7 +57,6 @@
                                     {{/each}}
                                 {{/select}}
                             </select>
-
                         </span>
                     </div>
                 </div>
@@ -87,7 +86,7 @@
             <section class="sheet-body">
                 {{!-- Capacitites Tab --}}
                 <div class="tab capacities" data-group="primary" data-tab="capacities">
-                {{#each (findCapacities data.capacities) as |cap id|}}
+                {{#each (filterCapacities data.capacities) as |cap id|}}
                     <p style="margin:0; padding: 5px;"><a class="entity-link" draggable="true" data-pack="cof.capacities" data-id="{{cap._id}}"><i class="fas fa-suitcase"></i>&nbsp;{{cap.name}}</a></p>
                 {{/each}}
                 </div>

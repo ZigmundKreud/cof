@@ -79,26 +79,64 @@
                         <!-- /SIZE -->
                     </div>
                     <div class="flex1">
-                        <!-- SPECIES -->
+                        <!-- ARCHETYPE -->
                         <div class="row flexrow">
                             <div class="flex1 center bg-darkgreen">
-                                <span class="field-label">{{ localize 'COF.details.species' }}</span>
+                                <span class="field-label">{{ localize 'COF.ui.archetype' }}</span>
                             </div>
                             <div class="flex2 center cell">
-                                <input class="field-value sans" name="data.species" type="text" value="{{actor.data.species}}" placeholder="{{ localize 'COF.details.species' }}" data-dtype="String"/>
+                                <select name="data.archetype" data-type="String" style="width:100%">
+                                    {{#select data.archetype}}
+                                        <option value="">{{localize "COF.None"}}</option>
+                                        <option value="standard">Standard</option>
+                                        <option value="rapide">Rapide</option>
+                                        <option value="puissant">Puissant</option>
+                                        <option value="inférieur">Inférieur</option>
+                                    {{/select}}
+                                </select>
                             </div>
                         </div>
-                        <!-- /SPECIES -->
-                        <!-- PROFILE -->
+                        <!-- /ARCHETYPE -->
+                        <!-- CATEGORY -->
                         <div class="row flexrow">
                             <div class="flex1 center bg-darkgreen">
-                                <span class="field-label">{{ localize 'COF.details.profile' }}</span>
+                                <span class="field-label">{{ localize 'COF.ui.category' }}</span>
                             </div>
                             <div class="flex2 center cell">
-                                <input class="field-value sans" name="data.profile" type="text" value="{{actor.data.profile}}" placeholder="{{ localize 'COF.details.profile' }}" data-dtype="String"/>
+                                <select name="data.category" data-type="String" style="width:100%">
+                                    {{#select data.category}}
+                                        <option value="">{{localize "COF.None"}}</option>
+                                        <option value="vivante">Vivante</option>
+                                        <option value="humanoïde">Humanoïde</option>
+                                        <option value="non-vivante">Non-vivante</option>
+                                    {{/select}}
+                                </select>
+
                             </div>
                         </div>
-                        <!-- /PROFILE -->
+                        <!-- /CATEGORY -->
+                        <!-- BOSS RANK -->
+                        <div class="row flexrow">
+                            <div class="flex1 center bg-darkgreen">
+                                <span class="field-label">{{ localize 'COF.ui.boss' }}</span>
+                            </div>
+                            <div class="flex1 center cell">
+                                <input class="field-value sans" name="data.boss.rank" type="text" value="{{actor.data.boss.rank}}" placeholder="{{ localize 'COF.ui.rank' }}" data-dtype="String"/>
+                            </div>
+                            <div class="flex1 center cell">
+                                <select name="data.boss.type" data-type="String" style="width:100%">
+                                    {{#select data.boss.type}}
+                                        <option value="">{{localize "COF.None"}}</option>
+                                        <option value="standard">Standard</option>
+                                        <option value="rapide">Rapide</option>
+                                        <option value="puissant">Puissant</option>
+                                        <option value="inférieur">Inférieur</option>
+                                    {{/select}}
+                                </select>
+
+                            </div>
+                        </div>
+                        <!-- /BOSS RANK -->
                     </div>
                 </div>
                 <div class="row flexrow"><div class="flex1 half-spacer"></div></div>

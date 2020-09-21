@@ -1,5 +1,5 @@
 <div class="row flexrow">
-    <div class="flex1 right">
+    <div class="flex1 center bg-darkgreen">
         <span class="field-label">{{ localize 'COF.details.gender' }}</span>
     </div>
     <div class="flex4 cell">
@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="row flexrow">
-    <div class="flex1 right">
+    <div class="flex1 center bg-darkgreen">
         <span class="field-label">{{ localize "COF.details.age" }}</span>
     </div>
     <div class="flex4 cell">
@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="row flexrow">
-    <div class="flex1 right">
+    <div class="flex1 center bg-darkgreen">
         <span class="field-label">{{ localize "COF.details.height" }}</span>
     </div>
     <div class="flex4 cell">
@@ -23,7 +23,7 @@
     </div>
 </div>
 <div class="row flexrow">
-    <div class="flex1 right">
+    <div class="flex1 center bg-darkgreen">
         <span class="field-label">{{ localize "COF.details.weight" }}</span>
     </div>
     <div class="flex4 cell">
@@ -31,7 +31,7 @@
     </div>
 </div>
 <div class="row flexrow">
-    <div class="flex1 right">
+    <div class="flex1 center bg-darkgreen">
         <span class="field-label">{{ localize "COF.details.eyes" }}</span>
     </div>
     <div class="flex4 cell">
@@ -39,11 +39,19 @@
     </div>
 </div>
 <div class="row flexrow">
-    <div class="flex1 right">
+    <div class="flex1 center bg-darkgreen">
         <span class="field-label">{{ localize "COF.details.hair" }}</span>
     </div>
     <div class="flex4 cell">
         <input class="field-value" name="data.details.hair" type="text" value="{{actor.data.details.hair}}" placeholder="" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow">
+    <div class="flex1 center bg-darkgreen">
+        <span class="field-label">{{ localize 'COF.ui.milieu' }}</span>
+    </div>
+    <div class="flex4 cell">
+        <input class="field-value sans" name="data.milieu" type="text" value="{{actor.data.milieu}}" placeholder="{{ localize 'COF.ui.milieu' }}" data-dtype="String"/>
     </div>
 </div>
 <hr/>

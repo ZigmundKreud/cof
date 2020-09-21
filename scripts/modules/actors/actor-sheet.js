@@ -59,8 +59,12 @@ export class CofActorSheet extends ActorSheet {
         html.find('.capacity-edit').click(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget).closest(".capacity");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            item.sheet.render(true);
+            let item = this.actor.getOwnedItem(li.data("itemId"));
+            if(item) {
+                item.sheet.render(true);
+            }else{
+                game.packs.get("cof.capacities").getEntity(li.data("itemId")).then(i => i.sheet.render(true));
+            }
         });
         html.find('.capacity-create').click(ev => {
             ev.preventDefault();

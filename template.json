@@ -159,8 +159,8 @@
             "label" : "COF.attributes.dr.label",
             "abbrev" : "COF.attributes.dr.abbrev",
             "enabled": false,
-            "base": 0,
-            "bonus": 0,
+            "base": { "value" : 0, "ignored" : ""},
+            "bonus": { "value" : 0, "ignored" : ""},
             "value": 0
           },
           "rp": {
@@ -264,6 +264,7 @@
       ]
     },
     "encounter": {
+      "key": null,
       "templates": [
         "common"
       ],
@@ -330,9 +331,16 @@
         "dmg" : null
       }],
       "capacities" : [],
+      "paths": [],
       "special" : [],
+      "boss": {
+        "rank" : null,
+        "type" : null
+      },
+      "families": [],
       "class": "",
       "archetype": "",
+      "category": "",
       "species": "",
       "profile": "",
       "milieu": ""

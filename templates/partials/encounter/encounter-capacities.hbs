@@ -1,3 +1,10 @@
+<div class="row flexrow" style="height:20px; padding: 0; margin:0">
+    <div class="flex1 right" style="height:20px; padding: 0; margin:0">
+        <a class="capacity-add compendium-pack btn" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité" style="height:20px;padding:2px;"><i class="fas fa-plus-square"></i>&nbsp; Ajouter une capacité</a>
+        &nbsp;
+        <a class="capacity-create btn" title="Créer une capacité" style="height:20px;padding:2px;"><i class="fas fa-edit"></i>&nbsp; Créer une capacité</a>
+    </div>
+</div>
 {{#if (isEmpty (getPaths actor.items))}}
 {{else}}
     <div class="path-list encounter">
@@ -36,31 +43,66 @@
         </div>
     </div>
 {{/if}}
-{{#if (isEmpty (getActiveCapacities actor.items))}}
+{{#if (and (and (isEmpty (getActiveCapacities actor.items)) (isEmpty actor.data.capacities)) (isEmpty actor.data.paths))}}
     <p class="empty">Aucune capacité n'a été sélectionnée pour le moment</p>
-
-    <div class="grid grid-3col capacity-list">
-        <div class="capacity item">
-            <p class="center light"><strong>Ajouter une capacité</strong></p>
-            <p class="center light">
-                <a class="capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité" style="padding-top: 25px">
-                    <i class="fas fa-plus-square fa-5x"></i>
-                </a>
-            </p>
-        </div>
-        <div class="capacity item">
-            <p class="center light"><strong>Créer une capacité</strong></p>
-            <p class="center light">
-                <a class="capacity-create" title="Créer une capacité" style="padding-top: 25px">
-                    <i class="fas fa-edit fa-5x"></i>
-                </a>
-            </p>
-        </div>
-    </div>
+<!--    <div class="grid grid-3col capacity-list">-->
+<!--        <div class="capacity item">-->
+<!--            <p class="center light"><strong>Ajouter une capacité</strong></p>-->
+<!--            <p class="center light">-->
+<!--                <a class="capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité" style="padding-top: 25px">-->
+<!--                    <i class="fas fa-plus-square fa-5x"></i>-->
+<!--                </a>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--        <div class="capacity item">-->
+<!--            <p class="center light"><strong>Créer une capacité</strong></p>-->
+<!--            <p class="center light">-->
+<!--                <a class="capacity-create" title="Créer une capacité" style="padding-top: 25px">-->
+<!--                    <i class="fas fa-edit fa-5x"></i>-->
+<!--                </a>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
 {{else}}
 <div class="grid grid-3col capacity-list encounter">
+    {{#each actor.data.capacities as |capacity id|}}
+        <div class="capacity item" data-item-type="inner" data-item-id="{{id}}">
+            <div class="capacity-title center">
+                <a class="flex1 capacity-control capacity-edit" title="{{capacity.name}}">
+                    {{capacity.name}}
+                </a>
+                <a class="flex0 capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+            <div class="capacity-description">
+                <div>{{{capacity.description}}}</div>
+            </div>
+        </div>
+    {{/each}}
+    {{#each actor.data.paths as |cap id|}}
+        {{#with (findCapacity cap.key) as |capacity id|}}
+            <div class="capacity item" data-item-type="item" data-item-id="{{capacity._id}}">
+                <div class="capacity-title center">
+                    <a class="flex1 capacity-control capacity-edit" title="{{capacity.name}}">
+                        {{{capacity.name}}}
+                        {{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}
+                        {{#if capacity.data.limited}}&nbsp;(L){{/if}}
+                    </a>
+                    &nbsp;
+                    <a class="flex0 capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+                <div class="capacity-path">
+                    {{#with (findPath capacity.data.path) as |path id|}}
+                        <em>{{{path.name}}} {{#if capacity.data.rank}}({{capacity.data.rank}}){{/if}}</em>
+                    {{/with}}
+                </div>
+                <div class="capacity-description">
+                    <div>{{{capacity.data.description}}}</div>
+                </div>
+            </div>
+        {{/with}}
+    {{/each}}
     {{#each (getActiveCapacities actor.items) as |capacity id|}}
-        <div class="capacity item" data-item-id="{{capacity._id}}">
+        <div class="capacity item" data-item-type="item" data-item-id="{{capacity._id}}">
             <div class="capacity-title center">
                 <a class="flex1 capacity-control capacity-edit" title="{{capacity.name}}">
                     {{capacity.name}}
@@ -81,21 +123,21 @@
             </div>
         </div>
     {{/each}}
-    <div class="capacity item">
-        <p class="center light"><strong>Ajouter une capacité</strong></p>
-        <p class="center light">
-            <a class="capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité" style="padding-top: 25px">
-                <i class="fas fa-plus-square fa-5x"></i>
-            </a>
-        </p>
-    </div>
-    <div class="capacity item">
-        <p class="center light"><strong>Créer une capacité</strong></p>
-        <p class="center light">
-            <a class="capacity-create" title="Créer une capacité" style="padding-top: 25px">
-                <i class="fas fa-edit fa-5x"></i>
-            </a>
-        </p>
-    </div>
+<!--    <div class="capacity item">-->
+<!--        <p class="center light"><strong>Ajouter une capacité</strong></p>-->
+<!--        <p class="center light">-->
+<!--            <a class="capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité" style="padding-top: 25px">-->
+<!--                <i class="fas fa-plus-square fa-5x"></i>-->
+<!--            </a>-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    <div class="capacity item">-->
+<!--        <p class="center light"><strong>Créer une capacité</strong></p>-->
+<!--        <p class="center light">-->
+<!--            <a class="capacity-create" title="Créer une capacité" style="padding-top: 25px">-->
+<!--                <i class="fas fa-edit fa-5x"></i>-->
+<!--            </a>-->
+<!--        </p>-->
+<!--    </div>-->
 </div>
 {{/if}}

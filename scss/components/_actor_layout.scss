@@ -204,9 +204,9 @@
                   }
 
                   &.encounter {
-                    min-height: calc(100% - 140px) !important;
-                    height: calc(100% - 140px) !important;
-                    max-height: calc(100% - 140px) !important;
+                    min-height: calc(100% - 50px) !important;
+                    height: calc(100% - 50px) !important;
+                    max-height: calc(100% - 50px) !important;
                     overflow: auto;
                   }
                 }

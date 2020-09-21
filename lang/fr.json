@@ -61,6 +61,10 @@
   "COF.ui.key" : "Identifiant",
   "COF.ui.note" : "Note",
   "COF.ui.weaponRoll" : "Attaque",
+  "COF.ui.archetype" : "Archétype",
+  "COF.ui.category" : "Catégorie",
+  "COF.ui.milieu" : "Milieu",
+  "COF.ui.boss" : "Boss",
 
   "COF.None": "--",
   "COF.tabs.stats": "Caractéristiques",

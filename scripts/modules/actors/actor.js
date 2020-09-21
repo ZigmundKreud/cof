@@ -223,6 +223,7 @@ export class CofActor extends Actor {
     }
 
     _prepareEncounterData(actorData) {
+        console.log(actorData);
         const stats = actorData.data.stats;
 
         // COMPUTE MODS
@@ -237,12 +238,12 @@ export class CofActor extends Actor {
                 actorData.token.height = 2;
                 break;
             case "huge":
-                actorData.token.width = 3;
-                actorData.token.height = 3;
-                break;
-            case "colossal":
                 actorData.token.width = 4;
                 actorData.token.height = 4;
+                break;
+            case "colossal":
+                actorData.token.width = 8;
+                actorData.token.height = 8;
                 break;
             case "tiny":
             case "small":

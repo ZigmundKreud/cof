@@ -29,6 +29,14 @@
       "tag" : "capacity"
     },
     {
+      "name": "encounters",
+      "label": "Rencontres",
+      "system": "cof",
+      "path": "./packs/encounters.db",
+      "entity": "Actor",
+      "tag" : "encounter"
+    },
+    {
       "name": "items",
       "label": "Equipement",
       "system": "cof",
@@ -58,7 +66,7 @@
       "system": "cof",
       "path": "./packs/species.db",
       "entity": "Item",
-      "tag" : "specie"
+      "tag" : "species"
     },
     {
       "name": "spells",

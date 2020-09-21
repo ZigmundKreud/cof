@@ -2,6 +2,7 @@
   {
     "name": "Aigle",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "aigle",
       "families": [
@@ -13,21 +14,21 @@
       "description": "<p>Ce Profil correspond à tous les oiseaux de proie de grande taille (environ 2 mètres d’envergure).</p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "vivante",
-      "size": "taille très petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-3",
-        "dex": "+3*",
-        "con": "+3",
-        "int": "-4",
-        "wis": "+4*",
-        "cha": "+0"
+        "str": { "mod": -3 },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 3 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 2,
-        "init": 17
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 2, "bonus": 0, "value": 2, "max": 2},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -46,6 +47,7 @@
   {
     "name": "Aigle géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "aigle-geant",
       "families": [
@@ -57,21 +59,21 @@
       "description": "<p>Les aigles géants ne sont pas de simples volatiles de grande taille, ils possèdent aussi une intelligence supérieure. Il existe même des spécimens doués de parole parfois utilisés comme monture ou comme allié par les forces du Bien.<br>Mesurant près de 6 mètres d’envergure un tel aigle peut transporter une créature de taille moyenne. Si vous souhaitez utiliser un aigle de taille encore plus grande, vous pouvez utiliser les règles du <a href=\"http://co-drs.org/creatures/pteranodon/\">Ptéranodon</a> (Enorme) ou celles du <a href=\"http://co-drs.org/creatures/roc/\">Roc</a> (Colossal).</p>",
       "milieu": "montagne",
       "archetype": "standard",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-2",
-        "wis": "+4*",
-        "cha": "+0"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 30,
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -93,6 +95,7 @@
   {
     "name": "Roc",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "roc",
       "families": [
@@ -104,21 +107,21 @@
       "description": "<em><p>Le Roc est un aigle légendaire de plus de 20 mètres d’envergure, capable d’emporter un éléphant dans ses serres !</p></em>",
       "milieu": "montagne",
       "archetype": "rapide",
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+12",
-        "dex": "+2*",
-        "con": "+12",
-        "int": "+2",
-        "wis": "+4*",
-        "cha": "-2"
+        "str": { "mod": 12 },
+        "dex": { "mod": 2, "superior" : true },
+        "con": { "mod": 12 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 140,
-        "init": 14
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 140, "bonus": 0, "value": 140, "max": 140},
+        "init": { "base": 14, "bonus": 0, "value": 14 }
       },
       "attacks": [
         {
@@ -143,6 +146,7 @@
   {
     "name": "Bandit de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "bandit-de-base",
       "families": [
@@ -152,22 +156,22 @@
         }
       ],
       "milieu": "forêt",
-      "archetype": "Archétype standard",
-      "nc": "0.5",
+      "archetype": "standard",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -187,6 +191,7 @@
   {
     "name": "Bandit vétéran",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "bandit-veteran",
       "families": [
@@ -198,21 +203,21 @@
       "description": "<p>Un bandit vétéran peut servir de chef à un groupe de petites frappes (augmentez son CHA à +2). Si vous voulez des bandits plus dangereux, ajoutez-leur un ou plusieurs rangs dans la <a href=\"http://co-drs.org/voies/voie-de-la-meute/\">Voie de la meute</a> (le rang 2, <a href=\"http://co-drs.org/capacites/attaque-en-traitre-2/\">Attaque en traître</a> est un incontournable).</p>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -232,6 +237,7 @@
   {
     "name": "Chef Bandit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chef-bandit",
       "families": [
@@ -247,21 +253,21 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+2",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3 },
+        "dex": { "mod": 2 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 14
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 14, "bonus": 0, "value": 14 }
       },
       "attacks": [
         {
@@ -281,6 +287,7 @@
   {
     "name": "Bison",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "bison",
       "families": [
@@ -292,21 +299,21 @@
       ],
       "milieu": "plaine",
       "archetype": "inférieur",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+4",
-        "dex": "+0",
-        "con": "+4*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 4 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 4, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 13,
-        "hp": 20,
-        "init": 10
+        "def": { "base": 13, "bonus": 0, "value": 13 },
+        "hp": { "base": 20, "bonus": 0, "value": 20, "max": 20},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -325,6 +332,7 @@
   {
     "name": "Bison, Grand mâle",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "bison-grand-male",
       "families": [
@@ -337,21 +345,21 @@
       "description": "<p>Un grand mâle mesure environ 1,80 m au garrot pour une tonne.</p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 30,
-        "init": 10
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -370,6 +378,7 @@
   {
     "name": "Centaure",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "centaure",
       "families": [
@@ -381,21 +390,21 @@
       ],
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6 (+3)",
-        "dex": "+2",
-        "con": "+6*",
-        "int": "-1",
-        "wis": "+1",
-        "cha": "+0"
+        "str": { "mod": 3, "tmpmod": 6 },
+        "dex": { "mod": 2 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -1 },
+        "wis": { "mod": 1 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 30,
-        "init": 15
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -436,6 +445,7 @@
   {
     "name": "Centaure Rôdeur niveau 4",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "centaure-rodeur-niveau-4",
       "families": [
@@ -448,21 +458,21 @@
       "description": "<p><strong>Rôdeur</strong> de niveau 4</p><p><em>° Nous avons considéré que le niveau de <a href=\"http://co-drs.org/profils/rodeur/\">Rôdeur</a> n’influait pas sur l’attaque de sabot dans le calcul du bonus de cette attaque.</em></p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6 (+3)",
-        "dex": "+2",
-        "con": "+6*",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 3, "tmpmod": 6 },
+        "dex": { "mod": 2 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 70,
-        "init": 15
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 70, "bonus": 0, "value": 70, "max": 70},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -521,6 +531,7 @@
   {
     "name": "Cheval de selle",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "cheval-de-selle",
       "families": [
@@ -532,21 +543,21 @@
       "description": "<p>Un cheval de selle n’est pas apte à subir le stress du combat. Dans ce type de situation, le cavalier doit utiliser une action de mouvement et réussir un test de CHA difficulté 10 pour réussir à le maîtriser à chaque tour. En cas d’échec, le cheval prend la fuite.<br> Animal domestique, le cheval n’est pas habitué à se défendre, il reçoit un malus de -2 en combat (déjà pris en compte dans ses Caractéristiques).</p>",
       "milieu": "plaine",
       "archetype": "inférieur",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+4",
-        "dex": "+0",
-        "con": "+4*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 4 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 4, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 13,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 13, "bonus": 0, "value": 13 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -567,6 +578,7 @@
   {
     "name": "Cheval de guerre léger",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "cheval-de-guerre-leger",
       "families": [
@@ -578,21 +590,21 @@
       "description": "<p>Le cheval de guerre léger ne souffre pas des pénalités du cheval de selle en combat.<br> Un cheval de guerre est apte à porter une barde, un ensemble de protections pour le cheval. Un caparaçon de maille augmente la DEF du cheval de +3 pour un prix de 100 pa. Une barde de plaques de métal apporte un bonus de +5 en DEF pour un prix de 300 pa. Les bardes octroient un malus en Init. au cheval et à son cavalier égal au bonus de DEF.</p><p><em>Un cheval sauvage, non dressé, se défend comme s’il était un cheval de guerre léger.</em></p>",
       "milieu": "plaine",
       "archetype": "inférieur",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+4",
-        "dex": "+0",
-        "con": "+4*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 4 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 4, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 13,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 13, "bonus": 0, "value": 13 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -613,6 +625,7 @@
   {
     "name": "Cheval de guerre lourd",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "cheval-de-guerre-lourd",
       "families": [
@@ -627,21 +640,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+4",
-        "dex": "+0",
-        "con": "+4*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 4 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 4, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 35,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -662,6 +675,7 @@
   {
     "name": "Chien infernal",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chien-infernal",
       "families": [
@@ -673,21 +687,21 @@
       "description": "<em><p>Cet énorme chien vient des plans maléfiques, il rôde en meute les nuits de terreur et parcourt les cieux comme s’il courait sur la terre ferme en poussant des hurlements effroyables. Il ne sort jamais le jour.</p></em>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 11
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 11, "bonus": 0, "value": 11 }
       },
       "attacks": [
         {
@@ -718,6 +732,7 @@
   {
     "name": "Molosse satanique",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "molosse-satanique",
       "families": [
@@ -729,21 +744,21 @@
       "description": "<p>Le molosse satanique est une autre race de chien maléfique qui vit dans les fosses brûlantes des enfers.</p>",
       "milieu": "spécial",
       "archetype": "puissant",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 11
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 11, "bonus": 0, "value": 11 }
       },
       "attacks": [
         {
@@ -770,6 +785,7 @@
   {
     "name": "Crocodile",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "crocodile",
       "families": [
@@ -781,21 +797,21 @@
       ],
       "milieu": "marais",
       "archetype": "puissant",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0*",
-        "con": "+3",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0, "superior" : true },
+        "con": { "mod": 3 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 15
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -814,6 +830,7 @@
   {
     "name": "Crocodile géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "crocodile-geant",
       "families": [
@@ -826,21 +843,21 @@
       "description": "<p>Voici un exemple de crocodile préhistorique ou de monstre marin, il<br> mesure environ 12 mètres de long (dont la moitié de queue).</p>",
       "milieu": "marais",
       "archetype": "puissant",
-      "nc": "8",
+      "nc": { "value": 8 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0*",
-        "con": "+11",
-        "int": "-4",
-        "wis": "+0*",
-        "cha": "-2"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0, "superior" : true },
+        "con": { "mod": 11 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 110,
-        "init": 15
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -865,6 +882,7 @@
   {
     "name": "Diplodocus",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "diplodocus",
       "families": [
@@ -877,21 +895,21 @@
       "description": "<em><p>25 mètres pour environ 25 tonnes, le diplodocus est un géant parmi les géants.</p></em><p>Heureusement, il s’agit d’un herbivore plutôt placide.</p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "12",
+      "nc": { "value": 12 },
       "category": "vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+0",
-        "con": "+15",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 15 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 26,
-        "hp": 200,
-        "init": 10
+        "def": { "base": 26, "bonus": 0, "value": 26 },
+        "hp": { "base": 200, "bonus": 0, "value": 200, "max": 200},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -916,6 +934,7 @@
   {
     "name": "Deinonychus",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "deinonychus",
       "families": [
@@ -928,21 +947,21 @@
       "description": "<em><p>Ce reptile préhistorique est un cousin du fameux Tyrannosaure de taille bien plus réduite, soit environ 75 kg pour un 3 mètres de long, queue comprise.</p></em><p>Il attaque généralement en groupe</p>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+1*",
-        "con": "+3",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 1, "superior" : true },
+        "con": { "mod": 3 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 18
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -968,6 +987,7 @@
   {
     "name": "Ptéranodon",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "pteranodon",
       "families": [
@@ -980,21 +1000,21 @@
       "description": "<em><p>Si le ptérodactyle mesurait seulement 70 cm d’envergure, le Ptéranodon pouvait mesurer jusqu’à plus de 7 mètres, mais, contrairement au premier son bec n’était pas pourvu de dents.</p></em><p>Ce Profil présente une version fantastique de 10 mètres capable d’enlever une créature de taille humaine dans les airs ou de la décapiter d’un seul claquement de son bec, forcément pourvu de dents !</p>",
       "milieu": "montagne",
       "archetype": "rapide",
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+9*",
-        "dex": "+3*",
-        "con": "+9",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-4"
+        "str": { "mod": 9, "superior" : true },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 9 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 70,
-        "init": 16
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 70, "bonus": 0, "value": 70, "max": 70},
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -1019,6 +1039,7 @@
   {
     "name": "Triceratops",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "triceratops",
       "families": [
@@ -1035,21 +1056,21 @@
         "type": "résistant",
         "rank": 1
       },
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+13*",
-        "dex": "-1",
-        "con": "+13*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 13, "superior" : true },
+        "dex": { "mod": -1 },
+        "con": { "mod": 13, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 25,
-        "hp": 140,
-        "init": 8
+        "def": { "base": 25, "bonus": 0, "value": 25 },
+        "hp": { "base": 140, "bonus": 0, "value": 140, "max": 140},
+        "init": { "base": 8, "bonus": 0, "value": 8 }
       },
       "attacks": [
         {
@@ -1074,6 +1095,7 @@
   {
     "name": "Tyrannosaure",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "tyrannosaure",
       "families": [
@@ -1090,21 +1112,21 @@
         "type": "rapide",
         "rank": 2
       },
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+2*",
-        "con": "+11",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-4"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 2, "superior" : true },
+        "con": { "mod": 11 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 130,
-        "init": 19
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 130, "bonus": 0, "value": 130, "max": 130},
+        "init": { "base": 19, "bonus": 0, "value": 19 }
       },
       "attacks": [
         {
@@ -1136,6 +1158,7 @@
   {
     "name": "Dragon juvénile",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "dragon-juvenile",
       "families": [
@@ -1150,21 +1173,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+5",
-        "dex": "+4*",
-        "con": "+5",
-        "int": "+0",
-        "wis": "+4*",
-        "cha": "+0"
+        "str": { "mod": 5 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 50,
-        "init": 23
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 23, "bonus": 0, "value": 23 }
       },
       "attacks": [
         {
@@ -1212,6 +1235,7 @@
   {
     "name": "Dragon jeune",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "dragon-jeune",
       "families": [
@@ -1226,21 +1250,21 @@
       "boss": {
         "rank": 2
       },
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+9",
-        "dex": "+3*",
-        "con": "+9",
-        "int": "+2",
-        "wis": "+4*",
-        "cha": "+2"
+        "str": { "mod": 9 },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 9 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 110,
-        "init": 17
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -1291,6 +1315,7 @@
   {
     "name": "Dragon adulte",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "dragon-adulte",
       "families": [
@@ -1305,22 +1330,22 @@
       "boss": {
         "rank": 2
       },
-      "nc": "14",
+      "nc": { "value": 14 },
       "category": "vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+12*",
-        "dex": "+2*",
-        "con": "+12",
-        "int": "+4",
-        "wis": "+4",
-        "cha": "+4"
+        "str": { "mod": 12, "superior" : true },
+        "dex": { "mod": 2, "superior" : true },
+        "con": { "mod": 12 },
+        "int": { "mod": 4 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 28,
-        "hp": 180,
-        "dr": "2",
-        "init": 15
+        "def": { "base": 28, "bonus": 0, "value": 28 },
+        "hp": { "base": 180, "bonus": 0, "value": 180, "max": 180},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 2 },
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -1374,6 +1399,7 @@
   {
     "name": "Dragon ancien",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "dragon-ancien",
       "families": [
@@ -1388,22 +1414,22 @@
       "boss": {
         "rank": 3
       },
-      "nc": "18",
+      "nc": { "value": 18 },
       "category": "vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+0",
-        "con": "+15",
-        "int": "+6",
-        "wis": "+6",
-        "cha": "+6"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 15 },
+        "int": { "mod": 6 },
+        "wis": { "mod": 6 },
+        "cha": { "mod": 6 }
       },
       "attributes": {
-        "def": 32,
-        "hp": 260,
-        "dr": "4",
-        "init": 11
+        "def": { "base": 32, "bonus": 0, "value": 32 },
+        "hp": { "base": 260, "bonus": 0, "value": 260, "max": 260},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 4 },
+        "init": { "base": 11, "bonus": 0, "value": 11 }
       },
       "attacks": [
         {
@@ -1460,6 +1486,7 @@
   {
     "name": "Balor",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "balor",
       "families": [
@@ -1475,22 +1502,22 @@
       "boss": {
         "rank": 4
       },
-      "nc": "16",
+      "nc": { "value": 16 },
       "category": "humanoïde",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+9",
-        "dex": "+3*",
-        "con": "+9*",
-        "int": "+6",
-        "wis": "+6",
-        "cha": "+6"
+        "str": { "mod": 9 },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 9, "superior" : true },
+        "int": { "mod": 6 },
+        "wis": { "mod": 6 },
+        "cha": { "mod": 6 }
       },
       "attributes": {
-        "def": 28,
-        "hp": 150,
-        "dr": "15/armes saintes",
-        "init": 17
+        "def": { "base": 28, "bonus": 0, "value": 28 },
+        "hp": { "base": 150, "bonus": 0, "value": 150, "max": 150},
+        "dr": { "enabled": true, "base": { "value" : 15, "ignored" : "armes saintes"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 15 },
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -1577,6 +1604,7 @@
   {
     "name": "Marilith",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "marilith",
       "families": [
@@ -1593,22 +1621,22 @@
         "type": "rapide",
         "rank": 2
       },
-      "nc": "11",
+      "nc": { "value": 11 },
       "category": "humanoïde",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+5",
-        "con": "+6*",
-        "int": "+4",
-        "wis": "+2",
-        "cha": "+4*"
+        "str": { "mod": 6 },
+        "dex": { "mod": 5 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": 4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 4, "superior" : true }
       },
       "attributes": {
-        "def": 20,
-        "hp": 140,
-        "dr": "10/armes saintes",
-        "init": 20
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 140, "bonus": 0, "value": 140, "max": 140},
+        "dr": { "enabled": true, "base": { "value" : 10, "ignored" : "armes saintes"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 10 },
+        "init": { "base": 20, "bonus": 0, "value": 20 }
       },
       "attacks": [
         {
@@ -1669,6 +1697,7 @@
   {
     "name": "Quasit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "quasit",
       "families": [
@@ -1681,22 +1710,22 @@
       "description": "<p>À ne pas confondre avec son frère ennemi le Diablotin, le Quasit possède lui aussi des ailes de chauve-souris, des cornes et une queue reptilienne. Toutefois, les experts sauront le reconnaître grâce à ses cornes enroulées comme celles d’un bélier.</p><p><strong>Magicien</strong> de niveau 3</p>",
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille très petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-2",
-        "dex": "+3",
-        "con": "-2*",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": -2 },
+        "dex": { "mod": 3 },
+        "con": { "mod": -2, "superior" : true },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 11,
-        "dr": "5/armes saintes",
-        "init": 17
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 11, "bonus": 0, "value": 11, "max": 11},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "armes saintes"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -1775,6 +1804,7 @@
   {
     "name": "Succube",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "succube",
       "families": [
@@ -1790,22 +1820,22 @@
       "boss": {
         "rank": 2
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+3",
-        "con": "+1*",
-        "int": "+2",
-        "wis": "+2",
-        "cha": "+6"
+        "str": { "mod": 1 },
+        "dex": { "mod": 3 },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 6 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 49,
-        "dr": "10/armes saintes",
-        "init": 16
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 49, "bonus": 0, "value": 49, "max": 49},
+        "dr": { "enabled": true, "base": { "value" : 10, "ignored" : "armes saintes"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 10 },
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -1879,6 +1909,7 @@
   {
     "name": "Elfe des bois",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elfe-des-bois",
       "families": [
@@ -1893,21 +1924,21 @@
       "boss": {
         "rank": 0.5
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+2",
-        "wis": "+2*",
-        "cha": "+2"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 16,
-        "init": 23
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 16, "bonus": 0, "value": 16, "max": 16},
+        "init": { "base": 23, "bonus": 0, "value": 23 }
       },
       "attacks": [
         {
@@ -1932,6 +1963,7 @@
   {
     "name": "Guerrier elfe noir",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "guerrier-elfe-noir",
       "families": [
@@ -1947,21 +1979,21 @@
       ],
       "milieu": "souterrain",
       "archetype": "standard",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+0",
-        "wis": "+2*",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 16,
-        "init": 23
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 16, "bonus": 0, "value": 16, "max": 16},
+        "init": { "base": 23, "bonus": 0, "value": 23 }
       },
       "attacks": [
         {
@@ -1993,6 +2025,7 @@
   {
     "name": "Guerrière elfe noir",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "guerriere-elfe-noir",
       "families": [
@@ -2011,21 +2044,21 @@
       "boss": {
         "rank": 1.5
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+4*",
-        "con": "+1",
-        "int": "+2",
-        "wis": "+2*",
-        "cha": "+2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 1 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 19,
-        "hp": 36,
-        "init": 23
+        "def": { "base": 19, "bonus": 0, "value": 19 },
+        "hp": { "base": 36, "bonus": 0, "value": 36, "max": 36},
+        "init": { "base": 23, "bonus": 0, "value": 23 }
       },
       "attacks": [
         {
@@ -2060,6 +2093,7 @@
   {
     "name": "Prêtresse elfe noir",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "pretresse-elfe-noir",
       "families": [
@@ -2078,21 +2112,21 @@
       "boss": {
         "rank": 2.5
       },
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+2",
-        "dex": "+4*",
-        "con": "+2",
-        "int": "+2",
-        "wis": "+4*",
-        "cha": "+2"
+        "str": { "mod": 2 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 2 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 21,
-        "hp": 56,
-        "init": 18
+        "def": { "base": 21, "bonus": 0, "value": 21 },
+        "hp": { "base": 56, "bonus": 0, "value": 56, "max": 56},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -2130,6 +2164,7 @@
   {
     "name": "Elémentaire d’air, petit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-air-petit",
       "families": [
@@ -2144,22 +2179,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "non-vivante",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+5",
-        "con": "-1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 5 },
+        "con": { "mod": -1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 13,
-        "dr": "5/magie",
-        "init": 17
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 13, "bonus": 0, "value": 13, "max": 13},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -2211,6 +2246,7 @@
   {
     "name": "Elémentaire d’air, moyen",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-air-moyen",
       "families": [
@@ -2225,22 +2261,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+4",
-        "con": "+1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 4 },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 25,
-        "dr": "5/magie",
-        "init": 15
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 25, "bonus": 0, "value": 25, "max": 25},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -2292,6 +2328,7 @@
   {
     "name": "Elémentaire d’air, grand",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-air-grand",
       "families": [
@@ -2306,22 +2343,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6*",
-        "dex": "+4",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 6, "superior" : true },
+        "dex": { "mod": 4 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "dr": "2 + 5/magie",
-        "init": 15
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 7 },
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -2376,6 +2413,7 @@
   {
     "name": "Elémentaire d’air, énorme",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-air-enorme",
       "families": [
@@ -2390,22 +2428,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "non-vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+3",
-        "con": "+11*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 3 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 110,
-        "dr": "4 + 5/magie",
-        "init": 13
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 9 },
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -2463,6 +2501,7 @@
   {
     "name": "Elémentaire d’air, colossal",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-air-colossal",
       "families": [
@@ -2477,22 +2516,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "14",
+      "nc": { "value": 14 },
       "category": "non-vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+3",
-        "con": "+15*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 3 },
+        "con": { "mod": 15, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 28,
-        "hp": 220,
-        "dr": "6 + 5/magie",
-        "init": 13
+        "def": { "base": 28, "bonus": 0, "value": 28 },
+        "hp": { "base": 220, "bonus": 0, "value": 220, "max": 220},
+        "dr": { "enabled": true, "base": { "value" : 6, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 11 },
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -2553,6 +2592,7 @@
   {
     "name": "Elémentaire d’eau, petit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-eau-petit",
       "families": [
@@ -2567,22 +2607,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "non-vivante",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 23,
-        "dr": "5/magie",
-        "init": 14
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 23, "bonus": 0, "value": 23, "max": 23},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 14, "bonus": 0, "value": 14 }
       },
       "attacks": [
         {
@@ -2634,6 +2674,7 @@
   {
     "name": "Elémentaire d’eau, moyen",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-eau-moyen",
       "families": [
@@ -2648,22 +2689,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 39,
-        "dr": "5/magie",
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 39, "bonus": 0, "value": 39, "max": 39},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -2715,6 +2756,7 @@
   {
     "name": "Elémentaire d’eau, grand",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-eau-grand",
       "families": [
@@ -2729,22 +2771,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6*",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 6, "superior" : true },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 60,
-        "dr": "2 + 5/magie",
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 60, "bonus": 0, "value": 60, "max": 60},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 7 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -2799,6 +2841,7 @@
   {
     "name": "Elémentaire d’eau, énorme",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-eau-enorme",
       "families": [
@@ -2813,22 +2856,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "non-vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 120,
-        "dr": "4 + 5/magie",
-        "init": 10
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 120, "bonus": 0, "value": 120, "max": 120},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 9 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -2886,6 +2929,7 @@
   {
     "name": "Elémentaire d’eau, colossal",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-eau-colossal",
       "families": [
@@ -2900,22 +2944,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "14",
+      "nc": { "value": 14 },
       "category": "non-vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+0",
-        "con": "+15*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 15, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 28,
-        "hp": 230,
-        "dr": "6 + 5/magie",
-        "init": 10
+        "def": { "base": 28, "bonus": 0, "value": 28 },
+        "hp": { "base": 230, "bonus": 0, "value": 230, "max": 230},
+        "dr": { "enabled": true, "base": { "value" : 6, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 11 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -2976,6 +3020,7 @@
   {
     "name": "Elémentaire de feu, petit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-feu-petit",
       "families": [
@@ -2990,22 +3035,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "non-vivante",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 13,
-        "dr": "5/magie",
-        "init": 14
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 13, "bonus": 0, "value": 13, "max": 13},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 14, "bonus": 0, "value": 14 }
       },
       "attacks": [
         {
@@ -3057,6 +3102,7 @@
   {
     "name": "Elémentaire de feu, moyen",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-feu-moyen",
       "families": [
@@ -3071,22 +3117,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 29,
-        "dr": "5/magie",
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 29, "bonus": 0, "value": 29, "max": 29},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -3138,6 +3184,7 @@
   {
     "name": "Elémentaire de feu, grand",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-feu-grand",
       "families": [
@@ -3152,22 +3199,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6*",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 6, "superior" : true },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "dr": "2 + 5/magie",
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 7 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -3222,6 +3269,7 @@
   {
     "name": "Elémentaire de feu, énorme",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-feu-enorme",
       "families": [
@@ -3236,22 +3284,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "non-vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 110,
-        "dr": "4 + 5/magie",
-        "init": 10
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 9 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -3309,6 +3357,7 @@
   {
     "name": "Elémentaire de feu, colossal",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-feu-colossal",
       "families": [
@@ -3323,22 +3372,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "14",
+      "nc": { "value": 14 },
       "category": "non-vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+0",
-        "con": "+15*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 15, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 28,
-        "hp": 220,
-        "dr": "6 + 5/magie",
-        "init": 10
+        "def": { "base": 28, "bonus": 0, "value": 28 },
+        "hp": { "base": 220, "bonus": 0, "value": 220, "max": 220},
+        "dr": { "enabled": true, "base": { "value" : 6, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 11 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -3399,6 +3448,7 @@
   {
     "name": "Elémentaire de terre, petit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-terre-petit",
       "families": [
@@ -3413,22 +3463,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "non-vivante",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 13,
-        "dr": "5/magie",
-        "init": 14
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 13, "bonus": 0, "value": 13, "max": 13},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 14, "bonus": 0, "value": 14 }
       },
       "attacks": [
         {
@@ -3480,6 +3530,7 @@
   {
     "name": "Elémentaire de terre, moyen",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-terre-moyen",
       "families": [
@@ -3494,22 +3545,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 19,
-        "hp": 29,
-        "dr": "5/magie",
-        "init": 12
+        "def": { "base": 19, "bonus": 0, "value": 19 },
+        "hp": { "base": 29, "bonus": 0, "value": 29, "max": 29},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -3561,6 +3612,7 @@
   {
     "name": "Elémentaire de terre, grand",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-terre-grand",
       "families": [
@@ -3575,22 +3627,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6*",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 6, "superior" : true },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 21,
-        "hp": 50,
-        "dr": "2 + 5/magie",
-        "init": 12
+        "def": { "base": 21, "bonus": 0, "value": 21 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 7 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -3645,6 +3697,7 @@
   {
     "name": "Elémentaire de terre, énorme",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-terre-enorme",
       "families": [
@@ -3659,22 +3712,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "non-vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 25,
-        "hp": 110,
-        "dr": "4 + 5/magie",
-        "init": 10
+        "def": { "base": 25, "bonus": 0, "value": 25 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 9 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -3732,6 +3785,7 @@
   {
     "name": "Elémentaire de terre, colossal",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elementaire-de-terre-colossal",
       "families": [
@@ -3746,22 +3800,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "14",
+      "nc": { "value": 14 },
       "category": "non-vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+0",
-        "con": "+15*",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 15, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 31,
-        "hp": 220,
-        "dr": "6 + 5/magie",
-        "init": 10
+        "def": { "base": 31, "bonus": 0, "value": 31 },
+        "hp": { "base": 220, "bonus": 0, "value": 220, "max": 220},
+        "dr": { "enabled": true, "base": { "value" : 6, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "magie"}, "value": 11 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -3822,6 +3876,7 @@
   {
     "name": "Eléphant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "elephant",
       "families": [
@@ -3833,21 +3888,21 @@
       "description": "<p>Ce Profil correspond à un éléphant d’Afrique moyen.</p><p>Les grands mâles ont généralement un niveau de Boss et éventuellement un rang supplémentaire dans la <a href=\"http://co-drs.org/voies/voie-du-cogneur/\">Voie du cogneur</a>.</p><p>Les armes de l’éléphant ne sont pas des armes de prédateur et leurs DM de base sont réduits (déjà pris en compte). En contrepartie ses PV sont légèrement augmentés (+10 PV).</p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11*",
-        "int": "-4",
-        "wis": "+1",
-        "cha": "-2"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 1 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 100,
-        "init": 10
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 100, "bonus": 0, "value": 100, "max": 100},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -3866,6 +3921,7 @@
   {
     "name": "Mammouth",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "mammouth",
       "families": [
@@ -3877,21 +3933,21 @@
       "description": "<p>Historiquement, il semblerait que les mammouths n’étaient pas beaucoup plus gros que les éléphants, toutefois ce Profil présente un animal plus résistant.</p><p>Les grands mâles ont généralement un niveau de Boss et éventuellement un rang supplémentaire dans la Voie du cogneur</p><p>Les armes du mammouth ne sont pas des armes de prédateur et leurs DM de base sont réduits (déjà pris en compte). En contrepartie ses PV sont légèrement augmentés (+10 PV).</p>",
       "milieu": "plaine",
       "archetype": "puissant",
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+13*",
-        "dex": "-1",
-        "con": "+13*",
-        "int": "-4",
-        "wis": "+1",
-        "cha": "-2"
+        "str": { "mod": 13, "superior" : true },
+        "dex": { "mod": -1 },
+        "con": { "mod": 13, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 1 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 120,
-        "init": 8
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 120, "bonus": 0, "value": 120, "max": 120},
+        "init": { "base": 8, "bonus": 0, "value": 8 }
       },
       "attacks": [
         {
@@ -3910,6 +3966,7 @@
   {
     "name": "Fantôme mineur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "fantome-mineur",
       "families": [
@@ -3921,22 +3978,22 @@
       ],
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "dr": "5/magie",
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -3972,6 +4029,7 @@
   {
     "name": "Fantôme majeur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "fantome-majeur",
       "families": [
@@ -3987,22 +4045,22 @@
         "type": "berzerk",
         "rank": 2
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 39,
-        "dr": "10/magie",
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 39, "bonus": 0, "value": 39, "max": 39},
+        "dr": { "enabled": true, "base": { "value" : 10, "ignored" : "magie"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 10 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -4058,6 +4116,7 @@
   {
     "name": "Gnoll de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gnoll-de-base",
       "families": [
@@ -4070,21 +4129,21 @@
       "description": "<em><p>Le gnoll est un humanoïde puissant de plus de 2 mètres dont la particularité est une tête d’hyène et une fourrure jaune sale.</p></em>",
       "milieu": "plaine",
       "archetype": "puissant",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 3 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4098,6 +4157,7 @@
   {
     "name": "Chef Gnoll",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chef-gnoll",
       "families": [
@@ -4114,21 +4174,21 @@
         "type": "puisssant",
         "rank": 2
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+5",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 5 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 19,
-        "hp": 55,
-        "init": 10
+        "def": { "base": 19, "bonus": 0, "value": 19 },
+        "hp": { "base": 55, "bonus": 0, "value": 55, "max": 55},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4150,6 +4210,7 @@
   {
     "name": "Gobelin de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gobelin-de-base",
       "families": [
@@ -4161,21 +4222,21 @@
       ],
       "milieu": "forêt",
       "archetype": "standard",
-      "nc": "0",
+      "nc": { "value": 0 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 3,
-        "init": 15
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 3, "bonus": 0, "value": 3, "max": 3},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -4196,6 +4257,7 @@
   {
     "name": "Gobelin élite",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gobelin-elite",
       "families": [
@@ -4210,21 +4272,21 @@
       "boss": {
         "rank": 0.5
       },
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 13,
-        "init": 15
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 13, "bonus": 0, "value": 13, "max": 13},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -4245,6 +4307,7 @@
   {
     "name": "Chef gobelin",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chef-gobelin",
       "families": [
@@ -4259,21 +4322,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 24,
-        "init": 13
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 24, "bonus": 0, "value": 24, "max": 24},
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -4294,6 +4357,7 @@
   {
     "name": "Golem de chair",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "golem-de-chair",
       "families": [
@@ -4309,22 +4373,22 @@
       "boss": {
         "rank": 2
       },
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 70,
-        "dr": "5/Armes magiques",
-        "init": 12
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 70, "bonus": 0, "value": 70, "max": 70},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "Armes magiques"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -4362,6 +4426,7 @@
   {
     "name": "Golem de pierre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "golem-de-pierre",
       "families": [
@@ -4377,22 +4442,22 @@
       "boss": {
         "rank": 3
       },
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8*",
-        "dex": "+0",
-        "con": "+8*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 8, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 8, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 110,
-        "dr": "2 + 5 / Armes en adamantium",
-        "init": 10
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "Armes en adamantium"}, "value": 7 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4427,6 +4492,7 @@
   {
     "name": "Golem de fer",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "golem-de-fer",
       "families": [
@@ -4442,22 +4508,22 @@
       "boss": {
         "rank": 3
       },
-      "nc": "12",
+      "nc": { "value": 12 },
       "category": "non-vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11*",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 26,
-        "hp": 150,
-        "dr": "4 + 5 / Armes en adamantium",
-        "init": 10
+        "def": { "base": 26, "bonus": 0, "value": 26 },
+        "hp": { "base": 150, "bonus": 0, "value": 150, "max": 150},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 5, "ignored" : "Armes en adamantium"}, "value": 9 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4495,6 +4561,7 @@
   {
     "name": "Gorille",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gorille",
       "families": [
@@ -4506,21 +4573,21 @@
       "description": "<p>Le gorille est habituellement un animal placide si on ne le dérange pas, toutefois rien ne vous empêche de décider que la version fantastique de cet animal est plus agressive. Un gorille mâle pèse environ 250 kg et possède une envergure de bras impressionnante de 2,50 m…</p>",
       "milieu": "forêt",
       "archetype": "rapide",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+5",
-        "dex": "+4*",
-        "con": "+5*",
-        "int": "-3",
-        "wis": "+5",
-        "cha": "-2"
+        "str": { "mod": 5 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5, "superior" : true },
+        "int": { "mod": -3 },
+        "wis": { "mod": 5 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 30,
-        "init": 18
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -4546,6 +4613,7 @@
   {
     "name": "Gorille géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gorille-geant",
       "families": [
@@ -4560,22 +4628,22 @@
       "boss": {
         "rank": 2
       },
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+9*",
-        "dex": "+3*",
-        "con": "+9*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 9, "superior" : true },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 9, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 110,
-        "dr": "4",
-        "init": 16
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 4 },
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -4610,6 +4678,7 @@
   {
     "name": "Géant des collines",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "geant-des-collines",
       "families": [
@@ -4626,22 +4695,22 @@
         "type": "résistant",
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "humanoïde",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+8*",
-        "dex": "+0",
-        "con": "+7",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 8, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 7 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 80,
-        "dr": "2",
-        "init": 10
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 80, "bonus": 0, "value": 80, "max": 80},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 2 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4666,6 +4735,7 @@
   {
     "name": "Géant de pierre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "geant-de-pierre",
       "families": [
@@ -4682,22 +4752,22 @@
         "type": "résistant",
         "rank": 1
       },
-      "nc": "8",
+      "nc": { "value": 8 },
       "category": "humanoïde",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 23,
-        "hp": 120,
-        "dr": "4",
-        "init": 10
+        "def": { "base": 23, "bonus": 0, "value": 23 },
+        "hp": { "base": 120, "bonus": 0, "value": 120, "max": 120},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 4 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4732,6 +4802,7 @@
   {
     "name": "Géant du givre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "geant-du-givre",
       "families": [
@@ -4747,22 +4818,22 @@
       "boss": {
         "rank": 2
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "humanoïde",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+13*",
-        "dex": "-1",
-        "con": "+13",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 13, "superior" : true },
+        "dex": { "mod": -1 },
+        "con": { "mod": 13 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 130,
-        "dr": "4",
-        "init": 8
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 130, "bonus": 0, "value": 130, "max": 130},
+        "dr": { "enabled": true, "base": { "value" : 4, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 4 },
+        "init": { "base": 8, "bonus": 0, "value": 8 }
       },
       "attacks": [
         {
@@ -4797,6 +4868,7 @@
   {
     "name": "Géant des tempêtes",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "geant-des-tempetes",
       "families": [
@@ -4812,22 +4884,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "13",
+      "nc": { "value": 13 },
       "category": "humanoïde",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15*",
-        "dex": "+0",
-        "con": "+15",
-        "int": "+2",
-        "wis": "+4",
-        "cha": "+2"
+        "str": { "mod": 15, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 15 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 28,
-        "hp": 220,
-        "dr": "6",
-        "init": 10
+        "def": { "base": 28, "bonus": 0, "value": 28 },
+        "hp": { "base": 220, "bonus": 0, "value": 220, "max": 220},
+        "dr": { "enabled": true, "base": { "value" : 6, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 6 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -4875,6 +4947,7 @@
   {
     "name": "Djinn",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "djinn",
       "families": [
@@ -4889,21 +4962,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "humanoïde",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "+2",
-        "wis": "+2",
-        "cha": "+4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -4937,6 +5010,7 @@
   {
     "name": "Efrit",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "efrit",
       "families": [
@@ -4951,21 +5025,21 @@
       "boss": {
         "rank": 2
       },
-      "nc": "8",
+      "nc": { "value": 8 },
       "category": "humanoïde",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "+2",
-        "wis": "+2",
-        "cha": "+4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 70,
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 70, "bonus": 0, "value": 70, "max": 70},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -5005,6 +5079,7 @@
   {
     "name": "Hobgobelin de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "hobgobelin-de-base",
       "families": [
@@ -5016,21 +5091,21 @@
       ],
       "milieu": "montagne",
       "archetype": "standard",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 10,
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 10, "bonus": 0, "value": 10, "max": 10},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -5044,6 +5119,7 @@
   {
     "name": "Capitaine hobgobelin",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "capitaine-hobgobelin",
       "families": [
@@ -5060,21 +5136,21 @@
         "type": "puissant",
         "rank": 2
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+1",
-        "con": "+1",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "-2*"
+        "str": { "mod": 3 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2, "superior" : true }
       },
       "attributes": {
-        "def": 18,
-        "hp": 49,
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 49, "bonus": 0, "value": 49, "max": 49},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -5096,6 +5172,7 @@
   {
     "name": "Homme-lézard de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "homme-lezard-de-base",
       "families": [
@@ -5107,21 +5184,21 @@
       ],
       "milieu": "marais",
       "archetype": "puissant",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -5141,6 +5218,7 @@
   {
     "name": "Champion homme-lézard",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "champion-homme-lezard",
       "families": [
@@ -5156,21 +5234,21 @@
         "type": "puissant",
         "rank": 1
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+4*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 4, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 11
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 11, "bonus": 0, "value": 11 }
       },
       "attacks": [
         {
@@ -5189,6 +5267,7 @@
   {
     "name": "Hydre à 5 têtes",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "hydre-a-5-tetes",
       "families": [
@@ -5200,21 +5279,21 @@
       ],
       "milieu": "marais",
       "archetype": "puissant",
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8*",
-        "dex": "+0",
-        "con": "+8",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 8, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 8 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "init": 10
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -5235,6 +5314,7 @@
   {
     "name": "Hydre à 10 têtes",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "hydre-a-10-tetes",
       "families": [
@@ -5246,21 +5326,21 @@
       ],
       "milieu": "marais",
       "archetype": "standard",
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8*",
-        "dex": "+0",
-        "con": "+8",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 8, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 8 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 100,
-        "init": 10
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 100, "bonus": 0, "value": 100, "max": 100},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -5281,6 +5361,7 @@
   {
     "name": "Insecte de taille petite",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "insecte-de-taille-petite",
       "families": [
@@ -5292,21 +5373,21 @@
       ],
       "milieu": "tous",
       "archetype": "rapide",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "vivante",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "+1",
-        "dex": "+4*",
-        "con": "+1*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-4"
+        "str": { "mod": 1 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 12,
-        "init": 19
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 12, "bonus": 0, "value": 12, "max": 12},
+        "init": { "base": 19, "bonus": 0, "value": 19 }
       },
       "attacks": [
         {
@@ -5332,6 +5413,7 @@
   {
     "name": "Insecte de taille moyenne",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "insecte-de-taille-moyenne",
       "families": [
@@ -5346,21 +5428,21 @@
       "boss": {
         "rank": 0.5
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+4*",
-        "con": "+3*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-4"
+        "str": { "mod": 3 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 26,
-        "init": 17
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 26, "bonus": 0, "value": 26, "max": 26},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -5386,6 +5468,7 @@
   {
     "name": "Insecte de taille grande",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "insecte-de-taille-grande",
       "families": [
@@ -5397,21 +5480,21 @@
       ],
       "milieu": "tous",
       "archetype": "standard",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8",
-        "dex": "+4*",
-        "con": "+8*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-4"
+        "str": { "mod": 8 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 8, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 40,
-        "init": 17
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 40, "bonus": 0, "value": 40, "max": 40},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -5437,6 +5520,7 @@
   {
     "name": "Insecte de taille énorme",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "insecte-de-taille-enorme",
       "families": [
@@ -5448,21 +5532,21 @@
       ],
       "milieu": "tous",
       "archetype": "standard",
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+12",
-        "dex": "+3*",
-        "con": "+12*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-4"
+        "str": { "mod": 12 },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 12, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 80,
-        "init": 16
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 80, "bonus": 0, "value": 80, "max": 80},
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -5488,6 +5572,7 @@
   {
     "name": "Insecte de taille colossale",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "insecte-de-taille-colossale",
       "families": [
@@ -5499,21 +5584,21 @@
       ],
       "milieu": "tous",
       "archetype": "standard",
-      "nc": "8",
+      "nc": { "value": 8 },
       "category": "vivante",
-      "size": "taille colossale",
+      "details": { "size": "colossal" },
       "stats": {
-        "str": "+15",
-        "dex": "+3*",
-        "con": "+15*",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-4"
+        "str": { "mod": 15 },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 15, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 24,
-        "hp": 150,
-        "init": 14
+        "def": { "base": 24, "bonus": 0, "value": 24 },
+        "hp": { "base": 150, "bonus": 0, "value": 150, "max": 150},
+        "init": { "base": 14, "bonus": 0, "value": 14 }
       },
       "attacks": [
         {
@@ -5539,6 +5624,7 @@
   {
     "name": "Kobold de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "kobold-de-base",
       "families": [
@@ -5550,21 +5636,21 @@
       ],
       "milieu": "forêt",
       "archetype": "standard",
-      "nc": "0",
+      "nc": { "value": 0 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 3,
-        "init": 15
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 3, "bonus": 0, "value": 3, "max": 3},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -5584,6 +5670,7 @@
   {
     "name": "Prêtre kobold",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "pretre-kobold",
       "families": [
@@ -5598,21 +5685,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1",
-        "int": "+0",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 23,
-        "init": 15
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 23, "bonus": 0, "value": 23, "max": 23},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -5637,6 +5724,7 @@
   {
     "name": "Chef kobold",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chef-kobold",
       "families": [
@@ -5651,21 +5739,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-1",
-        "dex": "+2",
-        "con": "-1",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "-2*"
+        "str": { "mod": -1 },
+        "dex": { "mod": 2 },
+        "con": { "mod": -1 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2, "superior" : true }
       },
       "attributes": {
-        "def": 16,
-        "hp": 23,
-        "init": 15
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 23, "bonus": 0, "value": 23, "max": 23},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -5684,6 +5772,7 @@
   {
     "name": "Lion",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "lion",
       "families": [
@@ -5695,21 +5784,21 @@
       "description": "<p>Ce Profil correspond à un jeune lion ou à une lionne d’environ 150 kg.</p>",
       "milieu": "plaine",
       "archetype": "rapide",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+5",
-        "dex": "+4*",
-        "con": "+5",
-        "int": "-3",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 5 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5 },
+        "int": { "mod": -3 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 30,
-        "init": 23
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 23, "bonus": 0, "value": 23 }
       },
       "attacks": [
         {
@@ -5731,6 +5820,7 @@
   {
     "name": "Grand mâle, lion",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "grand-male-lion",
       "families": [
@@ -5746,21 +5836,21 @@
         "type": "puissant",
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+4*",
-        "con": "+5",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "+2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 50,
-        "init": 18
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -5782,6 +5872,7 @@
   {
     "name": "Loup",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "loup",
       "families": [
@@ -5794,21 +5885,21 @@
       "description": "<p>Seul, le loup n’a pas usage de la <a href=\"http://co-drs.org/voies/voie-de-la-meute/\">Voie de la meute</a> et son NC passe à 0.5. Ce Profil correspond à un loup d’une cinquantaine de kilos.</p><p><em>Chien :</em> vous pouvez aussi utiliser le Profil du loup pour les gros chiens en retirant de 2 à 4 PV</p>",
       "milieu": "forêt",
       "archetype": "standard",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1*",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -5834,6 +5925,7 @@
   {
     "name": "Loup, mâle alpha",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "loup-male-alpha",
       "families": [
@@ -5846,21 +5938,21 @@
       "description": "<p>Chaque meute de loup possède un mâle dominant plus gros que ses congénères (jusqu’à 80kg). Si les personnages rencontrent un loup solitaire, il sera souvent basé sur ce profil.</p><p>Vous pouvez ajouter un ou plusieurs rangs dans la <a href=\"http://co-drs.org/voies/voie-de-la-meute/\">Voie de la meute</a> (NC+1 par rang).</p>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+1",
-        "con": "+3*",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 3 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 17
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -5886,6 +5978,7 @@
   {
     "name": "Worg",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "worg",
       "families": [
@@ -5901,21 +5994,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+1",
-        "con": "+3*",
-        "int": "-2",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 3 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 17
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -5941,6 +6034,7 @@
   {
     "name": "Loup géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "loup-geant",
       "families": [
@@ -5953,21 +6047,21 @@
       "description": "<p>L’équivalant de la bête du Gévaudan, un loup solitaire énorme et vicieux…</p>",
       "milieu": "forêt",
       "archetype": "standard",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-3",
-        "wis": "+2*",
-        "cha": "-4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -3 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 30,
-        "init": 17
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -5996,6 +6090,7 @@
   {
     "name": "Loup arctique",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "loup-arctique",
       "families": [
@@ -6011,21 +6106,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-2",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "init": 17
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -6062,6 +6157,7 @@
   {
     "name": "Loup-garou infecté",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "loup-garou-infecte",
       "families": [
@@ -6074,22 +6170,22 @@
       "description": "<p>Les lycanthropes infectés sont de pauvres créatures qui ne contrôlent pas leurs changements de forme et se métamorphosent en loups assoiffés de sang à la pleine lune ou parfois suite à une blessure ou une émotion forte comme la colère ou la vision de violences. Lorsqu’ils reprennent forme humaine, ils n’ont généralement aucun souvenir de leurs méfaits. Les Caractéristiques proposées ici correspondent à celles d’un humanoïde de taille moyenne. Si vous voulez créer un loup-garou à partir d’une petite créature remplacez ce Profil par celui d’un loup ordinaire et réduisez le NC de 1 point.</p><p><strong>Loup-garou infecté et personnage :</strong> si un personnage ou PNJ possède plus de 16 PV, il garde son propre score de PV même pendant la transformation. Éventuellement si son Mod. de FOR est supérieur à +3, conservez-le aussi et modifiez les scores d’attaque et de DM en conséquence.</p>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+1*",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 1, "superior" : true },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "dr": "5 / argent",
-        "init": 17
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "argent"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -6139,6 +6235,7 @@
   {
     "name": "Loup-garou naturel",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "loup-garou-naturel",
       "families": [
@@ -6155,21 +6252,21 @@
         "type": "puissant",
         "rank": 1
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+4*",
-        "dex": "+1*",
-        "con": "+3*",
-        "int": "+0",
-        "wis": "+2*",
-        "cha": "-2"
+        "str": { "mod": 4, "superior" : true },
+        "dex": { "mod": 1, "superior" : true },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 17
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 17, "bonus": 0, "value": 17 }
       },
       "attacks": [
         {
@@ -6224,6 +6321,7 @@
   {
     "name": "Rat-garou infecté",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "rat-garou-infecte",
       "families": [
@@ -6236,22 +6334,22 @@
       "description": "<p>Vous pouvez imaginez que d’autres espèces que le loup peuvent conférer cette malédiction, on obtient alors des sangliers-garous, des ours-garous ou encore des rats-garous. Ces derniers sont généralement rencontré dans les villes de taille importante où ils se fondent dans la population ou se cachent dans les égouts. Les rats-garous infectés prennent la forme d’un rat géant lorsqu’ils se transforment.</p><p><strong>Rat-garou infecté et personnage :</strong> si un personnage ou PNJ possède plus de 16 PV, il garde son propre score de PV même pendant la transformation. Éventuellement si son Mod. de FOR est supérieur à +1, conservez-le aussi et modifiez les scores d’attaque et de DM en conséquence.</p>",
       "milieu": "marais",
       "archetype": "standard",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1*",
-        "con": "+1*",
-        "int": "-2",
-        "wis": "+2*",
-        "cha": "-4"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1, "superior" : true },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "dr": "5 / argent",
-        "init": 18
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "argent"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -6298,6 +6396,7 @@
   {
     "name": "Rat-garou naturel",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "rat-garou-naturel",
       "families": [
@@ -6314,22 +6413,22 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+3*",
-        "con": "+1*",
-        "int": "+0",
-        "wis": "+2*",
-        "cha": "-4"
+        "str": { "mod": 1 },
+        "dex": { "mod": 3, "superior" : true },
+        "con": { "mod": 1, "superior" : true },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 29,
-        "dr": "5 / argent",
-        "init": 22
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 29, "bonus": 0, "value": 29, "max": 29},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "argent"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 22, "bonus": 0, "value": 22 }
       },
       "attacks": [
         {
@@ -6381,6 +6480,7 @@
   {
     "name": "Minotaure",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "minotaure",
       "families": [
@@ -6392,21 +6492,21 @@
       ],
       "milieu": "souterrain",
       "archetype": "standard",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 30,
-        "init": 13
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -6430,6 +6530,7 @@
   {
     "name": "Champion minotaure",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "champion-minotaure",
       "families": [
@@ -6444,21 +6545,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-2",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "init": 13
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -6488,6 +6589,7 @@
   {
     "name": "Naga maléfique",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "naga-malefique",
       "families": [
@@ -6504,21 +6606,21 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+3",
-        "con": "+6",
-        "int": "+4",
-        "wis": "+4",
-        "cha": "+4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 3 },
+        "con": { "mod": 6 },
+        "int": { "mod": 4 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 110,
-        "init": 16
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -6585,6 +6687,7 @@
   {
     "name": "Naga neutre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "naga-neutre",
       "families": [
@@ -6601,21 +6704,21 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+3",
-        "con": "+6",
-        "int": "+4",
-        "wis": "+4",
-        "cha": "+4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 3 },
+        "con": { "mod": 6 },
+        "int": { "mod": 4 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 110,
-        "init": 16
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -6682,6 +6785,7 @@
   {
     "name": "Naga bon",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "naga-bon",
       "families": [
@@ -6698,21 +6802,21 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "9",
+      "nc": { "value": 9 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+3",
-        "con": "+6",
-        "int": "+4",
-        "wis": "+4",
-        "cha": "+4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 3 },
+        "con": { "mod": 6 },
+        "int": { "mod": 4 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 110,
-        "init": 16
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "init": { "base": 16, "bonus": 0, "value": 16 }
       },
       "attacks": [
         {
@@ -6779,6 +6883,7 @@
   {
     "name": "Nain",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nain",
       "families": [
@@ -6790,21 +6895,21 @@
       "description": "<p>Les Caractéristiques données correspondent à un nain guerrier en patrouille pour défendre son territoire.</p>",
       "milieu": "souterrain",
       "archetype": "puissant",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0*"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -6829,6 +6934,7 @@
   {
     "name": "Nain sombre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nain-sombre",
       "families": [
@@ -6840,21 +6946,21 @@
       "description": "<p>Les cousins maléfiques, les nains sombres, aussi appelés Duergars, ont la peau grise et vivent profondément sous terre. Ils ont pour habitude de réduire en esclavage tous les êtres intelligents qu’ils peuvent capturer à l’exception de leurs cousins les nains, qu’ils préfèrent souvent exécuter.</p><p>Les nains sombres peuvent utiliser les capacités de <a href=\"http://co-drs.org/profils/magicien/\">Magicien</a> suivante (seulement sur eux-mêmes) : <em><a href=\"http://co-drs.org/capacites/invisibilite/\">Invisibilité</a></em> et <em><a href=\"http://co-drs.org/capacites/agrandissement/\">Agrandissement</a></em>.</p>",
       "milieu": "souterrain",
       "archetype": "puissant",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0*"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -6884,6 +6990,7 @@
   {
     "name": "Nuée de rats",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nuee-de-rats",
       "families": [
@@ -6896,21 +7003,21 @@
       "description": "<p>Les rats ne sont généralement ni agressifs ni dangereux mais dans un monde fantastiques des raisons occultes peuvent les pousser à attaquer en grand nombre.<br> Vous pouvez vous servir de ce Profil pour des nuées d’autres créatures comme, par exemple, des insectes géants. Les Caractéristiques données ici ne correspondent pas à un individu mais à un groupe de plusieurs dizaines de créatures (plus si elles sont plus petites) recouvrant une surface de deux mètres de coté et équivalant à une créature de taille moyenne.</p>",
       "milieu": "marais",
       "archetype": "rapide",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -6941,6 +7048,7 @@
   {
     "name": "Nuée d’oiseaux",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nuee-oiseaux",
       "families": [
@@ -6952,21 +7060,21 @@
       ],
       "milieu": "plaine",
       "archetype": "rapide",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -7002,6 +7110,7 @@
   {
     "name": "Nuée de frelons",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nuee-de-frelons",
       "families": [
@@ -7013,21 +7122,21 @@
       ],
       "milieu": "plaine",
       "archetype": "rapide",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -7063,6 +7172,7 @@
   {
     "name": "Nuée d’araignées venimeuses",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nuee-araignees-venimeuses",
       "families": [
@@ -7074,21 +7184,21 @@
       ],
       "milieu": "forêt",
       "archetype": "rapide",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -7124,6 +7234,7 @@
   {
     "name": "Nuée de guêpes géantes",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "nuee-de-guepes-geantes",
       "families": [
@@ -7135,21 +7246,21 @@
       ],
       "milieu": "forêt",
       "archetype": "rapide",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-4"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -7190,6 +7301,7 @@
   {
     "name": "Ogre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ogre",
       "families": [
@@ -7201,21 +7313,21 @@
       ],
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "humanoïde",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 30,
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -7234,6 +7346,7 @@
   {
     "name": "Chef ogre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chef-ogre",
       "families": [
@@ -7248,21 +7361,21 @@
       "boss": {
         "rank": 2
       },
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "humanoïde",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 70,
-        "init": 12
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 70, "bonus": 0, "value": 70, "max": 70},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -7287,6 +7400,7 @@
   {
     "name": "Orque",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "orque",
       "families": [
@@ -7298,21 +7412,21 @@
       ],
       "milieu": "souterrain",
       "archetype": "standard",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -7333,6 +7447,7 @@
   {
     "name": "Orque noir",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "orque-noir",
       "families": [
@@ -7345,21 +7460,21 @@
       "description": "<p>Les orques noirs sont une race d’orques d’élite obtenus par la sélection et la reproduction de puissant maîtres maléfiques souhaitant construire l’armée ultime. Leur peau est plus sombre et leur musculature plus imposante. Ils manient des armes à 2 mains.</p>",
       "milieu": "souterrain",
       "archetype": "puissant",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7380,6 +7495,7 @@
   {
     "name": "Berserker orque",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "berserker-orque",
       "families": [
@@ -7395,21 +7511,21 @@
         "type": "berserk",
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 25,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 25, "bonus": 0, "value": 25, "max": 25},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7430,6 +7546,7 @@
   {
     "name": "Orque élite",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "orque-elite",
       "families": [
@@ -7446,21 +7563,21 @@
         "type": "puissant",
         "rank": 1
       },
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+4",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0*"
+        "str": { "mod": 4 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 10
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7486,6 +7603,7 @@
   {
     "name": "Shaman orque",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "shaman-orque",
       "families": [
@@ -7500,21 +7618,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "-2",
-        "wis": "+4",
-        "cha": "-2"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 29,
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 29, "bonus": 0, "value": 29, "max": 29},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -7548,6 +7666,7 @@
   {
     "name": "Chef orque",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "chef-orque",
       "families": [
@@ -7563,21 +7682,21 @@
         "type": "puissant",
         "rank": 2
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+5*",
-        "dex": "+0",
-        "con": "+5",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0*"
+        "str": { "mod": 5, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 5 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 19,
-        "hp": 55,
-        "init": 10
+        "def": { "base": 19, "bonus": 0, "value": 19 },
+        "hp": { "base": 55, "bonus": 0, "value": 55, "max": 55},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7609,6 +7728,7 @@
   {
     "name": "Ours noir",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ours-noir",
       "families": [
@@ -7624,21 +7744,21 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+2",
-        "con": "+3",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 2 },
+        "con": { "mod": 3 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 15
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -7652,6 +7772,7 @@
   {
     "name": "Ours brun",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ours-brun",
       "families": [
@@ -7666,21 +7787,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -7699,6 +7820,7 @@
   {
     "name": "Ours polaire",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ours-polaire",
       "families": [
@@ -7713,21 +7835,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8*",
-        "dex": "+0",
-        "con": "+8*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 8, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 8, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 70,
-        "init": 11
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 70, "bonus": 0, "value": 70, "max": 70},
+        "init": { "base": 11, "bonus": 0, "value": 11 }
       },
       "attacks": [
         {
@@ -7749,6 +7871,7 @@
   {
     "name": "Ours préhistorique",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ours-prehistorique",
       "families": [
@@ -7763,22 +7886,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "8",
+      "nc": { "value": 8 },
       "category": "vivante",
-      "size": "taille énorme",
+      "details": { "size": "huge" },
       "stats": {
-        "str": "+11*",
-        "dex": "+0",
-        "con": "+11*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 11, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 11, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 110,
-        "dr": "2",
-        "init": 10
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 110, "bonus": 0, "value": 110, "max": 110},
+        "dr": { "enabled": true, "base": { "value" : 2, "ignored" : ""}, "bonus": { "value" : 0, "ignored" : ""}, "value": 2 },
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7800,6 +7923,7 @@
   {
     "name": "Ours-hibou",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ours-hibou",
       "families": [
@@ -7815,21 +7939,21 @@
         "type": "berserk",
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 40,
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 40, "bonus": 0, "value": 40, "max": 40},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -7851,6 +7975,7 @@
   {
     "name": "Gamin",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gamin",
       "families": [
@@ -7861,21 +7986,21 @@
       ],
       "milieu": "tous",
       "archetype": "inférieur",
-      "nc": "0",
+      "nc": { "value": 0 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-2",
-        "dex": "+1",
-        "con": "-2",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": -2 },
+        "dex": { "mod": 1 },
+        "con": { "mod": -2 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 12,
-        "hp": 2,
-        "init": 13
+        "def": { "base": 12, "bonus": 0, "value": 12 },
+        "hp": { "base": 2, "bonus": 0, "value": 2, "max": 2},
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -7889,6 +8014,7 @@
   {
     "name": "Passant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "passant",
       "families": [
@@ -7899,21 +8025,21 @@
       ],
       "milieu": "tous",
       "archetype": "inférieur",
-      "nc": "0",
+      "nc": { "value": 0 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+0",
-        "con": "+0",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 0 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 10,
-        "hp": 4,
-        "init": 10
+        "def": { "base": 10, "bonus": 0, "value": 10 },
+        "hp": { "base": 4, "bonus": 0, "value": 4, "max": 4},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7927,6 +8053,7 @@
   {
     "name": "Milicien",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "milicien",
       "families": [
@@ -7938,21 +8065,21 @@
       "description": "<p>Un groupe de miliciens est dirigé par un soldat.</p>",
       "milieu": "tous",
       "archetype": "standard",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+0",
-        "con": "+1",
-        "int": "-2",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 1 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 1 },
+        "int": { "mod": -2 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "init": 10
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -7966,6 +8093,7 @@
   {
     "name": "Marchand",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "marchand",
       "families": [
@@ -7976,21 +8104,21 @@
       ],
       "milieu": "tous",
       "archetype": "inférieur",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "-1",
-        "dex": "+0",
-        "con": "+0",
-        "int": "+2*",
-        "wis": "+0",
-        "cha": "+2*"
+        "str": { "mod": -1 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 0 },
+        "int": { "mod": 2, "superior" : true },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 2, "superior" : true }
       },
       "attributes": {
-        "def": 10,
-        "hp": 4,
-        "init": 11
+        "def": { "base": 10, "bonus": 0, "value": 10 },
+        "hp": { "base": 4, "bonus": 0, "value": 4, "max": 4},
+        "init": { "base": 11, "bonus": 0, "value": 11 }
       },
       "attacks": [
         {
@@ -8009,6 +8137,7 @@
   {
     "name": "Soldat",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "soldat",
       "families": [
@@ -8019,21 +8148,21 @@
       ],
       "milieu": "tous",
       "archetype": "puissant",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8047,6 +8176,7 @@
   {
     "name": "Sergent",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "sergent",
       "families": [
@@ -8060,21 +8190,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0*"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "init": 10
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8093,6 +8223,7 @@
   {
     "name": "Capitaine",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "capitaine",
       "families": [
@@ -8106,21 +8237,21 @@
       "boss": {
         "rank": 2
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3*",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0*"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 19,
-        "hp": 65,
-        "init": 10
+        "def": { "base": 19, "bonus": 0, "value": 19 },
+        "hp": { "base": 65, "bonus": 0, "value": 65, "max": 65},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8142,6 +8273,7 @@
   {
     "name": "Garde du corps",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "garde-du-corps",
       "families": [
@@ -8153,21 +8285,21 @@
       "description": "<p>Le Profil de Garde du corps est un Profil hybride de <a href=\"http://co-drs.org/profils/guerrier/\">Guerrier</a> et de <a href=\"http://co-drs.org/profils/chevalier/\">Chevalier</a> (<a href=\"http://co-drs.org/voies/voie-du-bouclier/\">Voie du bouclier</a>, <a href=\"http://co-drs.org/voies/voie-de-la-resistance/\">Voie de la résistance</a>, <a href=\"http://co-drs.org/voies/voie-du-soldat/\">Voie du soldat</a>, <a href=\"http://co-drs.org/voies/voie-du-heros/\">Voie du héros</a>, <a href=\"http://co-drs.org/voies/voie-du-meneur-d-homme/\">Voie du meneur d’homme</a>)</p>",
       "milieu": "tous",
       "archetype": "puissant",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 33,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 33, "bonus": 0, "value": 33, "max": 33},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8195,6 +8327,7 @@
   {
     "name": "Garde d’élite",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "garde-elite",
       "families": [
@@ -8209,21 +8342,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 19,
-        "hp": 71,
-        "init": 10
+        "def": { "base": 19, "bonus": 0, "value": 19 },
+        "hp": { "base": 71, "bonus": 0, "value": 71, "max": 71},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8263,6 +8396,7 @@
   {
     "name": "Voleur à la tire",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "voleur-a-la-tire",
       "families": [
@@ -8273,21 +8407,21 @@
       ],
       "milieu": "tous",
       "archetype": "rapide",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8301,6 +8435,7 @@
   {
     "name": "Surineur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "surineur",
       "families": [
@@ -8311,21 +8446,21 @@
       ],
       "milieu": "tous",
       "archetype": "rapide",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+0",
-        "wis": "+2",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 6,
-        "init": 18
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 6, "bonus": 0, "value": 6, "max": 6},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8344,6 +8479,7 @@
   {
     "name": "Gros bras",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "gros-bras",
       "families": [
@@ -8354,21 +8490,21 @@
       ],
       "milieu": "tous",
       "archetype": "puissant",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8387,6 +8523,7 @@
   {
     "name": "Spadassin",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "spadassin",
       "families": [
@@ -8400,21 +8537,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+2",
-        "wis": "+2",
-        "cha": "+0*"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 0, "superior" : true }
       },
       "attributes": {
-        "def": 18,
-        "hp": 26,
-        "init": 18
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 26, "bonus": 0, "value": 26, "max": 26},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8433,6 +8570,7 @@
   {
     "name": "Assassin mineur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "assassin-mineur",
       "families": [
@@ -8446,21 +8584,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+2",
-        "wis": "+2*",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 26,
-        "init": 18
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 26, "bonus": 0, "value": 26, "max": 26},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8486,6 +8624,7 @@
   {
     "name": "Assassin majeur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "assassin-majeur",
       "families": [
@@ -8499,21 +8638,21 @@
       "boss": {
         "rank": 2
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+2",
-        "wis": "+2*",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 46,
-        "init": 18
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 46, "bonus": 0, "value": 46, "max": 46},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8542,6 +8681,7 @@
   {
     "name": "Maître assassin",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "maitre-assassin",
       "families": [
@@ -8555,21 +8695,21 @@
       "boss": {
         "rank": 3
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+2",
-        "wis": "+4*",
-        "cha": "+0"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 66,
-        "init": 18
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 66, "bonus": 0, "value": 66, "max": 66},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8601,6 +8741,7 @@
   {
     "name": "Grand maître assassin",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "grand-maitre-assassin",
       "families": [
@@ -8614,21 +8755,21 @@
       "boss": {
         "rank": 5
       },
-      "nc": "10",
+      "nc": { "value": 10 },
       "category": "humanoïde",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+0",
-        "dex": "+4*",
-        "con": "+0",
-        "int": "+2",
-        "wis": "+4*",
-        "cha": "+2"
+        "str": { "mod": 0 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 0 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 4, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 26,
-        "hp": 106,
-        "init": 18
+        "def": { "base": 26, "bonus": 0, "value": 26 },
+        "hp": { "base": 106, "bonus": 0, "value": 106, "max": 106},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -8667,6 +8808,7 @@
   {
     "name": "Pixie",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "pixie",
       "families": [
@@ -8678,21 +8820,21 @@
       ],
       "milieu": "forêt",
       "archetype": "rapide",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-2",
-        "dex": "+4",
-        "con": "-2",
-        "int": "+2",
-        "wis": "+2",
-        "cha": "+2"
+        "str": { "mod": -2 },
+        "dex": { "mod": 4 },
+        "con": { "mod": -2 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 2,
-        "init": 24
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 2, "bonus": 0, "value": 2, "max": 2},
+        "init": { "base": 24, "bonus": 0, "value": 24 }
       },
       "attacks": [
         {
@@ -8724,6 +8866,7 @@
   {
     "name": "Pixie ensorceleur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "pixie-ensorceleur",
       "families": [
@@ -8736,21 +8879,21 @@
       "description": "<p><strong>Ensorceleur</strong> de niveau 6</p>",
       "milieu": "forêt",
       "archetype": "standard",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "humanoïde",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-2",
-        "dex": "+4",
-        "con": "-2",
-        "int": "+2",
-        "wis": "+2",
-        "cha": "+2"
+        "str": { "mod": -2 },
+        "dex": { "mod": 4 },
+        "con": { "mod": -2 },
+        "int": { "mod": 2 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 20,
-        "init": 19
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 20, "bonus": 0, "value": 20, "max": 20},
+        "init": { "base": 19, "bonus": 0, "value": 19 }
       },
       "attacks": [
         {
@@ -8811,6 +8954,7 @@
   {
     "name": "Rat géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "rat-geant",
       "families": [
@@ -8823,21 +8967,21 @@
       "description": "<p>Aussi appelé RTI – Rat de Taille Inhabituelle – (Cf. le film Princess Bride), ce rongeur de la taille d’un chien est beaucoup plus agressif qu’un rat ordinaire. Il pue autant qu’il est laid. Et il est particulièrement laid.</p>",
       "milieu": "marais",
       "archetype": "puissant",
-      "nc": "0.5",
+      "nc": { "value": 0.5 },
       "category": "vivante",
-      "size": "taille petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "+1*",
-        "dex": "+1",
-        "con": "+1",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "-4"
+        "str": { "mod": 1, "superior" : true },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 13,
-        "hp": 4,
-        "init": 13
+        "def": { "base": 13, "bonus": 0, "value": 13 },
+        "hp": { "base": 4, "bonus": 0, "value": 4, "max": 4},
+        "init": { "base": 13, "bonus": 0, "value": 13 }
       },
       "attacks": [
         {
@@ -8858,6 +9002,7 @@
   {
     "name": "Sanglier",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "sanglier",
       "families": [
@@ -8869,21 +9014,21 @@
       "description": "<p>Les sangliers mâles pèsent généralement autour de 150 kg mais on peut rencontrer des spécimens de 200 à 300 kg (ajouter un niveau de Boss).</p>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 16,
-        "init": 10
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 16, "bonus": 0, "value": 16, "max": 16},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -8905,6 +9050,7 @@
   {
     "name": "Sanglier sanguinaire",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "sanglier-sanguinaire",
       "families": [
@@ -8919,21 +9065,21 @@
       "boss": {
         "rank": 1
       },
-      "nc": "6",
+      "nc": { "value": 6 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 18,
-        "hp": 50,
-        "init": 12
+        "def": { "base": 18, "bonus": 0, "value": 18 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -8958,6 +9104,7 @@
   {
     "name": "Serpent constricteur",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "serpent-constricteur",
       "families": [
@@ -8969,21 +9116,21 @@
       "description": "<p>Ce Profil correspond au boa ou au python, toutefois cette famille de serpents comprend de grandes disparités de taille et de poids, allant de 2 mètres pour une quinzaine de kilos à plus de 6 mètres pour 150 kg et au-delà. Les Caractéristiques présentées ici correspondent à un spécimen d’environ 4 m pour 80 kg.</p>",
       "milieu": "forêt",
       "archetype": "puissant",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3*",
-        "dex": "+0",
-        "con": "+3",
-        "int": "-4",
-        "wis": "+1*",
-        "cha": "-4"
+        "str": { "mod": 3, "superior" : true },
+        "dex": { "mod": 0 },
+        "con": { "mod": 3 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 1, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 15,
-        "init": 15
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 15, "bonus": 0, "value": 15, "max": 15},
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -9009,6 +9156,7 @@
   {
     "name": "Serpent venimeux",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "serpent-venimeux",
       "families": [
@@ -9020,21 +9168,21 @@
       "description": "<p>Ce Profil correspond à un serpent d’environ un mètre de long : crotale, vipère, etc.</p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille très petite",
+      "details": { "size": "small" },
       "stats": {
-        "str": "-3",
-        "dex": "+2*",
-        "con": "+0*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-4"
+        "str": { "mod": -3 },
+        "dex": { "mod": 2, "superior" : true },
+        "con": { "mod": 0, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 15,
-        "hp": 2,
-        "init": 21
+        "def": { "base": 15, "bonus": 0, "value": 15 },
+        "hp": { "base": 2, "bonus": 0, "value": 2, "max": 2},
+        "init": { "base": 21, "bonus": 0, "value": 21 }
       },
       "attacks": [
         {
@@ -9065,6 +9213,7 @@
   {
     "name": "Serpent géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "serpent-geant",
       "families": [
@@ -9076,21 +9225,21 @@
       "description": "<p>Ce serpent constricteur est digne de l’animal sacré de la tour de l’éléphant, rencontré par Arnold Schwarzenegger dans Conan. Soit une bête de plus de 15 mètres de long pourvue d’un corps aussi épais que celui d’un homme.</p><p>Note : si vous souhaitez créer un serpent géant venimeux, utilisez les règles de poison développées pour les insectes géants (+1 NC).</p>",
       "milieu": "marais",
       "archetype": "puissant",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8",
-        "dex": "+0",
-        "con": "+8",
-        "int": "-4",
-        "wis": "+0",
-        "cha": "-2"
+        "str": { "mod": 8 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 8 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 10,
-        "hp": 10,
-        "init": 10
+        "def": { "base": 10, "bonus": 0, "value": 10 },
+        "hp": { "base": 10, "bonus": 0, "value": 10, "max": 10},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -9111,6 +9260,7 @@
   {
     "name": "Squelette de base",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "squelette-de-base",
       "families": [
@@ -9122,22 +9272,22 @@
       ],
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "+1",
-        "con": "+1",
-        "int": "-4",
-        "wis": "-2",
-        "cha": "-4"
+        "str": { "mod": 1 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 1 },
+        "int": { "mod": -4 },
+        "wis": { "mod": -2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 14,
-        "hp": 9,
-        "dr": "5 / armes contondantes",
-        "init": 12
+        "def": { "base": 14, "bonus": 0, "value": 14 },
+        "hp": { "base": 9, "bonus": 0, "value": 9, "max": 9},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "armes contondantes"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -9168,6 +9318,7 @@
   {
     "name": "Squelette de géant",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "squelette-de-geant",
       "families": [
@@ -9180,22 +9331,22 @@
       "description": "<p>Un squelette d’ogre ou de troll de presque 3 mètres de haut…</p>",
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6",
-        "int": "-4",
-        "wis": "-2",
-        "cha": "-4"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6 },
+        "int": { "mod": -4 },
+        "wis": { "mod": -2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 60,
-        "dr": "10 / armes contondantes",
-        "init": 12
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 60, "bonus": 0, "value": 60, "max": 60},
+        "dr": { "enabled": true, "base": { "value" : 10, "ignored" : "armes contondantes"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 10 },
+        "init": { "base": 12, "bonus": 0, "value": 12 }
       },
       "attacks": [
         {
@@ -9234,6 +9385,7 @@
   {
     "name": "Taureau",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "taureau",
       "families": [
@@ -9245,21 +9397,21 @@
       ],
       "milieu": "plaine",
       "archetype": "inférieur",
-      "nc": "2",
+      "nc": { "value": 2 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+4",
-        "dex": "+0",
-        "con": "+4*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 4 },
+        "dex": { "mod": 0 },
+        "con": { "mod": 4, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 13,
-        "hp": 20,
-        "init": 10
+        "def": { "base": 13, "bonus": 0, "value": 13 },
+        "hp": { "base": 20, "bonus": 0, "value": 20, "max": 20},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -9278,6 +9430,7 @@
   {
     "name": "Taureau, grand mâle",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "taureau-grand-male",
       "families": [
@@ -9290,21 +9443,21 @@
       "description": "<p>Un grand mâle mesure environ 1,80 m au garrot pour une tonne.</p>",
       "milieu": "plaine",
       "archetype": "standard",
-      "nc": "3",
+      "nc": { "value": 3 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 16,
-        "hp": 30,
-        "init": 10
+        "def": { "base": 16, "bonus": 0, "value": 16 },
+        "hp": { "base": 30, "bonus": 0, "value": 30, "max": 30},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
@@ -9323,6 +9476,7 @@
   {
     "name": "Tigre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "tigre",
       "families": [
@@ -9338,21 +9492,21 @@
         "type": "puissant",
         "rank": 1
       },
-      "nc": "5",
+      "nc": { "value": 5 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "+4*",
-        "con": "+5",
-        "int": "-4",
-        "wis": "+2*",
-        "cha": "+2"
+        "str": { "mod": 6 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2, "superior" : true },
+        "cha": { "mod": 2 }
       },
       "attributes": {
-        "def": 21,
-        "hp": 50,
-        "init": 18
+        "def": { "base": 21, "bonus": 0, "value": 21 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -9374,6 +9528,7 @@
   {
     "name": "Tigre à dents de sabre",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "tigre-a-dents-de-sabre",
       "families": [
@@ -9389,21 +9544,21 @@
         "type": "puissant",
         "rank": 2
       },
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+8*",
-        "dex": "+4*",
-        "con": "+8",
-        "int": "-4",
-        "wis": "+1*",
-        "cha": "-4"
+        "str": { "mod": 8, "superior" : true },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 8 },
+        "int": { "mod": -4 },
+        "wis": { "mod": 1, "superior" : true },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 22,
-        "hp": 90,
-        "init": 23
+        "def": { "base": 22, "bonus": 0, "value": 22 },
+        "hp": { "base": 90, "bonus": 0, "value": 90, "max": 90},
+        "init": { "base": 23, "bonus": 0, "value": 23 }
       },
       "attacks": [
         {
@@ -9425,6 +9580,7 @@
   {
     "name": "Vampire",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "vampire",
       "families": [
@@ -9439,22 +9595,22 @@
       "boss": {
         "rank": 1
       },
-      "nc": "7",
+      "nc": { "value": 7 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+5",
-        "dex": "+4*",
-        "con": "+5*",
-        "int": "+4",
-        "wis": "+4",
-        "cha": "+4"
+        "str": { "mod": 5 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5, "superior" : true },
+        "int": { "mod": 4 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 4 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 50,
-        "dr": "15 / argent ou feu",
-        "init": 18
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 50, "bonus": 0, "value": 50, "max": 50},
+        "dr": { "enabled": true, "base": { "value" : 15, "ignored" : "argent ou feu"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 15 },
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -9498,6 +9654,7 @@
   {
     "name": "Vampire ancien",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "vampire-ancien",
       "families": [
@@ -9510,22 +9667,22 @@
       "description": "<p>Après plusieurs siècles ou même quelques millénaires un vampire devient un puissant lanceur de sort mais surtout une créature vicieuse, calculatrice et dominatrice capable de contrôler un mortel d’un seul regard. La plupart des vampires anciens sont magiciens bien qu’on rencontre quelques exceptions tournées vers les Profils de <a href=\"http://co-drs.org/profils/guerrier/\">Guerrier</a> ou de <a href=\"http://co-drs.org/profils/chevalier/\">Chevalier</a>. La Voie du méchant récurrent est aussi parfaitement adaptée et conseillée pour ce type de PNJ majeur. </p><p><strong>Magicien</strong> de niveau 8</p>",
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "11",
+      "nc": { "value": 11 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+5",
-        "dex": "+4*",
-        "con": "+5*",
-        "int": "+6",
-        "wis": "+4",
-        "cha": "+6"
+        "str": { "mod": 5 },
+        "dex": { "mod": 4, "superior" : true },
+        "con": { "mod": 5, "superior" : true },
+        "int": { "mod": 6 },
+        "wis": { "mod": 4 },
+        "cha": { "mod": 6 }
       },
       "attributes": {
-        "def": 20,
-        "hp": 98,
-        "dr": "15 / argent ou feu",
-        "init": 18
+        "def": { "base": 20, "bonus": 0, "value": 20 },
+        "hp": { "base": 98, "bonus": 0, "value": 98, "max": 98},
+        "dr": { "enabled": true, "base": { "value" : 15, "ignored" : "argent ou feu"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 15 },
+        "init": { "base": 18, "bonus": 0, "value": 18 }
       },
       "attacks": [
         {
@@ -9607,6 +9764,7 @@
   {
     "name": "Vampirien",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "vampirien",
       "families": [
@@ -9623,22 +9781,22 @@
         "type": "rapide",
         "rank": 1
       },
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+3",
-        "dex": "+2*",
-        "con": "+3*",
-        "int": "+0",
-        "wis": "+0",
-        "cha": "+0"
+        "str": { "mod": 3 },
+        "dex": { "mod": 2, "superior" : true },
+        "con": { "mod": 3, "superior" : true },
+        "int": { "mod": 0 },
+        "wis": { "mod": 0 },
+        "cha": { "mod": 0 }
       },
       "attributes": {
-        "def": 17,
-        "hp": 35,
-        "dr": "5 / argent ou feu",
-        "init": 15
+        "def": { "base": 17, "bonus": 0, "value": 17 },
+        "hp": { "base": 35, "bonus": 0, "value": 35, "max": 35},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "argent ou feu"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 15, "bonus": 0, "value": 15 }
       },
       "attacks": [
         {
@@ -9670,6 +9828,7 @@
   {
     "name": "Zombi humain",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "zombi-humain",
       "families": [
@@ -9681,22 +9840,22 @@
       ],
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "1",
+      "nc": { "value": 1 },
       "category": "non-vivante",
-      "size": "taille moyenne",
+      "details": { "size": "med" },
       "stats": {
-        "str": "+1",
-        "dex": "-1",
-        "con": "+1",
-        "int": "-4",
-        "wis": "-2",
-        "cha": "-4"
+        "str": { "mod": 1 },
+        "dex": { "mod": -1 },
+        "con": { "mod": 1 },
+        "int": { "mod": -4 },
+        "wis": { "mod": -2 },
+        "cha": { "mod": -4 }
       },
       "attributes": {
-        "def": 10,
-        "hp": 18,
-        "dr": "5 / tranchant",
-        "init": 8
+        "def": { "base": 10, "bonus": 0, "value": 10 },
+        "hp": { "base": 18, "bonus": 0, "value": 18, "max": 18},
+        "dr": { "enabled": true, "base": { "value" : 5, "ignored" : "tranchant"}, "bonus": { "value" : 0, "ignored" : ""}, "value": 5 },
+        "init": { "base": 8, "bonus": 0, "value": 8 }
       },
       "attacks": [
         {
@@ -9732,6 +9891,7 @@
   {
     "name": "Ours hibou zombi",
     "type": "encounter",
+    "img": "/systems/cof/ui/icons/creature.png",
     "data": {
       "key": "ours-hibou-zombi",
       "families": [
@@ -9748,21 +9908,21 @@
       "description": "<p>L’ours hibou zombi voit son NC réduit par rapport à la créature originale : la <a href=\"http://co-drs.org/voies/voie-du-cogneur/\">Voie du cogneur</a> a été supprimée car elle ne correspondait pas à la lenteur du zombi. C’est une formidable machine à tuer, résistante et dangereuse, heureusement, il ne se déplace que très lentement.</p>",
       "milieu": "spécial",
       "archetype": "standard",
-      "nc": "4",
+      "nc": { "value": 4 },
       "category": "non-vivante",
-      "size": "taille grande",
+      "details": { "size": "big" },
       "stats": {
-        "str": "+6",
-        "dex": "-1",
-        "con": "+6*",
-        "int": "-4",
-        "wis": "+2",
-        "cha": "-2"
+        "str": { "mod": 6 },
+        "dex": { "mod": -1 },
+        "con": { "mod": 6, "superior" : true },
+        "int": { "mod": -4 },
+        "wis": { "mod": 2 },
+        "cha": { "mod": -2 }
       },
       "attributes": {
-        "def": 12,
-        "hp": 80,
-        "init": 10
+        "def": { "base": 12, "bonus": 0, "value": 12 },
+        "hp": { "base": 80, "bonus": 0, "value": 80, "max": 80},
+        "init": { "base": 10, "bonus": 0, "value": 10 }
       },
       "attacks": [
         {
