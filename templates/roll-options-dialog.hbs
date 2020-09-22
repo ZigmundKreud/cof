@@ -23,11 +23,7 @@
         <span class="field-label">{{localize 'COF.ui.modifier'}}</span>
     </div>
     <div class="flex1 center cell">
-        {{#if mod}}
-            <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>
-        {{else}}
-            <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="" data-dtype="Number"/>
-        {{/if}}
+        <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">

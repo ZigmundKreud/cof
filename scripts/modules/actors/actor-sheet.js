@@ -70,7 +70,11 @@ export class CofActorSheet extends ActorSheet {
             ev.preventDefault();
             return this._onCapacityCreate(ev);
         });
-
+        html.find('.capacity-toggle').click(ev => {
+            ev.preventDefault();
+            const li = $(ev.currentTarget).closest(".capacity");
+            li.find(".capacity-description").slideToggle(200);
+        });
 
         // Display item sheet
         html.find('.item-name').click(ev => {
@@ -246,6 +250,7 @@ export class CofActorSheet extends ActorSheet {
         let bonus = eval(`${key}.bonus`);
         const critrange = 20;
         bonus = (bonus) ? bonus : 0;
+        console.log(mod);
         label = (label) ? game.i18n.localize(label) : null;
         this._rollDialog(label, mod, bonus, critrange);
     }

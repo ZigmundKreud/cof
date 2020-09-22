@@ -118,8 +118,8 @@
             "key" : "magic",
             "label": "COF.attacks.magic.label",
             "abbrev": "COF.attacks.magic.abbrev",
-            "stat": null,
-            "enabled": false,
+            "stat": "int",
+            "enabled": true,
             "base": 1,
             "bonus": 0,
             "mod": 1
@@ -375,10 +375,12 @@
       "inPath": true
     },
     "item": {
-      "description" : ""
+      "description" : "",
+      "qty" : 1
     },
     "trapping": {
       "price" : 0,
+      "qty" : 1,
       "description" : ""
     },
     "profile": {
@@ -418,6 +420,7 @@
       "profile": ""
     },
     "armor": {
+      "qty" : 1,
       "def" : 0,
       "defBase" : 0,
       "defBonus" : 0,
@@ -427,6 +430,7 @@
       "worn": false
     },
     "shield": {
+      "qty" : 1,
       "def" : 0,
       "defBase" : 0,
       "defBonus" : 0,
@@ -444,6 +448,7 @@
       "price" : 0
     },
     "melee": {
+      "qty" : 1,
       "dmg": "",
       "dmgBase": "1d6",
       "dmgStat": "@stats.str.mod",
@@ -459,6 +464,7 @@
       "price": 0
     },
     "ranged": {
+      "qty" : 1,
       "dmg": "",
       "dmgBase": "1d6",
       "dmgStat": "",
@@ -476,6 +482,7 @@
       "price": 0
     },
     "spell": {
+      "qty" : 1,
       "dmg": "",
       "dmgBase": "",
       "dmgStat": "",

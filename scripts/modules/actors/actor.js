@@ -223,7 +223,6 @@ export class CofActor extends Actor {
     }
 
     _prepareEncounterData(actorData) {
-        console.log(actorData);
         const stats = actorData.data.stats;
 
         // COMPUTE MODS

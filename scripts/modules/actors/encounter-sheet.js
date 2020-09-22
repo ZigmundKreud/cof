@@ -23,7 +23,7 @@ export class CofEncounterSheet extends CofActorSheet {
         super.activateListeners(html);
 
         // Click to open
-        html.find('.compendium-pack.capacity-add').click(ev => {
+        html.find('.compendium-pack.capacity-add,.compendium-pack.path-add').click(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
             if ( li.attr("data-open") === "1" ) pack.close();

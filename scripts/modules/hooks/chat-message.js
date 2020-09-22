@@ -23,10 +23,6 @@ Hooks.on("chatMessage", (html, content, msg) => {
             CharacterGeneration.statsCommand();
             return false;
         }
-        case "/hp" : {
-            CharacterGeneration.rollHPCommand();
-            return false;
-        }
         default: return false;
     }
 });

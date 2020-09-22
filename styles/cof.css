@@ -897,10 +897,27 @@ select {
   overflow: auto;
 }
 
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar {
+  height: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar .capacity-tools {
+  height: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar .capacity-tools .capacity-tool {
+  height: 20px;
+  padding: 2px;
+}
+
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list {
   gap: 3px;
-  padding: 0;
-  margin: 5px 0 0 0;
+  padding: 5px;
+  margin: 0;
   min-height: calc(100% - 215px) !important;
   height: calc(100% - 215px) !important;
   max-height: calc(100% - 215px) !important;
@@ -908,7 +925,7 @@ select {
 }
 
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity {
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 0;
   border: 1px solid #736953a6;
   border-radius: 3px;
@@ -919,14 +936,64 @@ select {
 }
 
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title {
-  padding: 5px;
-  font-size: 14px;
-  font-family: MyriadPro, sans-serif;
-  font-weight: bold;
-  border-bottom: 1px solid #736953a6;
+  margin: 0;
+  padding: 0;
+  min-height: 24px;
+  height: 24px;
+  max-height: 24px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-shadow: 0 0 10px #00000052 inset;
+  box-shadow: 0 0 10px #00000052 inset;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title .capacity-icon {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+  min-height: 24px;
+  height: 24px;
+  max-height: 24px;
+  min-with: 24px;
+  with: 24px;
+  max-with: 24px;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title .capacity-icon > img {
+  min-height: 24px;
+  height: 24px;
+  max-height: 24px;
+  min-with: 24px;
+  with: 24px;
+  max-with: 24px;
+  border: none;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title .capacity-label {
+  height: 24px;
+  min-height: 24px;
+  max-height: 24px;
+  margin: 0;
+  padding: 0 0 0 5px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 24px;
+  /* centrage vertical */
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-title .capacity-control {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 18px;
+  flex: 0 0 18px;
 }
 
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list .capacity .capacity-description {
+  border-top: 1px solid #736953a6;
+  display: none;
   padding: 5px;
   text-align: justify;
   font-size: 12px;
@@ -934,9 +1001,16 @@ select {
 }
 
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.encounter {
-  min-height: calc(100% - 50px) !important;
-  height: calc(100% - 50px) !important;
-  max-height: calc(100% - 50px) !important;
+  min-height: calc(100% - 175px) !important;
+  height: calc(100% - 175px) !important;
+  max-height: calc(100% - 175px) !important;
+  overflow: auto;
+}
+
+.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.encounter.nopath {
+  min-height: calc(100% - 75px) !important;
+  height: calc(100% - 75px) !important;
+  max-height: calc(100% - 75px) !important;
   overflow: auto;
 }
 

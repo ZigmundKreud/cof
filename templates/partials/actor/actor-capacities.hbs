@@ -1,22 +1,36 @@
+<!--<div class="capacity-toolbar row flexrow">-->
+<!--    <div class="capacity-tools flex1 right">-->
+<!--        <a class="capacity-tool path-add compendium-pack" data-pack="cof.paths" data-open="0" title="Ajouter une voie"><i class="fas fa-plus-square"></i>&nbsp; Ajouter une voie</a>-->
+<!--        &nbsp;-->
+<!--        <a class="capacity-tool capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus-square"></i>&nbsp; Ajouter une capacité</a>-->
+<!--        &nbsp;-->
+<!--        <a class="capacity-tool capacity-create" title="Créer une capacité"><i class="fas fa-edit"></i>&nbsp; Créer une capacité</a>-->
+<!--    </div>-->
+<!--</div>-->
 {{#if (isEmpty (getActiveCapacities actor.items))}}
 <p class="empty">Aucune capacité n'a été sélectionnée pour le moment</p>
 {{/if}}
-{{!#each (getCapacities actor.items) as |capacity id|}}
+<div class="capacity-list {{#if (isEmpty (getPaths actor.items))}}nopath{{/if}}">
 {{#each (getActiveCapacities actor.items) as |capacity id|}}
-<div class="capacity item" data-item-id="{{capacity._id}}">
-    <div class="capacity-title">
-            <a class="capacity-control capacity-edit" title="{{capacity.name}}">&nbsp;{{capacity.name}}({{capacity.data.rank}}){{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}{{#if capacity.data.limited}}&nbsp;(L){{/if}}</a>
-<!--            &nbsp;-->
-<!--            <a class="capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>-->
-<!--        </div>-->
+    <div class="capacity item" data-item-type="item" data-item-id="{{capacity._id}}">
+        <div class="flexrow capacity-title">
+            <div class="flex0 capacity-icon"><img src="{{capacity.img}}" title="{{capacity.name}}" width="24" height="24"/></div>
+            <a class="flex1 capacity-label capacity-toggle" title="{{capacity.name}}">{{{capacity.name}}}
+                {{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}
+                {{#if capacity.data.limited}}&nbsp;(L){{/if}}
+                &nbsp;
+                {{#with (getPath ../actor.items capacity.data.path)}}
+                    <em>({{{name}}}{{#if capacity.data.rank}}, {{capacity.data.rank}}{{/if}})</em>
+                {{/with}}
+            </a>
+            &nbsp;
+            <a class="flex0 capacity-control capacity-edit" title="{{capacity.name}}"><i class="fas fa-edit"></i></a>
+            &nbsp;
+            <a class="flex0 capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+        <div class="capacity-description">
+            <div>{{{capacity.data.description}}}</div>
+        </div>
     </div>
-    <div class="capacity-description">
-        {{#with (getPath ../actor.items capacity.data.path)}}
-        <em>{{{name}}}</em>
-        {{/with}}
-    </div>
-    <div class="capacity-description">
-        <div>{{{capacity.data.description}}}</div>
-    </div>
-</div>
 {{/each}}
+</div>
