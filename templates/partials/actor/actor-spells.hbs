@@ -37,7 +37,7 @@
                     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
                 </div>
                 <div class="flex1 center">
-                    <input class="field-value item-range" readonly="true" name="spells.{{id}}.data.range" type="text" value="{{item.data.range}}" data-dtype="Number"/>
+                    <span class="field-value">{{item.data.range}}</span>
                 </div>
                 <div class="flex1 center">
                     {{#if (is2H item)}}
@@ -45,19 +45,18 @@
                     {{else}}
                         <i class="fas fa-hand-paper"></i>
                     {{/if}}
-                    <input class="field-value item-hands" readonly="true" name="spells.{{id}}.data.hands" type="hidden" value="{{item.data.hands}}" data-dtype="Number"/>
                 </div>
                 <div class="flex1 center cell">
-                    <input class="field-value item-critrange" readonly="true" name="spells.{{id}}.critrange" type="text" value="{{item.data.critrange}}" data-dtype="String"/>
+                    <span class="field-value">{{item.data.critrange}}</span>
                 </div>
                 <div class="flex1 center cell">
-                    <input class="field-value item-mod" readonly="true" name="spells.{{id}}.data.mod" type="text" value="{{item.data.mod}}" data-dtype="Number"/>
+                    <span class="field-value">{{item.data.mod}}</span>
                 </div>
                 <div class="flex1 center cell">
-                    <input class="field-value item-dmg" readonly="true" name="spells.{{id}}.data.dmg" type="text" value="{{item.data.dmg}}" data-dtype="String"/>
+                    <span class="field-value">{{item.data.dmg}}</span>
                 </div>
                 <div class="flex1 center">
-                    <div class="rollable" data-rolling="spells[{{id}}]" data-roll-type="spell"><i class="fas fa-dice-d20"></i></div>
+                    <div class="rollable" data-roll-type="spell"><i class="fas fa-dice-d20"></i></div>
                     &nbsp;
                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                 </div>

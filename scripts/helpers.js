@@ -136,7 +136,7 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('is2H', function (item) {
-        return item.data.hands === 2;
+        return parseInt(item.data.hands) === 2;
     });
 
     Handlebars.registerHelper('isNull', function (val) {
@@ -200,6 +200,21 @@ export const registerHandlebarsHelpers = async function () {
         return val1 == val2;
     });
 
+    Handlebars.registerHelper('gt', function (val1, val2) {
+        return val1 > val2;
+    });
+
+    Handlebars.registerHelper('lt', function (val1, val2) {
+        return val1 < val2;
+    });
+
+    Handlebars.registerHelper('gte', function (val1, val2) {
+        return val1 >= val2;
+    });
+
+    Handlebars.registerHelper('lte', function (val1, val2) {
+        return val1 <= val2;
+    });
     Handlebars.registerHelper('and', function (val1, val2) {
         return val1 && val2;
     });

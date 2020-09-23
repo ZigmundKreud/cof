@@ -13,7 +13,7 @@
     </div>
 </div>
 {{#each actor.data.attacks as |attack id|}}
-    {{#if attack.enabled}}
+    {{!#if attack.enabled}}
         <div class="row flexrow no-wrap">
             <div class="flex2 center bg-red rollable" data-rolling="data.attacks.{{id}}" data-roll-type="skillcheck">
                 <span class="field-label ellipsis"><i class="fas fa-dice-d20"></i>&nbsp;{{ localize attack.abbrev }}</span>
@@ -43,7 +43,7 @@
                 {{/if}}
             </div>
         </div>
-    {{else}}
-        <div class="row flexrow"><div class="flex1 spacer"></div></div>
-    {{/if}}
+    {{!else}}
+<!--        <div class="row flexrow"><div class="flex1 spacer"></div></div>-->
+    {{!/if}}
 {{/each}}

@@ -65,6 +65,7 @@
   "COF.ui.category" : "Category",
   "COF.ui.milieu" : "Milieu",
   "COF.ui.boss" : "Boss",
+  "COF.ui.quantity" : "Quantity",
 
   "COF.None": "--",
   "COF.tabs.stats": "Stats",

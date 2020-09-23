@@ -20,8 +20,11 @@
     {{#each (getArmors actor.items) as |item id|}}
     <li class="flexrow item" data-item-id="{{item._id}}">
         <div class="flex2 left">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
         </div>
+<!--        <div class="flex1 right">-->
+<!--            <input class="field-value center" name="items.{{!id}}.data.qty" type="number" value="{{!item.data.qty}}" placeholder="Quantité" data-dtype="Number"/>-->
+<!--        </div>-->
         <div class="equipment-controls">
             {{#if item.data.worn}}
                 <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
@@ -41,7 +44,7 @@
     {{#each (getShields actor.items) as |item id|}}
     <li class="flexrow item" data-item-id="{{item._id}}">
         <div class="flex2 left">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
         </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
@@ -62,7 +65,7 @@
     {{#each (getMeleeWeapons actor.items) as |item id|}}
     <li class="flexrow item" data-item-id="{{item._id}}">
         <div class="flex2 left">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
         </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
@@ -83,7 +86,7 @@
     {{#each (getRangedWeapons actor.items) as |item id|}}
     <li class="flexrow item" data-item-id="{{item._id}}">
         <div class="flex2 left">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
         </div>
         <div class="equipment-controls">
             {{#if item.data.worn}}
@@ -104,7 +107,7 @@
     {{#each (getTrappings actor.items) as |item id|}}
     <li class="flexrow item" data-item-id="{{item._id}}">
         <div class="flex2 left">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}}</span>
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
         </div>
         <div class="equipment-controls">
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

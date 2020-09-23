@@ -209,29 +209,26 @@ export class CofActorSheet extends ActorSheet {
      */
     _onRoll(event) {
         const elt = $(event.currentTarget)[0];
-        const key = elt.attributes["data-rolling"].value;
         const rolltype = elt.attributes["data-roll-type"].value;
         switch (rolltype) {
             case "skillcheck" :
+                const key = elt.attributes["data-rolling"].value;
                 this._rollSkillCheck(event, key);
                 break;
             case "weapon" :
-                this._rollWeapon(event, key);
+                this._rollWeapon(event);
                 break;
             case "spell" :
-                this._rollSpell(event, key);
+                this._rollSpell(event);
                 break;
             case "damage" :
-                this._rollDamage(event, key);
+                this._rollDamage(event);
                 break;
             case "hp" :
-                this._rollHitPoints(event, key);
+                this._rollHitPoints(event);
                 break;
             case "attributes" :
-                this._rollAttributes(event, key);
-                break;
-            case "attack" :
-                this._rollAttackCheck(event, key);
+                this._rollAttributes(event);
                 break;
         }
     }
@@ -250,7 +247,6 @@ export class CofActorSheet extends ActorSheet {
         let bonus = eval(`${key}.bonus`);
         const critrange = 20;
         bonus = (bonus) ? bonus : 0;
-        console.log(mod);
         label = (label) ? game.i18n.localize(label) : null;
         this._rollDialog(label, mod, bonus, critrange);
     }
@@ -263,12 +259,12 @@ export class CofActorSheet extends ActorSheet {
      * @private
      */
     _rollWeapon(event, key) {
-        const item = $(event.currentTarget).parents(".item");
-        let label = item.find(".item-name").text();
-        let mod = item.find(".item-mod").val();
-        let critrange = item.find(".item-critrange").val();
-        // let bonus = item.find(".item-bonus").val();
-        let dmg = item.find(".item-dmg").val();
+        const li = $(event.currentTarget).parents(".item");
+        let item = this.actor.getOwnedItem(li.data("itemId"));
+        let label = item.data.name;
+        let mod = item.data.data.mod;
+        let critrange = item.data.data.critrange;
+        let dmg = item.data.data.dmg;
         this._rollWeaponDialog(label, mod, 0, critrange, dmg);
     }
 
@@ -280,11 +276,11 @@ export class CofActorSheet extends ActorSheet {
      * @private
      */
     _rollSpell(event, key) {
-        const item = $(event.currentTarget).parents(".item");
-        let label = item.find(".item-name").text();
-        let mod = item.find(".item-mod").val();
-        let critrange = item.find(".item-critrange").val();
-        let bonus = item.find(".item-bonus").val();
+        const li = $(event.currentTarget).parents(".item");
+        let item = this.actor.getOwnedItem(li.data("itemId"));
+        let label = item.data.name;
+        let mod = item.data.data.mod;
+        let critrange = item.data.data.critrange;
         this._rollDialog(label, mod, bonus, critrange);
     }
 
@@ -296,10 +292,10 @@ export class CofActorSheet extends ActorSheet {
      * @private
      */
     _rollDamage(event, key) {
-        let data = this.getData();
-        const item = $(event.currentTarget).parents(".item");
-        let label = item.find(".item-name").text();
-        let dmg = item.find(".item-dmg").val();
+        const li = $(event.currentTarget).parents(".item");
+        let item = this.actor.getOwnedItem(li.data("itemId"));
+        let label = item.data.name;
+        let dmg = item.data.data.dmg;
         this._rollDamageDialog(label, dmg, 0);
     }
 
@@ -360,7 +356,7 @@ export class CofActorSheet extends ActorSheet {
      * @param key the key of the attribute to roll
      * @private
      */
-    async _rollAttributes(elt, key) {
+    async _rollAttributes(elt) {
 
         const actor = this.actor;
         let data = this.getData();
@@ -550,13 +546,10 @@ export class CofActorSheet extends ActorSheet {
                     icon: '<i class="fas fa-check"></i>',
                     label: "Submit",
                     callback: (html) => {
-                        const formula = html.find("#formula").val();
+                        const custom = html.find("#custom").val();
+                        const formula = (custom) ? custom : html.find("#formula").val();
                         let r = new Roll(formula);
                         r.roll();
-                        // const kept = r.parts[0].rolls.filter(r=> !r.discarded)[0].roll;
-                        // const isCritical = kept === 20;
-                        // const isFumble = kept === 1;
-                        // const isSuccess = r.total >= diff;
                         const msgFlavor = this._buildDamageRollMessage(label, false);
                         r.toMessage({
                             user: game.user._id,

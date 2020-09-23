@@ -10,7 +10,7 @@ export class CofActor extends Actor {
     prepareData() {
         super.prepareData();
         Logger.debug("prepareData");
-        // Logger.log(this);
+        Logger.log(this);
 
         // Get the Actor's data object
         const actorData = this.data;
@@ -28,6 +28,7 @@ export class CofActor extends Actor {
     }
 
     _prepareCharacterData(actorData) {
+        console.log(actorData);
         const stats = actorData.data.stats;
         const attacks = actorData.data.attacks;
         const attributes = actorData.data.attributes;
@@ -158,14 +159,13 @@ export class CofActor extends Actor {
                 magicMod = intMod;
                 break;
             default :
-                magicMod = null;
+                magicMod = intMod;
                 break;
         }
 
         melee.base = (strMod) ? strMod + lvl : lvl;
         ranged.base = (dexMod) ? dexMod + lvl : lvl;
-        magic.base = (magicMod) ? magicMod + lvl : null;
-        magic.enabled = (magicMod) ? true : false;
+        magic.base = (magicMod) ? magicMod + lvl : lvl;
 
         for (const attack of Object.values(attacks)) {
             attack.mod = attack.base + attack.bonus;
@@ -177,7 +177,7 @@ export class CofActor extends Actor {
 
         attributes.fp.base = 3 + chaMod;
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
-        attributes.dr.value = attributes.dr.base + attributes.dr.bonus;
+        attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
 
         switch (profileKey) {
             case "barde" :
