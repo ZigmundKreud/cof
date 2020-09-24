@@ -349,7 +349,6 @@
   "Item": {
     "types": [
       "capacity",
-      "item",
       "trapping",
       "species",
       "profile",
@@ -373,10 +372,6 @@
       "limited": false,
       "spell": false,
       "inPath": true
-    },
-    "item": {
-      "description" : "",
-      "qty" : 1
     },
     "trapping": {
       "price" : 0,

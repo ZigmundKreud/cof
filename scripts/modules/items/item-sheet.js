@@ -4,18 +4,6 @@
  */
 export class CofItemSheet extends ItemSheet {
 
-    /** @override */
-    static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "item"],
-            template: System.templatesPath + "/items/item-sheet.hbs",
-            width: 430,
-            height: 430
-            // ,
-            // tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}]
-        });
-    }
-
     /**
      * Activate the default set of listeners for the Entity sheet
      * These listeners handle basic stuff like form submission or updating images

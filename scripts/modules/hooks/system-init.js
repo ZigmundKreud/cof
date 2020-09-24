@@ -7,7 +7,6 @@
 // Import Modules
 import {CofActor} from "../actors/actor.js";
 import {CofItem} from "../items/item.js";
-import {CofItemSheet} from "../items/item-sheet.js";
 import {CofCapacitySheet} from "../items/capacity-sheet.js";
 import {CofSpellSheet} from "../items/spell-sheet.js";
 import {CofTrappingSheet} from "../items/trapping-sheet.js";
@@ -53,7 +52,6 @@ Hooks.once("init", async function () {
     Actors.registerSheet("cof", CofCharacterSheet, {types: ["character", "npc"], makeDefault: true});
     Actors.registerSheet("cof", CofEncounterSheet, {types: ["encounter"], makeDefault: true});
     // Register item sheets
-    Items.registerSheet("cof", CofItemSheet, {types: ["item"], makeDefault: true});
     Items.registerSheet("cof", CofCapacitySheet, {types: ["capacity"], makeDefault: true});
     Items.registerSheet("cof", CofTrappingSheet, {types: ["trapping"], makeDefault: true});
     Items.registerSheet("cof", CofArmorSheet, {types: ["armor"], makeDefault: true});
