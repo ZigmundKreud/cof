@@ -212,11 +212,14 @@ export class CofActorSheet extends ActorSheet {
         const rolltype = elt.attributes["data-roll-type"].value;
         switch (rolltype) {
             case "skillcheck" :
-                const key = elt.attributes["data-rolling"].value;
+                var key = elt.attributes["data-rolling"].value;
                 this._rollSkillCheck(event, key);
                 break;
             case "weapon" :
                 this._rollWeapon(event);
+                break;
+            case "attack" :
+                this._rollAttack(event);
                 break;
             case "spell" :
                 this._rollSpell(event);
@@ -258,7 +261,7 @@ export class CofActorSheet extends ActorSheet {
      * @param key the key of the attribute to roll
      * @private
      */
-    _rollWeapon(event, key) {
+    _rollWeapon(event) {
         const li = $(event.currentTarget).parents(".item");
         let item = this.actor.getOwnedItem(li.data("itemId"));
         let label = item.data.name;
@@ -270,12 +273,28 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
     /**
+     *  Handles encounter attack checks
+     * @param elt DOM element which raised the roll event
+     * @param key the key of the attribute to roll
+     * @private
+     */
+    _rollAttack(event) {
+        const item = $(event.currentTarget).parents(".item");
+        let label = item.find(".item-name").text();
+        let mod = item.find(".item-mod").val();
+        let critrange = item.find(".item-critrange").val();
+        let dmg = item.find(".item-dmg").val();
+        this._rollWeaponDialog(label, mod, 0, critrange, dmg);
+    }
+
+    /* -------------------------------------------- */
+    /**
      *  Handles spell rolls
      * @param elt DOM element which raised the roll event
      * @param key the key of the attribute to roll
      * @private
      */
-    _rollSpell(event, key) {
+    _rollSpell(event) {
         const li = $(event.currentTarget).parents(".item");
         let item = this.actor.getOwnedItem(li.data("itemId"));
         let label = item.data.name;
@@ -291,7 +310,7 @@ export class CofActorSheet extends ActorSheet {
      * @param key the key of the attribute to roll
      * @private
      */
-    _rollDamage(event, key) {
+    _rollDamage(event) {
         const li = $(event.currentTarget).parents(".item");
         let item = this.actor.getOwnedItem(li.data("itemId"));
         let label = item.data.name;
@@ -306,7 +325,7 @@ export class CofActorSheet extends ActorSheet {
      * @param key the key of the attribute to roll
      * @private
      */
-    _rollHitPoints(event, key) {
+    _rollHitPoints(event) {
         let data = this.getData().data;
         let hp = data.attributes.hp;
         const lvl = data.level.value;
