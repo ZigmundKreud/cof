@@ -1,18 +1,20 @@
 <div class="flexrow no-wrap" style="max-height:20px">
-    <div class="flex8 right">Bourse</div>
+    <div class="flex7"></div>
+    <div class="flex1 center">Bourse</div>
     <div class="flex1 right">
-        <input class="field-value center" name="data.currency.pp.qty" type="number" value="{{actor.data.currency.pp.qty}}" placeholder="Pièces de platine (10 po)" data-dtype="Number"/><i title="Pièces de platine (10 po)" class="fas fa-coins" style="color:dimgray"></i>
+        <i title="Pièces de platine (10 po)" class="fas fa-coins" style="color:dimgray"></i><input class="field-value center" name="data.currency.pp.qty" type="number" value="{{actor.data.currency.pp.qty}}" placeholder="Pièces de platine (10 po)" data-dtype="Number"/>
     </div>
     <div class="flex1 right">
-        <input class="field-value center" name="data.currency.gp.qty" type="number" value="{{actor.data.currency.gp.qty}}" placeholder="Pièces d'or (10 pa)" data-dtype="Number"/><i title="Pièces d'or (10 pa)" class="fas fa-coins" style="color:goldenrod"></i>
+        <i title="Pièces d'or (10 pa)" class="fas fa-coins" style="color:goldenrod"></i><input class="field-value center" name="data.currency.gp.qty" type="number" value="{{actor.data.currency.gp.qty}}" placeholder="Pièces d'or (10 pa)" data-dtype="Number"/>
     </div>
     <div class="flex1 right">
-        <input class="field-value center" name="data.currency.sp.qty" type="number" value="{{actor.data.currency.sp.qty}}" placeholder="Pièces d'argent' (10 pc)" data-dtype="Number"/><i title="Pièces d'argent' (10 pc)" class="fas fa-coins" style="color:silver"></i>
+        <i title="Pièces d'argent (10 pc)" class="fas fa-coins" style="color:silver"></i><input class="field-value center" name="data.currency.sp.qty" type="number" value="{{actor.data.currency.sp.qty}}" placeholder="Pièces d'argent (10 pc)" data-dtype="Number"/>
     </div>
     <div class="flex1 right">
-        <input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.data.currency.cp.qty}}" placeholder="Pièces de cuivre" data-dtype="Number"/><i title="Pièces de cuivre" class="fas fa-coins" style="color:saddlebrown"></i>
+        <i title="Pièces de cuivre" class="fas fa-coins" style="color:saddlebrown"></i><input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.data.currency.cp.qty}}" placeholder="Pièces de cuivre" data-dtype="Number"/>
     </div>
 </div>
+<hr/>
 {{#if (notEmpty (getInventory actor.items))}}
 {{#if (notEmpty (getArmors actor.items))}}
 <h2>Armure</h2>
