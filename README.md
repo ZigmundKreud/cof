@@ -1,6 +1,10 @@
-# Système de jeu Foundry VTT pour Chroniques Oubliées Fantasy.
+# Système de jeu Chroniques Oubliées Fantasy pour Foundry VTT
 
 Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://foundryvtt.com/).
+
+---
+### Installation
+
 
 ---
 ### Mentions Légales
