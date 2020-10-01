@@ -1,10 +1,10 @@
 {
   "name": "cof",
   "title": "Chroniques Oubliées Fantasy",
-  "description": "Système Foundry VTT pour les Chroniques Oubliées Fantasy.",
+  "description": "Système Foundry VTT pour Chroniques Oubliées Fantasy.",
   "version": 0.1,
   "minimumCoreVersion": "0.5.6",
-  "compatibleCoreVersion": "0.7.2",
+  "compatibleCoreVersion": "0.7.4",
   "templateVersion": 2,
   "author": "Zigmund",
   "esmodules": [
