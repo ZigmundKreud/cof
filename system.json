@@ -3,8 +3,8 @@
   "title": "Chroniques Oubliées Fantasy",
   "description": "Système Foundry VTT pour les Chroniques Oubliées Fantasy.",
   "version": 0.1,
-  "minimumCoreVersion": "0.6.3",
-  "compatibleCoreVersion": "0.6.3",
+  "minimumCoreVersion": "0.5.6",
+  "compatibleCoreVersion": "0.7.2",
   "templateVersion": 2,
   "author": "Zigmund",
   "esmodules": [
@@ -104,6 +104,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json",
-  "download": "https://github.com/ZigmundKreud/cof/archive/master.zip",
+  "download": "https://github.com/ZigmundKreud/cof/archive/0.1-beta.zip",
   "license": "licence.txt"
 }
