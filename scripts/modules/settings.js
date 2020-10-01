@@ -52,25 +52,25 @@ export const registerSystemSettings = function() {
         onChange: lang => window.location.reload()
     });
 
-    game.settings.register("cof", "developerMode", {
-        name: "Mode développeur",
-        hint: "Permet d'accéder aux fonctionnalités de développement",
-        scope: "world",
-        config: true,
-        default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
-    });
+    // game.settings.register("cof", "developerMode", {
+    //     name: "Mode développeur",
+    //     hint: "Permet d'accéder aux fonctionnalités de développement",
+    //     scope: "world",
+    //     config: true,
+    //     default: false,
+    //     type: Boolean,
+    //     onChange: lang => window.location.reload()
+    // });
 
-    game.settings.register("cof", "importData", {
-        name: "Import des données",
-        hint: "Mets à jour les données du système à partir des fichiers JSON",
-        scope: "world",
-        config: true,
-        default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
-    });
+    // game.settings.register("cof", "importData", {
+    //     name: "Import des données",
+    //     hint: "Mets à jour les données du système à partir des fichiers JSON",
+    //     scope: "world",
+    //     config: true,
+    //     default: false,
+    //     type: Boolean,
+    //     onChange: lang => window.location.reload()
+    // });
 
     game.settings.register("cof", "displayDifficulty", {
         name: "Affiche la difficulté",
