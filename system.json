@@ -97,10 +97,11 @@
       "path": "lang/fr.json"
     }
   ],
+  "socket": true,
   "gridDistance": 2,
   "gridUnits": "m",
   "primaryTokenAttribute": "attributes.hp",
-  "secondaryTokenAttribute": "attributes.fp",
+  "secondaryTokenAttribute": null,
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://gitlab.com/cof-fvtt/cof/raw/master/system.json",
   "download": "https://gitlab.com/cof-fvtt/cof/-/archive/master/cof.zip",

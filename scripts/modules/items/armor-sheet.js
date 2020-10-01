@@ -3,7 +3,6 @@
  * @extends {ItemSheet}
  */
 import {CofItemSheet} from "../items/item-sheet.js";
-import {Logger} from "../logger.js";
 
 export class CofArmorSheet extends CofItemSheet {
 

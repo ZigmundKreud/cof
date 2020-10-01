@@ -28,7 +28,7 @@ export class CofActor extends Actor {
     }
 
     _prepareCharacterData(actorData) {
-        console.log(actorData);
+        // console.log(actorData);
         const stats = actorData.data.stats;
         const attacks = actorData.data.attacks;
         const attributes = actorData.data.attributes;
@@ -110,10 +110,19 @@ export class CofActor extends Actor {
                 case "ranged" :
                     var skillMod = eval(item.data.skill.split("@")[1]);
                     var dmgStat = eval(item.data.dmgStat.split("@")[1]);
-                    var r = new Roll("@dmgBase + @bonuses", {
-                        dmgBase: item.data.dmgBase,
-                        bonuses: parseInt(dmgStat) + parseInt(item.data.dmgBonus)
-                    });
+                    var dmgBonus = parseInt(item.data.dmgBonus);
+                    if(dmgStat) dmgBonus += parseInt(dmgStat);
+                    var r = null;
+                    if(dmgBonus != 0) {
+                        r = new Roll("@dmgBase + @bonuses", {
+                            dmgBase: item.data.dmgBase,
+                            bonuses: dmgBonus
+                        });
+                    }else {
+                        r = new Roll("@dmgBase", {
+                            dmgBase: item.data.dmgBase
+                        });
+                    }
                     item.data.mod = parseInt(skillMod) + parseInt(item.data.skillBonus);
                     item.data.dmg = r.formula;
                     item.data.critrange = (item.data.critrange) ? item.data.critrange : 20;
@@ -218,6 +227,23 @@ export class CofActor extends Actor {
         }
     }
 
+    _getItemDamageFormula(item) {
+        var dmgStat = eval(item.data.dmgStat.split("@")[1]);
+        var dmgBonus = parseInt(item.data.dmgBonus);
+        if(dmgStat) dmgBonus += parseInt(dmgStat);
+        var r = null;
+        if(dmgBonus != 0) {
+            r = new Roll("@dmgBase + @bonuses", {
+                dmgBase: item.data.dmgBase,
+                bonuses: dmgBonus
+            });
+        }else {
+            r = new Roll("@dmgBase", {
+                dmgBase: item.data.dmgBase
+            });
+        }
+        return r.formula;
+    }
     _prepareNPCData(actorData) {
         this._prepareCharacterData(actorData);
     }

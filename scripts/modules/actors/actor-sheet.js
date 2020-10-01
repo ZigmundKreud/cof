@@ -24,7 +24,6 @@ export class CofActorSheet extends ActorSheet {
             if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
-                li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
                 pack.render(true);
             }
         });
@@ -460,11 +459,16 @@ export class CofActorSheet extends ActorSheet {
 
     async _rollWeaponDialog(label, mod, bonus, critrange, formula) {
         const rollOptionTpl = 'systems/cof/templates/roll-weapon-dialog.hbs';
+        let diff = null;
+        if(game.settings.get("cof", "displayDifficulty") && game.user.targets.size > 0){
+            diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+        }
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
             critrange: critrange,
-            formula: formula
+            formula: formula,
+            difficulty: diff
         });
 
         let d = new Dialog({
