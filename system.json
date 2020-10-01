@@ -105,5 +105,5 @@
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://gitlab.com/cof-fvtt/cof/raw/master/system.json",
   "download": "https://gitlab.com/cof-fvtt/cof/-/archive/master/cof.zip",
-  "license": "LICENSE.txt"
+  "license": "ogl.txt"
 }
