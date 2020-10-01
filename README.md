@@ -105,6 +105,17 @@ Ce site utilise des marques déposées et/ou des droits d’auteurs qui sont la 
 
 ---
 
+### LICENCE
+Ce programme est open-source sous [licence AGPL 3.0](https://opensource.org/licenses/AGPL-3.0).
+
+La [licence AGPL 3.0](https://opensource.org/licenses/AGPL-3.0) est une licence de type [copyleft fort](https://fr.wikipedia.org/wiki/Copyleft#Copyleft_fort_/_Copyleft_standard).
+
+L'auteur refuse donc que l'évolution possible de son travail soit accompagnée d'une restriction du droit à la copie, à l'étude, ou à de nouvelles évolutions. De ce fait, le contributeur apportant une modification (correction, ajout, réutilisation, etc.) est contraint de redistribuer ses propres contributions avec les mêmes libertés que l'original. Autrement dit, les nouvelles créations réalisées à partir d'œuvres sous copyleft héritent de fait de ce statut de copyleft : ainsi, ce type de licence permet un partage de la création ou de la connaissance, comme bien commun, qui permet aux œuvres culturelles d'être développées librement.
+
+On parle de copyleft fort lorsque les redistributions du logiciel ou de l'œuvre en question, modifiés ou non, ainsi que de tous les composants ajoutés, ne peuvent se faire que sous la licence initiale.
+
+--- 
+
 ### SOFTWARE LICENCE (AGPL)
 
 Copyright (C) 2020 Nicolas "Zigmund" DELAFORGE (zigmund.razzia@gmail.com)
