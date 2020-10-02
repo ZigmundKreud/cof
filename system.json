@@ -104,6 +104,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json",
-  "download": "https://github.com/ZigmundKreud/cof/archive/0.1-beta.zip",
+  "download": "https://github.com/ZigmundKreud/cof/archive/0.1.1-beta.zip",
   "license": "licence.txt"
 }
