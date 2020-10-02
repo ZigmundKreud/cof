@@ -5,6 +5,12 @@ Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://
 ---
 ### Installation
 
+* Aller dans la page d'accueil de Foundry (Configuration and Setup), cliquer sur Game Systems.
+* Cliquer sur "Install System" et coller le lien vers le [manifest](https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json) dans le champ "Manifest URL" en bas de la fenêtre. 
+* Cliquer sur "Install"
+* Dans l'onglet "Game Worlds", cliquer sur "Create World", donner un nom et un chemin à votre monde et sélectionner "Chroniques Oubliées Fantasy" dans le champ "Game System". Cliquer sur "Create World".
+* Lancer votre partie en cliquant sur le bouton "Launch World" de votre monde. Vous êtes prêts à jouer.
+
 
 ---
 ### Mentions Légales
