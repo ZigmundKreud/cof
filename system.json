@@ -2,7 +2,7 @@
   "name": "cof",
   "title": "Chroniques Oubliées Fantasy",
   "description": "<p>Système Foundry VTT pour <a href='https://www.black-book-editions.fr/catalogue.php?id=477'>Chroniques Oubliées Fantasy</a>.</p><p> *** Rejoignez la communauté Discord FR :<a href='https://discord.gg/pPSDNJk'>https://discord.gg/pPSDNJk</a></p>",
-  "version": "0.1.1-beta",
+  "version": "0.1.2-beta",
   "minimumCoreVersion": "0.5.6",
   "compatibleCoreVersion": "0.7.4",
   "templateVersion": 2,
@@ -104,6 +104,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json",
-  "download": "https://github.com/ZigmundKreud/cof/archive/0.1.1-beta.zip",
+  "download": "https://github.com/ZigmundKreud/cof/archive/0.1.2-beta.zip",
   "license": "licence.txt"
 }
