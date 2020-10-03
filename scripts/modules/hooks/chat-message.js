@@ -23,6 +23,8 @@ Hooks.on("chatMessage", (html, content, msg) => {
             CharacterGeneration.statsCommand();
             return false;
         }
-        default: return false;
+        default: {
+            return true;
+        }
     }
 });
