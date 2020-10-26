@@ -98,7 +98,7 @@
             "key" : "melee",
             "label": "COF.attacks.melee.label",
             "abbrev": "COF.attacks.melee.abbrev",
-            "stat": "str",
+            "stat": "@stats.str.mod",
             "enabled": true,
             "base": 1,
             "bonus": 0,
@@ -108,7 +108,7 @@
             "key" : "ranged",
             "label": "COF.attacks.ranged.label",
             "abbrev": "COF.attacks.ranged.abbrev",
-            "stat": "dex",
+            "stat": "@stats.dex.mod",
             "enabled": true,
             "base": 1,
             "bonus": 0,
@@ -118,7 +118,7 @@
             "key" : "magic",
             "label": "COF.attacks.magic.label",
             "abbrev": "COF.attacks.magic.abbrev",
-            "stat": "int",
+            "stat": "@stats.int.mod",
             "enabled": true,
             "base": 1,
             "bonus": 0,
@@ -266,65 +266,17 @@
     "encounter": {
       "key": null,
       "templates": [
+        "stats",
+        "attacks",
         "common"
       ],
-      "stats": {
-        "str" : {
-          "key" : "str",
-          "label" : "COF.stats.str.label",
-          "abbrev" : "COF.stats.str.abbrev",
-          "value": 10,
-          "mod": 0,
-          "tmpmod": null
-        },
-        "dex" : {
-          "key" : "dex",
-          "label" : "COF.stats.dex.label",
-          "abbrev" : "COF.stats.dex.abbrev",
-          "value": 10,
-          "mod": 0,
-          "tmpmod": null
-        },
-        "con" : {
-          "key" : "con",
-          "label" : "COF.stats.con.label",
-          "abbrev" : "COF.stats.con.abbrev",
-          "value": 10,
-          "mod": 0,
-          "tmpmod": null
-        },
-        "int" : {
-          "key" : "int",
-          "label" : "COF.stats.int.label",
-          "abbrev" : "COF.stats.int.abbrev",
-          "value": 10,
-          "mod": 0,
-          "tmpmod": null
-        },
-        "wis" : {
-          "key" : "wis",
-          "label" : "COF.stats.wis.label",
-          "abbrev" : "COF.stats.wis.abbrev",
-          "value": 10,
-          "mod": 0,
-          "tmpmod": null
-        },
-        "cha" : {
-          "key" : "cha",
-          "label" : "COF.stats.cha.label",
-          "abbrev" : "COF.stats.cha.abbrev",
-          "value": 10,
-          "mod": 0,
-          "tmpmod": null
-        }
-      },
       "nc": {
         "key" : "nc",
         "label" : "COF.attributes.nc.label",
         "abbrev" : "COF.attributes.nc.abbrev",
         "value": 1
       },
-      "attacks" : [{
+      "weapons" : [{
         "name" : "",
         "critrange" : 20,
         "mod" : null,
@@ -376,6 +328,7 @@
     "trapping": {
       "price" : 0,
       "qty" : 1,
+      "stackable": true,
       "description" : ""
     },
     "profile": {
@@ -422,6 +375,7 @@
       "dr" : 0,
       "price" : 0,
       "description" : "",
+      "stackable": false,
       "worn": false
     },
     "shield": {
@@ -439,6 +393,7 @@
       "description" : "",
       "critrange": "20",
       "worn": false,
+      "stackable": false,
       "hands": 1,
       "price" : 0
     },
@@ -455,6 +410,7 @@
       "critrange": "20",
       "predilection": false,
       "worn": false,
+      "stackable": false,
       "hands": 1,
       "price": 0
     },
@@ -473,11 +429,14 @@
       "critrange": "20",
       "predilection": false,
       "worn": false,
+      "stackable": false,
       "hands": 1,
       "price": 0
     },
     "spell": {
-      "qty" : 1,
+      "def" : 0,
+      "defBase" : 0,
+      "defBonus" : 0,
       "dmg": "",
       "dmgBase": "",
       "dmgStat": "",

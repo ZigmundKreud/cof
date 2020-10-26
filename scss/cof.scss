@@ -13,6 +13,9 @@
 
 /* Styles limited to cof sheets */
 .cof {
+  input::placeholder{
+    color:lightgray;
+  }
   &.actor {
     @import 'components/actor_layout';
     @import 'components/actor_skin';

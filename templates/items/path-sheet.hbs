@@ -1,7 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="wrap">
-        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
+        {{> "systems/cof/templates/items/parts/item-header.hbs"}}
         <div class="main">
+            <input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.ui.pathtype"}}</span>
@@ -67,14 +68,6 @@
                 </div>
                 <div class="flex1">
                     <input class="field-value" name="data.note" type="text" value="{{item.data.note}}" placeholder="{{ localize "COF.ui.note" }}" data-dtype="String">
-                </div>
-            </div>
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>
-                </div>
-                <div class="flex1">
-                    <input class="field-value" name="data.key" type="text" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
                 </div>
             </div>
             <nav class="sheet-tabs tabs" data-group="primary">

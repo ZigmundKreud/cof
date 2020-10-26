@@ -77,13 +77,13 @@
       }
 
       .main {
-        flex-wrap: nowrap !important;
+        flex-wrap: nowrap;
         padding: 0;
         overflow: hidden;
         margin: -10px 0 0 0;
-        height: calc(100% - 95px) !important;
-        min-height: calc(100% - 95px) !important;
-        max-height: calc(100% - 95px) !important;
+        height: calc(100% - 95px);
+        min-height: calc(100% - 95px);
+        max-height: calc(100% - 95px);
 
         .sidebar {
           max-width: 250px;
@@ -109,9 +109,9 @@
         .content {
           margin: 0;
           padding: 35px 5px 5px 5px;
-          height: 100% !important;
-          min-height: 100% !important;
-          max-height: 100% !important;
+          height: 100%;
+          min-height: 100%;
+          max-height: 100%;
 
           .top {
             padding: 0;
@@ -120,15 +120,15 @@
           .sheet-body {
             padding: 0;
             margin: 0;
-            min-height: calc(100% - 100px) !important;
-            height: calc(100% - 100px) !important;
-            max-height: calc(100% - 100px) !important;
+            min-height: calc(100% - 100px);
+            height: calc(100% - 100px);
+            max-height: calc(100% - 100px);
             overflow: auto;
 
             .tab {
-              height: 100% !important;
-              min-height: 100% !important;
-              max-height: 100% !important;
+              height: 100%;
+              min-height: 100%;
+              max-height: 100%;
               overflow: auto;
               margin: 0;
               //padding:5px;
@@ -142,28 +142,28 @@
                   box-shadow: 0 4px 3px -3px gray;
                   margin: 0;
                   padding: 3px;
-                  min-height: 205px !important;
-                  height: 205px !important;
-                  max-height: 205px !important;
+                  min-height: 205px;
+                  height: 205px;
+                  max-height: 205px;
                   overflow: hidden;
 
                   .grid {
-                    min-height: 150px !important;
-                    height: 150px !important;
-                    max-height: 150px !important;
+                    min-height: 150px;
+                    height: 150px;
+                    max-height: 150px;
                     overflow: auto;
                   }
 
                   &.encounter {
-                    min-height: 100px !important;
-                    height: 100px !important;
-                    max-height: 100px !important;
+                    min-height: 100px;
+                    height: 100px;
+                    max-height: 100px;
                     overflow: hidden;
 
                     .grid {
-                      min-height: 100px !important;
-                      height: 100px !important;
-                      max-height: 100px !important;
+                      min-height: 100px;
+                      height: 100px;
+                      max-height: 100px;
                       overflow: auto;
                     }
                   }
@@ -189,9 +189,9 @@
                   gap: 3px;
                   padding: 5px;
                   margin: 0;
-                  min-height: calc(100% - 215px) !important;
-                  height: calc(100% - 215px) !important;
-                  max-height: calc(100% - 215px) !important;
+                  min-height: calc(100% - 215px);
+                  height: calc(100% - 215px);
+                  max-height: calc(100% - 215px);
                   overflow: auto;
 
                   .capacity {
@@ -263,16 +263,16 @@
                   }
 
                   &.encounter {
-                    min-height: calc(100% - 175px) !important;
-                    height: calc(100% - 175px) !important;
-                    max-height: calc(100% - 175px) !important;
+                    min-height: calc(100% - 175px);
+                    height: calc(100% - 175px);
+                    max-height: calc(100% - 175px);
                     overflow: auto;
                   }
 
                   &.encounter.nopath {
-                    min-height: calc(100% - 75px) !important;
-                    height: calc(100% - 75px) !important;
-                    max-height: calc(100% - 75px) !important;
+                    min-height: calc(100% - 75px);
+                    height: calc(100% - 75px);
+                    max-height: calc(100% - 75px);
                     overflow: auto;
                   }
                 }
@@ -282,17 +282,17 @@
                 .editor {
                   margin: 0;
                   overflow: hidden;
-                  min-height: calc(100% - 225px) !important;
-                  height: calc(100% - 225px) !important;
-                  max-height: calc(100% - 225px) !important;
+                  min-height: calc(100% - 225px);
+                  height: calc(100% - 225px);
+                  max-height: calc(100% - 225px);
 
                   .editor-content {
                     padding: 5px;
                     margin: 0;
                     overflow: auto;
-                    height: 100% !important;
-                    min-height: 100% !important;
-                    max-height: 100% !important;
+                    height: 100%;
+                    min-height: 100%;
+                    max-height: 100%;
                   }
                 }
               }

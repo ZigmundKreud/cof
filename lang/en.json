@@ -67,6 +67,11 @@
   "COF.ui.boss" : "Boss",
   "COF.ui.quantity" : "Quantity",
 
+  "COF.roll.success" : "Success",
+  "COF.roll.critical" : "Critical",
+  "COF.roll.failure" : "Failure",
+  "COF.roll.fumble" : "Fumble",
+
   "COF.None": "--",
   "COF.tabs.stats": "Stats",
   "COF.tabs.combat": "Combat",
@@ -148,6 +153,13 @@
   "COF.attacks.tmpmod.abbrev" : "Mod",
   "COF.attacks.dmg.abbrev" : "DM",
   "COF.attacks.bonus.abbrev" : "Bonus",
+
+  "COF.weapons.label": "ATTACKS",
+  "COF.weapons.name.abbrev" : "Name",
+  "COF.weapons.mod.abbrev" : "Base",
+  "COF.weapons.tmpmod.abbrev" : "Mod",
+  "COF.weapons.dmg.abbrev" : "DM",
+  "COF.weapons.bonus.abbrev" : "Bonus",
 
   "COF.attacks.melee.label": "Melee attack",
   "COF.attacks.melee.abbrev": "MELEE",

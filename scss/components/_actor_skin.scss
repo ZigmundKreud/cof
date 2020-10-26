@@ -252,13 +252,25 @@
     cursor: pointer;
   }
 
-  .equipment-controls {
-    flex: 0 0 54px;
+  .armor-controls,
+  .shield-controls,
+  .melee-controls,
+  .ranged-controls{
+    flex: 0 0 48px;
   }
 
-  .item-controls {
-    flex: 0 0 36px;
+  .quantity-controls {
+    flex: 0 0 48px;
   }
+
+  .equipment-quantity-controls {
+    flex: 0 0 64px;
+  }
+
+  .equipment-controls {
+    flex: 0 0 32px;
+  }
+
 }
 
 /* ----------------------------------------- */
@@ -297,7 +309,7 @@ div:hover>div.profile-controls {
   text-align: center;
   padding: 0;
   margin: 0;
-  min-height: 80px !important;
+  min-height: 80px;
   /*color: $c-darkgreen;*/
   background-color: transparent;
 }

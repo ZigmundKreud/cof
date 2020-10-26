@@ -1,0 +1,108 @@
+<div class="row flexrow table-header red">
+    <div class="flex1 center">
+        <h3>{{localize 'COF.ui.skillcheck'}}</h3>
+    </div>
+</div>
+<div class="flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <label for="dice">{{localize 'COF.ui.dice.type'}}</label>
+    </div>
+    <div class="flex1 center cell">
+        <select class="flex1" name="dice" id="dice" data-type="String">
+            <option value="1d20" selected>1d20</option>
+            <option value="1d12">1d12</option>
+            <option value="2d12kh">2d12 ({{localize 'COF.ui.kh'}})</option>
+            <option value="2d20kh">2d20 ({{localize 'COF.ui.kh'}})</option>
+            <option value="2d12kl">2d12 ({{localize 'COF.ui.kl'}})</option>
+            <option value="2d20kl">2d20 ({{localize 'COF.ui.kl'}})</option>
+        </select>
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">{{localize 'COF.ui.modifier'}}</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>
+        {{!#if mod}}
+<!--            <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>-->
+        {{!else}}
+<!--            <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="0" data-dtype="Number"/>-->
+        {{!/if}}
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">{{localize 'COF.ui.critrange'}}</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="critrange" name="critrange" type="text" value="{{critrange}}" data-dtype="String"/>
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">{{localize 'COF.ui.bonus'}}/{{localize 'COF.ui.malus'}}</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="bonus" name="bonus" type="text" value="{{numberFormat bonus decimals=0 sign=true}}" data-dtype="Number"/>
+    </div>
+</div>
+<hr/>
+{{#if (isEnabled "displayDifficulty")}}
+<!-- DIFFICULTY -->
+<div class="row flexrow" style="margin-bottom: 5px;">
+    <div class="flex1 center bg-darkslate">
+        <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
+    </div>
+</div>
+<hr/>
+{{/if}}
+<div class="row flexrow table-header red">
+    <div class="flex1 center">
+        <h3>{{localize 'COF.ui.damage'}}</h3>
+    </div>
+</div>
+<!-- DAMAGES -->
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">Formule</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value readonly" id="formula" name="formula" type="text" readonly="true" value="{{formula}}" data-dtype="String" style="border:none;border-radius:0px;"/>
+    </div>
+</div>
+<!--<div class="row flexrow" style="margin-bottom: 1px;">-->
+<!--    <div class="flex1 center bg-red">-->
+<!--        <span class="field-label">Bonus/Malus</span>-->
+<!--    </div>-->
+<!--    <div class="flex1 center cell">-->
+<!--        <input class="field-value" id="bonus" name="bonus" type="text" value="{{!numberFormat bonus decimals=0 sign=true}}" data-dtype="Number" style="border:none;border-radius:0px;"/>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="row flexrow" style="margin-bottom: 1px;">-->
+<!--    <div class="flex1 center bg-red">-->
+<!--        <span class="field-label">Attaque puissante</span>-->
+<!--    </div>-->
+<!--    <div class="flex1 center cell">-->
+<!--        <input class="field-value" id="powerful" name="powerful" type="text" value="+2d6" data-dtype="String" style="border:none;border-radius:0px;"/>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="row flexrow" style="margin-bottom: 1px;">-->
+<!--    <div class="flex1 center bg-red">-->
+<!--        <span class="field-label">Attaque sournoise</span>-->
+<!--    </div>-->
+<!--    <div class="flex1 center cell">-->
+<!--        <input class="field-value" id="sneak" name="sneak" type="text" value="+4d6" data-dtype="String" style="border:none;border-radius:0px;"/>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="row flexrow" style="margin-bottom: 10px;">-->
+<!--    <div class="flex1 center bg-red">-->
+<!--        <span class="field-label">Formule personnalisée</span>-->
+<!--    </div>-->
+<!--    <div class="flex1 center cell">-->
+<!--        <input class="field-value" id="custom" name="custom" type="text" value="{{!custom}}" data-dtype="String" style="border:none;border-radius:0px;"/>-->
+<!--    </div>-->
+<!--</div>-->

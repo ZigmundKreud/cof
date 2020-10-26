@@ -1,0 +1,72 @@
+export const registerSystemSettings = function() {
+
+    game.settings.register("cof", "useRecovery", {
+        name: "Points de récupération",
+        hint: "Utiliser la règle optionnelle des points de récupération",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
+
+    game.settings.register("cof", "useFortune", {
+        name: "Points de chance",
+        hint: "Utiliser la règle optionnelle des points de chance",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
+
+    game.settings.register("cof", "useMana", {
+        name: "Points de Mana",
+        hint: "Utiliser la règle optionnelle des points de mana",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
+
+    game.settings.register("cof", "useDamageResistance", {
+        name: "Résistance aux dommages",
+        hint: "Afficher la résistance aux dommages sur la feuille de personnage",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
+
+    // game.settings.register("cof", "developerMode", {
+    //     name: "Mode développeur",
+    //     hint: "Permet d'accéder aux fonctionnalités de développement",
+    //     scope: "world",
+    //     config: true,
+    //     default: false,
+    //     type: Boolean,
+    //     onChange: lang => window.location.reload()
+    // });
+
+    // game.settings.register("cof", "importData", {
+    //     name: "Import des données",
+    //     hint: "Mets à jour les données du système à partir des fichiers JSON",
+    //     scope: "world",
+    //     config: true,
+    //     default: false,
+    //     type: Boolean,
+    //     onChange: lang => window.location.reload()
+    // });
+
+    game.settings.register("cof", "displayDifficulty", {
+        name: "Affiche la difficulté",
+        hint: "Active l'affichage de la difficulté sur les jets de compétences/attributs et d'armes.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
+};

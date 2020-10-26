@@ -1,8 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="wrap">
-        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
+        {{> "systems/cof/templates/items/parts/item-header.hbs"}}
         <div class="main">
-            {{> "systems/cof/templates/partials/item/item-weapon-stats.hbs"}}
+            {{> "systems/cof/templates/items/parts/item-weapon-stats.hbs"}}
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.ui.range"}}</span>
@@ -29,8 +29,8 @@
                     </span>
                 </div>
             </div>
-            {{> "systems/cof/templates/partials/item/item-price.hbs"}}
-            {{> "systems/cof/templates/partials/item/item-description.hbs"}}
+            {{> "systems/cof/templates/items/parts/item-price.hbs"}}
+            {{> "systems/cof/templates/items/parts/item-description.hbs"}}
         </div>
     </div>
 </form>

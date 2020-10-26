@@ -1,0 +1,52 @@
+<div class="row flexrow table-header red">
+    <div class="flex2 center">
+        <div class="field-label">{{ localize 'COF.attacks.label' }}</div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.attacks.mod.abbrev' }}</div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.ui.critrange' }}</div>
+    </div>
+    <div class="flex2 center">
+        <div class="field-label">{{ localize 'COF.attacks.dmg.abbrev' }}</div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">Actions</div>
+    </div>
+</div>
+{{#each actor.data.weapons as |weapon id|}}
+    <div class="row flexrow weapon item" data-item-id="{{id}}">
+        <div class="flex2 center">
+            <a class="weapons-control weapon-add btn" title="Ajouter une attaque" style="padding:3px"><i class="fas fa-plus"></i></a>
+            <a class="weapons-control weapon-remove btn" title="Supprimer une attaque" style="padding:3px"><i class="fas fa-minus"></i></a>
+            <div class="flex1 cell">
+                <input class="field-value weapon-name" name="data.weapons.{{id}}.name" type="text" value="{{weapon.name}}" placeholder="{{ localize 'COF.weapons.name.abbrev' }}" data-dtype="String"/>
+            </div>
+        </div>
+        <div class="flex1 center cell">
+            {{#if (isNull weapon.mod)}}
+                <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" value="" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
+            {{else}}
+                <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" value="{{numberFormat weapon.mod decimals=0 sign=true}}" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
+            {{/if}}
+        </div>
+        <div class="flex1 center cell">
+            {{#if (isNull weapon.critrange)}}
+                <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" value="20" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
+            {{else}}
+                <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" value="{{weapon.critrange}}" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
+            {{/if}}
+        </div>
+        <div class="flex2 center cell">
+            <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.dmg}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
+        </div>
+        <div class="flex1 attacks-controls left">
+            <div class="flex1 center red">
+                <div class="rollable" data-roll-type="encounter-weapon"><i class="fas fa-dice-d20"></i></div>
+                &nbsp;
+                <div class="rollable" data-roll-type="encounter-damage"><i class="fas fa-dice"></i></div>
+            </div>
+        </div>
+    </div>
+{{/each}}

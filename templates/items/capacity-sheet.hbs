@@ -1,7 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="wrap">
-        {{> "systems/cof/templates/partials/item/item-header.hbs"}}
+        {{> "systems/cof/templates/items/parts/item-header.hbs"}}
         <div class="main">
+            <input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
             <div class="row flexrow">
                 <div class="flex1 center field-header">
                     <span class="field-label label-text">{{localize "COF.ui.scope"}}</span>
@@ -28,7 +29,6 @@
                 </div>
                 <div class="flex1">
                     <span class="field-label">
-<!--                            <input class="field-value" name="data.profile" type="text" value="{{!item.data.profile}}" placeholder="{{!localize "COF.ui.profile"}}" data-dtype="String">-->
                         <select name="data.profile" data-type="String" style="width:100%">
                         {{#select data.profile}}
                             <option value="">{{localize "COF.None"}}</option>
@@ -58,7 +58,6 @@
                 </div>
                 <div class="flex1">
                     <span class="field-label">
-<!--                            <input class="field-value" name="data.path" type="text" value="{{!item.data.path}}" placeholder="{{!localize "COF.ui.path"}}" data-dtype="String">-->
                         <select name="data.path" data-type="String" style="width:100%">
                             {{#select data.path}}
                                 <option value="">{{localize "COF.None"}}</option>
@@ -78,7 +77,6 @@
                     </div>
                     <div class="flex1">
                         <span class="field-label">
-<!--                            <input class="field-value" name="data.species" type="text" value="{{!item.data.species}}" placeholder="{{!localize "COF.ui.species"}}" data-dtype="String">-->
                             <select name="data.species" data-type="String" style="width:100%">
                                 {{#select data.species}}
                                     <option value="">{{localize "COF.None"}}</option>
@@ -118,15 +116,14 @@
                     </span>
                 </div>
             </div>
-            <div class="row flexrow">
-                <div class="flex1 center field-header">
-                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>
-                </div>
-                <div class="flex1">
-                    <input class="field-value" name="data.key" type="text" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
-                </div>
-            </div>
-            {{> "systems/cof/templates/partials/item/item-description.hbs"}}
+<!--            <div class="row flexrow">-->
+<!--                <div class="flex1 center field-header">-->
+<!--                    <span class="field-label label-text">{{ localize "COF.ui.key" }}</span>-->
+<!--                </div>-->
+<!--                <div class="flex1">-->
+<!--                </div>-->
+<!--            </div>-->
+            {{> "systems/cof/templates/items/parts/item-description.hbs"}}
         </div>
     </div>
 </form>

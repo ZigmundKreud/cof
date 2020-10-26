@@ -1,14 +1,14 @@
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: lightgray !important;
+  color: lightgray;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: lightgray !important;;
+  color: lightgray;;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: lightgray !important;;
+  color: lightgray;;
 }
 
 input, input.field-value, input:active, input:hover, input:focus{
@@ -19,7 +19,7 @@ input, input.field-value, input:active, input:hover, input:focus{
 
 input.field-value[readonly="true"]{
   border: none;
-  color:dimgray !important;
+  color:dimgray;
   cursor: not-allowed;
   width: 100%;
   vertical-align: middle;
@@ -40,8 +40,3 @@ select {
   border:none;
   border-radius:0;
 }
-//
-//.editor,
-//.editor-content {
-//  height: 100%;
-//}

@@ -67,6 +67,11 @@
   "COF.ui.boss" : "Boss",
   "COF.ui.quantity" : "Quantité",
 
+  "COF.roll.success" : "Succès",
+  "COF.roll.critical" : "Critique",
+  "COF.roll.failure" : "Échec",
+  "COF.roll.fumble" : "Échec critique",
+
   "COF.None": "--",
   "COF.tabs.stats": "Caractéristiques",
   "COF.tabs.combat": "Combat",
@@ -148,6 +153,13 @@
   "COF.attacks.tmpmod.abbrev" : "Mod",
   "COF.attacks.dmg.abbrev" : "DM",
   "COF.attacks.bonus.abbrev" : "Bonus",
+
+  "COF.weapons.label": "ATTAQUES",
+  "COF.weapons.name.abbrev" : "Nom",
+  "COF.weapons.mod.abbrev" : "Base",
+  "COF.weapons.tmpmod.abbrev" : "Mod",
+  "COF.weapons.dmg.abbrev" : "DM",
+  "COF.weapons.bonus.abbrev" : "Bonus",
 
   "COF.attacks.melee.label": "Attaque de Contact",
   "COF.attacks.melee.abbrev": "CONTACT",

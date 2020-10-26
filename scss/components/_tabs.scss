@@ -1,29 +1,35 @@
-.tabs {
-  font: 14px $font-primary;
-  color: $c-darkbrown;
-  text-align: center;
+nav.sheet-tabs {
+  border: none;
 
-  .item {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 5px;
-    border: 1px solid $c-border;
-    margin: 0;
-    height: 28px;
-    box-shadow: 0 0 10px $c-shadow inset;
-    /*padding: 3px 3px 0 3px;*/
-    background:rgba(0,0,0,0.05);
-    &:hover {
-      color: $c-darkbrown;
-      background:rgba(0,0,0,0.2);
-      text-shadow: none;
-    }
-    &.active {
-      color: $c-darkbrown;
-      border: 1px inset $c-border;
-      background:rgba(0,0,0,0.2);
-      text-shadow: none;
+  &.tabs {
+    font: 14px $font-primary;
+    color: $c-darkbrown;
+    text-align: center;
+    border: none;
+
+    .item {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 5px;
+      border: 1px solid $c-border;
+      margin: 0;
+      height: 28px;
+      box-shadow: 0 0 10px $c-shadow inset;
+      /*padding: 3px 3px 0 3px;*/
+      background:rgba(0,0,0,0.05);
+      &:hover {
+        color: $c-darkbrown;
+        background:rgba(0,0,0,0.2);
+        text-shadow: none;
+      }
+      &.active {
+        color: $c-darkbrown;
+        border: 1px inset $c-border;
+        background:rgba(0,0,0,0.2);
+        text-shadow: none;
+      }
     }
   }
+
 }
