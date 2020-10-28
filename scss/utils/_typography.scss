@@ -5,8 +5,70 @@
 /* ----------------------------------------- */
 
 @font-face {
-  font-family: "Blackmoor";
-  src: url('../fonts/Blackmoor LET Plain_2.0.ttf');
+  font-family: "MyriadPro";
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/MyriadPro-Regular.otf');
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/MyriadPro-It.otf');
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  font-weight: 700;
+  src: url('../fonts/MyriadPro-Bold.otf');
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  font-weight: 700;
+  font-style: italic;
+  src: url('../fonts/MyriadPro-BoldIt.otf');
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/MyriadPro-Light.otf');
+}
+
+@font-face {
+  font-family: "MyriadPro";
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/MyriadPro-Black.otf');
+}
+
+@font-face {
+  font-family: "PermanentMarker";
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/PermanentMarker-Regular.ttf');
+}
+
+//@font-face {
+//  font-family: "UnifrakturCook";
+//  src: url('../fonts/UnifrakturCook-Bold.ttf');
+//}
+
+@font-face {
+  font-family: 'Modesto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../../fonts/modesto-condensed/modesto-condensed.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Modesto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../../fonts/modesto-condensed/modesto-condensed-bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -14,129 +76,23 @@
   src: url('../fonts/ChN1_Regular.ttf');
 }
 
-@font-face {
-  font-family: "FeroxAlternates";
-  src: url('../fonts/FeroxAlternates.ttf');
-}
-
-@font-face {
-  font-family: "Frushand";
-  src: url('../fonts/FRUSHAND.otf');
-}
-
-@font-face {
-  font-family: "Georgia";
-  src: url('../fonts/georgia.ttf');
-}
-
-@font-face {
-  font-family: "Georgia";
-  font-weight: bold;
-  src: url('../fonts/georgiab.ttf');
-}
-
-@font-face {
-  font-family: "Georgia";
-  font-style: italic;
-  src: url('../fonts/georgiai.ttf');
-}
-
-@font-face {
-  font-family: "Georgia";
-  font-weight: bold;
-  font-style: italic;
-  src: url('../fonts/georgiaz.ttf');
-}
-
-@font-face {
-  font-family: "MyriadPro";
-  src: url('../fonts/MyriadPro-Regular.otf');
-}
-
-@font-face {
-  font-family: "MyriadPro";
-  font-style: italic;
-  src: url('../fonts/MyriadPro-It.otf');
-}
-
-@font-face {
-  font-family: "MyriadPro";
-  font-weight: bold;
-  src: url('../fonts/MyriadPro-Bold.otf');
-}
-
-@font-face {
-  font-family: "MyriadPro";
-  font-weight: bold;
-  font-style: italic;
-  src: url('../fonts/MyriadPro-BoldIt.otf');
-}
-
-@font-face {
-  font-family: "MyriadProLight";
-  src: url('../fonts/MyriadPro-Light.otf');
-}
-
-@font-face {
-  font-family: "MyriadProBlack";
-  src: url('../fonts/MyriadPro-Black.otf');
-}
-
-@font-face {
-  font-family: "NexusSansOT";
-  src: url('../fonts/NexusSansOT-Regular.otf');
-}
-
-@font-face {
-  font-family: "NexusSansOT";
-  font-weight: bold;
-  src: url('../fonts/NexusSansOT-Bold.otf');
-}
-@font-face {
-  font-family: "NexusSansOT";
-  font-style: italic;
-  src: url('../fonts/NexusSansOT-Italic.otf');
-}
-
-@font-face {
-  font-family: "PermanentMarker";
-  src: url('../fonts/PermanentMarker-Regular.ttf');
-  /*font-weight: bold;*/
-}
-
-@font-face {
-  font-family: "PrioriSansOT";
-  src: url('../fonts/PrioriSansOT-Regular.otf');
-}
-
-@font-face {
-  font-family: "Requiem";
-  src: url('../fonts/Requiem.ttf');
-}
-
-@font-face {
-  font-family: "RPGAwesome";
-  src: url('../fonts/rpgawesome-webfont.ttf');
-}
-
-@font-face {
-  font-family: "UnifrakturCook";
-  src: url('../fonts/UnifrakturCook-Bold.ttf');
-}
 
 /* ----------------------------------------- */
 /*  TEXT STYLES                             */
 /* ----------------------------------------- */
 
 $font-primary: 'Signika', sans-serif;
-$font-secondary: MyriadPro, sans-serif;
+$font-secondary: 'MyriadPro', sans-serif;
+$font-tertiary: "Modesto Condensed", "Palatino Linotype", serif;
+$font-charname: "PermanentMarker", cursive;
+$font-handwrite: "ChN1Regular", cursive;
 
 .empty {
-  font: 14px $font-secondary;
+  //font: 14px $font-secondary;
   color:$c-darkg;
   font-style: italic;
 }
 strong{
-  font-family: $font-secondary;
+  //font-family: $font-secondary;
   font-weight: bold;
 }

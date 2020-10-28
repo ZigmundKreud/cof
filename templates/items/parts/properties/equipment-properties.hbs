@@ -1,0 +1,22 @@
+<div class="form-group">
+    <label>{{ localize "COF.ui.quantity" }}</label>&nbsp; <input type="number" name="data.qty" value="{{item.data.qty}}" data-dtype="Number"/>
+</div>
+<div class="form-group">
+    <label>{{ localize "COF.ui.price" }}</label>&nbsp; <input type="number" name="data.price" value="{{item.data.price}}" data-dtype="Number"/>
+</div>
+<div class="form-group">
+    <label>{{ localize "COF.ui.rarity" }}</label>&nbsp; <select name="data.rarity" data-type="String" style="width:100%">
+    {{#select data.rarity}}
+        <option value="">{{localize "COF.None"}}</option>
+        <option value="common">{{localize "COF.rarity.common"}}</option>
+        <option value="moderate">{{localize "COF.rarity.moderate"}}</option>
+        <option value="rare">{{localize "COF.rarity.rare"}}</option>
+        <option value="very-rare">{{localize "COF.rarity.very-rare"}}</option>
+        <option value="unique">{{localize "COF.rarity.unique"}}</option>
+    {{/select}}
+</select>
+</div>
+<ol class="properties-list">
+    {{#if item.data.properties.equipable}}<li>{{localize "COF.ui.equipable"}}</li>{{/if}}
+    {{#if item.data.properties.stackable}}<li>{{localize "COF.ui.stackable"}}</li>{{/if}}
+</ol>

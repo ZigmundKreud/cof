@@ -14,6 +14,21 @@ export const registerHandlebarsHelpers = async function () {
         return item.type === type;
     });
 
+    Handlebars.registerHelper('getPathFromId', function (id) {
+        const compendium = COF.paths;
+        const ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
+        const path = ingame.concat(compendium).find(p => p._id === id);
+        // console.log(path);
+        return path;
+    });
+    Handlebars.registerHelper('getCapacitiesFromId', function (id) {
+        const compendium = COF.capacities;
+        const ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
+        const capacity = ingame.concat(compendium).find(c => c._id === id);
+        return capacity;
+    });
+
+
     Handlebars.registerHelper('isPath', function (item) {
         return item.type === "path";
     });
@@ -257,13 +272,14 @@ export const registerHandlebarsHelpers = async function () {
         return Traversal.getAllCapacitiesData().find(c => c.data.key === key);
     });
 
-    Handlebars.registerHelper('filterCapacities', function (caps) {
-        let list = Traversal.getAllCapacitiesData().filter(c => caps.includes(c.data.key))
-        list.sort(function (a, b) {
-            return (a.data.rank > b.data.rank) ? 1 : -1
-        });
-        return list;
-    });
+    // Handlebars.registerHelper('filterCapacities', function (caps) {
+    //     console.log(key);
+    //     let list = Traversal.getAllCapacitiesData().filter(c => caps.includes(c.data.key))
+    //     list.sort(function (a, b) {
+    //         return (a.data.rank > b.data.rank) ? 1 : -1
+    //     });
+    //     return list;
+    // });
 
     Handlebars.registerHelper('getValueAtIndex', function (array, index) {
         if (array[index]) return array[index];

@@ -10,11 +10,49 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: lightgray;;
 }
+/*
+Copied from dnd5e
+ */
 
-input, input.field-value, input:active, input:hover, input:focus{
+input[type="text"],
+input[type="number"],
+select {
+  height: calc(100% - 2px);
+  //border: 1px solid #7a7971;
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 0;
   border: none;
   box-shadow: none;
+  color: #191813;
+}
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="text"]:focus,
+input[type="number"]:focus {
+  //border: 1px solid #111;
+  //box-shadow: 0 0 8px #26641c;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+input:disabled,
+select:disabled,
+textarea:disabled {
+  color: #4b4a44;
+}
+input:disabled:hover,
+select:disabled:hover,
+textarea:disabled:hover,
+input:disabled:focus,
+select:disabled:focus,
+textarea:disabled:focus {
+  box-shadow: none !important;
+  border: 1px solid transparent !important;
+  outline: none !important;
+}
+button {
+  background: rgba(0, 0, 0, 0.1);
+  border: $borderGroove;
 }
 
 input.field-value[readonly="true"]{
@@ -39,4 +77,83 @@ select {
   width: 100%;
   border:none;
   border-radius:0;
+}
+
+label.checkbox {
+  flex: auto;
+  padding: 0;
+  margin: 0;
+  height: 22px;
+  line-height: 22px;
+  font-size: 11px;
+}
+label.checkbox > input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0 2px 0 0;
+  position: relative;
+  top: 4px;
+}
+label.checkbox.right > input[type="checkbox"] {
+  margin: 0 0 0 2px;
+}
+
+/* Form Groups */
+.form-group {
+  label {
+    flex: 2;
+    color: #4b4a44;
+    font-weight: bold;
+  }
+  .form-fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    > * {
+      flex: 1;
+      margin: 0 3px 0 0;
+      &:last-child { margin-right: 0; }
+
+      .flex1 { flex: 1; }
+      .flex2 { flex: 2; }
+      .flex3 { flex: 3; }
+      .flex4 { flex: 4; }
+    }
+  }
+
+  // Stacked Groups
+  &.stacked {
+    label {
+      flex: 0 0 100%;
+      margin: 0;
+
+      &.checkbox {
+        flex: auto;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.form-header {
+  margin: 0 0 0.25em 0;
+  padding: 2px 0;
+  border-top: $borderGroove;
+  border-bottom: $borderGroove;
+  font-family: $font-tertiary;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 16px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
 }

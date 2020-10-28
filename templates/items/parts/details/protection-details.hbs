@@ -1,0 +1,44 @@
+<h3 class="form-header">Protection</h3>
+<div class="form-group">
+    <label>{{localize "COF.ui.defBase"}}</label>
+    <div class="form-fields">
+        {{#if (isNull item.data.defBase)}}
+            <input name="data.defBase" type="text" value="" placeholder="{{localize "COF.ui.defBase"}}" data-dtype="Number">
+        {{else}}
+            <input name="data.defBase" type="text" value="{{numberFormat item.data.defBase decimals=0 sign=true}}" placeholder="{{localize "COF.ui.defBase"}}" data-dtype="Number">
+        {{/if}}
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.defBonus"}}</label>
+    <div class="form-fields">
+        {{#if (isNull item.data.defBonus)}}
+            <input class="field-value" name="data.defBonus" type="text" value="" placeholder="{{localize "COF.ui.defBonus"}}" data-dtype="Number">
+        {{else}}
+            <input class="field-value" name="data.defBonus" type="text" value="{{numberFormat item.data.defBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.defBonus"}}" data-dtype="Number">
+        {{/if}}
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.attributes.dr.label"}}</label>
+    <div class="form-fields">
+        <input name="data.dr" type="text" value="{{item.data.dr}}" placeholder="COF.attributes.dr.abbrev" data-dtype="Number">
+    </div>
+</div>
+
+<div class="form-group stacked">
+    <label>Proriétés</label>
+    <div class="form-fields">
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.proficient" {{checked item.data.properties.proficient}}> PJ Compétent
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.very-rare" {{checked item.data.properties.very-rare}}> Très rare
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.tailored" {{checked item.data.properties.tailored}}> Sur-mesure
+        </label>
+    </div>
+</div>

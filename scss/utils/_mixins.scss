@@ -14,3 +14,25 @@
 @mixin hide {
   display: none;
 }
+
+@mixin modesto {
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@mixin flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  > * {
+    flex: 1;
+  }
+
+  .flex1 { flex: 1; }
+  .flex2 { flex: 2; }
+  .flex3 { flex: 3; }
+  .flex4 { flex: 4; }
+}

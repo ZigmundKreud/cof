@@ -311,142 +311,164 @@
       "ranged",
       "spell"
     ],
+    "templates": {
+      "base" : {
+        "description" : "",
+        "source" : ""
+      },
+      "protection" : {
+        "def" : 0,
+        "defBase" : 0,
+        "defBonus" : 0,
+        "dr" : 0
+      },
+      "weapon" : {
+        "dmg": "",
+        "dmgBase": "",
+        "dmgStat": "",
+        "dmgBonus": 0,
+        "mod": 0,
+        "skill": "",
+        "skillBonus" : 0,
+        "critrange": "20",
+        "hands": 1,
+        "properties": {
+          "predilection": false
+        }
+      },
+      "ranged" : {
+        "range": 0,
+        "reload": "",
+        "properties": {
+          "ranged": true
+        }
+      },
+      "equipment" : {
+        "worn": false,
+        "qty" : 1,
+        "price": 0,
+        "rarity" : "common",
+        "properties": {
+          "equipable": false,
+          "stackable": true
+        }
+      }
+    },
+    "trapping": {
+      "templates": [
+        "base",
+        "equipment"
+      ]
+    },
+    "armor": {
+      "templates": [
+        "base",
+        "protection",
+        "equipment"
+      ]
+    },
+    "shield": {
+      "templates": [
+        "base",
+        "protection",
+        "weapon",
+        "equipment"
+      ],
+      "dmgBase": "1d4",
+      "dmgStat": "@stats.str.mod",
+      "skill": "@attacks.melee.mod"
+    },
+    "melee": {
+      "templates": [
+        "base",
+        "weapon",
+        "equipment"
+      ],
+      "dmgStat": "@stats.str.mod",
+      "skill": "@attacks.melee.mod"
+    },
+    "ranged": {
+      "templates": [
+        "base",
+        "weapon",
+        "ranged",
+        "equipment"
+      ],
+      "skill": "@attacks.ranged.mod"
+    },
+    "spell": {
+      "templates": [
+        "base",
+        "weapon",
+        "ranged",
+        "protection"
+      ],
+      "skill": "@attacks.magic.mod"
+    },
     "capacity": {
+      "templates": [
+        "base"
+      ],
       "key": "",
       "summary" : "",
-      "description" : "",
       "rank": null,
       "scope": null,
       "profile": null,
       "path": null,
-      "description": "",
       "checked": false,
       "limited": false,
       "spell": false,
       "inPath": true
     },
-    "trapping": {
-      "price" : 0,
-      "qty" : 1,
-      "stackable": true,
-      "description" : ""
-    },
     "profile": {
+      "templates": [
+        "base"
+      ],
       "key": "",
-      "description": "",
       "dv": "",
-      "proficiency": "",
       "spellcasting": "",
-      "trappings": "",
-      "note" : {
-        "title" : "",
-        "text" : ""
-      },
-      "paths" : []
+      "paths" : [],
+      "proficiencies" : {
+        "daggers" : false,
+        "swords" : false,
+        "axes" : false,
+        "staves" : false,
+        "clubs" : false,
+        "hammers" : false,
+        "katanas" : false,
+        "2-hands" : false,
+        "slings" : false,
+        "bows" : false,
+        "crossbows" : false,
+        "throwing-weapons" : false,
+        "powder-weapons" : false,
+        "soft-leather" : false,
+        "studded-leather" : false,
+        "mail" : false,
+        "half-plate" : false,
+        "full-plate" : false,
+        "shield" : false
+      }
     },
     "species": {
+      "templates": [
+        "base"
+      ],
       "key": "",
-      "description": "",
-      "age": "",
-      "longevity": "",
-      "height": "",
-      "weight": "",
-      "morphology": "",
-      "racial": "",
-      "names" : "",
       "bonuses": [],
       "capacities": []
     },
     "path": {
+      "templates": [
+        "base"
+      ],
       "key": "",
       "collapsed" : true,
-      "description": "",
       "note": "",
       "scope": null,
       "capacities": [],
       "species": [],
       "profile": ""
-    },
-    "armor": {
-      "qty" : 1,
-      "def" : 0,
-      "defBase" : 0,
-      "defBonus" : 0,
-      "dr" : 0,
-      "price" : 0,
-      "description" : "",
-      "stackable": false,
-      "worn": false
-    },
-    "shield": {
-      "qty" : 1,
-      "def" : 0,
-      "defBase" : 0,
-      "defBonus" : 0,
-      "dmg": "",
-      "dmgBase": "1d4",
-      "dmgStat": "@stats.str.mod",
-      "dmgBonus": 0,
-      "mod": 0,
-      "skill": "@attacks.melee.mod",
-      "skillBonus" : 0,
-      "description" : "",
-      "critrange": "20",
-      "worn": false,
-      "stackable": false,
-      "hands": 1,
-      "price" : 0
-    },
-    "melee": {
-      "qty" : 1,
-      "dmg": "",
-      "dmgBase": "1d6",
-      "dmgStat": "@stats.str.mod",
-      "dmgBonus": 0,
-      "mod": 0,
-      "skill": "@attacks.melee.mod",
-      "skillBonus" : 0,
-      "description": "",
-      "critrange": "20",
-      "predilection": false,
-      "worn": false,
-      "stackable": false,
-      "hands": 1,
-      "price": 0
-    },
-    "ranged": {
-      "qty" : 1,
-      "dmg": "",
-      "dmgBase": "1d6",
-      "dmgStat": "",
-      "dmgBonus": 0,
-      "range": 0,
-      "reload": "",
-      "mod": 0,
-      "skill": "@attacks.ranged.mod",
-      "skillBonus" : 0,
-      "description": "",
-      "critrange": "20",
-      "predilection": false,
-      "worn": false,
-      "stackable": false,
-      "hands": 1,
-      "price": 0
-    },
-    "spell": {
-      "def" : 0,
-      "defBase" : 0,
-      "defBonus" : 0,
-      "dmg": "",
-      "dmgBase": "",
-      "dmgStat": "",
-      "dmgBonus": 0,
-      "range": 0,
-      "mod": 0,
-      "skill": "@attacks.magic.mod",
-      "skillBonus" : 0,
-      "description": "",
-      "critrange": "20"
     }
   }
 }

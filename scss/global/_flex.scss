@@ -1,6 +1,43 @@
 /* ----------------------------------------- */
 /*  Flexbox                                  */
 /* ----------------------------------------- */
+
+.flexrow {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  > * {
+    flex: 1;
+  }
+
+  .flex1 { flex: 1; }
+  .flex2 { flex: 2; }
+  .flex3 { flex: 3; }
+  .flex4 { flex: 4; }
+  .flex5 { flex: 5; }
+  .flex6 { flex: 6; }
+  .flex7 { flex: 7; }
+  .flex8 { flex: 8; }
+  .flex9 { flex: 9; }
+}
+
+.flexcol {
+  display: flex;
+  flex-flow: column nowrap;
+  //flex-direction: column;
+  //flex-wrap: nowrap;
+
+  > * {
+    flex: 1;
+  }
+
+  .flex1 { flex: 1; }
+  .flex2 { flex: 2; }
+  .flex3 { flex: 3; }
+  .flex4 { flex: 4; }
+}
+
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
@@ -42,23 +79,6 @@
   align-items: center;
 }
 
-//.left {
-//  justify-content: flex-start;
-//  text-align: left;
-//}
-//
-//.right {
-//  justify-content: flex-end;
-//  text-align: right;
-//}
-
-.flexrow {
-  display: flex;
-  flex-flow: row wrap;
-  //flex-flow: row nowrap;
-  justify-content: flex-start;
-}
-
 .flex-center {
   align-items: center;
   justify-content: center;
@@ -71,73 +91,4 @@
 
 .no-wrap {
   flex-wrap: nowrap !important;
-}
-
-.flexcol {
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.flexrow > * {
-  flex: 1;
-}
-
-.flexrow .flex0 {
-  flex: 0;
-}
-
-.flexrow .flex1 {
-  flex: 1;
-}
-
-.flexrow .flex2 {
-  flex: 2;
-}
-
-.flexrow .flex3 {
-  flex: 3;
-}
-
-.flexrow .flex4 {
-  flex: 4;
-}
-
-.flexrow .flex5 {
-  flex: 5;
-}
-
-.flexrow .flex6 {
-  flex: 6;
-}
-
-.flexrow .flex7 {
-  flex: 7;
-}
-
-.flexrow .flex8 {
-  flex: 8;
-}
-
-.flexrow .flex9 {
-  flex: 9;
-}
-
-.flexcol > * {
-  flex: 1;
-}
-
-.flexcol .flex1 {
-  flex: 1;
-}
-
-.flexcol .flex2 {
-  flex: 2;
-}
-
-.flexcol .flex3 {
-  flex: 3;
-}
-
-.flexcol .flex4 {
-  flex: 4;
 }

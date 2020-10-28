@@ -1,8 +1,107 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="wrap">
-        {{> "systems/cof/templates/items/parts/item-header.hbs"}}
-        <div class="main">
-            {{> "systems/cof/templates/items/parts/item-description.hbs"}}
+    <header class="sheet-header flexrow header-background no-wrap">
+        {{#if (equals item.type "capacity")}}
+            {{> "systems/cof/templates/items/parts/headers/item-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "path")}}
+            {{> "systems/cof/templates/items/parts/headers/path-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "profile")}}
+            {{> "systems/cof/templates/items/parts/headers/item-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "species")}}
+            {{> "systems/cof/templates/items/parts/headers/item-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "armor")}}
+            {{> "systems/cof/templates/items/parts/headers/equipment-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "shield")}}
+            {{> "systems/cof/templates/items/parts/headers/equipment-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "melee")}}
+            {{> "systems/cof/templates/items/parts/headers/equipment-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "ranged")}}
+            {{> "systems/cof/templates/items/parts/headers/equipment-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "spell")}}
+            {{> "systems/cof/templates/items/parts/headers/item-header.hbs"}}
+        {{/if}}
+        {{#if (equals item.type "trapping")}}
+            {{> "systems/cof/templates/items/parts/headers/equipment-header.hbs"}}
+        {{/if}}
+    </header>
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-navigation tabs" data-group="primary">
+        <a class="item active" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
+    </nav>
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab flexrow active" data-group="primary" data-tab="description">
+            <div class="item-properties">
+                {{#if (equals item.type "armor")}}
+                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "shield")}}
+                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "melee")}}
+                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "ranged")}}
+                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "trapping")}}
+                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "capacity")}}
+                    {{> "systems/cof/templates/items/parts/properties/capacity-properties.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "profile")}}
+                    {{> "systems/cof/templates/items/parts/properties/profile-properties.hbs"}}
+                {{/if}}
+            </div>
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
-    </div>
+        <div class="tab details" data-group="primary" data-tab="details">
+            {{#if (equals item.type "capacity")}}
+                {{> "systems/cof/templates/items/parts/details/capacity-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "path")}}
+                {{> "systems/cof/templates/items/parts/details/path-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "profile")}}
+                {{> "systems/cof/templates/items/parts/details/profile-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "species")}}
+                {{> "systems/cof/templates/items/parts/details/species-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "armor")}}
+                {{> "systems/cof/templates/items/parts/details/protection-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/equipment-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "shield")}}
+                {{> "systems/cof/templates/items/parts/details/protection-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/weapon-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/equipment-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "melee")}}
+                {{> "systems/cof/templates/items/parts/details/weapon-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/equipment-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "ranged")}}
+                {{> "systems/cof/templates/items/parts/details/weapon-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/ranged-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/equipment-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "spell")}}
+                {{> "systems/cof/templates/items/parts/details/weapon-details.hbs"}}
+                {{> "systems/cof/templates/items/parts/details/protection-details.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "trapping")}}
+                {{> "systems/cof/templates/items/parts/details/equipment-details.hbs"}}
+            {{/if}}
+        </div>
+    </section>
 </form>

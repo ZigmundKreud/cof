@@ -83,13 +83,10 @@
 .box-shadow {
   box-shadow: 1px 1px 2px gray;
 }
-//.editor-content {
-//  background: rgba(255, 255, 255, 0.4);
-//  box-shadow: 1px 1px 2px gray;
-//}
 
 .stats .field-value {
-  font: 1.2em 'ChN1Regular', cursive;
+  font-family: $font-handwrite;
+  font-size: 1.2em;
   color: $c-dark;
 }
 
@@ -179,14 +176,14 @@
 .path-card {
   margin-bottom: 5px;
   .path-name {
-    font-family: $font-secondary;
+    //font-family: $font-secondary;
     font-weight: bold;
     font-size: 16px;
     min-height:28px;
   }
   .path-description {
     font-size: 12px;
-    font-family: $font-secondary;
+    //font-family: $font-secondary;
   }
 }
 
@@ -244,7 +241,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    font-family: $font-secondary;
+    //font-family: $font-secondary;
     font-size: 1em;
     //color: $c-darkg;
     color: #272727;
@@ -292,14 +289,8 @@ div:hover>div.profile-controls {
 }
 
 .sidebar .charname{
-  /*font: 5em 'Blackmoor', cursive;*/
-  /*font: 5em 'FeroxAlternates', cursive;*/
-  /*font: 3em 'Requiem', cursive;*/
-  /*font: 5em 'Frushand', cursive;*/
-  /*font: 5em 'UnifrakturCook', cursive;*/
-  font: 2.5em 'PermanentMarker', cursive;
-  /*font-size: 16px;*/
-  /*font-size: 4vw;*/
+  font-family: $font-charname;
+  font-size: 2.5em;
 
   -webkit-text-fill-color: $c-white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
@@ -355,7 +346,7 @@ label.input-label{
 }
 
 strong{
-  font-family: $font-secondary;
+  //font-family: $font-secondary;
   font-weight: bold;
 }
 

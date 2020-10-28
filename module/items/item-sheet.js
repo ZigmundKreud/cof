@@ -2,7 +2,22 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
+import {ArrayUtils} from "../utils/array-utils.js";
+import {Traversal} from "../utils/traversal.js";
+
 export class CofItemSheet extends ItemSheet {
+
+    /** @override */
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            classes: ["cof", "sheet", "item", this.type],
+            template: System.templatesPath + "/items/item-sheet.hbs",
+            width: 600,
+            height: 600,
+            tabs: [{navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "description"}],
+            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+        });
+    }
 
     /**
      * Activate the default set of listeners for the Entity sheet
@@ -13,6 +28,43 @@ export class CofItemSheet extends ItemSheet {
     activateListeners(html) {
         super.activateListeners(html);
         html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+
+        html.find('.droppable').on("dragover", function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(event.currentTarget).addClass('dragging');
+        });
+
+        html.find('.droppable').on("dragleave", function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(event.currentTarget).removeClass('dragging');
+        });
+
+        html.find('.droppable').on("drop", function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(event.currentTarget).removeClass('dragging');
+        });
+
+        // Click to open
+        html.find('.compendium-pack').click(ev => {
+            ev.preventDefault();
+            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            if ( li.attr("data-open") === "1" ) pack.close();
+            else {
+                li.attr("data-open", "1");
+                li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
+                pack.render(true);
+            }
+        });
+
+        // Display item sheet
+        html.find('.item-name').click(this._onEditItem.bind(this));
+        html.find('.item-edit').click(this._onEditItem.bind(this));
+        // Delete items
+        html.find('.item-delete').click(this._onDeleteItem.bind(this));
+
     }
 
     /** @override */
@@ -27,7 +79,7 @@ export class CofItemSheet extends ItemSheet {
     /* -------------------------------------------- */
 
     /** @override */
-    async _onDrop(event) {
+    _onDrop(event) {
         event.preventDefault();
         if (!this.options.editable) return false;
         // Get dropped data
@@ -81,31 +133,79 @@ export class CofItemSheet extends ItemSheet {
      * @param {Object} data       The data transfer
      * @private
      */
-    async _onDropActor(event, data) {
+    _onDropActor(event, data) {
         return false;
     }
 
     /* -------------------------------------------- */
 
-    async _onDropPathItem(event, itemData) {
+    _onDropProfileItem(event, itemData) {
         return false;
     }
 
     /* -------------------------------------------- */
 
-    async _onDropProfileItem(event, itemData) {
+    _onDropSpeciesItem(event, itemData) {
         return false;
     }
 
     /* -------------------------------------------- */
 
-    async _onDropSpeciesItem(event, itemData) {
+    _onDropPathItem(event, itemData) {
+        // console.log(event.currentTarget);
+        let data = duplicate(this.item.data);
+        const key = itemData.data.key;
+        const scope = itemData.data.scope;
+        if(data.type === "profile"){
+            if(!data.data.paths.includes(key)){
+                data.data.paths.push(key);
+                return this.item.update(data);
+            }
+            else ui.notifications.error("Ce profil contient déjà cette voie.")
+        }
         return false;
     }
 
     /* -------------------------------------------- */
 
-    async _onDropCapacityItem(event, itemData) {
-        return false;
+    _onDropCapacityItem(event, itemData) {
+        console.log(itemData.data.key);
+        console.log(this.item.data);
+        let caps = this.item.data.data.capacities;
+        caps.push(itemData.data.key);
+        console.log(caps);
+        return this.item.update({
+            "data.capacities" : caps
+        });
+    }
+
+    /* -------------------------------------------- */
+
+    async _onEditItem(ev){
+        ev.preventDefault();
+        const li = $(ev.currentTarget).closest(".item");
+        const id = li.data("itemId");
+        const itemType = li.data("itemType");
+        if(itemType === "path") {
+            let entity = game.items.get(id);
+            if(!entity) entity = await Traversal.getEntityFromPack("cof.paths", id);
+            if(entity) return entity.sheet.render(true);
+        }
+    }
+
+    /* -------------------------------------------- */
+
+    _onDeleteItem(ev){
+        ev.preventDefault();
+        let data = duplicate(this.item.data);
+        const li = $(ev.currentTarget).closest(".item");
+        const itemType = li.data("itemType");
+        if(itemType === "path") {
+            const key = li.data("key");
+            if(data.data.paths.includes(key)) {
+                ArrayUtils.remove(data.data.paths, key)
+                return this.item.update(data);
+            }
+        }
     }
 }

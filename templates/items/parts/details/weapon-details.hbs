@@ -1,0 +1,92 @@
+<h3 class="form-header">Propriétés d'armes</h3>
+<div class="form-group">
+    <label>{{localize "COF.ui.dmgBase"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.dmgBase" type="text" value="{{item.data.dmgBase}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.dmgStat"}}</label>
+    <div class="form-fields">
+        <select name="data.dmgStat" data-type="String" style="width:100%">
+            {{#select data.dmgStat}}
+                <option value="">{{localize "COF.None"}}</option>
+                <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
+                <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
+                <option value="@stats.con.mod">{{localize "COF.stats.con.label"}}</option>
+                <option value="@stats.int.mod">{{localize "COF.stats.int.label"}}</option>
+                <option value="@stats.wis.mod">{{localize "COF.stats.wis.label"}}</option>
+                <option value="@stats.cha.mod">{{localize "COF.stats.cha.label"}}</option>
+            {{/select}}
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.dmgBonus"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.dmgBonus" type="text" value="{{numberFormat item.data.dmgBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.dmgBonus"}}" data-dtype="Number">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.skill"}}</label>
+    <div class="form-fields">
+        <select name="data.skill" data-type="String" style="width:100%">
+            {{#select data.skill}}
+                <option value="@attacks.melee.mod">{{localize "COF.attacks.melee.label"}}</option>
+                <option value="@attacks.ranged.mod">{{localize "COF.attacks.ranged.label"}}</option>
+                <option value="@attacks.magic.mod">{{localize "COF.attacks.magic.label"}}</option>
+            {{/select}}
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.skillBonus"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.skillBonus" type="text" value="{{numberFormat item.data.skillBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.skillBonus"}}" data-dtype="Number">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.critrange"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.critrange" type="text" value="{{item.data.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.usage"}}</label>
+    <div class="form-fields">
+        <select name="data.hands" data-type="Number" style="width:100%">
+            {{#select data.hands}}
+                <option value="0">{{localize "COF.None"}}</option>
+                <option value="1">{{localize "COF.ui.1H"}}</option>
+                <option value="2">{{localize "COF.ui.2H"}}</option>
+            {{/select}}
+        </select>
+    </div>
+</div>
+
+<div class="form-group stacked">
+    <label>Proriétés</label>
+    <div class="form-fields">
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.proficient" {{checked item.data.properties.proficient}}> PJ Compétent
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.bashing" {{checked item.data.properties.bashing}}> Dégâts temporaires possibles
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.predilection" {{checked item.data.properties.predilection}}> Prédilection
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.finesse" {{checked item.data.properties.finesse}}> Finesse
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.properties.two-handed" {{checked item.data.properties.two-handed}}> {{localize "COF.ui.2H"}}
+        </label>
+    </div>
+</div>

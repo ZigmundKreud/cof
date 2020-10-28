@@ -5,6 +5,15 @@
 
 export class CofItem extends Item {
 
+    initialize() {
+        try {
+            this.prepareData();
+        } catch(err) {
+            console.error(`Failed to initialize data for ${this.constructor.name} ${this.id}:`);
+            console.error(err);
+        }
+    }
+
     /** @override */
     prepareData() {
         super.prepareData();
@@ -16,7 +25,11 @@ export class CofItem extends Item {
                 this._prepareArmorData(itemData, actorData);
                 break;
             case "melee" :
+                this._prepareWeaponData(itemData, actorData);
+                break;
             case "ranged" :
+                this._prepareWeaponData(itemData, actorData);
+                break;
             case "spell" :
                 this._prepareWeaponData(itemData, actorData);
                 break;
@@ -31,16 +44,19 @@ export class CofItem extends Item {
                 this._preparePathData(itemData, actorData);
                 break;
             case "profile" :
+                this._prepareProfileData(itemData, actorData);
+                break;
             case "species" :
-            case "item" :
+                this._prepareSpeciesData(itemData, actorData);
+                break;
             case "trapping" :
+                break;
             default :
                 break;
         }
     }
 
     _prepareCapacityData(itemData, actorData) {
-        console.debug("_prepareCapacityData");
         // console.log(actorData);
         itemData.data.key = itemData.name.slugify({strict: true});
         // if (!itemData.data.key) {
@@ -60,18 +76,25 @@ export class CofItem extends Item {
     }
 
     _preparePathData(itemData, actorData) {
-        console.debug("_preparePathData");
-        // console.log(actorData);
+        // console.log(itemData);
         if (!itemData.data.key) itemData.data.key = itemData.name.slugify({strict: true});
+        // let caps = COF.capacities.filter(c => {
+        //     console.log(c);
+        //     return c.data.path === itemData.data.key
+        // });
+        // console.log(caps);
     }
 
     _prepareArmorData(itemData, actorData) {
-        console.debug("_prepareArmorData");
         itemData.data.def = parseInt(itemData.data.defBase, 10) + parseInt(itemData.data.defBonus, 10);
     }
 
+    _prepareShieldData(itemData, actorData) {
+        this._prepareArmorData(itemData, actorData);
+        this._prepareWeaponData(itemData, actorData);
+    }
+
     _prepareWeaponData(itemData, actorData) {
-        console.debug("_prepareMeleeData");
         itemData.data.skillBonus = (itemData.data.skillBonus) ? itemData.data.skillBonus : 0;
         itemData.data.dmgBonus = (itemData.data.dmgBonus) ? itemData.data.dmgBonus : 0;
         if (actorData) {
@@ -86,4 +109,14 @@ export class CofItem extends Item {
             else itemData.data.dmg = itemData.data.dmgBase + " + " + dmgBonus;
         }
     }
+
+    _prepareProfileData(itemData, actorData) {
+        // console.log(itemData);
+    }
+
+    _prepareSpeciesData(itemData, actorData) {
+        // console.log(itemData);
+    }
+
+
 }

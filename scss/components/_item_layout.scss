@@ -4,119 +4,345 @@
 .window-content {
   padding: 0;
   margin: 0;
-  overflow: hidden;
-  //border:4px solid darkred;
-  //background-color: red;
+  overflow-y: hidden;
+  background: $sheetBackground;
+  font-size: 13px;
+  color: #191813;
+  background: url("../ui/bg-2.png") no-repeat white;
 
-  .editable {
-    padding: 0;
-    margin: 0;
-    min-height: 100%;
-    height: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    //border:4px solid darkblue;
-    //background-color: blue;
+  .sheet-header {
+    flex: 0 0 100px;
+    border-bottom: $borderGroove;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background: url("../ui/green-leather-bg.png") repeat-x white;
 
-    .wrap {
-      padding: 0;
-      margin: 0;
-      min-height: 100%;
-      height: 100%;
-      max-height: 100%;
-      overflow: hidden;
+    > * {
+      flex: 1;
+    }
 
-      .sheet-header {
-        min-height: $item-header-height;
-        height: $item-header-height;
-        max-height: $item-header-height;
+    img {
+      //flex: 0 0 64px;
+      //height: 64px;
+      //margin-right: 6px;
 
-        #item-icon {
-          min-width: $item-header-height;
-          width: $item-header-height;
-          max-width: $item-header-height;
-          min-height: $item-header-height;
-          height: $item-header-height;
-          max-height: $item-header-height;
-          .profile-img {
-            min-height: $item-header-height;
-            height: $item-header-height;
-            max-height: $item-header-height;
-          }
-        }
+      &.profile {
+        flex: 0 0 100px;
+        max-width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border: 2px solid #000;
+        border-right: $borderGrooveGreen;
+      }
+    }
 
-        #banner-left {
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
+    .header-details {
+      font-family: $font-tertiary;
+      font-size: 20px;
+      font-weight: 700;
 
-          .itemname {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-          }
-        }
+      h1 {
+        flex: 1;
+        border-bottom: none;
+        height: 60px;
+        margin: 0;
+        padding: 5px;
 
-        #banner-right {
-          z-index: 1;
-          margin-top:7px;
-          min-width:100px;
-          width:235px;
-          max-width:235px;
-          min-height: $item-header-height;
-          height: $item-header-height;
-          max-height: $item-header-height;
+        input {
+          display: block;
+          height: 50px;
+          font-size: 32px;
+          margin: 0;
+          color: white;
         }
       }
 
-      .main {
-        padding: 0;
+      .item-subtitle {
+        flex: 0 0 150px;
+        //flex: 0 0 80px;
+        height: 60px;
         margin: 0;
-        min-height: $item-main-height;
-        height: $item-main-height;
-        max-height: $item-main-height;
-        //border:4px solid gray;
-        //background-color: white;
+        padding: 5px;
+        text-align: right;
+        color: $lightGreen;
 
-        .row {
-          min-height: $item-row-height;
-          height: $item-row-height;
-          max-height: $item-row-height;
+        .item-type {
+          font-size: 24px;
+          line-height: 26px;
+          margin: 0;
         }
 
-        .description {
-          margin: 0;
+        .item-status {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      .summary {
+        flex: 0 0 100%;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: $borderGrooveGreen;
+        border-bottom: none;
+
+        li {
+          height: calc(100% - 6px);
+          float: left;
+          margin: 2px 0;
           padding: 0;
-          min-height: calc(100% - 50px);
-          height: calc(100% - 50px);
-          max-height: calc(100% - 50px);
-          //border:4px solid darkgreen;
-          //background-color: green;
+          border-right: $borderGrooveGreen;
+          line-height: 34px;
+          color: $lightGreen;
 
-          .editor {
-            margin: 0;
-            overflow: hidden;
-            //border:4px solid black;
-            //background-color: lightgray;
-            min-height: 100%;
-            height: 100%;
-            max-height: 100%;
+          &:last-child {
+            border-right: none;
+          }
 
-            //min-height: calc(100% - 50px);
-            //height: calc(100% - 50px);
-            //max-height: calc(100% - 50px);
-
-            .editor-content {
-              padding: 5px;
-              margin: 0;
-              overflow: auto;
-              height: 100%;
-              min-height: 100%;
-              max-height: 100%;
-            }
+          input {
+            color: $lightGreen;
           }
         }
       }
     }
+  }
+
+  .sheet-navigation {
+    background-image: url("../ui/separator-h.png");
+    background-repeat: repeat-x;
+    background-position: top;
+
+    margin-top: -2px;
+    margin-bottom: 5px;
+    flex: 0 0 20px;
+    font-family: $font-tertiary;
+    font-size: 20px;
+    font-weight: 700;
+
+    .item {
+      height: 35px;
+      line-height: 37px;
+      margin: 5px 24px 0 24px ;
+      border-bottom: 3px solid #b5b3a4;
+      font-size: 18px;
+
+      &.active {
+        border-bottom: 3px solid #44191A;
+      }
+    }
+  }
+
+  .sheet-body {
+    overflow: hidden;
+
+    .tab {
+      height: 100%;
+      align-content: flex-start;
+      padding: 0 5px;
+      overflow: hidden auto;
+
+      .item-properties {
+        flex: 0 0 150px;
+        margin: 5px 5px 5px 0;
+        padding-right: 5px;
+        border-right: $borderGroove;
+
+        .form-group {
+          margin: 0;
+
+          label {
+            line-height: 20px;
+          }
+
+          input {
+            text-align: right;
+          }
+        }
+
+        .properties-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            margin: 3px 0;
+            padding: 0 2px;
+            background: rgba(0, 0, 0, 0.05);
+            border: $borderGroove;
+            text-align: center;
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+
+      }
+
+      .editor {
+        height: 100%;
+      }
+
+
+      /* ----------------------------------------- */
+      /*  Item Details Form                        */
+      /* ----------------------------------------- */
+
+      &.details {
+        padding:10px;
+
+        // Item Sheet form fields
+        input[type="text"],
+        input[type="number"],
+        select {
+          height: 24px;
+          //border: 1px solid $colorTan;
+          background: rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+          span {
+            text-align: center;
+            line-height: 24px;
+          }
+        }
+
+        .form-group.input-select {
+          select {
+            flex: 1.8;
+          }
+        }
+
+        .form-group.input-select-select {
+          select {
+            flex: 1.5;
+          }
+        }
+
+        .form-group.uses-per {
+          input {
+            flex: 1;
+          }
+
+          span {
+            flex: 0 0 16px;
+          }
+
+          select {
+            flex: 3;
+          }
+        }
+
+        span.sep {
+          flex: 0 0 8px;
+        }
+
+        .prepared {
+          flex: 1.3 !important;
+          text-align: right;
+          padding-right: 10px;
+        }
+
+        // Spell Materials
+        .spell-materials {
+          flex: 0 0 100%;
+          margin: 0.25em 0;
+          justify-content: flex-end;
+
+          label {
+            flex: 0 0 64px;
+            text-align: right;
+            margin-right: 5px;
+            font-size: 12px;
+            line-height: 24px;
+          }
+
+          input[type="text"] {
+            flex: 0 0 48px;
+            margin-right: 10px;
+          }
+        }
+      }
+
+
+    }
+  }
+
+
+  /* ----------------------------------------- */
+  /*  Item Actions                             */
+  /* ----------------------------------------- */
+
+  h4.damage-header {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    line-height: 24px;
+    color: $colorOlive;
+  }
+
+  .damage-parts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .damage-part {
+      flex: 0 0 100%;
+      padding: 0;
+
+      input {
+        flex: 3;
+      }
+
+      select {
+        margin-left: 5px;
+        flex: 1;
+      }
+    }
+  }
+
+  .damage-control {
+    width: 18px;
+    flex: 0 0 18px;
+    line-height: 24px;
+    float: right;
+    text-align: right;
+    color: $colorTan;
+  }
+
+  .recharge.form-group {
+    span {
+      text-align: right;
+      padding-right: 3px;
+    }
+
+    input[type="text"] {
+      flex: 0 0 32px;
+      text-align: center;
+    }
+
+    label.checkbox {
+      flex: none;
+
+      input {
+        width: 16px;
+        height: 16px;
+        top: 4px;
+      }
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Item Actions                             */
+  /* ----------------------------------------- */
+
+  .weapon-properties label.checkbox {
+    flex: 0 0 98px;
+  }
+
+  .dragging {
+      outline: 1px dotted gray;
   }
 }

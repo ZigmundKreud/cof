@@ -8,7 +8,7 @@ import {UpdateUtils} from "../utils/update-utils.js";
 Hooks.once("ready", async () => {
 
     // if (game.settings.get("cof", "importData")) {
-        // Logger.info("Importing data");
+    //     console.debug("Importing data");
         // DataLoader.loadData("capacities");
         // DataLoader.loadData("encounters");
         // DataLoader.loadData("items");
@@ -25,6 +25,7 @@ Hooks.once("ready", async () => {
 
     // UpdateUtils.updateCapacities();
     // UpdateUtils.updatePaths();
+    // UpdateUtils.updateProfiles();
 
     console.info("System Initialized.");
 

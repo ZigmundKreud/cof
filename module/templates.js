@@ -37,11 +37,30 @@ export const preloadHandlebarsTemplates = async function () {
         "systems/cof/templates/actors/encounter/parts/encounter-description.hbs",
 
         // ITEMS
-        "systems/cof/templates/items/parts/item-def-stats.hbs",
-        "systems/cof/templates/items/parts/item-price.hbs",
-        "systems/cof/templates/items/parts/item-description.hbs",
-        "systems/cof/templates/items/parts/item-header.hbs",
-        "systems/cof/templates/items/parts/item-weapon-stats.hbs"
+        // HEADERS
+        "systems/cof/templates/items/parts/headers/item-header.hbs",
+        "systems/cof/templates/items/parts/headers/equipment-header.hbs",
+        "systems/cof/templates/items/parts/headers/path-header.hbs",
+
+        // PROPERTIES
+        "systems/cof/templates/items/parts/properties/equipment-properties.hbs",
+        "systems/cof/templates/items/parts/properties/capacity-properties.hbs",
+        "systems/cof/templates/items/parts/properties/profile-properties.hbs",
+
+        // DETAILS
+        "systems/cof/templates/items/parts/details/capacity-details.hbs",
+        "systems/cof/templates/items/parts/details/path-details.hbs",
+        "systems/cof/templates/items/parts/details/profile-details.hbs",
+        "systems/cof/templates/items/parts/details/ranged-details.hbs",
+        "systems/cof/templates/items/parts/details/species-details.hbs",
+        "systems/cof/templates/items/parts/details/equipment-details.hbs",
+        "systems/cof/templates/items/parts/details/protection-details.hbs",
+        "systems/cof/templates/items/parts/details/weapon-details.hbs",
+
+        // DND5E
+        "systems/cof/templates/dnd5e-inventory-list.hbs",
+        "systems/cof/templates/dnd5e-spellbook.hbs"
+
     ];
 
     // Load the template parts

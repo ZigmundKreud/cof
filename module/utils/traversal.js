@@ -1,9 +1,23 @@
 export class Traversal {
 
+    /* PACKS */
+    static getPack(key){
+        return game.packs.get(key);
+    }
+
+    static getPackIndex(key){
+        return this.getPack(key).getIndex(); // async
+        // We can find a specific entry in the compendium by its name
+        // let entry = pack.index.find(e => e.name === "Acid Splash");
+    }
+
+    static getEntityFromPack(key, id){
+        return this.getPack(key).getEntity(id);
+    }
+
     /*
      * ENTITIES
      */
-
     static getAllEntitiesOfType(type, collection) {
         const compendium = game.packs.get(collection).getContent();
         const ingame = game.items.filter(item => item.type === type);
@@ -72,5 +86,23 @@ export class Traversal {
 
     static findSpeciesDataByKey (key) {
         return this.getAllSpeciesData().find(entity => entity.data.key === key);
+    }
+
+
+
+    static findCapacityDataById (id) {
+        return this.getAllCapacitiesData().find(entity => entity._id === id);
+    }
+
+    static findPathDataById (id) {
+        return this.getAllPathsData().find(entity => entity._id === id);
+    }
+
+    static findProfileDataById (id) {
+        return this.getAllProfilesData().find(entity => entity._id === id);
+    }
+
+    static findSpeciesDataById (id) {
+        return this.getAllSpeciesData().find(entity => entity._id === id);
     }
 }

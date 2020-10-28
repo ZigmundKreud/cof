@@ -1,0 +1,32 @@
+<img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img">
+<div class="header-details flexrow">
+    <h1 class="charname">
+        <input name="name" type="text" value="{{item.name}}" placeholder="Item Name"/>
+    </h1>
+    <div class="item-subtitle">
+        <h4 class="item-type">{{localize (concat "COF.category." item.type)}}</h4>
+        <span class="item-status">
+            {{#if item.data.worn}}
+                {{localize "COF.ui.equiped"}}
+            {{else}}
+                {{localize "COF.ui.unequied"}}
+            {{/if}}
+        </span>
+    </div>
+    <ul class="summary flexrow">
+        <li>
+            {{#if data.rarity}}
+            {{localize (concat "COF.rarity." data.rarity)}}
+            {{else}}
+                {{localize "COF.ui.na"}}
+            {{/if}}
+        </li>
+        <li>
+            {{#if data.source}}
+                <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'COF.ui.source' }}"/>
+            {{else}}
+                <input type="text" name="data.source" value="{{ localize 'COF.ui.na' }}" placeholder="{{ localize 'COF.ui.source' }}"/>
+            {{/if}}
+        </li>
+    </ul>
+</div>
