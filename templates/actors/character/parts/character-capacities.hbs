@@ -1,36 +1,43 @@
-<!--<div class="capacity-toolbar row flexrow">-->
-<!--    <div class="capacity-tools flex1 right">-->
-<!--        <a class="capacity-tool path-add compendium-pack" data-pack="cof.paths" data-open="0" title="Ajouter une voie"><i class="fas fa-plus-square"></i>&nbsp; Ajouter une voie</a>-->
-<!--        &nbsp;-->
-<!--        <a class="capacity-tool capacity-add compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus-square"></i>&nbsp; Ajouter une capacité</a>-->
-<!--        &nbsp;-->
-<!--        <a class="capacity-tool capacity-create" title="Créer une capacité"><i class="fas fa-edit"></i>&nbsp; Créer une capacité</a>-->
-<!--    </div>-->
-<!--</div>-->
 {{#if (isEmpty (getActiveCapacities actor.items))}}
 <p class="empty">Aucune capacité n'a été sélectionnée pour le moment</p>
 {{/if}}
-<div class="capacity-list {{#if (isEmpty (getPaths actor.items))}}nopath{{/if}}">
-{{#each (getActiveCapacities actor.items) as |capacity id|}}
-    <div class="capacity item" data-item-type="item" data-item-id="{{capacity._id}}">
-        <div class="flexrow capacity-title">
-            <div class="flex0 capacity-icon"><img src="{{capacity.img}}" title="{{capacity.name}}" width="24" height="24"/></div>
-            <a class="flex1 capacity-label capacity-toggle" title="{{capacity.name}}">{{{capacity.name}}}
-                {{#if capacity.data.spell}}&nbsp;&#10033;{{/if}}
-                {{#if capacity.data.limited}}&nbsp;(L){{/if}}
-                &nbsp;
+
+<ol class="inventory-list" style="max-height:calc(100% - 230px); overflow-y: auto">
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Capacités</h3>
+        <div class="item-detail">Rang</div>
+        <div class="item-detail">L</div>
+        <div class="item-detail">S</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getActiveCapacities actor.items) as |capacity id|}}
+        <ol class="item-list">
+<!--            <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="capacity" draggable="true">-->
+            <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="item" data-item-type="item" draggable="true">
+                <div class="item-name flexrow">
+                    <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
+                    <h4>{{capacity.name}}</h4>
+                </div>
                 {{#with (getPath ../actor.items capacity.data.path)}}
-                    <em>({{{name}}}{{#if capacity.data.rank}}, {{capacity.data.rank}}{{/if}})</em>
+                    {{{name}}}
+                    <div class="item-detail">{{#if capacity.data.rank}}{{capacity.data.rank}}{{/if}}</div>
                 {{/with}}
-            </a>
-            &nbsp;
-            <a class="flex0 capacity-control capacity-edit" title="{{capacity.name}}"><i class="fas fa-edit"></i></a>
-            &nbsp;
-            <a class="flex0 capacity-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-        </div>
-        <div class="capacity-description">
-            <div>{{{capacity.data.description}}}</div>
-        </div>
-    </div>
-{{/each}}
-</div>
+                <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
+                <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+                <div class="item-summary" style="display: none">
+                    {{{capacity.data.description}}}
+                    <div class="item-properties">
+                        {{#if capacity.data.spell}}<span class="tag">Sort</span>{{/if}}
+                        {{#if capacity.data.limited}}<span class="tag">Action limitée</span>{{/if}}
+                    </div>
+                </div>
+            </li>
+        </ol>
+    {{/each}}
+</ol>

@@ -26,6 +26,7 @@ Hooks.once("ready", async () => {
     // UpdateUtils.updateCapacities();
     // UpdateUtils.updatePaths();
     // UpdateUtils.updateProfiles();
+    // UpdateUtils.updateSpecies();
 
     console.info("System Initialized.");
 

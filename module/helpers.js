@@ -2,38 +2,24 @@ import {Traversal} from "./utils/traversal.js";
 
 export const registerHandlebarsHelpers = async function () {
 
-    Handlebars.registerHelper('filterByType', function (items, type) {
-        if(items instanceof Object){
-            return Object.values(items).filter(item => item.type === type);
-        }else {
-            return items.filter(item => item.type === type);
+    Handlebars.registerHelper('getEmbeddedItems', function (type, ids) {
+        if(ids){
+            let compendium = [];
+            let ingame = [];
+            switch(type){
+                case "path" :
+                    compendium = COF.paths;
+                    ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
+                    break;
+                case "capacity" :
+                    compendium = COF.capacities;
+                    ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
+                    break;
+            }
+            const items = ingame.concat(compendium);
+            return ids.map(id => items.find(i => i._id === id));
         }
-    });
-
-    Handlebars.registerHelper('isOfType', function (item, type) {
-        return item.type === type;
-    });
-
-    Handlebars.registerHelper('getPathFromId', function (id) {
-        const compendium = COF.paths;
-        const ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
-        const path = ingame.concat(compendium).find(p => p._id === id);
-        // console.log(path);
-        return path;
-    });
-    Handlebars.registerHelper('getCapacitiesFromId', function (id) {
-        const compendium = COF.capacities;
-        const ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
-        const capacity = ingame.concat(compendium).find(c => c._id === id);
-        return capacity;
-    });
-
-
-    Handlebars.registerHelper('isPath', function (item) {
-        return item.type === "path";
-    });
-    Handlebars.registerHelper('isCapacity', function (item) {
-        return item.type === "capacity";
+        else return null;
     });
 
     Handlebars.registerHelper('getPaths', function (items) {
@@ -128,34 +114,6 @@ export const registerHandlebarsHelpers = async function () {
         return items.filter(item => item.type === "path").find(p => p.data.key === pathKey);
     });
 
-    Handlebars.registerHelper('isArmor', function (item) {
-        return item.type === "armor";
-    });
-
-    Handlebars.registerHelper('isShield', function (item) {
-        return item.type === "shield";
-    });
-
-    Handlebars.registerHelper('isMelee', function (item) {
-        return item.type === "melee";
-    });
-
-    Handlebars.registerHelper('isRanged', function (item) {
-        return item.type === "ranged";
-    });
-
-    Handlebars.registerHelper('isSpecies', function (item) {
-        return item.type === "species";
-    });
-
-    Handlebars.registerHelper('isProfile', function (item) {
-        return item.type === "profile";
-    });
-
-    Handlebars.registerHelper('isTrapping', function (item) {
-        return item.type === "trapping";
-    });
-
     Handlebars.registerHelper('is2H', function (item) {
         return parseInt(item.data.hands) === 2;
     });
@@ -191,30 +149,6 @@ export const registerHandlebarsHelpers = async function () {
 
     Handlebars.registerHelper('isPositiveOrNull', function (val) {
         return val >= 0;
-    });
-
-    Handlebars.registerHelper('hasArmor', function (list) {
-        return list.length > 0;
-    });
-
-    Handlebars.registerHelper('hasArmor', function (actor) {
-        return actor.items.filter(i => i.type === "armor").length > 0;
-    });
-
-    Handlebars.registerHelper('hasShield', function (actor) {
-        return actor.items.filter(i => i.type === "shield").length > 0;
-    });
-
-    Handlebars.registerHelper('hasArmorOrShield', function (actor) {
-        return actor.items.filter(i => i.type === "shield" || i.type === "armor").length > 0;
-    });
-
-    Handlebars.registerHelper('hasRanged', function (actor) {
-        return actor.items.filter(i => i.type === "ranged").length > 0;
-    });
-
-    Handlebars.registerHelper('hasMelee', function (actor) {
-        return actor.items.filter(i => i.type === "melee").length > 0;
     });
 
     Handlebars.registerHelper('equals', function (val1, val2) {
@@ -272,20 +206,6 @@ export const registerHandlebarsHelpers = async function () {
         return Traversal.getAllCapacitiesData().find(c => c.data.key === key);
     });
 
-    // Handlebars.registerHelper('filterCapacities', function (caps) {
-    //     console.log(key);
-    //     let list = Traversal.getAllCapacitiesData().filter(c => caps.includes(c.data.key))
-    //     list.sort(function (a, b) {
-    //         return (a.data.rank > b.data.rank) ? 1 : -1
-    //     });
-    //     return list;
-    // });
-
-    Handlebars.registerHelper('getValueAtIndex', function (array, index) {
-        if (array[index]) return array[index];
-        else return null;
-    });
-
     // If you need to add Handlebars helpers, here are a few useful examples:
     Handlebars.registerHelper('concat', function () {
         var outStr = '';
@@ -297,18 +217,11 @@ export const registerHandlebarsHelpers = async function () {
         return outStr;
     });
 
-    Handlebars.registerHelper('surroundWithCurlyBraces', function(text) {
-        const result = '{' + text + '}';
-        return new Handlebars.SafeString(result);
+    Handlebars.registerHelper('add', function (a, b) {
+        return parseInt(a) + parseInt(b);
     });
 
-    Handlebars.registerHelper('toLowerCase', function (str) {
-        return str.toLowerCase();
+    Handlebars.registerHelper('valueAtIndex', function (arr, idx) {
+        return arr[idx];
     });
-
-    Handlebars.registerHelper('i18n', function (str) {
-        return game.i18n.localize(str);
-    });
-
-
 }

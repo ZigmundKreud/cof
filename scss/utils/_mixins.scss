@@ -16,7 +16,8 @@
 }
 
 @mixin modesto {
-  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  //font-family: $font-primary;
+  font-family: $font-tertiary;
   font-size: 20px;
   font-weight: 700;
 }

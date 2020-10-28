@@ -8,7 +8,9 @@
   background: $sheetBackground;
   font-size: 13px;
   color: #191813;
-  background: url("../ui/bg-2.png") no-repeat white;
+  background-image: url("../ui/bg-2.png");
+  background-repeat: repeat;
+  background-color: white;
 
   .sheet-header {
     flex: 0 0 100px;
@@ -34,8 +36,9 @@
         max-width: 100px;
         height: 100px;
         object-fit: contain;
-        border: 2px solid #000;
-        border-right: $borderGrooveGreen;
+        border: none;
+        //border: 2px solid #000;
+        //border-right: $borderGrooveGreen;
       }
     }
 

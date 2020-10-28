@@ -202,25 +202,26 @@ export class CofActor extends Actor {
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
 
         const magicMod = this.getMagicMod(stats, profile);
-
-        switch (profile.data.key) {
-            case "barde" :
-            case "forgesort" :
-            case "pretre" :
-            case "druide" :
-                attributes.mp.base = lvl + magicMod;
-                break;
-            case "ensorceleur" :
-            case "magicien" :
-            case "necromancien" :
-                attributes.mp.base = 2 * lvl + magicMod;
-                break;
-            default :
-                attributes.mp.base = 0;
-                break;
+        if(profile){
+            switch (profile.data.key) {
+                case "barde" :
+                case "forgesort" :
+                case "pretre" :
+                case "druide" :
+                    attributes.mp.base = lvl + magicMod;
+                    break;
+                case "ensorceleur" :
+                case "magicien" :
+                case "necromancien" :
+                    attributes.mp.base = 2 * lvl + magicMod;
+                    break;
+                default :
+                    attributes.mp.base = 0;
+                    break;
+            }
         }
+        else attributes.mp.base = 0;
         attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
-
     }
 
     /* -------------------------------------------- */

@@ -1,0 +1,14 @@
+/systems/cof/ui/icons/profiles/arquebusier.png
+/systems/cof/ui/icons/profiles/barbare.png
+/systems/cof/ui/icons/profiles/barde.jpg
+/systems/cof/ui/icons/profiles/chevalier.png
+/systems/cof/ui/icons/profiles/druide.png
+/systems/cof/ui/icons/profiles/ensorceleur.png
+/systems/cof/ui/icons/profiles/forgesort.png
+/systems/cof/ui/icons/profiles/guerrier.png
+/systems/cof/ui/icons/profiles/magicien.png
+/systems/cof/ui/icons/profiles/moine.png
+/systems/cof/ui/icons/profiles/necromancien.png
+/systems/cof/ui/icons/profiles/pretre.png
+/systems/cof/ui/icons/profiles/rodeur.png
+/systems/cof/ui/icons/profiles/voleur.png

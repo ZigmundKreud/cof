@@ -1,73 +1,97 @@
-<h3 class="form-header">{{localize "COF.ui.properties"}}</h3>
+<h3 class="form-header">Bonus raciaux</h3>
 <input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
-<div class="row flexrow">
-    <div class="flex1 center field-header">
-        <span class="field-label label-text">Racial</span>
-    </div>
-    <div class="flex1">
-                <span class="field-label">
-                    <input class="field-value" name="data.racial" type="text" value="{{item.data.racial}}" placeholder="Racial" data-dtype="String">
-                </span>
+
+<div class="form-group">
+    <label>{{localize "COF.stats.str.label"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.bonuses.str" type="text" value="{{numberFormat data.bonuses.str decimals=0 sign=true}}" placeholder="{{localize "COF.stats.str.label"}}" data-dtype="Number">
     </div>
 </div>
-{{!-- Sheet Tab Navigation --}}
-<nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="details">Details</a>
-    <a class="item" data-tab="morph">Morphology</a>
-    <a class="item" data-tab="names">Names</a>
-</nav>
-{{!-- Sheet Body --}}
-<section class="sheet-body">
-    <div class="tab" data-group="primary" data-tab="description">
-        {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+<div class="form-group">
+    <label>{{localize "COF.stats.dex.label"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.bonuses.dex" type="text" value="{{numberFormat data.bonuses.dex decimals=0 sign=true}}" placeholder="{{localize "COF.stats.dex.label"}}" data-dtype="Number">
     </div>
-    <div class="tab" data-group="primary" data-tab="details">
-        <div class="row flexrow">
-            <div class="flex1 center field-header">
-                <span class="field-label label-text">Age</span>
-            </div>
-            <div class="flex1">
-                        <span class="field-label">
-                            <input class="field-value" name="data.age" type="text" value="{{item.data.age}}" placeholder="Age" data-dtype="String">
-                        </span>
-            </div>
-        </div>
-        <div class="row flexrow">
-            <div class="flex1 center field-header">
-                <span class="field-label label-text">Longevity</span>
-            </div>
-            <div class="flex1">
-                        <span class="field-label">
-                            <input class="field-value" name="data.longevity" type="text" value="{{item.data.longevity}}" placeholder="Longevity" data-dtype="String">
-                        </span>
-            </div>
-        </div>
-        <div class="row flexrow">
-            <div class="flex1 center field-header">
-                <span class="field-label label-text">Height</span>
-            </div>
-            <div class="flex1">
-                        <span class="field-label">
-                            <input class="field-value" name="data.height" type="text" value="{{item.data.height}}" placeholder="Height" data-dtype="String">
-                        </span>
-            </div>
-        </div>
-        <div class="row flexrow">
-            <div class="flex1 center field-header">
-                <span class="field-label label-text">Weight</span>
-            </div>
-            <div class="flex1">
-                        <span class="field-label">
-                            <input class="field-value" name="data.weight" type="text" value="{{item.data.weight}}" placeholder="Weight" data-dtype="String">
-                        </span>
-            </div>
-        </div>
+</div>
+<div class="form-group">
+    <label>{{localize "COF.stats.con.label"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.bonuses.con" type="text" value="{{numberFormat data.bonuses.con decimals=0 sign=true}}" placeholder="{{localize "COF.stats.con.label"}}" data-dtype="Number">
     </div>
-    <div class="tab" data-group="primary" data-tab="morph">
-        {{editor content=data.morphology target="data.morphology" button=true owner=owner editable=editable}}
+</div>
+<div class="form-group">
+    <label>{{localize "COF.stats.int.label"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.bonuses.int" type="text" value="{{numberFormat data.bonuses.int decimals=0 sign=true}}" placeholder="{{localize "COF.stats.int.label"}}" data-dtype="Number">
     </div>
-    <div class="tab" data-group="primary" data-tab="names">
-        {{editor content=data.names target="data.names" button=true owner=owner editable=editable}}
+</div>
+<div class="form-group">
+    <label>{{localize "COF.stats.wis.label"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.bonuses.wis" type="text" value="{{numberFormat data.bonuses.wis decimals=0 sign=true}}" placeholder="{{localize "COF.stats.wis.label"}}" data-dtype="Number">
     </div>
-</section>
+</div>
+<div class="form-group">
+    <label>{{localize "COF.stats.cha.label"}}</label>
+    <div class="form-fields">
+        <input class="field-value" name="data.bonuses.cha" type="text" value="{{numberFormat data.bonuses.cha decimals=0 sign=true}}" placeholder="{{localize "COF.stats.cha.label"}}" data-dtype="Number">
+    </div>
+</div>
+
+<h3 class="form-header">Ressources</h3>
+
+<ol class="inventory-list">
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Voies raciales</h3>
+        <div class="item-detail"></div>
+        <div class="item-detail item-rank">Rang</div>
+        <div class="item-detail item-scope">Application</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.paths" data-open="0" title="Ajouter une voie"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getEmbeddedItems "path" data.paths) as |path id|}}
+        <ol class="item-list">
+            <li class="item flexrow" data-item-id="{{path._id}}" data-item-type="path" data-key="{{path.data.key}}" draggable="true">
+                <div class="item-name flexrow">
+                    <div class="item-image" style="background-image: url('{{path.img}}')"></div>
+                    <h4>{{path.name}}</h4>
+                </div>
+                <div class="item-detail"></div>
+                <div class="item-detail item-rank">{{add id 1}}</div>
+                <div class="item-detail item-scope">{{#if path.data.scope}} {{localize (concat "COF.ui." path.data.scope)}}{{/if}}</div>
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+            </li>
+        </ol>
+    {{/each}}
+
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Capacités raciales</h3>
+        <div class="item-detail"></div>
+        <div class="item-detail item-rank">Rang</div>
+        <div class="item-detail item-scope">Application</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getEmbeddedItems "capacity" data.capacities) as |capacity id|}}
+        <ol class="item-list">
+            <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="capacity" data-key="{{capacity.data.key}}" draggable="true">
+                <div class="item-name flexrow">
+                    <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
+                    <h4>{{capacity.name}}</h4>
+                </div>
+                <div class="item-detail"></div>
+                <div class="item-detail item-rank">{{add id 1}}</div>
+                <div class="item-detail item-scope">{{#if capacity.data.scope}} {{localize (concat "COF.ui." capacity.data.scope)}}{{/if}}</div>
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                </div>
+            </li>
+        </ol>
+    {{/each}}
+</ol>

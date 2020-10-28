@@ -1,0 +1,6 @@
+/systems/cof/ui/icons/spells2/armure-de-mage.jpg <- /systems/cof/ui/icons/spells/protect-blue-2.jpg
+/systems/cof/ui/icons/spells2/boule-de-feu.jpg <- /systems/cof/ui/icons/spells/fireball-red-3.jpg
+/systems/cof/ui/icons/spells2/familier.jpg <- /systems/cof/ui/icons/items/inventory/monster-bat.jpg
+/systems/cof/ui/icons/spells2/fleche-enflammee.jpg <- /systems/cof/ui/icons/spells/beam-red-2.jpg
+/systems/cof/ui/icons/spells2/projectile-magique.jpg <- /systems/cof/ui/icons/spells/needles-blue-1.jpg
+/systems/cof/ui/icons/spells2/projectile-magique-(rang-4).jpg <- /systems/cof/ui/icons/spells/needles-blue-3.jpg

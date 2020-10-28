@@ -152,13 +152,12 @@ export class CofItemSheet extends ItemSheet {
     /* -------------------------------------------- */
 
     _onDropPathItem(event, itemData) {
-        // console.log(event.currentTarget);
+        event.preventDefault();
         let data = duplicate(this.item.data);
-        const key = itemData.data.key;
-        const scope = itemData.data.scope;
-        if(data.type === "profile"){
-            if(!data.data.paths.includes(key)){
-                data.data.paths.push(key);
+        const id = itemData._id;
+        if(data.type === "profile" || data.type === "species"){
+            if(!data.data.paths.includes(id)){
+                data.data.paths.push(id);
                 return this.item.update(data);
             }
             else ui.notifications.error("Ce profil contient déjà cette voie.")
@@ -169,14 +168,17 @@ export class CofItemSheet extends ItemSheet {
     /* -------------------------------------------- */
 
     _onDropCapacityItem(event, itemData) {
-        console.log(itemData.data.key);
-        console.log(this.item.data);
-        let caps = this.item.data.data.capacities;
-        caps.push(itemData.data.key);
-        console.log(caps);
-        return this.item.update({
-            "data.capacities" : caps
-        });
+        event.preventDefault();
+        let data = duplicate(this.item.data);
+        const id = itemData._id;
+        if(data.type === "path" || data.type === "species"){
+            if(!data.data.capacities.includes(id)){
+                let caps = data.data.capacities;
+                caps.push(id);
+                return this.item.update(data);
+            }
+            else ui.notifications.error("Cette voie contient déjà cette capacité.")
+        }
     }
 
     /* -------------------------------------------- */
@@ -186,11 +188,14 @@ export class CofItemSheet extends ItemSheet {
         const li = $(ev.currentTarget).closest(".item");
         const id = li.data("itemId");
         const itemType = li.data("itemType");
-        if(itemType === "path") {
-            let entity = game.items.get(id);
-            if(!entity) entity = await Traversal.getEntityFromPack("cof.paths", id);
-            if(entity) return entity.sheet.render(true);
+        let pack = null;
+        switch(itemType){
+            case "species" : pack = "cof.species"; break;
+            case "profile" : pack = "cof.profiles"; break;
+            case "path" : pack = "cof.paths"; break;
+            case "capacity" : pack = "cof.capacities"; break;
         }
+        if(pack) return Traversal.getEntity(id, "item", pack).then(e => { if(e) e.sheet.render(true) });
     }
 
     /* -------------------------------------------- */
@@ -199,13 +204,16 @@ export class CofItemSheet extends ItemSheet {
         ev.preventDefault();
         let data = duplicate(this.item.data);
         const li = $(ev.currentTarget).closest(".item");
+        const id = li.data("itemId");
         const itemType = li.data("itemType");
-        if(itemType === "path") {
-            const key = li.data("key");
-            if(data.data.paths.includes(key)) {
-                ArrayUtils.remove(data.data.paths, key)
-                return this.item.update(data);
-            }
+        let array = null;
+        switch(itemType){
+            case "path" : array = data.data.paths; break;
+            case "capacity" : array = data.data.capacities; break;
+        }
+        if(array && array.includes(id)) {
+            ArrayUtils.remove(array, id)
+            return this.item.update(data);
         }
     }
 }

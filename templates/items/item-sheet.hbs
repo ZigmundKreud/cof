@@ -39,29 +39,27 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
         <div class="tab flexrow active" data-group="primary" data-tab="description">
-            <div class="item-properties">
-                {{#if (equals item.type "armor")}}
-                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
-                {{/if}}
-                {{#if (equals item.type "shield")}}
-                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
-                {{/if}}
-                {{#if (equals item.type "melee")}}
-                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
-                {{/if}}
-                {{#if (equals item.type "ranged")}}
-                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
-                {{/if}}
-                {{#if (equals item.type "trapping")}}
-                    {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
-                {{/if}}
-                {{#if (equals item.type "capacity")}}
-                    {{> "systems/cof/templates/items/parts/properties/capacity-properties.hbs"}}
-                {{/if}}
-                {{#if (equals item.type "profile")}}
-                    {{> "systems/cof/templates/items/parts/properties/profile-properties.hbs"}}
-                {{/if}}
-            </div>
+            {{#if (equals item.type "armor")}}
+                {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "shield")}}
+                {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "melee")}}
+                {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "ranged")}}
+                {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "trapping")}}
+                {{> "systems/cof/templates/items/parts/properties/equipment-properties.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "capacity")}}
+                {{> "systems/cof/templates/items/parts/properties/capacity-properties.hbs"}}
+            {{/if}}
+            {{#if (equals item.type "profile")}}
+                {{> "systems/cof/templates/items/parts/properties/profile-properties.hbs"}}
+            {{/if}}
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
         <div class="tab details" data-group="primary" data-tab="details">

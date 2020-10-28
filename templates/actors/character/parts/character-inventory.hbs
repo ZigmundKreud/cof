@@ -14,128 +14,161 @@
         <i title="Pièces de cuivre" class="fas fa-coins" style="color:saddlebrown"></i><input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.data.currency.cp.qty}}" placeholder="Pièces de cuivre" data-dtype="Number"/>
     </div>
 </div>
-<hr/>
+<!--<hr/>-->
+
 {{#if (notEmpty (getInventory actor.items))}}
-    {{#if (notEmpty (getArmors actor.items))}}
-        <h2>Armure</h2>
-        <ol class="item-list">
-            {{#each (getArmors actor.items) as |item id|}}
-                <li class="flexrow item" data-item-id="{{item._id}}">
-                    <div class="flex2 left">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
-                    </div>
-                    <div class="quantity-controls">
-                        {{#if item.data.stackable}}
-                            <a class="item-control item-increase" title="Increase Item"><i class="fas fa-plus"></i></a> <a class="item-control item-decrease" title="Decrease Item"><i class="fas fa-minus"></i></a>
-                        {{/if}}
-                    </div>
-                    <div class="armor-controls">
-                        {{#if item.data.worn}}
-                            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
-                        {{else}}
-                            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
-                        {{/if}}
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
-    {{/if}}
-    {{#if (notEmpty (getShields actor.items))}}
-        <h2>Bouclier</h2>
-        <ol class="item-list">
-            {{#each (getShields actor.items) as |item id|}}
-                <li class="flexrow item" data-item-id="{{item._id}}">
-                    <div class="flex2 left">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
-                    </div>
-                    <div class="quantity-controls">
-                        {{#if item.data.stackable}}
-                            <a class="item-control item-increase" title="Increase Item"><i class="fas fa-plus"></i></a> <a class="item-control item-decrease" title="Decrease Item"><i class="fas fa-minus"></i></a>
-                        {{/if}}
-                    </div>
-                    <div class="shield-controls">
-                        {{#if item.data.worn}}
-                            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
-                        {{else}}
-                            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
-                        {{/if}}
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
-    {{/if}}
-    {{#if (notEmpty (getMeleeWeapons actor.items))}}
-        <h2>Armes de contact</h2>
-        <ol class="item-list">
-            {{#each (getMeleeWeapons actor.items) as |item id|}}
-                <li class="flexrow item" data-item-id="{{item._id}}">
-                    <div class="flex2 left">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
-                    </div>
-                    <div class="quantity-controls">
-                        {{#if item.data.stackable}}
-                            <a class="item-control item-increase" title="Increase Item"><i class="fas fa-plus"></i></a> <a class="item-control item-decrease" title="Decrease Item"><i class="fas fa-minus"></i></a>
-                        {{/if}}
-                    </div>
-                    <div class="melee-controls">
-                        {{#if item.data.worn}}
-                            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
-                        {{else}}
-                            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
-                        {{/if}}
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
-    {{/if}}
-    {{#if (notEmpty (getRangedWeapons actor.items))}}
-        <h2>Armes à distance</h2>
-        <ol class="item-list">
-            {{#each (getRangedWeapons actor.items) as |item id|}}
-                <li class="flexrow item" data-item-id="{{item._id}}">
-                    <div class="flex2 left">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
-                    </div>
-                    <div class="quantity-controls">
-                        {{#if item.data.stackable}}
-                            <a class="item-control item-increase" title="Increase Item"><i class="fas fa-plus"></i></a> <a class="item-control item-decrease" title="Decrease Item"><i class="fas fa-minus"></i></a>
-                        {{/if}}
-                    </div>
-                    <div class="ranged-controls">
-                        {{#if item.data.worn}}
-                            <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-square"></i></a>
-                        {{else}}
-                            <a class="item-control item-equip" title="Equip Item"><i class="far fa-square"></i></a>
-                        {{/if}}
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
-    {{/if}}
-    {{#if (notEmpty (getTrappings actor.items))}}
-        <h2>Divers</h2>
-        <ol class="item-list">
-            {{#each (getTrappings actor.items) as |item id|}}
-                <li class="flexrow item" data-item-id="{{item._id}}">
-                    <div class="flex2 left">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>&nbsp;<span class="item-name">{{item.name}} {{#if (gt item.data.qty 1)}}({{item.data.qty}}){{/if}}</span>
-                    </div>
-                    <div class="quantity-controls">
-                        {{#if item.data.stackable}}
-                            <a class="item-control item-increase" title="Increase Item"><i class="fas fa-plus"></i></a> <a class="item-control item-decrease" title="Decrease Item"><i class="fas fa-minus"></i></a>
-                        {{/if}}
-                    </div>
-                    <div class="equipment-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a> <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-            {{/each}}
-        </ol>
-    {{/if}}
+<ol class="inventory-list">
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Armures</h3>
+        <div class="item-detail">Qté</div>
+        <div class="item-detail">Equiper</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getArmors actor.items) as |item id|}}
+    <ol class="item-list">
+        <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
+            <div class="item-name flexrow">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <h4>{{item.name}}</h4>
+            </div>
+            <div class="item-detail">{{item.data.qty}}</div>
+            <div class="item-detail">
+                {{#if item.data.worn}}
+                    <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+                {{else}}
+                    <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                {{/if}}
+            </div>
+            <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </li>
+    </ol>
+    {{/each}}
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Boucliers</h3>
+        <div class="item-detail">Qté</div>
+        <div class="item-detail">Equiper</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getShields actor.items) as |item id|}}
+    <ol class="item-list">
+        <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
+            <div class="item-name flexrow">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <h4>{{item.name}}</h4>
+            </div>
+            <div class="item-detail">{{item.data.qty}}</div>
+            <div class="item-detail">
+                {{#if item.data.worn}}
+                    <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+                {{else}}
+                    <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                {{/if}}
+            </div>
+            <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </li>
+    </ol>
+    {{/each}}
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Armes de contact</h3>
+        <div class="item-detail">Qté</div>
+        <div class="item-detail">Equiper</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getMeleeWeapons actor.items) as |item id|}}
+    <ol class="item-list">
+        <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
+            <div class="item-name flexrow">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <h4>{{item.name}}</h4>
+            </div>
+            <div class="item-detail">{{item.data.qty}}</div>
+            <div class="item-detail">
+                {{#if item.data.worn}}
+                    <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+                {{else}}
+                    <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                {{/if}}
+            </div>
+            <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </li>
+    </ol>
+    {{/each}}
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Armes à distance</h3>
+        <div class="item-detail">Qté</div>
+        <div class="item-detail">Equiper</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getRangedWeapons actor.items) as |item id|}}
+    <ol class="item-list">
+        <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
+            <div class="item-name flexrow">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <h4>{{item.name}}</h4>
+            </div>
+            <div class="item-detail">{{item.data.qty}}</div>
+            <div class="item-detail">
+                {{#if item.data.worn}}
+                    <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+                {{else}}
+                    <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                {{/if}}
+            </div>
+            <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </li>
+    </ol>
+    {{/each}}
+    <li class="inventory-header flexrow">
+        <h3 class="item-name flexrow">Divers</h3>
+        <div class="item-detail">Qté</div>
+        <div class="item-detail">Equiper</div>
+        <div class="item-controls">
+            <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+        </div>
+    </li>
+    {{#each (getTrappings actor.items) as |item id|}}
+    <ol class="item-list">
+        <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
+            <div class="item-name flexrow">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <h4>{{item.name}}</h4>
+            </div>
+            <div class="item-detail">{{item.data.qty}}</div>
+            <div class="item-detail">
+                {{#if item.data.worn}}
+                    <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+                {{else}}
+                    <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                {{/if}}
+            </div>
+            <div class="item-controls">
+                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+        </li>
+    </ol>
+    {{/each}}
+</ol>
 {{else}}
     <p class="empty">Votre inventaire est vide.</p>
 {{/if}}

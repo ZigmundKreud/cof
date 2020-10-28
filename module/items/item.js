@@ -112,10 +112,12 @@ export class CofItem extends Item {
 
     _prepareProfileData(itemData, actorData) {
         // console.log(itemData);
+        if (!itemData.data.key) itemData.data.key = itemData.name.slugify({strict: true});
     }
 
     _prepareSpeciesData(itemData, actorData) {
         // console.log(itemData);
+        if (!itemData.data.key) itemData.data.key = itemData.name.slugify({strict: true});
     }
 
 

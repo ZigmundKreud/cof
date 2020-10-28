@@ -988,7 +988,7 @@ Copied from dnd5e
 .cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list {
   -webkit-box-shadow: 0 4px 3px -3px gray;
   box-shadow: 0 4px 3px -3px gray;
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 3px;
   min-height: 205px;
   height: 205px;
@@ -1367,63 +1367,6 @@ Copied from dnd5e
   text-align: right;
 }
 
-.cof.actor .item-list {
-  list-style: none;
-  margin: 7px 0;
-  padding: 0;
-  overflow-y: auto;
-}
-
-.cof.actor .item-list .item {
-  height: 28px;
-  /*line-height: 28px;*/
-}
-
-.cof.actor .item-list .item img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 24px;
-  flex: 0 0 24px;
-  margin-right: 5px;
-}
-
-.cof.actor .item-list .item-name {
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  font-size: 1em;
-  color: #272727;
-  margin: 0;
-  cursor: pointer;
-}
-
-.cof.actor .item-list .armor-controls,
-.cof.actor .item-list .shield-controls,
-.cof.actor .item-list .melee-controls,
-.cof.actor .item-list .ranged-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 48px;
-  flex: 0 0 48px;
-}
-
-.cof.actor .item-list .quantity-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 48px;
-  flex: 0 0 48px;
-}
-
-.cof.actor .item-list .equipment-quantity-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 64px;
-  flex: 0 0 64px;
-}
-
-.cof.actor .item-list .equipment-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 32px;
-  flex: 0 0 32px;
-}
-
 .cof.actor .species-controls,
 .cof.actor .path-controls,
 .cof.actor .profile-controls {
@@ -1518,7 +1461,9 @@ Copied from dnd5e
   background: url("../ui/bg-2.png") no-repeat white;
   font-size: 13px;
   color: #191813;
-  background: url("../ui/bg-2.png") no-repeat white;
+  background-image: url("../ui/bg-2.png");
+  background-repeat: repeat;
+  background-color: white;
   /* ----------------------------------------- */
   /*  Item Actions                             */
   /* ----------------------------------------- */
@@ -1564,8 +1509,7 @@ Copied from dnd5e
   height: 100px;
   -o-object-fit: contain;
   object-fit: contain;
-  border: 2px solid #000;
-  border-right: 2px groove #003700;
+  border: none;
 }
 
 .cof.item .window-content .sheet-header .header-details {

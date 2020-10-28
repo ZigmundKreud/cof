@@ -11,9 +11,27 @@ export class Traversal {
         // let entry = pack.index.find(e => e.name === "Acid Splash");
     }
 
-    static getEntityFromPack(key, id){
-        return this.getPack(key).getEntity(id);
+    static async getEntityFromPack(packId, entityId){
+        const pack = game.packs.get(packId);
+        return await pack.getEntity(entityId);
     }
+
+    static async getEntity(id, type, pack) {
+        let entity = null;
+
+        // Case 1 - Import from World entities
+        if(type === "item") entity = game.items.get(id);
+        else if(type === "actor") entity = game.actors.get(id);
+        else if(type === "journal") entity = game.journal.get(id);
+
+        // Case 2 - Import from a Compendium pack
+        if (!entity && pack) {
+            await game.packs.get(pack).getEntity(id).then(e => entity = e);
+        }
+        return entity;
+    }
+
+    /* -------------------------------------------- */
 
     /*
      * ENTITIES

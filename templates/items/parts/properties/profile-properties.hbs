@@ -1,4 +1,8 @@
-<ol class="properties-list">
-    {{#if item.data.dv}}<li>{{ localize "COF.ui.hd" }} : {{item.data.dv}}</li>{{/if}}
-    {{#if item.data.spellcasting}}<li>{{localize "COF.ui.spellcasting"}} : {{localize (concat "COF.stats." (concat item.data.spellcasting ".label"))}}</li>{{/if}}
-</ol>
+<div class="item-properties">
+    <ol class="properties-list">
+        {{#if item.data.dv}}
+            <li>{{ localize "COF.ui.hd" }} : {{item.data.dv}}</li>{{/if}}
+        {{#if item.data.spellcasting}}
+            <li>{{localize "COF.ui.spellcasting"}} : {{localize (concat "COF.stats." (concat item.data.spellcasting ".label"))}}</li>{{/if}}
+    </ol>
+</div>

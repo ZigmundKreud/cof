@@ -30,6 +30,17 @@ export class CofActorSheet extends ActorSheet {
             }
         });
 
+        // Click to open
+        html.find('.item-create.compendium-pack').click(ev => {
+            ev.preventDefault();
+            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            if (li.attr("data-open") === "1") pack.close();
+            else {
+                li.attr("data-open", "1");
+                pack.render(true);
+            }
+        });
+
         // Initiate a roll
         html.find('.rollable').click(ev => {
             ev.preventDefault();
