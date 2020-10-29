@@ -5,6 +5,7 @@
 import {CharacterGeneration} from "../system/chargen.js";
 import {CofSkillRoll} from "../system/skill-roll.js";
 import {CofDamageRoll} from "../system/dmg-roll.js";
+import {Traversal} from "../utils/traversal.js";
 
 export class CofActorSheet extends ActorSheet {
 
@@ -171,19 +172,14 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
     _onDeleteSpecies(event, itemData) {
-        const li = $(event.currentTarget).parents(".item");
-        const actor = this.actor;
-        const parent = this;
-        let d = Dialog.confirm({
+        const actorData = this.actor.data;
+        Dialog.confirm({
             title: "Supprimer la race ?",
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${this.actor.name} ?</p>`,
             yes: () => {
-                let data = this.getData();
-                let stats = data.data.stats;
-                Object.values(stats).map(s => s.racial = 0);
-                actor.update({'data.stats': stats});
-                actor.deleteOwnedItem(li.data("itemId"));
-                li.slideUp(200, () => parent.render(false));
+                let items = actorData.items.filter(i => i.type === "capacity" && i.data.scope === "species").map(e => e._id);
+                items.push(itemData.data._id);
+                return this.actor.deleteOwnedItem(items);
             },
             defaultYes: false
         });
@@ -676,12 +672,13 @@ export class CofActorSheet extends ActorSheet {
             ui.notifications.error("Vous avez déjà un profil.");
             return false;
         } else {
-            const pathsContent = await game.packs.get("cof.paths").getContent();
-            let items = pathsContent.filter(entity => entity.data.data.profile === profileItemData.data.key);
-            const capsContent = await game.packs.get("cof.capacities").getContent();
-            items.push(...capsContent.filter(entity => entity.data.data.profile === profileItemData.data.key));
-            items.push(profileItemData);
-            return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
+            // const pathsContent = await game.packs.get("cof.paths").getContent();
+            // let items = pathsContent.filter(entity => entity.data.data.profile === profileItemData.data.key);
+            // const capsContent = await game.packs.get("cof.capacities").getContent();
+            // items.push(...capsContent.filter(entity => entity.data.data.profile === profileItemData.data.key));
+            // items.push(profileItemData);
+            // return this.actor.createEmbeddedEntity("OwnedItem", profileItemData).then(() => this._render(false));
+            return this.actor.createOwnedItem(profileItemData)
         }
     }
 
@@ -691,17 +688,10 @@ export class CofActorSheet extends ActorSheet {
             ui.notifications.error("Vous avez déjà une race.");
             return false;
         } else {
-            let data = this.getData();
-            let stats = data.data.stats;
-            for (let i = 0; i < 6; i++) {
-                // Object.values(stats).racial = itemData.data.bonuses[i];
-                Object.values(stats)[i].racial = itemData.data.bonuses[i];
-            }
-            return this.actor.createEmbeddedEntity("OwnedItem", itemData).then(() =>
-                this.actor.update({'data.stats': stats}).then(() => this._render(false))
-            );
-            // await this.actor.update({ 'data.stats' : stats }).then(() => this._render(false));
-            // return true;
+            let items = COF.capacities.filter(e => itemData.data.capacities.includes(e._id));
+            items.push(itemData);
+            // return this.actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
+            return this.actor.createOwnedItem(items);
         }
     }
 
@@ -740,7 +730,6 @@ export class CofActorSheet extends ActorSheet {
         const elt = $(ev.currentTarget).parents(".item");
         const item = this.actor.getOwnedItem(elt.data("itemId"));
         let itemData = item.data;
-        // const item = duplicate(this.actor.getOwnedItem(elt.data("itemId")));
         itemData.data.worn = !itemData.data.worn;
         return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
     }
@@ -749,20 +738,25 @@ export class CofActorSheet extends ActorSheet {
 
     _onCheckCapacity(ev, isUncheck) {
         const elt = $(ev.currentTarget).parents(".capacity");
-        const capacity = this.actor.getOwnedItem(elt.data("itemId"));
-        let data = this.getData();
-        // Get all capacities from the same path with an inferior rank
-        let items = data.items.filter(item => {
-            if (item.type === "capacity" && item.data.path === capacity.data.data.path) {
-                if (isUncheck) return item.data.rank >= capacity.data.data.rank;
-                else return item.data.rank <= capacity.data.data.rank;
-            } else return false;
-        });
-        items.forEach(item => {
-            item.data.checked = !isUncheck;
-            // trigger capacities
-        });
-        return this.actor.updateOwnedItem(items);
+        const data = duplicate(this.actor.data);
+        const capId = elt.data("itemId");
+        const pathId = elt.data("pathId");
+        const path = Traversal.getItemsOfType("path").find(p => p._id === pathId);
+        const capacities = Traversal.getItemsOfType("capacity").filter(c => path.data.capacities.includes(c._id));
+        const capacity = capacities.find(c => c._id === capId);
+        const items = data.items.filter(i => i.type === "capacity" && i.data.path && i.data.key);
+        const itemKeys = items.map(i => i.data.key);
+        const caps = (isUncheck) ? capacities.filter(c => c.data.rank >= capacity.data.rank) : capacities.filter(c => c.data.rank <= capacity.data.rank);
+        if(isUncheck){
+            // REMOVE SELECTED CAPS
+            const capsKeys = caps.map(c => c.data.key);
+            const toRemove = items.filter(i => capsKeys.includes(i.data.key)).map(i => i._id);
+            console.log(toRemove);
+            return this.actor.deleteOwnedItem(toRemove);
+        }else {
+            // ADD CAPS IF NOT EXISTS
+            return this.actor.createOwnedItem(caps.filter(c => !itemKeys.includes(c.data.key)));
+        }
     }
 
     /* -------------------------------------------- */

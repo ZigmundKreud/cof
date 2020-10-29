@@ -27,13 +27,15 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareBaseCharacterData(actorData) {
-        this.computeModsAndAttributes(actorData);
-        this.computeAttacks(actorData);
+        // this.computeModsAndAttributes(actorData);
+        // this.computeAttacks(actorData);
     }
 
     /* -------------------------------------------- */
 
     _prepareDerivedCharacterData(actorData) {
+        this.computeModsAndAttributes(actorData);
+        this.computeAttacks(actorData);
         this.computeDef(actorData);
         this.computeXP(actorData);
     }
@@ -185,9 +187,11 @@ export class CofActor extends Actor {
         let attributes = actorData.data.attributes;
         let items = actorData.items;
         let lvl = actorData.data.level.value;
+        let species = this.getSpecies(items);
         let profile = this.getProfile(items);
 
-        for (let stat of Object.values(stats)) {
+        for(const [key, stat] of Object.entries(stats)){
+            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : 0;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
         }

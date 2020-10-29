@@ -12,7 +12,7 @@
         {{#each (getWornMeleeWeapons actor.items) as |item id|}}
             <ol class="item-list">
                 <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
-                    <div class="item-name flexrow rollable" data-roll-type="weapon">
+                    <div class="item-name flexrow" data-roll-type="weapon">
                         <div class="item-image" style="background-image: url('{{item.img}}')"></div>
                         <h4>{{item.name}}</h4>
                     </div>
@@ -45,7 +45,7 @@
         {{#each (getWornRangedWeapons actor.items) as |item id|}}
             <ol class="item-list">
                 <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
-                    <div class="item-name flexrow rollable" data-roll-type="weapon">
+                    <div class="item-name flexrow" data-roll-type="weapon">
                         <div class="item-image" style="background-image: url('{{item.img}}')"></div>
                         <h4>{{item.name}}</h4>
                     </div>
@@ -82,7 +82,7 @@
         {{#each (getSpells actor.items) as |item id|}}
             <ol class="item-list">
                 <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
-                    <div class="item-name flexrow rollable" data-roll-type="weapon">
+                    <div class="item-name flexrow" data-roll-type="weapon">
                         <div class="item-image" style="background-image: url('{{item.img}}')"></div>
                         <h4>{{item.name}}</h4>
                     </div>
@@ -118,7 +118,7 @@
         {{#each (getWornShields actor.items) as |item id|}}
             <ol class="item-list">
                 <li class="item flexrow" data-item-id="{{item._id}}" data-item-type="capacity" draggable="true">
-                    <div class="item-name flexrow rollable" data-roll-type="weapon">
+                    <div class="item-name flexrow" data-roll-type="weapon">
                         <div class="item-image" style="background-image: url('{{item.img}}')"></div>
                         <h4>{{item.name}}</h4>
                     </div>

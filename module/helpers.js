@@ -4,26 +4,16 @@ export const registerHandlebarsHelpers = async function () {
 
     Handlebars.registerHelper('getEmbeddedItems', function (type, ids) {
         if(ids){
-            let compendium = [];
-            let ingame = [];
-            switch(type){
-                case "path" :
-                    compendium = COF.paths;
-                    ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
-                    break;
-                case "capacity" :
-                    compendium = COF.capacities;
-                    ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
-                    break;
-            }
-            const items = ingame.concat(compendium);
+            const items = Traversal.getItemsOfType(type);
             return ids.map(id => items.find(i => i._id === id));
         }
         else return null;
     });
 
     Handlebars.registerHelper('getPaths', function (items) {
-        return items.filter(item => item.type === "path");
+        const profile = items.find(item => item.type === "profile");
+        const paths = Traversal.getItemsOfType("path").filter(p => profile.data.paths.includes(p._id));
+        return paths;
     });
 
     Handlebars.registerHelper('getSpecies', function (items) {
@@ -83,7 +73,10 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('getActiveCapacities', function (items) {
-        let caps = items.filter(item => item.type === "capacity" && item.data.checked);
+        let caps = items.filter(item => {
+            // return item.type === "capacity" && item.data.checked
+            return item.type === "capacity"
+        });
         caps.sort(function (a, b) {
             const aKey = a.data.path + "-" + a.data.rank;
             const bKey = b.data.path + "-" + b.data.rank;
@@ -102,12 +95,15 @@ export const registerHandlebarsHelpers = async function () {
         return caps;
     });
 
-    Handlebars.registerHelper('getCapacitiesByPath', function (items, pathKey) {
-        let caps = items.filter(item => item.type === "capacity" && item.data.path === pathKey);
-        caps.sort(function (a, b) {
-            return (a.data.rank > b.data.rank) ? 1 : -1
-        });
-        return caps;
+    Handlebars.registerHelper('getCapacitiesByIds', function (ids) {
+        if(ids){
+            const caps = Traversal.getItemsOfType("capacity").filter(c => ids.includes(c._id));
+            caps.sort(function (a, b) {
+                return (a.data.rank > b.data.rank) ? 1 : -1
+            });
+            return caps;
+        }
+        else return null;
     });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
@@ -224,4 +220,10 @@ export const registerHandlebarsHelpers = async function () {
     Handlebars.registerHelper('valueAtIndex', function (arr, idx) {
         return arr[idx];
     });
+
+    Handlebars.registerHelper('includesKey', function (items, type, key) {
+        // console.log(items);
+        return items.filter(i => i.type === type).map(i => i.data.key).includes(key);
+    });
+
 }

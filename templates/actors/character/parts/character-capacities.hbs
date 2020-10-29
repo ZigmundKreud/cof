@@ -8,6 +8,7 @@
         <div class="item-detail">Rang</div>
         <div class="item-detail">L</div>
         <div class="item-detail">S</div>
+        <div class="item-detail">Application</div>
         <div class="item-controls">
             <a class="item-control item-create compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Add</a>
         </div>
@@ -26,6 +27,7 @@
                 {{/with}}
                 <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
                 <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
+                <div class="item-detail item-scope">{{#if capacity.data.scope}} {{localize (concat "COF.ui." capacity.data.scope)}}{{/if}}</div>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

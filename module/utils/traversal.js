@@ -123,4 +123,21 @@ export class Traversal {
     static findSpeciesDataById (id) {
         return this.getAllSpeciesData().find(entity => entity._id === id);
     }
+
+
+    static getItemsOfType(type) {
+        let compendium = [];
+        let ingame = [];
+        switch(type){
+            case "path" :
+                compendium = COF.paths;
+                ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
+                break;
+            case "capacity" :
+                compendium = COF.capacities;
+                ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
+                break;
+        }
+        return ingame.concat(compendium);
+    }
 }
