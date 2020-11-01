@@ -8,9 +8,7 @@ nav.sheet-tabs {
     border: none;
 
     .item {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
+      @include ellipsis;
       padding: 5px;
       border: 1px solid $c-border;
       margin: 0;

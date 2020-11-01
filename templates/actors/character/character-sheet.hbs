@@ -18,7 +18,7 @@
                 <br/>
                 <div class="row flexrow">
                     <div class="flex1 center">
-                        <span class="charname">{{split actor.name}}</span>
+                        <span class="charname">{{split actor.name ' ' 0}}</span>
                     </div>
                 </div>
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
@@ -26,62 +26,7 @@
             </div>
             <div class="separator flex1"></div>
             <div class="content flex3">
-                <div class="row flexrow top">
-                    <div class="flex1" style="margin-right: 5px;">
-                        <!-- NAME -->
-                        <div class="row flexrow">
-                            <div class="flex1 center bg-darkgreen">
-                                <span class="field-label">{{ localize 'COF.details.name' }}</span>
-                            </div>
-                            <div class="flex2 center cell">
-                                <input class="field-value sans" name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String"/>
-                            </div>
-                        </div>
-                        <!-- /NAME -->
-                        <!-- LEVEL -->
-                        <div class="row flexrow">
-                            <div class="flex1 center bg-darkgreen">
-                                <span class="field-label">{{ localize 'COF.attributes.level.label' }}</span>
-                            </div>
-                            <div class="flex2 center cell">
-                                <input class="field-value" name="data.level.value" type="text" value="{{actor.data.level.value}}" placeholder="Level" data-dtype="Number"/>
-                            </div>
-                        </div>
-                        <!-- /LEVEL -->
-                    </div>
-                    <div class="flex1">
-                        <!-- SPECIES -->
-                        <div class="row flexrow">
-                            <div class="flex1 center bg-darkgreen">
-                                <span class="field-label">{{ localize 'COF.details.species' }}</span>
-                            </div>
-                            <div class="flex2 center cell drop-field compendium-pack" data-pack="cof.species" data-open="0">
-                                {{#with (getSpecies actor.items)}}
-                                    <div class="flex5 field-value sans" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
-                                    <div class="species-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
-                                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
-                                    </div>
-                                {{/with}}
-                            </div>
-                        </div>
-                        <!-- /SPECIES -->
-                        <!-- PROFILE -->
-                        <div class="row flexrow">
-                            <div class="flex2 center bg-darkgreen">
-                                <span class="field-label">{{ localize 'COF.details.profile' }}</span>
-                            </div>
-                            <div class="flex4 center cell drop-field compendium-pack" data-pack="cof.profiles" data-open="0">
-                                {{#with (getProfile actor.items)}}
-                                    <div class="flex5 field-value sans" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
-                                    <div class="profile-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
-                                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
-                                    </div>
-                                {{/with}}
-                            </div>
-                        </div>
-                        <!-- /PROFILE -->
-                    </div>
-                </div>
+                {{> "systems/cof/templates/actors/character/parts/character-header.hbs"}}
                 <div class="row flexrow"><div class="flex1 half-spacer"></div></div>
                 {{!-- Sheet Tab Navigation --}}
                 <nav class="sheet-tabs tabs" data-group="primary">
@@ -89,29 +34,25 @@
                     <a class="item" data-tab="combat">{{ localize "COF.tabs.combat" }}</a>
                     <a class="item compendium-pack" data-pack="cof.items" data-open="0" data-tab="inventory">{{ localize "COF.tabs.inventory" }}</a>
                     <a class="item compendium-pack" data-pack="cof.paths" data-open="0" data-tab="capacities">{{ localize "COF.tabs.paths" }} & {{ localize "COF.tabs.capacities" }}</a>
-<!--                    <a class="item compendium-pack" data-pack="cof.capacities" data-open="0" data-tab="capacities">{{ localize "COF.tabs.capacities" }}</a>-->
                     <a class="item" data-tab="description">{{ localize "COF.tabs.description" }}</a>
                 </nav>
                 {{!-- Sheet Body --}}
                 <section class="sheet-body">
                     {{!-- Stats Tab --}}
                     <div class="tab stats" data-group="primary" data-tab="stats">
-                        {{> "systems/cof/templates/actors/character/parts/character-stats.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/stats/character-stats.hbs"}}
                     </div>
                     {{!-- Combat Tab --}}
                     <div class="tab combat" data-group="primary" data-tab="combat">
-                        {{> "systems/cof/templates/actors/character/parts/character-combat.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/combat/character-combat.hbs"}}
                     </div>
-                    {{!-- Paths Tab --}}
-<!--                    <div class="tab paths" data-group="primary" data-tab="paths">-->
-<!--                    </div>-->
                     {{!-- Capacitites Tab --}}
                     <div class="tab capacities" data-group="primary" data-tab="capacities">
-                        {{> "systems/cof/templates/actors/character/parts/character-paths.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/capacities/character-paths.hbs"}}
                     </div>
                     {{!-- Inventory Tab --}}
                     <div class="tab inventory" data-group="primary" data-tab="inventory">
-                        {{> "systems/cof/templates/actors/character/parts/character-inventory.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory.hbs"}}
                     </div>
                     {{!-- Notes Tab --}}
                     <div class="tab description" data-group="primary" data-tab="description">

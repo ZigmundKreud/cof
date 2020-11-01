@@ -1,13 +1,78 @@
 <h3 class="form-header">{{localize "COF.ui.equipment"}}</h3>
 
-<div class="form-group stacked">
+<div class="form-group">
     <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
-        <label class="checkbox">
-            <input type="checkbox" name="data.properties.equipable" {{checked item.data.properties.equipable}}> {{localize "COF.ui.equipable"}}
-        </label>
-        <label class="checkbox">
-            <input type="checkbox" name="data.properties.stackable" {{checked item.data.properties.stackable}}> {{localize "COF.ui.stackable"}}
-        </label>
+        <label class="checkbox"> <input type="checkbox" name="data.properties.equipable" {{checked data.properties.equipable}}> {{localize "COF.ui.equipable"}}</label>
+{{#if (not data.properties.unique)}}
+        <label class="checkbox"> <input type="checkbox" name="data.properties.stackable" {{checked data.properties.stackable}}> {{localize "COF.ui.stackable"}}</label>
+{{/if}}
+{{#if (not data.properties.stackable)}}
+        <label class="checkbox"> <input type="checkbox" name="data.properties.unique"    {{checked data.properties.unique}}> Unique </label>
+{{/if}}
+        <label class="checkbox"> <input type="checkbox" name="data.properties.tailored"  {{checked data.properties.tailored}}> Sur-mesure </label>
+        <label class="checkbox"><input type="checkbox" name="data.properties.2h" {{checked data.properties.2h}}> {{localize "COF.ui.2H"}}</label>
     </div>
 </div>
+{{#if data.properties.equipable}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.slot"}}</label>
+        <div class="form-fields">
+            <select name="data.slot" data-type="String" style="width:100%">
+                {{#select data.slot}}
+                    <option value="">{{localize "COF.None"}}</option>
+                    <option value="hand">{{localize "COF.slot.hand"}}</option>
+                    <option value="head">{{localize "COF.slot.head"}}</option>
+                    <option value="ear">{{localize "COF.slot.ear"}}</option>
+                    <option value="neck">{{localize "COF.slot.neck"}}</option>
+                    <option value="shoulders">{{localize "COF.slot.shoulders"}}</option>
+                    <option value="chest">{{localize "COF.slot.chest"}}</option>
+                    <option value="back">{{localize "COF.slot.back"}}</option>
+                    <option value="arm">{{localize "COF.slot.arm"}}</option>
+                    <option value="finger">{{localize "COF.slot.finger"}}</option>
+                    <option value="wrist">{{localize "COF.slot.wrist"}}</option>
+                    <option value="waist">{{localize "COF.slot.waist"}}</option>
+                    <option value="legs">{{localize "COF.slot.legs"}}</option>
+                    <option value="feet">{{localize "COF.slot.feet"}}</option>
+                    <option value="belt">{{localize "COF.slot.belt"}}</option>
+                    <option value="backpack">{{localize "COF.slot.backpack"}}</option>
+                    <option value="quiver">{{localize "COF.slot.quiver"}}</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+{{/if}}
+<div class="form-group">
+    <label>{{ localize "COF.ui.price" }} (en PA)</label>&nbsp; <input type="number" name="data.price" value="{{data.price}}" data-dtype="Number"/>
+</div>
+<div class="form-group">
+    <label>{{ localize "COF.ui.rarity" }}</label>&nbsp; <select name="data.rarity" data-type="String" style="width:100%">
+    {{#select data.rarity}}
+        <option value="">{{localize "COF.None"}}</option>
+        <option value="common">{{localize "COF.rarity.common"}}</option>
+        <option value="moderate">{{localize "COF.rarity.moderate"}}</option>
+        <option value="rare">{{localize "COF.rarity.rare"}}</option>
+        <option value="very-rare">{{localize "COF.rarity.very-rare"}}</option>
+        {{#if (not data.properties.stackable)}}<option value="unique">{{localize "COF.rarity.unique"}}</option>{{/if}}
+    {{/select}}
+</select>
+</div>
+{{#if (equals data.subtype "container")}}
+    <div class="form-group">
+        <label>{{ localize "COF.ui.capacity" }}</label>&nbsp; <input type="number" name="data.capacity" value="{{data.capacity}}" data-dtype="Number"/>
+    </div>
+{{/if}}
+{{#if data.properties.stackable}}
+    <div class="form-group">
+        <label>{{ localize "COF.ui.quantity" }}</label>
+        <div class="form-fields">
+            <input type="number" name="data.qty" value="{{data.qty}}" placeholder="{{localize "COF.ui.quantity"}}" data-dtype="Number"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>{{localize "COF.ui.stacksize"}}</label>
+        <div class="form-fields">
+            <input name="data.stacksize" type="text" value="{{data.stacksize}}" placeholder="{{localize "COF.placeholders.stacksize"}}" data-dtype="Number">
+        </div>
+    </div>
+{{/if}}

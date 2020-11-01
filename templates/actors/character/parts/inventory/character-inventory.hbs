@@ -1,0 +1,100 @@
+<div class="flexrow no-wrap currencies" style="max-height:20px">
+    <div class="flex7"></div>
+    <div class="flex1 center">Bourse</div>
+    <div class="flex1 right">
+        <i title="Pièces de platine (10 po)" class="fas fa-coins" style="color:dimgray"></i><input class="field-value center" name="data.currency.pp.qty" type="number" value="{{actor.data.currency.pp.qty}}" placeholder="Pièces de platine (10 po)" data-dtype="Number"/>
+    </div>
+    <div class="flex1 right">
+        <i title="Pièces d'or (10 pa)" class="fas fa-coins" style="color:goldenrod"></i><input class="field-value center" name="data.currency.gp.qty" type="number" value="{{actor.data.currency.gp.qty}}" placeholder="Pièces d'or (10 pa)" data-dtype="Number"/>
+    </div>
+    <div class="flex1 right">
+        <i title="Pièces d'argent (10 pc)" class="fas fa-coins" style="color:silver"></i><input class="field-value center" name="data.currency.sp.qty" type="number" value="{{actor.data.currency.sp.qty}}" placeholder="Pièces d'argent (10 pc)" data-dtype="Number"/>
+    </div>
+    <div class="flex1 right">
+        <i title="Pièces de cuivre" class="fas fa-coins" style="color:saddlebrown"></i><input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.data.currency.cp.qty}}" placeholder="Pièces de cuivre" data-dtype="Number"/>
+    </div>
+</div>
+{{#if (notEmpty (getInventory actor.items))}}
+    <ol class="inventory-list">
+        {{#if (notEmpty (getArmors actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Armures</h3>
+                <div class="item-detail">Qté</div>
+                <div class="item-detail">Equiper</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getArmors actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        {{#if (notEmpty (getShields actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Boucliers</h3>
+                <div class="item-detail">Qté</div>
+                <div class="item-detail">Equiper</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getShields actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        {{#if (notEmpty (getMeleeWeapons actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Armes de contact</h3>
+                <div class="item-detail">Qté</div>
+                <div class="item-detail">Equiper</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getMeleeWeapons actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        {{#if (notEmpty (getRangedWeapons actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Armes à distance</h3>
+                <div class="item-detail">Qté</div>
+                <div class="item-detail">Equiper</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getRangedWeapons actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        {{#if (notEmpty (getTrappings actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Divers</h3>
+                <div class="item-detail">Qté</div>
+                <div class="item-detail">Equiper</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getTrappings actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        {{#if (notEmpty (getItems actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Items</h3>
+                <div class="item-detail">Qté</div>
+                <div class="item-detail">Equiper</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getItems actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+    </ol>
+{{else}}
+    <p class="empty">Votre inventaire est vide.</p>
+{{/if}}

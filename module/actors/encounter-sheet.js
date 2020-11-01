@@ -34,25 +34,25 @@ export class CofEncounterSheet extends CofActorSheet {
             }
         });
 
-        html.find('.attack-add').click(ev => {
+        html.find('.weapon-add').click(ev => {
             ev.preventDefault();
-            const elt = $(ev.currentTarget).parents(".attack");
+            const elt = $(ev.currentTarget).parents(".weapon");
             const idx = elt.data("itemId");
             const data = this.getData().data;
-            data.attacks = Object.values(data.attacks);
-            data.attacks.push({"name":"", "mod":null, "dmg":null});
-            this.actor.update({'data.attacks': data.attacks});
+            data.weapons = Object.values(data.weapons);
+            data.weapons.push({"name":"", "mod":null, "dmg":null});
+            // this.actor.update({'data.weapons': data.weapons});
         });
 
-        html.find('.attack-remove').click(ev => {
+        html.find('.weapon-remove').click(ev => {
             ev.preventDefault();
-            const elt = $(ev.currentTarget).parents(".attack");
+            const elt = $(ev.currentTarget).parents(".weapon");
             const idx = elt.data("itemId");
             const data = this.getData().data;
-            data.attacks = Object.values(data.attacks);
-            if(data.attacks.length == 1) data.attacks[0] = {"name":"", "mod":null, "dmg":null};
-            else data.attacks.splice(idx, 1);
-            this.actor.update({'data.attacks': data.attacks});
+            data.weapons = Object.values(data.weapons);
+            if(data.weapons.length == 1) data.weapons[0] = {"name":"", "mod":null, "dmg":null};
+            else data.weapons.splice(idx, 1);
+            // this.actor.update({'data.weapons': data.weapons});
         });
     }
 }

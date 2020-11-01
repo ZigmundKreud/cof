@@ -1,0 +1,86 @@
+{{#if (notEmpty (getWornItems actor.items))}}
+    <ol class="inventory-list">
+        <!-- MELEE -->
+        {{#if (notEmpty (getWornMeleeWeapons actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Armes de contact</h3>
+                <div class="item-detail">Usage</div>
+                <div class="item-detail">Crit</div>
+                <div class="item-detail">Mod</div>
+                <div class="item-detail">DM</div>
+                <div class="item-controls"></div>
+            </li>
+            {{#each (getWornMeleeWeapons actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        <!-- RANGED -->
+        {{#if (notEmpty (getWornRangedWeapons actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Armes à distance</h3>
+                <div class="item-detail">Portée(m)</div>
+                <div class="item-detail">Usage</div>
+                <div class="item-detail">Crit</div>
+                <div class="item-detail">Mod</div>
+                <div class="item-detail">DM</div>
+                <div class="item-controls"></div>
+            </li>
+            {{#each (getWornRangedWeapons actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        <!-- SPELLS -->
+        {{#if (notEmpty (getSpells actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Sorts</h3>
+                <div class="item-detail">Def</div>
+                <div class="item-detail">Portée(m)</div>
+                <div class="item-detail">Usage</div>
+                <div class="item-detail">Crit</div>
+                <div class="item-detail">Mod</div>
+                <div class="item-detail">DM</div>
+                <div class="item-controls">
+                    <a class="item-control item-create compendium-pack" data-pack="cof.spells" data-open="0" title="Ajouter un sort"><i class="fas fa-plus"></i>&nbsp; Add</a>
+                </div>
+            </li>
+            {{#each (getSpells actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        <!-- SHIELD -->
+        {{#if (notEmpty (getWornShields actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Boucliers</h3>
+                <div class="item-detail">Def</div>
+                <div class="item-detail"></div>
+                <div class="item-detail">Usage</div>
+                <div class="item-detail">Crit</div>
+                <div class="item-detail">Mod</div>
+                <div class="item-detail">DM</div>
+                <div class="item-controls"></div>
+            </li>
+            {{#each (getWornShields actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+        <!-- ARMOR -->
+        {{#if (notEmpty (getWornArmors actor.items))}}
+            <li class="inventory-header flexrow">
+                <h3 class="item-name flexrow">Armures</h3>
+                <div class="item-detail">Def</div>
+                <div class="item-detail"></div>
+                <div class="item-detail"></div>
+                <div class="item-detail"></div>
+                <div class="item-detail"></div>
+                <div class="item-detail"></div>
+                <div class="item-controls"></div>
+            </li>
+            {{#each (getWornArmors actor.items) as |item id|}}
+                {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
+            {{/each}}
+        {{/if}}
+    </ol>
+
+{{else}}
+    <p class="empty">Aucun objet équipé pour le moment.</p>
+{{/if}}

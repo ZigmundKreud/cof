@@ -28,20 +28,20 @@
 /* ----------------------------------------- */
 /* Scrollbar
 /* ----------------------------------------- */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  box-shadow: 0 0 1px #999 inset;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb {
-  outline: none;
-  border-radius: 3px;
-  background: $c-dark;
-  border: 1px solid $c-dark;
-}
-:root {
-  scrollbar-width: thin;
-  scrollbar-color: $c-dark #111;
-}
+//::-webkit-scrollbar {
+//  width: 6px;
+//}
+//::-webkit-scrollbar-track {
+//  box-shadow: 0 0 1px #999 inset;
+//  border-radius: 4px;
+//}
+//::-webkit-scrollbar-thumb {
+//  outline: none;
+//  border-radius: 3px;
+//  background: $c-dark;
+//  border: 1px solid $c-dark;
+//}
+//:root {
+//  scrollbar-width: thin;
+//  scrollbar-color: $c-dark #111;
+//}

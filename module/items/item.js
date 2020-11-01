@@ -18,21 +18,22 @@ export class CofItem extends Item {
     prepareData() {
         super.prepareData();
         const itemData = this.data;
+        // if(Object.keys(this.data.flags).length>0) console.log(this.data);
         // console.log(itemData);
         const actorData = (this.actor) ? this.actor.data : null;
         switch (itemData.type) {
+            case "item" :
+                this._prepareArmorData(itemData, actorData);
+                this._prepareWeaponData(itemData, actorData);
+                break;
             case "armor" :
                 this._prepareArmorData(itemData, actorData);
                 break;
             case "melee" :
-                this._prepareWeaponData(itemData, actorData);
-                break;
             case "ranged" :
                 this._prepareWeaponData(itemData, actorData);
                 break;
             case "spell" :
-                this._prepareWeaponData(itemData, actorData);
-                break;
             case "shield" :
                 this._prepareArmorData(itemData, actorData);
                 this._prepareWeaponData(itemData, actorData);
@@ -97,6 +98,7 @@ export class CofItem extends Item {
     _prepareWeaponData(itemData, actorData) {
         itemData.data.skillBonus = (itemData.data.skillBonus) ? itemData.data.skillBonus : 0;
         itemData.data.dmgBonus = (itemData.data.dmgBonus) ? itemData.data.dmgBonus : 0;
+        // console.log(actorData);
         if (actorData) {
             // Compute skill mod
             const skillMod = eval("actorData.data." + itemData.data.skill.split("@")[1]);

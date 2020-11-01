@@ -1,19 +1,16 @@
 import {Traversal} from "./utils/traversal.js";
 
-export const registerHandlebarsHelpers = async function () {
+export const registerHandlebarsHelpers = function () {
 
     Handlebars.registerHelper('getEmbeddedItems', function (type, ids) {
-        if(ids){
+        if (ids) {
             const items = Traversal.getItemsOfType(type);
             return ids.map(id => items.find(i => i._id === id));
-        }
-        else return null;
+        } else return null;
     });
 
     Handlebars.registerHelper('getPaths', function (items) {
-        const profile = items.find(item => item.type === "profile");
-        const paths = Traversal.getItemsOfType("path").filter(p => profile.data.paths.includes(p._id));
-        return paths;
+        return items.filter(item => item.type === "path");
     });
 
     Handlebars.registerHelper('getSpecies', function (items) {
@@ -41,7 +38,13 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('getInventory', function (items) {
-        return items.filter(item => item.type === "armor" || item.type === "shield" || item.type === "melee" || item.type === "ranged" || item.type === "trapping");
+        let inventory = items.filter(item => item.type === "item" || item.type === "armor" || item.type === "shield" || item.type === "melee" || item.type === "ranged" || item.type === "trapping");
+        inventory.sort(function (a, b) {
+            const aKey = a.type + "-" + a.name.slugify({strict: true});
+            const bKey = b.type + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+        return inventory;
     });
 
     Handlebars.registerHelper('getWornItems', function (items) {
@@ -68,9 +71,18 @@ export const registerHandlebarsHelpers = async function () {
         return items.filter(item => item.type === "trapping");
     });
 
+    Handlebars.registerHelper('getItems', function (items) {
+        return items.filter(item => item.type === "item");
+    });
+
     Handlebars.registerHelper('getProfile', function (items) {
         return items.find(item => item.type === "profile");
     });
+
+    Handlebars.registerHelper('countPaths', function (items) {
+        return items.filter(item => item.type === "path").length;
+    });
+
 
     Handlebars.registerHelper('getActiveCapacities', function (items) {
         let caps = items.filter(item => {
@@ -96,22 +108,19 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('getCapacitiesByIds', function (ids) {
-        if(ids){
+        if (ids) {
             const caps = Traversal.getItemsOfType("capacity").filter(c => ids.includes(c._id));
             caps.sort(function (a, b) {
-                return (a.data.rank > b.data.rank) ? 1 : -1
+                const indexA = ids.indexOf(a._id);
+                const indexB = ids.indexOf(b._id);
+                return (indexA > indexB) ? 1 : -1
             });
             return caps;
-        }
-        else return null;
+        } else return null;
     });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
         return items.filter(item => item.type === "path").find(p => p.data.key === pathKey);
-    });
-
-    Handlebars.registerHelper('is2H', function (item) {
-        return parseInt(item.data.hands) === 2;
     });
 
     Handlebars.registerHelper('isNull', function (val) {
@@ -119,7 +128,7 @@ export const registerHandlebarsHelpers = async function () {
     });
 
     Handlebars.registerHelper('isEmpty', function (list) {
-        if(list) return list.length == 0;
+        if (list) return list.length == 0;
         else return 0;
     });
 
@@ -174,12 +183,16 @@ export const registerHandlebarsHelpers = async function () {
         return val1 || val2;
     });
 
+    Handlebars.registerHelper('not', function (cond) {
+        return !cond;
+    });
+
     Handlebars.registerHelper('isEnabled', function (configKey) {
         return game.settings.get("cof", configKey);
     });
 
-    Handlebars.registerHelper('split', function (str) {
-        return str.split(' ')[0];
+    Handlebars.registerHelper('split', function (str, separator, keep) {
+        return str.split(separator)[keep];
     });
 
     Handlebars.registerHelper('listProfiles', function () {

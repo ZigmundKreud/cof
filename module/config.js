@@ -11,6 +11,34 @@ System.debugMode = true;
 
 const COF = {};
 
+COF.itemProperties = {
+    "equipable": "COF.properties.equipable",
+    "stackable": "COF.properties.stackable",
+    "unique": "COF.properties.unique",
+    "tailored": "COF.properties.tailored",
+    "2h": "COF.properties.2H",
+    "predilection": "COF.properties.predilection",
+    "ranged": "COF.properties.ranged",
+    "proficient": "COF.properties.proficient",
+    "finesse": "COF.properties.finesse",
+    "two-handed": "COF.properties.two-handed",
+    "equipment": "COF.properties.equipment",
+    "weapon": "COF.properties.weapon",
+    "protection": "COF.properties.protection",
+    "reloadable": "COF.properties.reloadable",
+    "bow": "COF.properties.bow",
+    "crossbow": "COF.properties.crossbow",
+    "powder": "COF.properties.powder",
+    "throwing": "COF.properties.throwing",
+    "dr": "COF.properties.dr",
+    "sneak": "COF.properties.sneak",
+    "powerful": "COF.properties.powerful",
+    "critscience": "COF.properties.critscience",
+    "specialization": "COF.properties.specialization",
+    "effects": "COF.properties.effects"
+
+};
+
 COF.profiles = [];
 COF.species = [];
 COF.paths = [];

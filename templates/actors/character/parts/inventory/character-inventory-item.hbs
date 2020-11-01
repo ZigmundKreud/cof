@@ -1,0 +1,21 @@
+<ol class="item-list">
+    <li class="item flexrow" data-item-id="{{_id}}" draggable="true">
+        <div class="item-name flexrow">
+            <div class="item-image" style="background-image: url('{{img}}')"></div>
+            <h4>{{name}}</h4>
+        </div>
+        {{localize (concat "COF.category." type)}}
+        <div class="item-detail">{{data.qty}}</div>
+        <div class="item-detail">
+            {{#if data.worn}}
+                <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+            {{else}}
+                <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+            {{/if}}
+        </div>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+</ol>

@@ -48,7 +48,7 @@ Hooks.once("init", async function () {
     Actors.registerSheet("cof", CofCharacterSheet, {types: ["character", "npc"], makeDefault: true});
     Actors.registerSheet("cof", CofEncounterSheet, {types: ["encounter"], makeDefault: true});
     // Register item sheets
-    Items.registerSheet("cof", CofItemSheet, {types: ["capacity", "profile", "path", "species", "armor", "shield", "melee", "ranged", "spell", "trapping"], makeDefault: true});
+    Items.registerSheet("cof", CofItemSheet, {types: ["item", "capacity", "profile", "path", "species", "armor", "shield", "melee", "ranged", "spell", "trapping"], makeDefault: true});
 
     // Register System Settings
     registerSystemSettings();

@@ -7,7 +7,6 @@ import {UpdateUtils} from "../utils/update-utils.js";
 
 Hooks.once("ready", async () => {
 
-    // if (game.settings.get("cof", "importData")) {
     //     console.debug("Importing data");
         // DataLoader.loadData("capacities");
         // DataLoader.loadData("encounters");
@@ -16,7 +15,6 @@ Hooks.once("ready", async () => {
         // DataLoader.loadData("profiles");
         // DataLoader.loadData("species");
         // DataLoader.loadData("spells");
-    // }
 
     await COF.getProfiles();
     await COF.getSpecies();

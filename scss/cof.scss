@@ -8,15 +8,10 @@
 @import 'global/window';
 @import 'global/grid';
 @import 'global/flex';
+@import 'global/chat';
 
 /* Styles limited to cof sheets */
 .cof {
-  @import 'components/chat';
-  @import 'components/forms';
-
-  input::placeholder {
-    color: lightgray;
-  }
 
   &.actor {
     @import 'components/actor_layout';
@@ -28,9 +23,9 @@
     //@import 'components/item_skin';
   }
 
+  @import 'components/forms';
   @import 'components/tabs';
   @import 'components/inventory';
   //@import 'components/items';
 
 }
-

@@ -1,3 +1,8 @@
+.currencies {
+  //box-shadow: 0 4px 3px -3px gray;
+  margin: 0 0 5px 0;
+  padding: 5px;
+}
 .inventory-list {
   list-style: none;
   margin: 0;
@@ -29,6 +34,7 @@
         margin: 0;
         white-space: nowrap;
         overflow-x: hidden;
+        @include ellipsis;
       }
 
       &.rollable:hover .item-image {
@@ -78,7 +84,8 @@
       margin: 0 -5px 0 0;
       padding-left: 5px;
       @include modesto;
-      font-size: 16px;
+      //font-size: 16px;
+      font-size: 18px;
     }
 
     .item-controls a.item-create {
@@ -88,7 +95,8 @@
 
   // Item names
   .item-name {
-    color: $colorDark;
+    //color: $colorDark;
+    color: $colorOlive;
   }
 
   // Item Detail Sections

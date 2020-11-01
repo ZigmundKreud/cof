@@ -10,6 +10,7 @@ export class CofActor extends Actor {
     prepareBaseData() {
         super.prepareBaseData();
         let actorData = this.data;
+        // console.log(actorData);
         if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
         else this._prepareBaseCharacterData(actorData);
     }
@@ -27,15 +28,15 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareBaseCharacterData(actorData) {
-        // this.computeModsAndAttributes(actorData);
-        // this.computeAttacks(actorData);
+        this.computeModsAndAttributes(actorData);
+        this.computeAttacks(actorData);
     }
 
     /* -------------------------------------------- */
 
     _prepareDerivedCharacterData(actorData) {
-        this.computeModsAndAttributes(actorData);
-        this.computeAttacks(actorData);
+        // this.computeModsAndAttributes(actorData);
+        // this.computeAttacks(actorData);
         this.computeDef(actorData);
         this.computeXP(actorData);
     }
@@ -132,6 +133,13 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
+    getActiveSpells(items) {
+        // return items.filter(item => item.type === "spell" && item.data.worn)
+        return items.filter(item => item.type === "spell")
+    }
+
+    /* -------------------------------------------- */
+
     getProfile(items) {
         return items.find(i => i.type === "profile")
     }
@@ -145,7 +153,7 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveCapacities(items) {
-        return items.filter(i => i.type === "capacity" && i.data.checked)
+        return items.filter(i => i.type === "capacity")
     }
 
     /* -------------------------------------------- */
@@ -191,7 +199,7 @@ export class CofActor extends Actor {
         let profile = this.getProfile(items);
 
         for(const [key, stat] of Object.entries(stats)){
-            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : 0;
+            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
         }
@@ -207,6 +215,9 @@ export class CofActor extends Actor {
 
         const magicMod = this.getMagicMod(stats, profile);
         if(profile){
+
+            attributes.hd.value = profile.data.dv;
+
             switch (profile.data.key) {
                 case "barde" :
                 case "forgesort" :
@@ -264,12 +275,14 @@ export class CofActor extends Actor {
 
         let armors = this.getWornArmors(items);
         let shields = this.getWornShields(items);
+        let spells = this.getActiveSpells(items);
 
         // COMPUTE DEF SCORES
         let armor = armors.map(armor => armor.data.def).reduce((acc, curr) => acc + curr, 0);
         let shield = shields.map(shield => shield.data.def).reduce((acc, curr) => acc + curr, 0);
+        let spell = spells.map(spell => spell.data.def).reduce((acc, curr) => acc + curr, 0);
 
-        attributes.def.base = 10 + armor + shield + stats.dex.mod;
+        attributes.def.base = 10 + armor + shield + spell + stats.dex.mod;
         attributes.def.value = attributes.def.base + attributes.def.bonus;
 
     }

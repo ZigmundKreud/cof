@@ -1,0 +1,26 @@
+<ol class="item-list">
+    <li class="item flexrow" data-item-id="{{_id}}" data-item-type="item" draggable="true">
+        <div class="item-name flexrow" data-roll-type="weapon">
+            <div class="item-image" style="background-image: url('{{img}}')"></div>
+            <h4>{{name}}</h4>
+        </div>
+        {{#if data.def}}<div class="item-detail">{{numberFormat data.def decimals=0 sign=true}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+        <div class="item-detail">{{data.range}}</div>
+        <div class="item-detail">
+            {{#if data.hands}}
+                {{#if (equals data.hands 2)}}
+                    <i class="fas fa-hand-paper"></i><i class="fas fa-hand-paper"></i>
+                {{else}}
+                    <i class="fas fa-hand-paper"></i>
+                {{/if}}
+            {{/if}}
+        </div>
+        <div class="item-detail">{{data.critrange}}</div>
+        <div class="item-detail">{{data.mod}}</div>
+        <div class="item-detail">{{data.dmg}}</div>
+        <div class="item-controls">
+            <a class="item-control rollable" data-roll-type="weapon"><i class="fas fa-dice-d20"></i></a>
+            <a class="item-control rollable" data-roll-type="damage"><i class="fas fa-dice"></i></a>
+        </div>
+    </li>
+</ol>

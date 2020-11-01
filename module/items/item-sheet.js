@@ -14,7 +14,7 @@ export class CofItemSheet extends ItemSheet {
             template: System.templatesPath + "/items/item-sheet.hbs",
             width: 600,
             height: 600,
-            tabs: [{navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "description"}],
+            tabs: [{navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "details"}],
             dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
         });
     }
@@ -171,14 +171,12 @@ export class CofItemSheet extends ItemSheet {
         event.preventDefault();
         let data = duplicate(this.item.data);
         const id = itemData._id;
-        if(data.type === "path" || data.type === "species"){
-            if(!data.data.capacities.includes(id)){
-                let caps = data.data.capacities;
-                caps.push(id);
-                return this.item.update(data);
-            }
-            else ui.notifications.error("Cette voie contient déjà cette capacité.")
+        if(data.data.capacities && !data.data.capacities.includes(id)){
+            let caps = data.data.capacities;
+            caps.push(id);
+            return this.item.update(data);
         }
+        else ui.notifications.error("Cette voie contient déjà cette capacité.")
     }
 
     /* -------------------------------------------- */
@@ -216,4 +214,89 @@ export class CofItemSheet extends ItemSheet {
             return this.item.update(data);
         }
     }
+
+    /** @override */
+    getData() {
+        const data = super.getData();
+        data.labels = this.item.labels;
+
+        // Include CONFIG values
+        data.config = game.cof.config;
+
+        // Item Type, Status, and Details
+        data.itemType = data.item.type.titleCase();
+        // data.itemStatus = this._getItemStatus(data.item);
+        data.itemProperties = this._getItemProperties(data.item);
+        // data.isPhysical = data.item.data.hasOwnProperty("quantity");
+
+        // Potential consumption targets
+        // data.abilityConsumptionTargets = this._getItemConsumptionTargets(data.item);
+
+        // Action Details
+        // data.hasAttackRoll = this.item.hasAttack;
+        // data.isHealing = data.item.data.actionType === "heal";
+        // data.isFlatDC = getProperty(data.item.data, "save.scaling") === "flat";
+
+        // Vehicles
+        // data.isCrewed = data.item.data.activation?.type === 'crew';
+        // data.isMountable = this._isItemMountable(data.item);
+        return data;
+    }
+
+
+
+    /* -------------------------------------------- */
+
+    /**
+     * Get the Array of item properties which are used in the small sidebar of the description tab
+     * @return {Array}
+     * @private
+     */
+    _getItemProperties(item) {
+        const props = [];
+        // const labels = this.item.labels;
+
+        if ( item.type === "item" ) {
+            const entries = Object.entries(item.data.properties)
+            props.push(...entries.filter(e => e[1] === true).map(e => {
+                console.log(e[0]);
+                return game.cof.config.itemProperties[e[0]]
+            }));
+        }
+
+        // else if ( item.type === "spell" ) {
+        //     // props.push(
+        //         // labels.components,
+        //         // labels.materials,
+        //         // item.data.components.concentration ? game.i18n.localize("DND5E.Concentration") : null,
+        //         // item.data.components.ritual ? game.i18n.localize("DND5E.Ritual") : null
+        //     // )
+        // }
+        //
+        // else if ( item.type === "equipment" ) {
+        //     props.push(CONFIG.DND5E.equipmentTypes[item.data.armor.type]);
+        //     props.push(labels.armor);
+        // }
+
+        // else if ( item.type === "feat" ) {
+        //     props.push(labels.featType);
+        // }
+
+        // Action type
+        // if ( item.data.actionType ) {
+        //     props.push(CONFIG.DND5E.itemActionTypes[item.data.actionType]);
+        // }
+
+        // Action usage
+        // if ( (item.type !== "weapon") && item.data.activation && !isObjectEmpty(item.data.activation) ) {
+        //     props.push(
+        //         labels.activation,
+        //         labels.range,
+        //         labels.target,
+        //         labels.duration
+        //     )
+        // }
+        return props.filter(p => !!p);
+    }
+
 }

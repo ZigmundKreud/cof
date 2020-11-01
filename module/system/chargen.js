@@ -10,7 +10,7 @@ export class CharacterGeneration {
                 sound: CONFIG.sounds.dice,
                 content : html
             };
-            if(actor) msgData.speaker = ChatMessage.getSpeaker({actor: this.actor});
+            if(actor) msgData.speaker = ChatMessage.getSpeaker({actor: actor});
             ChatMessage.create(msgData);
         });
     }

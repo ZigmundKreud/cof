@@ -199,6 +199,12 @@
             "bonus": 0,
             "value": 0,
             "max": 0
+          },
+          "hd": {
+            "key" : "hd",
+            "label" : "COF.attributes.hd.label",
+            "abbrev" : "COF.attributes.hd.abbrev",
+            "value": "1d4"
           }
         },
         "currency": {
@@ -300,6 +306,7 @@
   },
   "Item": {
     "types": [
+      "item",
       "capacity",
       "trapping",
       "species",
@@ -320,9 +327,7 @@
         "def" : 0,
         "defBase" : 0,
         "defBonus" : 0,
-        "dr" : 0
-      },
-      "weapon" : {
+        "dr" : 0,
         "dmg": "",
         "dmgBase": "",
         "dmgStat": "",
@@ -332,78 +337,55 @@
         "skillBonus" : 0,
         "critrange": "20",
         "hands": 1,
-        "properties": {
-          "predilection": false
-        }
-      },
-      "ranged" : {
         "range": 0,
         "reload": "",
-        "properties": {
-          "ranged": true
-        }
-      },
-      "equipment" : {
         "worn": false,
+        "slot": "",
         "qty" : 1,
+        "stacksize" : null,
         "price": 0,
         "rarity" : "common",
         "properties": {
+          "predilection": false,
+          "ranged": false,
           "equipable": false,
-          "stackable": true
+          "stackable": false,
+          "activable" : false,
+          "unique" : false,
+          "tailored" : false,
+          "2H" : false,
+          "proficient" : false,
+          "finesse" : false,
+          "equipment" : false,
+          "weapon" : false,
+          "protection" : false,
+          "reloadable" : false,
+          "bow" : false,
+          "crossbow" : false,
+          "powder" : false,
+          "throwing" : false,
+          "dr" : false,
+          "sneak" : false,
+          "powerful" : false,
+          "critscience" : false,
+          "specialization" : false,
+          "effects" : false,
+          "13strmin" : false,
+          "bashing" : false,
+          "sling" : false,
+          "spell" : false
         }
       }
     },
-    "trapping": {
+    "item" : {
       "templates": [
         "base",
-        "equipment"
-      ]
-    },
-    "armor": {
-      "templates": [
-        "base",
-        "protection",
-        "equipment"
-      ]
-    },
-    "shield": {
-      "templates": [
-        "base",
+        "equipment",
         "protection",
         "weapon",
-        "equipment"
+        "ranged"
       ],
-      "dmgBase": "1d4",
-      "dmgStat": "@stats.str.mod",
-      "skill": "@attacks.melee.mod"
-    },
-    "melee": {
-      "templates": [
-        "base",
-        "weapon",
-        "equipment"
-      ],
-      "dmgStat": "@stats.str.mod",
-      "skill": "@attacks.melee.mod"
-    },
-    "ranged": {
-      "templates": [
-        "base",
-        "weapon",
-        "ranged",
-        "equipment"
-      ],
-      "skill": "@attacks.ranged.mod"
-    },
-    "spell": {
-      "templates": [
-        "base",
-        "weapon",
-        "ranged",
-        "protection"
-      ],
-      "skill": "@attacks.magic.mod"
+      "subtype" : ""
     },
     "capacity": {
       "templates": [
@@ -412,13 +394,8 @@
       "key": "",
       "summary" : "",
       "rank": null,
-      "scope": null,
-      "profile": null,
-      "path": null,
-      "checked": false,
       "limited": false,
-      "spell": false,
-      "inPath": true
+      "spell": false
     },
     "profile": {
       "templates": [

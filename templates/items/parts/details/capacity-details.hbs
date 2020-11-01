@@ -1,89 +1,13 @@
 <h3 class="form-header">{{localize "COF.ui.properties"}}</h3>
-<input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
-
-<div class="form-group">
-    <label>{{localize "COF.ui.scope"}}</label>
-    <div class="form-fields">
-        <select name="data.scope" data-type="String" style="width:100%">
-            {{#select data.scope}}
-                <option value="">{{localize "COF.None"}}</option>
-                <option value="alternative">{{localize "COF.ui.alternative"}}</option>
-                <option value="creature">{{localize "COF.ui.creature"}}</option>
-                <option value="prestige">{{localize "COF.ui.prestige"}}</option>
-                <option value="profile">{{localize "COF.ui.profile"}}</option>
-                <option value="species">{{localize "COF.ui.species"}}</option>
-            {{/select}}
-        </select>
-    </div>
-</div>
-
-{{#if (or (equals data.scope "profile") (equals data.scope "prestige"))}}
-    <div class="form-group">
-        <label>{{localize "COF.ui.profile"}}</label>
-        <div class="form-fields">
-            <select name="data.profile" data-type="String" style="width:100%">
-                {{#select data.profile}}
-                    <option value="">{{localize "COF.None"}}</option>
-                    {{#each (listProfiles) as |profile id|}}
-                        <option value="{{profile.data.key}}">{{profile.name}}</option>
-                    {{/each}}
-                {{/select}}
-            </select>
-        </div>
-    </div>
-{{/if}}
-
-{{#if (or (equals data.scope "prestige") (or (equals data.scope "profile") (equals data.scope "creature")))}}
-    <div class="form-group">
-        <label>{{localize "COF.ui.rank"}}</label>
-        <div class="form-fields">
-            <input class="field-value" name="data.rank" type="text" value="{{item.data.rank}}" placeholder="{{localize "COF.ui.rank"}}" data-dtype="Number">
-        </div>
-    </div>
-    <div class="form-group">
-        <label>{{localize "COF.ui.path"}}</label>
-        <div class="form-fields">
-            <select name="data.path" data-type="String" style="width:100%">
-                {{#select data.path}}
-                    <option value="">{{localize "COF.None"}}</option>
-                    {{#each (listPaths) as |path id|}}
-                        <option value="{{path.data.key}}">{{path.name}}</option>
-                    {{/each}}
-                {{/select}}
-            </select>
-        </div>
-    </div>
-{{/if}}
-{{#if (equals data.scope "species")}}
-    <div class="form-group">
-        <label>{{localize "COF.ui.path"}}</label>
-        <div class="form-fields">
-            <select name="data.species" data-type="String" style="width:100%">
-                {{#select data.species}}
-                    <option value="">{{localize "COF.None"}}</option>
-                    {{#each (listSpecies) as |species id|}}
-                        <option value="{{species.data.key}}">{{species.name}}</option>
-                    {{/each}}
-                {{/select}}
-            </select>
-        </div>
-    </div>
-{{/if}}
-<div class="form-group">
-    <label>{{localize "COF.ui.summary"}}</label>
-    <div class="form-fields">
-        <input class="field-value" name="data.summary" type="text" value="{{item.data.summary}}" placeholder="{{localize "COF.ui.summary"}}" data-dtype="String">
-    </div>
-</div>
-
+<input class="field-value" name="data.key" type="hidden" value="{{data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
 <div class="form-group stacked">
     <label>Proriétés</label>
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.limited" {{checked item.data.limited}}> {{localize "COF.ui.limited"}}
+            <input type="checkbox" name="data.limited" {{checked data.limited}}> {{localize "COF.ui.limited"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.spell" {{checked item.data.spell}}> {{localize "COF.ui.spell"}}
+            <input type="checkbox" name="data.spell" {{checked data.spell}}> {{localize "COF.ui.spell"}}
         </label>
     </div>
 </div>

@@ -135,21 +135,21 @@
               padding: 5px 0 0 0;
 
               &.capacities {
-                overflow: hidden;
+                overflow: auto;
 
                 .path-list {
                   //border:1px solid $c-lightg;
                   box-shadow: 0 4px 3px -3px gray;
                   margin: 0 0 5px 0;
                   padding: 3px;
-                  min-height: 205px;
-                  height: 205px;
+                  //min-height: 205px;
+                  //height: 205px;
                   max-height: 205px;
                   overflow: hidden;
 
                   .grid {
-                    min-height: 150px;
-                    height: 150px;
+                    //min-height: 150px;
+                    //height: 150px;
                     max-height: 150px;
                     overflow: auto;
                   }
@@ -185,94 +185,126 @@
                     }
                   }
                 }
+
                 .capacity-list {
-                  gap: 3px;
-                  padding: 5px;
-                  margin: 0;
-                  min-height: calc(100% - 215px);
-                  height: calc(100% - 215px);
-                  max-height: calc(100% - 215px);
+                  min-height:calc(100% - 220px);
+                  height:calc(100% - 220px);
+                  max-height:calc(100% - 220px);
                   overflow: auto;
-
-                  .capacity {
-                    margin: 0 0 5px 0;
-                    padding: 0;
-                    border: 1px solid $c-border;
-                    border-radius: 3px;
-                    color: $c-darkgreen;
-                    box-shadow: 0 0 10px $c-shadow inset;
-                    background: rgba(0, 0, 0, 0.02);
-
-                    .capacity-title {
-                      margin: 0;
-                      padding: 0;
-                      min-height:24px;
-                      height:24px;
-                      max-height:24px;
-                      align-items : center;
-                      box-shadow: 0 0 10px $c-shadow inset;
-                      background: rgba(0, 0, 0, 0.02);
-
-                      .capacity-icon{
-                        flex: 0 0 24px;
-                        min-height:24px;
-                        height:24px;
-                        max-height:24px;
-                        min-with:24px;
-                        with:24px;
-                        max-with:24px;
-
-                        &>img {
-                          min-height:24px;
-                          height:24px;
-                          max-height:24px;
-                          min-with:24px;
-                          with:24px;
-                          max-with:24px;
-                          border:none;
-                        }
-                      }
-
-                      .capacity-label {
-                        height:24px;
-                        min-height:24px;
-                        max-height:24px;
-                        margin: 0;
-                        padding: 0 0 0 5px;
-                        align-items : center;
-                        vertical-align: middle;
-                        line-height:24px; /* centrage vertical */
-                      }
-
-                      .capacity-control {
-                        flex: 0 0 18px;
-                      }
-                    }
-
-                    .capacity-description {
-                      border-top: 1px solid $c-border;
-                      display: none;
-                      padding: 5px;
-                      text-align: justify;
-                      font-size: 12px;
-                      //font-family: $font-secondary;
-                    }
+                  &.p0{
+                    min-height:calc(100% - 15px);
+                    height:calc(100% - 15px);
+                    max-height:calc(100% - 15px);
                   }
-
-                  &.encounter {
-                    min-height: calc(100% - 175px);
-                    height: calc(100% - 175px);
-                    max-height: calc(100% - 175px);
-                    overflow: auto;
+                  &.p1{
+                    min-height:calc(100% - 120px);
+                    height:calc(100% - 120px);
+                    max-height:calc(100% - 120px);
                   }
-
-                  &.encounter.nopath {
-                    min-height: calc(100% - 75px);
-                    height: calc(100% - 75px);
-                    max-height: calc(100% - 75px);
-                    overflow: auto;
+                  &.p2{
+                    min-height:calc(100% - 145px);
+                    height:calc(100% - 145px);
+                    max-height:calc(100% - 145px);
+                  }
+                  &.p3{
+                    min-height:calc(100% - 170px);
+                    height:calc(100% - 170px);
+                    max-height:calc(100% - 170px);
+                  }
+                  &.p4{
+                    min-height:calc(100% - 195px);
+                    height:calc(100% - 195px);
+                    max-height:calc(100% - 195px);
                   }
                 }
+                //.capacity-list {
+                //  gap: 3px;
+                //  padding: 5px;
+                //  margin: 0;
+                //  min-height: calc(100% - 215px);
+                //  height: calc(100% - 215px);
+                //  max-height: calc(100% - 215px);
+                //  overflow: auto;
+                //
+                //  .capacity {
+                //    margin: 0 0 5px 0;
+                //    padding: 0;
+                //    border: 1px solid $c-border;
+                //    border-radius: 3px;
+                //    color: $c-darkgreen;
+                //    box-shadow: 0 0 10px $c-shadow inset;
+                //    background: rgba(0, 0, 0, 0.02);
+                //
+                //    .capacity-title {
+                //      margin: 0;
+                //      padding: 0;
+                //      min-height:24px;
+                //      height:24px;
+                //      max-height:24px;
+                //      align-items : center;
+                //      box-shadow: 0 0 10px $c-shadow inset;
+                //      background: rgba(0, 0, 0, 0.02);
+                //
+                //      .capacity-icon{
+                //        flex: 0 0 24px;
+                //        min-height:24px;
+                //        height:24px;
+                //        max-height:24px;
+                //        min-with:24px;
+                //        with:24px;
+                //        max-with:24px;
+                //
+                //        &>img {
+                //          min-height:24px;
+                //          height:24px;
+                //          max-height:24px;
+                //          min-with:24px;
+                //          with:24px;
+                //          max-with:24px;
+                //          border:none;
+                //        }
+                //      }
+                //
+                //      .capacity-label {
+                //        height:24px;
+                //        min-height:24px;
+                //        max-height:24px;
+                //        margin: 0;
+                //        padding: 0 0 0 5px;
+                //        align-items : center;
+                //        vertical-align: middle;
+                //        line-height:24px; /* centrage vertical */
+                //      }
+                //
+                //      .capacity-control {
+                //        flex: 0 0 18px;
+                //      }
+                //    }
+                //
+                //    .capacity-description {
+                //      border-top: 1px solid $c-border;
+                //      display: none;
+                //      padding: 5px;
+                //      text-align: justify;
+                //      font-size: 12px;
+                //      //font-family: $font-secondary;
+                //    }
+                //  }
+                //
+                //  &.encounter {
+                //    min-height: calc(100% - 175px);
+                //    height: calc(100% - 175px);
+                //    max-height: calc(100% - 175px);
+                //    overflow: auto;
+                //  }
+                //
+                //  &.encounter.nopath {
+                //    min-height: calc(100% - 75px);
+                //    height: calc(100% - 75px);
+                //    max-height: calc(100% - 75px);
+                //    overflow: auto;
+                //  }
+                //}
               }
 
               &.description {

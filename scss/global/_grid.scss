@@ -26,9 +26,7 @@
     margin: 0 1px 1px 0;
     padding: 3px;
     height:24px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    @include ellipsis;
   }
   .no-border{
     border: none !important;

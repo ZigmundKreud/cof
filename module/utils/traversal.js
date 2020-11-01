@@ -1,29 +1,11 @@
 export class Traversal {
 
-    /* PACKS */
-    static getPack(key){
-        return game.packs.get(key);
-    }
-
-    static getPackIndex(key){
-        return this.getPack(key).getIndex(); // async
-        // We can find a specific entry in the compendium by its name
-        // let entry = pack.index.find(e => e.name === "Acid Splash");
-    }
-
-    static async getEntityFromPack(packId, entityId){
-        const pack = game.packs.get(packId);
-        return await pack.getEntity(entityId);
-    }
-
     static async getEntity(id, type, pack) {
         let entity = null;
-
         // Case 1 - Import from World entities
         if(type === "item") entity = game.items.get(id);
         else if(type === "actor") entity = game.actors.get(id);
         else if(type === "journal") entity = game.journal.get(id);
-
         // Case 2 - Import from a Compendium pack
         if (!entity && pack) {
             await game.packs.get(pack).getEntity(id).then(e => entity = e);
@@ -31,31 +13,54 @@ export class Traversal {
         return entity;
     }
 
-    /* -------------------------------------------- */
+    // static async getEntity(id, type, pack) {
+    //     let entity = null;
+    //     // Target 1 - Compendium Link
+    //     if ( pack ) {
+    //         const pack = game.packs.get(pack);
+    //         await pack.getIndex();
+    //         entity = id ? await pack.getEntity(id) : null;
+    //     }
+    //     // Target 2 - World Entity Link
+    //     else {
+    //         if(type==="item") entity = game.items.get(id);
+    //         else if(type==="journal") entity = game.journal.get(id);
+    //         else if(type==="actor") entity = game.actors.get(id);
+    //     }
+    //     // if ( !entity ) return;
+    //     // // Action 1 - Execute an Action
+    //     // if ( entity.entity === "Macro" ) {
+    //     //     if ( !entity.hasPerm(game.user, "LIMITED") ) {
+    //     //         return ui.notifications.warn(`You do not have permission to use this ${entity.entity}.`);
+    //     //     }
+    //     //     return entity.execute();
+    //     // }
+    //     //
+    //     // // Action 2 - Render the Entity sheet
+    //     // return entity.sheet.render(true);
+    //     return entity;
+    // }
 
-    /*
-     * ENTITIES
-     */
-    static getAllEntitiesOfType(type, collection) {
-        const compendium = game.packs.get(collection).getContent();
+    static getAllEntitiesOfType(type, pack) {
+        const compendium = game.packs.get(pack).getContent();
         const ingame = game.items.filter(item => item.type === type);
         return ingame.concat(compendium);
     }
 
-    static findCapacityEntityByKey (key) {
-        return this.getAllEntitiesOfType().find(entity => entity.data.key === key);
-    }
-
-    static findPathEntityByKey (key) {
-        return this.getAllEntitiesOfType().find(entity => entity.data.key === key);
-    }
-
-    static findProfileEntityByKey (key) {
-        return this.getAllEntitiesOfType().find(entity => entity.data.key === key);
-    }
-
-    static findSpeciesEntityByKey (key) {
-        return this.getAllEntitiesOfType().find(entity => entity.data.key === key);
+    static getItemsOfType(type) {
+        let compendium = [];
+        let ingame = [];
+        switch(type){
+            case "path" :
+                compendium = COF.paths;
+                ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
+                break;
+            case "capacity" :
+                compendium = COF.capacities;
+                ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
+                break;
+        }
+        return ingame.concat(compendium);
     }
 
     /*
@@ -90,54 +95,8 @@ export class Traversal {
         return ingame.concat(compendium);
     }
 
-    static findCapacityDataByKey (key) {
-        return this.getAllCapacitiesData().find(entity => entity.data.key === key);
-    }
-
     static findPathDataByKey (key) {
         return this.getAllPathsData().find(entity => entity.data.key === key);
     }
 
-    static findProfileDataByKey (key) {
-        return this.getAllProfilesData().find(entity => entity.data.key === key);
-    }
-
-    static findSpeciesDataByKey (key) {
-        return this.getAllSpeciesData().find(entity => entity.data.key === key);
-    }
-
-
-
-    static findCapacityDataById (id) {
-        return this.getAllCapacitiesData().find(entity => entity._id === id);
-    }
-
-    static findPathDataById (id) {
-        return this.getAllPathsData().find(entity => entity._id === id);
-    }
-
-    static findProfileDataById (id) {
-        return this.getAllProfilesData().find(entity => entity._id === id);
-    }
-
-    static findSpeciesDataById (id) {
-        return this.getAllSpeciesData().find(entity => entity._id === id);
-    }
-
-
-    static getItemsOfType(type) {
-        let compendium = [];
-        let ingame = [];
-        switch(type){
-            case "path" :
-                compendium = COF.paths;
-                ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
-                break;
-            case "capacity" :
-                compendium = COF.capacities;
-                ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
-                break;
-        }
-        return ingame.concat(compendium);
-    }
 }
