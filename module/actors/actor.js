@@ -10,7 +10,6 @@ export class CofActor extends Actor {
     prepareBaseData() {
         super.prepareBaseData();
         let actorData = this.data;
-        // console.log(actorData);
         if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
         else this._prepareBaseCharacterData(actorData);
     }
@@ -35,8 +34,6 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareDerivedCharacterData(actorData) {
-        // this.computeModsAndAttributes(actorData);
-        // this.computeAttacks(actorData);
         this.computeDef(actorData);
         this.computeXP(actorData);
     }
@@ -121,18 +118,6 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
-    getWornShields(items) {
-        return items.filter(item => item.type === "shield" && item.data.worn)
-    }
-
-    /* -------------------------------------------- */
-
-    getWornArmors(items) {
-        return items.filter(item => item.type === "armor" && item.data.worn)
-    }
-
-    /* -------------------------------------------- */
-
     getActiveSpells(items) {
         // return items.filter(item => item.type === "spell" && item.data.worn)
         return items.filter(item => item.type === "spell")
@@ -153,12 +138,7 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveCapacities(items) {
-        return items.filter(i => i.type === "capacity")
-    }
-
-    /* -------------------------------------------- */
-
-    _getDefFromItems(items) {
+        return items.filter(i => i.type === "capacity" && i.data.rank)
     }
 
     /* -------------------------------------------- */
@@ -271,20 +251,11 @@ export class CofActor extends Actor {
     computeDef(actorData) {
         let stats = actorData.data.stats;
         let attributes = actorData.data.attributes;
-        let items = actorData.items;
-
-        let armors = this.getWornArmors(items);
-        let shields = this.getWornShields(items);
-        let spells = this.getActiveSpells(items);
-
+        let protections = actorData.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);
         // COMPUTE DEF SCORES
-        let armor = armors.map(armor => armor.data.def).reduce((acc, curr) => acc + curr, 0);
-        let shield = shields.map(shield => shield.data.def).reduce((acc, curr) => acc + curr, 0);
-        let spell = spells.map(spell => spell.data.def).reduce((acc, curr) => acc + curr, 0);
-
-        attributes.def.base = 10 + armor + shield + spell + stats.dex.mod;
+        let protection = protections.reduce((acc, curr) => acc + curr, 0);
+        attributes.def.base = 10 + protection + stats.dex.mod;
         attributes.def.value = attributes.def.base + attributes.def.bonus;
-
     }
 
     /* -------------------------------------------- */
@@ -293,15 +264,12 @@ export class CofActor extends Actor {
         let items = actorData.items;
         let lvl = actorData.data.level.value;
         const alert = actorData.data.alert;
-
         const capacities = this.getActiveCapacities(items);
         let currxp = capacities.map(cap => (cap.data.rank > 2) ? 2 : 1).reduce((acc, curr) => acc + curr, 0);
         const maxxp = 2 * lvl;
-
         // UPDATE XP
         actorData.data.xp.max = maxxp;
         actorData.data.xp.value = maxxp - currxp;
-
         if (maxxp - currxp < 0) {
             const diff = currxp - maxxp;
             alert.msg = (diff == 1) ? `Vous avez dépensé ${diff} point de capacité en trop !` : `Vous avez dépensé ${diff} points de capacité en trop !`;

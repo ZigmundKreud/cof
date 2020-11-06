@@ -18,8 +18,6 @@ export class CofItem extends Item {
     prepareData() {
         super.prepareData();
         const itemData = this.data;
-        // if(Object.keys(this.data.flags).length>0) console.log(this.data);
-        // console.log(itemData);
         const actorData = (this.actor) ? this.actor.data : null;
         switch (itemData.type) {
             case "item" :

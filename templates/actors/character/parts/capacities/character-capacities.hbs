@@ -21,8 +21,8 @@
                     </div>
                     {{#with (getPath ../actor.items capacity.data.path)}}
                         {{{name}}}
-                        <div class="item-detail">{{#if capacity.data.rank}}{{capacity.data.rank}}{{/if}}</div>
                     {{/with}}
+                    <div class="item-detail">{{#if capacity.data.rank}}{{capacity.data.rank}}{{/if}}</div>
                     <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
                     <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
                     <div class="item-controls">
