@@ -75,22 +75,22 @@ export class CofActorSheet extends ActorSheet {
             return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
         });
 
-        // html.find('.item-increase').click(ev => {
-        //     ev.preventDefault();
-        //     const li = $(ev.currentTarget).closest(".item");
-        //     const item = this.actor.getOwnedItem(li.data("itemId"));
-        //     let itemData = item.data;
-        //     itemData.data.qty = (itemData.data.qty) ? itemData.data.qty +1 : 1;
-        //     return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
-        // });
-        // html.find('.item-decrease').click(ev => {
-        //     ev.preventDefault();
-        //     const li = $(ev.currentTarget).closest(".item");
-        //     const item = this.actor.getOwnedItem(li.data("itemId"));
-        //     let itemData = item.data;
-        //     itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty -1 : 0;
-        //     return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
-        // });
+        html.find('.item-qty').click(ev => {
+            ev.preventDefault();
+            const li = $(ev.currentTarget).closest(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            let itemData = item.data;
+            itemData.data.qty = (itemData.data.qty) ? itemData.data.qty + 1 : 1;
+            return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
+        });
+        html.find('.item-qty').contextmenu(ev => {
+            ev.preventDefault();
+            const li = $(ev.currentTarget).closest(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            let itemData = item.data;
+            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty -1 : 0;
+            return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
+        });
 
         html.find('.item-name, .item-edit').click(this._onEditItem.bind(this));
         html.find('.item-delete').click(ev => {
@@ -128,23 +128,23 @@ export class CofActorSheet extends ActorSheet {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
         const itemId = li.data("itemId");
-        const itemData = this.actor.items.find(item => item._id === itemId);
-        switch (itemData.data.type) {
+        const entity = this.actor.items.find(item => item._id === itemId);
+        switch (entity.data.type) {
             case "capacity" :
-                return Capacity.removeFromActor(this.actor, event, itemData);
+                return this.actor.deleteOwnedItem(itemId);
+                // return Capacity.removeFromActor(this.actor, event, entity);
                 break;
             case "path" :
-                return Path.removeFromActor(this.actor, event, itemData);
+                return Path.removeFromActor(this.actor, event, entity);
                 break;
             case "profile" :
-                return Profile.removeFromActor(this.actor, event, itemData);
+                return Profile.removeFromActor(this.actor, event, entity);
                 break;
             case "species" :
-                return Species.removeFromActor(this.actor, event, itemData);
+                return Species.removeFromActor(this.actor, event, entity);
                 break;
             default: {
-                return this.actor.deleteOwnedItem(li.data("itemId"));
-                // li.slideUp(200, () => this.render(false));
+                return this.actor.deleteOwnedItem(itemId);
             }
         }
     }

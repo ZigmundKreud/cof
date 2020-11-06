@@ -1,5 +1,5 @@
 {{#if (isEnabled "useRecovery")}}
-    <div class="row flexrow table-header green no-wrap">
+    <div class="flexrow table-header green no-wrap">
         <div class="flex2 center">
             <div class="field-label ellipsis">{{ localize 'COF.attributes.recovery.label' }}</div>
         </div>
@@ -13,7 +13,7 @@
             <div class="field-label">{{ localize 'COF.ui.value' }}</div>
         </div>
     </div>
-    <div class="row flexrow no-wrap">
+    <div class="flexrow no-wrap">
         <div class="flex2 center bg-green">
             <span class="field-label ellipsis"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
         </div>
@@ -27,5 +27,5 @@
             <input class="field-value" name="data.attributes.rp.value" type="text" value="{{actor.data.attributes.rp.value}}" placeholder="Value" data-dtype="Number"/>
         </div>
     </div>
-    <div class="row flexrow"><div class="flex1 half-spacer"></div></div>
+    <div class="flexrow"><div class="flex1 half-spacer"></div></div>
 {{/if}}

@@ -15,19 +15,26 @@ export class Profile {
         }
     }
 
-    static removeFromActor(actor, event, itemData) {
-        Dialog.confirm({
+    static removeFromActor(actor, event, entity) {
+        console.log(actor);
+        const profileData = entity.data;
+        console.log(profileData);
+        return Dialog.confirm({
             title: "Supprimer le profil ?",
             content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${actor.name} ?</p>`,
             yes: () => {
-                // delete profile related capacities
-                const capsIds = actor.items.filter(item => item.data.type === "capacity" && item.data.data.profile === itemData.data.data.key).map(c => c.data._id);
-                // add profile related paths
-                const pathsIds = actor.items.filter(item => item.data.type === "path" && item.data.data.profile.id === itemData.data.data.key).map(c => c.data._id);
-                let items = capsIds.concat(pathsIds);
+                // retrieve path data from profile paths
+                const pathsKeys = Traversal.getItemsOfType("path").filter(p => profileData.data.paths.includes(p._id)).map(p => p.data.key);
+                // retrieve owned items matching profile paths
+                const ownedPaths = actor.items.filter(item => pathsKeys.includes(item.data.data.key) && item.data.type === "path");
+                const ownedPathsIds = ownedPaths.map(c => c.data._id);
+                const ownedPathsCapacities = ownedPaths.map(c => c.data.data.capacities).flat();
+                // retrieve owned capacities matching profile paths capacities
+                const capsKeys = Traversal.getItemsOfType("capacity").filter(p => ownedPathsCapacities.includes(p._id)).map(c => c.data.key);
+                const capsIds = actor.items.filter(item => capsKeys.includes(item.data.data.key) && item.data.type === "capacity").map(c => c.data._id);
+                let items = ownedPathsIds.concat(capsIds);
                 // add the profile item to be removed
-                items.push(itemData._id);
-                console.log(items);
+                items.push(entity._id);
                 return actor.deleteOwnedItem(items);
             },
             defaultYes: false

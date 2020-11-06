@@ -841,6 +841,20 @@ Copied from dnd5e
   padding: 5px;
 }
 
+.cof.actor .weapon-image {
+  background-image: url("../ui/icons/red_31.jpg");
+}
+
+.cof.actor .locked {
+  cursor: not-allowed;
+  color: lightgray;
+}
+
+.cof.actor .unlocked {
+  cursor: pointer;
+  color: #4b4a44;
+}
+
 .cof.actor .window-content .editable .wrap {
   color: #3c3c3c;
 }
@@ -1336,6 +1350,20 @@ Copied from dnd5e
 
 .cof.item .window-content .sheet-body .tab .editor {
   height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.cof.item .window-content .sheet-body .tab .editor .editor-content {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.cof.item .window-content .sheet-body .tab .editor .tox-tinymce {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 }
 
 .cof.item .window-content .sheet-body .tab.details {

@@ -43,9 +43,6 @@
 <ol class="inventory-list">
     <li class="inventory-header flexrow">
         <h3 class="item-name flexrow">Voies raciales</h3>
-        <div class="item-detail"></div>
-        <div class="item-detail item-rank">Rang</div>
-        <div class="item-detail item-scope">Application</div>
         <div class="item-controls">
             <a class="item-control item-create compendium-pack" data-pack="cof.paths" data-open="0" title="Ajouter une voie"><i class="fas fa-plus"></i>&nbsp; Add</a>
         </div>
@@ -57,9 +54,6 @@
                     <div class="item-image" style="background-image: url('{{path.img}}')"></div>
                     <h4>{{path.name}}</h4>
                 </div>
-                <div class="item-detail"></div>
-                <div class="item-detail item-rank">{{add id 1}}</div>
-                <div class="item-detail item-scope">{{#if path.data.scope}} {{localize (concat "COF.ui." path.data.scope)}}{{/if}}</div>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -70,9 +64,6 @@
 
     <li class="inventory-header flexrow">
         <h3 class="item-name flexrow">Capacités raciales</h3>
-        <div class="item-detail"></div>
-        <div class="item-detail item-rank">Rang</div>
-        <div class="item-detail item-scope">Application</div>
         <div class="item-controls">
             <a class="item-control item-create compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Add</a>
         </div>
@@ -84,9 +75,6 @@
                     <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                     <h4>{{capacity.name}}</h4>
                 </div>
-                <div class="item-detail"></div>
-                <div class="item-detail item-rank">{{add id 1}}</div>
-                <div class="item-detail item-scope">{{#if capacity.data.scope}} {{localize (concat "COF.ui." capacity.data.scope)}}{{/if}}</div>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                     <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

@@ -1,4 +1,4 @@
-<div class="row flexrow table-header darkgreen no-wrap">
+<div class="flexrow table-header darkgreen no-wrap">
     <div class="flex2 center rollable" data-rolling="data.stats" data-roll-type="attributes">
         <div class="field-label ellipsis"><i class="fas fa-dice-d6"></i>&nbsp;{{ localize 'COF.stats.abbrev' }}</div>
     </div>
@@ -19,7 +19,7 @@
     </div>
 </div>
 {{#each actor.data.stats as |stat id|}}
-<div class="row flexrow no-wrap">
+<div class="flexrow no-wrap">
     <div class="flex2 center bg-darkgreen rollable" data-rolling="data.stats.{{id}}" data-roll-type="skillcheck">
         <div class="field-label" title="{{ localize stat.label }}"><i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}</div>
         <input name="data.stats.{{id}}.abbrev" type="hidden" value="{{stat.abbrev}}" data-dtype="String"/>

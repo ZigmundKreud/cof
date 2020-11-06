@@ -51,8 +51,8 @@ export class Capacity {
         }
     }
 
-    static removeFromActor(actor, event, itemData) {
-        return actor.deleteOwnedItem(itemData._id);
-    }
+    // static removeFromActor(actor, event, entity) {
+    //     return actor.deleteOwnedItem(entity._id);
+    // }
 
 }

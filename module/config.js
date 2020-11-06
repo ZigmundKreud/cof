@@ -35,8 +35,18 @@ COF.itemProperties = {
     "powerful": "COF.properties.powerful",
     "critscience": "COF.properties.critscience",
     "specialization": "COF.properties.specialization",
-    "effects": "COF.properties.effects"
-
+    "effects": "COF.properties.effects",
+    "activable": "COF.properties.activable",
+    "2H": "COF.properties.2H",
+    "13strmin": "COF.properties.13strmin",
+    "bashing": "COF.properties.bashing",
+    "sling": "COF.properties.sling",
+    "spell": "COF.properties.spell",
+    "profile": "COF.properties.profile",
+    "prestige": "COF.properties.prestige",
+    "alternative": "COF.properties.alternative",
+    "racial": "COF.properties.racial",
+    "creature" : "COF.properties.creature"
 };
 
 COF.profiles = [];

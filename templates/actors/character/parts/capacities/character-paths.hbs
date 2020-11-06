@@ -31,23 +31,25 @@
                 </div>
             {{/each}}
         </div>
-        <hr/>
-        {{#if (isNegative actor.data.xp.value)}}
-            <div class="row flexrow red">
-                <div class="flex1 right">
-                    <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
-                    <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
-                    <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
+        {{#if (equals actor.type "character")}}
+            <hr/>
+            {{#if (isNegative actor.data.xp.value)}}
+                <div class="row flexrow red">
+                    <div class="flex1 right">
+                        <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
+                        <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
+                        <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
+                    </div>
                 </div>
-            </div>
-        {{else}}
-            <div class="row flexrow">
-                <div class="flex1 right">
-                    <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
-                    <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
-                    <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
+            {{else}}
+                <div class="row flexrow">
+                    <div class="flex1 right">
+                        <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
+                        <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
+                        <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
+                    </div>
                 </div>
-            </div>
+            {{/if}}
         {{/if}}
     </div>
 {{/if}}

@@ -11,14 +11,14 @@ export class Species {
         }
     }
 
-    static removeFromActor(actor, event, itemData) {
+    static removeFromActor(actor, event, entity) {
         const actorData = actor.data;
         Dialog.confirm({
             title: "Supprimer la race ?",
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
                 let items = actorData.items.filter(i => i.type === "capacity" && i.data.scope === "species").map(e => e._id);
-                items.push(itemData.data._id);
+                items.push(entity.data._id);
                 return actor.deleteOwnedItem(items);
             },
             defaultYes: false

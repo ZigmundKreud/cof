@@ -1,7 +1,9 @@
-<div class="item-properties">
-    <ol class="properties-list">
-        {{#each itemProperties}}
-            <li>{{localize this}}</li>
-        {{/each}}
-    </ol>
-</div>
+{{#if itemProperties}}
+    <div class="item-properties">
+        <ol class="properties-list">
+            {{#each itemProperties}}
+                <li>{{localize this}}</li>
+            {{/each}}
+        </ol>
+    </div>
+{{/if}}

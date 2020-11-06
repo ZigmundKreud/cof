@@ -1,4 +1,5 @@
 import {Traversal} from "./traversal.js";
+import {StringUtils} from "./string-utils.js";
 
 export class UpdateUtils {
 
@@ -97,4 +98,116 @@ export class UpdateUtils {
         });
     }
 
+    static async createEncounterAbilities(){
+        let encounterCaps = await game.packs.get("cof.encounters-capacities");
+        let capacities = [];
+        await game.packs.get("cof.encounters").getContent().then(index => {
+            index.forEach(entity => {
+                let data = duplicate(entity.data);
+                // console.log(data.data.attacks);
+                // data.data.weapons = data.data.attacks;
+                const caps = data.data.capacities;
+                const creatureName = data.name;
+                // console.log(creatureName);
+                caps.forEach(c => {
+                    const limited = (c.name.indexOf("(L)") > 0) ? true : false;
+                    const cname = `${c.name.split("(L)")[0].trim()} (${creatureName})`;
+                    const key = cname.slugify({strict:true});
+                    const description = `<h1>Description</h1><p>${c.description}</p>`;
+                    capacities.push({
+                        name : cname,
+                        type : "capacity",
+                        img : `/systems/cof/ui/icons/encounter-capacities/${key}.jpg`,
+                        data : {
+                            key : key,
+                            limited : limited,
+                            description : description,
+                        }
+                    });
+                });
+                // entity.update(data);
+            })
+        });
+
+        //
+        // // compute a checksum of the description to identify duplicates
+        // StringUtils.sha256(c.description).then(hash => {
+        //     if(Object.keys(capacities).includes(hash)){
+        //         const key2 = cname.slugify({strict:true});
+        //         const cname2 = c.name.split("(L)")[0].trim();
+        //         capacities[hash].name = cname2;
+        //         capacities[hash].data.key = key2
+        //     }else {
+        //         capacities[hash] = {
+        //             name : cname,
+        //             type : "capacity",
+        //             img : `/systems/cof/ui/icons/encounter-capacities/${key}.jpg`,
+        //             data : {
+        //                 key : key,
+        //                 limited : limited,
+        //                 description : description,
+        //             }
+        //         }
+        //     }
+        // });
+
+        console.log(capacities);
+        for (const c of capacities) {
+            let item = new Item(c);
+            await encounterCaps.importEntity(item);
+        }
+        console.log("Done.");
+        // let itemData = {name: "Custom Death Ray", type: "capacity"};
+        // let item = new Item(itemData);
+        // Once we have an entity for our new Compendium entry we can import it, if the pack is unlocked
+        // encounterCaps.importEntity(item);
+    }
+
+
+    static async updateEncounters(){
+        let encounterCaps = await game.packs.get("cof.encounters-capacities").getContent().then(index => index.map(entity => entity.data));
+        // console.log(encounterCaps);
+        // let capacities = [];
+        await game.packs.get("cof.encounters").getContent().then(index => {
+            index.forEach(entity => {
+                let data = duplicate(entity.data);
+                const caps = data.data.capacities;
+                const creatureName = data.name;
+                console.log(creatureName);
+                const capsIds = caps.map(c => {
+                    const cname = `${c.name.split("(L)")[0].trim()} (${creatureName})`;
+                    const key = cname.slugify({strict:true});
+                    const ec = encounterCaps.find(e => e.data.key === key);
+                    return ec._id;
+                });
+                // console.log(capsIds);
+                const paths = data.data.paths;
+                const pathCapsIds = paths.map(p => {
+                    let tokens = p.key.split("-");
+                    const rank = tokens.pop();
+                    const pathKey = tokens.join("-");
+                    // console.log(pathKey, rank);
+                    const path = COF.paths.find(e => e.data.key === pathKey);
+                    // console.log(path);
+                    if(path && rank > 0 && path.data.capacities.length >= rank) {
+                        // console.log(path.data.capacities[rank-1]);
+                        return path.data.capacities[rank-1];
+                    }
+                    else console.error(pathKey, rank);
+                });
+                // console.log(pathCapsIds);
+                data.data.capacities = pathCapsIds.concat(capsIds);
+                // data.data.weapons = Object.values(data.data.attacks).map(att => {
+                //     return {
+                //         name: att.name,
+                //         mod: parseInt(att.mod),
+                //         dmg: att.dmg
+                //     }
+                // });
+                // data.data.attacks = null;
+                // console.log(data.data.weapons);
+                // entity.update(data);
+            })
+        });
+    }
 }

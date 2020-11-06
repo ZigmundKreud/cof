@@ -37,6 +37,14 @@
       "tag" : "encounter"
     },
     {
+      "name": "encounters-capacities",
+      "label": "Capacités des rencontres",
+      "system": "cof",
+      "path": "./packs/encounters-capacities.db",
+      "entity": "Item",
+      "tag" : "capacity"
+    },
+    {
       "name": "items",
       "label": "Equipement",
       "system": "cof",

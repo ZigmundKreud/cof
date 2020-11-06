@@ -1,7 +1,7 @@
 export class CharacterGeneration {
 
     static async _buildStatsMessage(actor, flavor, rolls) {
-        const tpl = 'systems/cof/templates/chat/roll-stats-card.hbs';
+        const tpl = 'systems/cof/templates/chat/stats-roll-card.hbs';
         const grandTotal = rolls.map(r => r.total).reduce((acc, val) => acc + val);
         renderTemplate(tpl, { rolls:rolls, grandTotal: grandTotal}).then(html => {
             let msgData = {

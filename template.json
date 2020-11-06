@@ -17,7 +17,8 @@
             "bonus": 0,
             "mod": 0,
             "value": 10,
-            "tmpmod": null
+            "tmpmod": null,
+            "superior" : false
           },
           "dex" : {
             "key" : "dex",
@@ -28,7 +29,8 @@
             "bonus": 0,
             "mod": 0,
             "value": 10,
-            "tmpmod": null
+            "tmpmod": null,
+            "superior" : false
           },
           "con" : {
             "key" : "con",
@@ -39,7 +41,8 @@
             "bonus": 0,
             "mod": 0,
             "value": 10,
-            "tmpmod": null
+            "tmpmod": null,
+            "superior" : false
           },
           "int" : {
             "key" : "int",
@@ -50,7 +53,8 @@
             "bonus": 0,
             "mod": 0,
             "value": 10,
-            "tmpmod": null
+            "tmpmod": null,
+            "superior" : false
           },
           "wis" : {
             "key" : "wis",
@@ -61,7 +65,8 @@
             "bonus": 0,
             "mod": 0,
             "value": 10,
-            "tmpmod": null
+            "tmpmod": null,
+            "superior" : false
           },
           "cha" : {
             "key" : "cha",
@@ -72,7 +77,8 @@
             "bonus": 0,
             "mod": 0,
             "value": 10,
-            "tmpmod": null
+            "tmpmod": null,
+            "superior" : false
           }
         }
       },
@@ -290,18 +296,13 @@
       }],
       "capacities" : [],
       "paths": [],
-      "special" : [],
       "boss": {
         "rank" : null,
         "type" : null
       },
       "families": [],
-      "class": "",
       "archetype": "",
-      "category": "",
-      "species": "",
-      "profile": "",
-      "milieu": ""
+      "category": ""
     }
   },
   "Item": {
@@ -323,7 +324,7 @@
         "description" : "",
         "source" : ""
       },
-      "protection" : {
+      "equipment" : {
         "def" : 0,
         "defBase" : 0,
         "defBonus" : 0,
@@ -380,10 +381,7 @@
     "item" : {
       "templates": [
         "base",
-        "equipment",
-        "protection",
-        "weapon",
-        "ranged"
+        "equipment"
       ],
       "subtype" : ""
     },
@@ -448,12 +446,14 @@
         "base"
       ],
       "key": "",
-      "collapsed" : true,
-      "note": "",
-      "scope": null,
       "capacities": [],
-      "species": [],
-      "profile": ""
+      "properties": {
+        "profile": false,
+        "prestige": false,
+        "alternative": false,
+        "racial": false,
+        "creature": false
+      }
     }
   }
 }

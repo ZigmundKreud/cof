@@ -15,14 +15,17 @@
         </div>
         <div class="flexrow main">
             <div class="sidebar flex1">
-                <br/>
+<!--                <br/>-->
                 <div class="row flexrow">
                     <div class="flex1 center">
-                        <span class="charname">{{split actor.name}}</span>
+                        <span class="charname">{{split actor.name ' ' 0}}</span>
                     </div>
                 </div>
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
-                <br/>
+<!--                <br/>-->
+                <div class="row flexrow">
+                    <div class="flex1">{{{data.description}}}</div>
+                </div>
             </div>
             <div class="separator flex1"></div>
             <div class="content flex3">
@@ -48,12 +51,10 @@
                     </div>
                     {{!-- Capacitites Tab --}}
                     <div class="tab capacities" data-group="primary" data-tab="capacities">
-                        {{> "systems/cof/templates/actors/encounter/parts/encounter-capacities.hbs"}}
-                        {{!> "systems/cof/templates/actors/character/parts/character-paths.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/capacities/character-paths.hbs"}}
                     </div>
                     {{!-- Inventory Tab --}}
                     <div class="tab inventory" data-group="primary" data-tab="inventory">
-                        {{!> "systems/cof/templates/actors/encounter/parts/encounter-inventory.hbs"}}
                         {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory.hbs"}}
                     </div>
                     {{!-- Notes Tab --}}

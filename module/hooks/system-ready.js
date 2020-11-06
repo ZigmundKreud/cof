@@ -25,6 +25,8 @@ Hooks.once("ready", async () => {
     // UpdateUtils.updatePaths();
     // UpdateUtils.updateProfiles();
     // UpdateUtils.updateSpecies();
+    // await UpdateUtils.createEncounterAbilities();
+    // await UpdateUtils.updateEncounters();
 
     console.info("System Initialized.");
 

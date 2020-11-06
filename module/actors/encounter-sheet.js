@@ -36,12 +36,10 @@ export class CofEncounterSheet extends CofActorSheet {
 
         html.find('.weapon-add').click(ev => {
             ev.preventDefault();
-            const elt = $(ev.currentTarget).parents(".weapon");
-            const idx = elt.data("itemId");
             const data = this.getData().data;
             data.weapons = Object.values(data.weapons);
             data.weapons.push({"name":"", "mod":null, "dmg":null});
-            // this.actor.update({'data.weapons': data.weapons});
+            this.actor.update({'data.weapons': data.weapons});
         });
 
         html.find('.weapon-remove').click(ev => {
@@ -52,7 +50,7 @@ export class CofEncounterSheet extends CofActorSheet {
             data.weapons = Object.values(data.weapons);
             if(data.weapons.length == 1) data.weapons[0] = {"name":"", "mod":null, "dmg":null};
             else data.weapons.splice(idx, 1);
-            // this.actor.update({'data.weapons': data.weapons});
+            this.actor.update({'data.weapons': data.weapons});
         });
     }
 }

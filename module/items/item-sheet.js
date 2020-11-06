@@ -14,7 +14,7 @@ export class CofItemSheet extends ItemSheet {
             template: System.templatesPath + "/items/item-sheet.hbs",
             width: 600,
             height: 600,
-            tabs: [{navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "details"}],
+            tabs: [{navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "description"}],
             dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
         });
     }
@@ -27,7 +27,8 @@ export class CofItemSheet extends ItemSheet {
      */
     activateListeners(html) {
         super.activateListeners(html);
-        html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+
+        // html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
 
         html.find('.droppable').on("dragover", function(event) {
             event.preventDefault();

@@ -361,3 +361,17 @@
 .layout {
   padding: 5px;
 }
+
+.weapon-image {
+  background-image: url('../ui/icons/red_31.jpg');
+}
+
+.locked {
+  cursor: not-allowed;
+  color:lightgray;
+}
+
+.unlocked {
+  cursor: pointer;
+  color:$colorOlive;
+}

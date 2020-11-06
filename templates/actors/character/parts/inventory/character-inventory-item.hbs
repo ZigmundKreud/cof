@@ -4,13 +4,17 @@
             <div class="item-image" style="background-image: url('{{img}}')"></div>
             <h4>{{name}}</h4>
         </div>
-        {{localize (concat "COF.category." type)}}
-        <div class="item-detail">{{data.qty}}</div>
+        {{localize (concat "COF.category." data.subtype)}}
+        <div class="item-detail {{#if data.properties.stackable}}item-qty unlocked{{else}}locked{{/if}}">
+            {{#if data.properties.stackable}}{{data.qty}}{{/if}}
+        </div>
         <div class="item-detail">
-            {{#if data.worn}}
-                <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
-            {{else}}
-                <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+            {{#if data.properties.equipable}}
+                {{#if data.worn}}
+                    <a class="item-control item-equip" title="Unequip Item"><i class="fas fa-shield-alt"></i></a>
+                {{else}}
+                    <a class="item-control item-equip" title="Equip Item" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                {{/if}}
             {{/if}}
         </div>
         <div class="item-controls">

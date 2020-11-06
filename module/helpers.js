@@ -17,58 +17,24 @@ export const registerHandlebarsHelpers = function () {
         return items.find(item => item.type === "species");
     });
 
-    Handlebars.registerHelper('getArmors', function (items) {
-        return items.filter(item => item.type === "armor");
-    });
-
-    Handlebars.registerHelper('getShields', function (items) {
-        return items.filter(item => item.type === "shield");
-    });
-
-    Handlebars.registerHelper('getMeleeWeapons', function (items) {
-        return items.filter(item => item.type === "melee");
-    });
-
-    Handlebars.registerHelper('getRangedWeapons', function (items) {
-        return items.filter(item => item.type === "ranged");
-    });
-
-    Handlebars.registerHelper('getSpells', function (items) {
-        return items.filter(item => item.type === "spell");
-    });
-
     Handlebars.registerHelper('getInventory', function (items) {
-        let inventory = items.filter(item => item.type === "item" || item.type === "armor" || item.type === "shield" || item.type === "melee" || item.type === "ranged" || item.type === "trapping");
+        let inventory = items.filter(item => item.type === "item");
         inventory.sort(function (a, b) {
-            const aKey = a.type + "-" + a.name.slugify({strict: true});
-            const bKey = b.type + "-" + b.name.slugify({strict: true});
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
             return (aKey > bKey) ? 1 : -1
         });
         return inventory;
     });
 
-    Handlebars.registerHelper('getWornItems', function (items) {
-        return items.filter(item => item.data.worn || item.type === "spell");
-    });
-
-    Handlebars.registerHelper('getWornArmors', function (items) {
-        return items.filter(item => item.type === "armor" && item.data.worn);
-    });
-
-    Handlebars.registerHelper('getWornShields', function (items) {
-        return items.filter(item => item.type === "shield" && item.data.worn);
-    });
-
-    Handlebars.registerHelper('getWornMeleeWeapons', function (items) {
-        return items.filter(item => item.type === "melee" && item.data.worn);
-    });
-
-    Handlebars.registerHelper('getWornRangedWeapons', function (items) {
-        return items.filter(item => item.type === "ranged" && item.data.worn);
-    });
-
-    Handlebars.registerHelper('getTrappings', function (items) {
-        return items.filter(item => item.type === "trapping");
+    Handlebars.registerHelper('getWorn', function (items) {
+        let worn = items.filter(item => item.type === "item" && item.data.worn);
+        worn.sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+        return worn;
     });
 
     Handlebars.registerHelper('getItems', function (items) {
@@ -81,20 +47,6 @@ export const registerHandlebarsHelpers = function () {
 
     Handlebars.registerHelper('countPaths', function (items) {
         return items.filter(item => item.type === "path").length;
-    });
-
-
-    Handlebars.registerHelper('getActiveCapacities', function (items) {
-        let caps = items.filter(item => {
-            // return item.type === "capacity" && item.data.checked
-            return item.type === "capacity"
-        });
-        caps.sort(function (a, b) {
-            const aKey = a.data.path + "-" + a.data.rank;
-            const bKey = b.data.path + "-" + b.data.rank;
-            return (aKey > bKey) ? 1 : -1
-        });
-        return caps;
     });
 
     Handlebars.registerHelper('getCapacities', function (items) {

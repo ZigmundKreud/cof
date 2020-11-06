@@ -77,6 +77,7 @@
   "COF.ui.stackable" : "Empilable",
   "COF.ui.stacksize" : "Quantité max",
   "COF.ui.capacity" : "Capacité",
+  "COF.ui.capacities" : "Capacités",
   "COF.placeholders.stacksize" : "Quantité infinie si vide",
 
   "COF.roll.success" : "Succès",
@@ -220,6 +221,7 @@
   "COF.category.ammunition": "Munition",
   "COF.category.container" : "Contenant",
   "COF.category.mount" : "Monture",
+  "COF.category.currency" : "Monnaie",
   "COF.category.other": "Divers",
 
   "COF.rarity.common" : "Commun",
@@ -274,5 +276,12 @@
   "COF.properties.13strmin" : "13 en FOR minimum",
   "COF.properties.bashing" : "DM temporaires possibles",
   "COF.properties.sling" : "Fronde",
-  "COF.properties.spell" : "Sort"
+  "COF.properties.spell" : "Sort",
+
+  "COF.properties.profile" : "Profil",
+  "COF.properties.prestige" : "Prestige",
+  "COF.properties.alternative" : "Alternative",
+  "COF.properties.racial" : "Raciale",
+  "COF.properties.creature" : "Créature"
+
 }

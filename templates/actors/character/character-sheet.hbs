@@ -16,18 +16,21 @@
         <div class="flexrow main">
             <div class="sidebar flex1">
                 <br/>
-                <div class="row flexrow">
+                <div class="flexrow">
                     <div class="flex1 center">
                         <span class="charname">{{split actor.name ' ' 0}}</span>
                     </div>
                 </div>
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
                 <br/>
+                <div class="flexrow">
+                    <div class="flex1">{{{data.description}}}</div>
+                </div>
             </div>
             <div class="separator flex1"></div>
             <div class="content flex3">
                 {{> "systems/cof/templates/actors/character/parts/character-header.hbs"}}
-                <div class="row flexrow"><div class="flex1 half-spacer"></div></div>
+                <div class="flexrow"><div class="flex1 half-spacer"></div></div>
                 {{!-- Sheet Tab Navigation --}}
                 <nav class="sheet-tabs tabs" data-group="primary">
                     <a class="item" data-tab="stats">{{ localize "COF.tabs.stats" }}</a>

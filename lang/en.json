@@ -77,6 +77,7 @@
   "COF.ui.stackable" : "Stackable",
   "COF.ui.stacksize" : "Max quantity",
   "COF.ui.capacity" : "Capacity",
+  "COF.ui.capacities" : "Capacities",
   "COF.placeholders.stacksize" : "Infinite if empty",
 
   "COF.roll.success" : "Success",
@@ -220,6 +221,7 @@
   "COF.category.ammunition": "Ammunition",
   "COF.category.container" : "Container",
   "COF.category.mount" : "Mount",
+  "COF.category.currency" : "Currency",
   "COF.category.other": "Other",
 
   "COF.rarity.common" : "Common",
@@ -274,6 +276,12 @@
   "COF.properties.13strmin" : "13 STR minimum",
   "COF.properties.bashing" : "Bashing DM possible",
   "COF.properties.sling" : "Sling",
-  "COF.properties.spell" : "Spell"
+  "COF.properties.spell" : "Spell",
+
+  "COF.properties.profile" : "Profile",
+  "COF.properties.prestige" : "Prestige",
+  "COF.properties.alternative" : "Alternative",
+  "COF.properties.racial" : "Racial",
+  "COF.properties.creature" : "Creature"
 
 }
