@@ -42,8 +42,6 @@
   "COF.ui.alternative" : "Alternative",
   "COF.ui.path" : "Path",
   "COF.ui.pathtype" : "Path type",
-  "COF.ui.capacity" : "Capacity",
-  "COF.ui.capacities" : "Capacities",
   "COF.ui.spell" : "Spell",
   "COF.ui.spellcasting" : "Spellcasting",
   "COF.ui.limited" : "Limited action",
