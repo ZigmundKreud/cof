@@ -280,6 +280,9 @@
   "COF.properties.prestige" : "Prestige",
   "COF.properties.alternative" : "Alternative",
   "COF.properties.racial" : "Racial",
-  "COF.properties.creature" : "Creature"
+  "COF.properties.creature" : "Creature",
 
+  "COF.SheetClassCharacter" : "Default COF Character Sheet",
+  "COF.SheetClassEncounter" : "Default COF Encounter Sheet",
+  "COF.SheetClassItem" : "Default COF Item Sheet"
 }

@@ -8,6 +8,15 @@ System.dataPath = System.rootPath + "/_data";
 System.templatesPath = System.rootPath + "/templates";
 System.logPrefix = System.abbrev;
 System.debugMode = true;
+System.ASCII = `
+   ******    *******   ********
+  **////**  **/////** /**///// 
+ **    //  **     //**/**      
+/**       /**      /**/******* 
+/**       /**      /**/**////  
+//**    **//**     ** /**      
+ //******  //*******  /**      
+  //////    ///////   //`;
 
 const COF = {};
 
