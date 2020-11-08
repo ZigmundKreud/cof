@@ -4,7 +4,7 @@
   "description": "<p>Système Foundry VTT pour <a href='https://www.black-book-editions.fr/catalogue.php?id=477'>Chroniques Oubliées Fantasy</a>.</p><p> *** Rejoignez la communauté Discord FR :<a href='https://discord.gg/pPSDNJk'>https://discord.gg/pPSDNJk</a></p>",
   "version": "0.3.1",
   "minimumCoreVersion": "0.7.3",
-  "compatibleCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.6",
   "templateVersion": 2,
   "author": "Zigmund",
   "esmodules": [
@@ -13,9 +13,7 @@
     "module/hooks/chat-message.js",
     "module/hooks/hotbar-drop.js"
   ],
-  "scripts": [
-    "./module/config.js"
-  ],
+  "scripts": [],
   "styles": [
     "./css/cof.css"
   ],
@@ -106,7 +104,7 @@
     }
   ],
   "socket": true,
-  "gridDistance": 2,
+  "gridDistance": 1.5,
   "gridUnits": "m",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,

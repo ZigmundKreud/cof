@@ -4,6 +4,7 @@
  */
 import {ArrayUtils} from "../utils/array-utils.js";
 import {Traversal} from "../utils/traversal.js";
+import {System} from "../config.js";
 
 export class CofItemSheet extends ItemSheet {
 

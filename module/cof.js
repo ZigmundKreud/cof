@@ -15,12 +15,13 @@ import {CofEncounterSheet} from "./actors/encounter-sheet.js";
 import { preloadHandlebarsTemplates } from "./templates.js";
 import { registerHandlebarsHelpers } from "./helpers.js";
 import { registerSystemSettings } from "./settings.js";
+import {System, COF} from "./config.js";
 
 
 Hooks.once("init", async function () {
 
     console.info("System Initializing...");
-    console.log(`COF | Initializing the ${System.label} Game System\n${System.ASCII}`);
+    console.info(System.ASCII);
 
     /**
      * Set an initiative formula for the system
@@ -57,7 +58,6 @@ Hooks.once("init", async function () {
         label: "COF.SheetClassEncounter"
     });
     // Register item sheets
-    // Items.registerSheet("cof", CofItemSheet, {types: ["item", "capacity", "profile", "path", "species", "armor", "shield", "melee", "ranged", "spell", "trapping"], makeDefault: true});
     Items.registerSheet("cof", CofItemSheet, {
         types: ["item", "capacity", "profile", "path", "species"],
         makeDefault: true,

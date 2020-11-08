@@ -52,11 +52,11 @@ export class Traversal {
         let ingame = [];
         switch(type){
             case "path" :
-                compendium = COF.paths;
+                compendium = game.cof.config.paths;
                 ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
                 break;
             case "capacity" :
-                compendium = COF.capacities;
+                compendium = game.cof.config.capacities;
                 ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
                 break;
         }
@@ -72,25 +72,25 @@ export class Traversal {
     }
 
     static getAllCapacitiesData () {
-        const compendium = COF.capacities;
+        const compendium = game.cof.config.capacities;
         const ingame = this.getInGameEntitiesDataOfType("capacity");
         return ingame.concat(compendium);
     }
 
     static getAllPathsData () {
-        const compendium = COF.paths;
+        const compendium = game.cof.config.paths;
         const ingame = this.getInGameEntitiesDataOfType("path");
         return ingame.concat(compendium);
     }
 
     static getAllProfilesData () {
-        const compendium = COF.profiles;
+        const compendium = game.cof.config.profiles;
         const ingame = this.getInGameEntitiesDataOfType("profile");
         return ingame.concat(compendium);
     }
 
     static getAllSpeciesData () {
-        const compendium = COF.species;
+        const compendium = game.cof.config.species;
         const ingame = this.getInGameEntitiesDataOfType("species");
         return ingame.concat(compendium);
     }

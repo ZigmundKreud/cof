@@ -3,6 +3,7 @@
  * @extends {ActorSheet}
  */
 import {CofActorSheet} from "./actor-sheet.js";
+import {System} from "../config.js";
 
 export class CofCharacterSheet extends CofActorSheet {
 

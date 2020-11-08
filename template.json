@@ -178,14 +178,6 @@
             "bonus": 0,
             "value": 5
           },
-          "madness": {
-            "key" : "fp",
-            "label" : "COF.attributes.madness.label",
-            "abbrev" : "COF.attributes.madness.abbrev",
-            "enabled": false,
-            "base": 0,
-            "value": 0
-          },
           "fp": {
             "key" : "fp",
             "label" : "COF.attributes.fp.label",
@@ -309,15 +301,9 @@
     "types": [
       "item",
       "capacity",
-      "trapping",
       "species",
       "profile",
-      "path",
-      "armor",
-      "shield",
-      "melee",
-      "ranged",
-      "spell"
+      "path"
     ],
     "templates": {
       "base" : {

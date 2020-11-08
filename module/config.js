@@ -1,4 +1,4 @@
-const System = {};
+export const System = {};
 
 System.label = "Chroniques Oubliées Fantasy";
 System.abbrev = "COF VTT";
@@ -18,7 +18,7 @@ System.ASCII = `
  //******  //*******  /**      
   //////    ///////   //`;
 
-const COF = {};
+export const COF = {};
 
 COF.itemProperties = {
     "equipable": "COF.properties.equipable",

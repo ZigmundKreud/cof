@@ -7,7 +7,7 @@ export class Species {
             ui.notifications.error("Vous avez déjà une race.");
             return false;
         } else {
-            let items = COF.capacities.filter(e => itemData.data.capacities.includes(e._id));
+            let items = game.cof.config.capacities.filter(e => itemData.data.capacities.includes(e._id));
             items.push(itemData);
             return actor.createOwnedItem(items);
         }

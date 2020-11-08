@@ -16,10 +16,10 @@ Hooks.once("ready", async () => {
         // DataLoader.loadData("species");
         // DataLoader.loadData("spells");
 
-    await COF.getProfiles();
-    await COF.getSpecies();
-    await COF.getPaths();
-    await COF.getCapacities();
+    await game.cof.config.getProfiles();
+    await game.cof.config.getSpecies();
+    await game.cof.config.getPaths();
+    await game.cof.config.getCapacities();
 
     // UpdateUtils.updateCapacities();
     // UpdateUtils.updatePaths();
