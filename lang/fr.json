@@ -280,6 +280,9 @@
   "COF.properties.prestige" : "Prestige",
   "COF.properties.alternative" : "Alternative",
   "COF.properties.racial" : "Raciale",
-  "COF.properties.creature" : "Créature"
+  "COF.properties.creature" : "Créature",
 
+  "COF.SheetClassCharacter" : "Fiche de Personnage COF par défaut",
+  "COF.SheetClassEncounter" : "Fiche de Rencontre COF par défaut",
+  "COF.SheetClassItem" : "Fiche d'Objet COF par défaut"
 }

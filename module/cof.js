@@ -20,6 +20,7 @@ import { registerSystemSettings } from "./settings.js";
 Hooks.once("init", async function () {
 
     console.info("System Initializing...");
+    console.log(`COF | Initializing the ${System.label} Game System\n${System.ASCII}`);
 
     /**
      * Set an initiative formula for the system
@@ -45,11 +46,23 @@ Hooks.once("init", async function () {
     Items.unregisterSheet("core", ItemSheet);
 
     // Register actor sheets
-    Actors.registerSheet("cof", CofCharacterSheet, {types: ["character", "npc"], makeDefault: true});
-    Actors.registerSheet("cof", CofEncounterSheet, {types: ["encounter"], makeDefault: true});
+    Actors.registerSheet("cof", CofCharacterSheet, {
+        types: ["character", "npc"], 
+        makeDefault: true,
+        label: "COF.SheetClassCharacter"
+    });
+    Actors.registerSheet("cof", CofEncounterSheet, {
+        types: ["encounter"], 
+        makeDefault: true,
+        label: "COF.SheetClassEncounter"
+    });
     // Register item sheets
     // Items.registerSheet("cof", CofItemSheet, {types: ["item", "capacity", "profile", "path", "species", "armor", "shield", "melee", "ranged", "spell", "trapping"], makeDefault: true});
-    Items.registerSheet("cof", CofItemSheet, {types: ["item", "capacity", "profile", "path", "species"], makeDefault: true});
+    Items.registerSheet("cof", CofItemSheet, {
+        types: ["item", "capacity", "profile", "path", "species"],
+        makeDefault: true,
+        label: "COF.SheetClassItem"
+    });
 
     // Register System Settings
     registerSystemSettings();
