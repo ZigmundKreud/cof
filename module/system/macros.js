@@ -1,94 +1,64 @@
+import {CofRoll} from "../controllers/roll.js";
+
 export class Macros {
 
-    static rollVigilanceMacro = function (token) {
+    static getSpeakersActor = function(){
+        const speaker = ChatMessage.getSpeaker();
+        let actor;
+        // if a token is selected take it as target actor
+        if (speaker.token) actor = game.actors.tokens[speaker.token];
+        // otherwise take the default actor for current user
+        if (!actor) actor = game.actors.get(speaker.actor);
+        return actor;
+    }
 
-        if(token){
-            let d = new Dialog({
-                title: "Modificateur",
-                content: `
-            <form> 
-              <div class="form-group">
-                <label>Modificateur:</label>
-                <select id="vision-type" name="vision-type">
-                  <option value="-1">-1</option>
-                  <option value="2">2</option>
-                </select>
-              </div>
-            </form>
-          `,
-                buttons: {
-                    cancel: {
-                        icon: '<i class="fas fa-times"></i>',
-                        label: "Cancel",
-                        callback: (html) => {
-                            console.log("Vous avez cliqué sur Cancel");
-                        }
-                    },
-                    roll: {
-                        icon: '<i class="fas fa-dice-d20"></i>',
-                        label: "OK",
-                        callback: (html) => {
-                            console.log(token);
-                            const mod = html.find('#vision-type').val();
-                            console.log(mod);
-                            const vigilance = token.actor.data.data.stats[0].value + eval(mod);
-                            console.log(vigilance);
-                            const formula = `2d6 <= ${vigilance}`;
-                            const r = new Roll(formula);
-                            r.roll();
-                            const rollFlavor = (r.total <= vigilance) ? "<h2>Succès !</h2>" : "<h2>Echec... !</h2>";
-                            r.toMessage({
-                                user: game.user._id,
-                                flavor: rollFlavor,
-                                speaker: ChatMessage.getSpeaker({actor: token.actor})
-                            });
-                        }
-                    }
-                },
-                default: "ok",
-                close: () => {
-                }
-            });
-            d.render(true);
+    static rollStatMacro = async function (actor, stat, onEnter = "submit") {
+        if(actor){
+            let statObj;
+            switch(stat){
+                case "for" :
+                case "str" : statObj = eval(`actor.data.data.stats.str`); break;
+                case "dex" : statObj = eval(`actor.data.data.stats.dex`); break;
+                case "con" : statObj = eval(`actor.data.data.stats.con`); break;
+                case "int" : statObj = eval(`actor.data.data.stats.int`); break;
+                case "sag" :
+                case "wis" : statObj = eval(`actor.data.data.stats.wis`); break;
+                case "cha" : statObj = eval(`actor.data.data.stats.cha`); break;
+                case "atc" :
+                case "melee" : statObj = eval(`actor.data.data.attacks.melee`); break;
+                case "atd" :
+                case "ranged" : statObj = eval(`actor.data.data.attacks.ranged`); break;
+                case "atm" :
+                case "magic" : statObj = eval(`actor.data.data.attacks.magic`); break;
+                default :
+                    ui.notifications.error("La compétence à tester n'a pas été reconnue.");
+                    break;
+            }
+            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), statObj.mod, 0, 20, statObj.superior, onEnter);
         } else {
             ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
         }
     };
 
-    static rollItemMacro = function (itemName, itemType, bypassData) {
-        const speaker = ChatMessage.getSpeaker();
-        let actor;
-        if (speaker.token) actor = game.actors.tokens[speaker.token];
-        if (!actor) actor = game.actors.get(speaker.actor);
-        console.log(itemName, itemType, bypassData);
-        // let item;
-        // // Not technically an item, used for convenience
-        // if (itemType == "characteristic")
-        // {
-        //     return actor.setupCharacteristic(itemName, bypassData)
-        // }
-        // else
-        // {
-        //     item = actor ? actor.items.find(i => i.name === itemName && i.type == itemType) : null;
-        // }
-        // if (!item) return ui.notifications.warn(`${game.i18n.localize("Error.MacroItemMissing")} ${itemName}`);
-        //
-        // item = item.data;
-        //
-        // // Trigger the item roll
-        // switch (item.type)
-        // {
-        //     case "weapon":
-        //         return actor.setupWeapon(item, bypassData)
-        //     case "spell":
-        //         return actor.spellDialog(item, bypassData)
-        //     case "prayer":
-        //         return actor.setupPrayer(item, bypassData)
-        //     case "trait":
-        //         return actor.setupTrait(item, bypassData)
-        //     case "skill":
-        //         return actor.setupSkill(item, bypassData)
-        // }
+    static rollItemMacro = function (itemId, itemName, itemType) {
+        const actor = this.getSpeakersActor()
+        let item;
+        item = actor ? actor.items.find(i => i.name === itemName && i.type == itemType) : null;
+        if (!item) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemMissing")}: "${itemName}"`);
+        const itemData = item.data;
+        if(itemData.data.properties.weapon){
+            if(itemData.data.worn){
+                let label = itemData.name;
+                let mod = itemData.data.mod;
+                let critrange = itemData.data.critrange;
+                let dmg = itemData.data.dmg;
+                CofRoll.rollWeaponDialog(actor, label, mod, 0, critrange, dmg);
+            }
+            else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
+        }
+        else{
+            return item.sheet.render(true);
+        }
     };
 
 

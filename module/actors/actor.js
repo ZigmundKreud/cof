@@ -10,6 +10,7 @@ export class CofActor extends Actor {
     prepareBaseData() {
         super.prepareBaseData();
         let actorData = this.data;
+        console.log(actorData);
         if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
         else this._prepareBaseCharacterData(actorData);
     }

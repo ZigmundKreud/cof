@@ -586,7 +586,7 @@ Copied from dnd5e
   overflow: hidden;
 }
 
-.cof.actor .window-content .editable {
+.cof.actor .window-content > form {
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -595,7 +595,7 @@ Copied from dnd5e
   overflow: hidden;
 }
 
-.cof.actor .window-content .editable .wrap {
+.cof.actor .window-content > form .wrap {
   padding: 0;
   margin: 0;
   min-height: 100%;
@@ -604,19 +604,19 @@ Copied from dnd5e
   overflow: hidden;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background {
+.cof.actor .window-content > form .wrap .header .header-background {
   min-height: 65px;
   height: 65px;
   max-height: 65px;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background #banner {
+.cof.actor .window-content > form .wrap .header .header-background #banner {
   min-height: 65px;
   height: 65px;
   max-height: 65px;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background #banner-left {
+.cof.actor .window-content > form .wrap .header .header-background #banner-left {
   min-width: 331px;
   width: 331px;
   max-width: 331px;
@@ -625,7 +625,7 @@ Copied from dnd5e
   max-height: 65px;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background #banner-right {
+.cof.actor .window-content > form .wrap .header .header-background #banner-right {
   float: right;
   min-width: 331px;
   width: 331px;
@@ -635,14 +635,14 @@ Copied from dnd5e
   max-height: 65px;
 }
 
-.cof.actor .window-content .editable .wrap .header #logo-banner {
+.cof.actor .window-content > form .wrap .header #logo-banner {
   margin-top: -55px;
   min-height: 65px;
   height: 65px;
   max-height: 65px;
 }
 
-.cof.actor .window-content .editable .wrap .header #logo-banner > img {
+.cof.actor .window-content > form .wrap .header #logo-banner > img {
   min-width: 300px;
   width: 300px;
   max-width: 300px;
@@ -651,7 +651,7 @@ Copied from dnd5e
   max-height: 100px;
 }
 
-.cof.actor .window-content .editable .wrap .main {
+.cof.actor .window-content > form .wrap .main {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   padding: 0;
@@ -662,13 +662,13 @@ Copied from dnd5e
   max-height: calc(100% - 95px);
 }
 
-.cof.actor .window-content .editable .wrap .main .sidebar {
+.cof.actor .window-content > form .wrap .main .sidebar {
   max-width: 250px;
   padding: 0 5px 0 5px;
   height: 100%;
 }
 
-.cof.actor .window-content .editable .wrap .main .sidebar .profile-img {
+.cof.actor .window-content > form .wrap .main .sidebar .profile-img {
   cursor: pointer;
   border: none;
   margin-top: 5px;
@@ -678,14 +678,14 @@ Copied from dnd5e
   flex: 0 0 240px;
 }
 
-.cof.actor .window-content .editable .wrap .main .separator {
+.cof.actor .window-content > form .wrap .main .separator {
   min-width: 7px;
   width: 7px;
   max-width: 7px;
   height: 100%;
 }
 
-.cof.actor .window-content .editable .wrap .main .content {
+.cof.actor .window-content > form .wrap .main .content {
   margin: 0;
   padding: 35px 5px 5px 5px;
   height: 100%;
@@ -693,11 +693,11 @@ Copied from dnd5e
   max-height: 100%;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .top {
+.cof.actor .window-content > form .wrap .main .content .top {
   padding: 0;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body {
+.cof.actor .window-content > form .wrap .main .content .sheet-body {
   padding: 0;
   margin: 0;
   min-height: calc(100% - 100px);
@@ -706,7 +706,7 @@ Copied from dnd5e
   overflow: auto;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab {
   height: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -715,11 +715,11 @@ Copied from dnd5e
   padding: 5px 0 0 0;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities {
   overflow: auto;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .path-list {
   -webkit-box-shadow: 0 4px 3px -3px gray;
   box-shadow: 0 4px 3px -3px gray;
   margin: 0 0 5px 0;
@@ -728,80 +728,80 @@ Copied from dnd5e
   overflow: hidden;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list .grid {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .path-list .grid {
   max-height: 150px;
   overflow: auto;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list.encounter {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .path-list.encounter {
   min-height: 100px;
   height: 100px;
   max-height: 100px;
   overflow: hidden;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .path-list.encounter .grid {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .path-list.encounter .grid {
   min-height: 100px;
   height: 100px;
   max-height: 100px;
   overflow: auto;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar {
   height: 25px;
   padding: 0;
   margin: 0;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar .capacity-tools {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar .capacity-tools {
   height: 25px;
   padding: 0;
   margin: 0;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar .capacity-tools .capacity-tool {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-toolbar .capacity-tools .capacity-tool {
   height: 20px;
   padding: 2px;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list {
   min-height: calc(100% - 220px);
   height: calc(100% - 220px);
   max-height: calc(100% - 220px);
   overflow: auto;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.p0 {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p0 {
   min-height: calc(100% - 15px);
   height: calc(100% - 15px);
   max-height: calc(100% - 15px);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.p1 {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p1 {
   min-height: calc(100% - 120px);
   height: calc(100% - 120px);
   max-height: calc(100% - 120px);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.p2 {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p2 {
   min-height: calc(100% - 145px);
   height: calc(100% - 145px);
   max-height: calc(100% - 145px);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.p3 {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p3 {
   min-height: calc(100% - 170px);
   height: calc(100% - 170px);
   max-height: calc(100% - 170px);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.capacities .capacity-list.p4 {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p4 {
   min-height: calc(100% - 195px);
   height: calc(100% - 195px);
   max-height: calc(100% - 195px);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.description .editor {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.description .editor {
   margin: 0;
   overflow: hidden;
   min-height: calc(100% - 225px);
@@ -809,7 +809,7 @@ Copied from dnd5e
   max-height: calc(100% - 225px);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .sheet-body .tab.description .editor .editor-content {
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.description .editor .editor-content {
   padding: 5px;
   margin: 0;
   overflow: auto;
@@ -855,15 +855,15 @@ Copied from dnd5e
   color: #4b4a44;
 }
 
-.cof.actor .window-content .editable .wrap {
+.cof.actor .window-content > form .wrap {
   color: #3c3c3c;
 }
 
-.cof.actor .window-content .editable .wrap #logo-banner > img {
+.cof.actor .window-content > form .wrap #logo-banner > img {
   border: none;
 }
 
-.cof.actor .window-content .editable .wrap .field-label {
+.cof.actor .window-content > form .wrap .field-label {
   background: none;
   margin: 0;
   min-height: 28px;
@@ -874,7 +874,7 @@ Copied from dnd5e
   vertical-align: middle;
 }
 
-.cof.actor .window-content .editable .wrap .field-value {
+.cof.actor .window-content > form .wrap .field-value {
   width: 100%;
   min-height: 26px;
   height: 26px;
@@ -883,35 +883,35 @@ Copied from dnd5e
   padding: 5px;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background {
+.cof.actor .window-content > form .wrap .header .header-background {
   background: url("../ui/green-leather-bg.png") repeat-x white;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background #banner-left {
+.cof.actor .window-content > form .wrap .header .header-background #banner-left {
   background: url("../ui/deco-left.png") no-repeat;
 }
 
-.cof.actor .window-content .editable .wrap .header .header-background #banner-right {
+.cof.actor .window-content > form .wrap .header .header-background #banner-right {
   background: url("../ui/deco-right.png") no-repeat;
 }
 
-.cof.actor .window-content .editable .wrap .main {
+.cof.actor .window-content > form .wrap .main {
   background: white;
 }
 
-.cof.actor .window-content .editable .wrap .main .sidebar {
+.cof.actor .window-content > form .wrap .main .sidebar {
   background: url("../ui/parchemin1.png") no-repeat white;
 }
 
-.cof.actor .window-content .editable .wrap .main .separator {
+.cof.actor .window-content > form .wrap .main .separator {
   background: url("../ui/separator.png") repeat-y white;
 }
 
-.cof.actor .window-content .editable .wrap .main .content .drop-field {
+.cof.actor .window-content > form .wrap .main .content .drop-field {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.cof.actor .window-content .editable .wrap .main .content .drop-field .field-value {
+.cof.actor .window-content > form .wrap .main .content .drop-field .field-value {
   background: transparent;
 }
 

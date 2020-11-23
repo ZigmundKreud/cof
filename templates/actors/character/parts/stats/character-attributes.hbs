@@ -20,11 +20,17 @@
 </div>
 {{#each actor.data.stats as |stat id|}}
 <div class="flexrow no-wrap">
-    <div class="flex2 center bg-darkgreen rollable" data-rolling="data.stats.{{id}}" data-roll-type="skillcheck">
-        <div class="field-label" title="{{ localize stat.label }}"><i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}</div>
-        <input name="data.stats.{{id}}.abbrev" type="hidden" value="{{stat.abbrev}}" data-dtype="String"/>
-        <input name="data.stats.{{id}}.label" type="hidden" value="{{stat.label}}" data-dtype="String"/>
-        <input name="data.stats.{{id}}.key" type="hidden" value="{{stat.key}}" data-dtype="String"/>
+    <div class="flex2 bg-darkgreen">
+        <div class="flexrow no-wrap">
+            <div class="flex1 center no-wrap" title="Supérieur (2d20)">
+                <input type="checkbox" name="data.stats.{{id}}.superior" {{checked stat.superior}}>
+            </div>
+            <div class="flex8 center rollable no-wrap" data-rolling="data.stats.{{id}}" data-roll-type="skillcheck">
+                <div class="field-label no-wrap" title="{{ localize stat.label }}">
+                    <i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="flex1 center cell">
         <input class="field-value" name="data.stats.{{id}}.base" type="text" value="{{stat.base}}" data-dtype="Number"/>

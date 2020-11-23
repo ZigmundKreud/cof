@@ -2,7 +2,7 @@
 /*  Layout                                   */
 /* ----------------------------------------- */
 .window-content {
-  .editable {
+  &>form {
     .wrap {
       color: $c-dark;
       //color: $c-darkbrown;

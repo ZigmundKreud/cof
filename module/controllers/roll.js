@@ -19,10 +19,12 @@ export class CofRoll {
         let label = eval(`${key}.label`);
         const mod = eval(`${key}.mod`);
         let bonus = eval(`${key}.bonus`);
+        let superior = eval(`${key}.superior`);
         const critrange = 20;
         bonus = (bonus) ? bonus : 0;
         label = (label) ? game.i18n.localize(label) : null;
-        this.skillRollDialog(actor, label, mod, bonus, critrange);
+        return this.skillRollDialog(actor, label, mod, bonus, critrange, superior);
+
     }
 
     /**
@@ -176,9 +178,14 @@ export class CofRoll {
 
     /* -------------------------------------------- */
 
-    static async skillRollDialog(actor, label, mod, bonus, critrange) {
+
+    /* -------------------------------------------- */
+    /* ROLL DIALOGS                                 */
+    /* -------------------------------------------- */
+
+    static async skillRollDialog(actor, label, mod, bonus, critrange, superior=false, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange});
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange, superior:superior});
         let d = new Dialog({
             title: label,
             content: rollOptionContent,
@@ -203,14 +210,13 @@ export class CofRoll {
                     }
                 }
             },
-            default: "submit",
-            close: () => {
-            }
+            default: onEnter,
+            close: () => {}
         }, this.options());
-        d.render(true);
+        return d.render(true);
     }
 
-    static async rollWeaponDialog(actor, label, mod, bonus, critrange, formula) {
+    static async rollWeaponDialog(actor, label, mod, bonus, critrange, formula, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
         let diff = null;
         if (game.settings.get("cof", "displayDifficulty") && game.user.targets.size > 0) {
@@ -249,14 +255,14 @@ export class CofRoll {
                     }
                 }
             },
-            default: "submit",
+            default: onEnter,
             close: () => {
             }
         }, this.options());
-        d.render(true);
+        return d.render(true);
     }
 
-    static async rollDamageDialog(actor, label, formula, bonus) {
+    static async rollDamageDialog(actor, label, formula, bonus, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-dmg-dialog.hbs';
         const rollOptionContent = await renderTemplate(rollOptionTpl, {formula: formula, bonus: bonus, custom: ""});
 
@@ -281,11 +287,11 @@ export class CofRoll {
                     }
                 }
             },
-            default: "submit",
+            default: onEnter,
             close: () => {
             }
         }, this.options());
-        d.render(true);
+        return d.render(true);
     }
 
 }

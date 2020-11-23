@@ -284,5 +284,9 @@
 
   "COF.SheetClassCharacter" : "Default COF Character Sheet",
   "COF.SheetClassEncounter" : "Default COF Encounter Sheet",
-  "COF.SheetClassItem" : "Default COF Item Sheet"
+  "COF.SheetClassItem" : "Default COF Item Sheet",
+
+  "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
+  "COF.notification.MacroItemUnequiped" : "Item is unequiped"
+
 }

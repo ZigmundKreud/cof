@@ -16,6 +16,7 @@ import { preloadHandlebarsTemplates } from "./templates.js";
 import { registerHandlebarsHelpers } from "./helpers.js";
 import { registerSystemSettings } from "./settings.js";
 import {System, COF} from "./config.js";
+import {Macros} from "./system/macros.js";
 
 
 Hooks.once("init", async function () {
@@ -39,6 +40,8 @@ Hooks.once("init", async function () {
 
     // Create a namespace within the game global
     game.cof = {
+        skin : "base",
+        macros : Macros,
         config: COF
     };
 

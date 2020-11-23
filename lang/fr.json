@@ -284,5 +284,9 @@
 
   "COF.SheetClassCharacter" : "Fiche de Personnage COF par défaut",
   "COF.SheetClassEncounter" : "Fiche de Rencontre COF par défaut",
-  "COF.SheetClassItem" : "Fiche d'Objet COF par défaut"
+  "COF.SheetClassItem" : "Fiche d'Objet COF par défaut",
+
+  "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
+  "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé"
+
 }
