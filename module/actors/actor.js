@@ -188,7 +188,8 @@ export class CofActor extends Actor {
         attributes.init.base = stats.dex.value;
         attributes.init.value = attributes.init.base + attributes.init.bonus;
 
-        attributes.fp.base = 3 + stats.cha.mod;
+        attributes.fp.base = 3;
+        attributes.fp.bonus = stats.cha.mod;
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
         attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
         attributes.rp.value = attributes.rp.base + attributes.rp.bonus;
