@@ -1,0 +1,24 @@
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">Formule</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value readonly" id="dmgFormula" name="dmgFormula" type="text" readonly="true" value="{{dmgFormula}}" data-dtype="String" style="border:none;border-radius:0px;"/>
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">Bonus/Malus</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="dmgBonus" name="dmgBonus" type="text" value="{{numberFormat dmgBonus decimals=0 sign=true}}" data-dtype="Number" style="border:none;border-radius:0px;"/>
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 10px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">Formule personnalisée</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="dmgCustomFormula" name="dmgCustomFormula" type="text" value="{{dmgCustomFormula}}" data-dtype="String" style="border:none;border-radius:0px;"/>
+    </div>
+</div>

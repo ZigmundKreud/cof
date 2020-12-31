@@ -52,7 +52,7 @@ export class Macros {
                 let mod = itemData.data.mod;
                 let critrange = itemData.data.critrange;
                 let dmg = itemData.data.dmg;
-                CofRoll.rollWeaponDialog(actor, label, mod, 0, critrange, dmg);
+                CofRoll.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }

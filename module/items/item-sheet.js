@@ -261,7 +261,6 @@ export class CofItemSheet extends ItemSheet {
         if ( item.type === "item" ) {
             const entries = Object.entries(item.data.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
-                console.log(e[0]);
                 return game.cof.config.itemProperties[e[0]]
             }));
         }

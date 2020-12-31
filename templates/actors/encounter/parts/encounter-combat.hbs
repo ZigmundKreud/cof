@@ -5,8 +5,8 @@
             <div class="item-detail">Mod</div>
             <div class="item-detail">Critique</div>
             <div class="item-detail">DM</div>
-            <div class="item-controls">
-                <a class="item-control item-create weapon-add" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp; Add</a>
+            <div class="item-controls-3">
+                <a class="item-control item-create weapon-add" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
                 <!--                <a class="item-control" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp;Add</a>-->
             </div>
             <!--                <a class="item-control weapon-add btn" title="Ajouter une attaque" style="padding:3px"><i class="fas fa-plus"></i></a>-->
@@ -36,9 +36,9 @@
                 <div class="item-detail">
                     <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.dmg}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
                 </div>
-                <div class="item-controls">
+                <div class="item-controls-3">
                     <a class="item-control rollable" data-roll-type="encounter-weapon"><i class="fas fa-dice-d20"></i></a>
-<!--                    <a class="item-control rollable" data-roll-type="encounter-damage"><i class="fas fa-dice"></i></a>-->
+                    <a class="item-control rollable" data-roll-type="encounter-damage"><i class="fas fa-dice"></i></a>
                     <a class="item-control weapon-remove" title="Delete Item"><i class="fas fa-trash"></i></a>
                 </div>
             </li>

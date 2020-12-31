@@ -10,7 +10,6 @@ export class CofActor extends Actor {
     prepareBaseData() {
         super.prepareBaseData();
         let actorData = this.data;
-        console.log(actorData);
         if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
         else this._prepareBaseCharacterData(actorData);
     }
@@ -188,34 +187,16 @@ export class CofActor extends Actor {
         attributes.init.base = stats.dex.value;
         attributes.init.value = attributes.init.base + attributes.init.bonus;
 
-        attributes.fp.base = 3;
-        attributes.fp.bonus = stats.cha.mod;
+        attributes.fp.base = 3 + stats.cha.mod;
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
         attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
-        attributes.rp.value = attributes.rp.base + attributes.rp.bonus;
+        attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
 
         const magicMod = this.getMagicMod(stats, profile);
         if(profile){
-
             attributes.hd.value = profile.data.dv;
-
-            switch (profile.data.key) {
-                case "barde" :
-                case "forgesort" :
-                case "pretre" :
-                case "druide" :
-                    attributes.mp.base = lvl + magicMod;
-                    break;
-                case "ensorceleur" :
-                case "magicien" :
-                case "necromancien" :
-                    attributes.mp.base = 2 * lvl + magicMod;
-                    break;
-                default :
-                    attributes.mp.base = 0;
-                    break;
-            }
+            attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
         }
         else attributes.mp.base = 0;
         attributes.mp.max = attributes.mp.base + attributes.mp.bonus;

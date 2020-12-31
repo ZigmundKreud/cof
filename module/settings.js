@@ -49,4 +49,14 @@ export const registerSystemSettings = function() {
         type: Boolean,
         onChange: lang => window.location.reload()
     });
+
+    game.settings.register("cof", "useComboRolls", {
+        name: "Active les jets \"combo\"",
+        hint: "Permet de lancer les jets d'attaque et de dommage simultanément.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
 };

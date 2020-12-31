@@ -38,17 +38,19 @@ export class CofSkillRoll {
         });
     }
 
-    weaponRoll(actor, formula){
+    weaponRoll(actor, dmgFormula){
         this.roll(actor);
         if (this._difficulty) {
-            if(this._isSuccess){
-                let r = new CofDamageRoll(this._label, formula, this._isCritical);
+            if(this._isSuccess && game.settings.get("cof", "useComboRolls")){
+                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical);
                 r.roll(actor);
             }
         }
         else {
-            let r = new CofDamageRoll(this._label, formula, this._isCritical);
-            r.roll(actor);
+            if(game.settings.get("cof", "useComboRolls")){
+                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical);
+                r.roll(actor);
+            }
         }
     }
 

@@ -33,6 +33,13 @@ export const preloadHandlebarsTemplates = async function () {
         "systems/cof/templates/actors/encounter/parts/encounter-combat.hbs",
         "systems/cof/templates/actors/encounter/parts/encounter-details.hbs",
         "systems/cof/templates/actors/encounter/parts/encounter-stats.hbs",
+        "systems/cof/templates/actors/encounter/parts/inventory/encounter-inventory.hbs",
+        "systems/cof/templates/actors/encounter/parts/inventory/encounter-inventory-item.hbs",
+        "systems/cof/templates/actors/encounter/parts/capacities/encounter-capacities.hbs",
+        "systems/cof/templates/actors/encounter/parts/capacities/encounter-paths.hbs",
+
+        // DIALOGS
+        "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs",
 
         // ITEMS PROPERTIES
         "systems/cof/templates/items/parts/properties/item-properties.hbs",

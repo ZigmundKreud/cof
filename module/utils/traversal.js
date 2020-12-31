@@ -72,24 +72,28 @@ export class Traversal {
     }
 
     static getAllCapacitiesData () {
+        const compendiums = game.packs.filter(c => c.metadata.tag === "capacity")
         const compendium = game.cof.config.capacities;
         const ingame = this.getInGameEntitiesDataOfType("capacity");
         return ingame.concat(compendium);
     }
 
     static getAllPathsData () {
+        const compendiums = game.packs.filter(c => c.metadata.tag === "path")
         const compendium = game.cof.config.paths;
         const ingame = this.getInGameEntitiesDataOfType("path");
         return ingame.concat(compendium);
     }
 
     static getAllProfilesData () {
+        const compendiums = game.packs.filter(c => c.metadata.tag === "profile")
         const compendium = game.cof.config.profiles;
         const ingame = this.getInGameEntitiesDataOfType("profile");
         return ingame.concat(compendium);
     }
 
     static getAllSpeciesData () {
+        const compendiums = game.packs.filter(c => c.metadata.tag === "species")
         const compendium = game.cof.config.species;
         const ingame = this.getInGameEntitiesDataOfType("species");
         return ingame.concat(compendium);

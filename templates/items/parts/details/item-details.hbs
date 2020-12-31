@@ -11,6 +11,7 @@
                 <option value="shield">{{localize "COF.category.shield"}}</option>
                 <option value="spell">{{localize "COF.category.spell"}}</option>
                 <option value="jewel">{{localize "COF.category.jewel"}}</option>
+                <option value="consumable">{{localize "COF.category.consumable"}}</option>
                 <option value="ammunition">{{localize "COF.category.ammunition"}}</option>
                 <option value="container">{{localize "COF.category.container"}}</option>
                 <option value="mount">{{localize "COF.category.mount"}}</option>
@@ -37,9 +38,6 @@
             <input type="checkbox" name="data.properties.ranged" {{checked data.properties.ranged}}> {{localize "COF.properties.ranged"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.spell" {{checked data.properties.spell}}> {{localize "COF.properties.spell"}}
-        </label>
-        <label class="checkbox">
             <input type="checkbox" name="data.properties.effects" {{checked data.properties.effects}}> {{localize "COF.properties.effects"}}
         </label>
     </div>
@@ -57,12 +55,12 @@
 {{#if data.properties.ranged}}
     {{> "systems/cof/templates/items/parts/details/ranged-details.hbs"}}
 {{/if}}
+{{#if data.properties.effects}}
+    {{> "systems/cof/templates/items/parts/details/effects-details.hbs"}}
+{{/if}}
 {{#if data.properties.spell}}
     {{> "systems/cof/templates/items/parts/details/spell-details.hbs"}}
 {{/if}}
 {{#if actor}}
 {{> "systems/cof/templates/items/parts/details/usage-details.hbs"}}
-{{/if}}
-{{#if data.properties.effects}}
-{{> "systems/cof/templates/items/parts/details/effects-details.hbs"}}
 {{/if}}

@@ -10,6 +10,7 @@
 {{#if (not data.properties.stackable)}}
         <label class="checkbox"> <input type="checkbox" name="data.properties.unique"    {{checked data.properties.unique}}> Unique </label>
 {{/if}}
+        <label class="checkbox"><input type="checkbox" name="data.properties.consumable" {{checked data.properties.consumable}}> {{localize "COF.properties.consumable"}}</label>
         <label class="checkbox"> <input type="checkbox" name="data.properties.tailored"  {{checked data.properties.tailored}}> Sur-mesure </label>
         <label class="checkbox"><input type="checkbox" name="data.properties.2h" {{checked data.properties.2h}}> {{localize "COF.ui.2H"}}</label>
     </div>

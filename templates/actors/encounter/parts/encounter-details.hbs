@@ -85,16 +85,26 @@
                 <span class="field-label">{{ localize 'COF.ui.boss' }}</span>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value sans" name="data.boss.rank" type="text" value="{{actor.data.boss.rank}}" placeholder="{{ localize 'COF.ui.rank' }}" data-dtype="String"/>
+<!--                <input class="field-value sans" name="data.boss.rank" type="text" value="{{actor.data.boss.rank}}" placeholder="{{ localize 'COF.ui.rank' }}" data-dtype="String"/>-->
+                <select name="data.boss.rank" data-type="String" style="width:100%">
+                    {{#select data.boss.rank}}
+                        <option value="">{{localize "COF.None"}}</option>
+                        <option value="1">Boss 1 (Remarquable)</option>
+                        <option value="2">Boss 2 (Supérieur)</option>
+                        <option value="3">Boss 3 (Majeur)</option>
+                        <option value="4">Boss 4 (Exceptionnel)</option>
+                        <option value="5">Boss 5 (Légendaire)</option>
+                    {{/select}}
+                </select>
             </div>
             <div class="flex1 center cell">
                 <select name="data.boss.type" data-type="String" style="width:100%">
                     {{#select data.boss.type}}
                         <option value="">{{localize "COF.None"}}</option>
-                        <option value="standard">Standard</option>
                         <option value="rapide">Rapide</option>
                         <option value="puissant">Puissant</option>
-                        <option value="inférieur">Inférieur</option>
+                        <option value="berserk">Berserk</option>
+                        <option value="résistant">Résistant</option>
                     {{/select}}
                 </select>
 

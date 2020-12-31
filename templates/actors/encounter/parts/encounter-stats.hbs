@@ -1,34 +1,40 @@
 <div class="row flexrow no-wrap">
     <div class="flex1 layout">
         <div class="row flexrow table-header darkgreen no-wrap">
-            <div class="flex1 center">
+            <div class="flex3 center">
                 <div class="field-label">{{ localize 'COF.stats.abbrev' }}</div>
             </div>
-            <div class="flex1 center">
+            <div class="flex2 center">
                 <div class="field-label">{{ localize 'COF.stats.value.abbrev' }}</div>
             </div>
-            <div class="flex1 center">
+            <div class="flex2 center">
                 <div class="field-label">{{ localize 'COF.stats.mod.abbrev' }}</div>
             </div>
-            <div class="flex1 center">
+            <div class="flex2 center">
                 <div class="field-label">{{ localize 'COF.stats.tmpmod.abbrev' }}</div>
             </div>
         </div>
         {{#each actor.data.stats as |stat id|}}
-        <div class="row flexrow no-wrap">
-            <div class="flex1 center bg-darkgreen rollable" data-rolling="data.stats.{{id}}" data-roll-type="skillcheck">
-                <div class="field-label"><i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}</div>
-                <input name="data.stats.{{id}}.abbrev" type="hidden" value="{{stat.abbrev}}" data-dtype="String"/>
-                <input name="data.stats.{{id}}.label" type="hidden" value="{{stat.label}}" data-dtype="String"/>
-                <input name="data.stats.{{id}}.key" type="hidden" value="{{stat.key}}" data-dtype="String"/>
+        <div class="flexrow no-wrap">
+            <div class="flex3 bg-darkgreen">
+                <div class="flexrow no-wrap">
+                    <div class="flex1 center no-wrap" title="Supérieur (2d20)">
+                        <input type="checkbox" name="data.stats.{{id}}.superior" {{checked stat.superior}}>
+                    </div>
+                    <div class="flex8 center rollable no-wrap" data-rolling="data.stats.{{id}}" data-roll-type="skillcheck">
+                        <div class="field-label no-wrap" title="{{ localize stat.label }}">
+                            <i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex1 center cell readonly">
+            <div class="flex2 center cell readonly">
                 <input class="field-value" name="data.stats.{{id}}.value" readonly="true" type="text" value="{{stat.value}}" data-dtype="Number"/>
             </div>
-            <div class="flex1 center cell">
+            <div class="flex2 center cell">
                 <input class="field-value" name="data.stats.{{id}}.mod" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-dtype="Number"/>
             </div>
-            <div class="flex1 center cell">
+            <div class="flex2 center cell">
                 {{#if (isNull stat.tmpmod)}}
                 <input class="field-value" name="data.stats.{{id}}.tmpmod" type="text" value="" data-dtype="Number"/>
                 {{else}}
@@ -37,6 +43,7 @@
             </div>
         </div>
         {{/each}}
+
     </div>
     <div class="flex1 layout">
         <div class="row flexrow table-header red no-wrap">

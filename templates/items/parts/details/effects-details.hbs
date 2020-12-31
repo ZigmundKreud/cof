@@ -2,5 +2,19 @@
 <div class="form-group">
     <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
+        <label class="checkbox"> <input type="checkbox" name="data.properties.heal" {{checked data.properties.heal}}> {{localize "COF.properties.heal"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="data.properties.buff" {{checked data.properties.buff}}> {{localize "COF.properties.buff"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="data.properties.temporary" {{checked data.properties.temporary}}> {{localize "COF.properties.temporary"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="data.properties.persistent" {{checked data.properties.persistent}}> {{localize "COF.properties.persistent"}}</label>
+        <label class="checkbox"><input type="checkbox" name="data.properties.spell" {{checked data.properties.spell}}> {{localize "COF.properties.spell"}}</label>
     </div>
 </div>
+
+{{#if data.properties.heal}}
+    <div class="form-group">
+        <label>{{ localize "COF.properties.heal" }}</label>
+        <div class="form-fields">
+            <input type="text" name="data.properties.heal.formula" value="{{data.properties.heal.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
+        </div>
+    </div>
+{{/if}}

@@ -1922,7 +1922,11 @@ Copied from dnd5e
   font-size: 18px;
 }
 
-.cof .inventory-list .inventory-header .item-controls a.item-create {
+.cof .inventory-list .inventory-header .item-controls a.item-create,
+.cof .inventory-list .inventory-header .item-controls-1 a.item-create,
+.cof .inventory-list .inventory-header .item-controls-2 a.item-create,
+.cof .inventory-list .inventory-header .item-controls-3 a.item-create,
+.cof .inventory-list .inventory-header .item-controls-4 a.item-create {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
@@ -1969,7 +1973,68 @@ Copied from dnd5e
   padding: 0;
 }
 
-.cof .inventory-list .item-controls {
+.cof .inventory-list .item-controls-1 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 22px;
+  flex: 0 0 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.cof .inventory-list .item-controls-1 > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.cof .inventory-list .item-controls-1 .flex1 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.cof .inventory-list .item-controls-1 .flex2 {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.cof .inventory-list .item-controls-1 .flex3 {
+  -webkit-box-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
+
+.cof .inventory-list .item-controls-1 .flex4 {
+  -webkit-box-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+}
+
+.cof .inventory-list .item-controls-1 a {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 22px;
+  flex: 0 0 22px;
+  font-size: 12px;
+  text-align: center;
+  color: #7a7971;
+}
+
+.cof .inventory-list .item-controls,
+.cof .inventory-list .item-controls-2 {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 44px;
   flex: 0 0 44px;
@@ -1990,37 +2055,163 @@ Copied from dnd5e
   justify-content: flex-end;
 }
 
-.cof .inventory-list .item-controls > * {
+.cof .inventory-list .item-controls > *,
+.cof .inventory-list .item-controls-2 > * {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.cof .inventory-list .item-controls .flex1 {
+.cof .inventory-list .item-controls .flex1,
+.cof .inventory-list .item-controls-2 .flex1 {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.cof .inventory-list .item-controls .flex2 {
+.cof .inventory-list .item-controls .flex2,
+.cof .inventory-list .item-controls-2 .flex2 {
   -webkit-box-flex: 2;
   -ms-flex: 2;
   flex: 2;
 }
 
-.cof .inventory-list .item-controls .flex3 {
+.cof .inventory-list .item-controls .flex3,
+.cof .inventory-list .item-controls-2 .flex3 {
   -webkit-box-flex: 3;
   -ms-flex: 3;
   flex: 3;
 }
 
-.cof .inventory-list .item-controls .flex4 {
+.cof .inventory-list .item-controls .flex4,
+.cof .inventory-list .item-controls-2 .flex4 {
   -webkit-box-flex: 4;
   -ms-flex: 4;
   flex: 4;
 }
 
-.cof .inventory-list .item-controls a {
+.cof .inventory-list .item-controls a,
+.cof .inventory-list .item-controls-2 a {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 22px;
+  flex: 0 0 22px;
+  font-size: 12px;
+  text-align: center;
+  color: #7a7971;
+}
+
+.cof .inventory-list .item-controls-3 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66px;
+  flex: 0 0 66px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.cof .inventory-list .item-controls-3 > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.cof .inventory-list .item-controls-3 .flex1 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.cof .inventory-list .item-controls-3 .flex2 {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.cof .inventory-list .item-controls-3 .flex3 {
+  -webkit-box-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
+
+.cof .inventory-list .item-controls-3 .flex4 {
+  -webkit-box-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+}
+
+.cof .inventory-list .item-controls-3 a {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 22px;
+  flex: 0 0 22px;
+  font-size: 12px;
+  text-align: center;
+  color: #7a7971;
+}
+
+.cof .inventory-list .item-controls-4 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 88px;
+  flex: 0 0 88px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.cof .inventory-list .item-controls-4 > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.cof .inventory-list .item-controls-4 .flex1 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.cof .inventory-list .item-controls-4 .flex2 {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.cof .inventory-list .item-controls-4 .flex3 {
+  -webkit-box-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
+
+.cof .inventory-list .item-controls-4 .flex4 {
+  -webkit-box-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+}
+
+.cof .inventory-list .item-controls-4 a {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 22px;
   flex: 0 0 22px;

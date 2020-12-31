@@ -31,6 +31,19 @@
     </div>
 </div>
 
+<div class="form-group">
+    <label>{{localize "COF.ui.mpfactor"}}</label>
+    <div class="form-fields">
+        <select name="data.mpfactor" data-type="Number" style="width:100%">
+            {{#select data.mpfactor}}
+                <option value="0">0</option>
+                <option value="1">x1</option>
+                <option value="2">x2</option>
+            {{/select}}
+        </select>
+    </div>
+</div>
+
 <h3 class="form-header">Maîtrises</h3>
 <div class="form-group stacked">
     <label>Armes de contact</label>

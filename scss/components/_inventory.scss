@@ -88,8 +88,14 @@
       font-size: 18px;
     }
 
-    .item-controls a.item-create {
-      flex: 0 0 100%;
+    .item-controls,
+    .item-controls-1,
+    .item-controls-2,
+    .item-controls-3,
+    .item-controls-4 {
+      a.item-create {
+        flex: 0 0 100%;
+      }
     }
   }
 
@@ -127,8 +133,48 @@
   }
 
   // Item Control Buttons
-  .item-controls {
+  .item-controls-1 {
+    flex: 0 0 22px;
+    @include flexrow;
+    justify-content: flex-end;
+
+    a {
+      flex: 0 0 22px;
+      font-size: 12px;
+      text-align: center;
+      color: $colorTan;
+    }
+  }
+
+  .item-controls,
+  .item-controls-2 {
     flex: 0 0 44px;
+    @include flexrow;
+    justify-content: flex-end;
+
+    a {
+      flex: 0 0 22px;
+      font-size: 12px;
+      text-align: center;
+      color: $colorTan;
+    }
+  }
+
+  .item-controls-3 {
+    flex: 0 0 66px;
+    @include flexrow;
+    justify-content: flex-end;
+
+    a {
+      flex: 0 0 22px;
+      font-size: 12px;
+      text-align: center;
+      color: $colorTan;
+    }
+  }
+
+  .item-controls-4 {
+    flex: 0 0 88px;
     @include flexrow;
     justify-content: flex-end;
 

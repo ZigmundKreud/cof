@@ -176,7 +176,8 @@
             "enabled": false,
             "base": 5,
             "bonus": 0,
-            "value": 5
+            "value": 5,
+            "max": 5
           },
           "fp": {
             "key" : "fp",
@@ -360,7 +361,8 @@
           "13strmin" : false,
           "bashing" : false,
           "sling" : false,
-          "spell" : false
+          "spell" : false,
+          "consumable" : false
         }
       }
     },
@@ -388,6 +390,7 @@
       "key": "",
       "dv": "",
       "spellcasting": "",
+      "mpfactor": 0,
       "paths" : [],
       "proficiencies" : {
         "daggers" : false,

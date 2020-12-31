@@ -54,6 +54,7 @@ COF.itemProperties = {
     "profile": "COF.properties.profile",
     "prestige": "COF.properties.prestige",
     "alternative": "COF.properties.alternative",
+    "consumable": "COF.properties.consumable",
     "racial": "COF.properties.racial",
     "creature" : "COF.properties.creature"
 };
