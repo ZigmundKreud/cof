@@ -18,17 +18,17 @@
         <input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.data.currency.cp.qty}}" placeholder="Pièces de cuivre" data-dtype="Number"/>
     </div>
 </div>
-{{#if (notEmpty (getInventory actor.items))}}
+{{#if (notEmpty inventory)}}
     <ol class="inventory-list">
         <li class="inventory-header flexrow">
             <h3 class="item-name flexrow">Items</h3>
             <div class="item-detail">Qté</div>
-            <div class="item-detail">Equiper</div>
+            <div class="item-detail">Action</div>
             <div class="item-controls">
                 <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
             </div>
         </li>
-        {{#each (getInventory actor.items) as |item id|}}
+        {{#each inventory as |item id|}}
             {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
         {{/each}}
     </ol>

@@ -1,7 +1,7 @@
 {{!#if (isEmpty (getActiveCapacities actor.items))}}
 <!--<p class="empty">Aucune capacité n'a été sélectionnée pour le moment</p>-->
 {{!else}}
-    <ol class="inventory-list capacity-list p{{countPaths actor.items}}">
+    <ol class="inventory-list capacity-list p{{pathCount}}">
         <li class="inventory-header flexrow">
             <h3 class="item-name flexrow">Capacités actives</h3>
             <div class="item-detail">Rang</div>
@@ -11,7 +11,7 @@
                 <a class="item-control item-create compendium-pack" data-pack="cof.capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
             </div>
         </li>
-        {{#each (getCapacities actor.items) as |capacity id|}}
+        {{#each capacities as |capacity id|}}
             <ol class="item-list">
                 <!--            <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="capacity" draggable="true">-->
                 <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="item" data-item-type="item" draggable="true">

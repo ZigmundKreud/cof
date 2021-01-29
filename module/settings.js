@@ -59,4 +59,14 @@ export const registerSystemSettings = function() {
         type: Boolean,
         onChange: lang => window.location.reload()
     });
+
+    game.settings.register("cof", "useVarInit", {
+        name: "Initiative variable",
+        hint: "Utilise la règle d'initiative variable (p.173 du LdB) au lieu de la règle de base.",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
 };

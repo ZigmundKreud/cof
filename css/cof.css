@@ -201,6 +201,14 @@ strong {
   overflow: hidden;
 }
 
+div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .pack-title {
+  color: #fffe80;
+}
+
+div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-footer {
+  color: #a4a164;
+}
+
 /* ----------------------------------------- */
 /* Scrollbar
 /* ----------------------------------------- */
@@ -1971,6 +1979,16 @@ Copied from dnd5e
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.cof .inventory-list .item-list.out-of-charge {
+  color: lightgray;
+  font-style: italic;
+}
+
+.cof .inventory-list .item-list.out-of-charge .item-name {
+  color: lightgray;
+  font-style: italic;
 }
 
 .cof .inventory-list .item-controls-1 {

@@ -115,6 +115,7 @@ export class CofItemSheet extends ItemSheet {
     async _onDropItem(event, data) {
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
+        console.log(itemData);
         switch (itemData.type) {
             case "path"    :
                 return await this._onDropPathItem(event, itemData);
@@ -221,27 +222,20 @@ export class CofItemSheet extends ItemSheet {
     getData() {
         const data = super.getData();
         data.labels = this.item.labels;
+        console.log(data);
 
         // Include CONFIG values
         data.config = game.cof.config;
 
         // Item Type, Status, and Details
         data.itemType = data.item.type.titleCase();
-        // data.itemStatus = this._getItemStatus(data.item);
         data.itemProperties = this._getItemProperties(data.item);
-        // data.isPhysical = data.item.data.hasOwnProperty("quantity");
-
-        // Potential consumption targets
-        // data.abilityConsumptionTargets = this._getItemConsumptionTargets(data.item);
 
         // Action Details
         // data.hasAttackRoll = this.item.hasAttack;
         // data.isHealing = data.item.data.actionType === "heal";
         // data.isFlatDC = getProperty(data.item.data, "save.scaling") === "flat";
 
-        // Vehicles
-        // data.isCrewed = data.item.data.activation?.type === 'crew';
-        // data.isMountable = this._isItemMountable(data.item);
         return data;
     }
 

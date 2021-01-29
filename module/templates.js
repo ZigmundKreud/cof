@@ -43,8 +43,6 @@ export const preloadHandlebarsTemplates = async function () {
 
         // ITEMS PROPERTIES
         "systems/cof/templates/items/parts/properties/item-properties.hbs",
-        "systems/cof/templates/items/parts/properties/capacity-properties.hbs",
-        "systems/cof/templates/items/parts/properties/profile-properties.hbs",
 
         // ITEMS DETAILS
         "systems/cof/templates/items/parts/details/item-details.hbs",

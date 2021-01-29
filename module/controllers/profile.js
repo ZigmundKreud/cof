@@ -8,10 +8,12 @@ export class Profile {
             return false;
         } else {
             // add paths from profile
-            let items = Traversal.getItemsOfType("path").filter(p => itemData.data.paths.includes(p._id));
-            // add profile
-            items.push(itemData);
-            return actor.createOwnedItem(items)
+            return Traversal.getItemsOfType(["path"]).then(items => {
+                // add profile
+                items = items.filter(p => itemData.data.paths.includes(p._id))
+                items.push(itemData);
+                return actor.createOwnedItem(items)
+            });
         }
     }
 
@@ -22,15 +24,17 @@ export class Profile {
             content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${actor.name} ?</p>`,
             yes: () => {
                 // retrieve path data from profile paths
-                const pathsKeys = Traversal.getItemsOfType("path").filter(p => profileData.data.paths.includes(p._id)).map(p => p.data.key);
-                // retrieve owned items matching profile paths
-                const ownedPaths = actor.items.filter(item => pathsKeys.includes(item.data.data.key) && item.data.type === "path");
-                const ownedPathsIds = ownedPaths.map(c => c.data._id);
-                const ownedPathsCapacities = ownedPaths.map(c => c.data.data.capacities).flat();
-                // retrieve owned capacities matching profile paths capacities
-                const capsKeys = Traversal.getItemsOfType("capacity").filter(p => ownedPathsCapacities.includes(p._id)).map(c => c.data.key);
-                const capsIds = actor.items.filter(item => capsKeys.includes(item.data.data.key) && item.data.type === "capacity").map(c => c.data._id);
-                let items = ownedPathsIds.concat(capsIds);
+                // const pathsKeys = Traversal.getItemsOfType(["path"]).filter(p => profileData.data.paths.includes(p._id)).map(p => p.data.key);
+                // // retrieve owned items matching profile paths
+                // const ownedPaths = actor.items.filter(item => pathsKeys.includes(item.data.data.key) && item.data.type === "path");
+                // const ownedPathsIds = ownedPaths.map(c => c.data._id);
+                // const ownedPathsCapacities = ownedPaths.map(c => c.data.data.capacities).flat();
+                // // retrieve owned capacities matching profile paths capacities
+                // const capsKeys = Traversal.getItemsOfType(["capacity"]).filter(p => ownedPathsCapacities.includes(p._id)).map(c => c.data.key);
+                // const capsIds = actor.items.filter(item => capsKeys.includes(item.data.data.key) && item.data.type === "capacity").map(c => c.data._id);
+                // let items = ownedPathsIds.concat(capsIds);
+
+                let items = [entity._id];
                 // add the profile item to be removed
                 items.push(entity._id);
                 return actor.deleteOwnedItem(items);
@@ -38,5 +42,4 @@ export class Profile {
             defaultYes: false
         });
     }
-
 }

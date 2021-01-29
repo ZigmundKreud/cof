@@ -28,7 +28,7 @@
                 <span class="field-label">{{ localize 'COF.details.species' }}</span>
             </div>
             <div class="flex2 center cell drop-field compendium-pack" data-pack="cof.species" data-open="0">
-                {{#with (getSpecies actor.items)}}
+                {{#with species}}
                     <div class="flex5 field-value sans" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
                     <div class="species-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
@@ -43,7 +43,7 @@
                 <span class="field-label">{{ localize 'COF.details.profile' }}</span>
             </div>
             <div class="flex4 center cell drop-field compendium-pack" data-pack="cof.profiles" data-open="0">
-                {{#with (getProfile actor.items)}}
+                {{#with profile}}
                     <div class="flex5 field-value sans" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
                     <div class="profile-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
                         <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>

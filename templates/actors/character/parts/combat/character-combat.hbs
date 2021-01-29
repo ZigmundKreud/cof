@@ -1,4 +1,4 @@
-{{#if (notEmpty (getWorn actor.items))}}
+{{#if (notEmpty worn)}}
     <ol class="inventory-list">
         <li class="inventory-header flexrow">
             <h3 class="item-name flexrow">Equipé</h3>
@@ -10,7 +10,7 @@
             <div class="item-detail">DM</div>
             <div class="item-controls"></div>
         </li>
-        {{#each (getWorn actor.items) as |item id|}}
+        {{#each worn as |item id|}}
             {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
         {{/each}}
     </ol>

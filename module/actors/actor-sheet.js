@@ -83,12 +83,22 @@ export class CofActorSheet extends ActorSheet {
             itemData.data.qty = (itemData.data.qty) ? itemData.data.qty + 1 : 1;
             return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
         });
+
+        html.find('.item-consume').click(ev => {
+            ev.preventDefault();
+            const li = $(ev.currentTarget).closest(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            let itemData = item.data;
+            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty - 1 : 0;
+            return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
+        });
+
         html.find('.item-qty').contextmenu(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget).closest(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             let itemData = item.data;
-            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty -1 : 0;
+            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty - 1 : 0;
             return this.actor.updateOwnedItem(itemData).then(() => this.render(true));
         });
 
@@ -108,15 +118,16 @@ export class CofActorSheet extends ActorSheet {
         let entity = null;
         // look first in actor onwed items
         entity = this.actor.getOwnedItem(id);
-        if(!entity) {
+        if (!entity) {
             // look into world/compendiums items
             entity = await Traversal.getEntity(id, type, pack);
         }
-        if(entity) return entity.sheet.render(true);
+        if (entity) return entity.sheet.render(true);
     }
 
     /* -------------------------------------------- */
     /* DELETE EVENTS CALLBACKS                      */
+
     /* -------------------------------------------- */
 
     /**
@@ -151,6 +162,7 @@ export class CofActorSheet extends ActorSheet {
 
     /* -------------------------------------------- */
     /* ROLL EVENTS CALLBACKS                        */
+
     /* -------------------------------------------- */
 
     /**
@@ -163,34 +175,27 @@ export class CofActorSheet extends ActorSheet {
         const rolltype = elt.attributes["data-roll-type"].value;
         switch (rolltype) {
             case "skillcheck" :
-                return CofRoll.skillCheck(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.skillCheck(data.data, this.actor, event)});
             case "weapon" :
-                return CofRoll.rollWeapon(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollWeapon(data.data, this.actor, event)});
             case "encounter-weapon" :
-                return CofRoll.rollEncounterWeapon(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollEncounterWeapon(data.data, this.actor, event)});
             case "encounter-damage" :
-                return CofRoll.rollEncounterDamage(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollEncounterDamage(data.data, this.actor, event)});
             case "spell" :
-                return CofRoll.rollSpell(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollSpell(data.data, this.actor, event)});
             case "damage" :
-                return CofRoll.rollDamage(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollDamage(data.data, this.actor, event)});
             case "hp" :
-                return CofRoll.rollHitPoints(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollHitPoints(data.data, this.actor, event)});
             case "attributes" :
-                return CofRoll.rollAttributes(this.getData().data, this.actor, event);
-                break;
+                return this.getData().then(data => {CofRoll.rollAttributes(data.data, this.actor, event)});
         }
     }
 
     /* -------------------------------------------- */
     /* DROP EVENTS CALLBACKS                        */
+
     /* -------------------------------------------- */
 
     /** @override */
@@ -248,10 +253,6 @@ export class CofActorSheet extends ActorSheet {
             case "species" :
                 return await Species.addToActor(this.actor, event, itemData);
             case "capacity" :
-            case "shield" :
-            case "armor" :
-            case "melee" :
-            case "ranged" :
             default:
                 // activate the capacity as it is droped on an actor sheet
                 // if (itemData.type === "capacity") itemData.data.checked = true;
@@ -285,4 +286,62 @@ export class CofActorSheet extends ActorSheet {
         return position;
     }
 
+    /* -------------------------------------------- */
+
+    /** @override */
+    getData() {
+        const data = super.getData();
+        data.worn = Object.values(data.items).filter(item => {
+            return item.type === "item" && item.data.worn;
+        }).sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        data.profile = data.items.find(item => item.type === "profile");
+        data.species = data.items.find(item => item.type === "species");
+        data.paths = data.items.filter(item => item.type === "path");
+        data.pathCount = data.paths.length;
+
+        data.inventory = data.items.filter(item => item.type === "item").sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        data.capacities = data.items.filter(item => item.type === "capacity").sort(function (a, b) {
+            const aKey = a.data.path + "-" + a.data.rank;
+            const bKey = b.data.path + "-" + b.data.rank;
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        return Traversal.getIndex().then(index => {
+            data.paths = data.paths.map(path => {
+                path.capacities = path.data.capacities.map(capId => {
+                    let cap = index[capId];
+                    if(data.items.find(i => i.flags?.cof?.sourceId === capId)) {
+                        cap.checked = true;
+                    }
+                    else cap.checked = false;
+                    return cap;
+                });
+                return path;
+            });
+            return data;
+        });
+
+        // return Traversal.mapItemsOfType(["capacity"]).then(content => {
+        //     let fullPath = data.paths.map(path => {
+        //         path.capacities = path.data.capacities.map(capId => {
+        //             return content[capId];
+        //         });
+        //         return path;
+        //     });
+        //     console.log(fullPath);
+        //     const end = Date.now();
+        //     console.log(end - start + " ms");
+        //     return data;
+        // });
+    }
 }

@@ -54,4 +54,14 @@ export class CofEncounterSheet extends CofActorSheet {
             this.actor.update({'data.weapons': data.weapons});
         });
     }
+
+    /* -------------------------------------------- */
+
+    /** @override */
+    getData() {
+        const data = super.getData();
+        data.capacities = [];
+        data.paths = [];
+        return data;
+    }
 }

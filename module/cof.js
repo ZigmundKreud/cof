@@ -24,15 +24,26 @@ Hooks.once("init", async function () {
     console.info("System Initializing...");
     console.info(System.ASCII);
 
+    // Register System Settings
+    registerSystemSettings();
+
     /**
      * Set an initiative formula for the system
      * @type {String}
      */
 
-    CONFIG.Combat.initiative = {
-        formula: "@attributes.init.value + @stats.wis.value/100",
-        decimals: 2
-    };
+    if(game.settings.get("cof", "useVarInit")){
+        CONFIG.Combat.initiative = {
+            formula: "1d6x + @attributes.init.value + @stats.wis.value/100",
+            decimals: 2
+        };
+    }
+    else {
+        CONFIG.Combat.initiative = {
+            formula: "@attributes.init.value + @stats.wis.value/100",
+            decimals: 2
+        };
+    }
 
     // Define custom Entity classes
     CONFIG.Actor.entityClass = CofActor;
@@ -66,9 +77,6 @@ Hooks.once("init", async function () {
         makeDefault: true,
         label: "COF.SheetClassItem"
     });
-
-    // Register System Settings
-    registerSystemSettings();
 
     // Preload Handlebars Templates
     preloadHandlebarsTemplates();

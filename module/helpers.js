@@ -4,72 +4,77 @@ export const registerHandlebarsHelpers = function () {
 
     Handlebars.registerHelper('getEmbeddedItems', function (type, ids) {
         if (ids) {
-            const items = Traversal.getItemsOfType(type);
-            return ids.map(id => items.find(i => i._id === id));
-        } else return null;
-    });
-
-    Handlebars.registerHelper('getPaths', function (items) {
-        return items.filter(item => item.type === "path");
-    });
-
-    Handlebars.registerHelper('getSpecies', function (items) {
-        return items.find(item => item.type === "species");
-    });
-
-    Handlebars.registerHelper('getInventory', function (items) {
-        let inventory = items.filter(item => item.type === "item");
-        inventory.sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
-        return inventory;
-    });
-
-    Handlebars.registerHelper('getWorn', function (items) {
-        let worn = items.filter(item => item.type === "item" && item.data.worn);
-        worn.sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
-        return worn;
-    });
-
-    Handlebars.registerHelper('getItems', function (items) {
-        return items.filter(item => item.type === "item");
-    });
-
-    Handlebars.registerHelper('getProfile', function (items) {
-        return items.find(item => item.type === "profile");
-    });
-
-    Handlebars.registerHelper('countPaths', function (items) {
-        return items.filter(item => item.type === "path").length;
-    });
-
-    Handlebars.registerHelper('getCapacities', function (items) {
-        let caps = items.filter(item => item.type === "capacity");
-        caps.sort(function (a, b) {
-            const aKey = a.data.path + "-" + a.data.rank;
-            const bKey = b.data.path + "-" + b.data.rank;
-            return (aKey > bKey) ? 1 : -1
-        });
-        return caps;
-    });
-
-    Handlebars.registerHelper('getCapacitiesByIds', function (ids) {
-        if (ids) {
-            const caps = Traversal.getItemsOfType("capacity").filter(c => ids.includes(c._id));
-            caps.sort(function (a, b) {
-                const indexA = ids.indexOf(a._id);
-                const indexB = ids.indexOf(b._id);
-                return (indexA > indexB) ? 1 : -1
+            return Traversal.getItemsOfType([type]).then(items => {
+                return ids.map(id => items.find(i => i._id === id));
             });
-            return caps;
         } else return null;
     });
+
+    // Handlebars.registerHelper('getPaths', function (items) {
+    //     return items.filter(item => item.type === "path");
+    // });
+
+    // Handlebars.registerHelper('getSpecies', function (items) {
+    //     return items.find(item => item.type === "species");
+    // });
+
+    // Handlebars.registerHelper('getInventory', function (items) {
+    //     let inventory = items.filter(item => item.type === "item");
+    //     inventory.sort(function (a, b) {
+    //         const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+    //         const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+    //         return (aKey > bKey) ? 1 : -1
+    //     });
+    //     return inventory;
+    // });
+
+    // Handlebars.registerHelper('getWorn', function (items) {
+    //     let worn = items.filter(item => item.type === "item" && item.data.worn);
+    //     worn.sort(function (a, b) {
+    //         const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+    //         const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+    //         return (aKey > bKey) ? 1 : -1
+    //     });
+    //     return worn;
+    // });
+
+    // Handlebars.registerHelper('getItems', function (items) {
+    //     return items.filter(item => item.type === "item");
+    // });
+
+    // Handlebars.registerHelper('getProfile', function (items) {
+    //     return items.find(item => item.type === "profile");
+    // });
+
+    // Handlebars.registerHelper('countPaths', function (items) {
+    //     return items.filter(item => item.type === "path").length;
+    // });
+
+    // Handlebars.registerHelper('getCapacities', function (items) {
+    //     let caps = items.filter(item => item.type === "capacity");
+    //     caps.sort(function (a, b) {
+    //         const aKey = a.data.path + "-" + a.data.rank;
+    //         const bKey = b.data.path + "-" + b.data.rank;
+    //         return (aKey > bKey) ? 1 : -1
+    //     });
+    //     return caps;
+    // });
+
+    // Handlebars.registerHelper('getCapacitiesByIds', function (ids) {
+    //     if (ids) {
+    //         console.log(ids);
+            // const caps = Traversal.getItemsOfType(["capacity"]);
+            // console.log(caps);
+                // .filter(c => ids.includes(c._id));
+            // caps.sort(function (a, b) {
+            //     const indexA = ids.indexOf(a._id);
+            //     const indexB = ids.indexOf(b._id);
+            //     return (indexA > indexB) ? 1 : -1
+            // });
+            // return caps;
+            // return null;
+        // } else return null;
+    // });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
         return items.filter(item => item.type === "path").find(p => p.data.key === pathKey);
@@ -88,24 +93,16 @@ export const registerHandlebarsHelpers = function () {
         return list.length > 0;
     });
 
-    Handlebars.registerHelper('isZeroOrNull', function (val) {
-        return val == null || val == 0;
+    Handlebars.registerHelper('isNegativeOrNull', function (val) {
+        return val <= 0;
     });
 
     Handlebars.registerHelper('isNegative', function (val) {
         return val < 0;
     });
 
-    Handlebars.registerHelper('isNegativeOrNull', function (val) {
-        return val <= 0;
-    });
-
     Handlebars.registerHelper('isPositive', function (val) {
         return val > 0;
-    });
-
-    Handlebars.registerHelper('isPositiveOrNull', function (val) {
-        return val >= 0;
     });
 
     Handlebars.registerHelper('equals', function (val1, val2) {
@@ -139,6 +136,11 @@ export const registerHandlebarsHelpers = function () {
         return !cond;
     });
 
+    Handlebars.registerHelper('count', function (list) {
+        console.log(list);
+        return list.length;
+    });
+
     Handlebars.registerHelper('isEnabled', function (configKey) {
         return game.settings.get("cof", configKey);
     });
@@ -147,25 +149,25 @@ export const registerHandlebarsHelpers = function () {
         return str.split(separator)[keep];
     });
 
-    Handlebars.registerHelper('listProfiles', function () {
-        return Traversal.getAllProfilesData()
-    });
+    // Handlebars.registerHelper('listProfiles', function () {
+    //     return Traversal.getAllProfilesData()
+    // });
 
-    Handlebars.registerHelper('listSpecies', function () {
-        return Traversal.getAllSpeciesData()
-    });
+    // Handlebars.registerHelper('listSpecies', function () {
+    //     return Traversal.getAllSpeciesData()
+    // });
 
-    Handlebars.registerHelper('listPaths', function () {
-        return Traversal.getAllPathsData()
-    });
+    // Handlebars.registerHelper('listPaths', function () {
+    //     return Traversal.getAllPathsData()
+    // });
 
-    Handlebars.registerHelper('findPath', function (key) {
-        return Traversal.getAllPathsData().find(p => p.data.key === key);
-    });
+    // Handlebars.registerHelper('findPath', function (key) {
+    //     return Traversal.getAllPathsData().find(p => p.data.key === key);
+    // });
 
-    Handlebars.registerHelper('findCapacity', function (key) {
-        return Traversal.getAllCapacitiesData().find(c => c.data.key === key);
-    });
+    // Handlebars.registerHelper('findCapacity', function (key) {
+    //     return Traversal.getAllCapacitiesData().find(c => c.data.key === key);
+    // });
 
     // If you need to add Handlebars helpers, here are a few useful examples:
     Handlebars.registerHelper('concat', function () {

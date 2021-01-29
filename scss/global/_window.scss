@@ -25,6 +25,21 @@
   }
 }
 
+div#sidebar{
+  .tab {
+    &#compendium {
+      .compendium-pack[data-pack^="cof"] {
+        .pack-title {
+          color: #fffe80;
+        }
+        .compendium-footer {
+          color: #a4a164;
+        }
+      }
+    }
+  }
+}
+
 /* ----------------------------------------- */
 /* Scrollbar
 /* ----------------------------------------- */
