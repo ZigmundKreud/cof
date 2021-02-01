@@ -389,45 +389,16 @@ export class CofActorSheet extends ActorSheet {
     getData(options) {
         const data = super.getData(options);
         data.worn = {};
-        data.worn.armor = Object.values(data.items).filter(item => {
-            return item.type === "item" && item.data.subtype === "armor" && item.data.worn;
-        }).sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
-
-        data.worn.melee = Object.values(data.items).filter(item => {
-            return item.type === "item" && item.data.subtype === "melee" && item.data.worn;
-        }).sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
-
-        data.worn.ranged = Object.values(data.items).filter(item => {
-            return item.type === "item" && item.data.subtype === "ranged" && item.data.worn;
-        }).sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
-
-        data.worn.shield = Object.values(data.items).filter(item => {
-            return item.type === "item" && item.data.subtype === "shield" && item.data.worn;
-        }).sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
-
-        data.worn.spell = Object.values(data.items).filter(item => {
-            return item.type === "item" && item.data.subtype === "spell" && item.data.worn;
-        }).sort(function (a, b) {
-            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
-            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
-            return (aKey > bKey) ? 1 : -1
-        });
+        const itemCategories = ["armor", "shield", "melee", "ranged", "spell"];
+        for(const category of itemCategories){
+            data.worn[category] = Object.values(data.items).filter(item => {
+                return item.type === "item" && item.data.subtype === category && item.data.worn;
+            }).sort(function (a, b) {
+                const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+                const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+                return (aKey > bKey) ? 1 : -1
+            });
+        }
 
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");
@@ -445,31 +416,6 @@ export class CofActorSheet extends ActorSheet {
             const bKey = b.data.path + "-" + b.data.rank;
             return (aKey > bKey) ? 1 : -1
         });
-
-        // const sampleEffect = {
-        //     _id: "9anBIg21fTkRwVNq",
-        //     label: "Force de taureau",
-        //     icon: "worlds/_assets/icons/svg/biceps.svg",
-        //     origin: "Actor.Pom8t7gHbjhWLr1o",
-        //     tint: "#fff101",
-        //     changes: [
-        //         {
-        //             key: "data.abilities.str.value",
-        //             mode: 2,
-        //             value: 4
-        //         }
-        //     ],
-        //     disabled: true,
-        //     duration: {
-        //         startTime: null,
-        //         seconds: null,
-        //         rounds: 10,
-        //         turns: null,
-        //         startRound: null,
-        //         startTurn: null,
-        //     },
-        //     flags: {}
-        // };
 
         data.effects = data.actor.effects;
 
