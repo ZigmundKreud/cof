@@ -8,6 +8,7 @@ import {Profile} from "../controllers/profile.js";
 import {Species} from "../controllers/species.js";
 import {CofRoll} from "../controllers/roll.js";
 import {Traversal} from "../utils/traversal.js";
+import {ArrayUtils} from "../utils/array-utils.js";
 
 export class CofActorSheet extends ActorSheet {
 
@@ -65,7 +66,87 @@ export class CofActorSheet extends ActorSheet {
             li.find(".capacity-description").slideToggle(200);
         });
 
-        // Equip/Unequip items
+        // Effects controls
+        html.find('.effect-disable').click(ev => {
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            const effectId = elt.data("effectId");
+
+            let updateData = duplicate(this.actor);
+            let effects = updateData.effects;
+            const effect = effects.find(e => e._id === effectId);
+            if(effect){
+                effect.disabled = !effect.disabled;
+                // return this.actor.update(updateData).then(() => {
+                //     this.actor.applyActiveEffects();
+                //     return this.render(true);
+                // });
+                return this.actor.update(updateData);
+            }
+
+            // this.getData().then(data => {
+            //     let effects = data.effects;
+            //     const effect = effects.find(e => e._id === effectId);
+            //     if(effect){
+            //         effect.disabled = !effect.disabled;
+            //         return this.actor.update({effects:effects}).then(() => this.render(true));
+            //     }
+            // });
+
+        });
+        html.find('.effect-create').click(ev => {
+            ev.preventDefault();
+            return ActiveEffect.create({
+                label: "New Effect",
+                icon: "/systems/cof/ui/icons/effects/aura.svg",
+                origin: this.actor.uuid,
+                "duration.rounds": undefined,
+                disabled: true
+            }, this.actor).create();
+        });
+
+        html.find('.effect-edit').click(ev => {
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            let effects = this.actor.effects;
+            const effect = effects.get(elt.data("effectId"));
+            if(effect){
+                return new ActiveEffectConfig(effect, {}).render(true);
+            }
+        });
+        html.find('.effect-delete').click(ev => {
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            const effectId = elt.data("effectId");
+            let updateData = duplicate(this.actor);
+            let effects = updateData.effects;
+            const effect = effects.find(e => e._id === effectId);
+            if(effect){
+                ArrayUtils.remove(effects, effect);
+                // return this.actor.update(updateData).then(() => {
+                //     return this.render(true);
+                // });
+                return this.actor.update(updateData);
+            }
+
+            // let effects = this.actor.effects;
+            // const effect = effects.get(elt.data("effectId"));
+            // if(effect){
+            //     ArrayUtils.remove(effects, effect);
+            //     return this.actor.update({effects:effects}).then(() => this.render(true));
+            // }
+            // this.getData().then(data => {
+            //     let effects = data.effects;
+            //     const effect = effects.find(e => e._id === elt.data("effectId"));
+            //     if(effect){
+            //         ArrayUtils.remove(effects, effect);
+            //         return this.actor.update({effects:effects}).then(() => this.render(true));
+            //     }
+            // });
+        });
+
+
+        // Items controls
         html.find('.item-equip').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".item");
@@ -175,21 +256,37 @@ export class CofActorSheet extends ActorSheet {
         const rolltype = elt.attributes["data-roll-type"].value;
         switch (rolltype) {
             case "skillcheck" :
-                return this.getData().then(data => {CofRoll.skillCheck(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.skillCheck(data.data, this.actor, event)
+                });
             case "weapon" :
-                return this.getData().then(data => {CofRoll.rollWeapon(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollWeapon(data.data, this.actor, event)
+                });
             case "encounter-weapon" :
-                return this.getData().then(data => {CofRoll.rollEncounterWeapon(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollEncounterWeapon(data.data, this.actor, event)
+                });
             case "encounter-damage" :
-                return this.getData().then(data => {CofRoll.rollEncounterDamage(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollEncounterDamage(data.data, this.actor, event)
+                });
             case "spell" :
-                return this.getData().then(data => {CofRoll.rollSpell(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollSpell(data.data, this.actor, event)
+                });
             case "damage" :
-                return this.getData().then(data => {CofRoll.rollDamage(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollDamage(data.data, this.actor, event)
+                });
             case "hp" :
-                return this.getData().then(data => {CofRoll.rollHitPoints(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollHitPoints(data.data, this.actor, event)
+                });
             case "attributes" :
-                return this.getData().then(data => {CofRoll.rollAttributes(data.data, this.actor, event)});
+                return this.getData().then(data => {
+                    CofRoll.rollAttributes(data.data, this.actor, event)
+                });
         }
     }
 
@@ -289,10 +386,43 @@ export class CofActorSheet extends ActorSheet {
     /* -------------------------------------------- */
 
     /** @override */
-    getData() {
-        const data = super.getData();
-        data.worn = Object.values(data.items).filter(item => {
-            return item.type === "item" && item.data.worn;
+    getData(options) {
+        const data = super.getData(options);
+        data.worn = {};
+        data.worn.armor = Object.values(data.items).filter(item => {
+            return item.type === "item" && item.data.subtype === "armor" && item.data.worn;
+        }).sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        data.worn.melee = Object.values(data.items).filter(item => {
+            return item.type === "item" && item.data.subtype === "melee" && item.data.worn;
+        }).sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        data.worn.ranged = Object.values(data.items).filter(item => {
+            return item.type === "item" && item.data.subtype === "ranged" && item.data.worn;
+        }).sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        data.worn.shield = Object.values(data.items).filter(item => {
+            return item.type === "item" && item.data.subtype === "shield" && item.data.worn;
+        }).sort(function (a, b) {
+            const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
+            const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
+            return (aKey > bKey) ? 1 : -1
+        });
+
+        data.worn.spell = Object.values(data.items).filter(item => {
+            return item.type === "item" && item.data.subtype === "spell" && item.data.worn;
         }).sort(function (a, b) {
             const aKey = a.data.subtype + "-" + a.name.slugify({strict: true});
             const bKey = b.data.subtype + "-" + b.name.slugify({strict: true});
@@ -316,32 +446,45 @@ export class CofActorSheet extends ActorSheet {
             return (aKey > bKey) ? 1 : -1
         });
 
+        // const sampleEffect = {
+        //     _id: "9anBIg21fTkRwVNq",
+        //     label: "Force de taureau",
+        //     icon: "worlds/_assets/icons/svg/biceps.svg",
+        //     origin: "Actor.Pom8t7gHbjhWLr1o",
+        //     tint: "#fff101",
+        //     changes: [
+        //         {
+        //             key: "data.abilities.str.value",
+        //             mode: 2,
+        //             value: 4
+        //         }
+        //     ],
+        //     disabled: true,
+        //     duration: {
+        //         startTime: null,
+        //         seconds: null,
+        //         rounds: 10,
+        //         turns: null,
+        //         startRound: null,
+        //         startTurn: null,
+        //     },
+        //     flags: {}
+        // };
+
+        data.effects = data.actor.effects;
+
         return Traversal.getIndex().then(index => {
             data.paths = data.paths.map(path => {
                 path.capacities = path.data.capacities.map(capId => {
                     let cap = index[capId];
-                    if(data.items.find(i => i.flags?.cof?.sourceId === capId)) {
+                    if (data.items.find(i => i.flags?.cof?.sourceId === capId)) {
                         cap.checked = true;
-                    }
-                    else cap.checked = false;
+                    } else cap.checked = false;
                     return cap;
                 });
                 return path;
             });
             return data;
         });
-
-        // return Traversal.mapItemsOfType(["capacity"]).then(content => {
-        //     let fullPath = data.paths.map(path => {
-        //         path.capacities = path.data.capacities.map(capId => {
-        //             return content[capId];
-        //         });
-        //         return path;
-        //     });
-        //     console.log(fullPath);
-        //     const end = Date.now();
-        //     console.log(end - start + " ms");
-        //     return data;
-        // });
     }
 }

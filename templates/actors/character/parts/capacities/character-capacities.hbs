@@ -19,9 +19,7 @@
                         <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                         <h4>{{capacity.name}}</h4>
                     </div>
-                    {{#with (getPath ../actor.items capacity.data.path)}}
-                        {{{name}}}
-                    {{/with}}
+                    {{{capacity.data.path.name}}}
                     <div class="item-detail">{{#if capacity.data.rank}}{{capacity.data.rank}}{{/if}}</div>
                     <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
                     <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>

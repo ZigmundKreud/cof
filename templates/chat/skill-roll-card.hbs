@@ -1,0 +1,25 @@
+{{#if showDifficulty}}
+    {{#if isSuccess}}
+        {{#if isCritical}}
+            <h2 class="success critical"><i class="fas fa-check-double"></i>&nbsp;{{localize "COF.roll.critical"}}...</h2>
+        {{else}}
+            <h2 class="success"><i class="fas fa-check"></i>&nbsp;{{localize "COF.roll.success"}}...</h2>
+        {{/if}}
+    {{/if}}
+
+    {{#if isFailure}}
+        {{#if isFumble}}
+            <h2 class="failure fumble"><i class="fas fa-skull-crossbones"></i>&nbsp;{{localize "COF.roll.fumble"}}...</h2>
+        {{else}}
+            <h2 class="failure"><i class="fas fa-times"></i>&nbsp;{{localize "COF.roll.failure"}}...</h2>
+        {{/if}}
+    {{/if}}
+    <h3><strong>{{label}}</strong> {{localize "COF.ui.difficulty"}} <strong>{{difficulty}}</strong></h3>
+{{else}}
+    {{#if isCritical}}
+        <h2 class="standard critical"><i class="fas fa-check-double"></i>&nbsp;{{localize "COF.roll.critical"}}...</h2>
+    {{else}}
+        <h2 class="standard"><i class="fas fa-dice-d20"></i>&nbsp;{{localize "COF.roll.skillcheck"}}</h2>
+    {{/if}}
+    <h3><strong>{{label}}</strong>
+{{/if}}

@@ -6,6 +6,24 @@ import {Stats} from "../system/stats.js";
 
 export class CofActor extends Actor {
 
+    /* -------------------------------------------- */
+    /*  Data Preparation                            */
+    /* -------------------------------------------- */
+    // STEP 0
+    /** @override */
+    prepareData() {
+        super.prepareData();
+        // this.data = duplicate(this._data);
+        // if (!this.data.img) this.data.img = CONST.DEFAULT_TOKEN;
+        // if ( !this.data.name ) this.data.name = "New " + this.entity;
+        // this.prepareBaseData();
+        // this.prepareEmbeddedEntities();
+        // this.applyActiveEffects();
+        // this.prepareDerivedData();
+    }
+
+    /* -------------------------------------------- */
+    // STEP 1
     /** @override */
     prepareBaseData() {
         super.prepareBaseData();
@@ -15,7 +33,23 @@ export class CofActor extends Actor {
     }
 
     /* -------------------------------------------- */
+    // STEP 2
+    /** @override */
+    prepareEmbeddedEntities() {
+        this.items = this._prepareOwnedItems(this.data.items || []);
+        this.effects = this._prepareActiveEffects(this.data.effects || []);
+    }
 
+    /* -------------------------------------------- */
+    // STEP 3
+    /** @override */
+    applyActiveEffects() {
+        super.applyActiveEffects();
+        console.log(this.effects);
+    }
+
+    /* -------------------------------------------- */
+    // STEP 4
     /** @override */
     prepareDerivedData() {
         super.prepareDerivedData();
@@ -36,6 +70,58 @@ export class CofActor extends Actor {
     _prepareDerivedCharacterData(actorData) {
         this.computeDef(actorData);
         this.computeXP(actorData);
+    }
+
+    /* -------------------------------------------- */
+
+    /**
+     * Prepare a Collection of OwnedItem instances which belong to this Actor.
+     * @param {object[]} items  The raw array of item objects
+     * @return {Collection<string,Item>} The prepared owned items collection
+     * @private
+     */
+    _prepareOwnedItems(items) {
+        const prior = this.items;
+        const c = new Collection();
+        for ( let i of items ) {
+            let item = null;
+
+            // Update existing items
+            if ( prior && prior.has(i._id ) ) {
+                item = prior.get(i._id);
+                item.data = i;
+                item.prepareData();
+            }
+
+            // Construct new items
+            else item = Item.createOwned(i, this);
+            c.set(i._id, item);
+        }
+        return c;
+    }
+
+    /* -------------------------------------------- */
+
+    /**
+     * Prepare a Collection of ActiveEffect instances which belong to this Actor.
+     * @param {object[]} effects  The raw array of active effect objects
+     * @return {Collection<string,ActiveEffect>}  The prepared active effects collection
+     * @private
+     */
+    _prepareActiveEffects(effects) {
+        const prior = this.effects;
+        const c = new Collection();
+        for ( let e of effects ) {
+            let effect = null;
+            if ( prior && prior.has(e._id) ) {
+                effect = prior.get(e._id);
+                effect.data = e;
+                effect.prepareData();
+            }
+            else effect = ActiveEffect.create(e, this);
+            c.set(e._id, effect);
+        }
+        return c;
     }
 
     /* -------------------------------------------- */
@@ -190,8 +276,14 @@ export class CofActor extends Actor {
         attributes.fp.base = 3 + stats.cha.mod;
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
         attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
+
         attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
+        if(attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
+        if(attributes.rp.value < 0) attributes.rp.value = 0;
+
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
+        if(attributes.hp.value >= attributes.hp.max) attributes.hp.value = attributes.hp.max;
+        if(attributes.hp.value < 0) attributes.hp.value = 0;
 
         const magicMod = this.getMagicMod(stats, profile);
         if(profile){
@@ -266,4 +358,5 @@ export class CofActor extends Actor {
             alert.type = null;
         }
     }
+
 }

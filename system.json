@@ -8,10 +8,7 @@
   "templateVersion": 2,
   "author": "Zigmund",
   "esmodules": [
-    "module/cof.js",
-    "module/hooks/system-ready.js",
-    "module/hooks/chat-message.js",
-    "module/hooks/hotbar-drop.js"
+    "module/cof.js"
   ],
   "scripts": [],
   "styles": [

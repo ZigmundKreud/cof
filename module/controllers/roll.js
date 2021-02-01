@@ -1,10 +1,11 @@
 import {CharacterGeneration} from "../system/chargen.js";
-import {CofSkillRoll} from "../system/skill-roll.js";
-import {CofDamageRoll} from "../system/dmg-roll.js";
+import {CofSkillRoll} from "./skill-roll.js";
+import {CofDamageRoll} from "./dmg-roll.js";
+import {CofAttributesDialog} from "../dialogs/attributes-dialog.js";
 
 export class CofRoll {
     static options() {
-        return { classes: ["cof", "dialog"] };
+        return {classes: ["cof", "dialog"]};
     }
 
     /**
@@ -155,32 +156,17 @@ export class CofRoll {
      * @private
      */
     static async rollAttributes(data, actor, event) {
-        console.log(data);
-        let stats = data.stats;
-        Dialog.confirm({
-            title: "Jet de caractéristiques",
-            content: `<p>Êtes sûr de vouloir remplacer les caractériques de <strong>${actor.name}</strong></p>`,
-            yes: () => {
-                const rolls = CharacterGeneration.statsCommand(actor);
-                let i = 0;
-                for (const stat of Object.values(stats)) {
-                    stat.base = rolls[i].total;
-                    ++i;
-                }
-                actor.update({'data.stats': stats});
-            },
-            defaultYes: false
-        });
-        return true;
+        return this.attributesRollDialog(actor);
     }
 
     /* -------------------------------------------- */
     /* ROLL DIALOGS                                 */
+
     /* -------------------------------------------- */
 
-    static async skillRollDialog(actor, label, mod, bonus, critrange, superior=false, onEnter = "submit") {
+    static async skillRollDialog(actor, label, mod, bonus, critrange, superior = false, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange, superior:superior});
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange, superior: superior});
         let d = new Dialog({
             title: label,
             content: rollOptionContent,
@@ -206,7 +192,8 @@ export class CofRoll {
                 }
             },
             default: onEnter,
-            close: () => {}
+            close: () => {
+            }
         }, this.options());
         return d.render(true);
     }
@@ -251,8 +238,8 @@ export class CofRoll {
                         let dmgCustomFormula = html.find("#dmgCustomFormula").val();
                         let dmgBaseFormula = html.find("#dmgFormula").val();
                         let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
-                        if(dmgBonus > 0) dmgFormula = dmgFormula.concat('+', dmgBonus);
-                        else if(dmgBonus < 0) dmgFormula = dmgFormula.concat(' ', dmgBonus);
+                        if (dmgBonus > 0) dmgFormula = dmgFormula.concat('+', dmgBonus);
+                        else if (dmgBonus < 0) dmgFormula = dmgFormula.concat(' ', dmgBonus);
                         let r = new CofSkillRoll(label, dice, m, b, diff, critrange);
                         r.weaponRoll(actor, dmgFormula);
                     }
@@ -287,14 +274,9 @@ export class CofRoll {
                         let dmgCustomFormula = html.find("#dmgCustomFormula").val();
                         let dmgBaseFormula = html.find("#dmgFormula").val();
                         const isCritical = html.find("#isCritical").is(":checked");
-                        console.log(isCritical);
                         let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
-                        if(dmgBonus > 0) {
-                            dmgFormula = dmgFormula.concat('+', dmgBonus);
-                        }
-                        else if(dmgBonus < 0) {
-                            dmgFormula = dmgFormula.concat(' ', dmgBonus);
-                        }
+                        if (dmgBonus > 0) dmgFormula = dmgFormula.concat('+', dmgBonus);
+                        else if (dmgBonus < 0) dmgFormula = dmgFormula.concat(' ', dmgBonus);
                         let r = new CofDamageRoll(label, dmgFormula, isCritical);
                         r.roll(actor);
                     }
@@ -307,36 +289,7 @@ export class CofRoll {
         return d.render(true);
     }
 
-    static async attributesRollDialog(actor, label, mod, bonus, critrange, superior=false, onEnter = "submit") {
-        const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange, superior:superior});
-        let d = new Dialog({
-            title: label,
-            content: rollOptionContent,
-            buttons: {
-                cancel: {
-                    icon: '<i class="fas fa-times"></i>',
-                    label: game.i18n.localize("COF.ui.cancel"),
-                    callback: () => {
-                    }
-                },
-                submit: {
-                    icon: '<i class="fas fa-check"></i>',
-                    label: game.i18n.localize("COF.ui.submit"),
-                    callback: (html) => {
-                        const dice = html.find("#dice").val();
-                        const diff = html.find('#difficulty').val();
-                        const critrange = html.find('input#critrange').val();
-                        const m = html.find('input#mod').val();
-                        const b = html.find('input#bonus').val();
-                        let r = new CofSkillRoll(label, dice, m, b, diff, critrange);
-                        r.roll(actor);
-                    }
-                }
-            },
-            default: onEnter,
-            close: () => {}
-        }, this.options());
-        return d.render(true);
+    static async attributesRollDialog(actor) {
+        return new CofAttributesDialog(actor, {}).render(true);
     }
 }

@@ -524,12 +524,17 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
 }
 
 .message-header h2.damage {
-  color: orangered;
+  color: darkred;
   font-weight: bold;
 }
 
 .message-header h2.critical {
   color: green;
+  font-weight: bold;
+}
+
+.message-header h2.standard {
+  color: #005477;
   font-weight: bold;
 }
 
@@ -544,13 +549,41 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
 }
 
 .message-header h2.failure {
-  color: darkred;
+  color: orangered;
   font-weight: bold;
 }
 
 .message-header h2.roll {
   color: darkslategrey;
   font-weight: bold;
+}
+
+.chat-message .btn {
+  cursor: pointer;
+  margin: 0 0 5px 2px;
+  padding: 3px;
+  min-width: 25px;
+  height: 28px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #999;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #FFF inset;
+  box-shadow: 0 0 2px #FFF inset;
+  word-break: break-all;
+}
+
+.chat-message .btn:hover {
+  color: #464331c4;
+  background: rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+  border: 1px outset #736953a6;
+}
+
+.chat-message .btn:active {
+  border: 1px inset #736953a6;
+  background: rgba(0, 0, 0, 0.3);
+  color: #464331c4;
 }
 
 /* Styles limited to cof sheets */
@@ -732,12 +765,10 @@ Copied from dnd5e
   box-shadow: 0 4px 3px -3px gray;
   margin: 0 0 5px 0;
   padding: 3px;
-  max-height: 205px;
   overflow: hidden;
 }
 
 .cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .path-list .grid {
-  max-height: 150px;
   overflow: auto;
 }
 
@@ -807,6 +838,42 @@ Copied from dnd5e
   min-height: calc(100% - 195px);
   height: calc(100% - 195px);
   max-height: calc(100% - 195px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p5 {
+  min-height: calc(100% - 220px);
+  height: calc(100% - 220px);
+  max-height: calc(100% - 220px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p6 {
+  min-height: calc(100% - 245px);
+  height: calc(100% - 245px);
+  max-height: calc(100% - 245px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p7 {
+  min-height: calc(100% - 265px);
+  height: calc(100% - 265px);
+  max-height: calc(100% - 265px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p8 {
+  min-height: calc(100% - 290px);
+  height: calc(100% - 290px);
+  max-height: calc(100% - 290px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p9 {
+  min-height: calc(100% - 315px);
+  height: calc(100% - 315px);
+  max-height: calc(100% - 315px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.capacities .capacity-list.p10 {
+  min-height: calc(100% - 340px);
+  height: calc(100% - 340px);
+  max-height: calc(100% - 340px);
 }
 
 .cof.actor .window-content > form .wrap .main .content .sheet-body .tab.description .editor {
@@ -1538,6 +1605,30 @@ Copied from dnd5e
 
 .cof.item .window-content .dragging {
   outline: 1px dotted gray;
+}
+
+.cof.app.attributes-dialog #spent .spent-header {
+  background-color: darkslategray;
+}
+
+.cof.app.attributes-dialog #spent #total {
+  color: black;
+}
+
+.cof.app.attributes-dialog #spent #max {
+  color: black;
+}
+
+.cof.app.attributes-dialog #spent.error .spent-header {
+  background-color: darkred;
+}
+
+.cof.app.attributes-dialog #spent.error #total {
+  color: red;
+}
+
+.cof.app.attributes-dialog #spent.error #max {
+  color: red;
 }
 
 .cof input[readonly="true"] {

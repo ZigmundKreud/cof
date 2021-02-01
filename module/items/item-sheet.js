@@ -4,7 +4,7 @@
  */
 import {ArrayUtils} from "../utils/array-utils.js";
 import {Traversal} from "../utils/traversal.js";
-import {System} from "../config.js";
+import {System} from "../system/config.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -218,29 +218,6 @@ export class CofItemSheet extends ItemSheet {
         }
     }
 
-    /** @override */
-    getData() {
-        const data = super.getData();
-        data.labels = this.item.labels;
-        console.log(data);
-
-        // Include CONFIG values
-        data.config = game.cof.config;
-
-        // Item Type, Status, and Details
-        data.itemType = data.item.type.titleCase();
-        data.itemProperties = this._getItemProperties(data.item);
-
-        // Action Details
-        // data.hasAttackRoll = this.item.hasAttack;
-        // data.isHealing = data.item.data.actionType === "heal";
-        // data.isFlatDC = getProperty(data.item.data, "save.scaling") === "flat";
-
-        return data;
-    }
-
-
-
     /* -------------------------------------------- */
 
     /**
@@ -292,6 +269,29 @@ export class CofItemSheet extends ItemSheet {
         //     )
         // }
         return props.filter(p => !!p);
+    }
+
+    /* -------------------------------------------- */
+
+    /** @override */
+    getData(options) {
+        const data = super.getData(options);
+        data.labels = this.item.labels;
+        console.log(data);
+
+        // Include CONFIG values
+        data.config = game.cof.config;
+
+        // Item Type, Status, and Details
+        data.itemType = data.item.type.titleCase();
+        data.itemProperties = this._getItemProperties(data.item);
+
+        // Action Details
+        // data.hasAttackRoll = this.item.hasAttack;
+        // data.isHealing = data.item.data.actionType === "heal";
+        // data.isFlatDC = getProperty(data.item.data, "save.scaling") === "flat";
+
+        return data;
     }
 
 }

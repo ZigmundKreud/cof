@@ -1,7 +1,74 @@
-{{#if (notEmpty worn)}}
+{{#if (notEmpty worn.armor)}}
     <ol class="inventory-list">
         <li class="inventory-header flexrow">
-            <h3 class="item-name flexrow">Equipé</h3>
+            <h3 class="item-name flexrow">{{localize "COF.category.armor"}}</h3>
+            <div class="item-detail">Def</div>
+            <div class="item-detail"></div>
+            <div class="item-detail"></div>
+            <div class="item-detail"></div>
+            <div class="item-detail"></div>
+            <div class="item-controls"></div>
+        </li>
+        {{#each worn.armor as |item id|}}
+            {{> "systems/cof/templates/actors/character/parts/combat/character-combat-armor.hbs" item}}
+        {{/each}}
+    </ol>
+{{/if}}
+
+{{#if (notEmpty worn.shield)}}
+    <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+            <h3 class="item-name flexrow">{{localize "COF.category.shield"}}</h3>
+            <div class="item-detail">Def</div>
+            <div class="item-detail">Usage</div>
+            <div class="item-detail">Crit</div>
+            <div class="item-detail">Mod</div>
+            <div class="item-detail">DM</div>
+            <div class="item-controls"></div>
+        </li>
+        {{#each worn.shield as |item id|}}
+            {{> "systems/cof/templates/actors/character/parts/combat/character-combat-shield.hbs" item}}
+        {{/each}}
+    </ol>
+{{/if}}
+
+{{#if (notEmpty worn.melee)}}
+    <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+            <h3 class="item-name flexrow">{{localize "COF.category.melee"}}</h3>
+            <div class="item-detail">Usage</div>
+            <div class="item-detail">Crit</div>
+            <div class="item-detail">Mod</div>
+            <div class="item-detail">DM</div>
+            <div class="item-controls"></div>
+        </li>
+        {{#each worn.melee as |item id|}}
+            {{> "systems/cof/templates/actors/character/parts/combat/character-combat-melee.hbs" item}}
+        {{/each}}
+    </ol>
+{{/if}}
+
+{{#if (notEmpty worn.ranged)}}
+    <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+            <h3 class="item-name flexrow">{{localize "COF.category.ranged"}}</h3>
+            <div class="item-detail">Portée(m)</div>
+            <div class="item-detail">Usage</div>
+            <div class="item-detail">Crit</div>
+            <div class="item-detail">Mod</div>
+            <div class="item-detail">DM</div>
+            <div class="item-controls"></div>
+        </li>
+        {{#each worn.ranged as |item id|}}
+            {{> "systems/cof/templates/actors/character/parts/combat/character-combat-ranged.hbs" item}}
+        {{/each}}
+    </ol>
+{{/if}}
+
+{{#if (notEmpty worn.spell)}}
+    <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+            <h3 class="item-name flexrow">{{localize "COF.category.spell"}}</h3>
             <div class="item-detail">Def</div>
             <div class="item-detail">Portée(m)</div>
             <div class="item-detail">Usage</div>
@@ -10,10 +77,8 @@
             <div class="item-detail">DM</div>
             <div class="item-controls"></div>
         </li>
-        {{#each worn as |item id|}}
-            {{> "systems/cof/templates/actors/character/parts/combat/character-combat-item.hbs" item}}
+        {{#each worn.spell as |item id|}}
+            {{> "systems/cof/templates/actors/character/parts/combat/character-combat-spell.hbs" item}}
         {{/each}}
     </ol>
-{{else}}
-    <p class="empty">Aucun objet équipé pour le moment.</p>
 {{/if}}

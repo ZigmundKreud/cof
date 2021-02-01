@@ -144,13 +144,13 @@
                   padding: 3px;
                   //min-height: 205px;
                   //height: 205px;
-                  max-height: 205px;
+                  //max-height: 205px;
                   overflow: hidden;
 
                   .grid {
                     //min-height: 150px;
                     //height: 150px;
-                    max-height: 150px;
+                    //max-height: 150px;
                     overflow: auto;
                   }
 
@@ -215,6 +215,36 @@
                     min-height:calc(100% - 195px);
                     height:calc(100% - 195px);
                     max-height:calc(100% - 195px);
+                  }
+                  &.p5{
+                    min-height:calc(100% - 220px);
+                    height:calc(100% - 220px);
+                    max-height:calc(100% - 220px);
+                  }
+                  &.p6{
+                    min-height:calc(100% - 245px);
+                    height:calc(100% - 245px);
+                    max-height:calc(100% - 245px);
+                  }
+                  &.p7{
+                    min-height:calc(100% - 265px);
+                    height:calc(100% - 265px);
+                    max-height:calc(100% - 265px);
+                  }
+                  &.p8{
+                    min-height:calc(100% - 290px);
+                    height:calc(100% - 290px);
+                    max-height:calc(100% - 290px);
+                  }
+                  &.p9{
+                    min-height:calc(100% - 315px);
+                    height:calc(100% - 315px);
+                    max-height:calc(100% - 315px);
+                  }
+                  &.p10{
+                    min-height:calc(100% - 340px);
+                    height:calc(100% - 340px);
+                    max-height:calc(100% - 340px);
                   }
                 }
                 //.capacity-list {

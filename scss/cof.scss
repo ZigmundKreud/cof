@@ -9,6 +9,7 @@
 @import 'global/grid';
 @import 'global/flex';
 @import 'global/chat';
+@import 'global/buttons';
 
 /* Styles limited to cof sheets */
 .cof {
@@ -21,6 +22,10 @@
   &.item {
     @import 'components/item_layout';
     //@import 'components/item_skin';
+  }
+
+  &.app {
+    @import 'components/app';
   }
 
   @import 'components/forms';

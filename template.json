@@ -363,6 +363,24 @@
           "sling" : false,
           "spell" : false,
           "consumable" : false
+        },
+        "effects" : {
+          "heal" : {
+            "formula" : null,
+            "persistent" : false,
+            "duration" : {
+              "value" : null,
+              "units" : null
+            }
+          },
+          "buff" : {
+            "formula" : null,
+            "persistent" : false,
+            "duration" : {
+              "value" : null,
+              "units" : null
+            }
+          }
         }
       }
     },

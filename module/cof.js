@@ -12,12 +12,12 @@ import {CofItemSheet} from "./items/item-sheet.js";
 import {CofCharacterSheet} from "./actors/character-sheet.js";
 import {CofEncounterSheet} from "./actors/encounter-sheet.js";
 
-import { preloadHandlebarsTemplates } from "./templates.js";
-import { registerHandlebarsHelpers } from "./helpers.js";
-import { registerSystemSettings } from "./settings.js";
-import {System, COF} from "./config.js";
+import { preloadHandlebarsTemplates } from "./system/templates.js";
+import { registerHandlebarsHelpers } from "./system/helpers.js";
+import { registerSystemSettings } from "./system/settings.js";
+import {System, COF} from "./system/config.js";
 import {Macros} from "./system/macros.js";
-
+import registerHooks from "./system/hooks.js";
 
 Hooks.once("init", async function () {
 
@@ -84,4 +84,24 @@ Hooks.once("init", async function () {
     // Register Handlebars helpers
     registerHandlebarsHelpers();
 
+    // Register hooks
+    registerHooks();
+});
+
+/**
+ * Ready hook loads tables, and override's foundry's entity link functions to provide extension to pseudo entities
+ */
+
+Hooks.once("ready", async () => {
+
+// console.debug("Importing data");
+// DataLoader.loadData("capacities");
+// DataLoader.loadData("encounters");
+// DataLoader.loadData("items");
+// DataLoader.loadData("paths");
+// DataLoader.loadData("profiles");
+// DataLoader.loadData("species");
+// DataLoader.loadData("spells");
+
+    console.info("System Initialized.");
 });
