@@ -45,7 +45,7 @@ export class CofActor extends Actor {
     /** @override */
     applyActiveEffects() {
         super.applyActiveEffects();
-        console.log(this.effects);
+        // console.log(this.effects);
     }
 
     /* -------------------------------------------- */
