@@ -176,7 +176,6 @@ export class CofAttributesDialog extends FormApplication {
         for(let stat of Object.values(data.stats)){
             stat.mod = HandlebarsHelpers.numberFormat(Stats.getModFromStatValue(stat.base), {hash: {decimals: 0, sign: true}})
         }
-        console.log(data.stats);
         data.max = 6;
         data.total = Object.values(data.stats).map(s => parseInt(s.mod)).reduce((acc, curr) => acc + curr, 0);
         return data;
