@@ -47,11 +47,13 @@
                     </div>
                     {{!-- Capacitites Tab --}}
                     <div class="tab capacities" data-group="primary" data-tab="capacities">
-                        {{> "systems/cof/templates/actors/encounter/parts/capacities/encounter-paths.hbs"}}
+                        {{!> "systems/cof/templates/actors/encounter/parts/capacities/encounter-paths.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/capacities/character-paths.hbs"}}
                     </div>
                     {{!-- Inventory Tab --}}
                     <div class="tab inventory" data-group="primary" data-tab="inventory">
-                        {{> "systems/cof/templates/actors/encounter/parts/inventory/encounter-inventory.hbs"}}
+                        {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory.hbs"}}
+                        {{!> "systems/cof/templates/actors/encounter/parts/inventory/encounter-inventory.hbs"}}
                     </div>
                     {{!-- Notes Tab --}}
                     <div class="tab description" data-group="primary" data-tab="description">

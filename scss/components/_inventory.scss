@@ -11,6 +11,24 @@
   scrollbar-width: thin;
   color: $colorTan;
 
+  &.foldable {
+    .inventory-header {
+      h3 {
+        cursor: pointer;
+        &:before {
+          content:"▾\202F"
+        }
+      }
+    }
+  }
+  &.folded {
+    .inventory-header {
+      h3:before {
+        content: "▸\202F";
+      }
+    }
+  }
+
   // Inventory Item
   .item {
     line-height: 30px;
@@ -69,7 +87,6 @@
       white-space: nowrap;
     }
   }
-
   // Inventory Header
   .inventory-header {
     margin: 2px 0;
@@ -154,7 +171,6 @@
       color: $colorTan;
     }
   }
-
   .item-controls,
   .item-controls-2 {
     flex: 0 0 44px;
@@ -168,7 +184,6 @@
       color: $colorTan;
     }
   }
-
   .item-controls-3 {
     flex: 0 0 66px;
     @include flexrow;
@@ -181,7 +196,6 @@
       color: $colorTan;
     }
   }
-
   .item-controls-4 {
     flex: 0 0 88px;
     @include flexrow;

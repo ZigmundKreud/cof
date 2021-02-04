@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ----------------------------------------- */
 /*  Premade colors                           */
 /* ----------------------------------------- */
@@ -1933,6 +1934,18 @@ Copied from dnd5e
   overflow-y: auto;
   scrollbar-width: thin;
   color: #7a7971;
+}
+
+.cof .inventory-list.foldable .inventory-header h3 {
+  cursor: pointer;
+}
+
+.cof .inventory-list.foldable .inventory-header h3:before {
+  content: "▾\202F";
+}
+
+.cof .inventory-list.folded .inventory-header h3:before {
+  content: "▸\202F";
 }
 
 .cof .inventory-list .item {

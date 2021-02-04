@@ -20,21 +20,28 @@ export class CofEncounterSheet extends CofActorSheet {
     }
 
     /** @override */
+    // setPosition(options = {}) {
+    //     const position = super.setPosition(options);
+    //     const sheetBody = this.element.find(".sheet-body");
+    //     const bodyHeight = position.height - 192;
+    //     sheetBody.css("height", bodyHeight);
+    //     return position;
+    // }
+
+    /** @override */
     activateListeners(html) {
         super.activateListeners(html);
-
-        // Click to open
-        html.find('.compendium-pack.capacity-add,.compendium-pack.path-add').click(ev => {
-            ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
-            if ( li.attr("data-open") === "1" ) pack.close();
-            else {
-                li.attr("data-open", "1");
-                li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
-                pack.render(true);
-            }
-        });
-
+        // // Click to open
+        // html.find('.compendium-pack.capacity-add,.compendium-pack.path-add').click(ev => {
+        //     ev.preventDefault();
+        //     let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+        //     if ( li.attr("data-open") === "1" ) pack.close();
+        //     else {
+        //         li.attr("data-open", "1");
+        //         li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
+        //         pack.render(true);
+        //     }
+        // });
         html.find('.weapon-add').click(ev => {
             ev.preventDefault();
             const data = this.getData().data;
@@ -42,7 +49,6 @@ export class CofEncounterSheet extends CofActorSheet {
             data.weapons.push({"name":"", "mod":null, "dmg":null});
             this.actor.update({'data.weapons': data.weapons});
         });
-
         html.find('.weapon-remove').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".weapon");
@@ -53,15 +59,5 @@ export class CofEncounterSheet extends CofActorSheet {
             else data.weapons.splice(idx, 1);
             this.actor.update({'data.weapons': data.weapons});
         });
-    }
-
-    /* -------------------------------------------- */
-
-    /** @override */
-    getData() {
-        const data = super.getData();
-        data.capacities = [];
-        data.paths = [];
-        return data;
     }
 }

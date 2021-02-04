@@ -30,7 +30,7 @@
                 </div>
             {{/each}}
         </div>
-        {{#if (equals actor.type "character")}}
+        {{#if (or (equals actor.type "npc") (equals actor.type "character"))}}
             <hr/>
             {{#if (isNegative actor.data.xp.value)}}
                 <div class="row flexrow red">

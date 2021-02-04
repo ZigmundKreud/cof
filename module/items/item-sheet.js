@@ -277,20 +277,9 @@ export class CofItemSheet extends ItemSheet {
     getData(options) {
         const data = super.getData(options);
         data.labels = this.item.labels;
-        console.log(data);
-
-        // Include CONFIG values
         data.config = game.cof.config;
-
-        // Item Type, Status, and Details
         data.itemType = data.item.type.titleCase();
         data.itemProperties = this._getItemProperties(data.item);
-
-        // Action Details
-        // data.hasAttackRoll = this.item.hasAttack;
-        // data.isHealing = data.item.data.actionType === "heal";
-        // data.isFlatDC = getProperty(data.item.data, "save.scaling") === "flat";
-
         return data;
     }
 

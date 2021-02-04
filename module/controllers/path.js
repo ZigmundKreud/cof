@@ -1,5 +1,3 @@
-import {Traversal} from "../utils/traversal.js";
-
 export class Path {
 
     static addToActor(actor, event, itemData) {
@@ -7,13 +5,14 @@ export class Path {
             ui.notifications.error("Vous possédez déjà cette voie.");
             return false;
         } else {
-            return Traversal.getItemsOfType("capacity").then(caps => {
-                // const capsContent = await game.packs.get("cof.capacities").getContent();
-                let items = duplicate(capsContent.filter(entity => entity.data.data.path === itemData.data.key));
-                items.push(itemData);
-                return actor.createEmbeddedEntity("OwnedItem", items).then(() => this._render(false));
-                // return actor.createEmbeddedEntity("OwnedItem", itemData);
-            });
+            return actor.createEmbeddedEntity("OwnedItem", itemData);
+            // return Traversal.getItemsOfType("capacity").then(caps => {
+            //     let items = duplicate(caps.filter(entity => {
+            //         return entity.data.path === itemData.data.key
+            //     }));
+            //     items.push(itemData);
+            //     return actor.createEmbeddedEntity("OwnedItem", items);
+            // });
         }
     }
 

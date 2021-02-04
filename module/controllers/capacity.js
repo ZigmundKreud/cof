@@ -12,7 +12,6 @@ export class Capacity {
     }
 
     static toggleCheck(actor, event, isUncheck) {
-        const start = Date.now();
         const elt = $(event.currentTarget).parents(".capacity");
         const data = duplicate(actor.data);
         // get id of clicked capacity
@@ -30,9 +29,7 @@ export class Capacity {
                 cap.flags.cof = {sourceId : id};
                 return cap;
             });
-            // console.log(capacities);
             const capacitiesKeys = capacities.map(c=>c.data.key);
-            // console.log(capacitiesKeys);
 
             // retrieve path's capacities already present in owned items
             const items = data.items.filter(i => i.type === "capacity" && capacitiesKeys.includes(i.data.key));
@@ -44,19 +41,12 @@ export class Capacity {
                 // const caps = capacities.filter(c => c.data.rank >= capacity.data.rank);
                 // REMOVE SELECTED CAPS
                 const toRemove = items.filter(i => capsKeys.includes(i.data.key)).map(i => i._id);
-
-                const end = Date.now();
-                // console.log(end-start + " ms");
                 return actor.deleteOwnedItem(toRemove);
             }
             else {
                 const caps = capacities.filter(c => path.data.capacities.indexOf(c._id) <= path.data.capacities.indexOf(capId));
                 // const caps = capacities.filter(c => c.data.rank <= capacity.data.rank);
                 const toAdd = caps.filter(c => !itemKeys.includes(c.data.key));
-                // console.log(toAdd);
-
-                const end = Date.now();
-                // console.log(end-start + " ms");
                 return actor.createOwnedItem(toAdd);
             }
         });
