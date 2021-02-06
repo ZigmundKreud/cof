@@ -12,9 +12,39 @@
 
 {{#if data.properties.heal}}
     <div class="form-group">
-        <label>{{ localize "COF.properties.heal" }}</label>
+        <label>{{ localize "COF.ui.heal" }}</label>
         <div class="form-fields">
-            <input type="text" name="data.properties.heal.formula" value="{{data.properties.heal.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
+            <input type="text" name="data.effects.heal.formula" value="{{data.effects.heal.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
         </div>
+    </div>
+{{/if}}
+
+{{#if data.properties.buff}}
+    <div class="form-group">
+        <label>{{ localize "COF.ui.buff" }}</label>
+        <div class="form-fields">
+            <input type="text" name="data.effects.buff.formula" value="{{data.effects.buff.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
+        </div>
+    </div>
+{{/if}}
+
+{{#if data.properties.temporary}}
+    <div class="form-group">
+        <label>{{ localize "COF.ui.duration" }}</label>
+        <div class="form-fields">
+            <input type="number" name="data.properties.duration.formula" value="{{data.properties.duration.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="Number"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>{{ localize "COF.ui.units" }}</label>&nbsp;
+        <select name="data.properties.duration.units" data-type="String" style="width:100%">
+        {{#select data.properties.duration.units}}
+            <option value="">{{localize "COF.None"}}</option>
+            <option value="rounds">{{localize "COF.ui.rounds"}}</option>
+            <option value="minutes">{{localize "COF.ui.minutes"}}</option>
+            <option value="hours">{{localize "COF.ui.hours"}}</option>
+            <option value="days">{{localize "COF.ui.days"}}</option>
+        {{/select}}
+    </select>
     </div>
 {{/if}}

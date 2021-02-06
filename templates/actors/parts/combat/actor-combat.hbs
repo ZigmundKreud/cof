@@ -1,0 +1,25 @@
+{{#if (gt combat.count 0)}}
+    {{#each combat.categories as |category id|}}
+        {{#if (gt category.items.length 0)}}
+            <ol class="inventory-list foldable {{#if (includes ../folded.combat category.id)}}folded{{/if}}" data-tab="combat" data-category="{{category.id}}">
+                <li class="inventory-header flexrow">
+                    <h3 class="item-name flexrow">{{localize category.label}}</h3>
+                    <div class="item-detail">Def</div>
+                    <div class="item-detail">Portée(m)</div>
+                    <div class="item-detail">Usage</div>
+                    <div class="item-detail">Crit</div>
+                    <div class="item-detail">Mod</div>
+                    <div class="item-detail">DM</div>
+                    <div class="item-controls"></div>
+                </li>
+                <ol class="item-list" {{#if (includes ../folded.combat category.id)}}style="display: none;"{{/if}}>
+                {{#each category.items as |item id|}}
+                    {{> "systems/cof/templates/actors/parts/combat/actor-combat-item.hbs" item}}
+                {{/each}}
+                </ol>
+            </ol>
+        {{/if}}
+    {{/each}}
+{{else}}
+    <p class="empty">Aucun objet équipé.</p>
+{{/if}}

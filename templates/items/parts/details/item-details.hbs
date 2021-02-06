@@ -5,18 +5,21 @@
         <select name="data.subtype" data-type="String" style="width:100%">
             {{#select data.subtype}}
                 <option value="">{{localize "COF.None"}}</option>
-                <option value="armor">{{localize "COF.category.armor"}}</option>
-                <option value="melee">{{localize "COF.category.melee"}}</option>
-                <option value="ranged">{{localize "COF.category.ranged"}}</option>
-                <option value="shield">{{localize "COF.category.shield"}}</option>
-                <option value="spell">{{localize "COF.category.spell"}}</option>
-                <option value="jewel">{{localize "COF.category.jewel"}}</option>
-                <option value="consumable">{{localize "COF.category.consumable"}}</option>
-                <option value="ammunition">{{localize "COF.category.ammunition"}}</option>
-                <option value="container">{{localize "COF.category.container"}}</option>
-                <option value="mount">{{localize "COF.category.mount"}}</option>
-                <option value="currency">{{localize "COF.category.currency"}}</option>
-                <option value="trapping">{{localize "COF.category.other"}}</option>
+                {{#each config.itemCategories as | category id |}}
+                    <option value="{{id}}">{{localize category}}</option>
+                {{/each}}
+<!--                <option value="armor">{{localize "COF.category.armor"}}</option>-->
+<!--                <option value="melee">{{localize "COF.category.melee"}}</option>-->
+<!--                <option value="ranged">{{localize "COF.category.ranged"}}</option>-->
+<!--                <option value="shield">{{localize "COF.category.shield"}}</option>-->
+<!--                <option value="spell">{{localize "COF.category.spell"}}</option>-->
+<!--                <option value="jewel">{{localize "COF.category.jewel"}}</option>-->
+<!--                <option value="consumable">{{localize "COF.category.consumable"}}</option>-->
+<!--                <option value="ammunition">{{localize "COF.category.ammunition"}}</option>-->
+<!--                <option value="container">{{localize "COF.category.container"}}</option>-->
+<!--                <option value="mount">{{localize "COF.category.mount"}}</option>-->
+<!--                <option value="currency">{{localize "COF.category.currency"}}</option>-->
+<!--                <option value="trapping">{{localize "COF.category.other"}}</option>-->
             {{/select}}
         </select>
     </div>

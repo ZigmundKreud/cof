@@ -3,7 +3,8 @@
     "types": [
       "character",
       "npc",
-      "encounter"
+      "encounter",
+      "loot"
     ],
     "templates": {
       "stats": {
@@ -249,6 +250,20 @@
             "value": [],
             "custom": ""
           }
+        },
+        "settings": {
+          "combat": {
+            "folded": []
+          },
+          "inventory": {
+            "folded": []
+          },
+          "capacities": {
+            "folded": []
+          },
+          "effects": {
+            "folded": []
+          }
         }
       }
     },
@@ -296,6 +311,11 @@
       "families": [],
       "archetype": "",
       "category": ""
+    },
+    "loot" : {
+      "templates": [
+        "common"
+      ]
     }
   },
   "Item": {
@@ -332,6 +352,7 @@
         "qty" : 1,
         "stacksize" : null,
         "price": 0,
+        "value" : 0,
         "rarity" : "common",
         "properties": {
           "predilection": false,
@@ -363,6 +384,24 @@
           "sling" : false,
           "spell" : false,
           "consumable" : false
+        },
+        "effects" : {
+          "heal" : {
+            "formula" : null,
+            "persistent" : false,
+            "duration" : {
+              "value" : null,
+              "units" : null
+            }
+          },
+          "buff" : {
+            "formula" : null,
+            "persistent" : false,
+            "duration" : {
+              "value" : null,
+              "units" : null
+            }
+          }
         }
       }
     },

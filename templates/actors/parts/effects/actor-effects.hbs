@@ -1,0 +1,19 @@
+{{!#if (notEmpty effects)}}
+    <ol class="inventory-list">
+        <li class="inventory-header flexrow">
+            <h3 class="item-name flexrow">{{localize "COF.category.effects"}}</h3>
+            <div class="item-detail">Durée</div>
+            <div class="item-detail">Action</div>
+            <div class="item-controls">
+                <a class="item-control item-create effect-create" title="Ajouter un effet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+            </div>
+        </li>
+        <ol class="item-list">
+        {{#each effects as |effect id|}}
+            {{> "systems/cof/templates/actors/parts/effects/actor-effects-item.hbs" effect}}
+        {{/each}}
+        </ol>
+    </ol>
+{{!else}}
+<!--    <p class="empty">Pas d'effet actif.</p>-->
+{{!/if}}

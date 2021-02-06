@@ -1,0 +1,44 @@
+<div class="flexrow no-wrap currencies" style="max-height:20px">
+    <div class="flex7"></div>
+    <div class="flex1 left">Bourse</div>
+    <div class="flex1 left">
+        <i title="Pièces de platine (10 po)" class="fas fa-coins" style="color:dimgray"></i>
+        <input class="field-value center" name="data.currency.pp.qty" type="number" value="{{actor.data.currency.pp.qty}}" placeholder="Pièces de platine (10 po)" data-dtype="Number"/>
+    </div>
+    <div class="flex1 left">
+        <i title="Pièces d'or (10 pa)" class="fas fa-coins" style="color:goldenrod"></i>
+        <input class="field-value center" name="data.currency.gp.qty" type="number" value="{{actor.data.currency.gp.qty}}" placeholder="Pièces d'or (10 pa)" data-dtype="Number"/>
+    </div>
+    <div class="flex1 left">
+        <i title="Pièces d'argent (10 pc)" class="fas fa-coins" style="color:silver"></i>
+        <input class="field-value center" name="data.currency.sp.qty" type="number" value="{{actor.data.currency.sp.qty}}" placeholder="Pièces d'argent (10 pc)" data-dtype="Number"/>
+    </div>
+    <div class="flex1 left">
+        <i title="Pièces de cuivre" class="fas fa-coins" style="color:saddlebrown"></i>
+        <input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.data.currency.cp.qty}}" placeholder="Pièces de cuivre" data-dtype="Number"/>
+    </div>
+</div>
+{{#if (gt inventory.count 0)}}
+    {{#each inventory.categories as |category id|}}
+        {{#if (gt category.items.length 0)}}
+            <ol class="inventory-list foldable {{#if (includes ../folded.inventory category.id)}}folded{{/if}}" data-tab="inventory" data-category="{{category.id}}">
+                <li class="inventory-header flexrow">
+                    <h3 class="item-name flexrow">{{localize category.label}}</h3>
+                    <div class="item-detail">{{localize "COF.ui.qty"}}</div>
+                    <div class="item-detail"><i title="Valeur totale en pièces d'argent (10 pc)" class="fas fa-coins" style="color:silver"></i></div>
+                    {{#if (or (equals ../actor.type "character") (equals ../actor.type "npc"))}}<div class="item-detail">Action</div>{{/if}}
+                    <div class="item-controls">
+                        <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+                    </div>
+                </li>
+                <ol class="item-list" {{#if (includes ../folded.inventory category.id)}}style="display: none;"{{/if}}>
+                {{#each category.items as |item id|}}
+                    {{> "systems/cof/templates/actors/parts/inventory/actor-inventory-item.hbs" item owner=../../actor}}
+                {{/each}}
+                </ol>
+            </ol>
+        {{/if}}
+    {{/each}}
+{{else}}
+    <p class="empty">Votre inventaire est vide.</p>
+{{/if}}

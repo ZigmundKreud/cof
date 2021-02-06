@@ -1,0 +1,24 @@
+&.attributes-dialog {
+  #spent {
+    .spent-header {
+      background-color: darkslategray;
+    }
+    #total {
+      color:black
+    }
+    #max {
+      color:black
+    }
+    &.error {
+      .spent-header {
+        background-color: darkred;
+      }
+      #total {
+        color:red
+      }
+      #max {
+        color:red
+      }
+    }
+  }
+}

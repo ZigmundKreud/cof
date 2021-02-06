@@ -1,0 +1,53 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="wrap">
+        <div class="header">
+            <div class="flexrow header-background no-wrap">
+                <div class="flex1 left">
+                    <div id="banner-left"></div>
+                </div>
+                <div class="flex1 right">
+                    <div id="banner-right"></div>
+                </div>
+            </div>
+            <div class="flexrow">
+                <div class="flex1 center" id="logo-banner"><img src="/systems/cof/ui/logo-banner.png"/></div>
+            </div>
+        </div>
+        <div class="flexrow main">
+            <div class="sidebar flex1">
+                <br/>
+                <div class="flexrow">
+                    <div class="flex1 center">
+                        <span class="charname">{{actor.name}}</span>
+                    </div>
+                </div>
+                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+            </div>
+            <div class="separator flex1"></div>
+            <div class="content flex3">
+                <div class="flexrow top">
+                    <div class="flex1" style="margin-right: 5px;">
+                        <!-- NAME -->
+                        <div class="flexrow">
+                            <div class="flex1 center bg-darkgreen">
+                                <span class="field-label">{{ localize 'COF.details.name' }}</span>
+                            </div>
+                            <div class="flex2 center cell">
+                                <input class="field-value sans" name="name" type="text" value="{{actor.name}}" placeholder="Name" data-dtype="String"/>
+                            </div>
+                        </div>
+                        <!-- /NAME -->
+                    </div>
+                    <div class="flex1" style="margin-right: 5px;"></div>
+                </div>
+                <div class="flexrow">
+                    <div class="flex1 half-spacer"></div>
+                </div>
+                <section class="sheet-body loot-sheet">
+                    {{!-- Inventory Tab --}}
+                {{> "systems/cof/templates/actors/parts/inventory/actor-inventory.hbs"}}
+                </section>
+            </div>
+        </div>
+    </div>
+</form>

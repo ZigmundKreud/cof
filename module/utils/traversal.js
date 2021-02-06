@@ -1,3 +1,5 @@
+import {Compendia} from "./compendia.js";
+
 export class Traversal {
 
     static async getEntity(id, type, pack) {
@@ -47,60 +49,72 @@ export class Traversal {
         return ingame.concat(compendium);
     }
 
-    static getItemsOfType(type) {
-        let compendium = [];
-        let ingame = [];
-        switch(type){
-            case "path" :
-                compendium = game.cof.config.paths;
-                ingame = game.items.filter(item => item.type === "path").map(entity => entity.data);
-                break;
-            case "capacity" :
-                compendium = game.cof.config.capacities;
-                ingame = game.items.filter(item => item.type === "capacity").map(entity => entity.data);
-                break;
+    static getIndex() {
+        return Compendia.getIndex().then(index =>{
+            let items = game.items.map(entity => {
+                return {
+                    _id : entity.data._id,
+                    name : entity.data.name,
+                    img : entity.data.img,
+                    source : "game.items"
+                }
+            });
+            let actors = game.actors.map(entity => {
+                return {
+                    _id : entity.data._id,
+                    name : entity.data.name,
+                    img : entity.data.img,
+                    source : "game.actors"
+                }
+            });
+            let journal = game.journal.map(entity => {
+                return {
+                    _id : entity.data._id,
+                    name : entity.data.name,
+                    img : entity.data.img,
+                    source : "game.journal"
+                }
+            });
+            return items.concat(actors).concat(journal).concat(Object.values(index)).reduce(function (map, obj) {
+                map[obj._id] = obj;
+                return map;
+            }, {});
+        });
+    }
+
+    static mapItemsOfType(types) {
+        return Compendia.getContent(types).then(content =>{
+            return game.items.filter(item => types.includes(item.type)).map(entity => entity.data).concat(Object.values(content).map(entity => entity.data)).reduce(function (map, obj) {
+                map[obj._id] = obj;
+                return map;
+            }, {});
+        });
+    }
+
+    static getItemsOfType(types) {
+        return Compendia.getContent(types).then(content =>{
+            return game.items.filter(item => types.includes(item.type)).map(entity => entity.data).concat(Object.values(content).map(entity => entity.data));
+        });
+    }
+
+    static find(id) {
+        return this.getIndex().then(idx => {
+            const entry = idx[id];
+            if(entry && entry.source) {
+                if(entry.source === "game.items") return game.items.get(id);
+                if(entry.source === "game.actors") return game.actors.get(id);
+                if(entry.source === "game.journal") return game.journal.get(id);
+                else return game.packs.get(entry.source).getEntity(id).then(entity => entity);
+            }
+        });
+    }
+
+    static find(id, source) {
+        if(id && source) {
+            if(source === "game.items") return game.items.get(id);
+            if(source === "game.actors") return game.actors.get(id);
+            if(source === "game.journal") return game.journal.get(id);
+            else return game.packs.get(source).getEntity(id).then(entity => entity);
         }
-        return ingame.concat(compendium);
     }
-
-    /*
-     * DATA
-     */
-
-    static getInGameEntitiesDataOfType (type) {
-        return game.items.filter(item => item.type === type).map(entity => entity.data);
-    }
-
-    static getAllCapacitiesData () {
-        const compendiums = game.packs.filter(c => c.metadata.tag === "capacity")
-        const compendium = game.cof.config.capacities;
-        const ingame = this.getInGameEntitiesDataOfType("capacity");
-        return ingame.concat(compendium);
-    }
-
-    static getAllPathsData () {
-        const compendiums = game.packs.filter(c => c.metadata.tag === "path")
-        const compendium = game.cof.config.paths;
-        const ingame = this.getInGameEntitiesDataOfType("path");
-        return ingame.concat(compendium);
-    }
-
-    static getAllProfilesData () {
-        const compendiums = game.packs.filter(c => c.metadata.tag === "profile")
-        const compendium = game.cof.config.profiles;
-        const ingame = this.getInGameEntitiesDataOfType("profile");
-        return ingame.concat(compendium);
-    }
-
-    static getAllSpeciesData () {
-        const compendiums = game.packs.filter(c => c.metadata.tag === "species")
-        const compendium = game.cof.config.species;
-        const ingame = this.getInGameEntitiesDataOfType("species");
-        return ingame.concat(compendium);
-    }
-
-    static findPathDataByKey (key) {
-        return this.getAllPathsData().find(entity => entity.data.key === key);
-    }
-
 }

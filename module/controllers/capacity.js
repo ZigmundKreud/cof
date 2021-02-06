@@ -20,39 +20,35 @@ export class Capacity {
         const pathId = elt.data("pathId");
         // get path from owned items
         const path = actor.getOwnedItem(pathId).data;
-        // retrieve path capacities from world/compendiums
-        let capacities = Traversal.getItemsOfType("capacity").filter(c => path.data.capacities.includes(c._id));
-        capacities = capacities.map(c => {
-            let cdata = duplicate(c);
-            // if no rank, force it
-            if(!cdata.data.rank) cdata.data.rank = path.data.capacities.indexOf(c._id) +1;
-            // if no path, force it
-            if(!cdata.data.path) cdata.data.path = path.data.key;
-            return cdata;
+        Traversal.mapItemsOfType(["capacity"]).then(caps => {
+            // retrieve path capacities from world/compendiums
+            let capacities = path.data.capacities.map(id => {
+                let cap = caps[id];
+                cap.data.rank = path.data.capacities.indexOf(id) +1;
+                cap.data.path = path;
+                cap.flags.cof = {sourceId : id};
+                return cap;
+            });
+            const capacitiesKeys = capacities.map(c=>c.data.key);
+
+            // retrieve path's capacities already present in owned items
+            const items = data.items.filter(i => i.type === "capacity" && capacitiesKeys.includes(i.data.key));
+            const itemKeys = items.map(i => i.data.key);
+
+            if(isUncheck){
+                const caps = capacities.filter(c => path.data.capacities.indexOf(c._id) >= path.data.capacities.indexOf(capId));
+                const capsKeys = caps.map(c => c.data.key);
+                // const caps = capacities.filter(c => c.data.rank >= capacity.data.rank);
+                // REMOVE SELECTED CAPS
+                const toRemove = items.filter(i => capsKeys.includes(i.data.key)).map(i => i._id);
+                return actor.deleteOwnedItem(toRemove);
+            }
+            else {
+                const caps = capacities.filter(c => path.data.capacities.indexOf(c._id) <= path.data.capacities.indexOf(capId));
+                // const caps = capacities.filter(c => c.data.rank <= capacity.data.rank);
+                const toAdd = caps.filter(c => !itemKeys.includes(c.data.key));
+                return actor.createOwnedItem(toAdd);
+            }
         });
-        const capacitiesKeys = capacities.map(c=>c.data.key);
-
-        // retrieve path's capacities already present in owned items
-        const items = data.items.filter(i => i.type === "capacity" && capacitiesKeys.includes(i.data.key));
-        const itemKeys = items.map(i => i.data.key);
-
-        if(isUncheck){
-            const caps = capacities.filter(c => path.data.capacities.indexOf(c._id) >= path.data.capacities.indexOf(capId));
-            const capsKeys = caps.map(c => c.data.key);
-            // const caps = capacities.filter(c => c.data.rank >= capacity.data.rank);
-            // REMOVE SELECTED CAPS
-            const toRemove = items.filter(i => capsKeys.includes(i.data.key)).map(i => i._id);
-            return actor.deleteOwnedItem(toRemove);
-        }else {
-            const caps = capacities.filter(c => path.data.capacities.indexOf(c._id) <= path.data.capacities.indexOf(capId));
-            // const caps = capacities.filter(c => c.data.rank <= capacity.data.rank);
-            const toAdd = caps.filter(c => !itemKeys.includes(c.data.key));
-            return actor.createOwnedItem(toAdd);
-        }
     }
-
-    // static removeFromActor(actor, event, entity) {
-    //     return actor.deleteOwnedItem(entity._id);
-    // }
-
 }

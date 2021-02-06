@@ -1,0 +1,27 @@
+.chat-message {
+  .btn {
+    cursor: pointer;
+    margin: 0 0 5px 2px;
+    padding:3px;
+    min-width: 25px;
+    height: 28px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #FFF inset;
+    word-break: break-all;
+
+    &:hover{
+      color: $c-darkbrown;
+      background:rgba(0,0,0,0.3);
+      text-shadow: none;
+      border: 1px outset $c-border;
+    }
+    &:active{
+      border: 1px inset $c-border;
+      background:rgba(0,0,0,0.3);
+      color: $c-darkbrown;
+    }
+  }
+}

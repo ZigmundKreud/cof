@@ -12,7 +12,7 @@ export class Macros {
         return actor;
     }
 
-    static rollStatMacro = async function (actor, stat, onEnter = "submit") {
+    static rollStatMacro = async function (actor, stat, bonus = 0, onEnter = "submit") {
         if(actor){
             let statObj;
             switch(stat){
@@ -34,16 +34,17 @@ export class Macros {
                     ui.notifications.error("La compétence à tester n'a pas été reconnue.");
                     break;
             }
-            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), statObj.mod, 0, 20, statObj.superior, onEnter);
+            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), statObj.mod, bonus, 20, statObj.superior, onEnter);
         } else {
             ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
         }
     };
 
-    static rollItemMacro = function (itemId, itemName, itemType) {
+    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, dmgBonus=0) {
         const actor = this.getSpeakersActor()
         let item;
-        item = actor ? actor.items.find(i => i.name === itemName && i.type == itemType) : null;
+        console.log(actor);
+        item = actor ? actor.items.find(i => i.id === itemId) : null;
         if (!item) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemMissing")}: "${itemName}"`);
         const itemData = item.data;
         if(itemData.data.properties.weapon){
@@ -52,7 +53,7 @@ export class Macros {
                 let mod = itemData.data.mod;
                 let critrange = itemData.data.critrange;
                 let dmg = itemData.data.dmg;
-                CofRoll.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
+                CofRoll.rollWeaponDialog(actor, label, mod, bonus, critrange, dmg, dmgBonus);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }

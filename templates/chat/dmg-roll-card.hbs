@@ -1,0 +1,24 @@
+{{#if isCritical}}
+<h2 class="damage"><i class="fas fa-tint"></i><i class="fas fa-tint"></i>&nbsp;{{localize "COF.roll.criticalDmg"}} !</h2>
+{{else}}
+<h2 class="damage"><i class="fas fa-tint"></i>&nbsp;{{localize "COF.roll.dmg"}}</h2>
+{{/if}}
+<div class="flexrow">
+    <div class="flex1 no-wrap">
+        <h3><strong>{{label}}</strong></h3>
+    </div>
+    <div class="flex1 right no-wrap">
+        <a class="btn apply-dmg" data-apply="full">
+            <i class="fas fa-user-minus" title="{{localize "COF.ui.applyDamage"}}"></i>
+        </a>
+        <a class="btn apply-dmg" data-apply="half">
+            <i class="fas fa-user-shield" title="{{localize "COF.ui.applyHalfDamage"}}"></i>
+        </a>
+        <a class="btn apply-dmg" data-apply="double">
+            <i class="fas fa-user-injured" title="{{localize "COF.ui.applyDoubleDamage"}}"></i>
+        </a>
+        <a class="btn apply-dmg" data-apply="heal">
+            <i class="fas fa-user-plus" title="{{localize "COF.ui.applyHealing"}}"></i>
+        </a>
+    </div>
+</div>

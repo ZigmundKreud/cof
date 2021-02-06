@@ -9,30 +9,42 @@ import {CofActor} from "./actors/actor.js";
 import {CofItem} from "./items/item.js";
 
 import {CofItemSheet} from "./items/item-sheet.js";
-import {CofCharacterSheet} from "./actors/character-sheet.js";
-import {CofEncounterSheet} from "./actors/encounter-sheet.js";
+import {CofActorSheet} from "./actors/actor-sheet.js";
 
-import { preloadHandlebarsTemplates } from "./templates.js";
-import { registerHandlebarsHelpers } from "./helpers.js";
-import { registerSystemSettings } from "./settings.js";
-import {System, COF} from "./config.js";
+import { preloadHandlebarsTemplates } from "./system/templates.js";
+import { registerHandlebarsHelpers } from "./system/helpers.js";
+import { registerSystemSettings } from "./system/settings.js";
+
+import {System, COF} from "./system/config.js";
 import {Macros} from "./system/macros.js";
-
+import registerHooks from "./system/hooks.js";
+import {CofLootSheet} from "./actors/loot-sheet.js";
 
 Hooks.once("init", async function () {
 
     console.info("System Initializing...");
     console.info(System.ASCII);
 
+    // Register System Settings
+    registerSystemSettings();
+
     /**
      * Set an initiative formula for the system
      * @type {String}
      */
 
-    CONFIG.Combat.initiative = {
-        formula: "@attributes.init.value + @stats.wis.value/100",
-        decimals: 2
-    };
+    if(game.settings.get("cof", "useVarInit")){
+        CONFIG.Combat.initiative = {
+            formula: "1d6x + @attributes.init.value + @stats.wis.value/100",
+            decimals: 2
+        };
+    }
+    else {
+        CONFIG.Combat.initiative = {
+            formula: "@attributes.init.value + @stats.wis.value/100",
+            decimals: 2
+        };
+    }
 
     // Define custom Entity classes
     CONFIG.Actor.entityClass = CofActor;
@@ -50,25 +62,23 @@ Hooks.once("init", async function () {
     Items.unregisterSheet("core", ItemSheet);
 
     // Register actor sheets
-    Actors.registerSheet("cof", CofCharacterSheet, {
-        types: ["character", "npc"], 
+    Actors.registerSheet("cof", CofActorSheet, {
+        types: ["character", "npc", "encounter"],
         makeDefault: true,
-        label: "COF.SheetClassCharacter"
+        label: "COF.sheet.character"
     });
-    Actors.registerSheet("cof", CofEncounterSheet, {
-        types: ["encounter"], 
+    // Register actor sheets
+    Actors.registerSheet("cof", CofLootSheet, {
+        types: ["loot"],
         makeDefault: true,
-        label: "COF.SheetClassEncounter"
+        label: "COF.sheet.loot"
     });
     // Register item sheets
     Items.registerSheet("cof", CofItemSheet, {
         types: ["item", "capacity", "profile", "path", "species"],
         makeDefault: true,
-        label: "COF.SheetClassItem"
+        label: "COF.sheet.item"
     });
-
-    // Register System Settings
-    registerSystemSettings();
 
     // Preload Handlebars Templates
     preloadHandlebarsTemplates();
@@ -76,4 +86,24 @@ Hooks.once("init", async function () {
     // Register Handlebars helpers
     registerHandlebarsHelpers();
 
+    // Register hooks
+    registerHooks();
+});
+
+/**
+ * Ready hook loads tables, and override's foundry's entity link functions to provide extension to pseudo entities
+ */
+
+Hooks.once("ready", async () => {
+
+// console.debug("Importing data");
+// DataLoader.loadData("capacities");
+// DataLoader.loadData("encounters");
+// DataLoader.loadData("items");
+// DataLoader.loadData("paths");
+// DataLoader.loadData("profiles");
+// DataLoader.loadData("species");
+// DataLoader.loadData("spells");
+
+    console.info("System Initialized.");
 });

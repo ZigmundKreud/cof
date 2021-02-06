@@ -1,0 +1,5 @@
+{{#if (equals actor.type "encounter")}}
+    {{> "systems/cof/templates/actors/parts/details/encounter-details.hbs"}}
+{{else}}
+    {{> "systems/cof/templates/actors/parts/details/actor-details.hbs"}}
+{{/if}}

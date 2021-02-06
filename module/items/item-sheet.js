@@ -4,7 +4,7 @@
  */
 import {ArrayUtils} from "../utils/array-utils.js";
 import {Traversal} from "../utils/traversal.js";
-import {System} from "../config.js";
+import {System} from "../system/config.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -97,9 +97,12 @@ export class CofItemSheet extends ItemSheet {
         if (data.type === "Item") {
             return this._onDropItem(event, data);
         }
+        /**
+         * Handle dropping an Actor on the sheet to trigger a Polymorph workflow
+         */
         // Case 2 - Dropped Actor
         if (data.type === "Actor") {
-            return this._onDropActor(event, data);
+            return false;
         }
     }
 
@@ -112,43 +115,21 @@ export class CofItemSheet extends ItemSheet {
      * @return {Object}             OwnedItem data to create
      * @private
      */
-    async _onDropItem(event, data) {
-        const item = await Item.fromDropData(data);
-        const itemData = duplicate(item.data);
-        switch (itemData.type) {
-            case "path"    :
-                return await this._onDropPathItem(event, itemData);
-            case "profile" :
-                return await this._onDropProfileItem(event, itemData);
-            case "species" :
-                return await this._onDropSpeciesItem(event, itemData);
-            case "capacity" :
-                return await this._onDropCapacityItem(event, itemData);
-            default:
-                return;
-        }
-    }
-    /* -------------------------------------------- */
-    /**
-     * Handle dropping an Actor on the sheet to trigger a Polymorph workflow
-     * @param {DragEvent} event   The drop event
-     * @param {Object} data       The data transfer
-     * @private
-     */
-    _onDropActor(event, data) {
-        return false;
-    }
-
-    /* -------------------------------------------- */
-
-    _onDropProfileItem(event, itemData) {
-        return false;
-    }
-
-    /* -------------------------------------------- */
-
-    _onDropSpeciesItem(event, itemData) {
-        return false;
+    _onDropItem(event, data) {
+        Item.fromDropData(data).then(item => {
+            const itemData = duplicate(item.data);
+            switch (itemData.type) {
+                case "path"    :
+                    return this._onDropPathItem(event, itemData);
+                case "profile" :
+                case "species" :
+                    return false;
+                case "capacity" :
+                    return this._onDropCapacityItem(event, itemData);
+                default:
+                    return;
+            }
+        });
     }
 
     /* -------------------------------------------- */
@@ -183,19 +164,25 @@ export class CofItemSheet extends ItemSheet {
 
     /* -------------------------------------------- */
 
-    async _onEditItem(ev){
-        ev.preventDefault();
-        const li = $(ev.currentTarget).closest(".item");
+    /**
+     * Callback on render item actions
+     * @param event
+     * @private
+     */
+    _onEditItem(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
-        const itemType = li.data("itemType");
-        let pack = null;
-        switch(itemType){
-            case "species" : pack = "cof.species"; break;
-            case "profile" : pack = "cof.profiles"; break;
-            case "path" : pack = "cof.paths"; break;
-            case "capacity" : pack = "cof.capacities"; break;
+        if(id) {
+            return Traversal.find(id).then(e => {
+                if(e) return e.sheet.render(true);
+                else {
+                    ui.notifications.error("Impossible de trouver l'entité");
+                    return false;
+                }
+            });
         }
-        if(pack) return Traversal.getEntity(id, "item", pack).then(e => { if(e) e.sheet.render(true) });
+        else return null;
     }
 
     /* -------------------------------------------- */
@@ -217,36 +204,6 @@ export class CofItemSheet extends ItemSheet {
         }
     }
 
-    /** @override */
-    getData() {
-        const data = super.getData();
-        data.labels = this.item.labels;
-
-        // Include CONFIG values
-        data.config = game.cof.config;
-
-        // Item Type, Status, and Details
-        data.itemType = data.item.type.titleCase();
-        // data.itemStatus = this._getItemStatus(data.item);
-        data.itemProperties = this._getItemProperties(data.item);
-        // data.isPhysical = data.item.data.hasOwnProperty("quantity");
-
-        // Potential consumption targets
-        // data.abilityConsumptionTargets = this._getItemConsumptionTargets(data.item);
-
-        // Action Details
-        // data.hasAttackRoll = this.item.hasAttack;
-        // data.isHealing = data.item.data.actionType === "heal";
-        // data.isFlatDC = getProperty(data.item.data, "save.scaling") === "flat";
-
-        // Vehicles
-        // data.isCrewed = data.item.data.activation?.type === 'crew';
-        // data.isMountable = this._isItemMountable(data.item);
-        return data;
-    }
-
-
-
     /* -------------------------------------------- */
 
     /**
@@ -256,48 +213,57 @@ export class CofItemSheet extends ItemSheet {
      */
     _getItemProperties(item) {
         const props = [];
-        // const labels = this.item.labels;
-
         if ( item.type === "item" ) {
             const entries = Object.entries(item.data.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.itemProperties[e[0]]
             }));
         }
-
-        // else if ( item.type === "spell" ) {
-        //     // props.push(
-        //         // labels.components,
-        //         // labels.materials,
-        //         // item.data.components.concentration ? game.i18n.localize("DND5E.Concentration") : null,
-        //         // item.data.components.ritual ? game.i18n.localize("DND5E.Ritual") : null
-        //     // )
-        // }
-        //
-        // else if ( item.type === "equipment" ) {
-        //     props.push(CONFIG.DND5E.equipmentTypes[item.data.armor.type]);
-        //     props.push(labels.armor);
-        // }
-
-        // else if ( item.type === "feat" ) {
-        //     props.push(labels.featType);
-        // }
-
-        // Action type
-        // if ( item.data.actionType ) {
-        //     props.push(CONFIG.DND5E.itemActionTypes[item.data.actionType]);
-        // }
-
-        // Action usage
-        // if ( (item.type !== "weapon") && item.data.activation && !isObjectEmpty(item.data.activation) ) {
-        //     props.push(
-        //         labels.activation,
-        //         labels.range,
-        //         labels.target,
-        //         labels.duration
-        //     )
-        // }
         return props.filter(p => !!p);
+    }
+
+    /* -------------------------------------------- */
+
+    /** @override */
+    getData(options) {
+        const data = super.getData(options);
+        return Traversal.getIndex().then(index => {
+            data.labels = this.item.labels;
+            data.config = game.cof.config;
+            data.itemType = data.item.type.titleCase();
+            data.itemProperties = this._getItemProperties(data.item);
+
+            if(data.data.capacities){
+                data.capacities = [];
+                for(const capId of data.data.capacities){
+                    let cap = index[capId];
+                    if(cap) data.capacities.push(cap);
+                    else {
+                        data.capacities.push({
+                            _id: capId,
+                            name: "Capacité manquante !!! [" + capId + "] NOT FOUND",
+                            img: "/systems/cof/ui/icons/spotted-bug.svg"
+                        });
+                    }
+                }
+            }
+            if(data.data.paths){
+                data.paths = [];
+                for(const pathId of data.data.paths){
+                    let path = index[pathId];
+                    if(path) data.paths.push(path);
+                    else {
+                        data.paths.push({
+                            _id: pathId,
+                            name: "Voie manquante !!! [" + pathId + "] NOT FOUND",
+                            img: "/systems/cof/ui/icons/spotted-bug.svg"
+                        });
+                    }
+                }
+            }
+            // console.log(data);
+            return data;
+        });
     }
 
 }

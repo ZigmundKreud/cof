@@ -8,7 +8,7 @@
                 <div class="dice">
                     <ol class="dice-rolls">
                         {{#each roll.dices as |dice id|}}
-                        <li class="roll die d6 {{#if dice.discarded}}discarded{{/if}} {{#if (equals dice.roll 1)}}min{{/if}} {{#if (equals dice.roll 6)}}max{{/if}}">{{dice.roll}}</li>
+                        <li class="roll die d6 {{#if dice.discarded}}discarded{{/if}} {{#if (equals dice.result 1)}}min{{/if}} {{#if (equals dice.result 6)}}max{{/if}}">{{dice.result}}</li>
                         {{/each}}
                     </ol>
                 </div>
