@@ -123,6 +123,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json",
-  "download": "https://github.com/ZigmundKreud/cof/archive/0.3.4.zip",
+  "download": "https://github.com/ZigmundKreud/cof/archive/0.4.0.zip",
   "license": "licence.txt"
 }
