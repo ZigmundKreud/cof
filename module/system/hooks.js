@@ -4,12 +4,22 @@ import {CharacterGeneration} from "../system/chargen.js";
 export default function registerHooks() {
 
     Hooks.on("getChatLogEntryContext", (html, options) => {
-        let canApply = li => li.find("h2.damage").length;
+        let canApplyDamage = li => li.find("h2.damage").length;
+        let canApplyHealing = li => li.find("h2.heal").length;
         options.push(
             {
                 name: game.i18n.localize("COF.ui.applyDamage"),
                 icon: '<i class="fas fa-user-minus"></i>',
-                condition: canApply,
+                condition: canApplyDamage,
+                callback: li => {
+                    const dmg = parseInt(li.find(".dice-total").text());
+                    Hitpoints.applyToTargets(-dmg);
+                }
+            },
+            {
+                name: game.i18n.localize("COF.ui.applyDamage"),
+                icon: '<i class="fas fa-user-minus"></i>',
+                condition: canApplyHealing,
                 callback: li => {
                     const dmg = parseInt(li.find(".dice-total").text());
                     Hitpoints.applyToTargets(-dmg);
@@ -18,7 +28,7 @@ export default function registerHooks() {
             {
                 name: game.i18n.localize("COF.ui.applyHalfDamage"),
                 icon: '<i class="fas fa-user-shield"></i>',
-                condition: canApply,
+                condition: canApplyDamage,
                 callback: li => {
                     const dmg = Math.ceil(parseInt(li.find(".dice-total").text()) / 2);
                     Hitpoints.applyToTargets(-dmg);
@@ -27,7 +37,7 @@ export default function registerHooks() {
             {
                 name: game.i18n.localize("COF.ui.applyDoubleDamage"),
                 icon: '<i class="fas fa-user-injured"></i>',
-                condition: canApply,
+                condition: canApplyDamage,
                 callback: li => {
                     const dmg = parseInt(li.find(".dice-total").text())*2;
                     Hitpoints.applyToTargets(-dmg);
@@ -36,7 +46,16 @@ export default function registerHooks() {
             {
                 name: game.i18n.localize("COF.ui.applyHealing"),
                 icon: '<i class="fas fa-user-plus"></i>',
-                condition: canApply,
+                condition: canApplyDamage,
+                callback: li => {
+                    const dmg = parseInt(li.find(".dice-total").text());
+                    Hitpoints.applyToTargets(dmg);
+                }
+            },
+            {
+                name: game.i18n.localize("COF.ui.applyHealing"),
+                icon: '<i class="fas fa-user-plus"></i>',
+                condition: canApplyHealing,
                 callback: li => {
                     const dmg = parseInt(li.find(".dice-total").text());
                     Hitpoints.applyToTargets(dmg);

@@ -44,7 +44,10 @@
     </div>
 {{/if}}
 <div class="form-group">
-    <label>{{ localize "COF.ui.price" }} (en PA)</label>&nbsp; <input type="number" name="data.price" value="{{data.price}}" data-dtype="Number"/>
+    <label>{{ localize "COF.ui.price" }}</label>&nbsp; <input type="number" name="data.price" value="{{data.price}}" data-dtype="Number"/>
+</div>
+<div class="form-group">
+    <label>{{ localize "COF.ui.stackValue" }}</label>&nbsp; <input type="number" name="data.value" readonly="true" value="{{data.value}}" data-dtype="Number"/>
 </div>
 <div class="form-group">
     <label>{{ localize "COF.ui.rarity" }}</label>&nbsp; <select name="data.rarity" data-type="String" style="width:100%">

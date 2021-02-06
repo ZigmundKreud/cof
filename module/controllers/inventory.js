@@ -16,7 +16,11 @@ export class Inventory {
             else  itemData.data.qty = qty + increment;
             if(itemData.data.qty < 0) itemData.data.qty = 0;
             if(itemData.data.stacksize && itemData.data.qty > itemData.data.stacksize) itemData.data.qty = itemData.data.stacksize;
-            return actor.updateOwnedItem(itemData);
+            if(itemData.data.price){
+                const qty = (itemData.data.qty) ? itemData.data.qty : 1;
+                itemData.data.value = qty * itemData.data.price;
+            }
+            return item.update(itemData);
         }
     }
 
@@ -32,7 +36,8 @@ export class Inventory {
         if(equipable){
             let itemData = duplicate(item.data);
             itemData.data.worn = !itemData.data.worn;
-            return actor.updateOwnedItem(itemData);
+            return item.update(itemData);
+            // return actor.updateOwnedItem(itemData);
         }
     }
 
@@ -47,10 +52,9 @@ export class Inventory {
         const consumable = li.data("itemConsumable");
         if(consumable){
             let itemData = duplicate(item.data);
-            console.log(itemData.data.qty);
             itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty - 1 : 0;
-            console.log(itemData.data.qty);
-            return actor.updateOwnedItem(itemData);
+            return item.update(itemData).then(i=> item.applyEffects(actor, event));
+            // return actor.updateOwnedItem(itemData);
         }
     }
 }

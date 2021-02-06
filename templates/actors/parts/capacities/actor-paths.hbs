@@ -31,26 +31,19 @@
             {{/each}}
         </div>
         {{#if (or (equals actor.type "npc") (equals actor.type "character"))}}
-            <hr/>
-            {{#if (isNegative actor.data.xp.value)}}
-                <div class="row flexrow red">
-                    <div class="flex1 right">
-                        <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
-                        <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
-                        <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
-                    </div>
-                </div>
-            {{else}}
-                <div class="row flexrow">
-                    <div class="flex1 right">
-                        <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
-                        <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
-                        <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
-                    </div>
-                </div>
-            {{/if}}
+        <hr/>
+        <div class="row flexrow">
+            <div class="flex1 left">
+                <h3>Capacités actives</h3>
+            </div>
+            <div class="flex1 right {{#if (isNegative actor.data.xp.value)}}red{{/if}}">
+                <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
+                <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
+                <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
+            </div>
+        </div>
         {{/if}}
     </div>
 {{/if}}
 
-{{> "systems/cof/templates/actors/character/parts/capacities/character-capacities.hbs"}}
+{{> "systems/cof/templates/actors/parts/capacities/actor-capacities.hbs"}}

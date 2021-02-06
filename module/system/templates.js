@@ -8,42 +8,32 @@ export const preloadHandlebarsTemplates = async function () {
     // Define template paths to load
     const templatePaths = [
         // ACTOR
-        "systems/cof/templates/actors/character/parts/character-header.hbs",
-        "systems/cof/templates/actors/character/parts/character-description.hbs",
+        "systems/cof/templates/actors/actor-sheet.hbs",
+        "systems/cof/templates/actors/loot-sheet.hbs",
+        "systems/cof/templates/actors/parts/actor-details.hbs",
+        "systems/cof/templates/actors/parts/actor-tabs.hbs",
+        "systems/cof/templates/actors/parts/actor-description.hbs",
+        "systems/cof/templates/actors/parts/capacities/actor-capacities.hbs",
+        "systems/cof/templates/actors/parts/capacities/actor-paths.hbs",
+        "systems/cof/templates/actors/parts/combat/actor-combat.hbs",
+        "systems/cof/templates/actors/parts/combat/actor-combat-item.hbs",
+        "systems/cof/templates/actors/parts/combat/encounter-combat.hbs",
+        "systems/cof/templates/actors/parts/details/actor-details.hbs",
+        "systems/cof/templates/actors/parts/details/encounter-details.hbs",
+        "systems/cof/templates/actors/parts/effects/actor-effects.hbs",
+        "systems/cof/templates/actors/parts/effects/actor-effects-item.hbs",
+        "systems/cof/templates/actors/parts/inventory/actor-inventory.hbs",
+        "systems/cof/templates/actors/parts/inventory/actor-inventory-item.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-stats.hbs",
+        "systems/cof/templates/actors/parts/stats/encounter-stats.hbs",
 
-        "systems/cof/templates/actors/character/parts/stats/character-attacks.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-attributes.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-recovery.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-resources.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-stats.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-vitality.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-defence.hbs",
-        "systems/cof/templates/actors/character/parts/stats/character-init.hbs",
-
-        "systems/cof/templates/actors/character/parts/capacities/character-capacities.hbs",
-        "systems/cof/templates/actors/character/parts/capacities/character-paths.hbs",
-
-        "systems/cof/templates/actors/character/parts/combat/character-combat.hbs",
-        "systems/cof/templates/actors/character/parts/combat/character-combat-armor.hbs",
-        "systems/cof/templates/actors/character/parts/combat/character-combat-shield.hbs",
-        "systems/cof/templates/actors/character/parts/combat/character-combat-melee.hbs",
-        "systems/cof/templates/actors/character/parts/combat/character-combat-ranged.hbs",
-        "systems/cof/templates/actors/character/parts/combat/character-combat-spell.hbs",
-
-        "systems/cof/templates/actors/character/parts/inventory/character-inventory.hbs",
-        "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs",
-
-        "systems/cof/templates/actors/character/parts/effects/character-effects.hbs",
-        "systems/cof/templates/actors/character/parts/effects/character-effects-item.hbs",
-
-        // ENCOUNTER
-        "systems/cof/templates/actors/encounter/parts/encounter-combat.hbs",
-        "systems/cof/templates/actors/encounter/parts/encounter-details.hbs",
-        "systems/cof/templates/actors/encounter/parts/encounter-stats.hbs",
-        "systems/cof/templates/actors/encounter/parts/inventory/encounter-inventory.hbs",
-        "systems/cof/templates/actors/encounter/parts/inventory/encounter-inventory-item.hbs",
-        "systems/cof/templates/actors/encounter/parts/capacities/encounter-capacities.hbs",
-        "systems/cof/templates/actors/encounter/parts/capacities/encounter-paths.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-attacks.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-attributes.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-recovery.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-resources.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-vitality.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-defence.hbs",
+        "systems/cof/templates/actors/parts/stats/actor-init.hbs",
 
         // DIALOGS
         "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs",

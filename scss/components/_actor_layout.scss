@@ -120,10 +120,17 @@
           .sheet-body {
             padding: 0;
             margin: 0;
-            min-height: calc(100% - 100px);
-            height: calc(100% - 100px);
-            max-height: calc(100% - 100px);
+            min-height: calc(100% - 130px);
+            height: calc(100% - 130px);
+            max-height: calc(100% - 130px);
             overflow: auto;
+            border-bottom: 1px inset $c-border;
+
+            &.loot-sheet {
+              min-height: calc(100% - 60px);
+              height: calc(100% - 60px);
+              max-height: calc(100% - 60px);
+            }
 
             .tab {
               height: 100%;
@@ -335,6 +342,12 @@
                 //    overflow: auto;
                 //  }
                 //}
+              }
+
+              &.effects {
+                .effect-icon {
+                  background-color: black;
+                }
               }
 
               &.description {

@@ -51,7 +51,7 @@ export class Traversal {
 
     static getIndex() {
         return Compendia.getIndex().then(index =>{
-            let ingame = game.items.map(entity => {
+            let items = game.items.map(entity => {
                 return {
                     _id : entity.data._id,
                     name : entity.data.name,
@@ -59,7 +59,23 @@ export class Traversal {
                     source : "game.items"
                 }
             });
-            return ingame.concat(Object.values(index)).reduce(function (map, obj) {
+            let actors = game.actors.map(entity => {
+                return {
+                    _id : entity.data._id,
+                    name : entity.data.name,
+                    img : entity.data.img,
+                    source : "game.actors"
+                }
+            });
+            let journal = game.journal.map(entity => {
+                return {
+                    _id : entity.data._id,
+                    name : entity.data.name,
+                    img : entity.data.img,
+                    source : "game.journal"
+                }
+            });
+            return items.concat(actors).concat(journal).concat(Object.values(index)).reduce(function (map, obj) {
                 map[obj._id] = obj;
                 return map;
             }, {});
@@ -75,20 +91,30 @@ export class Traversal {
         });
     }
 
-    // static getItemsOfAllTypes() {
-    //     let compendium = [];
-    //     let ingame = [];
-    //     return Compendia.getContent().then(content =>{
-    //         compendium = Object.values(content).map(entity => entity.data);
-    //         ingame = game.items.map(entity => entity.data);
-    //         return ingame.concat(compendium);
-    //     });
-    // }
-
     static getItemsOfType(types) {
         return Compendia.getContent(types).then(content =>{
-            return game.items.filter(item => types.includes(item.type)).map(entity => entity.data)
-                .concat(Object.values(content).map(entity => entity.data));
+            return game.items.filter(item => types.includes(item.type)).map(entity => entity.data).concat(Object.values(content).map(entity => entity.data));
         });
+    }
+
+    static find(id) {
+        return this.getIndex().then(idx => {
+            const entry = idx[id];
+            if(entry && entry.source) {
+                if(entry.source === "game.items") return game.items.get(id);
+                if(entry.source === "game.actors") return game.actors.get(id);
+                if(entry.source === "game.journal") return game.journal.get(id);
+                else return game.packs.get(entry.source).getEntity(id).then(entity => entity);
+            }
+        });
+    }
+
+    static find(id, source) {
+        if(id && source) {
+            if(source === "game.items") return game.items.get(id);
+            if(source === "game.actors") return game.actors.get(id);
+            if(source === "game.journal") return game.journal.get(id);
+            else return game.packs.get(source).getEntity(id).then(entity => entity);
+        }
     }
 }

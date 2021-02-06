@@ -109,6 +109,10 @@ export const registerHandlebarsHelpers = function () {
         return val1 == val2;
     });
 
+    Handlebars.registerHelper('neq', function (val1, val2) {
+        return val1 !== val2;
+    });
+
     Handlebars.registerHelper('gt', function (val1, val2) {
         return val1 > val2;
     });
@@ -193,4 +197,7 @@ export const registerHandlebarsHelpers = function () {
         return items.filter(i => i.type === type).map(i => i.data.key).includes(key);
     });
 
+    Handlebars.registerHelper('includes', function (array, val) {
+        return array.includes(val);
+    });
 }

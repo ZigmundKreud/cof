@@ -529,6 +529,11 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
   font-weight: bold;
 }
 
+.message-header h2.heal {
+  color: darkgreen;
+  font-weight: bold;
+}
+
 .message-header h2.critical {
   color: green;
   font-weight: bold;
@@ -742,10 +747,17 @@ Copied from dnd5e
 .cof.actor .window-content > form .wrap .main .content .sheet-body {
   padding: 0;
   margin: 0;
-  min-height: calc(100% - 100px);
-  height: calc(100% - 100px);
-  max-height: calc(100% - 100px);
+  min-height: calc(100% - 130px);
+  height: calc(100% - 130px);
+  max-height: calc(100% - 130px);
   overflow: auto;
+  border-bottom: 1px inset #736953a6;
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body.loot-sheet {
+  min-height: calc(100% - 60px);
+  height: calc(100% - 60px);
+  max-height: calc(100% - 60px);
 }
 
 .cof.actor .window-content > form .wrap .main .content .sheet-body .tab {
@@ -875,6 +887,10 @@ Copied from dnd5e
   min-height: calc(100% - 340px);
   height: calc(100% - 340px);
   max-height: calc(100% - 340px);
+}
+
+.cof.actor .window-content > form .wrap .main .content .sheet-body .tab.effects .effect-icon {
+  background-color: black;
 }
 
 .cof.actor .window-content > form .wrap .main .content .sheet-body .tab.description .editor {
@@ -2175,6 +2191,7 @@ Copied from dnd5e
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  text-align: center;
 }
 
 .cof .inventory-list .item-controls > *,

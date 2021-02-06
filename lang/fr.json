@@ -55,7 +55,8 @@
   "COF.ui.defBonus": "Défense (Bonus)",
   "COF.ui.skill": "Compétence",
   "COF.ui.skillBonus": "Compétence (Bonus)",
-  "COF.ui.price": "Prix",
+  "COF.ui.price": "Prix unitaire (en PA)",
+  "COF.ui.stackValue" : "Valeur totale (en PA)",
   "COF.ui.weight": "Poids",
   "COF.ui.rarity": "Rareté",
   "COF.ui.source": "Source",
@@ -69,6 +70,8 @@
   "COF.ui.milieu" : "Milieu",
   "COF.ui.boss" : "Boss",
   "COF.ui.quantity" : "Quantité",
+  "COF.ui.qty" : "Qté",
+  "COF.ui.val" : "Val. (PA)",
   "COF.ui.equiped" : "Équipé",
   "COF.ui.unequied" : "Non équipé",
   "COF.ui.properties" :  "Propriétés",
@@ -92,6 +95,7 @@
   "COF.ui.applyHalfDamage": "Appliquer la moitié des dégâts",
   "COF.ui.applyDoubleDamage": "Appliquer le double des dégâts",
   "COF.ui.applyHealing" : "Appliquer les soins",
+  "COF.ui.newEffect" : "Nouvel Effet",
 
   "COF.roll.skillcheck" : "Test de compétence",
   "COF.roll.success" : "Succès",
@@ -100,6 +104,8 @@
   "COF.roll.fumble" : "Échec critique",
   "COF.roll.dmg" : "Dommages",
   "COF.roll.criticalDmg" : "Dommages critiques",
+  "COF.roll.heal" : "Soins",
+  "COF.roll.criticalHeal" : "Soins critiques",
 
   "COF.None": "--",
   "COF.tabs.stats": "Caractéristiques",
@@ -236,6 +242,8 @@
   "COF.category.species": "Race",
   "COF.category.spell": "Sort",
   "COF.category.jewel": "Bijou",
+  "COF.category.wand": "Baguette",
+  "COF.category.scroll": "Parchemin",
   "COF.category.consumable": "Consommable",
   "COF.category.ammunition": "Munition",
   "COF.category.container" : "Contenant",
@@ -309,9 +317,10 @@
   "COF.properties.racial" : "Raciale",
   "COF.properties.creature" : "Créature",
 
-  "COF.SheetClassCharacter" : "Fiche de Personnage COF par défaut",
-  "COF.SheetClassEncounter" : "Fiche de Rencontre COF par défaut",
-  "COF.SheetClassItem" : "Fiche d'Objet COF par défaut",
+  "COF.sheet.character" : "Fiche de Personnage COF par défaut",
+  "COF.sheet.loot" : "Fiche de Loot COF par défaut",
+  "COF.sheet.encounter" : "Fiche de Rencontre COF par défaut",
+  "COF.sheet.item" : "Fiche d'Objet COF par défaut",
 
   "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
   "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé"

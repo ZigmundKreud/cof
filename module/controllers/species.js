@@ -7,11 +7,24 @@ export class Species {
             ui.notifications.error("Vous avez déjà une race.");
             return false;
         } else {
-            return Traversal.getItemsOfType(["path"]).then(items => {
-                // add profile
-                items = items.filter(p => itemData.data.paths.includes(p._id))
-                items.push(itemData);
-                return actor.createOwnedItem(items)
+            return Traversal.getIndex().then(index => {
+                const p1 = Promise.all(itemData.data.paths.map(id => {
+                    const entry = index[id];
+                    if (entry) return Traversal.find(id, entry.source);
+                    else return false;
+                }));
+                const p2 = Promise.all(itemData.data.capacities.map(id => {
+                    const entry = index[id];
+                    if (entry) return Traversal.find(id, entry.source);
+                    else return false;
+                }));
+                Promise.all([p1, p2]).then((values) => {
+                    const paths = values[0];
+                    const caps = values[1];
+                    let items = paths.concat(caps);
+                    items.push(itemData);
+                    return actor.createOwnedItem(items)
+                });
             });
         }
     }

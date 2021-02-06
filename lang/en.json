@@ -53,7 +53,8 @@
   "COF.ui.defBonus": "Defence (Bonus)",
   "COF.ui.skill": "Skill",
   "COF.ui.skillBonus": "Skill (Bonus)",
-  "COF.ui.price": "Price",
+  "COF.ui.price": "Unitary price (SP)",
+  "COF.ui.stackValue" : "Stack value (SP)",
   "COF.ui.weight": "Weight",
   "COF.ui.rarity": "Rarity",
   "COF.ui.source": "Source",
@@ -67,6 +68,8 @@
   "COF.ui.milieu" : "Milieu",
   "COF.ui.boss" : "Boss",
   "COF.ui.quantity" : "Quantity",
+  "COF.ui.qty" : "Qty",
+  "COF.ui.val" : "Val. (SP)",
   "COF.ui.equiped" : "Equiped",
   "COF.ui.unequied" : "Unequiped",
   "COF.ui.properties" :  "Properties",
@@ -92,6 +95,7 @@
   "COF.ui.applyHalfDamage": "Apply half damage",
   "COF.ui.applyDoubleDamage": "Apply double damage",
   "COF.ui.applyHealing" : "Apply healing",
+  "COF.ui.newEffect" : "New Effect",
 
   "COF.roll.skillcheck" : "Skill check",
   "COF.roll.success" : "Success",
@@ -100,6 +104,8 @@
   "COF.roll.fumble" : "Fumble",
   "COF.roll.dmg" : "Damage",
   "COF.roll.criticalDmg" : "Critical Damage",
+  "COF.roll.heal" : "Healing",
+  "COF.roll.criticalHeal" : "Critical Healing",
 
   "COF.None": "--",
   "COF.tabs.stats": "Stats",
@@ -236,6 +242,8 @@
   "COF.category.species": "Species",
   "COF.category.spell": "Spell",
   "COF.category.jewel": "Jewel",
+  "COF.category.wand": "Wand",
+  "COF.category.scroll": "Scroll",
   "COF.category.consumable": "Consumable",
   "COF.category.ammunition": "Ammunition",
   "COF.category.container" : "Container",
@@ -309,9 +317,10 @@
   "COF.properties.racial" : "Racial",
   "COF.properties.creature" : "Creature",
 
-  "COF.SheetClassCharacter" : "Default COF Character Sheet",
-  "COF.SheetClassEncounter" : "Default COF Encounter Sheet",
-  "COF.SheetClassItem" : "Default COF Item Sheet",
+  "COF.sheet.character" : "COF Default Character Sheet",
+  "COF.sheet.loot" : "COF Default Loot Sheet",
+  "COF.sheet.encounter" : "COF Default Encounter Sheet",
+  "COF.sheet.item" : "COF Default Item Sheet",
 
   "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
   "COF.notification.MacroItemUnequiped" : "Item is unequiped"

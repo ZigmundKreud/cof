@@ -59,19 +59,6 @@ COF.itemProperties = {
     "creature" : "COF.properties.creature"
 };
 
-// COF.itemTypes = {
-//     "species": "COF.category.species",
-//     "profile": "COF.category.profile",
-//     "capacity": "COF.category.capacity",
-//     "path": "COF.category.path",
-//     "trapping": "COF.category.trapping",
-//     "melee": "COF.category.melee",
-//     "armor": "COF.category.armor",
-//     "shield": "COF.category.shield",
-//     "ranged": "COF.category.ranged",
-//     "spell": "COF.category.spell"
-// };
-
 COF.itemCategories = {
     "armor": "COF.category.armor",
     "shield": "COF.category.shield",
@@ -79,10 +66,13 @@ COF.itemCategories = {
     "ranged": "COF.category.ranged",
     "spell": "COF.category.spell",
     "jewel": "COF.category.jewel",
+    "scroll": "COF.category.scroll",
+    "wand": "COF.category.wand",
     "ammunition": "COF.category.ammunition",
     "consumable": "COF.category.consumable",
     "container": "COF.category.container",
     "mount": "COF.category.mount",
     "currency": "COF.category.currency",
+    "trapping": "COF.category.trapping",
     "other": "COF.category.other"
 }

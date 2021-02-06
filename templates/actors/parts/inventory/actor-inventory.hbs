@@ -21,18 +21,21 @@
 {{#if (gt inventory.count 0)}}
     {{#each inventory.categories as |category id|}}
         {{#if (gt category.items.length 0)}}
-            <ol class="inventory-list foldable">
+            <ol class="inventory-list foldable {{#if (includes ../folded.inventory category.id)}}folded{{/if}}" data-tab="inventory" data-category="{{category.id}}">
                 <li class="inventory-header flexrow">
                     <h3 class="item-name flexrow">{{localize category.label}}</h3>
-                    <div class="item-detail">Qté</div>
-                    <div class="item-detail">Action</div>
+                    <div class="item-detail">{{localize "COF.ui.qty"}}</div>
+                    <div class="item-detail"><i title="Valeur totale en pièces d'argent (10 pc)" class="fas fa-coins" style="color:silver"></i></div>
+                    {{#if (or (equals ../actor.type "character") (equals ../actor.type "npc"))}}<div class="item-detail">Action</div>{{/if}}
                     <div class="item-controls">
                         <a class="item-control item-create compendium-pack" data-pack="cof.items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
                     </div>
                 </li>
+                <ol class="item-list" {{#if (includes ../folded.inventory category.id)}}style="display: none;"{{/if}}>
                 {{#each category.items as |item id|}}
-                    {{> "systems/cof/templates/actors/character/parts/inventory/character-inventory-item.hbs" item}}
+                    {{> "systems/cof/templates/actors/parts/inventory/actor-inventory-item.hbs" item owner=../../actor}}
                 {{/each}}
+                </ol>
             </ol>
         {{/if}}
     {{/each}}

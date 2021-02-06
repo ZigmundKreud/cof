@@ -14,7 +14,16 @@ export class CofActor extends Actor {
     /** @override */
     prepareBaseData() {
         let actorData = this.data;
-        if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
+        if(!actorData.data.settings){
+            actorData.data.settings = {
+                "combat": { "folded": [] },
+                "inventory": { "folded": [] },
+                "capacities": { "folded": [] },
+                "effects": { "folded": [] }
+            };
+        }
+        if (actorData.type === "loot") this._prepareBaseLootData(actorData);
+        else if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
         else this._prepareBaseCharacterData(actorData);
     }
 
@@ -24,9 +33,18 @@ export class CofActor extends Actor {
     /** @override */
     prepareDerivedData() {
         let actorData = this.data;
-        if (actorData.type === "encounter") this._prepareDerivedEncounterData(actorData);
+        if (actorData.type === "loot") this._prepareDerivedLootData(actorData);
+        else if (actorData.type === "encounter") this._prepareDerivedEncounterData(actorData);
         else this._prepareDerivedCharacterData(actorData);
     }
+
+    /* -------------------------------------------- */
+
+    _prepareBaseLootData(actorData) {}
+
+    /* -------------------------------------------- */
+
+    _prepareDerivedLootData(actorData) {}
 
     /* -------------------------------------------- */
 
