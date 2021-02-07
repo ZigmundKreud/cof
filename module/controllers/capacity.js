@@ -20,6 +20,7 @@ export class Capacity {
         const pathId = elt.data("pathId");
         // get path from owned items
         const path = actor.getOwnedItem(pathId).data;
+        // console.log(path);
         Traversal.mapItemsOfType(["capacity"]).then(caps => {
             // retrieve path capacities from world/compendiums
             let capacities = path.data.capacities.map(id => {
@@ -30,10 +31,12 @@ export class Capacity {
                 return cap;
             });
             const capacitiesKeys = capacities.map(c=>c.data.key);
+            // console.log(capId);
 
             // retrieve path's capacities already present in owned items
             const items = data.items.filter(i => i.type === "capacity" && capacitiesKeys.includes(i.data.key));
             const itemKeys = items.map(i => i.data.key);
+            // console.log(items);
 
             if(isUncheck){
                 const caps = capacities.filter(c => path.data.capacities.indexOf(c._id) >= path.data.capacities.indexOf(capId));

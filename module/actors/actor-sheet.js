@@ -390,7 +390,7 @@ export class CofActorSheet extends CofBaseSheet {
     /** @override */
     getData(options={}) {
         const data = super.getData(options);
-        // console.log(data);
+        console.log(data);
         return Traversal.getIndex().then(index => {
             data.config = game.cof.config;
             data.profile = data.items.find(item => item.type === "profile");
@@ -438,7 +438,7 @@ export class CofActorSheet extends CofBaseSheet {
             });
             for(const path of paths){
                 data.capacities.collections.push({
-                    id : path.data.key,
+                    id : (path.data.key) ? path.data.key : path.name.slugify({strict: true}),
                     label : path.name,
                     items : Object.values(data.items).filter(item => item.type === "capacity" && item.data.path?.data.key === path.data.key)
                         .sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)

@@ -19,7 +19,7 @@ export class Profile {
 
     static removeFromActor(actor, event, entity) {
         const profileData = entity.data;
-        console.log(profileData);
+        // console.log(profileData);
         return Dialog.confirm({
             title: "Supprimer le profil ?",
             content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${actor.name} ?</p>`,

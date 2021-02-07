@@ -17,7 +17,8 @@ export class CofItem extends Item {
         }
         if(itemData.data.properties?.protection) this._prepareArmorData(itemData);
         if(itemData.data.properties?.weapon) this._prepareWeaponData(itemData, actorData);
-        // itemData.data.key = itemData.name.slugify({strict: true});
+        // utilisé par les capacités : ne pas effacer
+        if(!itemData.data.key) itemData.data.key = itemData.name.slugify({strict: true});
     }
 
     _prepareArmorData(itemData) {
