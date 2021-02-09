@@ -145,7 +145,7 @@ export class UpdateUtils {
     static async updateEncounters() {
         return Traversal.getIndex().then(index => {
             // PATHS
-            return game.packs.get("cof.encounters").getContent().then(encounters =>{
+            return game.packs.get("cof-srd.encounters").getContent().then(encounters =>{
                 encounters.forEach(encounter => {
                     let data = duplicate(encounter.data);
                     // data.data.capacities = data.data.capacities.map(cid => {
