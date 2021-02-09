@@ -328,6 +328,7 @@
     ],
     "templates": {
       "base" : {
+        "key": "",
         "description" : "",
         "source" : ""
       },
@@ -416,17 +417,17 @@
       "templates": [
         "base"
       ],
-      "key": "",
       "summary" : "",
       "rank": null,
       "limited": false,
-      "spell": false
+      "spell": false,
+      "path": "",
+      "checked": false
     },
     "profile": {
       "templates": [
         "base"
       ],
-      "key": "",
       "dv": "",
       "spellcasting": "",
       "mpfactor": 0,
@@ -457,7 +458,6 @@
       "templates": [
         "base"
       ],
-      "key": "",
       "bonuses": {
         "str" : 0,
         "dex" : 0,
@@ -473,8 +473,8 @@
       "templates": [
         "base"
       ],
-      "key": "",
       "capacities": [],
+      "profile": null,
       "properties": {
         "profile": false,
         "prestige": false,

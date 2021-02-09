@@ -1,75 +1,7 @@
 /* ----------------------------------------- */
 /*  SKIN                                     */
 /* ----------------------------------------- */
-.window-content {
-  //background: url("../ui/bg-2.png") no-repeat white;
-  //&>form {
-  //  .wrap {
-  //    box-shadow: 0 0 20px $c-shadow inset;
-  //    background:rgba(0,0,0,0.1);
-  //
-  //    #separator {
-  //      background: url("../ui/separator-h.png") repeat-x white;
-  //      height: 7px;
-  //      min-height: 7px;
-  //      height: 7px;
-  //      max-height: 7px;
-  //      width:100%;
-  //    }
-  //    .sheet-header{
-  //      background: url("../ui/green-leather-bg.png") repeat-x white;
-  //      #item-icon {
-  //        .profile-img {
-  //          border:none;
-  //        }
-  //      }
-  //      .header-fields{
-  //        .itemname {
-  //          input {
-  //            border:none;
-  //            color:$c-white;
-  //            font-size:20px;
-  //            box-shadow: none;
-  //          }
-  //        }
-  //
-  //        .item-subtitle {
-  //          flex: 0 0 80px;
-  //          height: 60px;
-  //          margin: 0;
-  //          padding: 5px;
-  //          text-align: right;
-  //          color: $colorTan;
-  //        }
-  //      }
-  //      #banner-right {
-  //        background: url("../ui/deco-right-nosep.png") no-repeat;
-  //        //background-size: 80%;
-  //      }
-  //    }
-  //    .main {
-  //      .row {
-  //        .field-header {
-  //          box-shadow: 0 0 10px $c-shadow inset;
-  //          background:rgba(0,0,0,0.05);
-  //        }
-  //        .field-label {
-  //
-  //        }
-  //        .field-value {
-  //          text-align: center;
-  //        }
-  //      }
-  //      .description{
-  //        .editor {
-  //          .editor-content {
-  //          }
-  //        }
-  //      }
-  //    }
-  //  }
-  //}
-}
+.window-content {}
 
 .box-shadow {
   box-shadow: 1px 1px 2px gray;

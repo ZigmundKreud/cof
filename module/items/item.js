@@ -10,6 +10,7 @@ export class CofItem extends Item {
     prepareData() {
         super.prepareData();
         const itemData = this.data;
+        // console.log(itemData);
         const actorData = (this.actor) ? this.actor.data : null;
         if(itemData.data.price){
             const qty = (itemData.data.qty) ? itemData.data.qty : 1;
@@ -49,7 +50,6 @@ export class CofItem extends Item {
         // console.log(itemData)
         if(itemData.data.properties.heal){
             const heal = itemData.data.effects.heal;
-            console.log(heal.formula);
             const r = new CofHealingRoll(itemData.name, heal.formula, false);
             r.roll(actor);
         }

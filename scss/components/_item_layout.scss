@@ -8,7 +8,7 @@
   background: $sheetBackground;
   font-size: 13px;
   color: $colorDark;
-  background-image: url("../ui/bg-2.png");
+  background-image: url("../ui/bg-2.webp");
   background-repeat: repeat;
   background-color: white;
 
@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    background: url("../ui/green-leather-bg.png") repeat-x white;
+    background: url("../ui/green-leather-bg.webp") repeat-x white;
 
     > * {
       flex: 1;
@@ -115,7 +115,7 @@
   }
 
   .sheet-navigation {
-    background-image: url("../ui/separator-h.png");
+    background-image: url("../ui/separator-h.webp");
     background-repeat: repeat-x;
     background-position: top;
 

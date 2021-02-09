@@ -1,6 +1,6 @@
 # Système de jeu Chroniques Oubliées Fantasy pour Foundry VTT
 
-<img src="https://github.com/ZigmundKreud/cof/raw/master/ui/logo-banner.png">
+<img src="https://github.com/ZigmundKreud/cof/raw/master/ui/logo-banner.webp">
 
 Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://foundryvtt.com/).
 

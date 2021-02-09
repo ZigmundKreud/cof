@@ -219,17 +219,17 @@ export class CofActorSheet extends CofBaseSheet {
         const entity = this.actor.items.find(item => item._id === itemId);
         switch (entity.data.type) {
             case "capacity" :
-                return this.actor.deleteOwnedItem(itemId);
-                // return Capacity.removeFromActor(this.actor, event, entity);
+                // return this.actor.deleteOwnedItem(itemId);
+                return Capacity.removeFromActor(this.actor, entity);
                 break;
             case "path" :
-                return Path.removeFromActor(this.actor, event, entity);
+                return Path.removeFromActor(this.actor, entity);
                 break;
             case "profile" :
-                return Profile.removeFromActor(this.actor, event, entity);
+                return Profile.removeFromActor(this.actor, entity);
                 break;
             case "species" :
-                return Species.removeFromActor(this.actor, event, entity);
+                return Species.removeFromActor(this.actor, entity);
                 break;
             default: {
                 return this.actor.deleteOwnedItem(itemId);
@@ -355,15 +355,13 @@ export class CofActorSheet extends CofBaseSheet {
         const itemData = duplicate(item.data);
         switch (itemData.type) {
             case "path"    :
-                return await Path.addToActor(this.actor, event, itemData);
+                return await Path.addToActor(this.actor, itemData);
             case "profile" :
-                return await Profile.addToActor(this.actor, event, itemData);
+                return await Profile.addToActor(this.actor, itemData);
             case "species" :
-                return await Species.addToActor(this.actor, event, itemData);
+                return await Species.addToActor(this.actor, itemData);
             case "capacity" :
             default:
-                // activate the capacity as it is droped on an actor sheet
-                // if (itemData.type === "capacity") itemData.data.checked = true;
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
                 let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
@@ -390,68 +388,64 @@ export class CofActorSheet extends CofBaseSheet {
     /** @override */
     getData(options={}) {
         const data = super.getData(options);
-        console.log(data);
-        return Traversal.getIndex().then(index => {
-            data.config = game.cof.config;
-            data.profile = data.items.find(item => item.type === "profile");
-            data.species = data.items.find(item => item.type === "species");
-            data.paths = data.items.filter(item => item.type === "path").map(path => {
-                path.capacities = path.data.capacities.map(capId => {
-                    let cap = index[capId];
-                    if (data.items.find(i => i.flags?.cof?.sourceId === capId)) {
-                        cap.checked = true;
-                    } else cap.checked = false;
-                    return cap;
-                });
-                return path;
+        // console.log(data);
+        data.config = game.cof.config;
+        data.profile = data.items.find(item => item.type === "profile");
+        data.species = data.items.find(item => item.type === "species");
+        data.combat = {
+            count : data.items.filter(i => i.data.worn).length,
+            categories:[]
+        };
+        data.inventory = {
+            count : data.items.filter(i => i.type === "item").length,
+            categories:[]
+        };
+        for(const category of Object.keys(game.cof.config.itemCategories)){
+            data.combat.categories.push({
+                id : category,
+                label : game.cof.config.itemCategories[category],
+                items : Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category && item.data.worn).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
-            data.pathCount = data.paths.length;
-            data.combat = {
-                count : data.items.filter(i => i.data.worn).length,
-                categories:[]
-            };
-            data.inventory = {
-                count : data.items.filter(i => i.type === "item").length,
-                categories:[]
-            };
-            for(const category of Object.keys(game.cof.config.itemCategories)){
-                data.combat.categories.push({
-                    id : category,
-                    label : game.cof.config.itemCategories[category],
-                    items : Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category && item.data.worn).sort((a, b) => (a.name > b.name) ? 1 : -1)
-                });
-                data.inventory.categories.push({
-                    id : category,
-                    label : "COF.category."+category,
-                    items : Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
-                });
-            }
-            const paths = data.items.filter(item => item.type === "path");
-            data.capacities = {
-                count : data.items.filter(item => item.type === "capacity").length,
-                collections : []
-            }
-            data.capacities.collections.push({
-                id : "standalone-capacities",
-                label : "Capacités actives",
-                items : Object.values(data.items).filter(item => item.type === "capacity" && !item.data.path).sort((a, b) => (a.name > b.name) ? 1 : -1)
+            data.inventory.categories.push({
+                id : category,
+                label : "COF.category."+category,
+                items : Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
-            for(const path of paths){
-                data.capacities.collections.push({
-                    id : (path.data.key) ? path.data.key : path.name.slugify({strict: true}),
-                    label : path.name,
-                    items : Object.values(data.items).filter(item => item.type === "capacity" && item.data.path?.data.key === path.data.key)
-                        .sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)
-                });
-            }
-            data.effects = data.actor.effects;
-            data.folded = {
-                "combat" : (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-                "inventory" : (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-                "capacities" : (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-                "effects" : (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-            };
-            return data;
+        }
+
+        // PATHS & CAPACITIES
+        const paths = data.items.filter(item => item.type === "path");
+        data.paths = paths;
+        data.pathCount = data.paths.length;
+        data.capacities = {
+            count : data.items.filter(item => item.type === "capacity").length,
+            collections : []
+        }
+        data.capacities.collections.push({
+            id : "standalone-capacities",
+            label : "Capacités Hors-Voies",
+            items : Object.values(data.items).filter(item => {
+                if(item.type === "capacity" && !item.data.path){
+                    return true;
+                }
+            }).sort((a, b) => (a.name > b.name) ? 1 : -1)
         });
+        for(const path of paths){
+            data.capacities.collections.push({
+                id : (path.data.key) ? path.data.key : path.name.slugify({strict: true}),
+                label : path.name,
+                items : Object.values(data.items).filter(item => {
+                    if(item.type === "capacity" && item.data.path._id === path._id) return true;
+                }).sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)
+            });
+        }
+        data.effects = data.actor.effects;
+        data.folded = {
+            "combat" : (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
+            "inventory" : (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
+            "capacities" : (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
+            "effects" : (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
+        };
+        return data;
     }
 }

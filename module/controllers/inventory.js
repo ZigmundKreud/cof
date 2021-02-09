@@ -5,7 +5,6 @@ export class Inventory {
      * @param event
      */
     static onModifyQuantity(actor, event, increment, isDecrease) {
-        event.preventDefault();
         const li = $(event.currentTarget).closest(".item");
         const item = actor.getOwnedItem(li.data("itemId"));
         const stackable = li.data("itemStackable");
@@ -29,7 +28,6 @@ export class Inventory {
      * @param event
      */
     static onToggleEquip(actor, event) {
-        event.preventDefault();
         const li = $(event.currentTarget).closest(".item");
         const item = actor.getOwnedItem(li.data("itemId"));
         const equipable = li.data("itemEquipable");
@@ -46,7 +44,6 @@ export class Inventory {
      * @param event
      */
     static onConsume(actor, event) {
-        event.preventDefault();
         const li = $(event.currentTarget).closest(".item");
         const item = actor.getOwnedItem(li.data("itemId"));
         const consumable = li.data("itemConsumable");

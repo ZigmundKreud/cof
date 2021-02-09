@@ -5,6 +5,8 @@
 import {ArrayUtils} from "../utils/array-utils.js";
 import {Traversal} from "../utils/traversal.js";
 import {System} from "../system/config.js";
+import {Path} from "../controllers/path.js";
+import {Capacity} from "../controllers/capacity.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -121,13 +123,12 @@ export class CofItemSheet extends ItemSheet {
             switch (itemData.type) {
                 case "path"    :
                     return this._onDropPathItem(event, itemData);
-                case "profile" :
-                case "species" :
-                    return false;
                 case "capacity" :
                     return this._onDropCapacityItem(event, itemData);
+                case "profile" :
+                case "species" :
                 default:
-                    return;
+                    return false;
             }
         });
     }
@@ -136,30 +137,16 @@ export class CofItemSheet extends ItemSheet {
 
     _onDropPathItem(event, itemData) {
         event.preventDefault();
-        let data = duplicate(this.item.data);
-        const id = itemData._id;
-        if(data.type === "profile" || data.type === "species"){
-            if(!data.data.paths.includes(id)){
-                data.data.paths.push(id);
-                return this.item.update(data);
-            }
-            else ui.notifications.error("Ce profil contient déjà cette voie.")
-        }
-        return false;
+        if(this.item.data.type === "profile" || this.item.data.type === "species")  return Path.addToItem(this.item, itemData);
+        else return false;
     }
 
     /* -------------------------------------------- */
 
     _onDropCapacityItem(event, itemData) {
         event.preventDefault();
-        let data = duplicate(this.item.data);
-        const id = itemData._id;
-        if(data.data.capacities && !data.data.capacities.includes(id)){
-            let caps = data.data.capacities;
-            caps.push(id);
-            return this.item.update(data);
-        }
-        else ui.notifications.error("Cette voie contient déjà cette capacité.")
+        if(this.item.data.type === "path" || this.item.data.type === "species")  return Capacity.addToItem(this.item, itemData);
+        else return false;
     }
 
     /* -------------------------------------------- */
@@ -195,13 +182,24 @@ export class CofItemSheet extends ItemSheet {
         const itemType = li.data("itemType");
         let array = null;
         switch(itemType){
-            case "path" : array = data.data.paths; break;
-            case "capacity" : array = data.data.capacities; break;
+            case "path" : {
+                array = data.data.paths;
+                const item = array.find(e => e._id === id);
+                if(array && array.includes(item)) {
+                    ArrayUtils.remove(array, item);
+                }
+            }
+            break;
+            case "capacity" : {
+                array = data.data.capacities;
+                const item = array.find(e => e._id === id);
+                if(array && array.includes(item)) {
+                    ArrayUtils.remove(array, item);
+                }
+            }
+            break;
         }
-        if(array && array.includes(id)) {
-            ArrayUtils.remove(array, id)
-            return this.item.update(data);
-        }
+        return this.item.update(data);
     }
 
     /* -------------------------------------------- */
@@ -227,43 +225,11 @@ export class CofItemSheet extends ItemSheet {
     /** @override */
     getData(options) {
         const data = super.getData(options);
-        return Traversal.getIndex().then(index => {
-            data.labels = this.item.labels;
-            data.config = game.cof.config;
-            data.itemType = data.item.type.titleCase();
-            data.itemProperties = this._getItemProperties(data.item);
-
-            if(data.data.capacities){
-                data.capacities = [];
-                for(const capId of data.data.capacities){
-                    let cap = index[capId];
-                    if(cap) data.capacities.push(cap);
-                    else {
-                        data.capacities.push({
-                            _id: capId,
-                            name: "Capacité manquante !!! [" + capId + "] NOT FOUND",
-                            img: "/systems/cof/ui/icons/spotted-bug.svg"
-                        });
-                    }
-                }
-            }
-            if(data.data.paths){
-                data.paths = [];
-                for(const pathId of data.data.paths){
-                    let path = index[pathId];
-                    if(path) data.paths.push(path);
-                    else {
-                        data.paths.push({
-                            _id: pathId,
-                            name: "Voie manquante !!! [" + pathId + "] NOT FOUND",
-                            img: "/systems/cof/ui/icons/spotted-bug.svg"
-                        });
-                    }
-                }
-            }
-            // console.log(data);
-            return data;
-        });
+        // console.log(data);
+        data.labels = this.item.labels;
+        data.config = game.cof.config;
+        data.itemType = data.item.type.titleCase();
+        data.itemProperties = this._getItemProperties(data.item);
+        return data;
     }
-
 }

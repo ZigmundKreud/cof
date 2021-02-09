@@ -29,24 +29,24 @@
       }
 
       .header {
-        //background: url("../ui/green-leather-bg.png") repeat-x white;
+        //background: url("../ui/green-leather-bg.webp") repeat-x white;
         .header-background {
-          background: url("../ui/green-leather-bg.png") repeat-x white;
+          background: url("../ui/green-leather-bg.webp") repeat-x white;
           #banner-left {
-            background: url("../ui/deco-left.png") no-repeat;
+            background: url("../ui/deco-left.webp") no-repeat;
           }
           #banner-right {
-            background: url("../ui/deco-right.png") no-repeat;
+            background: url("../ui/deco-right.webp") no-repeat;
           }
         }
       }
       .main {
         background: white;
         .sidebar {
-          background: url("../ui/parchemin1.png") no-repeat white;
+          background: url("../ui/parchemin1.webp") no-repeat white;
         }
         .separator{
-          background: url("../ui/separator.png") repeat-y white;
+          background: url("../ui/separator.webp") repeat-y white;
         }
         .content{
           .drop-field {

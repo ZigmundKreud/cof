@@ -934,7 +934,7 @@ Copied from dnd5e
 }
 
 .cof.actor .weapon-image {
-  background-image: url("../ui/icons/red_31.jpg");
+  background-image: url("../ui/icons/red_31.webp");
 }
 
 .cof.actor .locked {
@@ -976,15 +976,15 @@ Copied from dnd5e
 }
 
 .cof.actor .window-content > form .wrap .header .header-background {
-  background: url("../ui/green-leather-bg.png") repeat-x white;
+  background: url("../ui/green-leather-bg.webp") repeat-x white;
 }
 
 .cof.actor .window-content > form .wrap .header .header-background #banner-left {
-  background: url("../ui/deco-left.png") no-repeat;
+  background: url("../ui/deco-left.webp") no-repeat;
 }
 
 .cof.actor .window-content > form .wrap .header .header-background #banner-right {
-  background: url("../ui/deco-right.png") no-repeat;
+  background: url("../ui/deco-right.webp") no-repeat;
 }
 
 .cof.actor .window-content > form .wrap .main {
@@ -992,11 +992,11 @@ Copied from dnd5e
 }
 
 .cof.actor .window-content > form .wrap .main .sidebar {
-  background: url("../ui/parchemin1.png") no-repeat white;
+  background: url("../ui/parchemin1.webp") no-repeat white;
 }
 
 .cof.actor .window-content > form .wrap .main .separator {
-  background: url("../ui/separator.png") repeat-y white;
+  background: url("../ui/separator.webp") repeat-y white;
 }
 
 .cof.actor .window-content > form .wrap .main .content .drop-field {
@@ -1235,7 +1235,7 @@ Copied from dnd5e
   background: url("../ui/bg-2.png") no-repeat white;
   font-size: 13px;
   color: #191813;
-  background-image: url("../ui/bg-2.png");
+  background-image: url("../ui/bg-2.webp");
   background-repeat: repeat;
   background-color: white;
   /* ----------------------------------------- */
@@ -1266,7 +1266,7 @@ Copied from dnd5e
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url("../ui/green-leather-bg.png") repeat-x white;
+  background: url("../ui/green-leather-bg.webp") repeat-x white;
 }
 
 .cof.item .window-content .sheet-header > * {
@@ -1363,7 +1363,7 @@ Copied from dnd5e
 }
 
 .cof.item .window-content .sheet-navigation {
-  background-image: url("../ui/separator-h.png");
+  background-image: url("../ui/separator-h.webp");
   background-repeat: repeat-x;
   background-position: top;
   margin-top: -2px;

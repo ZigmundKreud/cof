@@ -1,53 +1,67 @@
 import {Traversal} from "../utils/traversal.js";
+import {Path} from "./path.js";
+import {Capacity} from "./capacity.js";
 
 export class Species {
 
-    static addToActor(actor, event, itemData) {
+    static addToActor(actor, itemData) {
         if (actor.items.filter(item => item.type === "species").length > 0) {
             ui.notifications.error("Vous avez déjà une race.");
             return false;
         } else {
-            return Traversal.getIndex().then(index => {
-                const p1 = Promise.all(itemData.data.paths.map(id => {
-                    const entry = index[id];
-                    if (entry) return Traversal.find(id, entry.source);
-                    else return false;
-                }));
-                const p2 = Promise.all(itemData.data.capacities.map(id => {
-                    const entry = index[id];
-                    if (entry) return Traversal.find(id, entry.source);
-                    else return false;
-                }));
-                Promise.all([p1, p2]).then((values) => {
-                    const paths = values[0];
-                    const caps = values[1];
-                    let items = paths.concat(caps);
-                    items.push(itemData);
-                    return actor.createOwnedItem(items)
+            // add species
+            return actor.createOwnedItem(itemData).then(newSpecies => {
+                return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
+                    newSpecies.data.capacities = newSpecies.data.capacities.map(cap => {
+                        let capData = entities[cap._id];
+                        capData.flags.core = {sourceId: cap.sourceId};
+                        capData.data.species = {
+                            _id: newSpecies._id,
+                            name: newSpecies.name,
+                            img: newSpecies.img,
+                            key: newSpecies.data.key,
+                            sourceId: newSpecies.flags.core.sourceId,
+                        };
+                        return capData;
+                    });
+                    newSpecies.data.paths = newSpecies.data.paths.map(p => {
+                        let pathData = entities[p._id];
+                        pathData.flags.core = {sourceId: p.sourceId};
+                        pathData.data.species = {
+                            _id: newSpecies._id,
+                            name: newSpecies.name,
+                            img: newSpecies.img,
+                            key: newSpecies.data.key,
+                            sourceId: newSpecies.flags.core.sourceId,
+                        };
+                        return pathData;
+                    });
+                    // add caps from species
+                    return Capacity.addCapsToActor(actor, newSpecies.data.capacities).then(newCaps => {
+                        newSpecies.data.capacities = newCaps;
+                        // add paths from species
+                        return Path.addPathsToActor(actor, newSpecies.data.paths).then(newPaths => {
+                            newSpecies.data.paths = newPaths;
+                            // update profile with new ids
+                            return actor.updateOwnedItem(newSpecies);
+                        });
+                    });
                 });
             });
         }
     }
 
-    static removeFromActor(actor, event, entity) {
-        const actorData = actor.data;
+    static removeFromActor(actor, entity) {
         const speciesData = entity.data;
         return Dialog.confirm({
             title: "Supprimer la race ?",
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
-                return Traversal.getItemsOfType(["capacity"]).then(caps => {
-                    caps = caps.filter(c => speciesData.data.capacities.includes(c._id));
-                    const capsKeys = caps.map(c => c.data.key);
-                    const capsIds = actorData.items.filter(item => capsKeys.includes(item.data.key) && item.type === "capacity").map(c => c._id);
-                    return Traversal.getItemsOfType(["path"]).then(paths => {
-                        paths = paths.filter(p => speciesData.data.paths.includes(p._id));
-                        const pathsKeys = paths.map(p => p.data.key);
-                        const pathsIds = actorData.items.filter(item => pathsKeys.includes(item.data.key) && item.type === "path").map(p => p._id);
-                        let items = capsIds.concat(pathsIds);
-                        items.push(entity.data._id);
-                        return actor.deleteOwnedItem(items);
-                    });
+                return Path.removePathsFromActor(actor, speciesData.data.paths).then(result => {
+                    let items = (speciesData.data.capacities && speciesData.data.capacities.length) ? speciesData.data.capacities.map(c => c._id) : [];
+                    items.push(speciesData._id);
+                    ui.notifications.info(parseInt(result.length + items.flat().length) + " éléments ont été supprimés.");
+                    return actor.deleteOwnedItem(items);
                 });
             },
             defaultYes: false

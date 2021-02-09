@@ -2,7 +2,7 @@
   "name": "cof",
   "title": "Chroniques Oubliées Fantasy",
   "description": "<p>Système Foundry VTT pour <a href='https://www.black-book-editions.fr/catalogue.php?id=477'>Chroniques Oubliées Fantasy</a>.</p><p> *** Rejoignez la communauté Discord FR :<a href='https://discord.gg/pPSDNJk'>https://discord.gg/pPSDNJk</a></p>",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "minimumCoreVersion": "0.7.3",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
@@ -10,91 +10,10 @@
   "esmodules": [
     "module/cof.js"
   ],
-  "scripts": [],
   "styles": [
     "./css/cof.css"
   ],
   "packs": [
-    {
-      "name": "capacities",
-      "label": "Capacités",
-      "system": "cof",
-      "path": "./packs/capacities.db",
-      "entity": "Item",
-      "tag" : "capacity"
-    },
-    {
-      "name": "encounters",
-      "label": "Rencontres",
-      "system": "cof",
-      "path": "./packs/encounters.db",
-      "entity": "Actor",
-      "tag" : "encounter"
-    },
-    {
-      "name": "encounters-capacities",
-      "label": "Capacités des rencontres",
-      "system": "cof",
-      "path": "./packs/encounters-capacities.db",
-      "entity": "Item",
-      "tag" : "capacity"
-    },
-    {
-      "name": "encounters-paths",
-      "label": "Voies des rencontres",
-      "system": "cof",
-      "path": "./packs/encounters-paths.db",
-      "entity": "Item",
-      "tag" : "path"
-    },
-    {
-      "name": "items",
-      "label": "Equipement",
-      "system": "cof",
-      "path": "./packs/items.db",
-      "entity": "Item",
-      "tag" : "item"
-    },
-    {
-      "name": "paths",
-      "label": "Voies",
-      "system": "cof",
-      "path": "./packs/paths.db",
-      "entity": "Item",
-      "tag" : "path"
-    },
-    {
-      "name": "profiles",
-      "label": "Profils",
-      "system": "cof",
-      "path": "./packs/profiles.db",
-      "entity": "Item",
-      "tag" : "profile"
-    },
-    {
-      "name": "species",
-      "label": "Races",
-      "system": "cof",
-      "path": "./packs/species.db",
-      "entity": "Item",
-      "tag" : "species"
-    },
-    {
-      "name": "spells",
-      "label": "Sorts",
-      "system": "cof",
-      "path": "./packs/spells.db",
-      "entity": "Item",
-      "tag" : "spell"
-    },
-    {
-      "name": "tables",
-      "label": "Tables",
-      "system": "cof",
-      "path": "./packs/tables.db",
-      "entity": "RollTable",
-      "tag" : "table"
-    },
     {
       "name": "macros",
       "label": "Macros",
@@ -123,6 +42,6 @@
   "secondaryTokenAttribute": null,
   "url": "https://github.com/ZigmundKreud/cof",
   "manifest": "https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json",
-  "download": "https://github.com/ZigmundKreud/cof/archive/0.4.1.zip",
+  "download": "https://github.com/ZigmundKreud/cof/archive/0.4.2.zip",
   "license": "licence.txt"
 }

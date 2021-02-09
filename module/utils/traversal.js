@@ -15,40 +15,6 @@ export class Traversal {
         return entity;
     }
 
-    // static async getEntity(id, type, pack) {
-    //     let entity = null;
-    //     // Target 1 - Compendium Link
-    //     if ( pack ) {
-    //         const pack = game.packs.get(pack);
-    //         await pack.getIndex();
-    //         entity = id ? await pack.getEntity(id) : null;
-    //     }
-    //     // Target 2 - World Entity Link
-    //     else {
-    //         if(type==="item") entity = game.items.get(id);
-    //         else if(type==="journal") entity = game.journal.get(id);
-    //         else if(type==="actor") entity = game.actors.get(id);
-    //     }
-    //     // if ( !entity ) return;
-    //     // // Action 1 - Execute an Action
-    //     // if ( entity.entity === "Macro" ) {
-    //     //     if ( !entity.hasPerm(game.user, "LIMITED") ) {
-    //     //         return ui.notifications.warn(`You do not have permission to use this ${entity.entity}.`);
-    //     //     }
-    //     //     return entity.execute();
-    //     // }
-    //     //
-    //     // // Action 2 - Render the Entity sheet
-    //     // return entity.sheet.render(true);
-    //     return entity;
-    // }
-
-    static getAllEntitiesOfType(type, pack) {
-        const compendium = game.packs.get(pack).getContent();
-        const ingame = game.items.filter(item => item.type === type);
-        return ingame.concat(compendium);
-    }
-
     static getIndex() {
         return Compendia.getIndex().then(index =>{
             let items = game.items.map(entity => {
@@ -56,7 +22,7 @@ export class Traversal {
                     _id : entity.data._id,
                     name : entity.data.name,
                     img : entity.data.img,
-                    source : "game.items"
+                    sourceId : "Item."+entity.data._id
                 }
             });
             let actors = game.actors.map(entity => {
@@ -64,7 +30,7 @@ export class Traversal {
                     _id : entity.data._id,
                     name : entity.data.name,
                     img : entity.data.img,
-                    source : "game.actors"
+                    sourceId : "Actor."+entity.data._id
                 }
             });
             let journal = game.journal.map(entity => {
@@ -72,7 +38,7 @@ export class Traversal {
                     _id : entity.data._id,
                     name : entity.data.name,
                     img : entity.data.img,
-                    source : "game.journal"
+                    sourceId : "JournalEntry."+entity.data._id
                 }
             });
             return items.concat(actors).concat(journal).concat(Object.values(index)).reduce(function (map, obj) {
@@ -91,6 +57,12 @@ export class Traversal {
         });
     }
 
+    static getEntitiesOfType(types) {
+        return Compendia.getContent(types).then(content =>{
+            return game.items.filter(item => types.includes(item.type)).concat(game.actors.filter(item => types.includes(item.type))).concat(game.journal.filter(item => types.includes(item.type))).concat(Object.values(content));
+        });
+    }
+
     static getItemsOfType(types) {
         return Compendia.getContent(types).then(content =>{
             return game.items.filter(item => types.includes(item.type)).map(entity => entity.data).concat(Object.values(content).map(entity => entity.data));
@@ -100,16 +72,22 @@ export class Traversal {
     static find(id) {
         return this.getIndex().then(idx => {
             const entry = idx[id];
-            if(entry && entry.source) {
-                if(entry.source === "game.items") return game.items.get(id);
-                if(entry.source === "game.actors") return game.actors.get(id);
-                if(entry.source === "game.journal") return game.journal.get(id);
-                else return game.packs.get(entry.source).getEntity(id).then(entity => entity);
+            if(entry){
+                if(entry.sourceId){
+                    const elts = entry.sourceId.split(".");
+                    if(elts[0] === "Item") return game.items.get(id);
+                    else if(elts[0] === "Actor") return game.actors.get(id);
+                    else if(elts[0] === "JournalEntry") return game.journal.get(id);
+                    else if(elts[0] === "Compendium") {
+                        const packName = elts[1] + "." + elts[2];
+                        return game.packs.get(packName).getEntity(id).then(entity => entity);
+                    }
+                }
             }
         });
     }
 
-    static find(id, source) {
+    static findBySource(id, source) {
         if(id && source) {
             if(source === "game.items") return game.items.get(id);
             if(source === "game.actors") return game.actors.get(id);

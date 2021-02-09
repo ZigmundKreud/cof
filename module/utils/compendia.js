@@ -19,7 +19,7 @@ export class Compendia {
         let promises = game.packs.entries.map(comp => {
             return comp.getIndex().then(index => {
                 return index.map(entry => {
-                    entry.source = comp.metadata.package + "." + comp.metadata.name;
+                    entry.sourceId = "Compendium."+comp.metadata.package + "." + comp.metadata.name + "." + entry._id;
                     return entry;
                 });
             });

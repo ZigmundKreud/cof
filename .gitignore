@@ -3,3 +3,4 @@ node_modules
 /foundry.js
 /_assets/
 _data
+package-lock.json

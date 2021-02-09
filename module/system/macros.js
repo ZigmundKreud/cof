@@ -43,7 +43,6 @@ export class Macros {
     static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, dmgBonus=0) {
         const actor = this.getSpeakersActor()
         let item;
-        console.log(actor);
         item = actor ? actor.items.find(i => i.id === itemId) : null;
         if (!item) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemMissing")}: "${itemName}"`);
         const itemData = item.data;

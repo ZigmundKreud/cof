@@ -19,6 +19,7 @@ import {System, COF} from "./system/config.js";
 import {Macros} from "./system/macros.js";
 import registerHooks from "./system/hooks.js";
 import {CofLootSheet} from "./actors/loot-sheet.js";
+import {UpdateUtils} from "./utils/update-utils.js";
 
 Hooks.once("init", async function () {
 
@@ -104,6 +105,12 @@ Hooks.once("ready", async () => {
 // DataLoader.loadData("profiles");
 // DataLoader.loadData("species");
 // DataLoader.loadData("spells");
+
+    // UpdateUtils.updatePacks();
+    // UpdateUtils.updatePaths();
+    // UpdateUtils.updateProfiles();
+    // UpdateUtils.updateSpecies();
+    // UpdateUtils.updateEncounters();
 
     console.info("System Initialized.");
 });
