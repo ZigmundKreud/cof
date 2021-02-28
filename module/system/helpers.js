@@ -149,6 +149,16 @@ export const registerHandlebarsHelpers = function () {
         return game.settings.get("cof", configKey);
     });
 
+    Handlebars.registerHelper('DisplayDifficulty', function(haveTarget) {
+        if (game.settings.get("cof", "displayDifficulty")) {
+            if (haveTarget && game.settings.get("cof", "hideDifficulty")) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    })
+
     Handlebars.registerHelper('split', function (str, separator, keep) {
         return str.split(separator)[keep];
     });

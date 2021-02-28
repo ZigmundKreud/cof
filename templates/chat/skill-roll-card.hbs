@@ -14,7 +14,9 @@
             <h2 class="failure"><i class="fas fa-times"></i>&nbsp;{{localize "COF.roll.failure"}}...</h2>
         {{/if}}
     {{/if}}
-    <h3><strong>{{label}}</strong> {{localize "COF.ui.difficulty"}} <strong>{{difficulty}}</strong></h3>
+    {{#if (DisplayDifficulty false)}}
+        <h3><strong>{{label}}</strong> {{localize "COF.ui.difficulty"}} <strong>{{difficulty}}</strong></h3>
+    {{/if}}
 {{else}}
     {{#if isCritical}}
         <h2 class="standard critical"><i class="fas fa-check-double"></i>&nbsp;{{localize "COF.roll.critical"}}...</h2>
