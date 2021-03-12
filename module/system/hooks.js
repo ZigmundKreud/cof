@@ -1,5 +1,6 @@
 import {Hitpoints} from "../controllers/hitpoints.js";
 import {CharacterGeneration} from "../system/chargen.js";
+import * as chat from "./chat.js";
 
 export default function registerHooks() {
 
@@ -178,6 +179,7 @@ export default function registerHooks() {
     // });
     Hooks.on("renderChatMessage", (message, html, data) => {
         html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));
+        chat.highlightCriticalSuccessFailure(message, html, data);
     });
 
     // Hooks.on("renderItemSheet", (app, html, data) => {
