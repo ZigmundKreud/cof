@@ -50,6 +50,16 @@ export const registerSystemSettings = function() {
         onChange: lang => window.location.reload()
     });
 
+    game.settings.register("cof", "hideDifficulty", {
+        name: "Masque la difficulté de la cible",
+        hint: "Cache l'affichage de la difficulté des jets d'armes lorsque l'on cible un ennemi.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload() 
+    })
+
     game.settings.register("cof", "useComboRolls", {
         name: "Active les jets \"combo\"",
         hint: "Permet de lancer les jets d'attaque et de dommage simultanément.",

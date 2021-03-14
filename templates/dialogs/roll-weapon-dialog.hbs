@@ -48,17 +48,19 @@
     </div>
 </div>
 <hr/>
-{{#if (isEnabled "displayDifficulty")}}
-<!-- DIFFICULTY -->
-<div class="row flexrow" style="margin-bottom: 5px;">
-    <div class="flex1 center bg-darkslate">
-        <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
+{{#if (displayDifficulty haveTarget)}}
+    <!-- DIFFICULTY -->
+    <div class="row flexrow" style="margin-bottom: 5px;">
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
+        </div>
+        <div class="flex1 center cell">
+            <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
+        </div>
     </div>
-    <div class="flex1 center cell">
-        <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
-    </div>
-</div>
-<hr/>
+    <hr/>
+    {{else}}
+        <input class="field-value" id="difficulty" name="difficulty" type="hidden" value="{{difficulty}}" data-dtype="Number"/>
 {{/if}}
 
 {{#if (isEnabled "useComboRolls")}}

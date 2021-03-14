@@ -8,6 +8,7 @@ export class CofSkillRoll {
         this._mod = mod;
         this._bonus = bonus;
         this._difficulty = difficulty;
+        this._haveTarget = false;
         this._critrange = critrange;
         this._totalBonus = parseInt(this._mod) + parseInt(this._bonus);
         this._formula = (this._totalBonus === 0) ? this._dice : `${this._dice} + ${this._totalBonus}`;
@@ -26,6 +27,9 @@ export class CofSkillRoll {
         this._isFumble = (result == 1);
         if(this._difficulty){
             this._isSuccess = r.total >= this._difficulty;
+            if(game.settings.get("cof", "hideDifficulty") && game.user.targets.size > 0){
+                this._haveTarget = true;
+            }
         }
         this._buildRollMessage().then(msgFlavor => {
             r.toMessage({
@@ -59,6 +63,7 @@ export class CofSkillRoll {
             difficulty : this._difficulty,
             showDifficulty : !!this._difficulty,
             isCritical : this._isCritical,
+            haveTarget: this._haveTarget,
             isFumble : this._isFumble,
             isSuccess : this._isSuccess,
             isFailure : !this._isSuccess

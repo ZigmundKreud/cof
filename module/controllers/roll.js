@@ -201,14 +201,17 @@ export class CofRoll {
     static async rollWeaponDialog(actor, label, mod, bonus, critrange, dmgFormula, dmgBonus, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
         let diff = null;
+        let haveTarget = false;
         if (game.settings.get("cof", "displayDifficulty") && game.user.targets.size > 0) {
             diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+            haveTarget = true;
         }
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
             critrange: critrange,
             difficulty: diff,
+            haveTarget: haveTarget,
             dmgFormula: dmgFormula,
             dmgBonus: dmgBonus,
             dmgCustomFormula: ""
