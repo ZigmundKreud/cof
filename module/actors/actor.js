@@ -58,6 +58,8 @@ export class CofActor extends Actor {
     _prepareDerivedCharacterData(actorData) {
         this.computeDef(actorData);
         this.computeXP(actorData);
+        this.computeModsAndAttributes(actorData);
+        this.computeAttacks(actorData);
     }
 
     /* -------------------------------------------- */
