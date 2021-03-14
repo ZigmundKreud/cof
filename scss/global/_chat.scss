@@ -1,4 +1,8 @@
 .message-header {
+  h2.standard{
+    color: $colorStandard;
+    font-weight: bold;
+  }
   h2.damage{
     color: $colorDamage;
     font-weight: bold;
@@ -9,10 +13,6 @@
   }
   h2.critical{
     color: $colorCritical;
-    font-weight: bold;
-  }
-  h2.standard{
-    color: $colorStandard;
     font-weight: bold;
   }
   h2.fumble{
@@ -29,6 +29,17 @@
   }
   h2.roll{
     color: $colorRoll;
+    font-weight: bold;
+  }
+}
+
+.message-content {
+  .fumble {
+    color: $colorFumble;
+    font-weight: bold;
+  }
+  .critical {
+    color: $colorCritical;
     font-weight: bold;
   }
 }

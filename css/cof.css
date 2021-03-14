@@ -524,6 +524,11 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
   flex-wrap: nowrap !important;
 }
 
+.message-header h2.standard {
+  color: #005477;
+  font-weight: bold;
+}
+
 .message-header h2.damage {
   color: darkred;
   font-weight: bold;
@@ -536,11 +541,6 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
 
 .message-header h2.critical {
   color: green;
-  font-weight: bold;
-}
-
-.message-header h2.standard {
-  color: #005477;
   font-weight: bold;
 }
 
@@ -561,6 +561,16 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
 
 .message-header h2.roll {
   color: darkslategrey;
+  font-weight: bold;
+}
+
+.message-content .fumble {
+  color: red;
+  font-weight: bold;
+}
+
+.message-content .critical {
+  color: green;
   font-weight: bold;
 }
 
