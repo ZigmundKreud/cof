@@ -1,4 +1,15 @@
 {
+  "ACTOR.TypeCharacter": "Character",
+  "ACTOR.TypeNpc": "NPC",
+  "ACTOR.TypeEncounter": "Encounter",
+  "ACTOR.TypeLoot": "Vendor/Loot",
+
+  "ITEM.TypeItem": "Object",
+  "ITEM.TypeCapacity": "Capacity",
+  "ITEM.TypeSpecies": "Race",
+  "ITEM.TypeProfile": "Profile",
+  "ITEM.TypePath": "Path",
+
   "COF.title": "Chroniques Oubliées Fantasy",
 
   "COF.ui.na": "N.A.",

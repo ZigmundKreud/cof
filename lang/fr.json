@@ -1,4 +1,16 @@
 {
+
+  "ACTOR.TypeCharacter": "Personnage",
+  "ACTOR.TypeNpc": "PNJ",
+  "ACTOR.TypeEncounter": "Rencontre",
+  "ACTOR.TypeLoot": "Vendeur/Coffre",
+
+  "ITEM.TypeItem": "Objet",
+  "ITEM.TypeCapacity": "Capacité",
+  "ITEM.TypeSpecies": "Race",
+  "ITEM.TypeProfile": "Profil",
+  "ITEM.TypePath": "Voie",
+
   "COF.title": "Chroniques Oubliées Fantasy",
 
   "COF.ui.na": "N.C.",
