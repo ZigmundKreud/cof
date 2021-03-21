@@ -58,6 +58,7 @@ export class Species {
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
                 return Path.removePathsFromActor(actor, speciesData.data.paths).then(result => {
+                    speciesData.data.capacities = speciesData.data.capacities instanceof Array ? speciesData.data.capacities : [speciesData.data.capacities];
                     let items = (speciesData.data.capacities && speciesData.data.capacities.length) ? speciesData.data.capacities.map(c => c._id) : [];
                     items.push(speciesData._id);
                     ui.notifications.info(parseInt(result.length + items.flat().length) + " éléments ont été supprimés.");
