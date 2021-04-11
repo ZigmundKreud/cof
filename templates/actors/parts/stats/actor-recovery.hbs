@@ -4,9 +4,6 @@
             <div class="field-label ellipsis">{{ localize 'COF.attributes.recovery.label' }}</div>
         </div>
         <div class="flex3 center">
-            <div class="field-label">{{ localize 'COF.ui.value' }}</div>
-        </div>
-        <div class="flex3 center">
             <div class="field-label">{{ localize 'COF.ui.base' }}</div>
         </div>
         <div class="flex3 center">
@@ -15,13 +12,13 @@
         <div class="flex3 center">
             <div class="field-label">{{ localize 'COF.ui.max' }}</div>
         </div>
+        <div class="flex3 center">
+            <div class="field-label">{{ localize 'COF.ui.current' }}</div>
+        </div>        
     </div>
     <div class="flexrow no-wrap">
         <div class="flex8 center bg-green">
             <span class="field-label ellipsis"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
-        </div>
-        <div class="flex3 center cell">
-            <input class="field-value" name="data.attributes.rp.value" type="text" value="{{actor.data.attributes.rp.value}}" placeholder="Value" data-dtype="Number"/>
         </div>
         <div class="flex3 center cell">
             <input class="field-value" name="data.attributes.rp.base" readonly="true" type="text" value="{{actor.data.attributes.rp.base}}" placeholder="Base" data-dtype="Number"/>
@@ -31,6 +28,9 @@
         </div>
         <div class="flex3 center cell">
             <input class="field-value" name="data.attributes.rp.max" readonly="true" type="text" value="{{actor.data.attributes.rp.max}}" placeholder="Max" data-dtype="Number"/>
+        </div>
+        <div class="flex3 center cell">
+            <input class="field-value" name="data.attributes.rp.value" type="text" value="{{actor.data.attributes.rp.value}}" placeholder="Value" data-dtype="Number"/>
         </div>
     </div>
     <div class="flexrow"><div class="flex1 half-spacer"></div></div>
