@@ -34,7 +34,7 @@ export class CofActorSheet extends CofBaseSheet {
         if (!this.options.editable) return;
 
         // Click to open
-        html.find('.compendium-pack').dblclick(ev => {
+        html.find('.compendium-pack').contextmenu(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget);
             const pack = game.packs.get(li.data("pack"));
