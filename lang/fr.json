@@ -216,7 +216,7 @@
   "COF.attacks.magic.label": "Attaque Magique",
   "COF.attacks.magic.abbrev": "MAGIQUE",
 
-  "COF.attributes.recovery.label": "RECUP",
+  "COF.attributes.recovery.label": "RECUPERATION",
   "COF.attributes.fortune.label": "CHANCE",
   "COF.attributes.resources.label": "RESSOURCES",
   "COF.attributes.resources.abbrev": "Res",
