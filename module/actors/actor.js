@@ -48,14 +48,13 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
-    _prepareBaseCharacterData(actorData) {
-        this.computeModsAndAttributes(actorData);
-        this.computeAttacks(actorData);
-    }
+    _prepareBaseCharacterData(actorData) {}
 
     /* -------------------------------------------- */
 
     _prepareDerivedCharacterData(actorData) {
+        this.computeModsAndAttributes(actorData);
+        this.computeAttacks(actorData);
         this.computeDef(actorData);
         this.computeXP(actorData);
     }
@@ -163,7 +162,108 @@ export class CofActor extends Actor {
         return items.filter(i => i.type === "capacity" && i.data.rank)
     }
 
+ 
     /* -------------------------------------------- */
+
+    computeModsAndAttributes(actorData) {
+
+        let stats = actorData.data.stats;
+        let attributes = actorData.data.attributes;
+        let items = actorData.items;
+        let lvl = actorData.data.level.value;
+        let species = this.getSpecies(items);
+        let profile = this.getProfile(items);
+
+        for(const [key, stat] of Object.entries(stats)){
+            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
+            stat.value = stat.base + stat.racial + stat.bonus;
+            stat.mod = Stats.getModFromStatValue(stat.value);
+        }
+
+        attributes.init.base = stats.dex.value;
+        attributes.init.value = attributes.init.base + attributes.init.bonus;
+
+        // Points de chance
+        attributes.fp.base = this.computeBaseFP(stats.cha.mod, profile);
+        attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
+        
+        if (attributes.fp.value >= attributes.fp.max) attributes.fp.value = attributes.fp.max;
+        if (attributes.fp.value < 0) attributes.fp.value = 0;
+
+        // Réduction des dommages
+        attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
+
+        // Points de récupération
+        attributes.rp.base = this.computeBaseRP(actorData);
+        attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
+        if(attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
+        if(attributes.rp.value < 0) attributes.rp.value = 0;
+
+        // Points de vie
+        attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
+        if(attributes.hp.value >= attributes.hp.max) attributes.hp.value = attributes.hp.max;
+        if(attributes.hp.value < 0) attributes.hp.value = 0;
+
+        // Points de magie
+        const magicMod = this.getMagicMod(stats, profile);
+        if(profile){
+            attributes.hd.value = profile.data.dv;
+            attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
+        }
+        else attributes.mp.base = 0;
+        attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
+
+         // Point de magie
+         if (attributes.mp.value >= attributes.mp.max) attributes.mp.value = attributes.mp.max;
+         if (attributes.mp.value < 0) attributes.mp.value = 0;
+    }
+
+    /* -------------------------------------------- */
+
+    computeBaseFP(charismeMod, profile){
+        return 3 + charismeMod;
+    }
+
+    computeBaseRP(actorData){
+        return 5;
+    }
+
+    computeAttacks(actorData) {
+
+        let stats = actorData.data.stats;
+        let attacks = actorData.data.attacks;
+        let items = actorData.items;
+        let lvl = actorData.data.level.value;
+        let profile = this.getProfile(items);
+
+        let melee = attacks.melee;
+        let ranged = attacks.ranged;
+        let magic = attacks.magic;
+
+        // STATS RELATED TO PROFILE
+        const meleeMod = this.getMeleeMod(stats, profile);
+        const rangedMod = this.getRangedMod(stats, profile);
+        const magicMod = this.getMagicMod(stats, profile);
+        melee.base = (meleeMod) ? meleeMod + lvl : lvl;
+        ranged.base = (rangedMod) ? rangedMod + lvl : lvl;
+        magic.base = (magicMod) ? magicMod + lvl : lvl;
+        for (let attack of Object.values(attacks)) {
+            attack.mod = attack.base + attack.bonus;
+        }
+    }
+
+    
+    /* -------------------------------------------- */
+    
+    getMeleeMod(stats, profile) {
+        let strMod = stats.str.mod;
+        return strMod;
+    }
+
+    getRangedMod(stats, profile) {
+        let dexMod = stats.dex.mod;
+        return dexMod;
+    }
 
     getMagicMod(stats, profile) {
 
@@ -187,74 +287,6 @@ export class CofActor extends Actor {
             }
         }
         return magicMod;
-    }
-
-    /* -------------------------------------------- */
-
-    computeModsAndAttributes(actorData) {
-
-        let stats = actorData.data.stats;
-        let attributes = actorData.data.attributes;
-        let items = actorData.items;
-        let lvl = actorData.data.level.value;
-        let species = this.getSpecies(items);
-        let profile = this.getProfile(items);
-
-        for(const [key, stat] of Object.entries(stats)){
-            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
-            stat.value = stat.base + stat.racial + stat.bonus;
-            stat.mod = Stats.getModFromStatValue(stat.value);
-        }
-
-        attributes.init.base = stats.dex.value;
-        attributes.init.value = attributes.init.base + attributes.init.bonus;
-
-        attributes.fp.base = 3 + stats.cha.mod;
-        attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
-        attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
-
-        attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
-        if(attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
-        if(attributes.rp.value < 0) attributes.rp.value = 0;
-
-        attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
-        if(attributes.hp.value >= attributes.hp.max) attributes.hp.value = attributes.hp.max;
-        if(attributes.hp.value < 0) attributes.hp.value = 0;
-
-        const magicMod = this.getMagicMod(stats, profile);
-        if(profile){
-            attributes.hd.value = profile.data.dv;
-            attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
-        }
-        else attributes.mp.base = 0;
-        attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
-    }
-
-    /* -------------------------------------------- */
-
-    computeAttacks(actorData) {
-
-        let stats = actorData.data.stats;
-        let attacks = actorData.data.attacks;
-        let items = actorData.items;
-        let lvl = actorData.data.level.value;
-        let profile = this.getProfile(items);
-
-        let melee = attacks.melee;
-        let ranged = attacks.ranged;
-        let magic = attacks.magic;
-
-        let strMod = stats.str.mod;
-        let dexMod = stats.dex.mod;
-
-        // STATS RELATED TO PROFILE
-        const magicMod = this.getMagicMod(stats, profile);
-        melee.base = (strMod) ? strMod + lvl : lvl;
-        ranged.base = (dexMod) ? dexMod + lvl : lvl;
-        magic.base = (magicMod) ? magicMod + lvl : lvl;
-        for (let attack of Object.values(attacks)) {
-            attack.mod = attack.base + attack.bonus;
-        }
     }
 
     /* -------------------------------------------- */
@@ -295,3 +327,4 @@ export class CofActor extends Actor {
         }
     }
 }
+
