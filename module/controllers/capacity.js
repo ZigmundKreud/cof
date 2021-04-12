@@ -1,6 +1,6 @@
-import {Traversal} from "../utils/traversal.js";
-import {ArrayUtils} from "../utils/array-utils.js";
-import {EntitySummary} from "./entity-summary.js";
+import { Traversal } from "../utils/traversal.js";
+import { ArrayUtils } from "../utils/array-utils.js";
+import { EntitySummary } from "./entity-summary.js";
 
 export class Capacity {
     /**
@@ -9,19 +9,19 @@ export class Capacity {
      * @private
      */
     static create(actor, event) {
-        const data = {name: "New Capacity", type: "capacity", data: {checked: true}};
-        return actor.createOwnedItem(data, {renderSheet: true}); // Returns one Entity, saved to the database
+        const data = { name: "New Capacity", type: "capacity", data: { checked: true } };
+        return actor.createOwnedItem(data, { renderSheet: true }); // Returns one Entity, saved to the database
     }
 
-    static addCapsToActor(actor, capsData){
+    static addCapsToActor(actor, capsData) {
         return actor.createEmbeddedEntity("OwnedItem", capsData);
     }
 
-    static addToItem(entity, capacityData){
+    static addToItem(entity, capacityData) {
         let data = duplicate(entity.data);
         let caps = data.data.capacities;
         let capsIds = caps.map(c => c._id);
-        if(capsIds && !capsIds.includes(capacityData._id)){
+        if (capsIds && !capsIds.includes(capacityData._id)) {
             data.data.capacities.push(EntitySummary.create(capacityData));
             return entity.update(data);
         }
@@ -72,7 +72,7 @@ export class Capacity {
                         newCap.data.rank = c.data.rank;
                         newCap.data.path = c.data.path;
                         newCap.data.checked = c.data.checked;
-                        newCap.flags.core = {sourceId: c.sourceId};
+                        newCap.flags.core = { sourceId: c.sourceId };
                         return newCap;
                     });
                     // console.log("To Add", toAdd);
@@ -82,15 +82,32 @@ export class Capacity {
         });
     }
 
+    /**
+     * @name removeCapacitiesFromActor
+     * @description Supprime les capacités de l'acteur en paramêtre
+     * @public
+     * 
+     * @param {CofActor} actor l'acteur
+     * @param {Array} capacities la liste des capacités
+     * 
+     * @returns l'acteur 
+     */
+    static removeCapacitiesFromActor(actor, capacities) {
+        if (!capacities.length) capacities = [capacities];
+        let items = [];
+        capacities.map(capacity => { items.push(capacity._id); });
+        return actor.deleteOwnedItem(items.flat());
+    }
+
     // Supprime une capacité de la feuille de personnage
     // et met à jour les infos d'un éventuel path
     static removeFromActor(actor, capacity) {
         const capacityData = capacity.data;
-        if(capacityData.data.path){
+        if (capacityData.data.path) {
             let path = actor.items.find(item => item._id === capacityData.data.path._id);
-            if(path){
+            if (path) {
                 let pathData = duplicate(path.data);
-                if(capacityData.flags.core.sourceId){
+                if (capacityData.flags.core.sourceId) {
                     let pcap = pathData.data.capacities.find(c => c.sourceId === capacityData.flags.core.sourceId);
                     pcap.data.checked = false;
                 }

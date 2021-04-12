@@ -1,9 +1,14 @@
-import {Traversal} from "../utils/traversal.js";
-import {Path} from "./path.js";
-import {Capacity} from "./capacity.js";
+import { Traversal } from "../utils/traversal.js";
+import { Path } from "./path.js";
+import { Capacity } from "./capacity.js";
 
 export class Species {
-
+    /**
+     * 
+     * @param {CofActor} actor 
+     * @param {CofItem} itemData 
+     * @returns 
+     */
     static addToActor(actor, itemData) {
         if (actor.items.filter(item => item.type === "species").length > 0) {
             ui.notifications.error("Vous avez déjà une race.");
@@ -14,7 +19,7 @@ export class Species {
                 return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
                     newSpecies.data.capacities = newSpecies.data.capacities.map(cap => {
                         let capData = entities[cap._id];
-                        capData.flags.core = {sourceId: cap.sourceId};
+                        capData.flags.core = { sourceId: cap.sourceId };
                         capData.data.species = {
                             _id: newSpecies._id,
                             name: newSpecies.name,
@@ -26,7 +31,7 @@ export class Species {
                     });
                     newSpecies.data.paths = newSpecies.data.paths.map(p => {
                         let pathData = entities[p._id];
-                        pathData.flags.core = {sourceId: p.sourceId};
+                        pathData.flags.core = { sourceId: p.sourceId };
                         pathData.data.species = {
                             _id: newSpecies._id,
                             name: newSpecies.name,
@@ -51,19 +56,30 @@ export class Species {
         }
     }
 
-    static removeFromActor(actor, entity) {
-        const speciesData = entity.data;
+    /**
+     * @name removeFromActor
+     * @description Supprime la race et ses capacités de l'acteur en paramêtre
+     * @public @static 
+     * 
+     * @param {CofActor} actor l'acteur sur lequel supprimer la race
+     * @param {CofItem} specie l'item race à supprimer
+     * @returns 
+     */
+    static removeFromActor(actor, specie) {
+        const paths = actor.items.filter(item => item.type === "path" && item.data.data.species?._id === specie.data._id);
+        const capacities = actor.items.filter(item => item.type === "capacity" && item.data.data.species?._id === specie.data._id);
         return Dialog.confirm({
             title: "Supprimer la race ?",
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
-                return Path.removePathsFromActor(actor, speciesData.data.paths).then(result => {
-                    speciesData.data.capacities = speciesData.data.capacities instanceof Array ? speciesData.data.capacities : [speciesData.data.capacities];
-                    let items = (speciesData.data.capacities && speciesData.data.capacities.length) ? speciesData.data.capacities.map(c => c._id) : [];
-                    items.push(speciesData._id);
-                    ui.notifications.info(parseInt(result.length + items.flat().length) + " éléments ont été supprimés.");
-                    return actor.deleteOwnedItem(items);
+                Path.removePathsFromActor(actor, paths).then(() => {
+                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimés." : " voie a été supprimé"));
                 });
+                Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
+                    ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimés." : " capacité a été supprimé"));
+                });
+                ui.notifications.info("la race a été supprimé.");
+                return actor.deleteOwnedItem(specie.data._id);
             },
             defaultYes: false
         });
