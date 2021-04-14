@@ -19,13 +19,12 @@ export class CofRoll {
         let key = elt.attributes["data-rolling"].value;
         let label = eval(`${key}.label`);
         const mod = eval(`${key}.mod`);
-        // let bonus = eval(`${key}.bonus`);
+        // Prise en compte de la notion de PJ incompétent
+        let bonus = actor.getIncompetentSkillMalus(key);
         let superior = eval(`${key}.superior`);
         const critrange = 20;
-        // bonus = (bonus) ? bonus : 0;
         label = (label) ? game.i18n.localize(label) : null;
-        return this.skillRollDialog(actor, label, mod, 0, critrange, superior);
-
+        return this.skillRollDialog(actor, label, mod, bonus, critrange, superior);
     }
 
     /**

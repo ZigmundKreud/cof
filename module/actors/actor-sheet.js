@@ -2,16 +2,16 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-import {Capacity} from "../controllers/capacity.js";
-import {Path} from "../controllers/path.js";
-import {Profile} from "../controllers/profile.js";
-import {Species} from "../controllers/species.js";
-import {CofRoll} from "../controllers/roll.js";
-import {Traversal} from "../utils/traversal.js";
-import {ArrayUtils} from "../utils/array-utils.js";
-import {Inventory} from "../controllers/inventory.js";
-import {System} from "../system/config.js";
-import {CofBaseSheet} from "./base-sheet.js";
+import { Capacity } from "../controllers/capacity.js";
+import { Path } from "../controllers/path.js";
+import { Profile } from "../controllers/profile.js";
+import { Species } from "../controllers/species.js";
+import { CofRoll } from "../controllers/roll.js";
+import { Traversal } from "../utils/traversal.js";
+import { ArrayUtils } from "../utils/array-utils.js";
+import { Inventory } from "../controllers/inventory.js";
+import { System } from "../system/config.js";
+import { CofBaseSheet } from "./base-sheet.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -22,8 +22,8 @@ export class CofActorSheet extends CofBaseSheet {
             template: System.templatesPath + "/actors/actor-sheet.hbs",
             width: 950,
             height: 670,
-            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats"}],
-            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
+            dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
     }
 
@@ -89,7 +89,7 @@ export class CofActorSheet extends CofBaseSheet {
                         ArrayUtils.remove(actor.data.data.settings[tab].folded, category)
                     }
                 }
-                actor.update({"data.settings": actor.data.data.settings})
+                actor.update({ "data.settings": actor.data.data.settings })
             });
         });
         // Check/Uncheck capacities
@@ -167,8 +167,8 @@ export class CofActorSheet extends CofBaseSheet {
             ev.preventDefault();
             const data = this.getData().data;
             data.weapons = Object.values(data.weapons);
-            data.weapons.push({"name": "", "mod": null, "dmg": null});
-            this.actor.update({'data.weapons': data.weapons});
+            data.weapons.push({ "name": "", "mod": null, "dmg": null });
+            this.actor.update({ 'data.weapons': data.weapons });
         });
         html.find('.weapon-remove').click(ev => {
             ev.preventDefault();
@@ -176,9 +176,9 @@ export class CofActorSheet extends CofBaseSheet {
             const idx = elt.data("itemId");
             const data = this.getData().data;
             data.weapons = Object.values(data.weapons);
-            if (data.weapons.length == 1) data.weapons[0] = {"name": "", "mod": null, "dmg": null};
+            if (data.weapons.length == 1) data.weapons[0] = { "name": "", "mod": null, "dmg": null };
             else data.weapons.splice(idx, 1);
-            this.actor.update({'data.weapons': data.weapons});
+            this.actor.update({ 'data.weapons': data.weapons });
         });
     }
 
@@ -198,8 +198,21 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onToggleEquip(event) {
         event.preventDefault();
-        AudioHelper.play({src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false}, false);
-        return Inventory.onToggleEquip(this.actor, event);
+        AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+        return Inventory.onToggleEquip(this.actor, event).then(item => {
+            // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
+            const incompetentItems = new Array();
+            const incompetentArmour = this.actor.getIncompetentArmour();
+            const incompetentShields = this.actor.getIncompetentShields();
+            const incompetentMeleeWeapons = this.actor.getIncompetentMeleeWeapons();
+            const incompetentRangedWeapons = this.actor.getIncompetentRangedWeapons();
+            if (incompetentArmour) incompetentItems.push(incompetentArmour);
+            if (incompetentShields) incompetentItems.push(incompetentShields);
+            if (incompetentMeleeWeapons) incompetentItems.push(incompetentMeleeWeapons);
+            if (incompetentRangedWeapons) incompetentItems.push(incompetentRangedWeapons);
+            const incompetentItem = incompetentItems.flat().find(element => element._id === item._id);
+            if (incompetentItem) ui.notifications?.warn(this.actor.name + " est incompétent dans le port de l'équipement " + incompetentItem.name);
+        });
     }
 
     /**
@@ -209,7 +222,7 @@ export class CofActorSheet extends CofBaseSheet {
      */
     _onConsume(event) {
         event.preventDefault();
-        AudioHelper.play({src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false}, false);
+        AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
         return Inventory.onConsume(this.actor, event);
     }
 
@@ -224,22 +237,11 @@ export class CofActorSheet extends CofBaseSheet {
         const itemId = li.data("itemId");
         const entity = this.actor.items.find(item => item._id === itemId);
         switch (entity.data.type) {
-            case "capacity" :
-                // return this.actor.deleteOwnedItem(itemId);
-                return Capacity.removeFromActor(this.actor, entity);
-                break;
-            case "path" :
-                return Path.removeFromActor(this.actor, entity);
-                break;
-            case "profile" :
-                return Profile.removeFromActor(this.actor, entity);
-                break;
-            case "species" :
-                return Species.removeFromActor(this.actor, entity);
-                break;
-            default: {
-                return this.actor.deleteOwnedItem(itemId);
-            }
+            case "capacity": return Capacity.removeFromActor(this.actor, entity);
+            case "path": return Path.removeFromActor(this.actor, entity);
+            case "profile": return Profile.removeFromActor(this.actor, entity);
+            case "species": return Species.removeFromActor(this.actor, entity);
+            default: return this.actor.deleteOwnedItem(itemId);
         }
     }
 
@@ -283,22 +285,14 @@ export class CofActorSheet extends CofBaseSheet {
         const rolltype = elt.attributes["data-roll-type"].value;
         const data = this.getData();
         switch (rolltype) {
-            case "skillcheck" :
-                return CofRoll.skillCheck(data.data, this.actor, event)
-            case "weapon" :
-                return CofRoll.rollWeapon(data.data, this.actor, event)
-            case "encounter-weapon" :
-                return CofRoll.rollEncounterWeapon(data.data, this.actor, event)
-            case "encounter-damage" :
-                return CofRoll.rollEncounterDamage(data.data, this.actor, event)
-            case "spell" :
-                return CofRoll.rollSpell(data.data, this.actor, event)
-            case "damage" :
-                return CofRoll.rollDamage(data.data, this.actor, event)
-            case "hp" :
-                return CofRoll.rollHitPoints(data.data, this.actor, event)
-            case "attributes" :
-                return CofRoll.rollAttributes(data.data, this.actor, event)
+            case "skillcheck": return CofRoll.skillCheck(data.data, this.actor, event)
+            case "weapon": return CofRoll.rollWeapon(data.data, this.actor, event)
+            case "encounter-weapon": return CofRoll.rollEncounterWeapon(data.data, this.actor, event)
+            case "encounter-damage": return CofRoll.rollEncounterDamage(data.data, this.actor, event)
+            case "spell": return CofRoll.rollSpell(data.data, this.actor, event)
+            case "damage": return CofRoll.rollDamage(data.data, this.actor, event)
+            case "hp": return CofRoll.rollHitPoints(data.data, this.actor, event)
+            case "attributes": return CofRoll.rollAttributes(data.data, this.actor, event)
         }
     }
 
@@ -345,20 +339,18 @@ export class CofActorSheet extends CofBaseSheet {
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
         switch (itemData.type) {
-            case "path"    :
-                return await Path.addToActor(this.actor, itemData);
-            case "profile" :
-                return await Profile.addToActor(this.actor, itemData);
-            case "species" :
-                return await Species.addToActor(this.actor, itemData);
-            case "capacity" :
-            default:
+            case "path": return await Path.addToActor(this.actor, itemData);
+            case "profile": return await Profile.addToActor(this.actor, itemData);
+            case "species": return await Species.addToActor(this.actor, itemData);
+            case "capacity":
+            default: {
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
                 let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
                 return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+            }
         }
         // if (authorized) {
         //     // Handle item sorting within the same Actor
@@ -424,7 +416,7 @@ export class CofActorSheet extends CofBaseSheet {
         });
         for (const path of paths) {
             data.capacities.collections.push({
-                id: (path.data.key) ? path.data.key : path.name.slugify({strict: true}),
+                id: (path.data.key) ? path.data.key : path.name.slugify({ strict: true }),
                 label: path.name,
                 items: Object.values(data.items).filter(item => {
                     if (item.type === "capacity" && item.data.path._id === path._id) return true;

@@ -2,7 +2,7 @@
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-import {Stats} from "../system/stats.js";
+import { Stats } from "../system/stats.js";
 
 export class CofActor extends Actor {
 
@@ -14,7 +14,7 @@ export class CofActor extends Actor {
     /** @override */
     prepareBaseData() {
         let actorData = this.data;
-        if(!actorData.data.settings){
+        if (!actorData.data.settings) {
             actorData.data.settings = {
                 "combat": { "folded": [] },
                 "inventory": { "folded": [] },
@@ -40,17 +40,18 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
-    _prepareBaseLootData(actorData) {}
+    _prepareBaseLootData(actorData) { }
 
     /* -------------------------------------------- */
 
-    _prepareDerivedLootData(actorData) {}
+    _prepareDerivedLootData(actorData) { }
 
     /* -------------------------------------------- */
 
     _prepareBaseCharacterData(actorData) {
         this.computeModsAndAttributes(actorData);
         this.computeAttacks(actorData);
+        this.computeIncompetentPJ(actorData);
     }
     /* -------------------------------------------- */
 
@@ -137,7 +138,7 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
-    _prepareDerivedEncounterData(actorData) {}
+    _prepareDerivedEncounterData(actorData) { }
 
     /* -------------------------------------------- */
 
@@ -164,7 +165,7 @@ export class CofActor extends Actor {
         return items.filter(i => i.type === "capacity" && i.data.rank)
     }
 
- 
+
     /* -------------------------------------------- */
 
     computeModsAndAttributes(actorData) {
@@ -176,7 +177,7 @@ export class CofActor extends Actor {
         let species = this.getSpecies(items);
         let profile = this.getProfile(items);
 
-        for(const [key, stat] of Object.entries(stats)){
+        for (const [key, stat] of Object.entries(stats)) {
             stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
@@ -188,7 +189,7 @@ export class CofActor extends Actor {
         // Points de chance
         attributes.fp.base = this.computeBaseFP(stats.cha.mod, profile);
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
-        
+
         if (attributes.fp.value >= attributes.fp.max) attributes.fp.value = attributes.fp.max;
         if (attributes.fp.value < 0) attributes.fp.value = 0;
 
@@ -198,35 +199,35 @@ export class CofActor extends Actor {
         // Points de récupération
         attributes.rp.base = this.computeBaseRP(actorData);
         attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
-        if(attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
-        if(attributes.rp.value < 0) attributes.rp.value = 0;
+        if (attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
+        if (attributes.rp.value < 0) attributes.rp.value = 0;
 
         // Points de vie
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
-        if(attributes.hp.value >= attributes.hp.max) attributes.hp.value = attributes.hp.max;
-        if(attributes.hp.value < 0) attributes.hp.value = 0;
+        if (attributes.hp.value >= attributes.hp.max) attributes.hp.value = attributes.hp.max;
+        if (attributes.hp.value < 0) attributes.hp.value = 0;
 
         // Points de magie
         const magicMod = this.getMagicMod(stats, profile);
-        if(profile){
+        if (profile) {
             attributes.hd.value = profile.data.dv;
             attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
         }
         else attributes.mp.base = 0;
         attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
 
-         // Point de magie
-         if (attributes.mp.value >= attributes.mp.max) attributes.mp.value = attributes.mp.max;
-         if (attributes.mp.value < 0) attributes.mp.value = 0;
+        // Point de magie
+        if (attributes.mp.value >= attributes.mp.max) attributes.mp.value = attributes.mp.max;
+        if (attributes.mp.value < 0) attributes.mp.value = 0;
     }
 
     /* -------------------------------------------- */
 
-    computeBaseFP(charismeMod, profile){
+    computeBaseFP(charismeMod, profile) {
         return 3 + charismeMod;
     }
 
-    computeBaseRP(actorData){
+    computeBaseRP(actorData) {
         return 5;
     }
 
@@ -254,9 +255,9 @@ export class CofActor extends Actor {
         }
     }
 
-    
+
     /* -------------------------------------------- */
-    
+
     getMeleeMod(stats, profile) {
         let strMod = stats.str.mod;
         return strMod;
@@ -277,13 +278,13 @@ export class CofActor extends Actor {
         let magicMod = intMod;
         if (profile) {
             switch (profile.data.spellcasting) {
-                case "wis" :
+                case "wis":
                     magicMod = wisMod;
                     break;
-                case "cha" :
+                case "cha":
                     magicMod = chaMod;
                     break;
-                default :
+                default:
                     magicMod = intMod;
                     break;
             }
@@ -328,5 +329,67 @@ export class CofActor extends Actor {
             alert.type = null;
         }
     }
+
+    // Notion PJ incompétent 
+    /**
+     * @name computeIncompetentPJ
+     * @description Cacule les malus liées aux équipements non maîtrisés par le PJ
+     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @public @override
+     * 
+     * @param {CofActor} actorData l'acteur
+     */
+    computeIncompetentPJ(actorData) {
+        // Traitement d'affectation à faire ici
+
+        // Obligatoire, doit être fait après le traitement d'affectation
+        this.computeModsAndAttributes(actorData);
+        this.computeAttacks(actorData);
+        //met à jour le mod des armes de mélée ou/et à distance utilisées
+        actorData.items.filter(item => item.data.subtype === "melee" && item.data.worn === true).forEach(element => { element.data.mod = actorData.data.attacks.melee.mod; });
+        actorData.items.filter(item => item.data.subtype === "ranged" && item.data.worn === true).forEach(element => { element.data.mod = actorData.data.attacks.ranged.mod; });
+    }
+
+    /**
+     * @name getIncompetentArmour
+     * @description obtenir la liste des armures non maîtrisées
+     * 
+     * @returns {Array} liste des armures non maîtrisées
+     */
+    getIncompetentArmour() { return new Array(); }
+
+    /**
+     * @name getIncompetentShields
+     * @description obtenir la liste des boucliers non maîtrisés
+     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @returns {Array} liste des boucliers non maîtrisés
+     */
+    getIncompetentShields() { return new Array(); }
+
+    /**
+     * @name getIncompetentMeleeWeapons
+     * @description obtenir la liste des armes de mélée non maîtrisées
+     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @returns {Array} liste des armes de mélée non maîtrisées
+     */
+    getIncompetentMeleeWeapons() { return new Array(); }
+
+    /**
+    * @name getIncompetentRangedWeapons
+    * @description obtenir la liste des armes à distance non maîtrisées
+    *              -> à implémenter dans chacun des modules Chroniques Oubliées.
+    * @returns {Array} liste des armes à distance non maîtrisées
+    */
+    getIncompetentRangedWeapons() { return new Array(); }
+
+    /**
+     * @name getIncompetentSkillMalus
+     * @description obtenir le malus liée à la notion PJ incompétent
+     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * 
+     * @param {string} skill le nom de la caractéristique
+     * @returns {int} retourne le malus 
+     */
+    getIncompetentSkillMalus(skill) { return 0; }
 }
 
