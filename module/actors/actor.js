@@ -51,7 +51,6 @@ export class CofActor extends Actor {
     _prepareBaseCharacterData(actorData) {
         this.computeModsAndAttributes(actorData);
         this.computeAttacks(actorData);
-        this.computeIncompetentPJ(actorData);
     }
     /* -------------------------------------------- */
 
@@ -60,6 +59,7 @@ export class CofActor extends Actor {
         this.computeAttacks(actorData);
         this.computeDef(actorData);
         this.computeXP(actorData);
+        this.computeIncompetentPJ(actorData);
     }
 
     /* -------------------------------------------- */

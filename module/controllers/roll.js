@@ -37,8 +37,9 @@ export class CofRoll {
         let item = actor.getOwnedItem(li.data("itemId"));
         const itemData = item.data;
         let label = itemData.name;
-        let incompetentMod = (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) || actor.getIncompetentRangedWeapons().find(element => element._id === item._id)) ? -3 : 0;
-        let mod = itemData.data.mod + incompetentMod;
+        let incompetentMod = (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) || 
+                              actor.getIncompetentRangedWeapons().find(element => element._id === item._id)) ? -3 : 0;
+        let mod = actor.data.data.attacks[itemData.data.subtype].mod + incompetentMod + itemData.data.skillBonus;
         let critrange = itemData.data.critrange;
         let dmg = itemData.data.dmg;
         return this.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
