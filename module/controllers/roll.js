@@ -18,13 +18,12 @@ export class CofRoll {
         const elt = $(event.currentTarget)[0];
         let key = elt.attributes["data-rolling"].value;
         let label = eval(`${key}.label`);
-        const mod = eval(`${key}.mod`);
         // Prise en compte de la notion de PJ incompétent
-        let bonus = actor.getIncompetentSkillMalus(key);
+        let mod = eval(`${key}.mod`) + actor.getIncompetentSkillMalus(key);
         let superior = eval(`${key}.superior`);
         const critrange = 20;
         label = (label) ? game.i18n.localize(label) : null;
-        return this.skillRollDialog(actor, label, mod, bonus, critrange, superior);
+        return this.skillRollDialog(actor, label, mod, 0, critrange, superior);
     }
 
     /**
@@ -38,7 +37,8 @@ export class CofRoll {
         let item = actor.getOwnedItem(li.data("itemId"));
         const itemData = item.data;
         let label = itemData.name;
-        let mod = itemData.data.mod;
+        let incompetentMod = (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) || actor.getIncompetentRangedWeapons().find(element => element._id === item._id)) ? -3 : 0;
+        let mod = itemData.data.mod + incompetentMod;
         let critrange = itemData.data.critrange;
         let dmg = itemData.data.dmg;
         return this.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);

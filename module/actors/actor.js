@@ -345,9 +345,6 @@ export class CofActor extends Actor {
         // Obligatoire, doit être fait après le traitement d'affectation
         this.computeModsAndAttributes(actorData);
         this.computeAttacks(actorData);
-        //met à jour le mod des armes de mélée ou/et à distance utilisées
-        actorData.items.filter(item => item.data.subtype === "melee" && item.data.worn === true).forEach(element => { element.data.mod = actorData.data.attacks.melee.mod; });
-        actorData.items.filter(item => item.data.subtype === "ranged" && item.data.worn === true).forEach(element => { element.data.mod = actorData.data.attacks.ranged.mod; });
     }
 
     /**
