@@ -1,11 +1,11 @@
 <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="stats">{{ localize "COF.tabs.stats" }}</a>
     <a class="item" data-tab="combat">{{ localize "COF.tabs.combat" }}</a>
-    <a class="item compendium-pack" data-pack="cof-srd.items" data-open="0" data-tab="inventory">{{ localize "COF.tabs.inventory" }}</a>
+    <a class="item compendium-pack" data-pack="cof-srd.items" data-open="0" data-tab="inventory" title="click droit pour ouvrir le compendium"><i class="fas fa-atlas"></i>&nbsp;&nbsp;{{ localize "COF.tabs.inventory" }}</a>
     {{#if (equals actor.type "encounter")}}
-        <a class="item compendium-pack" data-pack="cof-srd.encounters-paths" data-open="0" data-tab="capacities">{{ localize "COF.tabs.paths" }} & {{ localize "COF.tabs.capacities" }}</a>
+        <a class="item compendium-pack" data-pack="cof-srd.encounters-paths" data-open="0" data-tab="capacities" title="click droit pour ouvrir le compendium"><i class="fas fa-atlas"></i>&nbsp;&nbsp;{{ localize "COF.tabs.paths" }} & {{ localize "COF.tabs.capacities" }}</a>
     {{else}}
-        <a class="item compendium-pack" data-pack="cof-srd.paths" data-open="0" data-tab="capacities">{{ localize "COF.tabs.paths" }} & {{ localize "COF.tabs.capacities" }}</a>
+        <a class="item compendium-pack" data-pack="cof-srd.paths" data-open="0" data-tab="capacities" title="click droit pour ouvrir le compendium"><i class="fas fa-atlas"></i>&nbsp;&nbsp;{{ localize "COF.tabs.paths" }} & {{ localize "COF.tabs.capacities" }}</a>
     {{/if}}
     <a class="item" data-tab="effects">{{ localize "COF.tabs.effects" }}</a> <a class="item" data-tab="description">{{ localize "COF.tabs.description" }}</a>
 </nav>

@@ -56,7 +56,7 @@ export class Profile {
                 Path.removePathsFromActor(actor, paths).then(() => {
                     ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimés." : " voie a été supprimé"));
                 });
-                ui.notifications.info("la profil a été supprimé.");
+                ui.notifications.info("le profil a été supprimé.");
                 return actor.deleteOwnedItem(profile.data._id);
             },
             defaultYes: false
