@@ -60,6 +60,7 @@ COF.itemProperties = {
 };
 
 COF.itemCategories = {
+    "other": "COF.category.other",
     "armor": "COF.category.armor",
     "shield": "COF.category.shield",
     "melee": "COF.category.melee",
@@ -73,6 +74,5 @@ COF.itemCategories = {
     "container": "COF.category.container",
     "mount": "COF.category.mount",
     "currency": "COF.category.currency",
-    "trapping": "COF.category.trapping",
-    "other": "COF.category.other"
+    "trapping": "COF.category.trapping"
 }
