@@ -69,4 +69,15 @@ export const registerSystemSettings = function() {
         type: Boolean,
         onChange: lang => window.location.reload()
     });
+
+    game.settings.register("cof", "useIncompetentPJ", {
+        name: "PJ incompétent",
+        hint: "Utiliser la règle du PJ Incompétent.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
+    
 };

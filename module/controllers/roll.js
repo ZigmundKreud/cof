@@ -1,11 +1,11 @@
-import {CharacterGeneration} from "../system/chargen.js";
-import {CofSkillRoll} from "./skill-roll.js";
-import {CofDamageRoll} from "./dmg-roll.js";
-import {CofAttributesDialog} from "../dialogs/attributes-dialog.js";
+import { CharacterGeneration } from "../system/chargen.js";
+import { CofSkillRoll } from "./skill-roll.js";
+import { CofDamageRoll } from "./dmg-roll.js";
+import { CofAttributesDialog } from "../dialogs/attributes-dialog.js";
 
 export class CofRoll {
     static options() {
-        return {classes: ["cof", "dialog"]};
+        return { classes: ["cof", "dialog"] };
     }
 
     /**
@@ -38,8 +38,8 @@ export class CofRoll {
         const itemData = item.data;
         let label = itemData.name;
         const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
-        let incompetentMod = (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) || 
-                              actor.getIncompetentRangedWeapons().find(element => element._id === item._id)) ? -3 : 0;        
+        let incompetentMod = (game.settings.get("cof", "useIncompetentPJ") && (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) ||
+            actor.getIncompetentRangedWeapons().find(element => element._id === item._id))) ? -3 : 0;
         let mod = modStat + incompetentMod + itemData.data.skillBonus;
         let critrange = itemData.data.critrange;
         let dmg = itemData.data.dmg;
@@ -143,13 +143,13 @@ export class CofRoll {
                         r.toMessage({
                             user: game.user._id,
                             flavor: "<h2>Roll Hit Points</h2>",
-                            speaker: ChatMessage.getSpeaker({actor: actor})
+                            speaker: ChatMessage.getSpeaker({ actor: actor })
                         });
                         hp.base = hpLvl1 + r.total;
                         hp.max = hp.base + hp.bonus;
                         hp.value = hp.max;
                     }
-                    actor.update({'data.attributes.hp': hp});
+                    actor.update({ 'data.attributes.hp': hp });
                 } else ui.notifications.error("Vous devez sélectionner un profil ou choisir un Dé de Vie.");
             },
             defaultYes: false
@@ -173,7 +173,7 @@ export class CofRoll {
 
     static async skillRollDialog(actor, label, mod, bonus, critrange, superior = false, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {mod: mod, bonus: bonus, critrange: critrange, superior: superior});
+        const rollOptionContent = await renderTemplate(rollOptionTpl, { mod: mod, bonus: bonus, critrange: critrange, superior: superior });
         let d = new Dialog({
             title: label,
             content: rollOptionContent,
@@ -261,7 +261,7 @@ export class CofRoll {
 
     static async rollDamageDialog(actor, label, formula, bonus, critical = false, onEnter = "submit") {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-dmg-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, {dmgFormula: formula, dmgBonus: bonus, dmgCustomFormula: "", isCritical: critical});
+        const rollOptionContent = await renderTemplate(rollOptionTpl, { dmgFormula: formula, dmgBonus: bonus, dmgCustomFormula: "", isCritical: critical });
 
         let d = new Dialog({
             title: "Damage Roll",

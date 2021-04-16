@@ -200,6 +200,7 @@ export class CofActorSheet extends CofBaseSheet {
         event.preventDefault();
         AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
         return Inventory.onToggleEquip(this.actor, event).then(item => {
+            if (!game.settings.get("cof", "useIncompetentPJ")) return;
             // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
             const incompetentItems = new Array();
             const incompetentArmour = this.actor.getIncompetentArmour();
