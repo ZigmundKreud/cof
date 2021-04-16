@@ -397,6 +397,21 @@ export class CofActorSheet extends CofBaseSheet {
             });
         }
 
+        data.combat.categories.forEach(category => {
+            if (category.items.length > 0) {                
+                category.items.forEach(item => {
+                    if (item.data.properties?.weapon) {
+                        // Compute damage mod
+                        const dmgStat = eval("data.actor.data." + item.data.dmgStat.split("@")[1]);
+                        const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(item.data.dmgBonus) : parseInt(item.data.dmgBonus);
+                        if (dmgBonus < 0) item.data.dmg = item.data.dmgBase + " - " + parseInt(-dmgBonus);
+                        else if (dmgBonus === 0) item.data.dmg = item.data.dmgBase;
+                        else item.data.dmg = item.data.dmgBase + " + " + dmgBonus;
+                    }
+                });
+            }
+        });
+
         // PATHS & CAPACITIES
         const paths = data.items.filter(item => item.type === "path");
         data.paths = paths;
