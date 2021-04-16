@@ -27,14 +27,18 @@
             <div class="flex1 center bg-darkgreen">
                 <span class="field-label">{{ localize 'COF.details.species' }}</span>
             </div>
-            {{#with species}}
-                <div class="flex2 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="species" data-pack="cof-srd.species" data-open="0">                
-                    <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
-                    <div class="species-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
-                    </div>                
-                </div>
-            {{/with}}
+            {{#if species}}
+                {{#with species}}
+                    <div class="flex2 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="species" data-pack="cof-srd.species" data-open="0">                
+                        <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
+                        <div class="species-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
+                        </div>                
+                    </div>
+                {{/with}}
+            {{else}}
+                <div class="flex2 center cell drop-field"></div>
+            {{/if}}
         </div>
         <!-- /SPECIES -->
         <!-- PROFILE -->
@@ -42,14 +46,18 @@
             <div class="flex2 center bg-darkgreen">
                 <span class="field-label">{{ localize 'COF.details.profile' }}</span>
             </div>
-            {{#with profile}}
-                <div class="flex4 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="profile data-pack="cof-srd.profiles" data-open="0">                
-                    <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
-                    <div class="profile-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
-                    </div>                
-                </div>
-            {{/with}}
+            {{#if profile}}
+                {{#with profile}}
+                    <div class="flex4 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="profile data-pack="cof-srd.profiles" data-open="0">                
+                        <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
+                        <div class="profile-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
+                        </div>                
+                    </div>
+                {{/with}}
+            {{else}}
+                <div class="flex4 center cell drop-field"></div>
+            {{/if}}
         </div>
         <!-- /PROFILE -->
     </div>
