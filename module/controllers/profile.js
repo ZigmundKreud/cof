@@ -40,7 +40,7 @@ export class Profile {
     }
     /**
      * @name removeFromActor
-     * @description Supprime le profil et ses voies de l'acteur en paramêtre
+     * @description Supprime le profil et ses voies de l'acteur en paramètre
      * @public @static 
      * 
      * @param {CofActor} actor l'acteur sur lequel supprimer le profil
@@ -54,9 +54,9 @@ export class Profile {
             content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${actor.name} ?</p>`,
             yes: () => {
                 Path.removePathsFromActor(actor, paths).then(() => {
-                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimés." : " voie a été supprimé"));
+                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
                 });
-                ui.notifications.info("le profil a été supprimé.");
+                ui.notifications.info("Le profil a été supprimé.");
                 return actor.deleteOwnedItem(profile.data._id);
             },
             defaultYes: false
