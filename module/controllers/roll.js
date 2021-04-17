@@ -37,13 +37,14 @@ export class CofRoll {
         let item = actor.getOwnedItem(li.data("itemId"));
         const itemData = item.data;
         let label = itemData.name;
+        // Compute mod
         const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
         let incompetentMod = (game.settings.get("cof", "useIncompetentPJ") && (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) ||
             actor.getIncompetentRangedWeapons().find(element => element._id === item._id))) ? -3 : 0;
         let mod = modStat + incompetentMod + itemData.data.skillBonus;
         let critrange = itemData.data.critrange;
+        // Compute damage
         let dmg = itemData.data.dmg;
-        // Compute damage mod
         const dmgStat = eval("actor.data.data." + itemData.data.dmgStat.split("@")[1]);
         const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
         if (dmgBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgBonus);
