@@ -45,7 +45,7 @@ export class Macros {
         }
     };
 
-    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, dmgBonus=0) {
+    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, dmgBonus=0, dmgOnly=false) {
         const actor = this.getSpeakersActor()
         let item;
         item = actor ? actor.items.find(i => i.id === itemId) : null;
@@ -65,12 +65,15 @@ export class Macros {
                 // Compute damage
                 let dmg = itemData.data.dmg;
                 const dmgStat = eval("actor.data.data." + itemData.data.dmgStat.split("@")[1]);
-                const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
-                if (dmgBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgBonus);
-                else if (dmgBonus === 0) dmg = itemData.data.dmgBase;
-                else dmg = itemData.data.dmgBase + " + " + dmgBonus;
+                const dmgAllBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
+                if (dmgAllBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgAllBonus);
+                else if (dmgAllBonus === 0) dmg = itemData.data.dmgBase;
+                else dmg = itemData.data.dmgBase + " + " + dmgAllBonus;
                 
-                CofRoll.rollWeaponDialog(actor, label, mod, bonus, critrange, dmg, dmgBonus);
+                if (dmgOnly) {
+                    CofRoll.rollDamageDialog(actor, label, dmg, 0);
+                }
+                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, critrange, dmg, dmgBonus);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }
