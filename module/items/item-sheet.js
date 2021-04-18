@@ -64,10 +64,57 @@ export class CofItemSheet extends ItemSheet {
         });
 
         // Display item sheet
-        html.find('.item-name').click(this._onEditItem.bind(this));
         html.find('.item-edit').click(this._onEditItem.bind(this));
         // Delete items
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
+
+        // Item Effects
+        html.find('.item-name').click(ev=>{
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            if (!elt) this._onEditItem.bind(this)
+            else {
+                const effectId = elt.data("itemId");
+                let effect = this.item.effects.get(effectId);
+                if (effect){
+                    new ActiveEffectConfig(effect).render(true);
+                }
+            }
+        });
+        html.find('.effect-edit').click(ev => {
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            const effectId = elt.data("itemId");
+            let effect = this.item.effects.get(effectId);
+            if (effect){
+                new ActiveEffectConfig(effect).render(true);
+            }
+        });        
+        html.find('.effect-create').click(ev => {
+            ev.preventDefault();
+            return ActiveEffect.create({
+                label: game.i18n.localize("COF.ui.newEffect"),
+                icon: "icons/svg/aura.svg",
+                "duration.rounds": undefined,
+                disabled: false
+            }, this.item).create();
+        });
+        html.find('.effect-delete').click(ev => {
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            const effectId = elt.data("itemId");
+            let effect = this.item.effects.get(effectId);
+            if (effect) effect.delete();
+        });
+        html.find('.effect-toggle').click(ev => {
+            ev.preventDefault();
+            const elt = $(ev.currentTarget).parents(".effect");
+            const effectId = elt.data("itemId");
+            let effect = this.item.effects.get(effectId);
+            if (effect){
+                effect.update({disabled:!effect.data.disabled})
+            }
+        });          
 
     }
 
@@ -230,6 +277,7 @@ export class CofItemSheet extends ItemSheet {
         data.config = game.cof.config;
         data.itemType = data.item.type.titleCase();
         data.itemProperties = this._getItemProperties(data.item);
+        data.effects = data.item.effects;
         return data;
     }
 }

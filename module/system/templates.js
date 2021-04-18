@@ -20,8 +20,6 @@ export const preloadHandlebarsTemplates = async function () {
         "systems/cof/templates/actors/parts/combat/encounter-combat.hbs",
         "systems/cof/templates/actors/parts/details/actor-details.hbs",
         "systems/cof/templates/actors/parts/details/encounter-details.hbs",
-        "systems/cof/templates/actors/parts/effects/actor-effects.hbs",
-        "systems/cof/templates/actors/parts/effects/actor-effects-item.hbs",
         "systems/cof/templates/actors/parts/inventory/actor-inventory.hbs",
         "systems/cof/templates/actors/parts/inventory/actor-inventory-item.hbs",
         "systems/cof/templates/actors/parts/stats/actor-stats.hbs",
@@ -34,6 +32,10 @@ export const preloadHandlebarsTemplates = async function () {
         "systems/cof/templates/actors/parts/stats/actor-vitality.hbs",
         "systems/cof/templates/actors/parts/stats/actor-defence.hbs",
         "systems/cof/templates/actors/parts/stats/actor-init.hbs",
+        
+        // EFFECTS
+        "systems/cof/templates/effects/effects.hbs",
+        "systems/cof/templates/effects/effects-item.hbs",
 
         // DIALOGS
         "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs",
