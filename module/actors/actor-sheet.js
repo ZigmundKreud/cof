@@ -25,7 +25,7 @@ export class CofActorSheet extends CofBaseSheet {
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
             dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
-    }
+    }  
 
     /** @override */
     activateListeners(html) {
@@ -37,7 +37,7 @@ export class CofActorSheet extends CofBaseSheet {
         html.find('.compendium-pack').contextmenu(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget);
-            const pack = game.packs.get(li.data("pack"));
+            const pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (pack) {
                 if (li.attr("data-open") === "1") pack.close();
                 else {
@@ -49,7 +49,7 @@ export class CofActorSheet extends CofBaseSheet {
         // Click to open
         html.find('.item-create.compendium-pack').click(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
@@ -445,7 +445,8 @@ export class CofActorSheet extends CofBaseSheet {
             "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
             "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
             "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-        };
+        };       
+
         return data;
     }
 }

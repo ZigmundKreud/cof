@@ -96,6 +96,52 @@
   color: #fff;
 }
 
+/* Functional Colors*/
+.bg-default {
+  background: #003c1e;
+  color: #fff;
+}
+
+.color-default {
+  color: #003c1e;
+}
+
+.bg-header {
+  background: #003c1e;
+  color: #fff;
+}
+
+.color-header {
+  color: #003c1e;
+}
+
+.bg-health {
+  background: #44a12b;
+  color: #fff;
+}
+
+.color-health {
+  color: #44a12b;
+}
+
+.bg-stats {
+  background: #003c1e;
+  color: #fff;
+}
+
+.color-stats {
+  color: #003c1e;
+}
+
+.bg-resource {
+  background: darkslategray;
+  color: #fff;
+}
+
+.color-resource {
+  color: darkslategray;
+}
+
 /* ----------------------------------------- */
 /*  LOCAL FONTS                             */
 /* ----------------------------------------- */

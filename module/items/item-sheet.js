@@ -22,6 +22,10 @@ export class CofItemSheet extends ItemSheet {
         });
     }
 
+    getPackPrefix(){
+        return "cof-srd";
+    }
+
     /**
      * Activate the default set of listeners for the Entity sheet
      * These listeners handle basic stuff like form submission or updating images
@@ -54,7 +58,7 @@ export class CofItemSheet extends ItemSheet {
         // Click to open
         html.find('.compendium-pack').click(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if ( li.attr("data-open") === "1" ) pack.close();
             else {
                 li.attr("data-open", "1");

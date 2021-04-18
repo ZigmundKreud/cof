@@ -1,26 +1,26 @@
-<div class="flexrow table-header darkgreen no-wrap">
+<div class="flexrow table-header color-default no-wrap">
     <div class="flex2 center rollable" data-rolling="data.stats" data-roll-type="attributes">
         <div class="field-label ellipsis"><i class="fas fa-dice-d6"></i>&nbsp;{{ localize 'COF.stats.abbrev' }}</div>
     </div>
-    <div class="flex1 center">
+    <div class="flex1 center color-default">
         <div class="field-label">{{ localize 'COF.ui.base' }}</div>
     </div>
-    <div class="flex1 center">
+    <div class="flex1 center color-default">
         <div class="field-label">{{ localize 'COF.ui.racial' }}</div>
     </div>
-    <div class="flex1 center">
+    <div class="flex1 center color-default">
         <div class="field-label">{{ localize 'COF.ui.bonus' }}</div>
     </div>
-    <div class="flex1 center">
+    <div class="flex1 center color-default">
         <div class="field-label">{{ localize 'COF.ui.value' }}</div>
     </div>
-    <div class="flex1 center">
+    <div class="flex1 center color-default">
         <div class="field-label">{{ localize 'COF.ui.mod' }}</div>
     </div>
 </div>
 {{#each actor.data.stats as |stat id|}}
 <div class="flexrow no-wrap">
-    <div class="flex2 bg-darkgreen">
+    <div class="flex2 bg-default">
         <div class="flexrow no-wrap">
             <div class="flex1 center no-wrap" title="Supérieur (2d20)">
                 <input type="checkbox" name="data.stats.{{id}}.superior" {{checked stat.superior}}>

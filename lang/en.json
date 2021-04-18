@@ -39,6 +39,8 @@
   "COF.ui.racial": "Racial",
   "COF.ui.value": "Value",
   "COF.ui.mod" : "Mod",
+  "COF.ui.total" : "Total",
+  "COF.ui.combat" : "COMBAT",
   "COF.ui.tmp" : "Temp",
   "COF.ui.max" : "Max",
   "COF.ui.current" : "Current",
@@ -195,6 +197,7 @@
   "COF.attributes.sc.abbrev": "SPELL",
 
   "COF.attacks.label": "ATTACKS",
+  "COF.attack.label": "ATTACK",
   "COF.attacks.name.abbrev" : "Name",
   "COF.attacks.mod.abbrev" : "Base",
   "COF.attacks.tmpmod.abbrev" : "Mod",
