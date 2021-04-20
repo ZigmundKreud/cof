@@ -134,8 +134,8 @@ export class CofRoll {
         const actorData = actor.data;
 
         Dialog.confirm({
-            title: "Roll Hit Points",
-            content: `<p>Êtes sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
+            title: "Lancer les points de vie",
+            content: `<p>Êtes-vous sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
             yes: () => {
                 if (actorData.data.attributes.hd && actorData.data.attributes.hd.value) {
                     const hd = actorData.data.attributes.hd.value;
@@ -176,6 +176,56 @@ export class CofRoll {
     static async rollAttributes(data, actor, event) {
         return this.attributesRollDialog(actor);
     }
+
+    /**
+     *  Handles recovery roll
+     * @param 
+     * @param 
+     * @param
+     * @param
+     * @private
+     */
+    static async rollRecoveryUse(data, actor, event, withHPrecovery) {
+        let recoveryPoints = data.attributes.rp.value;
+        if (!recoveryPoints > 0) return;
+
+        let hp = data.attributes.hp;
+        let rp = data.attributes.rp;
+        const level = data.level.value;
+        const conMod = data.stats.con.mod;
+        const actorData = actor.data;
+    
+        if (!withHPrecovery) {
+            rp.value -= 1;
+            actor.update({ 'data.attributes.rp': rp });
+        }
+        else {
+
+        Dialog.confirm({
+                title: "Dépenser un point de récupération ",
+                content: `<p>Êtes-vous sûr de vouloir dépenser 1 point de récupération ?`,
+                yes: () => {
+                        const hd = actorData.data.attributes.hd.value;
+                        const hdmax = parseInt(hd.split("d")[1]);
+                        const bonus = level + conMod;
+                        const formula = `1d${hdmax} + ${bonus}`;
+                        const r = new Roll(formula);
+                        r.roll();
+                        r.toMessage({
+                                user: game.user._id,
+                                flavor: "<h2>Dépense un point de récupération</h2>",
+                                speaker: ChatMessage.getSpeaker({ actor: actor })
+                        });
+    
+                        hp.value += r.total;
+                        rp.value -= 1;
+                        actor.update({ 'data.attributes.hp': hp, 'data.attributes.rp': rp });
+                },
+                defaultYes: false
+            });
+        }   
+    }
+    
 
     /* -------------------------------------------- */
     /* ROLL DIALOGS                                 */

@@ -18,7 +18,7 @@
     </div>
     <div class="flexrow no-wrap">
         <div class="flex8 center bg-health">
-            <span class="field-label ellipsis"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
+            <span class="field-label ellipsis rollable" data-rolling="data.attributes.hp" data-roll-type="recovery" title="dépenser un PR avec PV, SHIFT+click sans PV"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
         </div>
         <div class="flex3 center cell readonly">
             <input class="field-value" name="data.attributes.rp.base" readonly="true" type="text" value="{{actor.data.attributes.rp.base}}" placeholder="Base" data-dtype="Number"/>

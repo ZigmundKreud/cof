@@ -64,7 +64,7 @@ export class CofActorSheet extends CofBaseSheet {
             }
         });
 
-        // Initiate a roll
+        // Initiate a roll with a left click
         html.find('.rollable').click(ev => {
             ev.preventDefault();
             return this._onRoll(ev);
@@ -278,6 +278,12 @@ export class CofActorSheet extends CofBaseSheet {
         const elt = $(event.currentTarget)[0];
         const rolltype = elt.attributes["data-roll-type"].value;
         const data = this.getData();
+        // SHIFT + click
+        if (event.shiftKey) {
+            switch (rolltype) {
+                case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, false)
+            }
+        }
         switch (rolltype) {
             case "skillcheck": return CofRoll.skillCheck(data.data, this.actor, event)
             case "weapon": return CofRoll.rollWeapon(data.data, this.actor, event)
@@ -287,6 +293,7 @@ export class CofActorSheet extends CofBaseSheet {
             case "damage": return CofRoll.rollDamage(data.data, this.actor, event)
             case "hp": return CofRoll.rollHitPoints(data.data, this.actor, event)
             case "attributes": return CofRoll.rollAttributes(data.data, this.actor, event)
+            case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, true)
         }
     }
 
