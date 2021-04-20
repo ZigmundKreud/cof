@@ -18,8 +18,8 @@ export class CofRoll {
         const elt = $(event.currentTarget)[0];
         let key = elt.attributes["data-rolling"].value;
         let label = eval(`${key}.label`);
-        // Prise en compte de la notion de PJ incompétent
-        let mod = eval(`${key}.mod`) + actor.getIncompetentSkillMalus(key);
+        // Prise en compte de la notion de PJ incompétent et de l'encombrement
+        let mod = eval(`${key}.mod`) + actor.getIncompetentSkillMalus(key) + actor.getOverloadedSkillMalus(key);
         let superior = eval(`${key}.superior`);
         const critrange = 20;
         label = (label) ? game.i18n.localize(label) : null;

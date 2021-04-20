@@ -163,8 +163,16 @@ export class CofActor extends Actor {
     }
 
 
-    /* -------------------------------------------- */
-
+    /**
+     * @name computeModsAndAttributes
+     * @description Effectue tous les calculs des caracatéristiques, initiative, attaques,
+     *              DV, points de vie, points de chance, points de mana, points de récupération
+     *              résistance aux dégâts
+     * @public
+     * 
+     * @param {Actor.data} actorData 
+     * 
+     */
     computeModsAndAttributes(actorData) {
 
         let stats = actorData.data.stats;
@@ -174,15 +182,22 @@ export class CofActor extends Actor {
         let species = this.getSpecies(items);
         let profile = this.getProfile(items);
 
+        // Encombrement des armures et boucliers
+        const overloaded = this.getOverloadedMalus();
+
+        // Caractéristiques et leurs modificateurs
         for (const [key, stat] of Object.entries(stats)) {
             stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
         }
 
+        // Initiative
         attributes.init.base = stats.dex.value;
         // Malus des armures et boucliers
-        attributes.init.malus += this.getArmourMalus() + this.getShieldMalus();        
+        attributes.init.malus = this.getArmourMalus() + this.getShieldMalus();        
+        // Encombrement
+        attributes.init.malus += overloaded;
         attributes.init.value = attributes.init.base + attributes.init.bonus + attributes.init.malus;
 
         // Points de chance
@@ -198,37 +213,59 @@ export class CofActor extends Actor {
         // Points de récupération
         attributes.rp.base = this.computeBaseRP(actorData);
         attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
+
         if (attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
         if (attributes.rp.value < 0) attributes.rp.value = 0;
 
-        // DV et Points de vie
+        // DV
         if (profile) attributes.hd.value = profile.data.dv;
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
 
+        // Points de vie
         if (attributes.hp.value > attributes.hp.max) attributes.hp.value = attributes.hp.max;
         if (attributes.hp.value < 0) attributes.hp.value = 0;
-
 
         // Points de magie
         const magicMod = this.getMagicMod(stats, profile);
         if (profile) attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
         else attributes.mp.base = 0;
-        attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
-
+         // Encombrement
+        attributes.mp.malus -= overloaded;
+        attributes.mp.max = attributes.mp.base + attributes.mp.bonus + attributes.mp.malus;
+        
         if (attributes.mp.value > attributes.mp.max) attributes.mp.value = attributes.mp.max;
         if (attributes.mp.value < 0) attributes.mp.value = 0;
     }
 
-    /* -------------------------------------------- */
-
+/**
+     * @name computeBaseFP
+     * @description Calcule le nombre de points de chance
+     * @public
+     * 
+     * @param {Int} charismeMod Modificateur de charisme
+     * @param {CofItem} profile Item de type profile
+     * 
+     */
     computeBaseFP(charismeMod, profile) {
         return 3 + charismeMod;
     }
 
+    /**
+     * @name computeBaseRP
+     * @description Calcule le nombre de points de récupération
+     * @public 
+     * 
+     * @param {Actor.data} 
+     * 
+     */
     computeBaseRP(actorData) {
         return 5;
     }
 
+    /**
+     * 
+     * @param {*} actorData 
+     */
     computeAttacks(actorData) {
 
         let stats = actorData.data.stats;                
@@ -251,13 +288,15 @@ export class CofActor extends Actor {
         ranged.base = (rangedMod) ? rangedMod + lvl : lvl;
         magic.base = (magicMod) ? magicMod + lvl : lvl;
 
-        // Calcul du malus
-        // TODO Malus de l'encombrement
-
         // Malus des armures et boucliers
         for (let attack of Object.values(attacks)) {
             attack.malus += this.getArmourMalus() + this.getShieldMalus();
         }
+
+        // Encombrement des armures et boucliers
+        const overloaded = this.getDefenceFromArmorAndShield();
+        attacks.magic.malus -= overloaded;
+        attacks.ranged.malus -= Math.floor(overloaded/2);
 
         // Calcul du total
         for (let attack of Object.values(attacks)) {
@@ -308,11 +347,8 @@ export class CofActor extends Actor {
         let stats = actorData.data.stats;
         let attributes = actorData.data.attributes;
 
-        let protections = actorData.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);        
-        let protection = protections.reduce((acc, curr) => acc + curr, 0);
+        const protection = this.getDefenceFromArmorAndShield();
         
-        // TODO Calcul de l'encombrement des armures et boucliers
-
         attributes.def.base = 10 + stats.dex.mod + protection;
         attributes.def.value = attributes.def.base + attributes.def.bonus + attributes.def.malus;
     }
@@ -345,6 +381,13 @@ export class CofActor extends Actor {
 
     getIncompetentMalus() { return -3; }
 
+    /**
+     * @name getIncompetentSkillMalus
+     * @description obtenir le malus lié à la notion PJ incompétent
+     * 
+     * @param {string} skill le nom de la caractéristique
+     * @returns {int} retourne le malus 
+     */
     getIncompetentSkillMalus(skill) {
         let malus = 0;
         if (game.settings.get("cof", "useIncompetentPJ")) {
@@ -354,6 +397,27 @@ export class CofActor extends Actor {
             }
         }
         return malus;
+    }
+
+    
+    /**
+     * @name getOverloadedSkillMalus
+     * @description obtenir le malus lié à l'encombrement
+     * 
+     * @param {string} skill le nom de la caractéristique
+     * @returns {int} retourne le malus 
+     */
+    getOverloadedSkillMalus(skill){
+        let malus = 0;
+        if (skill.includes("dex")) {
+            const overloaded = this.getDefenceFromArmorAndShield();
+            malus -= overloaded;
+        }
+        return malus;
+    }
+
+    getOverloadedMalus() {
+        return 0;
     }
     
     computeWeaponMod(itemModStat, itemModBonus, weaponCategory) {
@@ -417,5 +481,12 @@ export class CofActor extends Actor {
      * @returns {Array} liste des boucliers non maîtrisés
      */
     getIncompetentShields() { return; }
+
+    getDefenceFromArmorAndShield() {
+        let protections = this.data.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);        
+        let protection = protections.reduce((acc, curr) => acc + curr, 0);
+        return protection;
+    }
+
 }
 
