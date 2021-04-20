@@ -39,6 +39,7 @@
     <nav class="sheet-navigation tabs" data-group="primary">
         <a class="item active" data-tab="description">Description</a>
         <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="effets">Effets</a>
     </nav>
     {{!-- Sheet Body --}}
     <section class="sheet-body">
@@ -63,5 +64,8 @@
                 {{> "systems/cof/templates/items/parts/details/species-details.hbs"}}
             {{/if}}
         </div>
+        <div class="tab" data-group="primary" data-tab="effets">
+            {{> "systems/cof/templates/effects/effects.hbs"}}            
+        </div>          
     </section>
 </form>
