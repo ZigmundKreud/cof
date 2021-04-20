@@ -45,7 +45,7 @@ export class CofActorSheet extends CofBaseSheet {
                     pack.close();                    
                 }
                 else {
-                    li.attr("data-open", "0");
+                    li.attr("data-open", "1");
                     pack.render(true);
                 }
             }
