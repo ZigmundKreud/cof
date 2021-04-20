@@ -346,12 +346,14 @@ export class CofActor extends Actor {
     getIncompetentMalus() { return -3; }
 
     getIncompetentSkillMalus(skill) {
-        let bonus = 0;
-        if (skill.includes("str") || skill.includes("dex")) {
-            this.getIncompetentArmour().forEach(element => { bonus -= getIncompetentMalus();});
-            this.getIncompetentShields().forEach(element => {bonus -= getIncompetentMalus();});    
+        let malus = 0;
+        if (game.settings.get("cof", "useIncompetentPJ")) {
+            if (skill.includes("str") || skill.includes("dex")) {
+                malus += this.getArmourMalus();
+                malus += this.getShieldMalus();    
+            }
         }
-        return bonus;
+        return malus;
     }
     
     computeWeaponMod(itemModStat, itemModBonus, weaponCategory) {
@@ -399,5 +401,21 @@ export class CofActor extends Actor {
     getShieldMalus() {
         return 0;
     };
+
+    /**
+     * @name getIncompetentArmour
+     * @description obtenir la liste des armures non maîtrisées
+     * 
+     * @returns {Array} liste des armures non maîtrisées
+     */
+     getIncompetentArmour() { return; }
+
+    /**
+     * @name getIncompetentShields
+     * @description obtenir la liste des boucliers non maîtrisés
+     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @returns {Array} liste des boucliers non maîtrisés
+     */
+    getIncompetentShields() { return; }
 }
 
