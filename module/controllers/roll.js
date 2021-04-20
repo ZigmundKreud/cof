@@ -33,23 +33,33 @@ export class CofRoll {
      * @private
      */
     static rollWeapon(data, actor, event) {
-        const li = $(event.currentTarget).parents(".item");
+        const li = $(event.currentTarget).parents(".item");        
         let item = actor.getOwnedItem(li.data("itemId"));
         const itemData = item.data;
-        let label = itemData.name;
+    
+        const label = itemData.name;
+        const critrange = itemData.data.critrange;
+        const itemMod = $(event.currentTarget).parents().children(".item-mod");
+        const mod = itemMod.data('itemMod');
+        const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
+        const dmg = dmgMod.data('itemDmg');
         // Compute mod
-        const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
+        /*const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
         let incompetentMod = (game.settings.get("cof", "useIncompetentPJ") && (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) ||
             actor.getIncompetentRangedWeapons().find(element => element._id === item._id))) ? -3 : 0;
         let mod = modStat + incompetentMod + itemData.data.skillBonus;
         let critrange = itemData.data.critrange;
+        */
+
         // Compute damage
-        let dmg = itemData.data.dmg;
+        /*let dmg = itemData.data.dmg;
         const dmgStat = eval("actor.data.data." + itemData.data.dmgStat.split("@")[1]);
         const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
         if (dmgBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgBonus);
         else if (dmgBonus === 0) dmg = itemData.data.dmgBase;
         else dmg = itemData.data.dmgBase + " + " + dmgBonus;
+        */
+
         return this.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
     }
 

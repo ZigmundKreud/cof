@@ -20,13 +20,13 @@
         <div class="flex8 center bg-health">
             <span class="field-label ellipsis"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
         </div>
-        <div class="flex3 center cell">
+        <div class="flex3 center cell readonly">
             <input class="field-value" name="data.attributes.rp.base" readonly="true" type="text" value="{{actor.data.attributes.rp.base}}" placeholder="Base" data-dtype="Number"/>
         </div>
         <div class="flex3 center cell">
-            <input class="field-value" name="data.attributes.rp.bonus" type="text" value="{{actor.data.attributes.rp.bonus}}" placeholder="Bonus" data-dtype="Number"/>
+            <input class="field-value" name="data.attributes.rp.bonus" type="text" value="{{numberFormat actor.data.attributes.rp.bonus decimals=0 sign=true}}" placeholder="Bonus" data-dtype="Number"/>
         </div>
-        <div class="flex3 center cell">
+        <div class="flex3 center cell readonly">
             <input class="field-value" name="data.attributes.rp.max" readonly="true" type="text" value="{{actor.data.attributes.rp.max}}" placeholder="Max" data-dtype="Number"/>
         </div>
         <div class="flex3 center cell">

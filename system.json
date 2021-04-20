@@ -5,7 +5,7 @@
   "version": "0.4.2",
   "minimumCoreVersion": "0.7.3",
   "compatibleCoreVersion": "0.7.9",
-  "templateVersion": 2,
+  "templateVersion": 3,
   "author": "Zigmund",
   "esmodules": [
     "module/cof.js"

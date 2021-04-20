@@ -9,6 +9,9 @@
         <div class="field-label">{{ localize 'COF.ui.bonus' }}</div>
     </div>
     <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.ui.malus' }}</div>
+    </div>
+    <div class="flex1 center">
         <div class="field-label">{{ localize 'COF.ui.total' }}</div>
     </div>
 </div>
@@ -33,6 +36,13 @@
                     <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="" placeholder="Bonus" data-dtype="Number"/>
                 {{else}}
                     <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="{{numberFormat attack.bonus decimals=0 sign=true}}" placeholder="Bonus" data-dtype="Number"/>
+                {{/if}}
+            </div>
+            <div class="flex1 center cell">
+                {{#if (isNull attack.base)}}
+                    <input class="field-value" name="data.attacks.{{id}}.malus" type="text" value="" placeholder="Malus" data-dtype="Number"/>
+                {{else}}
+                    <input class="field-value" name="data.attacks.{{id}}.malus" type="text" value="{{numberFormat attack.malus decimals=0 sign=true}}" placeholder="Malus" data-dtype="Number"/>
                 {{/if}}
             </div>
             <div class="flex1 center cell readonly">

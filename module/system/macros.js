@@ -53,34 +53,28 @@ export class Macros {
         const itemData = item.data;
         if(itemData.data.properties.weapon){
             if(itemData.data.worn){
-                let label = itemData.name;                
-                let critrange = itemData.data.critrange;
-                
-                // Compute mod
-                const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
-                let incompetentMod = (game.settings.get("cof", "useIncompetentPJ") && (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) ||
-                    actor.getIncompetentRangedWeapons().find(element => element._id === item._id))) ? -3 : 0;
-                let mod = modStat + incompetentMod + itemData.data.skillBonus;
-                
-                // Compute damage
-                let dmg = itemData.data.dmg;
-                const dmgStat = eval("actor.data.data." + itemData.data.dmgStat.split("@")[1]);
-                const dmgAllBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
-                if (dmgAllBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgAllBonus);
-                else if (dmgAllBonus === 0) dmg = itemData.data.dmgBase;
-                else dmg = itemData.data.dmgBase + " + " + dmgAllBonus;
-                
-                if (dmgOnly) {
-                    CofRoll.rollDamageDialog(actor, label, dmg, 0);
-                }
+                const label = itemData.name;                
+                const critrange = itemData.data.critrange;              
+
+                 // Compute MOD
+                 const itemModStat = itemData.data.skill.split("@")[1];
+                 const itemModBonus = parseInt(itemData.data.skillBonus);
+                 const weaponCategory = item.getMartialCategory();
+                 
+                 let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+
+                 // Compute DM
+                 const itemDmgBase = itemData.data.dmgBase;                        
+                 const itemDmgStat = itemData.data.dmgStat.split("@")[1];
+                 const itemDmgBonus = parseInt(itemData.data.dmgBonus);
+
+                 let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
+
+                if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0); }
                 else CofRoll.rollWeaponDialog(actor, label, mod, bonus, critrange, dmg, dmgBonus);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }
-        else{
-            return item.sheet.render(true);
-        }
+        else { return item.sheet.render(true); }
     };
-
-
 }

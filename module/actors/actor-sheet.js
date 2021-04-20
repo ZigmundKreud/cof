@@ -12,6 +12,7 @@ import { ArrayUtils } from "../utils/array-utils.js";
 import { Inventory } from "../controllers/inventory.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
+import { CofItem } from "../items/item.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -199,21 +200,7 @@ export class CofActorSheet extends CofBaseSheet {
     _onToggleEquip(event) {
         event.preventDefault();
         AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-        return Inventory.onToggleEquip(this.actor, event).then(item => {
-            if (!game.settings.get("cof", "useIncompetentPJ")) return;
-            // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
-            const incompetentItems = new Array();
-            const incompetentArmour = this.actor.getIncompetentArmour();
-            const incompetentShields = this.actor.getIncompetentShields();
-            const incompetentMeleeWeapons = this.actor.getIncompetentMeleeWeapons();
-            const incompetentRangedWeapons = this.actor.getIncompetentRangedWeapons();
-            if (incompetentArmour) incompetentItems.push(incompetentArmour);
-            if (incompetentShields) incompetentItems.push(incompetentShields);
-            if (incompetentMeleeWeapons) incompetentItems.push(incompetentMeleeWeapons);
-            if (incompetentRangedWeapons) incompetentItems.push(incompetentRangedWeapons);
-            const incompetentItem = incompetentItems.flat().find(element => element._id === item._id);
-            if (incompetentItem) ui.notifications?.warn(this.actor.name + " est incompétent dans le port de l'équipement " + incompetentItem.name);
-        });
+        return Inventory.onToggleEquip(this.actor, event);
     }
 
     /**
@@ -402,12 +389,19 @@ export class CofActorSheet extends CofBaseSheet {
             if (category.items.length > 0) {                
                 category.items.forEach(item => {
                     if (item.data.properties?.weapon) {
-                        // Compute damage mod
-                        const dmgStat = eval("data.actor.data." + item.data.dmgStat.split("@")[1]);
-                        const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(item.data.dmgBonus) : parseInt(item.data.dmgBonus);
-                        if (dmgBonus < 0) item.data.dmg = item.data.dmgBase + " - " + parseInt(-dmgBonus);
-                        else if (dmgBonus === 0) item.data.dmg = item.data.dmgBase;
-                        else item.data.dmg = item.data.dmgBase + " + " + dmgBonus;
+                        // Compute MOD
+                        const itemModStat = item.data.skill.split("@")[1];
+                        const itemModBonus = parseInt(item.data.skillBonus);
+                        const weaponCategory = this.getCategory(item.data);
+                        
+                        item.data.mod = this.actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+
+                        // Compute DM
+                        const itemDmgBase = item.data.dmgBase;                        
+                        const itemDmgStat = item.data.dmgStat.split("@")[1];
+                        const itemDmgBonus = parseInt(item.data.dmgBonus);
+
+                        item.data.dmg = this.actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
                     }
                 });
             }
@@ -448,5 +442,9 @@ export class CofActorSheet extends CofBaseSheet {
         };       
 
         return data;
+    }
+
+    getCategory(itemData){
+        return "cof";
     }
 }

@@ -54,4 +54,9 @@ export class CofItem extends Item {
             r.roll(actor);
         }
     }
+
+    getMartialCategory() {
+        if (!this.data.data.properties?.weapon) return;
+        return ;
+    }
 }

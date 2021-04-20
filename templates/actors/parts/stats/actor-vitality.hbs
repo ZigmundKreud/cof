@@ -39,7 +39,7 @@
         <input class="field-value" name="data.attributes.hp.base" type="text" value="{{actor.data.attributes.hp.base}}" placeholder="Base" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.hp.bonus" type="text" value="{{actor.data.attributes.hp.bonus}}" placeholder="Bonus" data-dtype="Number"/>
+        <input class="field-value" name="data.attributes.hp.bonus" type="text" value="{{numberFormat actor.data.attributes.hp.bonus decimals=0 sign=true}}" placeholder="Bonus" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
         <input class="field-value" name="data.attributes.hp.max" type="text" readonly="true" value="{{actor.data.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>

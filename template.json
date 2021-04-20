@@ -19,7 +19,9 @@
             "mod": 0,
             "value": 10,
             "tmpmod": null,
-            "superior" : false
+            "superior": false,
+            "skillbonus": 0,
+            "skillmalus": 0
           },
           "dex" : {
             "key" : "dex",
@@ -31,7 +33,9 @@
             "mod": 0,
             "value": 10,
             "tmpmod": null,
-            "superior" : false
+            "superior" : false,
+            "skillbonus": 0,
+            "skillmalus": 0
           },
           "con" : {
             "key" : "con",
@@ -43,7 +47,9 @@
             "mod": 0,
             "value": 10,
             "tmpmod": null,
-            "superior" : false
+            "superior" : false,
+            "skillbonus": 0,
+            "skillmalus": 0
           },
           "int" : {
             "key" : "int",
@@ -55,7 +61,9 @@
             "mod": 0,
             "value": 10,
             "tmpmod": null,
-            "superior" : false
+            "superior" : false,
+            "skillbonus": 0,
+            "skillmalus": 0
           },
           "wis" : {
             "key" : "wis",
@@ -67,7 +75,9 @@
             "mod": 0,
             "value": 10,
             "tmpmod": null,
-            "superior" : false
+            "superior" : false,
+            "skillbonus": 0,
+            "skillmalus": 0
           },
           "cha" : {
             "key" : "cha",
@@ -79,7 +89,9 @@
             "mod": 0,
             "value": 10,
             "tmpmod": null,
-            "superior" : false
+            "superior" : false,
+            "skillbonus": 0,
+            "skillmalus": 0
           }
         }
       },
@@ -109,6 +121,7 @@
             "enabled": true,
             "base": 1,
             "bonus": 0,
+            "malus": 0,
             "mod": 1
           },
           "ranged" : {
@@ -119,6 +132,7 @@
             "enabled": true,
             "base": 1,
             "bonus": 0,
+            "malus": 0,
             "mod": 1
           },
           "magic" : {
@@ -129,6 +143,7 @@
             "enabled": true,
             "base": 1,
             "bonus": 0,
+            "malus": 0,
             "mod": 1
           }
         }
@@ -151,6 +166,7 @@
             "abbrev" : "COF.attributes.def.abbrev",
             "base": 10,
             "bonus": 0,
+            "malus": 0,
             "value": 10
           },
           "init": {
@@ -159,6 +175,7 @@
             "abbrev" : "COF.attributes.init.abbrev",
             "base": 10,
             "bonus": 0,
+            "malus": 0,
             "value": 10
           },
           "dr": {

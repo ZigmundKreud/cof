@@ -39,7 +39,7 @@
         <input class="field-value" name="data.stats.{{id}}.racial" readonly="true" type="text" value="{{stat.racial}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.stats.{{id}}.bonus" type="text" value="{{stat.bonus}}" data-dtype="Number"/>
+        <input class="field-value" name="data.stats.{{id}}.bonus" type="text" value="{{numberFormat stat.bonus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
         <input class="field-value" name="data.stats.{{id}}.value" readonly="true" type="text" value="{{stat.value}}" data-dtype="Number"/>

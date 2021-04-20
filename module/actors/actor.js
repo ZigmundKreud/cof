@@ -49,8 +49,6 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareBaseCharacterData(actorData) {
-        this.computeModsAndAttributes(actorData);
-        this.computeAttacks(actorData);
     }
     /* -------------------------------------------- */
 
@@ -59,7 +57,6 @@ export class CofActor extends Actor {
         this.computeAttacks(actorData);
         this.computeDef(actorData);
         this.computeXP(actorData);
-        this.computeIncompetentPJ(actorData);
     }
 
     /* -------------------------------------------- */
@@ -184,13 +181,15 @@ export class CofActor extends Actor {
         }
 
         attributes.init.base = stats.dex.value;
-        attributes.init.value = attributes.init.base + attributes.init.bonus;
+        // Malus des armures et boucliers
+        attributes.init.malus += this.getArmourMalus() + this.getShieldMalus();        
+        attributes.init.value = attributes.init.base + attributes.init.bonus + attributes.init.malus;
 
         // Points de chance
         attributes.fp.base = this.computeBaseFP(stats.cha.mod, profile);
         attributes.fp.max = attributes.fp.base + attributes.fp.bonus;
 
-        if (attributes.fp.value >= attributes.fp.max) attributes.fp.value = attributes.fp.max;
+        if (attributes.fp.value > attributes.fp.max) attributes.fp.value = attributes.fp.max;
         if (attributes.fp.value < 0) attributes.fp.value = 0;
 
         // Réduction des dommages
@@ -202,22 +201,21 @@ export class CofActor extends Actor {
         if (attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
         if (attributes.rp.value < 0) attributes.rp.value = 0;
 
-        // Points de vie
+        // DV et Points de vie
+        if (profile) attributes.hd.value = profile.data.dv;
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
-        if (attributes.hp.value >= attributes.hp.max) attributes.hp.value = attributes.hp.max;
+
+        if (attributes.hp.value > attributes.hp.max) attributes.hp.value = attributes.hp.max;
         if (attributes.hp.value < 0) attributes.hp.value = 0;
+
 
         // Points de magie
         const magicMod = this.getMagicMod(stats, profile);
-        if (profile) {
-            attributes.hd.value = profile.data.dv;
-            attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
-        }
+        if (profile) attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
         else attributes.mp.base = 0;
         attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
 
-        // Point de magie
-        if (attributes.mp.value >= attributes.mp.max) attributes.mp.value = attributes.mp.max;
+        if (attributes.mp.value > attributes.mp.max) attributes.mp.value = attributes.mp.max;
         if (attributes.mp.value < 0) attributes.mp.value = 0;
     }
 
@@ -233,25 +231,37 @@ export class CofActor extends Actor {
 
     computeAttacks(actorData) {
 
-        let stats = actorData.data.stats;
-        let attacks = actorData.data.attacks;
-        let items = actorData.items;
+        let stats = actorData.data.stats;                
         let lvl = actorData.data.level.value;
-        let profile = this.getProfile(items);
 
+        let attacks = actorData.data.attacks;
         let melee = attacks.melee;
         let ranged = attacks.ranged;
         let magic = attacks.magic;
 
-        // STATS RELATED TO PROFILE
+        // Retourne le modificateur en fonction de la stat et d'un profil
+        let items = actorData.items;
+        let profile = this.getProfile(items);
         const meleeMod = this.getMeleeMod(stats, profile);
         const rangedMod = this.getRangedMod(stats, profile);
         const magicMod = this.getMagicMod(stats, profile);
+
+        // Ajout du niveau
         melee.base = (meleeMod) ? meleeMod + lvl : lvl;
         ranged.base = (rangedMod) ? rangedMod + lvl : lvl;
         magic.base = (magicMod) ? magicMod + lvl : lvl;
+
+        // Calcul du malus
+        // TODO Malus de l'encombrement
+
+        // Malus des armures et boucliers
         for (let attack of Object.values(attacks)) {
-            attack.mod = attack.base + attack.bonus;
+            attack.malus += this.getArmourMalus() + this.getShieldMalus();
+        }
+
+        // Calcul du total
+        for (let attack of Object.values(attacks)) {
+            attack.mod = attack.base + attack.bonus + attack.malus;
         }
     }
 
@@ -297,11 +307,14 @@ export class CofActor extends Actor {
     computeDef(actorData) {
         let stats = actorData.data.stats;
         let attributes = actorData.data.attributes;
-        let protections = actorData.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);
-        // COMPUTE DEF SCORES
+
+        let protections = actorData.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);        
         let protection = protections.reduce((acc, curr) => acc + curr, 0);
-        attributes.def.base = 10 + protection + stats.dex.mod;
-        attributes.def.value = attributes.def.base + attributes.def.bonus;
+        
+        // TODO Calcul de l'encombrement des armures et boucliers
+
+        attributes.def.base = 10 + stats.dex.mod + protection;
+        attributes.def.value = attributes.def.base + attributes.def.bonus + attributes.def.malus;
     }
 
     /* -------------------------------------------- */
@@ -330,63 +343,61 @@ export class CofActor extends Actor {
         }
     }
 
-    // Notion PJ incompétent 
-    /**
-     * @name computeIncompetentPJ
-     * @description Cacule les malus liées aux équipements non maîtrisés par le PJ
-     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * @public @override
-     * 
-     * @param {CofActor} actorData l'acteur
-     */
-    computeIncompetentPJ(actorData) {
-        // Traitement d'affectation à faire ici
+    getIncompetentMalus() { return -3; }
 
-        // Obligatoire, doit être fait après le traitement d'affectation
-        this.computeModsAndAttributes(actorData);
-        this.computeAttacks(actorData);
+    getIncompetentSkillMalus(skill) {
+        let bonus = 0;
+        if (skill.includes("str") || skill.includes("dex")) {
+            this.getIncompetentArmour().forEach(element => { bonus -= getIncompetentMalus();});
+            this.getIncompetentShields().forEach(element => {bonus -= getIncompetentMalus();});    
+        }
+        return bonus;
+    }
+    
+    computeWeaponMod(itemModStat, itemModBonus, weaponCategory) {
+        let total = 0;
+        let incompetentMod = 0;
+
+        const fromStat = eval("this.data.data." + itemModStat);        
+        if (game.settings.get("cof", "useIncompetentPJ") && weaponCategory && !this.isCompetentWithWeapon(weaponCategory)){
+            incompetentMod = this.getIncompetentMalus();
+        }
+        total = fromStat + itemModBonus + incompetentMod;
+
+        return total;
     }
 
-    /**
-     * @name getIncompetentArmour
-     * @description obtenir la liste des armures non maîtrisées
-     * 
-     * @returns {Array} liste des armures non maîtrisées
-     */
-    getIncompetentArmour() { return new Array(); }
+    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus) {
+        let total = itemDmgBase;
+        
+        const fromStat = eval("this.data.data." + itemDmgStat);
+        const fromBonus = (fromStat) ? parseInt(fromStat) + itemDmgBonus : itemDmgBonus;
+        if (fromBonus < 0) total = itemDmgBase + " - " + parseInt(-fromBonus);
+        if (fromBonus > 0) total = itemDmgBase + " + " + fromBonus;
 
-    /**
-     * @name getIncompetentShields
-     * @description obtenir la liste des boucliers non maîtrisés
-     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * @returns {Array} liste des boucliers non maîtrisés
-     */
-    getIncompetentShields() { return new Array(); }
+        return total;
+    }
 
-    /**
-     * @name getIncompetentMeleeWeapons
-     * @description obtenir la liste des armes de mélée non maîtrisées
-     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * @returns {Array} liste des armes de mélée non maîtrisées
-     */
-    getIncompetentMeleeWeapons() { return new Array(); }
+    isCompetentWithWeapon(weaponCategory) {
+        const profile = this.getProfile(this.items);
+        return this.isCompetent(weaponCategory, profile);
+    }
 
-    /**
-    * @name getIncompetentRangedWeapons
-    * @description obtenir la liste des armes à distance non maîtrisées
-    *              -> à implémenter dans chacun des modules Chroniques Oubliées.
-    * @returns {Array} liste des armes à distance non maîtrisées
-    */
-    getIncompetentRangedWeapons() { return new Array(); }
+    isCompetentWithArmor(armorCategory) {
+        const profile = this.getProfile(this.items);
+        return this.isCompetent(armorCategory, profile);
+    }
 
-    /**
-     * @name getIncompetentSkillMalus
-     * @description obtenir le malus liée à la notion PJ incompétent
-     *              -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * 
-     * @param {string} skill le nom de la caractéristique
-     * @returns {int} retourne le malus 
-     */
-    getIncompetentSkillMalus(skill) { return 0; }
+    isCompetent(martialCategory, profile){
+        return true;
+    }
+
+    getArmourMalus() {
+        return 0;
+    }
+    
+    getShieldMalus() {
+        return 0;
+    };
 }
 
