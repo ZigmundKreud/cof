@@ -34,15 +34,18 @@ export class CofActorSheet extends CofBaseSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
 
-        // Click to open
+        // Click right to open the compendium
         html.find('.compendium-pack').contextmenu(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget);
             const pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (pack) {
-                if (li.attr("data-open") === "1") pack.close();
+                if (li.attr("data-open") === "1") {
+                    li.attr("data-open", "0");
+                    pack.close();                    
+                }
                 else {
-                    li.attr("data-open", "1");
+                    li.attr("data-open", "0");
                     pack.render(true);
                 }
             }
@@ -51,7 +54,10 @@ export class CofActorSheet extends CofBaseSheet {
         html.find('.item-create.compendium-pack').click(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
-            if (li.attr("data-open") === "1") pack.close();
+            if (li.attr("data-open") === "1") {
+                li.attr("data-open", "0");
+                pack.close();
+            }
             else {
                 li.attr("data-open", "1");
                 pack.render(true);
