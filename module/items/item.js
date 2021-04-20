@@ -8,6 +8,7 @@ export class CofItem extends Item {
 
     /** @override */
     prepareData() {
+        if (!this.data.img) this.data.img = "icons/svg/chest.svg";
         super.prepareData();
         const itemData = this.data;
         // console.log(itemData);
