@@ -474,7 +474,7 @@ export class CofActor extends Actor {
     getOverloadedSkillMalus(skill){
         let malus = 0;
         if (skill.includes("dex")) {
-            const overloaded = this.getDefenceFromArmorAndShield();
+            const overloaded = this.getDefenceFromArmor();
             malus -= overloaded;
         }
         return malus;
@@ -553,11 +553,32 @@ export class CofActor extends Actor {
      * @returns {Int} la somme des DEF
      */
     getDefenceFromArmorAndShield() {
+        return this.getDefenceFromArmor() + this.getDefenceFromShield();
+    }
+
+    /**
+     * @name getDefenceFromArmor
+     * @description calcule la défense de l'armure équipée
+     * @returns {Int} la valeur de défense
+     */
+    getDefenceFromArmor() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);     
+        let protections = this.data.items.filter(i => i.type === "item" && i.data.subtype === "armor" && i.data.worn && i.data.def).map(i => i.data.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
 
+    /**
+     * @name getDefenceFromShield
+     * @description calcule la défense du bouclier équipé
+     * @returns {Int} la valeur de défense
+     */
+    getDefenceFromShield() {
+        let protection = 0;
+        let protections = this.data.items.filter(i => i.type === "item" && i.data.subtype === "shield" && i.data.worn && i.data.def).map(i => i.data.def);     
+        if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
+        return protection;
+    }
+    
 }
 
