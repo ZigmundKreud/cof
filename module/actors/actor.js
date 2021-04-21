@@ -553,8 +553,9 @@ export class CofActor extends Actor {
      * @returns {Int} la somme des DEF
      */
     getDefenceFromArmorAndShield() {
-        let protections = this.data.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);        
-        let protection = protections.reduce((acc, curr) => acc + curr, 0);
+        let protection = 0;
+        let protections = this.data.items.filter(i => i.type === "item" && i.data.worn && i.data.def).map(i => i.data.def);     
+        if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
 
