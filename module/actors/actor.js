@@ -469,8 +469,6 @@ export class CofActor extends Actor {
         return pm;
     }
 
-    /** PJ Incompétent */
-
     /**
      * @name getIncompetentMalus
      * @description Retourne le malus pour incompétence
@@ -506,7 +504,7 @@ export class CofActor extends Actor {
     /**
      * @name getArmourMalus
      * @description Retourne le malus lié à l'armure
-     *      COF : pas encore implémenté, retourn 0
+     *      COF : pas encore implémenté, retourne 0
      * @public
      * 
      * @param {*} 
@@ -519,7 +517,7 @@ export class CofActor extends Actor {
     /**
      * @name getShieldMalus
      * @description Retourne le malus lié au bouclier
-     *      COF : pas encore implémenté, retourn 0
+     *      COF : pas encore implémenté, retourne 0
      * @public
      * 
      * @param {*} 
@@ -535,7 +533,7 @@ export class CofActor extends Actor {
      *      COF : Malus au jet de DEX
      * 
      * @param {string} skill le nom de la caractéristique
-     * @returns {int} retourne le malus 
+     * @returns {int} retourne le malus (négatif)
      */
     getOverloadedSkillMalus(skill){
         let malus = 0;
@@ -552,12 +550,24 @@ export class CofActor extends Actor {
      *      COF : Pas de malus
      * 
      * @param {string} skill le nom de la caractéristique
-     * @returns {int} retourne le malus 
+     * @returns {int} retourne le malus (négatif)
      */
     getOverloadedMalus() {
         return 0;
     }
-    
+
+    /**
+     * @name computeWeaponMod
+     * @description calcule le modificateur final pour une arme
+     *  Total = Mod lié à la caractéristique + Mod lié au bonus + malus éventuel d'incompétence en fonction de la catégorie de l'arme
+     * //TODO      COF : pas encore implémenté
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @param {int} itemModStat le modificateur issue de la caractéristique
+     * @param {int} itemModBonus le modificateur issue du bonus
+     * @param {string} weaponCategory la catégorie de l'arme
+     *  COF : return "cof" en attendant l'implémentation
+     * @returns {int} retourne le malus 
+     */    
     computeWeaponMod(itemModStat, itemModBonus, weaponCategory) {
         let total = 0;
         let incompetentMod = 0;
@@ -571,6 +581,19 @@ export class CofActor extends Actor {
         return total;
     }
 
+    /**
+     * @name computeDm
+     * @description calculer les dégâts d'une arme
+     *   Total = 
+     *      COF : pas encore implémenté
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * //TODO Implémenter dans COF
+     * @param {string} itemDmgBase le modificateur issue de la caractéristique
+     * @param {string} itemDmgStat la caractéristique utilisée pour les dégâts
+     * @param {int} itemDmgBonus le bonus aux dégâts
+     *  COF : return "cof" en attendant l'implémentation
+     * @returns {string} retourne la chaine de caractères utilisée pour le lancer de dés
+     */      
     computeDm(itemDmgBase, itemDmgStat, itemDmgBonus) {
         let total = itemDmgBase;
         
@@ -582,16 +605,38 @@ export class CofActor extends Actor {
         return total;
     }
 
+    /**
+     * @name isCompetentWithWeapon
+     * @description retourne vrai si l'actor est compétent avec cette catégorie d'arme
+     * 
+     * @param {*} weaponCategory 
+     * @returns {boolean}
+     */
     isCompetentWithWeapon(weaponCategory) {
         const profile = this.getProfile(this.items);
         return this.isCompetent(weaponCategory, profile);
     }
 
+    /**
+     * @name isCompetentWithWeapon
+     * @description retourne vrai si l'actor est compétent avec cette catégorie d'armure
+     * 
+     * @param {*} armorCategory 
+     * @returns {boolean}
+     */
     isCompetentWithArmor(armorCategory) {
         const profile = this.getProfile(this.items);
         return this.isCompetent(armorCategory, profile);
     }
 
+    /**
+     * @name isCompetent
+     * @description retourne vrai si l'actor est compétent avec cette catégorie d'arme ou d'armure
+     * 
+     * @param {*} martialCategory 
+     * @param {*} profile 
+     * @returns {boolean}
+     */
     isCompetent(martialCategory, profile){
         return true;
     }
@@ -615,7 +660,7 @@ export class CofActor extends Actor {
 
     /**
      * @name getDefenceFromArmorAndShield
-     * @description calcule la défense de l'armure et du bouclier
+     * @description calcule la défense de l'armure et du bouclier équipés
      * @returns {Int} la somme des DEF
      */
     getDefenceFromArmorAndShield() {
