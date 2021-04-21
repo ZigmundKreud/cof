@@ -226,39 +226,13 @@ export class CofActor extends Actor {
         if (attributes.hp.value < 0) attributes.hp.value = 0;
 
         // Points de magie
-        const magicMod = this.getMagicMod(stats, profile);
-        if (profile) attributes.mp.base = profile.data.mpfactor * (lvl + magicMod);
-        else attributes.mp.base = 0;
+        attributes.mp.base = this.getMagicPoints(lvl, stats, profile);
+
          // Encombrement
         attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
         
         if (attributes.mp.value > attributes.mp.max) attributes.mp.value = attributes.mp.max;
         if (attributes.mp.value < 0) attributes.mp.value = 0;
-    }
-
-    /**
-     * @name computeBaseFP
-     * @description Calcule le nombre de points de chance
-     * @public
-     * 
-     * @param {Int} charismeMod Modificateur de charisme
-     * @param {CofItem} profile Item de type profile
-     * 
-     */
-    computeBaseFP(charismeMod, profile) {
-        return 3 + charismeMod;
-    }
-
-    /**
-     * @name computeBaseRP
-     * @description Calcule le nombre de points de récupération
-     * @public 
-     * 
-     * @param {Actor.data} 
-     * 
-     */
-    computeBaseRP(actorData) {
-        return 5;
     }
 
     /**
@@ -269,7 +243,7 @@ export class CofActor extends Actor {
      * @param {Actor.data} actorData 
      * 
      */
-    computeAttacks(actorData) {
+     computeAttacks(actorData) {
 
         let stats = actorData.data.stats;                
         let lvl = actorData.data.level.value;
@@ -305,71 +279,6 @@ export class CofActor extends Actor {
         for (let attack of Object.values(attacks)) {
             attack.mod = attack.base + attack.bonus + attack.malus;
         }
-    }
-
-
-    /**
-     * @name getMeleeMod
-     * @description Calcule le bonus d'attaque de contact en fonction du profil
-     *      COF : Uniquement la force
-     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * @public
-     * 
-     * @param {Actor.data.data.stats} getMeleeMod 
-     * 
-     */
-    getMeleeMod(stats, profile) {
-        let strMod = stats.str.mod;
-        return strMod;
-    }
-
-   /**
-     * @name getRangedMod
-     * @description Calcule le bonus d'attaque à distance en fonction du profil
-     *      COF : Uniquement la dextérité
-     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * @public
-     * 
-     * @param {Actor.data.data.stats} getMeleeMod 
-     * 
-     */    
-    getRangedMod(stats, profile) {
-        let dexMod = stats.dex.mod;
-        return dexMod;
-    }
-
-   /**
-     * @name getMagicMod
-     * @description Calcule le bonus d'attaque de magie en fonction du profil
-     *      COF : en fonction du profil, la caractéristique utilisée est Intelligence, Sagesse ou Charisme
-     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * @public
-     * 
-     * @param {Actor.data.data.stats} getMeleeMod 
-     * 
-     */    
-    getMagicMod(stats, profile) {
-
-        let intMod = stats.int.mod;
-        let wisMod = stats.wis.mod;
-        let chaMod = stats.cha.mod;
-
-        // STATS RELATED TO PROFILE
-        let magicMod = intMod;
-        if (profile) {
-            switch (profile.data.spellcasting) {
-                case "wis":
-                    magicMod = wisMod;
-                    break;
-                case "cha":
-                    magicMod = chaMod;
-                    break;
-                default:
-                    magicMod = intMod;
-                    break;
-            }
-        }
-        return magicMod;
     }
 
    /**
@@ -424,6 +333,142 @@ export class CofActor extends Actor {
         }
     }
 
+    /**
+     * @name computeBaseFP
+     * @description Calcule le nombre de points de chance de base
+     * @public
+     * 
+     * @param {Int} charismeMod Modificateur de charisme
+     * @param {CofItem} profile Item de type profile
+     * 
+     */
+    computeBaseFP(charismeMod, profile) {
+        return 3 + charismeMod;
+    }
+
+    /**
+     * @name computeBaseRP
+     * @description Calcule le nombre de points de récupération de base
+     * @public 
+     * 
+     * @param {Actor.data} 
+     * 
+     */
+    computeBaseRP(actorData) {
+        return 5;
+    }
+
+    /**
+     * @name getMeleeMod
+     * @description Calcule le bonus d'attaque de contact en fonction du profil
+     *      COF : Uniquement basé sur la force
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @public
+     * 
+     * @param {Actor.data.data.stats} stats 
+     * @param {Profile} profile, non utilisé dans COF
+     * @returns {int} le bonus d'attaque de contact 
+     */
+    getMeleeMod(stats, profile) {
+        let strMod = stats.str.mod;
+        return strMod;
+    }
+
+   /**
+     * @name getRangedMod
+     * @description Calcule le bonus d'attaque à distance en fonction du profil
+     *      COF : Uniquement basé sur la dextérité
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @public
+     * 
+     * @param {Actor.data.data.stats} stats 
+     * @param {Profile} profile, non utilisé dans COF
+     * @returns {int} le bonus d'attaque à distance
+     */    
+    getRangedMod(stats, profile) {
+        let dexMod = stats.dex.mod;
+        return dexMod;
+    }
+
+   /**
+     * @name getMagicMod
+     * @description Calcule le bonus d'attaque de magie en fonction du profil
+     *      COF : en fonction du profil, la caractéristique utilisée est Intelligence, Sagesse ou Charisme
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @public
+     * 
+     * @param {Actor.data.data.stats} stats 
+     * @param {Profile} profile
+     * @returns {Int} le bonus d'attaque magique
+     */    
+    getMagicMod(stats, profile) {
+        let intMod = stats.int.mod;
+        let wisMod = stats.wis.mod;
+        let chaMod = stats.cha.mod;
+
+        // Caractéristique selon le profil
+        let magicMod = intMod;
+        if (profile) {
+            switch (profile.data.spellcasting) {
+                case "wis":
+                    magicMod = wisMod;
+                    break;
+                case "cha":
+                    magicMod = chaMod;
+                    break;
+                default:
+                    magicMod = intMod;
+                    break;
+            }
+        }
+        return magicMod;
+    }
+
+   /**
+     * @name getMagicPoints
+     * @description Calcule le nombre de points de magie en fonction du profil
+     *      COF : PM = Niveau + Mod Carac ou PM = 2 * Niv. + Mod Carac
+     *            en fonction du profil, la caractéristique utilisée est Intelligence, Sagesse ou Charisme
+     *            en fonction du profile, la base est le niveau * 2  
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * @public
+     * 
+     * @param {Int} level      
+     * @param {Actor.data.data.stats} stats 
+     * @param {CofItem} profile
+     * @returns {Int} Le nombre de points de magie
+     */    
+    getMagicPoints(level, stats, profile) {
+        let pm = 0
+
+        const intMod = stats.int.mod;
+        const wisMod = stats.wis.mod;
+        const chaMod = stats.cha.mod;
+
+        // Caractéristique et calcul selon le profil
+        let magicMod = intMod;
+        if (profile) {
+            switch (profile.data.spellcasting) {
+                case "wis":
+                    magicMod = wisMod;
+                    break;
+                case "cha":
+                    magicMod = chaMod;
+                    break;
+                default:
+                    magicMod = intMod;
+                    break;
+            }
+            if (profile.data.mpfactor === "2") {
+                pm = (2 * level) + magicMod;
+            }
+            else pm = level + magicMod;
+        }
+
+        if (pm < 0) pm = 0;
+        return pm;
+    }
+
     /** PJ Incompétent */
 
     /**
@@ -439,8 +484,11 @@ export class CofActor extends Actor {
 
     /**
      * @name getIncompetentSkillMalus
-     * @description obtenir le malus lié à la notion PJ incompétent
-     * 
+     * @description obtenir le malus lié à la notion PJ incompétent pour les jets de FOR et DEX
+     *              Le malus est la somme du malus d'armure et de bouclier
+     *      COF : pas encore implémenté
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * //TODO Implémenter dans COF
      * @param {string} skill le nom de la caractéristique
      * @returns {int} retourne le malus 
      */
@@ -455,10 +503,28 @@ export class CofActor extends Actor {
         return malus;
     }
 
+    /**
+     * @name getArmourMalus
+     * @description Retourne le malus lié à l'armure
+     *      COF : pas encore implémenté, retourn 0
+     * @public
+     * 
+     * @param {*} 
+     * 
+     */    
     getArmourMalus() {
         return 0;
     }
-    
+
+    /**
+     * @name getShieldMalus
+     * @description Retourne le malus lié au bouclier
+     *      COF : pas encore implémenté, retourn 0
+     * @public
+     * 
+     * @param {*} 
+     * 
+     */      
     getShieldMalus() {
         return 0;
     };
