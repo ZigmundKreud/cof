@@ -1,5 +1,5 @@
 {{#if (isEnabled "useRecovery")}}
-    <div class="flexrow table-header color-health no-wrap">
+    <div class="flexrow table-header color-recovery no-wrap">
         <div class="flex8 center">
             <div class="field-label ellipsis">{{ localize 'COF.attributes.recovery.label' }}</div>
         </div>
@@ -17,7 +17,7 @@
         </div>        
     </div>
     <div class="flexrow no-wrap">
-        <div class="flex8 center bg-health">
+        <div class="flex8 center bg-recovery">
             <span class="field-label ellipsis rollable" data-rolling="data.attributes.hp" data-roll-type="recovery" title="dépenser un PR avec PV, SHIFT+click sans PV"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
         </div>
         <div class="flex3 center cell readonly">

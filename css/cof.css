@@ -142,6 +142,15 @@
   color: darkslategray;
 }
 
+.bg-recovery {
+  background: #44a12b;
+  color: #fff;
+}
+
+.recovery {
+  color: #44a12b;
+}
+
 /* ----------------------------------------- */
 /*  LOCAL FONTS                             */
 /* ----------------------------------------- */
