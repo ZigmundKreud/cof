@@ -123,7 +123,7 @@ export class CofRoll {
         const actorData = actor.data;
 
         Dialog.confirm({
-            title: "Lancer les points de vie",
+            title: game.i18n.format("COF.dialog.rollHitPoints.title"),
             content: `<p>Êtes-vous sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
             yes: () => {
                 if (actorData.data.attributes.hd && actorData.data.attributes.hd.value) {
@@ -191,7 +191,7 @@ export class CofRoll {
         else {
 
         Dialog.confirm({
-                title: "Dépenser un point de récupération ",
+                title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
                 content: `<p>Êtes-vous sûr de vouloir dépenser 1 point de récupération ?`,
                 yes: () => {
                         const hd = actorData.data.attributes.hd.value;
@@ -272,18 +272,18 @@ export class CofRoll {
         });
 
         let d = new Dialog({
-            title: "Weapon Roll",
+            title: game.i18n.format("COF.dialog.rollWeapon.title"),
             content: rollOptionContent,
             buttons: {
                 cancel: {
                     icon: '<i class="fas fa-times"></i>',
-                    label: "Cancel",
+                    label: game.i18n.localize("COF.ui.cancel"),
                     callback: () => {
                     }
                 },
                 submit: {
                     icon: '<i class="fas fa-check"></i>',
-                    label: "Submit",
+                    label: game.i18n.localize("COF.ui.submit"),
                     callback: (html) => {
                         const dice = html.find("#dice").val();
                         const diff = html.find('#difficulty').val();
@@ -314,18 +314,18 @@ export class CofRoll {
         const rollOptionContent = await renderTemplate(rollOptionTpl, { dmgFormula: formula, dmgBonus: bonus, dmgCustomFormula: "", isCritical: critical });
 
         let d = new Dialog({
-            title: "Damage Roll",
+            title: game.i18n.format("COF.dialog.rollDamage.title"),
             content: rollOptionContent,
             buttons: {
                 cancel: {
                     icon: '<i class="fas fa-times"></i>',
-                    label: "Cancel",
+                    label: game.i18n.localize("COF.ui.cancel"),
                     callback: () => {
                     }
                 },
                 submit: {
                     icon: '<i class="fas fa-check"></i>',
-                    label: "Submit",
+                    label: game.i18n.localize("COF.ui.submit"),
                     callback: (html) => {
                         let dmgBonus = html.find("#dmgBonus").val();
                         let dmgCustomFormula = html.find("#dmgCustomFormula").val();

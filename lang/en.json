@@ -337,6 +337,15 @@
   "COF.sheet.item" : "COF Default Item Sheet",
 
   "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
-  "COF.notification.MacroItemUnequiped" : "Item is unequiped"
+  "COF.notification.MacroItemUnequiped" : "Item is unequiped",
+
+  "COF.dialog.deletePath.title": "Delete the path ?",
+  "COF.dialog.deleteProfile.title": "Delete the profile ?",
+  "COF.dialog.deleteSpecie.title": "Delete the specie ?",
+  "COF.dialog.rollWeapon.title": "Weapon Roll",
+  "COF.dialog.rollDamage.title": "Damage Roll",
+  "COF.dialog.rollHitPoints.title": "Hit Points Roll",
+  "COF.dialog.spendRecoveryPoint.title": "Spend one Recovery Point",  
+  "COF.dialog.chooseCharacteristics.title": "Characteristic scores"
 
 }

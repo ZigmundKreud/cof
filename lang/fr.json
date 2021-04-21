@@ -338,6 +338,15 @@
   "COF.sheet.item" : "Fiche d'Objet COF par défaut",
 
   "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
-  "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé"
+  "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé",
+
+  "COF.dialog.deletePath.title": "Supprimer la voie ?",
+  "COF.dialog.deleteProfile.title": "Supprimer le profil ?",
+  "COF.dialog.deleteSpecie.title": "Supprimer la race ?",
+  "COF.dialog.rollWeapon.title": "Jet d'attaque",
+  "COF.dialog.rollDamage.title": "Jet de dommages",
+  "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
+  "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
+  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
 
 }
