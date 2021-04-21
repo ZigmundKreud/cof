@@ -196,6 +196,9 @@
   "COF.attributes.sc.label": "Spellcasting",
   "COF.attributes.sc.abbrev": "SPELL",
 
+  "COF.attributes.over.label": "OVERLOADING",
+  "COF.attributes.over.abbrev": "OVER",
+
   "COF.attacks.label": "ATTACKS",
   "COF.attack.label": "ATTACK",
   "COF.attacks.name.abbrev" : "Name",

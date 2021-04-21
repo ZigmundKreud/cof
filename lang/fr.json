@@ -197,6 +197,9 @@
   "COF.attributes.sc.label": "Incantation",
   "COF.attributes.sc.abbrev": "INCANT",
 
+  "COF.attributes.over.label": "ENCOMBREMENT",
+  "COF.attributes.over.abbrev": "ENC.",
+
   "COF.attacks.label": "ATTAQUES",
   "COF.attack.label": "ATTAQUE",
   "COF.attacks.name.abbrev" : "Nom",

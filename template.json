@@ -222,6 +222,12 @@
             "label" : "COF.attributes.hd.label",
             "abbrev" : "COF.attributes.hd.abbrev",
             "value": "1d4"
+          },
+          "overload": {
+            "key" : "over",
+            "label" : "COF.attributes.over.label",
+            "abbrev" : "COF.attributes.over.abbrev",
+            "misc": 0
           }
         },
         "currency": {

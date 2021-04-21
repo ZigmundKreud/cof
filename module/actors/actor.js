@@ -182,9 +182,6 @@ export class CofActor extends Actor {
         let species = this.getSpecies(items);
         let profile = this.getProfile(items);
 
-        // Encombrement des armures et boucliers
-        const overloaded = this.getOverloadedMalus();
-
         // Caractéristiques et leurs modificateurs
         for (const [key, stat] of Object.entries(stats)) {
             stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
@@ -194,10 +191,14 @@ export class CofActor extends Actor {
 
         // Initiative
         attributes.init.base = stats.dex.value;
-        // Malus des armures et boucliers
-        attributes.init.malus = this.getArmourMalus() + this.getShieldMalus();        
-        // Encombrement
-        attributes.init.malus -= overloaded;
+     
+        // Encombrement de l'armure
+        attributes.init.malus += this.getOverloadedMalusTotal();
+        // Incompétence avec l'armure
+        attributes.init.malus += this.getArmourMalus();
+        // Incompétence avec le bouclier
+        attributes.init.malus += this.getShieldMalus();
+
         attributes.init.value = attributes.init.base + attributes.init.bonus + attributes.init.malus;
 
         // Points de chance
@@ -227,8 +228,6 @@ export class CofActor extends Actor {
 
         // Points de magie
         attributes.mp.base = this.getMagicPoints(lvl, stats, profile);
-
-         // Encombrement
         attributes.mp.max = attributes.mp.base + attributes.mp.bonus;
         
         if (attributes.mp.value > attributes.mp.max) attributes.mp.value = attributes.mp.max;
@@ -265,15 +264,14 @@ export class CofActor extends Actor {
         ranged.base = (rangedMod) ? rangedMod + lvl : lvl;
         magic.base = (magicMod) ? magicMod + lvl : lvl;
 
-        // Malus des armures et boucliers
+        // Malus de l'incompétence avec les armures et boucliers
         for (let attack of Object.values(attacks)) {
             attack.malus += this.getArmourMalus() + this.getShieldMalus();
         }
 
-        // Encombrement des armures et boucliers
-        const overloaded = this.getOverloadedMalus();
-        attacks.magic.malus -= overloaded;
-        attacks.ranged.malus -= Math.floor(overloaded/2);
+        // Malus de l'encombrement de l'armure
+        attacks.magic.malus += this.getOverloadedMalusTotal();
+        attacks.ranged.malus += Math.ceil(this.getOverloadedMalusTotal()/2);
 
         // Calcul du total
         for (let attack of Object.values(attacks)) {
@@ -488,7 +486,7 @@ export class CofActor extends Actor {
      *      -> à implémenter dans chacun des modules Chroniques Oubliées.
      * //TODO Implémenter dans COF
      * @param {string} skill le nom de la caractéristique
-     * @returns {int} retourne le malus 
+     * @returns {int} retourne le malus (nombre négatif)
      */
     getIncompetentSkillMalus(skill) {
         let malus = 0;
@@ -508,7 +506,7 @@ export class CofActor extends Actor {
      * @public
      * 
      * @param {*} 
-     * 
+     * @returns {int} retourne le malus (négatif)
      */    
     getArmourMalus() {
         return 0;
@@ -521,7 +519,7 @@ export class CofActor extends Actor {
      * @public
      * 
      * @param {*} 
-     * 
+     * @returns {int} retourne le malus (négatif)
      */      
     getShieldMalus() {
         return 0;
@@ -529,8 +527,9 @@ export class CofActor extends Actor {
     
     /**
      * @name getOverloadedSkillMalus
-     * @description obtenir le malus lié à l'encombrement pour le jet de compétence
+     * @description obtenir le malus lié à l'encombrement de l'armure pour les jets de compétence
      *      COF : Malus au jet de DEX
+     * @public
      * 
      * @param {string} skill le nom de la caractéristique
      * @returns {int} retourne le malus (négatif)
@@ -538,23 +537,46 @@ export class CofActor extends Actor {
     getOverloadedSkillMalus(skill){
         let malus = 0;
         if (skill.includes("dex")) {
-            const overloaded = this.getDefenceFromArmor();
-            malus -= overloaded;
+            const malusFromArmor = -1 * this.getDefenceFromArmor();
+            const otherMod = this.getOverloadedOtherMod();
+            malus = malus + (malusFromArmor + otherMod > 0 ? 0 : malusFromArmor + otherMod);
         }
         return malus;
     }
 
     /**
-     * @name getOverloadedMalus
-     * @description obtenir le malus lié à l'encombrement pour l'initiative, l'attaque magique et l'attaque à distance
+     * @name getOverloadedMalusTotal
+     * @description obtenir le malus total lié à l'encombrement de l'armures pour l'initiative, l'attaque magique et l'attaque à distance
      *      COF : Pas de malus
      * 
-     * @param {string} skill le nom de la caractéristique
+     * @returns {int} retourne le malus (négatif)
+     */
+    getOverloadedMalusTotal() {
+        const total = this.getOverloadedMalus() + this.getOverloadedOtherMod();
+        return total <= 0 ? total : 0;
+    }
+
+    /**
+     * @name getOverloadedMalus
+     * @description obtenir le malus lié à l'encombrement de l'armures pour l'initiative, l'attaque magique et l'attaque à distance
+     *      COF : Pas de malus
+     * 
      * @returns {int} retourne le malus (négatif)
      */
     getOverloadedMalus() {
         return 0;
     }
+
+    /**
+     * @name getOverloadedOtherMod
+     * @description obtenir les modificateurs liés à l'encombrement d'autres sources pour l'initiative, l'attaque magique, l'attaque à distance et les jets de compétence
+     *      COF : Pas de malus
+     * 
+     * @returns {int} retourne le modificateur (positif ou négatif)
+     */
+    getOverloadedOtherMod() {
+        return 0;
+    }    
 
     /**
      * @name computeWeaponMod
@@ -567,7 +589,7 @@ export class CofActor extends Actor {
      * @param {string} weaponCategory la catégorie de l'arme
      *  COF : return "cof" en attendant l'implémentation
      * @returns {int} retourne le malus 
-     */    
+     */       
     computeWeaponMod(itemModStat, itemModBonus, weaponCategory) {
         let total = 0;
         let incompetentMod = 0;

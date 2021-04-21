@@ -475,9 +475,26 @@ export class CofActorSheet extends CofBaseSheet {
             "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
         };       
 
+        const overloadedMalus = this.actor.getOverloadedMalus();
+        const overloadedOtherMod = this.actor.getOverloadedOtherMod();
+        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0) ;
+        data.overloaded = {
+            "armor": overloadedMalus,
+            "total": overloadedTotal
+        }
+        
+
         return data;
     }
 
+    /**
+     * @description Retourne la catégorie de l'arme
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * 
+     * @todo 
+     * @param {*} itemData 
+     * @returns Retourne "cof" en attendant l'implémentation
+     */
     getCategory(itemData){
         return "cof";
     }
