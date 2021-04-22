@@ -79,5 +79,15 @@ export const registerSystemSettings = function() {
         type: Boolean,
         onChange: lang => window.location.reload()
     });
+
+    game.settings.register("cof", "displayChatDamageButtonsToAll", {
+        name: "Affiche les boutons de dégâts",
+        hint: "Affiche les boutons d'application des dégâts dans les messages de chat à tout le monde",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });
     
 };
