@@ -249,7 +249,7 @@ export class CofActorSheet extends CofBaseSheet {
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
-        const pack = (li.data("pack")) ? li.data("pack") : null;
+        const pack = (li.data("pack")) ? this.getPackPrefix() + "." +li.data("pack") : null;
 
         if (type === "effect") {
             let effects = this.actor.effects;
