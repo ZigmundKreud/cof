@@ -75,7 +75,7 @@ export default function registerHooks() {
         // Create item macro if rollable item - weapon, spell, prayer, trait, or skill
         if (data.type == "Item") {
             let item = data.data;
-            let command = `let onlyDamage = false; if (event) { if (event.shiftKey) onlyDamage = true; } game.cof.macros.rollItemMacro("${item._id}", "${item.name}", "${item.type}", 0, 0, onlyDamage);`;
+            let command = `let onlyDamage = false; if (event) { if (event.shiftKey) onlyDamage = true; } game.cof.macros.rollItemMacro("${item._id}", "${item.name}", "${item.type}", 0, 0, 0, onlyDamage);`;
 
             let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
             if (!macro) {

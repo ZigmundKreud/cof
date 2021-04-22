@@ -2,16 +2,17 @@ import {CofDamageRoll} from "./dmg-roll.js";
 
 export class CofSkillRoll {
 
-    constructor(label, dice, mod, bonus, difficulty, critrange){
+    constructor(label, dice, mod, bonus, malus, difficulty, critrange){
         this._label = label;
         this._dice = dice;
         this._mod = mod;
         this._bonus = bonus;
+        this._malus = malus;
+        this._totalBonusMalus = parseInt(this._bonus) + parseInt(this._malus);
+        this._total = parseInt(this._mod) + this._totalBonusMalus;
         this._difficulty = difficulty;
         this._critrange = critrange;
-        this._totalBonus = parseInt(this._mod) + parseInt(this._bonus);
-        this._formula = (this._totalBonus === 0) ? this._dice : `${this._dice} + ${this._totalBonus}`;
-        this._critrange = critrange;
+        this._formula = (this._total === 0) ? this._dice : ((this._totalBonusMalus === 0) ? `${this._dice} + ${this._mod}`: `${this._dice} + ${this._mod} + ${this._totalBonusMalus}`);
         this._isCritical = false;
         this._isFumble = false;
         this._isSuccess = false;

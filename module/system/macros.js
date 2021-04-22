@@ -39,13 +39,13 @@ export class Macros {
             if (game.settings.get("cof", "useIncompetentPJ")) {
                 mod = mod + actor.getIncompetentSkillMalus(stat);
             }
-            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), mod, bonus, 20, statObj.superior, onEnter);
+            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter);
         } else {
             ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
         }
     };
 
-    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, dmgBonus=0, dmgOnly=false) {
+    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false) {
         const actor = this.getSpeakersActor()
         let item;
         item = actor ? actor.items.find(i => i.id === itemId) : null;
@@ -71,7 +71,7 @@ export class Macros {
                  let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
 
                 if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0); }
-                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, critrange, dmg, dmgBonus);
+                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }

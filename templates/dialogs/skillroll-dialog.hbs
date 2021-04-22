@@ -36,10 +36,18 @@
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">
     <div class="flex1 center bg-red">
-        <span class="field-label">{{localize 'COF.ui.bonus'}}/{{localize 'COF.ui.malus'}}</span>
+        <span class="field-label">{{localize 'COF.ui.bonus'}}</span>
     </div>
     <div class="flex1 center cell">
         <input class="field-value" id="bonus" name="bonus" type="text" value="{{numberFormat bonus decimals=0 sign=true}}" data-dtype="Number"/>
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">{{localize 'COF.ui.malus'}}</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="malus" name="malus" type="text" value="{{numberFormat malus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
 {{#if (isEnabled "displayDifficulty")}}
