@@ -12,7 +12,6 @@ import { ArrayUtils } from "../utils/array-utils.js";
 import { Inventory } from "../controllers/inventory.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
-import { CofItem } from "../items/item.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -22,7 +21,7 @@ export class CofActorSheet extends CofBaseSheet {
             classes: ["cof", "sheet", "actor"],
             template: System.templatesPath + "/actors/actor-sheet.hbs",
             width: 950,
-            height: 670,
+            height: 720,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
             dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
