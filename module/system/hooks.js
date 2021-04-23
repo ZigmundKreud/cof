@@ -123,15 +123,10 @@ export default function registerHooks() {
 
 
     /**
-     * Primary use of this hook is to intercept chat commands.
-     * /char  - Begin character generation
-     * /table - Roll on a table
-     * /cond  - Lookup a condition
-     * /name  - Generate a name
-     * /avail - Start an item availability test
-     * /pay - Player: Remove money from character. GM: Start a payment request
-     * /credit - Player: Not allowed. GM: Start a credit request to send money to players
-     * /help - display a help message on all the commands above
+     * Intercepte les commandes de chat
+     * /stat - Jet de caractéristique
+     * /skill stat - Jet de caractéristique
+     * /stats - Génère les caractéristiques d'un personnage
      */
 
     Hooks.on("chatMessage", (html, content, msg) => {
@@ -145,12 +140,12 @@ export default function registerHooks() {
         const validCommands = ["for", "str", "dex", "con", "int", "sag", "wis", "cha", "atc", "melee", "atd", "ranged", "atm", "magic"];
 
         if(command && validCommands.includes(command)) {
-            game.cof.macros.rollStatMacro(actor, command, 0,null);
+            game.cof.macros.rollStatMacro(actor, command, 0, 0, null);
             return false;
         }
         else if(command && command === "skill") {
             if(arg1 && validCommands.includes(arg1)) {
-                game.cof.macros.rollStatMacro(actor, arg1, 0, null);
+                game.cof.macros.rollStatMacro(actor, arg1, 0, 0, null);
             } else {
                 ui.notifications.error("Vous devez préciser la caractéristique à tester, par exemple \"/skill str\".");
             }
@@ -162,7 +157,24 @@ export default function registerHooks() {
         }
     });
 
-    // Hooks.on("preCreateChatMessage", (data, options, user) => {
+    Hooks.on("renderChatMessage", (message, html, data) => {
+        // Affiche ou non les boutons d'application des dommages
+        if (game.settings.get("cof", "displayChatDamageButtonsToAll")) {
+            html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
+        }
+        else {
+            if (game.user.isGM){
+                html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
+            }
+            else {
+                html.find(".apply-dmg").each((i, btn) => {
+                    btn.style.display = "none"
+                  });
+            }        
+        }        
+    });
+
+        // Hooks.on("preCreateChatMessage", (data, options, user) => {
     //     console.debug("preCreateChatMessage");
     //     // console.log(data,options,user);
     //     return true;
@@ -177,23 +189,7 @@ export default function registerHooks() {
     //     // console.log(message,update,options,user);
     //     return true;
     // });
-    Hooks.on("renderChatMessage", (message, html, data) => {
-        if (game.settings.get("cof", "displayChatDamageButtonsToAll")) {
-            html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
-        }
-        else {
-            if (game.user.isGM){
-                html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
-            }
-            else {
-                html.find(".apply-dmg").each((i, btn) => {
-                    btn.style.display = "none"
-                  });
-            }        
-        }
-        
-    });
-
+    
     // Hooks.on("renderItemSheet", (app, html, data) => {
     //     console.debug("renderItemSheet");
     //     return true;

@@ -12,7 +12,7 @@ export class Macros {
         return actor;
     }
 
-    static rollStatMacro = async function (actor, stat, bonus = 0, onEnter = "submit") {
+    static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit") {
         if(actor){
             let statObj;
             switch(stat){
@@ -35,9 +35,21 @@ export class Macros {
                     break;
             }
             let mod = statObj.mod;
-            // Prise en compte de la notion de PJ incompétent
-            if (game.settings.get("cof", "useIncompetentPJ")) {
-                mod = mod + actor.getIncompetentSkillMalus(stat);
+
+            // Caractéristiques
+            if (stat === "for" || stat === "str" || stat === "dex") {
+                
+                // Prise en compte de la notion de PJ incompétent
+                if (game.settings.get("cof", "useIncompetentPJ")) {
+                    malus += actor.getIncompetentSkillMalus(stat);
+                }
+                malus += actor.getOverloadedSkillMalus(stat);
+                
+                // Prise en compte des bonus ou malus liés à la caractéristique
+                let skillBonus = statObj.skillbonus;
+                if (skillBonus) bonus += skillBonus;
+                let skillMalus = statObj.skillmalus;
+                if (skillMalus) malus += skillMalus;
             }
             await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter);
         } else {
