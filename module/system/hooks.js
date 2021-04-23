@@ -178,7 +178,20 @@ export default function registerHooks() {
     //     return true;
     // });
     Hooks.on("renderChatMessage", (message, html, data) => {
-        html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));
+        if (game.settings.get("cof", "displayChatDamageButtonsToAll")) {
+            html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
+        }
+        else {
+            if (game.user.isGM){
+                html.find(".apply-dmg").click(ev => Hitpoints.onClickChatMessageApplyButton(ev, html, data));    
+            }
+            else {
+                html.find(".apply-dmg").each((i, btn) => {
+                    btn.style.display = "none"
+                  });
+            }        
+        }
+        
     });
 
     // Hooks.on("renderItemSheet", (app, html, data) => {
