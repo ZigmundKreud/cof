@@ -74,8 +74,8 @@ export const registerSystemSettings = function() {
         name: "PJ incompétent",
         hint: "Utiliser la règle du PJ Incompétent.",
         scope: "world",
-        config: true,
-        default: true,
+        config: false,
+        default: false,
         type: Boolean,
         onChange: lang => window.location.reload()
     });
