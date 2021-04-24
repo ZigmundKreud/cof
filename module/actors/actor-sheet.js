@@ -74,7 +74,7 @@ export class CofActorSheet extends CofBaseSheet {
         html.find('.inventory-qty').click(this._onIncrease.bind(this));
         html.find('.inventory-qty').contextmenu(this._onDecrease.bind(this));
         html.find('.item-edit').click(this._onEditItem.bind(this));
-        html.find('div.item-name').click(this._onEditItem.bind(this));
+        html.find('.item .item-name h4').click(this._onItemSummary.bind(this));
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
         html.find('.foldable h3.item-name').click(ev => {
             ev.preventDefault();
@@ -248,7 +248,7 @@ export class CofActorSheet extends CofBaseSheet {
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
-        const pack = (li.data("pack")) ? this.getPackPrefix() + "." +li.data("pack") : null;
+        const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
 
         if (type === "effect") {
             let effects = this.actor.effects;
@@ -261,6 +261,23 @@ export class CofActorSheet extends CofBaseSheet {
             let entity = this.actor.getOwnedItem(id);
             return (entity) ? entity.sheet.render(true) : Traversal.getEntity(id, type, pack).then(e => e.sheet.render(true));
         }
+    }
+
+     /**
+     * Callback on render item actions : display or not the summary
+     * @param event
+     * @private
+     */
+    _onItemSummary(event){
+        event.preventDefault();
+        let li = $(event.currentTarget).parents('.item').children('.item-summary');
+        if (li.hasClass('expanded')) {
+            li.css("display", "none");
+        }
+        else {
+            li.css("display", "block");
+        }
+        li.toggleClass('expanded');
     }
 
     /* -------------------------------------------- */
