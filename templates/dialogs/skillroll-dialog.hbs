@@ -61,3 +61,12 @@
         </div>
     </div>
 {{/if}}
+{{#if hasDescription}}
+    <hr/>
+    <div>
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">Description</span>
+        </div>
+        <textarea class="readonly rollDialogDescr" readonly="true" id="skillDescr" name="skillDescr">{{skillDescr}}</textarea>
+    </div>
+{{/if}}

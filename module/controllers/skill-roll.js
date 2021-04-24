@@ -2,7 +2,7 @@ import {CofDamageRoll} from "./dmg-roll.js";
 
 export class CofSkillRoll {
 
-    constructor(label, dice, mod, bonus, malus, difficulty, critrange){
+    constructor(label, dice, mod, bonus, malus, difficulty, critrange, description){
         this._label = label;
         this._dice = dice;
         this._mod = mod;
@@ -16,6 +16,7 @@ export class CofSkillRoll {
         this._isCritical = false;
         this._isFumble = false;
         this._isSuccess = false;
+        this._description = description;
     }
 
     roll(actor){
@@ -37,17 +38,17 @@ export class CofSkillRoll {
         })
     }
 
-    weaponRoll(actor, dmgFormula){
+    weaponRoll(actor, dmgFormula, dmgDescr){
         this.roll(actor);
         if (this._difficulty) {
             if(this._isSuccess && game.settings.get("cof", "useComboRolls")){
-                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical);
+                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr);
                 r.roll(actor);
             }
         }
         else {
             if(game.settings.get("cof", "useComboRolls")){
-                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical);
+                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr);
                 r.roll(actor);
             }
         }
@@ -62,7 +63,9 @@ export class CofSkillRoll {
             isCritical : this._isCritical,
             isFumble : this._isFumble,
             isSuccess : this._isSuccess,
-            isFailure : !this._isSuccess
+            isFailure : !this._isSuccess,
+            hasDescription : this._description && this._description.length > 0,
+			description : this._description       
         };
         return renderTemplate(rollMessageTpl, tplData);
     }

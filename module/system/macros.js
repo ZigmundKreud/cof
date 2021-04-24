@@ -12,7 +12,7 @@ export class Macros {
         return actor;
     }
 
-    static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit") {
+    static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit", label, description) {
         if(actor){
             let statObj;
             switch(stat){
@@ -51,13 +51,13 @@ export class Macros {
                 let skillMalus = statObj.skillmalus;
                 if (skillMalus) malus += skillMalus;
             }
-            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter);
+            await CofRoll.skillRollDialog(actor, label ?? game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description);
         } else {
             ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
         }
     };
 
-    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false) {
+    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr) {
         const actor = this.getSpeakersActor()
         let item;
         item = actor ? actor.items.find(i => i.id === itemId) : null;
@@ -65,7 +65,7 @@ export class Macros {
         const itemData = item.data;
         if(itemData.data.properties.weapon){
             if(itemData.data.worn){
-                const label = itemData.name;                
+                const label =  customLabel ?? itemData.name;                
                 const critrange = itemData.data.critrange;              
 
                  // Compute MOD
@@ -82,8 +82,8 @@ export class Macros {
 
                  let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
 
-                if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0); }
-                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus);
+                if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr); }
+                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }

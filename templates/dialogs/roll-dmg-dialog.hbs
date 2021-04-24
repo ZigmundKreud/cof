@@ -12,3 +12,12 @@
         <input class="field-value" id="isCritical" name="isCritical" type="checkbox" {{#if isCritical}}checked{{/if}}/>
     </div>
 </div>
+{{#if hasDescription}}
+    <hr/>
+    <div>
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">Description</span>
+        </div>
+        <textarea class="readonly rollDialogDescr" readonly="true" id="dmgDescr" name="dmgDescr">{{dmgDescr}}</textarea>
+    </div>
+{{/if}}
