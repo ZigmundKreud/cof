@@ -271,13 +271,18 @@ export class CofActorSheet extends CofBaseSheet {
     _onItemSummary(event){
         event.preventDefault();
         let li = $(event.currentTarget).parents('.item').children('.item-summary');
-        if (li.hasClass('expanded')) {
-            li.css("display", "none");
+        let entity = this.actor.getOwnedItem($(event.currentTarget).parents('.item').data("itemId"));
+        if (entity && entity.data.type === "capacity") {
+            if (li.hasClass('expanded')) {
+                li.css("display", "none");
+            }
+            else {
+                li.css("display", "block");
+            }
+            li.toggleClass('expanded');                
+        } else {
+            this._onEditItem(event);
         }
-        else {
-            li.css("display", "block");
-        }
-        li.toggleClass('expanded');
     }
 
     /* -------------------------------------------- */
