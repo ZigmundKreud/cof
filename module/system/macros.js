@@ -51,7 +51,7 @@ export class Macros {
                 let skillMalus = statObj.skillmalus;
                 if (skillMalus) malus += skillMalus;
             }
-            await CofRoll.skillRollDialog(actor, label ?? game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description);
+            await CofRoll.skillRollDialog(actor, label && label.length > 0 ? label : game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description);
         } else {
             ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
         }
@@ -65,7 +65,7 @@ export class Macros {
         const itemData = item.data;
         if(itemData.data.properties.weapon){
             if(itemData.data.worn){
-                const label =  customLabel ?? itemData.name;                
+                const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
                 const critrange = itemData.data.critrange;              
 
                  // Compute MOD

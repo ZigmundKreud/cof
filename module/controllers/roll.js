@@ -319,7 +319,7 @@ export class CofRoll {
         });
 
         let d = new Dialog({
-            title: game.i18n.format("COF.dialog.rollWeapon.title"),
+            title: label && label.length > 0 ? label : game.i18n.format("COF.dialog.rollWeapon.title"),
             content: rollOptionContent,
             buttons: {
                 cancel: {
@@ -384,7 +384,7 @@ export class CofRoll {
         });
 
         let d = new Dialog({
-            title: game.i18n.format("COF.dialog.rollDamage.title"),
+            title: label && label.length > 0 ? label : game.i18n.format("COF.dialog.rollDamage.title"),
             content: rollOptionContent,
             buttons: {
                 cancel: {
