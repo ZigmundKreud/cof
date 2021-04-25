@@ -647,6 +647,25 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
   color: #464331c4;
 }
 
+.rollDialogDescr {
+  border: none;
+  resize: none;
+  height: 80px;
+}
+
+.rollDialogDescr:focus {
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.rollDescr-line {
+  font-style: italic;
+  line-height: 15px;
+  white-space: pre-line;
+}
+
 /* Styles limited to cof sheets */
 .cof {
   /*
@@ -2422,25 +2441,4 @@ Copied from dnd5e
   line-height: 16px;
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
-}
-
-.rollDialogDescr {
-  border: none;
-  resize: none; 
-  height: 80px;
-}
-
-.rollDialogDescr:focus {
-  border: none;
-  outline: none; 
-
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-.rollDescr-line {
-  font-style: italic;
-  line-height: 15px;
-  white-space: pre-line;
 }
