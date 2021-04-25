@@ -43,8 +43,10 @@ export class Macros {
                 if (game.settings.get("cof", "useIncompetentPJ")) {
                     malus += actor.getIncompetentSkillMalus(stat);
                 }
+
+                // Prise en compte de la notion d'encombrement
                 malus += actor.getOverloadedSkillMalus(stat);
-                
+
                 // Prise en compte des bonus ou malus liés à la caractéristique
                 let skillBonus = statObj.skillbonus;
                 if (skillBonus) bonus += skillBonus;

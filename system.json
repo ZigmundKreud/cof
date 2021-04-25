@@ -2,10 +2,10 @@
   "name": "cof",
   "title": "Chroniques Oubliées Fantasy",
   "description": "<p>Système Foundry VTT pour <a href='https://www.black-book-editions.fr/catalogue.php?id=477'>Chroniques Oubliées Fantasy</a>.</p><p> *** Rejoignez la communauté Discord FR :<a href='https://discord.gg/pPSDNJk'>https://discord.gg/pPSDNJk</a></p>",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "minimumCoreVersion": "0.7.3",
   "compatibleCoreVersion": "0.7.9",
-  "templateVersion": 3,
+  "templateVersion": 2,
   "author": "Zigmund",
   "esmodules": [
     "module/cof.js"
