@@ -6,20 +6,20 @@ export class CofHealingRoll {
     }
 
     roll(actor){
-        const r = new Roll(this._formula);
+        const r = new Roll(this._formula,actor.data.data);
         r.roll();
         if (this._isCritical) r._total = r._total * 2;
-        this._buildDamageRollMessage().then(msgFlavor => {
+        this._buildHealingRollMessage().then(msgFlavor => {
             r.toMessage({
                 user: game.user._id,
                 flavor: msgFlavor,
                 speaker: ChatMessage.getSpeaker({actor: actor}),
-                flags : {msgType : "damage"}
+                flags : {msgType : "heal"}
             });
         });
     }
 
-    _buildDamageRollMessage() {
+    _buildHealingRollMessage() {
         const rollMessageTpl = 'systems/cof/templates/chat/healing-roll-card.hbs';
         const tplData = {
             label : this._label,
