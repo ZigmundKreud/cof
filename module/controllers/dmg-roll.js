@@ -1,8 +1,9 @@
 export class CofDamageRoll {
-    constructor(label, formula, isCritical){
+    constructor(label, formula, isCritical, description){
         this._label = label;
         this._formula = formula;
         this._isCritical = isCritical;
+        this._description = description;
     }
 
     roll(actor){
@@ -23,7 +24,9 @@ export class CofDamageRoll {
         const rollMessageTpl = 'systems/cof/templates/chat/dmg-roll-card.hbs';
         const tplData = {
             label : this._label,
-            isCritical : this._isCritical
+            isCritical : this._isCritical,
+            hasDescription : this._description && this._description.length > 0,
+			description : this._description
         };
         return renderTemplate(rollMessageTpl, tplData);
     }

@@ -2423,3 +2423,24 @@ Copied from dnd5e
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
 }
+
+.rollDialogDescr {
+  border: none;
+  resize: none; 
+  height: 80px;
+}
+
+.rollDialogDescr:focus {
+  border: none;
+  outline: none; 
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.rollDescr-line {
+  font-style: italic;
+  line-height: 15px;
+  white-space: pre-line;
+}

@@ -63,6 +63,15 @@
 </div>
 <hr/>
 {{/if}}
+{{#if hasSkillDescr}}
+    <hr/>
+    <div>
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">Description</span>
+        </div>
+        <textarea class="readonly rollDialogDescr" readonly="true" id="skillDescr" name="skillDescr">{{skillDescr}}</textarea>
+    </div>
+{{/if}}
 
 {{#if (isEnabled "useComboRolls")}}
 <div class="row flexrow table-header red">
@@ -72,4 +81,13 @@
 </div>
 <!-- DAMAGES -->
 {{> "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs"}}
+{{/if}}
+{{#if hasDmgDescr}}
+    <hr/>
+    <div>
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">Description</span>
+        </div>
+        <textarea class="readonly rollDialogDescr" readonly="true" id="dmgDescr" name="dmgDescr">{{dmgDescr}}</textarea>
+    </div>
 {{/if}}
