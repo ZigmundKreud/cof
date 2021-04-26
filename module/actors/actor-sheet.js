@@ -483,6 +483,8 @@ export class CofActorSheet extends CofBaseSheet {
             "total": overloadedTotal
         }
         
+        // Gestion des boutons de modification des effets (visible pour l'actor)
+        data.isEffectsEditable = true;
 
         return data;
     }

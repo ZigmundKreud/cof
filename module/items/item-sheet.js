@@ -83,6 +83,7 @@ export class CofItemSheet extends ItemSheet {
             const elt = $(ev.currentTarget).parents(".effect");
             if (!elt || elt.length === 0) this._onEditItem(ev);
             else {
+                if (this.item.actor) return;    // Si l'item appartient à un actor, l'effet n'est pas modifiable
                 const effectId = elt.data("itemId");
                 let effect = this.item.effects.get(effectId);
                 if (effect){
@@ -290,6 +291,11 @@ export class CofItemSheet extends ItemSheet {
         data.itemType = data.item.type.titleCase();
         data.itemProperties = this._getItemProperties(data.item);
         data.effects = data.item.effects;
+
+        // Gestion de l'affichage des boutons de modification des effets
+        // Les boutons sont masqués si l'item appartient à un actor
+        data.isEffectsEditable = this.item.actor ? false : true;
+
         return data;
     }
 }
