@@ -3,12 +3,13 @@
  * @extends {ItemSheet}
  */
 import {CofHealingRoll} from "../controllers/healing-roll.js";
+import {COF} from "../system/config.js"; 
 
 export class CofItem extends Item {
 
     /** @override */
     prepareData() {
-        if (!this.data.img) this.data.img = "icons/svg/chest.svg";
+        if (!this.data.img && COF.itemIcons[this.data.type]) this.data.img = COF.itemIcons[this.data.type];
         super.prepareData();
         const itemData = this.data;
         // console.log(itemData);
