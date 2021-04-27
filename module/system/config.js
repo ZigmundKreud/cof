@@ -76,3 +76,17 @@ COF.itemCategories = {
     "currency": "COF.category.currency",
     "trapping": "COF.category.trapping"
 }
+
+COF.itemIcons = {
+    "item": "icons/containers/chest/chest-worn-oak-tan.webp",
+    "capacity":"icons/sundries/scrolls/scroll-plain-tan-red.webp",
+    "species": "icons/environment/people/group.webp",
+    "profile": "icons/sundries/documents/blueprint-axe.webp",
+    "path": "icons/sundries/books/book-embossed-gold-red.webp"
+}
+
+COF.actorIcons = {
+    "npc": "icons/environment/people/commoner.webp",
+    "encounter":"icons/svg/mystery-man-black.svg",
+    "loot": "icons/containers/bags/sack-simple-leather-brown.webp"
+}

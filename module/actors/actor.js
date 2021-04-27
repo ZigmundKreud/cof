@@ -3,8 +3,21 @@
  * @extends {Actor}
  */
 import { Stats } from "../system/stats.js";
+import {COF} from "../system/config.js";
 
 export class CofActor extends Actor {
+
+    /* -------------------------------------------- */
+    /*  Data Preparation                            */
+    /* -------------------------------------------- */
+    /* Début de la préparation des données          */
+    /* Définition de l'image par défaut             */
+    /* -------------------------------------------- */
+    /** @override */
+    prepareData() {
+        if (!this.data.img && COF.actorIcons[this.data.type]) this.data.img = COF.actorIcons[this.data.type];
+        super.prepareData();
+    }
 
     /* -------------------------------------------- */
     /*  Data Preparation                            */
