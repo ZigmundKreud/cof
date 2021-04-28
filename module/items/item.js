@@ -9,7 +9,6 @@ export class CofItem extends Item {
 
     /** @override */
     prepareData() {
-        if (!this.data.img && COF.itemIcons[this.data.type]) this.data.img = COF.itemIcons[this.data.type];
         super.prepareData();
         const itemData = this.data;
         // console.log(itemData);
