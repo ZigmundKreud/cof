@@ -342,6 +342,8 @@
   "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
   "COF.notification.MacroItemUnequiped" : "Item is unequiped",
 
+  "COF.notification.MacroWeaponMissing" : "Your controlled Actor does not have such an attack.",
+
   "COF.dialog.deletePath.title": "Delete the path ?",
   "COF.dialog.deleteProfile.title": "Delete the profile ?",
   "COF.dialog.deleteSpecie.title": "Delete the specie ?",

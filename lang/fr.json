@@ -342,6 +342,8 @@
 
   "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
   "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé",
+  
+  "COF.notification.MacroWeaponMissing" : "Le personnage ne possède pas cette attaque",
 
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",

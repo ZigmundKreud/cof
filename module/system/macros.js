@@ -91,4 +91,26 @@ export class Macros {
         }
         else { return item.sheet.render(true); }
     };
+
+    static rollWeaponMacro = function (weaponName, bonus = 0, malus = 0, dmgBonus = 0, dmgOnly = false, customLabel, skillDescr, dmgDescr) {
+        const actor = this.getSpeakersActor();
+
+        let weapon;
+        if (actor?.data?.data?.weapons) {
+            const weapons = actor.data.data.weapons;
+            for (const id in weapons) {
+                if (Object.hasOwnProperty.call(weapons, id)) {
+                    if (weapons[id].name === weaponName) {
+                        weapon = weapons[id];
+                    }
+                }
+            }
+        }
+        if (!weapon) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroWeaponMissing")}: "${weaponName}"`);
+
+        const label = customLabel && customLabel.length > 0 ? customLabel : weaponName;
+
+        if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, weapon.dmg, 0, false, "submit", dmgDescr); }
+        else CofRoll.rollWeaponDialog(actor, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, "submit", skillDescr, dmgDescr);
+    };
 }
