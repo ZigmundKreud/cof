@@ -88,6 +88,22 @@ export default function registerHooks() {
             }
             game.user.assignHotbarMacro(macro, slot);
         }
+        // Create item macro if rollable weapon from encounter actor sheet
+        if (data.type == "Weapon") {
+            let item = data.data;
+            let command = `let onlyDamage = false;\nlet customLabel = "";\nlet skillDescription = "";\nlet dmgDescription = "";\n\nif (event) {\n  if (event.shiftKey) onlyDamage = true;\n}\n\ngame.cof.macros.rollWeaponMacro("${item.name}", 0, 0, 0, onlyDamage);`;
+
+            let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+            if (!macro) {
+                macro = await Macro.create({
+                    name: item.name,
+                    type: "script",
+                    img: 'systems/cof/ui/icons/attack.webp',
+                    command: command
+                }, { displaySheet: false })
+            }
+            game.user.assignHotbarMacro(macro, slot);
+        }
         // Create a macro to open the actor sheet of the actor dropped on the hotbar
         else if (data.type == "Actor") {
             let actor = game.actors.get(data.id);
