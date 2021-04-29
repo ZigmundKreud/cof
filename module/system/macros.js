@@ -12,7 +12,7 @@ export class Macros {
         return actor;
     }
 
-    static rollStatMacro = async function (actor, stat, bonus = 0, onEnter = "submit") {
+    static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit", label, description) {
         if(actor){
             let statObj;
             switch(stat){
@@ -35,17 +35,31 @@ export class Macros {
                     break;
             }
             let mod = statObj.mod;
-            // Prise en compte de la notion de PJ incompétent
-            if (game.settings.get("cof", "useIncompetentPJ")) {
-                mod = mod + actor.getIncompetentSkillMalus(stat);
+
+            // Caractéristiques
+            if (stat === "for" || stat === "str" || stat === "dex") {
+                
+                // Prise en compte de la notion de PJ incompétent
+                if (game.settings.get("cof", "useIncompetentPJ")) {
+                    malus += actor.getIncompetentSkillMalus(stat);
+                }
+
+                // Prise en compte de la notion d'encombrement
+                malus += actor.getOverloadedSkillMalus(stat);
+
+                // Prise en compte des bonus ou malus liés à la caractéristique
+                let skillBonus = statObj.skillbonus;
+                if (skillBonus) bonus += skillBonus;
+                let skillMalus = statObj.skillmalus;
+                if (skillMalus) malus += skillMalus;
             }
-            await CofRoll.skillRollDialog(actor, game.i18n.localize(statObj.label), mod, bonus, 20, statObj.superior, onEnter);
+            await CofRoll.skillRollDialog(actor, label && label.length > 0 ? label : game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description);
         } else {
             ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
         }
     };
 
-    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, dmgBonus=0, dmgOnly=false) {
+    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr) {
         const actor = this.getSpeakersActor()
         let item;
         item = actor ? actor.items.find(i => i.id === itemId) : null;
@@ -53,34 +67,28 @@ export class Macros {
         const itemData = item.data;
         if(itemData.data.properties.weapon){
             if(itemData.data.worn){
-                let label = itemData.name;                
-                let critrange = itemData.data.critrange;
-                
-                // Compute mod
-                const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
-                let incompetentMod = (game.settings.get("cof", "useIncompetentPJ") && (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) ||
-                    actor.getIncompetentRangedWeapons().find(element => element._id === item._id))) ? -3 : 0;
-                let mod = modStat + incompetentMod + itemData.data.skillBonus;
-                
-                // Compute damage
-                let dmg = itemData.data.dmg;
-                const dmgStat = eval("actor.data.data." + itemData.data.dmgStat.split("@")[1]);
-                const dmgAllBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
-                if (dmgAllBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgAllBonus);
-                else if (dmgAllBonus === 0) dmg = itemData.data.dmgBase;
-                else dmg = itemData.data.dmgBase + " + " + dmgAllBonus;
-                
-                if (dmgOnly) {
-                    CofRoll.rollDamageDialog(actor, label, dmg, 0);
-                }
-                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, critrange, dmg, dmgBonus);
+                const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
+                const critrange = itemData.data.critrange;              
+
+                 // Compute MOD
+                 const itemModStat = itemData.data.skill.split("@")[1];
+                 const itemModBonus = parseInt(itemData.data.skillBonus);
+                 const weaponCategory = item.getMartialCategory();
+                 
+                 let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+
+                 // Compute DM
+                 const itemDmgBase = itemData.data.dmgBase;                        
+                 const itemDmgStat = itemData.data.dmgStat.split("@")[1];
+                 const itemDmgBonus = parseInt(itemData.data.dmgBonus);
+
+                 let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
+
+                if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr); }
+                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
             }
             else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
         }
-        else{
-            return item.sheet.render(true);
-        }
+        else { return item.sheet.render(true); }
     };
-
-
 }

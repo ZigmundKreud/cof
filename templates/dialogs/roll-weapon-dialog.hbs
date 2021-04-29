@@ -24,11 +24,6 @@
     </div>
     <div class="flex1 center cell">
         <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>
-        {{!#if mod}}
-<!--            <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>-->
-        {{!else}}
-<!--            <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="0" data-dtype="Number"/>-->
-        {{!/if}}
     </div>
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">
@@ -41,10 +36,18 @@
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">
     <div class="flex1 center bg-red">
-        <span class="field-label">{{localize 'COF.ui.bonus'}}/{{localize 'COF.ui.malus'}}</span>
+        <span class="field-label">{{localize 'COF.ui.bonus'}}</span>
     </div>
     <div class="flex1 center cell">
         <input class="field-value" id="bonus" name="bonus" type="text" value="{{numberFormat bonus decimals=0 sign=true}}" data-dtype="Number"/>
+    </div>
+</div>
+<div class="row flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-red">
+        <span class="field-label">{{localize 'COF.ui.malus'}}</span>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" id="malus" name="malus" type="text" value="{{numberFormat malus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
 <hr/>
@@ -60,6 +63,15 @@
 </div>
 <hr/>
 {{/if}}
+{{#if hasSkillDescr}}
+    <hr/>
+    <div>
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">Description</span>
+        </div>
+        <textarea class="readonly rollDialogDescr" readonly="true" id="skillDescr" name="skillDescr">{{skillDescr}}</textarea>
+    </div>
+{{/if}}
 
 {{#if (isEnabled "useComboRolls")}}
 <div class="row flexrow table-header red">
@@ -69,4 +81,13 @@
 </div>
 <!-- DAMAGES -->
 {{> "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs"}}
+{{/if}}
+{{#if hasDmgDescr}}
+    <hr/>
+    <div>
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">Description</span>
+        </div>
+        <textarea class="readonly rollDialogDescr" readonly="true" id="dmgDescr" name="dmgDescr">{{dmgDescr}}</textarea>
+    </div>
 {{/if}}

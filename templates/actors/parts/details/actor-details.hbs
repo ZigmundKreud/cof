@@ -2,7 +2,7 @@
     <div class="flex1" style="margin-right: 5px;">
         <!-- NAME -->
         <div class="flexrow">
-            <div class="flex1 center bg-darkgreen">
+            <div class="flex1 center bg-header">
                 <span class="field-label">{{ localize 'COF.details.name' }}</span>
             </div>
             <div class="flex2 center cell">
@@ -12,7 +12,7 @@
         <!-- /NAME -->
         <!-- LEVEL -->
         <div class="flexrow">
-            <div class="flex1 center bg-darkgreen">
+            <div class="flex1 center bg-header">
                 <span class="field-label">{{ localize 'COF.attributes.level.label' }}</span>
             </div>
             <div class="flex2 center cell">
@@ -24,12 +24,12 @@
     <div class="flex1">
         <!-- SPECIES -->
         <div class="flexrow">
-            <div class="flex1 center bg-darkgreen">
+            <div class="flex1 center bg-header">
                 <span class="field-label">{{ localize 'COF.details.species' }}</span>
             </div>
             {{#if species}}
                 {{#with species}}
-                    <div class="flex2 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="species" data-pack="cof-srd.species" data-open="0" title="click gauche ouvre le peuple, click droit ouvre le compendium">                
+                    <div class="flex2 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="species" data-pack="species" data-open="0" title="click gauche ouvre le peuple, click droit ouvre le compendium">                
                         <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
                         <div class="species-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
@@ -37,18 +37,18 @@
                     </div>
                 {{/with}}
             {{else}}
-                <div class="flex2 center cell drop-field compendium-pack" data-item-type="species" data-pack="cof-srd.species" data-open="0"></div>
+                <div class="flex2 center cell drop-field compendium-pack" data-item-type="species" data-pack="species" data-open="0" title="click droit pour ouvrir le compendium"></div>
             {{/if}}
         </div>
         <!-- /SPECIES -->
         <!-- PROFILE -->
         <div class="flexrow">
-            <div class="flex2 center bg-darkgreen">
+            <div class="flex2 center bg-header">
                 <span class="field-label">{{ localize 'COF.details.profile' }}</span>
             </div>
             {{#if profile}}
                 {{#with profile}}
-                    <div class="flex4 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="profile" data-pack="cof-srd.profiles" data-open="0" title="click gauche ouvre le peuple, click droit ouvre le compendium">                
+                    <div class="flex4 center cell drop-field compendium-pack item" data-item-id="{{_id}}" data-item-type="profile" data-pack="profiles" data-open="0" title="click gauche ouvre le peuple, click droit ouvre le compendium">                
                         <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
                         <div class="profile-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
@@ -56,7 +56,7 @@
                     </div>
                 {{/with}}
             {{else}}
-                <div class="flex4 center cell drop-field compendium-pack" data-item-type="profile" data-pack="cof-srd.profiles" data-open="0"></div>
+                <div class="flex4 center cell drop-field compendium-pack" data-item-type="profile" data-pack="profiles" data-open="0" title="click droit pour ouvrir le compendium"></div>
             {{/if}}
         </div>
         <!-- /PROFILE -->

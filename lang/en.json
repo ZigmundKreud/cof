@@ -39,6 +39,8 @@
   "COF.ui.racial": "Racial",
   "COF.ui.value": "Value",
   "COF.ui.mod" : "Mod",
+  "COF.ui.total" : "Total",
+  "COF.ui.combat" : "COMBAT",
   "COF.ui.tmp" : "Temp",
   "COF.ui.max" : "Max",
   "COF.ui.current" : "Current",
@@ -131,7 +133,7 @@
   "COF.details.class": "Class",
   "COF.details.avatar": "Avatar",
   "COF.details.profile": "Profile",
-  "COF.details.species": "Species",
+  "COF.details.species": "Race",
   "COF.details.gender": "Gender",
   "COF.details.age": "Age",
   "COF.details.height": "Height",
@@ -194,7 +196,11 @@
   "COF.attributes.sc.label": "Spellcasting",
   "COF.attributes.sc.abbrev": "SPELL",
 
+  "COF.attributes.over.label": "OVERLOADING",
+  "COF.attributes.over.abbrev": "OVER",
+
   "COF.attacks.label": "ATTACKS",
+  "COF.attack.label": "ATTACK",
   "COF.attacks.name.abbrev" : "Name",
   "COF.attacks.mod.abbrev" : "Base",
   "COF.attacks.tmpmod.abbrev" : "Mod",
@@ -334,6 +340,15 @@
   "COF.sheet.item" : "COF Default Item Sheet",
 
   "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
-  "COF.notification.MacroItemUnequiped" : "Item is unequiped"
+  "COF.notification.MacroItemUnequiped" : "Item is unequiped",
+
+  "COF.dialog.deletePath.title": "Delete the path ?",
+  "COF.dialog.deleteProfile.title": "Delete the profile ?",
+  "COF.dialog.deleteSpecie.title": "Delete the specie ?",
+  "COF.dialog.rollWeapon.title": "Weapon Roll",
+  "COF.dialog.rollDamage.title": "Damage Roll",
+  "COF.dialog.rollHitPoints.title": "Hit Points Roll",
+  "COF.dialog.spendRecoveryPoint.title": "Spend one Recovery Point",  
+  "COF.dialog.chooseCharacteristics.title": "Characteristic scores"
 
 }

@@ -18,12 +18,22 @@ export class CofRoll {
         const elt = $(event.currentTarget)[0];
         let key = elt.attributes["data-rolling"].value;
         let label = eval(`${key}.label`);
-        // Prise en compte de la notion de PJ incompétent
-        let mod = eval(`${key}.mod`) + actor.getIncompetentSkillMalus(key);
+
+        // Prise en compte de la notion de PJ incompétent et de l'encombrement
+        let mod = eval(`${key}.mod`) ;
+        let malus = actor.getIncompetentSkillMalus(key) + actor.getOverloadedSkillMalus(key);
+        
+        // Prise en compte des bonus ou malus liés à la caractéristique
+        let bonus =  eval(`${key}.skillbonus`);
+        if (!bonus) bonus = 0;
+        let skillMalus = eval(`${key}.skillmalus`);
+        if (!skillMalus) skillMalus = 0;
+        malus += skillMalus;
+
         let superior = eval(`${key}.superior`);
         const critrange = 20;
         label = (label) ? game.i18n.localize(label) : null;
-        return this.skillRollDialog(actor, label, mod, 0, critrange, superior);
+        return this.skillRollDialog(actor, label, mod, bonus, malus, critrange, superior);
     }
 
     /**
@@ -33,24 +43,18 @@ export class CofRoll {
      * @private
      */
     static rollWeapon(data, actor, event) {
-        const li = $(event.currentTarget).parents(".item");
+        const li = $(event.currentTarget).parents(".item");        
         let item = actor.getOwnedItem(li.data("itemId"));
         const itemData = item.data;
-        let label = itemData.name;
-        // Compute mod
-        const modStat = eval("actor.data.data." + itemData.data.skill.split("@")[1]);
-        let incompetentMod = (game.settings.get("cof", "useIncompetentPJ") && (actor.getIncompetentMeleeWeapons().find(element => element._id === item._id) ||
-            actor.getIncompetentRangedWeapons().find(element => element._id === item._id))) ? -3 : 0;
-        let mod = modStat + incompetentMod + itemData.data.skillBonus;
-        let critrange = itemData.data.critrange;
-        // Compute damage
-        let dmg = itemData.data.dmg;
-        const dmgStat = eval("actor.data.data." + itemData.data.dmgStat.split("@")[1]);
-        const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
-        if (dmgBonus < 0) dmg = itemData.data.dmgBase + " - " + parseInt(-dmgBonus);
-        else if (dmgBonus === 0) dmg = itemData.data.dmgBase;
-        else dmg = itemData.data.dmgBase + " + " + dmgBonus;
-        return this.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
+    
+        const label = itemData.name;
+        const critrange = itemData.data.critrange;
+        const itemMod = $(event.currentTarget).parents().children(".item-mod");
+        const mod = itemMod.data('itemMod');
+        const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
+        const dmg = dmgMod.data('itemDmg');
+
+        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
     }
 
     /**
@@ -65,7 +69,7 @@ export class CofRoll {
         let mod = item.find(".weapon-mod").val();
         let critrange = item.find(".weapon-critrange").val();
         let dmg = item.find(".weapon-dmg").val();
-        return this.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
+        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
     }
 
     /**
@@ -94,7 +98,7 @@ export class CofRoll {
         let mod = item.data.data.mod;
         let critrange = item.data.data.critrange;
         let dmg = item.data.data.dmg;
-        return this.rollWeaponDialog(actor, label, mod, 0, critrange, dmg, 0);
+        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
     }
 
     /**
@@ -104,10 +108,15 @@ export class CofRoll {
      * @private
      */
     static rollDamage(data, actor, event) {
-        const li = $(event.currentTarget).parents(".item");
-        let item = actor.getOwnedItem(li.data("itemId"));
-        let label = item.data.name;
-        let dmg = item.data.data.dmg;
+        const li = $(event.currentTarget).parents(".item");        
+        const item = actor.getOwnedItem(li.data("itemId"));
+        const itemData = item.data;
+    
+        const label = itemData.name;
+        
+        const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
+        const dmg = dmgMod.data('itemDmg');
+        
         return this.rollDamageDialog(actor, label, dmg, 0);
     }
 
@@ -124,8 +133,8 @@ export class CofRoll {
         const actorData = actor.data;
 
         Dialog.confirm({
-            title: "Roll Hit Points",
-            content: `<p>Êtes sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
+            title: game.i18n.format("COF.dialog.rollHitPoints.title"),
+            content: `<p>Êtes-vous sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
             yes: () => {
                 if (actorData.data.attributes.hd && actorData.data.attributes.hd.value) {
                     const hd = actorData.data.attributes.hd.value;
@@ -167,14 +176,83 @@ export class CofRoll {
         return this.attributesRollDialog(actor);
     }
 
+    /**
+     *  Handles recovery roll
+     * @param 
+     * @param 
+     * @param
+     * @param
+     * @private
+     */
+    static async rollRecoveryUse(data, actor, event, withHPrecovery) {
+        let recoveryPoints = data.attributes.rp.value;
+        if (!recoveryPoints > 0) return;
+
+        let hp = data.attributes.hp;
+        let rp = data.attributes.rp;
+        const level = data.level.value;
+        const conMod = data.stats.con.mod;
+        const actorData = actor.data;
+    
+        if (!withHPrecovery) {
+            rp.value -= 1;
+            actor.update({ 'data.attributes.rp': rp });
+        }
+        else {
+
+        Dialog.confirm({
+                title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
+                content: `<p>Êtes-vous sûr de vouloir dépenser 1 point de récupération ?`,
+                yes: () => {
+                        const hd = actorData.data.attributes.hd.value;
+                        const hdmax = parseInt(hd.split("d")[1]);
+                        const bonus = level + conMod;
+                        const formula = `1d${hdmax} + ${bonus}`;
+                        const r = new Roll(formula);
+                        r.roll();
+                        r.toMessage({
+                                user: game.user._id,
+                                flavor: "<h2>Dépense un point de récupération</h2>",
+                                speaker: ChatMessage.getSpeaker({ actor: actor })
+                        });
+    
+                        hp.value += r.total;
+                        rp.value -= 1;
+                        actor.update({ 'data.attributes.hp': hp, 'data.attributes.rp': rp });
+                },
+                defaultYes: false
+            });
+        }   
+    }
+    
+
     /* -------------------------------------------- */
     /* ROLL DIALOGS                                 */
 
     /* -------------------------------------------- */
 
-    static async skillRollDialog(actor, label, mod, bonus, critrange, superior = false, onEnter = "submit") {
+    /**
+     * 
+     * @param {*} actor 
+     * @param {*} label 
+     * @param {*} mod 
+     * @param {*} bonus 
+     * @param {*} critrange 
+     * @param {*} superior 
+     * @param {*} onEnter 
+     * @returns 
+     */
+    static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, { mod: mod, bonus: bonus, critrange: critrange, superior: superior });
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {
+            mod: mod,
+            bonus: bonus,
+            malus: malus,
+            critrange: critrange,
+            superior: superior,
+            hasDescription : description && description.length > 0,
+			skillDescr: description
+        });
         let d = new Dialog({
             title: label,
             content: rollOptionContent,
@@ -190,11 +268,12 @@ export class CofRoll {
                     label: game.i18n.localize("COF.ui.submit"),
                     callback: (html) => {
                         const dice = html.find("#dice").val();
-                        const diff = html.find('#difficulty').val();
+                        const difficulty = html.find('#difficulty').val();
                         const critrange = html.find('input#critrange').val();
-                        const m = html.find('input#mod').val();
-                        const b = html.find('input#bonus').val();
-                        let r = new CofSkillRoll(label, dice, m, b, diff, critrange);
+                        const mod = html.find('input#mod').val();
+                        const bonus = html.find('input#bonus').val();
+                        const malus = html.find('input#malus').val();
+                        let r = new CofSkillRoll(label, dice, mod, bonus, malus, difficulty, critrange, description);
                         r.roll(actor);
                     }
                 }
@@ -206,7 +285,19 @@ export class CofRoll {
         return d.render(true);
     }
 
-    static async rollWeaponDialog(actor, label, mod, bonus, critrange, dmgFormula, dmgBonus, onEnter = "submit") {
+    /**
+     * 
+     * @param {*} actor 
+     * @param {*} label 
+     * @param {*} mod 
+     * @param {*} bonus 
+     * @param {*} critrange 
+     * @param {*} dmgFormula 
+     * @param {*} dmgBonus 
+     * @param {*} onEnter 
+     * @returns 
+     */
+    static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
         let diff = null;
         if (game.settings.get("cof", "displayDifficulty") && game.user.targets.size > 0) {
@@ -215,41 +306,62 @@ export class CofRoll {
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
+            malus: malus,
             critrange: critrange,
             difficulty: diff,
             dmgFormula: dmgFormula,
             dmgBonus: dmgBonus,
-            dmgCustomFormula: ""
+            dmgCustomFormula: "",
+            hasSkillDescr: skillDescr && skillDescr.length > 0,
+            skillDescr: skillDescr,
+            hasDmgDescr: dmgDescr && dmgDescr.length > 0,
+            dmgDescr: dmgDescr
         });
 
         let d = new Dialog({
-            title: "Weapon Roll",
+            title: label && label.length > 0 ? label : game.i18n.format("COF.dialog.rollWeapon.title"),
             content: rollOptionContent,
             buttons: {
                 cancel: {
                     icon: '<i class="fas fa-times"></i>',
-                    label: "Cancel",
+                    label: game.i18n.localize("COF.ui.cancel"),
                     callback: () => {
                     }
                 },
                 submit: {
                     icon: '<i class="fas fa-check"></i>',
-                    label: "Submit",
+                    label: game.i18n.localize("COF.ui.submit"),
                     callback: (html) => {
                         const dice = html.find("#dice").val();
                         const diff = html.find('#difficulty').val();
                         const critrange = html.find('input#critrange').val();
-                        const m = html.find('input#mod').val();
-                        const b = html.find('input#bonus').val();
+                        const mod = html.find('input#mod').val();
+                        const bonus = html.find('input#bonus').val();
+                        let malus = html.find('input#malus').val();
+                        if (!malus) malus = 0;
 
                         let dmgBonus = html.find("#dmgBonus").val();
                         let dmgCustomFormula = html.find("#dmgCustomFormula").val();
                         let dmgBaseFormula = html.find("#dmgFormula").val();
                         let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
-                        if (dmgBonus > 0) dmgFormula = dmgFormula.concat('+', dmgBonus);
-                        else if (dmgBonus < 0) dmgFormula = dmgFormula.concat(' ', dmgBonus);
-                        let r = new CofSkillRoll(label, dice, m, b, diff, critrange);
-                        r.weaponRoll(actor, dmgFormula);
+
+                        if (dmgBonus.indexOf("d") !== -1 || dmgBonus.indexOf("D") !== -1) {
+                            if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)){
+                                dmgFormula = dmgFormula.concat('+', dmgBonus);
+                            }
+                            else dmgFormula = dmgFormula.concat(dmgBonus);
+                        }
+                        else {
+                            const dmgBonusInt = parseInt(dmgBonus);
+                            if (dmgBonusInt > 0) {
+                                dmgFormula = dmgFormula.concat('+', dmgBonusInt);
+                            }
+                            else if (dmgBonusInt < 0) {
+                                dmgFormula = dmgFormula.concat(' ', dmgBonus);
+                            }
+                        }
+                        let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
+                        r.weaponRoll(actor, dmgFormula, dmgDescr);
                     }
                 }
             },
@@ -260,32 +372,54 @@ export class CofRoll {
         return d.render(true);
     }
 
-    static async rollDamageDialog(actor, label, formula, bonus, critical = false, onEnter = "submit") {
+    static async rollDamageDialog(actor, label, formula, bonus, critical = false, onEnter = "submit", dmgDescr) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-dmg-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, { dmgFormula: formula, dmgBonus: bonus, dmgCustomFormula: "", isCritical: critical });
+        const rollOptionContent = await renderTemplate(rollOptionTpl, { 
+            dmgFormula: formula,
+            dmgBonus: bonus,
+            dmgCustomFormula: "",
+            isCritical: critical,
+            hasDescription: dmgDescr && dmgDescr.length > 0,
+            dmgDescr: dmgDescr
+        });
 
         let d = new Dialog({
-            title: "Damage Roll",
+            title: label && label.length > 0 ? label : game.i18n.format("COF.dialog.rollDamage.title"),
             content: rollOptionContent,
             buttons: {
                 cancel: {
                     icon: '<i class="fas fa-times"></i>',
-                    label: "Cancel",
+                    label: game.i18n.localize("COF.ui.cancel"),
                     callback: () => {
                     }
                 },
                 submit: {
                     icon: '<i class="fas fa-check"></i>',
-                    label: "Submit",
+                    label: game.i18n.localize("COF.ui.submit"),
                     callback: (html) => {
                         let dmgBonus = html.find("#dmgBonus").val();
                         let dmgCustomFormula = html.find("#dmgCustomFormula").val();
                         let dmgBaseFormula = html.find("#dmgFormula").val();
                         const isCritical = html.find("#isCritical").is(":checked");
                         let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
-                        if (dmgBonus > 0) dmgFormula = dmgFormula.concat('+', dmgBonus);
-                        else if (dmgBonus < 0) dmgFormula = dmgFormula.concat(' ', dmgBonus);
-                        let r = new CofDamageRoll(label, dmgFormula, isCritical);
+
+                        if (dmgBonus.indexOf("d") !== -1 || dmgBonus.indexOf("D") !== -1) {
+                            if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)){
+                                dmgFormula = dmgFormula.concat('+', dmgBonus);
+                            }
+                            else dmgFormula = dmgFormula.concat(dmgBonus);
+                        }
+                        else {
+                            const dmgBonusInt = parseInt(dmgBonus);
+                            if (dmgBonusInt > 0) {
+                                dmgFormula = dmgFormula.concat('+', dmgBonusInt);
+                            }
+                            else if (dmgBonusInt < 0) {
+                                dmgFormula = dmgFormula.concat(' ', dmgBonus);
+                            }
+                        }
+
+                        let r = new CofDamageRoll(label, dmgFormula, isCritical, dmgDescr);
                         r.roll(actor);
                     }
                 }

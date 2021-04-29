@@ -40,6 +40,8 @@
   "COF.ui.racial": "Racial",
   "COF.ui.value": "Valeur",
   "COF.ui.mod" : "Mod",
+  "COF.ui.combat" : "COMBAT",
+  "COF.ui.total" : "Total",
   "COF.ui.tmp" : "Temp",
   "COF.ui.max" : "Max",
   "COF.ui.current" : "Actuel",
@@ -48,7 +50,7 @@
   "COF.ui.rank" : "Rang",
   "COF.ui.scope" : "Application",
   "COF.ui.profile" : "Profil",
-  "COF.ui.species" : "Race",
+  "COF.ui.species" : "Peuple",
   "COF.ui.creature" : "Créature",
   "COF.ui.prestige" : "Prestige",
   "COF.ui.alternative" : "Alternative",
@@ -195,7 +197,11 @@
   "COF.attributes.sc.label": "Incantation",
   "COF.attributes.sc.abbrev": "INCANT",
 
+  "COF.attributes.over.label": "ENCOMBREMENT",
+  "COF.attributes.over.abbrev": "ENC.",
+
   "COF.attacks.label": "ATTAQUES",
+  "COF.attack.label": "ATTAQUE",
   "COF.attacks.name.abbrev" : "Nom",
   "COF.attacks.mod.abbrev" : "Base",
   "COF.attacks.tmpmod.abbrev" : "Mod",
@@ -335,6 +341,15 @@
   "COF.sheet.item" : "Fiche d'Objet COF par défaut",
 
   "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
-  "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé"
+  "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé",
+
+  "COF.dialog.deletePath.title": "Supprimer la voie ?",
+  "COF.dialog.deleteProfile.title": "Supprimer le profil ?",
+  "COF.dialog.deleteSpecie.title": "Supprimer la race ?",
+  "COF.dialog.rollWeapon.title": "Jet d'attaque",
+  "COF.dialog.rollDamage.title": "Jet de dommages",
+  "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
+  "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
+  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
 
 }

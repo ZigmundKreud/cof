@@ -69,14 +69,14 @@ export class Species {
         const paths = actor.items.filter(item => item.type === "path" && item.data.data.species?._id === specie.data._id);
         const capacities = actor.items.filter(item => item.type === "capacity" && item.data.data.species?._id === specie.data._id);
         return Dialog.confirm({
-            title: "Supprimer la race ?",
+            title: game.i18n.format("COF.dialog.deleteSpecie.title"),
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
                 Path.removePathsFromActor(actor, paths).then(() => {
-                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimés." : " voie a été supprimé"));
+                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
                 });
                 Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                    ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimés." : " capacité a été supprimé"));
+                    ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
                 });
                 ui.notifications.info("la race a été supprimé.");
                 return actor.deleteOwnedItem(specie.data._id);

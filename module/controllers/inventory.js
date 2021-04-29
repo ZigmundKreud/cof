@@ -34,8 +34,23 @@ export class Inventory {
         if(equipable){
             let itemData = duplicate(item.data);
             itemData.data.worn = !itemData.data.worn;
+
+            if (game.settings.get("cof", "useIncompetentPJ") && itemData.data.worn) {
+                // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
+                if (itemData.data.subtype === "armor" || itemData.data.subtype === "shield") {
+                    const armorCategory = item.getMartialCategory();
+                    if (!actor.isCompetentWithArmor(armorCategory)) {
+                        ui.notifications?.warn(actor.name + " est incompétent dans le port de l'armure " + item.name);
+                    }    
+                }
+                if (itemData.data.subtype === "melee" || itemData.data.subtype === "ranged") {
+                    const weaponCategory = item.getMartialCategory();
+                    if (!actor.isCompetentWithWeapon(weaponCategory)) {
+                        ui.notifications?.warn(actor.name + " est incompétent dans le port de l'arme " + item.name);
+                    }    
+                }
+            }
             return item.update(itemData);
-            // return actor.updateOwnedItem(itemData);
         }
     }
 

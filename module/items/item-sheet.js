@@ -22,6 +22,10 @@ export class CofItemSheet extends ItemSheet {
         });
     }
 
+    getPackPrefix(){
+        return "cof-srd";
+    }
+
     /**
      * Activate the default set of listeners for the Entity sheet
      * These listeners handle basic stuff like form submission or updating images
@@ -54,12 +58,17 @@ export class CofItemSheet extends ItemSheet {
         // Click to open
         html.find('.compendium-pack').click(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
-            if ( li.attr("data-open") === "1" ) pack.close();
-            else {
-                li.attr("data-open", "1");
-                li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
-                pack.render(true);
+            const li = $(ev.currentTarget) 
+            const pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
+            if (pack) {
+                if ( li.attr("data-open") === "1" ) {
+                    li.attr("data-open", "0");
+                    pack.close();
+                } else {
+                    li.attr("data-open", "1");
+                    li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
+                    pack.render(true);
+                }
             }
         });
 
@@ -72,8 +81,9 @@ export class CofItemSheet extends ItemSheet {
         html.find('.item-name').click(ev=>{
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
-            if (!elt) this._onEditItem.bind(this)
+            if (!elt || elt.length === 0) this._onEditItem(ev);
             else {
+                if (this.item.actor) return;    // Si l'item appartient à un actor, l'effet n'est pas modifiable
                 const effectId = elt.data("itemId");
                 let effect = this.item.effects.get(effectId);
                 if (effect){
@@ -81,6 +91,7 @@ export class CofItemSheet extends ItemSheet {
                 }
             }
         });
+        
         html.find('.effect-edit').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
@@ -92,6 +103,7 @@ export class CofItemSheet extends ItemSheet {
         });        
         html.find('.effect-create').click(ev => {
             ev.preventDefault();
+            if (!this.isEditable) return;
             return ActiveEffect.create({
                 label: game.i18n.localize("COF.ui.newEffect"),
                 icon: "icons/svg/aura.svg",
@@ -101,6 +113,7 @@ export class CofItemSheet extends ItemSheet {
         });
         html.find('.effect-delete').click(ev => {
             ev.preventDefault();
+            if (!this.isEditable) return;
             const elt = $(ev.currentTarget).parents(".effect");
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
@@ -278,6 +291,11 @@ export class CofItemSheet extends ItemSheet {
         data.itemType = data.item.type.titleCase();
         data.itemProperties = this._getItemProperties(data.item);
         data.effects = data.item.effects;
+
+        // Gestion de l'affichage des boutons de modification des effets
+        // Les boutons sont masqués si l'item appartient à un actor
+        data.isEffectsEditable = this.item.actor ? false : true;
+
         return data;
     }
 }

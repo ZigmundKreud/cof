@@ -3,10 +3,12 @@
         <li class="inventory-header flexrow">
             <h3 class="item-name flexrow">{{localize "COF.category.effects"}}</h3>
             <div class="item-detail">Durée</div>
-            <div class="item-detail">Action</div>
-            <div class="item-controls">
-                <a class="item-control item-create effect-create" title="Ajouter un effet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
-            </div>
+            {{#if isEffectsEditable}}
+                <div class="item-detail">Action</div>
+                <div class="item-controls">
+                    <a class="item-control item-create effect-create" title="Ajouter un effet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+                </div>
+            {{/if}}
         </li>
         <ol class="item-list">
         {{#each effects as |effect id|}}

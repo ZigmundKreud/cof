@@ -7,7 +7,7 @@ export class CofAttributesDialog extends FormApplication {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             id: "attributes-dialog",
-            title: "Scores de caractéristiques",
+            title: game.i18n.format("COF.dialog.chooseCharacteristics.title"),
             template: "systems/cof/templates/dialogs/attributes-roll-dialog.hbs",
             classes: ["cof", "attributes-dialog"],
             width: 400,

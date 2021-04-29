@@ -3,6 +3,7 @@
  * @extends {ItemSheet}
  */
 import {CofHealingRoll} from "../controllers/healing-roll.js";
+import {COF} from "../system/config.js"; 
 
 export class CofItem extends Item {
 
@@ -53,5 +54,10 @@ export class CofItem extends Item {
             const r = new CofHealingRoll(itemData.name, heal.formula, false);
             r.roll(actor);
         }
+    }
+
+    getMartialCategory() {
+        if (!this.data.data.properties?.weapon) return;
+        return ;
     }
 }

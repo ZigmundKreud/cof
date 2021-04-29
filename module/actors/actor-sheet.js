@@ -21,11 +21,11 @@ export class CofActorSheet extends CofBaseSheet {
             classes: ["cof", "sheet", "actor"],
             template: System.templatesPath + "/actors/actor-sheet.hbs",
             width: 950,
-            height: 670,
+            height: 720,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
             dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
-    }
+    }  
 
     /** @override */
     activateListeners(html) {
@@ -33,13 +33,16 @@ export class CofActorSheet extends CofBaseSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
 
-        // Click to open
+        // Click right to open the compendium
         html.find('.compendium-pack').contextmenu(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget);
-            const pack = game.packs.get(li.data("pack"));
+            const pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (pack) {
-                if (li.attr("data-open") === "1") pack.close();
+                if (li.attr("data-open") === "1") {
+                    li.attr("data-open", "0");
+                    pack.close();                    
+                }
                 else {
                     li.attr("data-open", "1");
                     pack.render(true);
@@ -49,15 +52,18 @@ export class CofActorSheet extends CofBaseSheet {
         // Click to open
         html.find('.item-create.compendium-pack').click(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
-            if (li.attr("data-open") === "1") pack.close();
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
+            if (li.attr("data-open") === "1") {
+                li.attr("data-open", "0");
+                pack.close();
+            }
             else {
                 li.attr("data-open", "1");
                 pack.render(true);
             }
         });
 
-        // Initiate a roll
+        // Initiate a roll with a left click
         html.find('.rollable').click(ev => {
             ev.preventDefault();
             return this._onRoll(ev);
@@ -68,7 +74,7 @@ export class CofActorSheet extends CofBaseSheet {
         html.find('.inventory-qty').click(this._onIncrease.bind(this));
         html.find('.inventory-qty').contextmenu(this._onDecrease.bind(this));
         html.find('.item-edit').click(this._onEditItem.bind(this));
-        html.find('div.item-name').click(this._onEditItem.bind(this));
+        html.find('.item .item-name h4').click(this._onItemSummary.bind(this));
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
         html.find('.foldable h3.item-name').click(ev => {
             ev.preventDefault();
@@ -199,21 +205,7 @@ export class CofActorSheet extends CofBaseSheet {
     _onToggleEquip(event) {
         event.preventDefault();
         AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-        return Inventory.onToggleEquip(this.actor, event).then(item => {
-            if (!game.settings.get("cof", "useIncompetentPJ")) return;
-            // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
-            const incompetentItems = new Array();
-            const incompetentArmour = this.actor.getIncompetentArmour();
-            const incompetentShields = this.actor.getIncompetentShields();
-            const incompetentMeleeWeapons = this.actor.getIncompetentMeleeWeapons();
-            const incompetentRangedWeapons = this.actor.getIncompetentRangedWeapons();
-            if (incompetentArmour) incompetentItems.push(incompetentArmour);
-            if (incompetentShields) incompetentItems.push(incompetentShields);
-            if (incompetentMeleeWeapons) incompetentItems.push(incompetentMeleeWeapons);
-            if (incompetentRangedWeapons) incompetentItems.push(incompetentRangedWeapons);
-            const incompetentItem = incompetentItems.flat().find(element => element._id === item._id);
-            if (incompetentItem) ui.notifications?.warn(this.actor.name + " est incompétent dans le port de l'équipement " + incompetentItem.name);
-        });
+        return Inventory.onToggleEquip(this.actor, event);
     }
 
     /**
@@ -256,7 +248,7 @@ export class CofActorSheet extends CofBaseSheet {
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
-        const pack = (li.data("pack")) ? li.data("pack") : null;
+        const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
 
         if (type === "effect") {
             let effects = this.actor.effects;
@@ -268,6 +260,28 @@ export class CofActorSheet extends CofBaseSheet {
             // look first in actor onwed items
             let entity = this.actor.getOwnedItem(id);
             return (entity) ? entity.sheet.render(true) : Traversal.getEntity(id, type, pack).then(e => e.sheet.render(true));
+        }
+    }
+
+     /**
+     * Callback on render item actions : display or not the summary
+     * @param event
+     * @private
+     */
+    _onItemSummary(event){
+        event.preventDefault();
+        let li = $(event.currentTarget).parents('.item').children('.item-summary');
+        let entity = this.actor.getOwnedItem($(event.currentTarget).parents('.item').data("itemId"));
+        if (entity && entity.data.type === "capacity") {
+            if (li.hasClass('expanded')) {
+                li.css("display", "none");
+            }
+            else {
+                li.css("display", "block");
+            }
+            li.toggleClass('expanded');                
+        } else {
+            this._onEditItem(event);
         }
     }
 
@@ -285,6 +299,12 @@ export class CofActorSheet extends CofBaseSheet {
         const elt = $(event.currentTarget)[0];
         const rolltype = elt.attributes["data-roll-type"].value;
         const data = this.getData();
+        // SHIFT + click
+        if (event.shiftKey) {
+            switch (rolltype) {
+                case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, false)
+            }
+        }
         switch (rolltype) {
             case "skillcheck": return CofRoll.skillCheck(data.data, this.actor, event)
             case "weapon": return CofRoll.rollWeapon(data.data, this.actor, event)
@@ -294,6 +314,7 @@ export class CofActorSheet extends CofBaseSheet {
             case "damage": return CofRoll.rollDamage(data.data, this.actor, event)
             case "hp": return CofRoll.rollHitPoints(data.data, this.actor, event)
             case "attributes": return CofRoll.rollAttributes(data.data, this.actor, event)
+            case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, true)
         }
     }
 
@@ -402,12 +423,19 @@ export class CofActorSheet extends CofBaseSheet {
             if (category.items.length > 0) {                
                 category.items.forEach(item => {
                     if (item.data.properties?.weapon) {
-                        // Compute damage mod
-                        const dmgStat = eval("data.actor.data." + item.data.dmgStat.split("@")[1]);
-                        const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(item.data.dmgBonus) : parseInt(item.data.dmgBonus);
-                        if (dmgBonus < 0) item.data.dmg = item.data.dmgBase + " - " + parseInt(-dmgBonus);
-                        else if (dmgBonus === 0) item.data.dmg = item.data.dmgBase;
-                        else item.data.dmg = item.data.dmgBase + " + " + dmgBonus;
+                        // Compute MOD
+                        const itemModStat = item.data.skill.split("@")[1];
+                        const itemModBonus = parseInt(item.data.skillBonus);
+                        const weaponCategory = this.getCategory(item.data);
+                        
+                        item.data.mod = this.actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+
+                        // Compute DM
+                        const itemDmgBase = item.data.dmgBase;                        
+                        const itemDmgStat = item.data.dmgStat.split("@")[1];
+                        const itemDmgBonus = parseInt(item.data.dmgBonus);
+
+                        item.data.dmg = this.actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
                     }
                 });
             }
@@ -445,7 +473,31 @@ export class CofActorSheet extends CofBaseSheet {
             "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
             "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
             "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-        };
+        };       
+
+        const overloadedMalus = this.actor.getOverloadedMalus();
+        const overloadedOtherMod = this.actor.getOverloadedOtherMod();
+        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0) ;
+        data.overloaded = {
+            "armor": overloadedMalus,
+            "total": overloadedTotal
+        }
+        
+        // Gestion des boutons de modification des effets (visible pour l'actor)
+        data.isEffectsEditable = true;
+
         return data;
+    }
+
+    /**
+     * @description Retourne la catégorie de l'arme
+     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
+     * 
+     * @todo 
+     * @param {*} itemData 
+     * @returns Retourne "cof" en attendant l'implémentation
+     */
+    getCategory(itemData){
+        return "cof";
     }
 }

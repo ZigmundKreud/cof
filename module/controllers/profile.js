@@ -50,7 +50,7 @@ export class Profile {
     static removeFromActor(actor, profile) {
         const paths = actor.items.filter(item => item.type === "path" && item.data.data.profile?._id === profile.data._id);
         return Dialog.confirm({
-            title: "Supprimer le profil ?",
+            title: game.i18n.format("COF.dialog.deletePath.title"),
             content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${actor.name} ?</p>`,
             yes: () => {
                 Path.removePathsFromActor(actor, paths).then(() => {

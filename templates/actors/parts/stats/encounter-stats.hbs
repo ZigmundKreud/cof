@@ -1,6 +1,6 @@
 <div class="row flexrow no-wrap">
     <div class="flex1 layout">
-        <div class="row flexrow table-header darkgreen no-wrap">
+        <div class="row flexrow table-header color-default no-wrap">
             <div class="flex3 center">
                 <div class="field-label">{{ localize 'COF.stats.abbrev' }}</div>
             </div>
@@ -16,7 +16,7 @@
         </div>
         {{#each actor.data.stats as |stat id|}}
         <div class="flexrow no-wrap">
-            <div class="flex3 bg-darkgreen">
+            <div class="flex3 bg-stats">
                 <div class="flexrow no-wrap">
                     <div class="flex1 center no-wrap" title="Supérieur (2d20)">
                         <input type="checkbox" name="data.stats.{{id}}.superior" {{checked stat.superior}}>

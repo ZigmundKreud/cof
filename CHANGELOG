@@ -1,0 +1,22 @@
+- 0.5.0
+
+Fonctionnalités
+	- Tous les calculs de la fiche sont maintenant réalisés après la prise en compte des effets
+	- Ajout de l'onglet Effets dans les Items
+	- Shift + Click sur un raccourci d'arme dans la hotbar pour avoir uniquement la fenêtre des dommages
+	- Prise en compte de l'encombrement pour les jets de DEX
+	- Changement de l'icône par défaut des items
+	- Dépense d'un PR : clic gauche avec gain de PV, clic droit sans
+	- Séparation de Bonus/Malus en Bonus et Malus dans la fenêtre de dialogue Jet de compétence
+	- Nouvelle Option "Affiche les boutons de dommages" : afficher ou non les boutons d'application des dégâts à tout le monde, par défaut uniquement au MJ
+	- Affichage uniquement des entêtes utiles à la catégorie dans la partie Combat
+	- Onglet Voies et Capacités : un clic permet de déplier/replier la description d'une capacité
+	- Possibilité de changer le label, la description du jet de compétences et la description des dommages des fenêtres de jet via une macro
+	
+Corrections d'anomalies
+	- Correction du nombre de PM pour être conforme au SRD
+	- Suppression de la race, du profil ou des capacités sur la fiche de personnage
+	- Traduction en français de certaines parties en anglais
+
+Limitations ou bugs connus
+    - PJ incompétent non implémenté

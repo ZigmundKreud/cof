@@ -55,7 +55,7 @@ export class Path {
 
     static removeFromActor(actor, path) {
         Dialog.confirm({
-            title: "Supprimer la voie ?",
+            title: game.i18n.format("COF.dialog.deleteProfile.title"),
             content: `<p>Etes-vous sûr de vouloir supprimer la voie ${path.name} ?</p>`,
             yes: () => {
                 const pathData = path.data;

@@ -200,4 +200,12 @@ export const registerHandlebarsHelpers = function () {
     Handlebars.registerHelper('includes', function (array, val) {
         return array.includes(val);
     });
+
+    Handlebars.registerHelper('isCategoryIn', function () {
+        for (let index = 1; index < arguments.length; index++) {
+            const element = arguments[index];
+            if (element === arguments[0]) return true;
+        }
+        return false;
+    });
 }
