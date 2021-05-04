@@ -360,6 +360,9 @@ export class CofActorSheet extends CofBaseSheet {
         // let itemData = await this._getItemDropData(event, data);
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
+
+        if (item.data.type === "attack" && this.actor.data.type !== "encounter" ) return;
+
         switch (itemData.type) {
             case "path": return await Path.addToActor(this.actor, itemData);
             case "profile": return await Profile.addToActor(this.actor, itemData);

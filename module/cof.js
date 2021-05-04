@@ -76,7 +76,7 @@ Hooks.once("init", async function () {
     });
     // Register item sheets
     Items.registerSheet("cof", CofItemSheet, {
-        types: ["item", "capacity", "profile", "path", "species"],
+        types: ["item", "capacity", "profile", "path", "species", "attack"],
         makeDefault: true,
         label: "COF.sheet.item"
     });

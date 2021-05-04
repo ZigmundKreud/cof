@@ -348,7 +348,8 @@
       "capacity",
       "species",
       "profile",
-      "path"
+      "path",
+      "attack"
     ],
     "templates": {
       "base" : {
@@ -429,7 +430,14 @@
             }
           }
         }
-      }
+      },
+      "damage" :  {
+        "damage": {
+          "critrange" : 20,
+          "mod" : null,
+          "dmg" : null
+        }
+    }
     },
     "item" : {
       "templates": [
@@ -507,6 +515,12 @@
         "racial": false,
         "creature": false
       }
+    },
+    "attack":{
+      "templates": [
+        "base",
+        "damage"
+      ]
     }
   }
 }
