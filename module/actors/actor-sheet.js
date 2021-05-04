@@ -489,6 +489,10 @@ export class CofActorSheet extends CofBaseSheet {
         // Gestion des boutons de modification des effets (visible pour l'actor)
         data.isEffectsEditable = true;
 
+        if (this.actor.data.type === "encounter"){
+            data.weapons = data.items.filter(item=>item.type === "weapon");
+        }
+
         return data;
     }
 

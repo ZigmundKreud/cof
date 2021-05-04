@@ -349,7 +349,7 @@
       "species",
       "profile",
       "path",
-      "attack"
+      "weapon"
     ],
     "templates": {
       "base" : {
@@ -431,11 +431,12 @@
           }
         }
       },
-      "damage" :  {
-        "damage": {
+      "weapon" :  {
+        "weapon": {
           "critrange" : 20,
           "mod" : null,
-          "dmg" : null
+          "dmg" : null,
+          "bonus" : null
         }
     }
     },
@@ -516,10 +517,10 @@
         "creature": false
       }
     },
-    "attack":{
+    "weapon":{
       "templates": [
         "base",
-        "damage"
+        "weapon"
       ]
     }
   }
