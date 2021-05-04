@@ -63,6 +63,9 @@
             {{#if (equals item.type "species")}}
                 {{> "systems/cof/templates/items/parts/details/species-details.hbs"}}
             {{/if}}
+            {{#if (equals item.type "weapon")}}
+                {{> "systems/cof/templates/items/parts/details/encounter-weapon-details.hbs"}}
+            {{/if}}
         </div>
         <div class="tab" data-group="primary" data-tab="effets">
             {{> "systems/cof/templates/effects/effects.hbs"}}            

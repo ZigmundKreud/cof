@@ -56,6 +56,7 @@ export const preloadHandlebarsTemplates = async function () {
         "systems/cof/templates/items/parts/details/weapon-details.hbs",
         "systems/cof/templates/items/parts/details/usage-details.hbs",
         "systems/cof/templates/items/parts/details/effects-details.hbs",
+        "systems/cof/templates/items/parts/details/encounter-weapon-details.hbs"
     ];
 
     // Load the template parts
