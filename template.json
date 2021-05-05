@@ -434,9 +434,10 @@
       "weapon" :  {
         "weapon": {
           "critrange" : 20,
-          "mod" : null,
+          "mod" : 0,
           "dmg" : null,
-          "bonus" : null
+          "skillBonus" : 0,
+          "dmgBonus": 0
         }
     }
     },
