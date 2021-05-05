@@ -20,17 +20,13 @@
                     <h4>{{weapon.name}}</h4>
                 </div>
                 <div class="item-detail">
-                    <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" 
-                        value="{{#unless (isNull weapon.data.weapon.mod)}}{{numberFormat weapon.data.weapon.mod decimals=0 sign=true}}{{/unless}}" 
-                        placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
+                    <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" value="{{numberFormat weapon.data.weapon.modTotal decimals=0 sign=true}}" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
                 </div>
                 <div class="item-detail">
-                    <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" 
-                        value="{{#if (isNull weapon.data.weapon.critrange)}}20{{else}}{{weapon.data.weapon.critrange}}{{/if}}" 
-                        placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
+                    <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" value="{{weapon.data.weapon.critrange}}" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
                 </div>
                 <div class="item-detail">
-                    <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.data.weapon.dmg}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
+                    <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.data.weapon.dmgTotal}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
                 </div>            
                 <div class="item-controls-3">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

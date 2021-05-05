@@ -491,6 +491,10 @@ export class CofActorSheet extends CofBaseSheet {
 
         if (this.actor.data.type === "encounter"){
             data.weapons = data.items.filter(item=>item.type === "weapon");
+            data.weapons.forEach((weapon)=>{
+                weapon.data.weapon.modTotal = weapon.data.weapon.mod + weapon.data.weapon.skillBonus;
+                weapon.data.weapon.dmgTotal = `${weapon.data.weapon.dmg} + ${weapon.data.weapon.dmgBonus}`;
+            });
         }
 
         return data;
