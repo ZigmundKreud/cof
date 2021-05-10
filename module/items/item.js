@@ -7,6 +7,18 @@ import {COF} from "../system/config.js";
 
 export class CofItem extends Item {
 
+    /* -------------------------------------------- */
+    /*  Constructor                                 */
+    /* -------------------------------------------- */
+    /* Définition de l'image par défaut             */
+    /* -------------------------------------------- */   
+    constructor(...args) {
+        let data = args[0];
+        if (!data.img && COF.itemIcons[data.type]) data.img = COF.itemIcons[data.type];
+
+        super(...args);
+    }	
+
     /** @override */
     prepareData() {
         super.prepareData();
