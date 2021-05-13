@@ -90,3 +90,29 @@ COF.actorIcons = {
     "encounter":"icons/svg/mystery-man-black.svg",
     "loot": "icons/containers/bags/sack-simple-leather-brown.webp"
 }
+
+COF.actorsAllowedItems = {
+    "character":[
+        "item",
+        "capacity",
+        "species",
+        "profile",
+        "path"
+    ],
+    "npc":[
+        "item",
+        "capacity",
+        "species",
+        "profile",
+        "path"
+    ],
+    "encounter":[
+        "item",
+        "capacity",
+        "path",
+        "encounterWeapon"
+    ],
+    "loot":[
+        "item"
+    ]
+}

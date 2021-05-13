@@ -349,7 +349,7 @@
       "species",
       "profile",
       "path",
-      "weapon"
+      "encounterWeapon"
     ],
     "templates": {
       "base" : {
@@ -430,16 +430,7 @@
             }
           }
         }
-      },
-      "weapon" :  {
-        "weapon": {
-          "critrange" : 20,
-          "mod" : 0,
-          "dmg" : null,
-          "skillBonus" : 0,
-          "dmgBonus": 0
-        }
-    }
+      }
     },
     "item" : {
       "templates": [
@@ -518,11 +509,17 @@
         "creature": false
       }
     },
-    "weapon":{
+    "encounterWeapon":{
       "templates": [
-        "base",
-        "weapon"
-      ]
+        "base"
+      ],
+      "weapon": {
+        "critrange" : 20,
+        "mod" : 0,
+        "dmg" : null,
+        "skillBonus" : 0,
+        "dmgBonus": 0
+      }
     }
   }
 }

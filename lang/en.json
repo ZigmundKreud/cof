@@ -267,6 +267,7 @@
   "COF.category.mount" : "Mount",
   "COF.category.currency" : "Currency",
   "COF.category.other": "Other",
+  "COF.category.encounterWeapon": "Encounter weapon",
 
   "COF.rarity.common" : "Common",
   "COF.rarity.moderate" : "Moderate",
@@ -341,6 +342,7 @@
 
   "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
   "COF.notification.MacroItemUnequiped" : "Item is unequiped",
+  "COF.notification.MacroTokenNeeded" : "You must select a token to use this macro",
 
   "COF.dialog.deletePath.title": "Delete the path ?",
   "COF.dialog.deleteProfile.title": "Delete the profile ?",

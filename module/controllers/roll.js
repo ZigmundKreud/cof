@@ -66,11 +66,11 @@ export class CofRoll {
     static rollEncounterWeapon(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");
         const item = actor.getOwnedItem(li.data("itemId"));
-
-        const label = item.data.name;
+        
+        const label = item.name;
         const weapon = item.data.data.weapon;
 
-        return this.rollWeaponDialog(actor, label, weapon.mod, 0, 0, weapon.critrange, weapon.dmg, weapon.bonus);
+        return this.rollWeaponDialog(actor, label, weapon.mod, weapon.skillBonus, 0, weapon.critrange, weapon.dmg, weapon.dmgBonus);
     }
 
     /**

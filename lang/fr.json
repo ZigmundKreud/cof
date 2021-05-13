@@ -268,6 +268,7 @@
   "COF.category.mount" : "Monture",
   "COF.category.currency" : "Monnaie",
   "COF.category.other": "Divers",
+  "COF.category.encounterWeapon": "Arme de rencontre",
 
   "COF.rarity.common" : "Commun",
   "COF.rarity.moderate" : "Modéré",
@@ -342,6 +343,7 @@
 
   "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
   "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé",
+  "COF.notification.MacroTokenNeeded" : "Vous devez sélectionner un token pour pouvoir exécuter cette macro",
 
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",

@@ -2,7 +2,7 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-import {System} from "../system/config.js";
+import {System,COF} from "../system/config.js";
 import {CofBaseSheet} from "./base-sheet.js";
 import {Inventory} from "../controllers/inventory.js";
 import {Traversal} from "../utils/traversal.js";
@@ -160,32 +160,15 @@ export class CofLootSheet extends CofBaseSheet {
         // let itemData = await this._getItemDropData(event, data);
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
-        switch (itemData.type) {
-            case "path"    :
-            case "profile" :
-            case "species" :
-            case "capacity" :
-                return false;
-            default:
-                // activate the capacity as it is droped on an actor sheet
-                // if (itemData.type === "capacity") itemData.data.checked = true;
-                // Handle item sorting within the same Actor
-                const actor = this.actor;
-                let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-                if (sameActor) return this._onSortItem(event, itemData);
-                // Create the owned item
-                return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-        }
-        // if (authorized) {
-        //     // Handle item sorting within the same Actor
-        //     const actor = this.actor;
-        //     let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-        //     if (sameActor) return this._onSortItem(event, itemData);
-        //     // Create the owned item
-        //     return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-        // } else {
-        //     return false;
-        // }
+
+        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+
+        // Handle item sorting within the same Actor
+        const actor = this.actor;
+        let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
+        if (sameActor) return this._onSortItem(event, itemData);
+        // Create the owned item
+        return this.actor.createEmbeddedEntity("OwnedItem", itemData);
     }
 
     /* -------------------------------------------- */

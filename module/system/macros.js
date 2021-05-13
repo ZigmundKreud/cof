@@ -1,4 +1,5 @@
 import {CofRoll} from "../controllers/roll.js";
+import {CofHealingRoll} from "../controllers/healing-roll.js";
 
 export class Macros {
 
@@ -55,40 +56,90 @@ export class Macros {
             }
             await CofRoll.skillRollDialog(actor, label && label.length > 0 ? label : game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description);
         } else {
-            ui.notifications.error("Vous devez sélectionner un token pour pouvoir exécuter cette macro.");
+            ui.notifications.error(`${game.i18n.localize("COF.notification.MacroTokenNeeded")}`);
         }
     };
 
     static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr) {
-        const actor = this.getSpeakersActor()
+        const actor = this.getSpeakersActor();
         let item;
         item = actor ? actor.items.find(i => i.id === itemId) : null;
         if (!item) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemMissing")}: "${itemName}"`);
         const itemData = item.data;
-        if(itemData.data.properties.weapon){
-            if(itemData.data.worn){
-                const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
-                const critrange = itemData.data.critrange;              
-
-                 // Compute MOD
-                 const itemModStat = itemData.data.skill.split("@")[1];
-                 const itemModBonus = parseInt(itemData.data.skillBonus);
-                 const weaponCategory = item.getMartialCategory();
-                 
-                 let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
-
-                 // Compute DM
-                 const itemDmgBase = itemData.data.dmgBase;                        
-                 const itemDmgStat = itemData.data.dmgStat.split("@")[1];
-                 const itemDmgBonus = parseInt(itemData.data.dmgBonus);
-
-                 let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
-
-                if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr); }
-                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
+        if (item.data.type === "encounterWeapon")
+        {
+            if (!dmgOnly){
+                CofRoll.rollWeaponDialog(actor, customLabel ?? item.name, itemData.data.weapon.mod, itemData.data.weapon.skillBonus, 0, itemData.data.weapon.critrange, itemData.data.weapon.dmg, itemData.data.weapon.dmgBonus);
             }
-            else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
+            else
+            {
+                CofRoll.rollDamageDialog(actor, customLabel ?? item.name, itemData.data.weapon.dmg, itemData.data.weapon.dmgBonus);
+            }
+        }
+        else if(itemData.data.properties.weapon || itemData.data.properties.heal){
+            if (itemData.data.properties.weapon){
+                if(itemData.data.worn){
+                    const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
+                    const critrange = itemData.data.critrange;              
+
+                    // Compute MOD
+                    const itemModStat = itemData.data.skill.split("@")[1];
+                    const itemModBonus = parseInt(itemData.data.skillBonus);
+                    const weaponCategory = item.getMartialCategory();
+                    
+                    let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+
+                    // Compute DM
+                    const itemDmgBase = itemData.data.dmgBase;                        
+                    const itemDmgStat = itemData.data.dmgStat.split("@")[1];
+                    const itemDmgBonus = parseInt(itemData.data.dmgBonus);
+
+                    let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
+
+                    if (dmgOnly) { CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr); }
+                    else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
+                }
+                else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
+            }
+            if (itemData.data.properties.heal)
+            {
+                new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
+            }
         }
         else { return item.sheet.render(true); }
     };
+
+    static rollHealMacro = function (label, healFormula, isCritical){
+        const actor = this.getSpeakersActor();
+        if (actor){
+            new CofHealingRoll(label, healFormula, isCritical).roll(actor);
+        }
+        else {
+            ui.notifications.error(`${game.i18n.localize("COF.notification.MacroTokenNeeded")}`);
+        }       
+    }
+
+    static rollSkillMacro = function(label, mod, bonus, malus, critRange, isSuperior = false, description){
+        const actor = this.getSpeakersActor();
+        if (actor)
+        {
+            let crit = parseInt(critRange);
+            crit = !isNaN(crit) ? crit : 20;
+            CofRoll.skillRollDialog(actor, label, mod, bonus, malus, crit, isSuperior, null, description);
+        }
+        else {
+            ui.notifications.error(`${game.i18n.localize("COF.notification.MacroTokenNeeded")}`);
+        }   
+    }
+
+    static rollDamageMacro = function(label, dmgFormula, dmgBonus, isCritical, dmgDescr){
+        const actor = this.getSpeakersActor();
+        if (actor)
+        {
+            CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, null, dmgDescr);
+        }
+        else {
+            ui.notifications.error(`${game.i18n.localize("COF.notification.MacroTokenNeeded")}`);
+        }           
+    }
 }

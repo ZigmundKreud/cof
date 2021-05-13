@@ -10,7 +10,7 @@ import { CofRoll } from "../controllers/roll.js";
 import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 import { Inventory } from "../controllers/inventory.js";
-import { System } from "../system/config.js";
+import { System, COF } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
 
 export class CofActorSheet extends CofBaseSheet {
@@ -169,6 +169,13 @@ export class CofActorSheet extends CofBaseSheet {
         });
 
         // WEAPONS (Encounters)
+        if (this.actor.data.type === "encounter"){
+            html.find('.item-create').click(ev => {
+                ev.preventDefault();
+                this.actor.createOwnedItem({type:"encounterWeapon",name:"attaque"});
+            });
+        }
+
         html.find('.weapon-add').click(ev => {
             ev.preventDefault();
             const data = this.getData().data;
@@ -361,7 +368,7 @@ export class CofActorSheet extends CofBaseSheet {
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
 
-        if (item.data.type === "attack" && this.actor.data.type !== "encounter" ) return;
+        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
 
         switch (itemData.type) {
             case "path": return await Path.addToActor(this.actor, itemData);
@@ -490,10 +497,11 @@ export class CofActorSheet extends CofBaseSheet {
         data.isEffectsEditable = true;
 
         if (this.actor.data.type === "encounter"){
-            data.weapons = data.items.filter(item=>item.type === "weapon");
+            data.weapons = data.items.filter(item=>item.type === "encounterWeapon");
             data.weapons.forEach((weapon)=>{
                 weapon.data.weapon.modTotal = weapon.data.weapon.mod + weapon.data.weapon.skillBonus;
-                weapon.data.weapon.dmgTotal = `${weapon.data.weapon.dmg} + ${weapon.data.weapon.dmgBonus}`;
+                weapon.data.weapon.dmgTotal = weapon.data.weapon.dmg;
+                if (weapon.data.weapon.dmgBonus > 0) weapon.data.weapon.dmgTotal += ` + ${weapon.data.weapon.dmgBonus}`;
             });
         }
 
