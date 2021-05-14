@@ -496,14 +496,12 @@ export class CofActorSheet extends CofBaseSheet {
         // Gestion des boutons de modification des effets (visible pour l'actor)
         data.isEffectsEditable = true;
 
-        if (this.actor.data.type === "encounter"){
-            data.weapons = data.items.filter(item=>item.type === "encounterWeapon");
-            data.weapons.forEach((weapon)=>{
-                weapon.data.weapon.modTotal = weapon.data.weapon.mod + weapon.data.weapon.skillBonus;
-                weapon.data.weapon.dmgTotal = weapon.data.weapon.dmg;
-                if (weapon.data.weapon.dmgBonus > 0) weapon.data.weapon.dmgTotal += ` + ${weapon.data.weapon.dmgBonus}`;
-            });
-        }
+        data.weapons = data.items.filter(item=>item.type === "encounterWeapon");
+        data.weapons.forEach((weapon)=>{
+            weapon.data.weapon.modTotal = weapon.data.weapon.mod + weapon.data.weapon.skillBonus;
+            weapon.data.weapon.dmgTotal = weapon.data.weapon.dmg;
+            if (weapon.data.weapon.dmgBonus > 0) weapon.data.weapon.dmgTotal += ` + ${weapon.data.weapon.dmgBonus}`;
+        });
 
         return data;
     }

@@ -65,10 +65,10 @@ export class CofRoll {
      */
     static rollEncounterWeapon(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.data.items.find(item=>item._id === li.data("itemId"));
         
         const label = item.name;
-        const weapon = item.data.data.weapon;
+        const weapon = item.data.weapon;
 
         return this.rollWeaponDialog(actor, label, weapon.mod, weapon.skillBonus, 0, weapon.critrange, weapon.dmg, weapon.dmgBonus);
     }
@@ -81,10 +81,10 @@ export class CofRoll {
      */
     static rollEncounterDamage(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.data.items.find(item=>item._id === li.data("itemId"));
 
-        const label = item.data.name;
-        const weapon = item.data.data.weapon;
+        const label = item.name;
+        const weapon = item.data.weapon;
 
         return this.rollDamageDialog(actor, label, weapon.dmg, weapon.bonus);
     }

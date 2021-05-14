@@ -60,13 +60,16 @@ export class Macros {
         }
     };
 
-    static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr) {
+    static rollItemMacro = async function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr) {
         const actor = this.getSpeakersActor();
         let item;
         item = actor ? actor.items.find(i => i.id === itemId) : null;
         if (!item) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemMissing")}: "${itemName}"`);
-        const itemData = item.data;
-        if (item.data.type === "encounterWeapon")
+        
+        // Récupération des data dans actor.data.items pour prise en compte des effets sur l'item qui proviennent de l'actor        
+        const itemData = actor.data.items.find(i => i._id === itemId);
+
+        if (itemData.type === "encounterWeapon")
         {
             if (!dmgOnly){
                 CofRoll.rollWeaponDialog(actor, customLabel ?? item.name, itemData.data.weapon.mod, itemData.data.weapon.skillBonus, 0, itemData.data.weapon.critrange, itemData.data.weapon.dmg, itemData.data.weapon.dmgBonus);
@@ -109,7 +112,7 @@ export class Macros {
         else { return item.sheet.render(true); }
     };
 
-    static rollHealMacro = function (label, healFormula, isCritical){
+    static rollHealMacro = async function (label, healFormula, isCritical){
         const actor = this.getSpeakersActor();
         if (actor){
             new CofHealingRoll(label, healFormula, isCritical).roll(actor);
@@ -119,24 +122,24 @@ export class Macros {
         }       
     }
 
-    static rollSkillMacro = function(label, mod, bonus, malus, critRange, isSuperior = false, description){
+    static rollSkillMacro = async function(label, mod, bonus, malus, critRange, isSuperior = false, description){
         const actor = this.getSpeakersActor();
         if (actor)
         {
             let crit = parseInt(critRange);
             crit = !isNaN(crit) ? crit : 20;
-            CofRoll.skillRollDialog(actor, label, mod, bonus, malus, crit, isSuperior, null, description);
+            CofRoll.skillRollDialog(actor, label, mod, bonus, malus, crit, isSuperior, "submit", description);
         }
         else {
             ui.notifications.error(`${game.i18n.localize("COF.notification.MacroTokenNeeded")}`);
         }   
     }
 
-    static rollDamageMacro = function(label, dmgFormula, dmgBonus, isCritical, dmgDescr){
+    static rollDamageMacro = async function(label, dmgFormula, dmgBonus, isCritical, dmgDescr){
         const actor = this.getSpeakersActor();
         if (actor)
         {
-            CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, null, dmgDescr);
+            CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, "submit", dmgDescr);
         }
         else {
             ui.notifications.error(`${game.i18n.localize("COF.notification.MacroTokenNeeded")}`);

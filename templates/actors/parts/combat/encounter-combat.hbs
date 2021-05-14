@@ -1,5 +1,4 @@
 <ol class="inventory-list">
-    <!-- MELEE -->
         <li class="inventory-header flexrow">
             <h3 class="item-name flexrow">Attaques</h3>
             <div class="item-detail">Mod</div>
@@ -7,33 +6,32 @@
             <div class="item-detail">DM</div>
             <div class="item-controls-3">
                 <a class="item-control item-create weapon-add" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
-                <!--                <a class="item-control" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp;Add</a>-->
             </div>
-            <!--                <a class="item-control weapon-add btn" title="Ajouter une attaque" style="padding:3px"><i class="fas fa-plus"></i></a>-->
-            <!--                <a class="weapons-control weapon-remove btn" title="Supprimer une attaque" style="padding:3px"><i class="fas fa-minus"></i></a>-->
         </li>
     {{#each weapons as |weapon id|}}
         <ol class="item-list">
-            <li class="item flexrow" data-item-id="{{weapon._id}}" data-item-type="weapon" draggable="true">
+            <li class="item flexrow" data-item-id="{{_id}}" data-item-type="weapon" draggable="true">
                 <div class="item-name flexrow">
-                    <div class="item-image" style="background-image: url('{{weapon.img}}')"></div>
-                    <h4>{{weapon.name}}</h4>
+                    <div class="item-image" style="background-image: url('{{img}}')"></div>
+                    <h4>{{name}}</h4>
                 </div>
-                <div class="item-detail">
-                    <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" value="{{numberFormat weapon.data.weapon.modTotal decimals=0 sign=true}}" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
-                </div>
-                <div class="item-detail">
-                    <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" value="{{weapon.data.weapon.critrange}}" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
-                </div>
-                <div class="item-detail">
-                    <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.data.weapon.dmgTotal}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
-                </div>            
-                <div class="item-controls-3">
-                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                    <a class="item-control rollable" data-roll-type="encounter-weapon"><i class="fas fa-dice-d20"></i></a>
-                    <a class="item-control rollable" data-roll-type="encounter-damage"><i class="fas fa-dice"></i></a>
-                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                </div>
+                {{#with data.weapon as |weapon|}}
+                    <div class="item-detail">
+                        <input class="field-value weapon-mod" type="text" value="{{numberFormat modTotal decimals=0 sign=true}}" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
+                    </div>
+                    <div class="item-detail">
+                        <input class="field-value weapon-critrange" type="text" value="{{critrange}}" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
+                    </div>
+                    <div class="item-detail">
+                        <input class="field-value weapon-dmg" type="text" value="{{dmgTotal}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
+                    </div>            
+                    <div class="item-controls-3">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control rollable" data-roll-type="encounter-weapon"><i class="fas fa-dice-d20"></i></a>
+                        <a class="item-control rollable" data-roll-type="encounter-damage"><i class="fas fa-dice"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                {{/with}}
             </li>
         </ol>
     {{/each}}
