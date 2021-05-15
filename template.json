@@ -348,7 +348,8 @@
       "capacity",
       "species",
       "profile",
-      "path"
+      "path",
+      "encounterWeapon"
     ],
     "templates": {
       "base" : {
@@ -506,6 +507,18 @@
         "alternative": false,
         "racial": false,
         "creature": false
+      }
+    },
+    "encounterWeapon":{
+      "templates": [
+        "base"
+      ],
+      "weapon": {
+        "critrange" : 20,
+        "mod" : 0,
+        "dmg" : null,
+        "skillBonus" : 0,
+        "dmgBonus": 0
       }
     }
   }

@@ -64,12 +64,13 @@ export class CofRoll {
      * @private
      */
     static rollEncounterWeapon(data, actor, event) {
-        const item = $(event.currentTarget).parents(".weapon");
-        let label = item.find(".weapon-name").text();
-        let mod = item.find(".weapon-mod").val();
-        let critrange = item.find(".weapon-critrange").val();
-        let dmg = item.find(".weapon-dmg").val();
-        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
+        const li = $(event.currentTarget).parents(".item");
+        const item = actor.data.items.find(item=>item._id === li.data("itemId"));
+        
+        const label = item.name;
+        const weapon = item.data.weapon;
+
+        return this.rollWeaponDialog(actor, label, weapon.mod, weapon.skillBonus, 0, weapon.critrange, weapon.dmg, weapon.dmgBonus);
     }
 
     /**
@@ -79,10 +80,13 @@ export class CofRoll {
      * @private
      */
     static rollEncounterDamage(data, actor, event) {
-        const item = $(event.currentTarget).parents(".weapon");
-        let label = item.find(".weapon-name").text();
-        let dmg = item.find(".weapon-dmg").val();
-        return this.rollDamageDialog(actor, label, dmg, 0);
+        const li = $(event.currentTarget).parents(".item");
+        const item = actor.data.items.find(item=>item._id === li.data("itemId"));
+
+        const label = item.name;
+        const weapon = item.data.weapon;
+
+        return this.rollDamageDialog(actor, label, weapon.dmg, weapon.bonus);
     }
 
     /**

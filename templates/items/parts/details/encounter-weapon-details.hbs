@@ -1,0 +1,38 @@
+<h3 class="form-header">Attaque</h3>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.skill"}} (Mod)</label>
+    <div class="form-fields">
+        <input name="data.weapon.mod" type="text" value="{{numberFormat data.weapon.mod decimals=0 sign=true}}" placeholder="{{localize "COF.ui.skillBonus"}}" data-dtype="Number">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.skillBonus"}}</label>
+    <div class="form-fields">
+        <input name="data.weapon.skillBonus" type="text" value="{{numberFormat data.weapon.skillBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.skillBonus"}}" data-dtype="Number">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.critrange"}}</label>
+    <div class="form-fields">
+        <input name="data.weapon.critrange" type="text" value="{{data.weapon.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
+    </div>
+</div>
+
+<h3 class="form-header">Dommages</h3>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.dmgBase"}}</label>
+    <div class="form-fields">
+        <input name="data.weapon.dmg" type="text" value="{{data.weapon.dmg}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>{{localize "COF.ui.dmgBonus"}}</label>
+    <div class="form-fields">
+        <input name="data.weapon.dmgBonus" type="text" value="{{numberFormat data.weapon.dmgBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.dmgBonus"}}" data-dtype="Number">
+    </div>
+</div>
