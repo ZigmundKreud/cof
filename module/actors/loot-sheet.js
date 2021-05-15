@@ -16,8 +16,8 @@ export class CofLootSheet extends CofBaseSheet {
             template: System.templatesPath + "/actors/loot-sheet.hbs",
             width: 950,
             height: 670,
-            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats"}],
-            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
+            dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
     }
 
@@ -30,7 +30,7 @@ export class CofLootSheet extends CofBaseSheet {
         // Click to open
         html.find('.compendium-pack').dblclick(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
@@ -40,7 +40,7 @@ export class CofLootSheet extends CofBaseSheet {
         // Click to open
         html.find('.item-create.compendium-pack').click(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
@@ -62,18 +62,18 @@ export class CofLootSheet extends CofBaseSheet {
             const category = ol.data('category');
             const itemList = ol.find('.item-list');
             const actor = this.actor;
-            itemList.slideToggle( "fast", function() {
+            itemList.slideToggle("fast", function () {
                 ol.toggleClass("folded");
-                if(actor.data.data.settings){
-                    if(ol.hasClass("folded")){
-                        if(!actor.data.data.settings[tab].folded.includes(category)){
+                if (actor.data.data.settings) {
+                    if (ol.hasClass("folded")) {
+                        if (!actor.data.data.settings[tab].folded.includes(category)) {
                             actor.data.data.settings[tab].folded.push(category);
                         }
                     } else {
                         ArrayUtils.remove(actor.data.data.settings[tab].folded, category)
                     }
                 }
-                actor.update({"data.settings":actor.data.data.settings})
+                actor.update({ "data.settings": actor.data.data.settings })
             });
         });
     }
@@ -174,25 +174,25 @@ export class CofLootSheet extends CofBaseSheet {
     /* -------------------------------------------- */
 
     /** @override */
-    getData(options={}) {
+    getData(options = {}) {
         const data = super.getData(options);
         // console.log(data);
         data.inventory = {
-            count : data.items.filter(i => i.type === "item").length,
-            categories:[]
+            count: data.items.filter(i => i.type === "item").length,
+            categories: []
         };
-        for(const category of Object.keys(game.cof.config.itemCategories)){
+        for (const category of Object.keys(game.cof.config.itemCategories)) {
             data.inventory.categories.push({
-                id : category,
-                label : "COF.category."+category,
-                items : Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
+                id: category,
+                label: "COF.category." + category,
+                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
         }
         data.folded = {
-            "combat" : (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-            "inventory" : (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-            "capacities" : (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-            "effects" : (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
+            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
+            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
+            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
+            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
         };
         return data;
     }
