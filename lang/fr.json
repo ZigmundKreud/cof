@@ -110,6 +110,10 @@
   "COF.ui.applyDoubleDamage": "Appliquer le double des dégâts",
   "COF.ui.applyHealing" : "Appliquer les soins",
   "COF.ui.newEffect" : "Nouvel Effet",
+  "COF.ui.noCapacitySelected" : "Aucune capacité n'a été sélectionnée pour le moment",
+  "COF.ui.noPathSelected": "Aucune voie n'a été ajoutée pour le moment.",
+  "COF.ui.activeCapacities": "Capacités actives",
+  "COF.ui.CapacityPoints": "Points de capacités",
 
   "COF.roll.skillcheck" : "Test de compétence",
   "COF.roll.success" : "Succès",
@@ -128,6 +132,7 @@
   "COF.tabs.capacities" : "Capacités",
   "COF.tabs.inventory" : "Inventaire",
   "COF.tabs.effects" : "Effets",
+  "COF.tabs.details" : "Détails",
   "COF.tabs.description" : "Description",
 
   "COF.details.name": "Nom",

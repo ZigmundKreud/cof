@@ -109,6 +109,10 @@
   "COF.ui.applyDoubleDamage": "Apply double damage",
   "COF.ui.applyHealing" : "Apply healing",
   "COF.ui.newEffect" : "New Effect",
+  "COF.ui.noCapacitySelected": "No capacity has been selected yet",
+  "COF.ui.noPathSelected": "No path have been added yet.",
+  "COF.ui.activeCapacities": "Active capacities",
+  "COF.ui.CapacityPoints": "Capacity points",
 
   "COF.roll.skillcheck" : "Skill check",
   "COF.roll.success" : "Success",
@@ -127,6 +131,7 @@
   "COF.tabs.capacities" : "Capacities",
   "COF.tabs.inventory" : "Inventory",
   "COF.tabs.effects" : "Effects",
+  "COF.tabs.details" : "Details",
   "COF.tabs.description" : "Description",
 
   "COF.details.name": "Name",
