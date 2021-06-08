@@ -12,6 +12,7 @@ import { ArrayUtils } from "../utils/array-utils.js";
 import { Inventory } from "../controllers/inventory.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
+import { COF } from "../system/config.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -406,7 +407,10 @@ export class CofActorSheet extends CofBaseSheet {
     /** @override */
     getData(options = {}) {
         const data = super.getData(options);
-        // console.log(data);
+        if (COF.debug) {
+            console.log("COTA | ActorSheet getData");
+            console.log(data);
+        }
         data.config = game.cof.config;
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");

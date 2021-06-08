@@ -23,7 +23,7 @@ import {UpdateUtils} from "./utils/update-utils.js";
 
 Hooks.once("init", async function () {
 
-    console.info("System Initializing...");
+    console.info("COF | System Initializing...");
     console.info(System.ASCII);
 
     // Register System Settings
@@ -112,5 +112,5 @@ Hooks.once("ready", async () => {
     // UpdateUtils.updateSpecies();
     // UpdateUtils.updateEncounters();
 
-    console.info("System Initialized.");
+    console.info("COF | System Initialized.");
 });

@@ -3,7 +3,6 @@
         {{#if (gt category.items.length 0)}}
             <ol class="inventory-list foldable {{#if (includes ../folded.combat category.id)}}folded{{/if}}" data-tab="combat" data-category="{{category.id}}">
                 <li class="inventory-header flexrow">
-                    {{log category}}
                     <h3 class="item-name flexrow">{{localize category.label}}</h3>
                     {{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">Def</div>{{else}}<div class="item-detail"></div>{{/if}}
                     {{#if (isCategoryIn category.id "ranged" "spell")}}<div class="item-detail">Portée(m)</div>{{else}}<div class="item-detail"></div>{{/if}}

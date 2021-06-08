@@ -7,6 +7,7 @@ import {Traversal} from "../utils/traversal.js";
 import {System} from "../system/config.js";
 import {Path} from "../controllers/path.js";
 import {Capacity} from "../controllers/capacity.js";
+import { COF } from "../system/config.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -285,7 +286,7 @@ export class CofItemSheet extends ItemSheet {
     /** @override */
     getData(options) {
         const data = super.getData(options);
-        // console.log(data);
+        if (COF.debug) console.log(data);
         data.labels = this.item.labels;
         data.config = game.cof.config;
         data.itemType = data.item.type.titleCase();

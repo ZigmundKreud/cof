@@ -2,7 +2,7 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-import { System } from "../system/config.js";
+import { COF, System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
 import { Inventory } from "../controllers/inventory.js";
 import { Traversal } from "../utils/traversal.js";
@@ -193,7 +193,7 @@ export class CofLootSheet extends CofBaseSheet {
     /** @override */
     getData(options = {}) {
         const data = super.getData(options);
-        // console.log(data);
+        if (COF.debug) console.log(data);
         data.inventory = {
             count: data.items.filter(i => i.type === "item").length,
             categories: []
