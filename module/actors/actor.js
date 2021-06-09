@@ -6,6 +6,21 @@ import { Stats } from "../system/stats.js";
 import {COF} from "../system/config.js";
 
 export class CofActor extends Actor {
+    
+    /* -------------------------------------------- */
+    /*  Constructor                                 */
+    /* -------------------------------------------- */
+    /* Définition des images par défaut             */
+    /* -------------------------------------------- */   
+    constructor(...args) {
+        let data = args[0];
+        if (!data.img && COF.actorIcons[data.type]){
+            data.img = COF.actorIcons[data.type];
+            data.token.img = COF.actorIcons[data.type];
+        }
+
+        super(...args);
+    }
 
     /* -------------------------------------------- */
     /*  Data Preparation                            */

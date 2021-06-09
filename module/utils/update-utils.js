@@ -1,6 +1,7 @@
 import {Traversal} from "./traversal.js";
 import {Compendia} from "./compendia.js";
 
+import { COF } from "../system/config.js";
 export class UpdateUtils {
 
     static updatePacks() {
@@ -19,7 +20,7 @@ export class UpdateUtils {
                                 return index[cid._id];
                             }
                         });
-                        console.log(data);
+                        if (COF.debug) console.log(data);
                         return path.update(data);
                     })
                 }),
@@ -36,7 +37,7 @@ export class UpdateUtils {
                                 return index[pid._id];
                             }
                         });
-                        console.log(data);
+                        if (COF.debug) console.log(data);
                         return profile.update(data);
                     })
                 }),
@@ -62,7 +63,7 @@ export class UpdateUtils {
                                 return index[pid._id];
                             }
                         });
-                        console.log(data);
+                        if (COF.debug) console.log(data);
                         return specie.update(data);
                     })
                 })
@@ -84,7 +85,7 @@ export class UpdateUtils {
                             return index[cid._id];
                         }
                     });
-                    console.log(data);
+                    if (COF.debug) console.log(data);
                     return path.update(data);
                 });
             })
@@ -105,7 +106,7 @@ export class UpdateUtils {
                             return index[pid._id];
                         }
                     });
-                    console.log(data);
+                    if (COF.debug) console.log(data);
                     return profile.update(data);
                 });
             })
@@ -135,7 +136,7 @@ export class UpdateUtils {
                             return index[pid._id];
                         }
                     });
-                    console.log(data);
+                    if (COF.debug) console.log(data);
                     return specie.update(data);
                 });
             })
@@ -157,7 +158,7 @@ export class UpdateUtils {
                     //         return index[cid._id];
                     //     }
                     // });
-                    console.log(data);
+                    if (COF.debug) console.log(data);
                     // return encounter.update(data);
                 })
             });
@@ -174,7 +175,7 @@ export class UpdateUtils {
             //         //         return index[cid._id];
             //         //     }
             //         // });
-            //         console.log(data);
+            //         if (COF.debug) console.log(data);
             //         // return encounter.update(data);
             //     })
             // });

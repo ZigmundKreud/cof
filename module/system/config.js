@@ -90,3 +90,5 @@ COF.actorIcons = {
     "encounter":"icons/svg/mystery-man-black.svg",
     "loot": "icons/containers/bags/sack-simple-leather-brown.webp"
 }
+
+COF.debug = false;

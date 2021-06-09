@@ -12,6 +12,7 @@ import { ArrayUtils } from "../utils/array-utils.js";
 import { Inventory } from "../controllers/inventory.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
+import { COF } from "../system/config.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -101,11 +102,11 @@ export class CofActorSheet extends CofBaseSheet {
         // Check/Uncheck capacities
         html.find('.capacity-checked').click(ev => {
             ev.preventDefault();
-            return Capacity.toggleCheck(this.actor, ev, true);
+            return this._onCheckedCapacity(this.actor, ev, true)
         });
         html.find('.capacity-unchecked').click(ev => {
             ev.preventDefault();
-            return Capacity.toggleCheck(this.actor, ev, false);
+            return this._onCheckedCapacity(this.actor, ev, false)
         });
         html.find('.capacity-create').click(ev => {
             ev.preventDefault();
@@ -192,6 +193,18 @@ export class CofActorSheet extends CofBaseSheet {
     /* ITEMS MANAGEMENT                             */
 
     /* -------------------------------------------- */
+    /**
+     * @name _onCheckedCapacity
+     * @description Evènement sur la case à cocher d'une capacité
+     * 
+     * @param {CofActor} actor l'acteur
+     * @param {Event} event l'évènement
+     * @param {boolean} isUncheck la capacité est décochée
+     * 
+     * @returns l'acteur modifié
+     */
+    _onCheckedCapacity(actor, event, isUncheck) {return Capacity.toggleCheck(actor, event, isUncheck);}
+
     _onIncrease(event) {
         event.preventDefault();
         return Inventory.onModifyQuantity(this.actor, event, 1, false);
@@ -394,7 +407,10 @@ export class CofActorSheet extends CofBaseSheet {
     /** @override */
     getData(options = {}) {
         const data = super.getData(options);
-        // console.log(data);
+        if (COF.debug) {
+            console.log("COTA | ActorSheet getData");
+            console.log(data);
+        }
         data.config = game.cof.config;
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");

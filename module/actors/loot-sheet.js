@@ -2,11 +2,11 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-import {System} from "../system/config.js";
-import {CofBaseSheet} from "./base-sheet.js";
-import {Inventory} from "../controllers/inventory.js";
-import {Traversal} from "../utils/traversal.js";
-import {ArrayUtils} from "../utils/array-utils.js";
+import { COF, System } from "../system/config.js";
+import { CofBaseSheet } from "./base-sheet.js";
+import { Inventory } from "../controllers/inventory.js";
+import { Traversal } from "../utils/traversal.js";
+import { ArrayUtils } from "../utils/array-utils.js";
 
 export class CofLootSheet extends CofBaseSheet {
     /** @override */
@@ -16,8 +16,8 @@ export class CofLootSheet extends CofBaseSheet {
             template: System.templatesPath + "/actors/loot-sheet.hbs",
             width: 950,
             height: 670,
-            tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats"}],
-            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
+            dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
     }
 
@@ -30,7 +30,7 @@ export class CofLootSheet extends CofBaseSheet {
         // Click to open
         html.find('.compendium-pack').dblclick(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
@@ -40,7 +40,7 @@ export class CofLootSheet extends CofBaseSheet {
         // Click to open
         html.find('.item-create.compendium-pack').click(ev => {
             ev.preventDefault();
-            let li = $(ev.currentTarget), pack = game.packs.get(li.data("pack"));
+            let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.close();
             else {
                 li.attr("data-open", "1");
@@ -62,18 +62,18 @@ export class CofLootSheet extends CofBaseSheet {
             const category = ol.data('category');
             const itemList = ol.find('.item-list');
             const actor = this.actor;
-            itemList.slideToggle( "fast", function() {
+            itemList.slideToggle("fast", function () {
                 ol.toggleClass("folded");
-                if(actor.data.data.settings){
-                    if(ol.hasClass("folded")){
-                        if(!actor.data.data.settings[tab].folded.includes(category)){
+                if (actor.data.data.settings) {
+                    if (ol.hasClass("folded")) {
+                        if (!actor.data.data.settings[tab].folded.includes(category)) {
                             actor.data.data.settings[tab].folded.push(category);
                         }
                     } else {
                         ArrayUtils.remove(actor.data.data.settings[tab].folded, category)
                     }
                 }
-                actor.update({"data.settings":actor.data.data.settings})
+                actor.update({ "data.settings": actor.data.data.settings })
             });
         });
     }
@@ -161,10 +161,10 @@ export class CofLootSheet extends CofBaseSheet {
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
         switch (itemData.type) {
-            case "path"    :
-            case "profile" :
-            case "species" :
-            case "capacity" :
+            case "path":
+            case "profile":
+            case "species":
+            case "capacity":
                 return false;
             default:
                 // activate the capacity as it is droped on an actor sheet
@@ -191,25 +191,25 @@ export class CofLootSheet extends CofBaseSheet {
     /* -------------------------------------------- */
 
     /** @override */
-    getData(options={}) {
+    getData(options = {}) {
         const data = super.getData(options);
-        // console.log(data);
+        if (COF.debug) console.log(data);
         data.inventory = {
-            count : data.items.filter(i => i.type === "item").length,
-            categories:[]
+            count: data.items.filter(i => i.type === "item").length,
+            categories: []
         };
-        for(const category of Object.keys(game.cof.config.itemCategories)){
+        for (const category of Object.keys(game.cof.config.itemCategories)) {
             data.inventory.categories.push({
-                id : category,
-                label : "COF.category."+category,
-                items : Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
+                id: category,
+                label: "COF.category." + category,
+                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
         }
         data.folded = {
-            "combat" : (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-            "inventory" : (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-            "capacities" : (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-            "effects" : (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
+            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
+            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
+            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
+            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
         };
         return data;
     }

@@ -23,7 +23,15 @@ import {UpdateUtils} from "./utils/update-utils.js";
 
 Hooks.once("init", async function () {
 
-    console.info("System Initializing...");
+    if (isNewerVersion(game.data.version, "0.7.10")) {
+        Game.prototype.setupGame = function () {
+          const message = game.i18n.localize("COF.version.alert");
+          alert(message);
+          throw new Error(message);
+        }
+      }
+
+    console.info("COF | System Initializing...");
     console.info(System.ASCII);
 
     // Register System Settings
@@ -112,5 +120,5 @@ Hooks.once("ready", async () => {
     // UpdateUtils.updateSpecies();
     // UpdateUtils.updateEncounters();
 
-    console.info("System Initialized.");
+    console.info("COF | System Initialized.");
 });

@@ -1,12 +1,12 @@
 {{#if (equals capacities.count 0)}}
-<p class="empty">Aucune capacité n'a été sélectionnée pour le moment</p>
+    <p class="empty">{{localize "COF.ui.noCapacitySelected"}}</p>
 {{else}}
     {{#each capacities.collections as |collection id|}}
         {{#if (gt collection.items.length 0)}}
             <ol class="inventory-list foldable {{#if (includes ../folded.capacities collection.id)}}folded{{/if}}" data-tab="capacities" data-category="{{collection.id}}" data-path-id="{{collection.id}}">
                 <li class="inventory-header flexrow">
                     <h3 class="item-name flexrow">{{collection.label}}</h3>
-                    <div class="item-detail">Rang</div>
+                    <div class="item-detail">{{localize "COF.ui.rank"}}</div>
                     <div class="item-detail">L</div>
                     <div class="item-detail">S</div>
                     <div class="item-controls">
@@ -30,8 +30,8 @@
                         <div class="item-summary" style="display: none">
                             {{{capacity.data.description}}}
                             <div class="item-properties">
-                                {{#if capacity.data.spell}}<span class="tag">Sort</span>{{/if}}
-                                {{#if capacity.data.limited}}<span class="tag">Action limitée</span>{{/if}}
+                                {{#if capacity.data.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
+                                {{#if capacity.data.limited}}<span class="tag">{{localize "COF.ui.limited"}}</span>{{/if}}
                             </div>
                         </div>
                     </li>

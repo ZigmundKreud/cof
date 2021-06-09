@@ -141,7 +141,6 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('count', function (list) {
-        console.log(list);
         return list.length;
     });
 

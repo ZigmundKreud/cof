@@ -1,5 +1,5 @@
 {{#if (isEmpty paths)}}
-    <p class="empty">Aucune voie n'a été ajoutée pour le moment.</p>
+    <p class="empty">{{localize "COF.ui.noPathSelected"}}</p>
 {{else}}
     <div class="path-list">
         <div class="grid">
@@ -34,10 +34,10 @@
         <hr/>
         <div class="row flexrow">
             <div class="flex1 left">
-                <h3>Capacités actives</h3>
+                <h3>{{localize "COF.ui.activeCapacities"}}</h3>
             </div>
             <div class="flex1 right {{#if (isNegative actor.data.xp.value)}}red{{/if}}">
-                <span class="field-label">Points de capacités {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
+                <span class="field-label">{{localize "COF.ui.CapacityPoints"}} {{actor.data.xp.value}}/{{actor.data.xp.max}}</span>
                 <input name="data.xp.value" type="hidden" value="{{actor.data.xp.value}}" data-dtype="Number"/>
                 <input name="data.xp.max" type="hidden" value="{{actor.data.xp.max}}" data-dtype="Number"/>
             </div>
