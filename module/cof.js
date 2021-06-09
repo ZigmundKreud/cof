@@ -23,6 +23,14 @@ import {UpdateUtils} from "./utils/update-utils.js";
 
 Hooks.once("init", async function () {
 
+    if (isNewerVersion(game.data.version, "0.7.10")) {
+        Game.prototype.setupGame = function () {
+          const message = game.i18n.localize("COF.version.alert");
+          alert(message);
+          throw new Error(message);
+        }
+      }
+
     console.info("COF | System Initializing...");
     console.info(System.ASCII);
 

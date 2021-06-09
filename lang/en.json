@@ -354,6 +354,8 @@
   "COF.dialog.rollDamage.title": "Damage Roll",
   "COF.dialog.rollHitPoints.title": "Hit Points Roll",
   "COF.dialog.spendRecoveryPoint.title": "Spend one Recovery Point",  
-  "COF.dialog.chooseCharacteristics.title": "Characteristic scores"
+  "COF.dialog.chooseCharacteristics.title": "Characteristic scores",
+
+  "COF.version.alert": "COF IS NOT COMPATIBLE WITH FOUNDRY 0.8.6 YET. Please rollback your Foundry version to 0.7.10 until a compatible version is released."
 
 }
