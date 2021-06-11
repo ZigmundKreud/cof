@@ -44,7 +44,7 @@ export class CofRoll {
      */
     static rollWeapon(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
-        let item = actor.getOwnedItem(li.data("itemId"));
+        let item = actor.items.get(li.data("itemId"));
         const itemData = item.data;
     
         const label = itemData.name;
@@ -93,7 +93,7 @@ export class CofRoll {
      */
     static rollSpell(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");
-        let item = actor.getOwnedItem(li.data("itemId"));
+        let item = actor.items.get(li.data("itemId"));
         let label = item.data.name;
         let mod = item.data.data.mod;
         let critrange = item.data.data.critrange;
@@ -109,7 +109,7 @@ export class CofRoll {
      */
     static rollDamage(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.items.get(li.data("itemId"));
         const itemData = item.data;
     
         const label = itemData.name;

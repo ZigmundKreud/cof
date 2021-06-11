@@ -35,7 +35,7 @@ export class Capacity {
         // get id of parent path
         const pathId = elt.data("pathId");
         // get path from owned items
-        const path = duplicate(actor.getOwnedItem(pathId).data);
+        const path = duplicate(actor.items.get(pathId).data);
         const pathData = path.data;
         const capacities = pathData.capacities;
         const capsIds = capacities.map(c => c._id);

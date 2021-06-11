@@ -15,16 +15,16 @@ export class Species {
             return false;
         } else {
             // add species
-            return actor.createOwnedItem(itemData).then(newSpecies => {
+            return actor.createEmbeddedDocuments("Item",[itemData]).then(newSpecies => {
                 return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
-                    newSpecies.data.capacities = newSpecies.data.capacities.map(cap => {
+                    newSpecies.data.data.capacities = newSpecies.data.data.capacities.map(cap => {
                         let capData = entities[cap._id];
                         capData.flags.core = { sourceId: cap.sourceId };
                         capData.data.species = {
                             _id: newSpecies._id,
                             name: newSpecies.name,
                             img: newSpecies.img,
-                            key: newSpecies.data.key,
+                            key: newSpecies.data.data.key,
                             sourceId: newSpecies.flags.core.sourceId,
                         };
                         return capData;
@@ -36,19 +36,19 @@ export class Species {
                             _id: newSpecies._id,
                             name: newSpecies.name,
                             img: newSpecies.img,
-                            key: newSpecies.data.key,
+                            key: newSpecies.data.data.data.key,
                             sourceId: newSpecies.flags.core.sourceId,
                         };
                         return pathData;
                     });
                     // add caps from species
-                    return Capacity.addCapsToActor(actor, newSpecies.data.capacities).then(newCaps => {
-                        newSpecies.data.capacities = newCaps;
+                    return Capacity.addCapsToActor(actor, newSpecies.data.data.capacities).then(newCaps => {
+                        newSpecies.data.data.capacities = newCaps;
                         // add paths from species
-                        return Path.addPathsToActor(actor, newSpecies.data.paths).then(newPaths => {
-                            newSpecies.data.paths = newPaths;
+                        return Path.addPathsToActor(actor, newSpecies.data.data.paths).then(newPaths => {
+                            newSpecies.data.data.paths = newPaths;
                             // update profile with new ids
-                            return actor.updateOwnedItem(newSpecies);
+                            return actor.updateEmbeddedDocuments("Item",newSpecies);
                         });
                     });
                 });
@@ -79,7 +79,7 @@ export class Species {
                     ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
                 });
                 ui.notifications.info("la race a été supprimé.");
-                return actor.deleteOwnedItem(specie.data._id);
+                return actor.deleteEmbeddedDocuments("Item",specie.data._id);
             },
             defaultYes: false
         });

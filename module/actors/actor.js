@@ -156,8 +156,7 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveSpells(items) {
-        // return items.filter(item => item.type === "spell" && item.data.worn)
-        return items.filter(item => item.type === "spell")
+        return items.filter(i => i.type === "spell")
     }
 
     /* -------------------------------------------- */
@@ -200,7 +199,7 @@ export class CofActor extends Actor {
 
         // Caractéristiques et leurs modificateurs
         for (const [key, stat] of Object.entries(stats)) {
-            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
+            stat.racial = (species && species.data.data.bonuses[key]) ? species.data.data.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
         }

@@ -271,7 +271,7 @@ export class CofActorSheet extends CofBaseSheet {
             } else return false;
         } else {
             // look first in actor onwed items
-            let entity = this.actor.getOwnedItem(id);
+            let entity = this.actor.items.get(id);
             return (entity) ? entity.sheet.render(true) : Traversal.getEntity(id, type, pack).then(e => e.sheet.render(true));
         }
     }
@@ -284,7 +284,7 @@ export class CofActorSheet extends CofBaseSheet {
     _onItemSummary(event){
         event.preventDefault();
         let li = $(event.currentTarget).parents('.item').children('.item-summary');
-        let entity = this.actor.getOwnedItem($(event.currentTarget).parents('.item').data("itemId"));
+        let entity = this.actor.items.get($(event.currentTarget).parents('.item').data("itemId"));
         if (entity && entity.data.type === "capacity") {
             if (li.hasClass('expanded')) {
                 li.css("display", "none");
@@ -367,7 +367,7 @@ export class CofActorSheet extends CofBaseSheet {
      * @private
      */
     async _onDropItem(event, data) {
-        if (!this.actor.owner) return false;
+        if (!this.actor.isOwner) return false;
         // let authorized = true;
 
         // let itemData = await this._getItemDropData(event, data);
@@ -381,10 +381,10 @@ export class CofActorSheet extends CofBaseSheet {
             default: {
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
-                let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
+                let sameActor = (data.actorId === actor.id) || (actor.isToken && (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
-                return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+                return this.actor.createEmbeddedDocuments("Item", [itemData]);
             }
         }
         // if (authorized) {

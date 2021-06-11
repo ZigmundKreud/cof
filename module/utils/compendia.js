@@ -1,6 +1,7 @@
 export class Compendia {
 
     static getContent(filters = []) {
+        console.log("Compendia" + game.packs.entries);
         let promises = game.packs.entries.map(comp => {
             return comp.getContent().then(content => {
                 if (filters.length > 0) return content.filter(i => filters.includes(i.type));

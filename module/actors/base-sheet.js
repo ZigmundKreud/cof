@@ -30,9 +30,16 @@ export class CofBaseSheet extends ActorSheet {
     getLogoPath() { return "/ui/logo-banner.webp"; }
 
     /** @override */
-    getData(options = {}) {
+	getData(options) {
         const data = super.getData(options);
+        const actorData = data.data;
+        
+        data.actor = actorData;
+        data.data = actorData.data;
+
         data.logoPath = this.getPathRoot() + this.getLogoPath();
+		data.isGm = game.user.isGM;
+        
         return data;
-    }
+	}
 }

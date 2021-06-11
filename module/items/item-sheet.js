@@ -273,7 +273,7 @@ export class CofItemSheet extends ItemSheet {
     _getItemProperties(item) {
         const props = [];
         if ( item.type === "item" ) {
-            const entries = Object.entries(item.data.properties)
+            const entries = Object.entries(item.data.data.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.itemProperties[e[0]]
             }));
@@ -284,9 +284,14 @@ export class CofItemSheet extends ItemSheet {
     /* -------------------------------------------- */
 
     /** @override */
-    getData(options) {
+	getData(options) {
         const data = super.getData(options);
         if (COF.debug) console.log(data);
+
+        const itemData = data.data;
+        data.item = itemData;
+        data.data = itemData.data;
+
         data.labels = this.item.labels;
         data.config = game.cof.config;
         data.itemType = data.item.type.titleCase();
@@ -298,5 +303,5 @@ export class CofItemSheet extends ItemSheet {
         data.isEffectsEditable = this.item.actor ? false : true;
 
         return data;
-    }
+	}
 }

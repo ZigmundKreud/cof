@@ -115,7 +115,7 @@ export class CofLootSheet extends CofBaseSheet {
         const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
 
         // look first in actor onwed items
-        let entity = this.actor.getOwnedItem(id);
+        let entity = this.actor.items.get(id);
         return (entity) ? entity.sheet.render(true) : Traversal.getEntity(id, type, pack).then(e => e.sheet.render(true));
     }
 
