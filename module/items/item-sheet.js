@@ -2,12 +2,11 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
+import { Capacity } from "../controllers/capacity.js";
+import { Path } from "../controllers/path.js";
+import { COF, System } from "../system/config.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 import { Traversal } from "../utils/traversal.js";
-import { System } from "../system/config.js";
-import { Path } from "../controllers/path.js";
-import { Capacity } from "../controllers/capacity.js";
-import { COF } from "../system/config.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -94,7 +93,18 @@ export class CofItemSheet extends ItemSheet {
                 }
             }
         });
-
+        // Abonnement des évènements sur les effets
+        html.find('.effect-create').click(ev => {
+            ev.preventDefault();
+            if (!this.isEditable) return;
+            return this.item.createEmbeddedDocuments("ActiveEffect", [{
+                label: game.i18n.localize("COF.ui.newEffect"),
+                icon: "icons/svg/aura.svg",
+                origin: this.item.uuid,
+                "duration.rounds": undefined,
+                disabled: false
+            }]);
+        });
         html.find('.effect-edit').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
@@ -103,16 +113,6 @@ export class CofItemSheet extends ItemSheet {
             if (effect) {
                 new ActiveEffectConfig(effect).render(true);
             }
-        });
-        html.find('.effect-create').click(ev => {
-            ev.preventDefault();
-            if (!this.isEditable) return;
-            return ActiveEffect.create({
-                label: game.i18n.localize("COF.ui.newEffect"),
-                icon: "icons/svg/aura.svg",
-                "duration.rounds": undefined,
-                disabled: false
-            }, this.item).create();
         });
         html.find('.effect-delete').click(ev => {
             ev.preventDefault();
@@ -131,7 +131,6 @@ export class CofItemSheet extends ItemSheet {
                 effect.update({ disabled: !effect.data.disabled })
             }
         });
-
     }
 
     /** @override */
