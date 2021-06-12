@@ -2,7 +2,7 @@ export class Compendia {
 
     static getContent(filters = []) {
         console.log("Compendia" + game.packs.entries);
-        let promises = game.packs.entries.map(comp => {
+        let promises = game.packs.map(comp => {
             return comp.getContent().then(content => {
                 if (filters.length > 0) return content.filter(i => filters.includes(i.type));
                 else return content;
@@ -17,7 +17,7 @@ export class Compendia {
     }
 
     static getIndex() {
-        let promises = game.packs.entries.map(comp => {
+        let promises = game.packs.map(comp => {
             return comp.getIndex().then(index => {
                 return index.map(entry => {
                     entry.sourceId = "Compendium."+comp.metadata.package + "." + comp.metadata.name + "." + entry._id;
@@ -36,7 +36,7 @@ export class Compendia {
     static find(id) {
         return this.getIndex().then(idx => {
             const entry = idx[id];
-            return game.packs.get(entry.source).getEntity(id).then(entity => {
+            return game.packs.get(entry.source).getDocument(id).then(entity => {
                 return entity
             });
         });

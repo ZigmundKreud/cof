@@ -2,7 +2,7 @@ import {Compendia} from "./compendia.js";
 
 export class Traversal {
 
-    static async getEntity(id, type, pack) {
+    static async getDocument(id, type, pack) {
         let entity = null;
         // Case 1 - Import from World entities
         if(type === "item") entity = game.items.get(id);
@@ -10,7 +10,7 @@ export class Traversal {
         else if(type === "journal") entity = game.journal.get(id);
         // Case 2 - Import from a Compendium pack
         if (!entity && pack) {
-            await game.packs.get(pack).getEntity(id).then(e => entity = e);
+            await game.packs.get(pack).getDocument(id).then(e => entity = e);
         }
         return entity;
     }
@@ -80,7 +80,7 @@ export class Traversal {
                     else if(elts[0] === "JournalEntry") return game.journal.get(id);
                     else if(elts[0] === "Compendium") {
                         const packName = elts[1] + "." + elts[2];
-                        return game.packs.get(packName).getEntity(id).then(entity => entity);
+                        return game.packs.get(packName).getDocument(id).then(entity => entity);
                     }
                 }
             }
@@ -92,7 +92,7 @@ export class Traversal {
             if(source === "game.items") return game.items.get(id);
             if(source === "game.actors") return game.actors.get(id);
             if(source === "game.journal") return game.journal.get(id);
-            else return game.packs.get(source).getEntity(id).then(entity => entity);
+            else return game.packs.get(source).getDocument(id).then(entity => entity);
         }
     }
 }

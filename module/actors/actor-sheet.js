@@ -272,7 +272,7 @@ export class CofActorSheet extends CofBaseSheet {
         } else {
             // look first in actor onwed items
             let entity = this.actor.items.get(id);
-            return (entity) ? entity.sheet.render(true) : Traversal.getEntity(id, type, pack).then(e => e.sheet.render(true));
+            return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
         }
     }
 
