@@ -26,7 +26,7 @@ export class CofActorSheet extends CofBaseSheet {
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
             dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
-    }  
+    }
 
     /** @override */
     activateListeners(html) {
@@ -42,7 +42,7 @@ export class CofActorSheet extends CofBaseSheet {
             if (pack) {
                 if (li.attr("data-open") === "1") {
                     li.attr("data-open", "0");
-                    pack.close();                    
+                    pack.close();
                 }
                 else {
                     li.attr("data-open", "1");
@@ -203,7 +203,7 @@ export class CofActorSheet extends CofBaseSheet {
      * 
      * @returns l'acteur modifié
      */
-    _onCheckedCapacity(actor, event, isUncheck) {return Capacity.toggleCheck(actor, event, isUncheck);}
+    _onCheckedCapacity(actor, event, isUncheck) { return Capacity.toggleCheck(actor, event, isUncheck); }
 
     _onIncrease(event) {
         event.preventDefault();
@@ -241,7 +241,7 @@ export class CofActorSheet extends CofBaseSheet {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
         const itemId = li.data("itemId");
-        const entity = this.actor.items.find(item => item._id === itemId);
+        const entity = this.actor.items.find(item => item.id === itemId);
         switch (entity.data.type) {
             case "capacity": return Capacity.removeFromActor(this.actor, entity);
             case "path": return Path.removeFromActor(this.actor, entity);
@@ -276,12 +276,12 @@ export class CofActorSheet extends CofBaseSheet {
         }
     }
 
-     /**
-     * Callback on render item actions : display or not the summary
-     * @param event
-     * @private
-     */
-    _onItemSummary(event){
+    /**
+    * Callback on render item actions : display or not the summary
+    * @param event
+    * @private
+    */
+    _onItemSummary(event) {
         event.preventDefault();
         let li = $(event.currentTarget).parents('.item').children('.item-summary');
         let entity = this.actor.items.get($(event.currentTarget).parents('.item').data("itemId"));
@@ -292,7 +292,7 @@ export class CofActorSheet extends CofBaseSheet {
             else {
                 li.css("display", "block");
             }
-            li.toggleClass('expanded');                
+            li.toggleClass('expanded');
         } else {
             this._onEditItem(event);
         }
@@ -436,18 +436,18 @@ export class CofActorSheet extends CofBaseSheet {
         }
 
         data.combat.categories.forEach(category => {
-            if (category.items.length > 0) {                
+            if (category.items.length > 0) {
                 category.items.forEach(item => {
                     if (item.data.properties?.weapon) {
                         // Compute MOD
                         const itemModStat = item.data.skill.split("@")[1];
                         const itemModBonus = parseInt(item.data.skillBonus);
                         const weaponCategory = this.getCategory(item.data);
-                        
+
                         item.data.mod = this.actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
 
                         // Compute DM
-                        const itemDmgBase = item.data.dmgBase;                        
+                        const itemDmgBase = item.data.dmgBase;
                         const itemDmgStat = item.data.dmgStat.split("@")[1];
                         const itemDmgBonus = parseInt(item.data.dmgBonus);
 
@@ -489,16 +489,16 @@ export class CofActorSheet extends CofBaseSheet {
             "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
             "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
             "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-        };       
+        };
 
         const overloadedMalus = this.actor.getOverloadedMalus();
         const overloadedOtherMod = this.actor.getOverloadedOtherMod();
-        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0) ;
+        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0);
         data.overloaded = {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
-        
+
         // Gestion des boutons de modification des effets (visible pour l'actor)
         data.isEffectsEditable = true;
 
@@ -513,7 +513,7 @@ export class CofActorSheet extends CofBaseSheet {
      * @param {*} itemData 
      * @returns Retourne "cof" en attendant l'implémentation
      */
-    getCategory(itemData){
+    getCategory(itemData) {
         return "cof";
     }
 }

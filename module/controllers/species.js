@@ -15,7 +15,7 @@ export class Species {
             return false;
         } else {
             // add species
-            return actor.createEmbeddedDocuments("Item",[itemData]).then(newSpecies => {
+            return actor.createEmbeddedDocuments("Item", [itemData]).then(newSpecies => {
                 return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
                     newSpecies.data.data.capacities = newSpecies.data.data.capacities.map(cap => {
                         let capData = entities[cap._id];
@@ -48,7 +48,7 @@ export class Species {
                         return Path.addPathsToActor(actor, newSpecies.data.data.paths).then(newPaths => {
                             newSpecies.data.data.paths = newPaths;
                             // update profile with new ids
-                            return actor.updateEmbeddedDocuments("Item",newSpecies);
+                            return actor.updateEmbeddedDocuments("Item", newSpecies);
                         });
                     });
                 });
@@ -66,20 +66,24 @@ export class Species {
      * @returns 
      */
     static removeFromActor(actor, specie) {
-        const paths = actor.items.filter(item => item.type === "path" && item.data.data.species?._id === specie.data._id);
-        const capacities = actor.items.filter(item => item.type === "capacity" && item.data.data.species?._id === specie.data._id);
+        const paths = actor.items.filter(item => item.type === "path" && item.data.data.species?._id === specie.id);
+        const capacities = actor.items.filter(item => item.type === "capacity" && item.data.data.species?._id === specie.id);
         return Dialog.confirm({
             title: game.i18n.format("COF.dialog.deleteSpecie.title"),
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
-                Path.removePathsFromActor(actor, paths).then(() => {
-                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
-                });
-                Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                    ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
-                });
+                if (paths.length > 0) {
+                    Path.removePathsFromActor(actor, paths).then(() => {
+                        ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
+                    });
+                }
+                if (capacities.length > 0) {
+                    Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
+                        ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
+                    });
+                }
                 ui.notifications.info("la race a été supprimé.");
-                return actor.deleteEmbeddedDocuments("Item",specie.data._id);
+                return actor.deleteEmbeddedDocuments("Item", [specie.id]);
             },
             defaultYes: false
         });
