@@ -187,6 +187,32 @@
 strong {
   font-weight: bold;
 }
+.ellipse {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.flxrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flxrow > * {
+  flex: 1;
+}
+.flxrow .flex1 {
+  flex: 1;
+}
+.flxrow .flex2 {
+  flex: 2;
+}
+.flxrow .flex3 {
+  flex: 3;
+}
+.flxrow .flex4 {
+  flex: 4;
+}
 /* Global styles */
 .window-app {
   font-family: 'Signika', sans-serif;
@@ -233,6 +259,9 @@ div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-foote
   margin: 0 1px 1px 0;
   padding: 3px;
   height: 24px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .grid .no-border {
   border: none !important;
@@ -820,6 +849,11 @@ Copied from dnd5e
   border: none;
   background: #fff;
   font-size: 1em;
+}
+.cof.actor .ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .cof.actor .field-value {
   border: none;
@@ -1443,6 +1477,9 @@ Copied from dnd5e
   border: none;
 }
 .cof nav.sheet-tabs.tabs .item {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   padding: 5px;
   border: 1px solid #736953a6;
   margin: 0;
@@ -1502,8 +1539,10 @@ Copied from dnd5e
 }
 .cof .inventory-list .item .item-name h4 {
   margin: 0;
-  white-space: nowrap;
   overflow-x: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .cof .inventory-list .item .item-name.rollable:hover .item-image {
   background-image: url("../../../icons/svg/d20-grey.svg") !important;
@@ -1540,6 +1579,9 @@ Copied from dnd5e
 .cof .inventory-list .inventory-header h3 {
   margin: 0 -5px 0 0;
   padding-left: 5px;
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  font-size: 20px;
+  font-weight: 700;
   font-size: 18px;
 }
 .cof .inventory-list .inventory-header .item-controls a.item-create,
@@ -1588,7 +1630,26 @@ Copied from dnd5e
 }
 .cof .inventory-list .item-controls-1 {
   flex: 0 0 22px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   justify-content: flex-end;
+}
+.cof .inventory-list .item-controls-1 > * {
+  flex: 1;
+}
+.cof .inventory-list .item-controls-1 .flex1 {
+  flex: 1;
+}
+.cof .inventory-list .item-controls-1 .flex2 {
+  flex: 2;
+}
+.cof .inventory-list .item-controls-1 .flex3 {
+  flex: 3;
+}
+.cof .inventory-list .item-controls-1 .flex4 {
+  flex: 4;
 }
 .cof .inventory-list .item-controls-1 a {
   flex: 0 0 22px;
@@ -1599,8 +1660,32 @@ Copied from dnd5e
 .cof .inventory-list .item-controls,
 .cof .inventory-list .item-controls-2 {
   flex: 0 0 44px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   justify-content: flex-end;
   text-align: center;
+}
+.cof .inventory-list .item-controls > *,
+.cof .inventory-list .item-controls-2 > * {
+  flex: 1;
+}
+.cof .inventory-list .item-controls .flex1,
+.cof .inventory-list .item-controls-2 .flex1 {
+  flex: 1;
+}
+.cof .inventory-list .item-controls .flex2,
+.cof .inventory-list .item-controls-2 .flex2 {
+  flex: 2;
+}
+.cof .inventory-list .item-controls .flex3,
+.cof .inventory-list .item-controls-2 .flex3 {
+  flex: 3;
+}
+.cof .inventory-list .item-controls .flex4,
+.cof .inventory-list .item-controls-2 .flex4 {
+  flex: 4;
 }
 .cof .inventory-list .item-controls a,
 .cof .inventory-list .item-controls-2 a {
@@ -1611,7 +1696,26 @@ Copied from dnd5e
 }
 .cof .inventory-list .item-controls-3 {
   flex: 0 0 66px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   justify-content: flex-end;
+}
+.cof .inventory-list .item-controls-3 > * {
+  flex: 1;
+}
+.cof .inventory-list .item-controls-3 .flex1 {
+  flex: 1;
+}
+.cof .inventory-list .item-controls-3 .flex2 {
+  flex: 2;
+}
+.cof .inventory-list .item-controls-3 .flex3 {
+  flex: 3;
+}
+.cof .inventory-list .item-controls-3 .flex4 {
+  flex: 4;
 }
 .cof .inventory-list .item-controls-3 a {
   flex: 0 0 22px;
@@ -1621,7 +1725,26 @@ Copied from dnd5e
 }
 .cof .inventory-list .item-controls-4 {
   flex: 0 0 88px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   justify-content: flex-end;
+}
+.cof .inventory-list .item-controls-4 > * {
+  flex: 1;
+}
+.cof .inventory-list .item-controls-4 .flex1 {
+  flex: 1;
+}
+.cof .inventory-list .item-controls-4 .flex2 {
+  flex: 2;
+}
+.cof .inventory-list .item-controls-4 .flex3 {
+  flex: 3;
+}
+.cof .inventory-list .item-controls-4 .flex4 {
+  flex: 4;
 }
 .cof .inventory-list .item-controls-4 a {
   flex: 0 0 22px;
