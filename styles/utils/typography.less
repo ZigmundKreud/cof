@@ -1,5 +1,3 @@
-//@import url('https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap');
-
 /* ----------------------------------------- */
 /*  LOCAL FONTS                             */
 /* ----------------------------------------- */
@@ -52,11 +50,6 @@
   src: url('../fonts/PermanentMarker-Regular.ttf');
 }
 
-//@font-face {
-//  font-family: "UnifrakturCook";
-//  src: url('../fonts/UnifrakturCook-Bold.ttf');
-//}
-
 @font-face {
   font-family: 'Modesto Condensed';
   font-style: normal;
@@ -81,18 +74,16 @@
 /*  TEXT STYLES                             */
 /* ----------------------------------------- */
 
-$font-primary: 'Signika', sans-serif;
-$font-secondary: 'MyriadPro', sans-serif;
-$font-tertiary: "Modesto Condensed", "Palatino Linotype", serif;
-$font-charname: "PermanentMarker", cursive;
-$font-handwrite: "ChN1Regular", cursive;
+@font-primary: 'Signika', sans-serif;
+@font-secondary: 'MyriadPro', sans-serif;
+@font-tertiary: "Modesto Condensed", "Palatino Linotype", serif;
+@font-charname: "PermanentMarker", cursive;
+@font-handwrite: "ChN1Regular", cursive;
 
 .empty {
-  //font: 14px $font-secondary;
-  color:$c-darkg;
+  color:@c-darkg;
   font-style: italic;
 }
 strong{
-  //font-family: $font-secondary;
   font-weight: bold;
 }

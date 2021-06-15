@@ -1,4 +1,4 @@
-@mixin element-invisible {
+.element-invisible() {
   position: absolute;
 
   width: 1px;
@@ -11,24 +11,23 @@
   overflow: hidden;
 }
 
-@mixin hide {
+.hide() {
   display: none;
 }
 
-@mixin modesto {
-  //font-family: $font-primary;
-  font-family: $font-tertiary;
+.modesto() {
+  font-family: @font-tertiary;
   font-size: 20px;
   font-weight: 700;
 }
 
-@mixin ellipsis {
+.ellipsis() {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
-@mixin flexrow {
+.flexrow() {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

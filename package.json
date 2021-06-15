@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "CSS compiler for the Chroniques Oubliées Fantasy system",
   "scripts": {
-    "build": "gulp",
-    "compile": "gulp css",
+    "css": "gulp css",
     "watch": "gulp",
     "gulp": "gulp"
   },
@@ -16,11 +15,6 @@
   "private": true,
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
-  },
-  "devDependencies": {
-    "node-sass": "^5.0.0"
+    "gulp-less": "^4.0.1"
   }
 }
