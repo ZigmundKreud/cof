@@ -156,32 +156,25 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveSpells(items) {
-        return items.filter(i => i.type === "spell")
+        return items.filter(i => i.data.type === "spell")
     }
 
     /* -------------------------------------------- */
 
     getProfile(items) {
-        return items.find(i => i.type === "profile")
+        return items.find(i => i.data.type === "profile")
     }
 
     /* -------------------------------------------- */
 
     getSpecies(items) {
-        return items.find(i => i.type === "species")
+        return items.find(i => i.data.type === "species")
     }
 
     /* -------------------------------------------- */
 
     getActiveCapacities(items) {
-        let capacitiesWithRanks = [];
-
-        items.forEach(function (item) {
-            if (item.type === "capacity" && item.data.data.rank) {
-                capacitiesWithRanks.push(item);
-            }
-        });
-        return capacitiesWithRanks;
+        return items.filter(item => item.data.type === "capacity" && item.data.data.rank)
     }
 
 
@@ -719,7 +712,7 @@ export class CofActor extends Actor {
      */
     getDefenceFromArmor() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.type === "item" && i.data.subtype === "armor" && i.data.worn && i.data.def).map(i => i.data.def);     
+        let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "armor" && i.data.data.worn && i.data.data.def).map(i => i.data.data.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
@@ -731,7 +724,7 @@ export class CofActor extends Actor {
      */
     getDefenceFromShield() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.type === "item" && i.data.subtype === "shield" && i.data.worn && i.data.def).map(i => i.data.def);     
+        let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "shield" && i.data.data.worn && i.data.data.def).map(i => i.data.data.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
