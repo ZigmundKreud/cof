@@ -1,9 +1,15 @@
 export class Compendia {
 
+    /**
+     * @todo : Renommer la méthode getContent en getDocuments
+     * 
+     * @param {*} filters 
+     * @returns 
+     */
     static getContent(filters = []) {
         console.log("Compendia" + game.packs.entries);
         let promises = game.packs.map(comp => {
-            return comp.getContent().then(content => {
+            return comp.getDocuments().then(content => {
                 if (filters.length > 0) return content.filter(i => filters.includes(i.type));
                 else return content;
             });

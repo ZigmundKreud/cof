@@ -14,48 +14,41 @@ export class Species {
             ui.notifications.error("Vous avez déjà une race.");
             return false;
         } else {
-            // add species
+            // ajoute la race (species) dans Items
             return actor.createEmbeddedDocuments("Item", [itemData]).then(newSpecies => {
+                let newSpeciesData = newSpecies[0].data;
                 return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
-                    newSpecies.data.data.capacities = newSpecies.data.data.capacities.map(cap => {
+                    newSpeciesData.data.capacities = newSpeciesData.data.capacities.map(cap => {
                         let capData = entities[cap._id];
                         capData.flags.core = { sourceId: cap.sourceId };
                         capData.data.species = {
-                            _id: newSpecies._id,
-                            name: newSpecies.name,
-                            img: newSpecies.img,
-                            key: newSpecies.data.data.key,
-                            sourceId: newSpecies.flags.core.sourceId,
+                            _id: newSpeciesData._id,
+                            name: newSpeciesData.name,
+                            img: newSpeciesData.img,
+                            key: newSpeciesData.data.key,
+                            sourceId: newSpeciesData.flags.core.sourceId,
                         };
                         return capData;
                     });
-                    newSpecies.data.paths = newSpecies.data.paths.map(p => {
+                    let capacities = newSpeciesData.data.capacities
+                    newSpeciesData.data.paths = newSpeciesData.data.paths.map(p => {
                         let pathData = entities[p._id];
                         pathData.flags.core = { sourceId: p.sourceId };
                         pathData.data.species = {
-                            _id: newSpecies._id,
-                            name: newSpecies.name,
-                            img: newSpecies.img,
-                            key: newSpecies.data.data.data.key,
-                            sourceId: newSpecies.flags.core.sourceId,
+                            _id: newSpeciesData._id,
+                            name: newSpeciesData.name,
+                            img: newSpeciesData.img,
+                            key: newSpeciesData.data.key,
+                            sourceId: newSpeciesData.flags.core.sourceId,
                         };
                         return pathData;
                     });
-                    // add caps from species
-                    return Capacity.addCapsToActor(actor, newSpecies.data.data.capacities).then(newCaps => {
-                        newSpecies.data.data.capacities = newCaps;
-                        // add paths from species
-                        return Path.addPathsToActor(actor, newSpecies.data.data.paths).then(newPaths => {
-                            newSpecies.data.data.paths = newPaths;
-                            // update profile with new ids
-                            return actor.updateEmbeddedDocuments("Item", newSpecies);
-                        });
-                    });
+                    const paths = newSpeciesData.data.paths;
+                    Capacity.addCapsToActor(actor, capacities).then(() => {return Path.addPathsToActor(actor, paths);});
                 });
             });
         }
     }
-
     /**
      * @name removeFromActor
      * @description Supprime la race et ses capacités de l'acteur en paramêtre
@@ -72,15 +65,23 @@ export class Species {
             title: game.i18n.format("COF.dialog.deleteSpecie.title"),
             content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
             yes: () => {
-                if (paths.length > 0) {
+                if (paths.length > 0 && capacities.length > 0) {
                     Path.removePathsFromActor(actor, paths).then(() => {
                         ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
-                    });
-                }
-                if (capacities.length > 0) {
-                    Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                        ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
-                    });
+                        Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
+                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
+                        });
+                    });                        
+                } else {
+                    if (paths.length > 0 ) {
+                        Path.removePathsFromActor(actor, paths).then(() => {
+                            ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
+                        });                            
+                    } else if (capacities.length > 0 ) {
+                        Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
+                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
+                        });
+                    }
                 }
                 ui.notifications.info("la race a été supprimé.");
                 return actor.deleteEmbeddedDocuments("Item", [specie.id]);
