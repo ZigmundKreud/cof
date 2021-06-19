@@ -241,7 +241,7 @@ export class CofActor extends Actor {
         if (attributes.rp.value < 0) attributes.rp.value = 0;
 
         // DV
-        if (profile) attributes.hd.value = profile.data.dv;
+        if (profile) attributes.hd.value = profile.data.data.dv;
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
 
         // Points de vie
