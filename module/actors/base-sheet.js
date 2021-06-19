@@ -33,13 +33,11 @@ export class CofBaseSheet extends ActorSheet {
 	getData(options) {
         const data = super.getData(options);
         const actorData = data.data;
-        
-        data.actor = actorData;
-        data.data = actorData.data;
-
         data.logoPath = this.getPathRoot() + this.getLogoPath();
 		data.isGm = game.user.isGM;
-        
+        data.effects = data.actor.effects;
+        data.actor = actorData;
+        data.data = actorData.data;       
         return data;
 	}
 }

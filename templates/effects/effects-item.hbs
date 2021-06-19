@@ -4,9 +4,9 @@
         <h4>{{data.label}}</h4>
     </div>
     <div class="item-detail">
-        {{#if data.duration.rounds}}{{data.duration.rounds}} rounds{{/if}}
-        {{#if data.duration.turns}}{{data.duration.rounds}} turns{{/if}}
-        {{#if data.duration.seconds}}{{data.duration.rounds}} seconds{{/if}}
+        {{#if data.duration.rounds}}{{data.duration.rounds}} R{{/if}}
+        {{#if data.duration.turns}}{{data.duration.turns}} T{{/if}}
+        {{#if data.duration.seconds}}{{data.duration.seconds}} S{{/if}}
         {{#if data.isTemporary}}(T)){{/if}}
     </div>
     {{#if @root.isEffectsEditable}}

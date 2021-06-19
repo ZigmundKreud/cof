@@ -129,44 +129,25 @@ export class CofActorSheet extends CofBaseSheet {
             if (effect) {
                 effect.disabled = !effect.disabled;
                 return this.actor.update(updateData);
-                // .then(a => {
-                //     if(a instanceof Token) {
-                //         return a.toggleEffect(effect);
-                //     }
-                //     else {
-                //         console.log(a);
-                //         let tokens = canvas.tokens.objects.children.filter(t => t.data.actorId === this.actor._id);
-                //         console.log(tokens);
-                //         // for(let t of tokens){
-                //         //     t.toggleEffect(effect);
-                //         // }
-                //         // return canvas.tokens.objects.children.filter(t => t.data.actorId === this.actor._id).map(t => t.toggleEffect(effect));
-                //     }
-                // });
             }
         });
         html.find('.effect-create').click(ev => {
             ev.preventDefault();
-            return ActiveEffect.create({
+            return this.actor.createEmbeddedDocuments("ActiveEffect", [{
                 label: game.i18n.localize("COF.ui.newEffect"),
                 icon: "icons/svg/aura.svg",
                 origin: this.actor.uuid,
                 "duration.rounds": undefined,
                 disabled: true
-            }, this.actor).create();
+            }]);
         });
         html.find('.effect-edit').click(this._onEditItem.bind(this));
         html.find('.effect-delete').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
             const effectId = elt.data("itemId");
-            let updateData = duplicate(this.actor);
-            let effects = updateData.effects;
-            const effect = effects.find(e => e._id === effectId);
-            if (effect) {
-                ArrayUtils.remove(effects, effect);
-                return this.actor.update(updateData);
-            }
+            let effect = this.actor.effects.get(effectId);
+            if (effect) effect.delete();
         });
 
         // WEAPONS (Encounters)
@@ -480,7 +461,6 @@ export class CofActorSheet extends CofBaseSheet {
                 }).sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)
             });
         }
-        data.effects = data.actor.effects;
         data.folded = {
             "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
             "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
@@ -510,7 +490,5 @@ export class CofActorSheet extends CofBaseSheet {
      * @param {*} itemData 
      * @returns Retourne "cof" en attendant l'implémentation
      */
-    getCategory(itemData) {
-        return "cof";
-    }
+    getCategory(itemData) {return "cof";}
 }
