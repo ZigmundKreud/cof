@@ -174,7 +174,14 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveCapacities(items) {
-        return items.filter(i => i.type === "capacity" && i.data.rank)
+        let capacitiesWithRanks = [];
+
+        items.forEach(function (item) {
+            if (item.type === "capacity" && item.data.data.rank) {
+                capacitiesWithRanks.push(item);
+            }
+        });
+        return capacitiesWithRanks;
     }
 
 
@@ -323,11 +330,12 @@ export class CofActor extends Actor {
      * 
      */
     computeXP(actorData) {
+        if (COF.debug) console.log("computeXP for ", actorData);
         let items = actorData.items;
         let lvl = actorData.data.level.value;
         const alert = actorData.data.alert;
         const capacities = this.getActiveCapacities(items);
-        let currxp = capacities.map(cap => (cap.data.rank > 2) ? 2 : 1).reduce((acc, curr) => acc + curr, 0);
+        let currxp = capacities.map(cap => (cap.data.data.rank > 2) ? 2 : 1).reduce((acc, curr) => acc + curr, 0);
         const maxxp = 2 * lvl;
         // UPDATE XP
         actorData.data.xp.max = maxxp;

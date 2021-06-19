@@ -407,10 +407,7 @@ export class CofActorSheet extends CofBaseSheet {
     /** @override */
     getData(options = {}) {
         const data = super.getData(options);
-        if (COF.debug) {
-            console.log("COTA | ActorSheet getData");
-            console.log(data);
-        }
+        if (COF.debug) console.log("COTA | ActorSheet getData", data);
         data.config = game.cof.config;
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");

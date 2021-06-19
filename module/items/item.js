@@ -23,7 +23,6 @@ export class CofItem extends Item {
     prepareData() {
         super.prepareData();
         const itemData = this.data;
-        // console.log(itemData);
         const actorData = (this.actor) ? this.actor.data : null;
         if(itemData.data.price){
             const qty = (itemData.data.qty) ? itemData.data.qty : 1;
@@ -40,7 +39,6 @@ export class CofItem extends Item {
     }
 
     _prepareWeaponData(itemData, actorData) {
-        // console.log(itemData.data.subtype);
         itemData.data.skillBonus = (itemData.data.skillBonus) ? itemData.data.skillBonus : 0;
         itemData.data.dmgBonus = (itemData.data.dmgBonus) ? itemData.data.dmgBonus : 0;
         if (actorData && actorData.type !== "loot") {

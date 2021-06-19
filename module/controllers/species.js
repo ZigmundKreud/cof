@@ -67,23 +67,23 @@ export class Species {
             yes: () => {
                 if (paths.length > 0 && capacities.length > 0) {
                     Path.removePathsFromActor(actor, paths).then(() => {
-                        ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
+                        ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée."));
                         Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
+                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée."));
                         });
                     });                        
                 } else {
                     if (paths.length > 0 ) {
                         Path.removePathsFromActor(actor, paths).then(() => {
-                            ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
+                            ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée."));
                         });                            
                     } else if (capacities.length > 0 ) {
                         Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée"));
+                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée."));
                         });
                     }
                 }
-                ui.notifications.info("la race a été supprimé.");
+                ui.notifications.info("La race a été supprimée.");
                 return actor.deleteEmbeddedDocuments("Item", [specie.id]);
             },
             defaultYes: false

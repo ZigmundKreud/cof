@@ -83,7 +83,6 @@ export class Capacity {
                     const uncheckedKeys = unchecked.map(c => c.data.key);
                     let inter = ArrayUtils.intersection(uncheckedKeys, itemsKeys);
                     let toRemove = items.filter(i => inter.includes(i.data.data.key)).map(i => i.id);
-                    console.log("To Remove", toRemove);
                     return actor.deleteEmbeddedDocuments("Item", toRemove);
                 } else {
                     const checked = newPath.data.capacities.filter(c => c.data.checked);
@@ -98,7 +97,6 @@ export class Capacity {
                         newCap.flags.core = { sourceId: c.sourceId };
                         return newCap;
                     });
-                    //console.log("To Add", toAdd);
                     toAdd = toAdd instanceof Array ? toAdd : [toAdd];
                     let items = [];
                     toAdd.forEach(c => { items.push(c.toObject(false)) });
