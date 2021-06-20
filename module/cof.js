@@ -96,21 +96,5 @@ Hooks.once("init", async function () {
  */
 
 Hooks.once("ready", async () => {
-
-// console.debug("Importing data");
-// DataLoader.loadData("capacities");
-// DataLoader.loadData("encounters");
-// DataLoader.loadData("items");
-// DataLoader.loadData("paths");
-// DataLoader.loadData("profiles");
-// DataLoader.loadData("species");
-// DataLoader.loadData("spells");
-
-    // UpdateUtils.updatePacks();
-    // UpdateUtils.updatePaths();
-    // UpdateUtils.updateProfiles();
-    // UpdateUtils.updateSpecies();
-    // UpdateUtils.updateEncounters();
-
     console.info("COF | System Initialized.");
 });

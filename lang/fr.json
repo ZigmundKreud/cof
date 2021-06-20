@@ -345,6 +345,7 @@
   "COF.sheet.encounter" : "Fiche de Rencontre COF par défaut",
   "COF.sheet.item" : "Fiche d'Objet COF par défaut",
 
+  "COF.notification.MacroMultipleTokensSelected": "Vous avez sélectionné plusieurs tokens",
   "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
   "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé",
 
@@ -355,8 +356,6 @@
   "COF.dialog.rollDamage.title": "Jet de dommages",
   "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
   "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
-  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques",
-
-  "COF.version.alert": "COF N'EST PAS ENCORE COMPATIBLE AVEC FOUNDRY 0.8.6. Merci de revenir à la version 0.7.10 de Foundry jusqu'à ce qu'une version compatible soit disponible."
+  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
 
 }

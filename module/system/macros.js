@@ -3,6 +3,13 @@ import {CofRoll} from "../controllers/roll.js";
 export class Macros {
 
     static getSpeakersActor = function(){
+        // Vérifie qu'un seul token est sélectionné
+        const tokens = canvas.tokens.controlled;
+        if (tokens.length > 1) {
+            ui.notifications.warn(game.i18n.localize('COF.notification.MacroMultipleTokensSelected'));
+            return null;
+        }
+        
         const speaker = ChatMessage.getSpeaker();
         let actor;
         // if a token is selected take it as target actor
@@ -60,9 +67,9 @@ export class Macros {
     };
 
     static rollItemMacro = function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr) {
-        const actor = this.getSpeakersActor()
-        let item;
-        item = actor ? actor.items.find(i => i.id === itemId) : null;
+        const actor = this.getSpeakersActor();
+        if (actor === null) return;
+        const item = actor.items.get(itemId);
         if (!item) return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemMissing")}: "${itemName}"`);
         const itemData = item.data;
         if(itemData.data.properties.weapon){
