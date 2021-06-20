@@ -65,7 +65,7 @@ export class CofItemSheet extends ItemSheet {
             if (pack) {
                 if (li.attr("data-open") === "1") {
                     li.attr("data-open", "0");
-                    pack.close();
+                    pack.apps[0].close();
                 } else {
                     li.attr("data-open", "1");
                     li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
