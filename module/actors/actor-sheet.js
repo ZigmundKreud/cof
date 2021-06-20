@@ -42,7 +42,7 @@ export class CofActorSheet extends CofBaseSheet {
             if (pack) {
                 if (li.attr("data-open") === "1") {
                     li.attr("data-open", "0");
-                    pack.close();
+                    pack.apps[0].close();
                 }
                 else {
                     li.attr("data-open", "1");
@@ -56,7 +56,7 @@ export class CofActorSheet extends CofBaseSheet {
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") {
                 li.attr("data-open", "0");
-                pack.close();
+                pack.apps[0].close();
             }
             else {
                 li.attr("data-open", "1");
@@ -221,14 +221,15 @@ export class CofActorSheet extends CofBaseSheet {
     _onDeleteItem(event) {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
-        const itemId = li.data("itemId");
+        let itemId = li.data("itemId");
         const entity = this.actor.items.find(item => item.id === itemId);
+        itemId = itemId instanceof Array ? itemId : [itemId];
         switch (entity.data.type) {
             case "capacity": return Capacity.removeFromActor(this.actor, entity);
             case "path": return Path.removeFromActor(this.actor, entity);
             case "profile": return Profile.removeFromActor(this.actor, entity);
             case "species": return Species.removeFromActor(this.actor, entity);
-            default: return this.actor.deleteOwnedItem(itemId);
+            default: return this.actor.deleteEmbeddedDocuments("Item", itemId);
         }
     }
 
@@ -243,7 +244,6 @@ export class CofActorSheet extends CofBaseSheet {
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
         const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
-
         if (type === "effect") {
             let effects = this.actor.effects;
             const effect = effects.get(id);
@@ -324,20 +324,10 @@ export class CofActorSheet extends CofBaseSheet {
         let data;
         try {
             data = JSON.parse(event.dataTransfer.getData('text/plain'));
-        } catch (err) {
-            return false;
-        }
+        } catch (err) {return false;}
         if (!data) return false;
-
-        // Case 1 - Dropped Item
-        if (data.type === "Item") {
-            return this._onDropItem(event, data);
-        }
-
-        // Case 2 - Dropped Actor
-        if (data.type === "Actor") {
-            return false; // NOT AUTHORIZED
-        }
+        if (data.type === "Item") {return this._onDropItem(event, data);}
+        if (data.type === "Actor") {return false; }
     }
 
     /**
@@ -368,23 +358,11 @@ export class CofActorSheet extends CofBaseSheet {
                 return this.actor.createEmbeddedDocuments("Item", [itemData]);
             }
         }
-        // if (authorized) {
-        //     // Handle item sorting within the same Actor
-        //     const actor = this.actor;
-        //     let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-        //     if (sameActor) return this._onSortItem(event, itemData);
-        //     // Create the owned item
-        //     return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-        // } else {
-        //     return false;
-        // }
     }
 
     /* -------------------------------------------- */
     /* DATA CONSOLIDATION FOR TEMPLATE RENDERING    */
-
     /* -------------------------------------------- */
-
     /** @override */
     getData(options = {}) {
         const data = super.getData(options);
