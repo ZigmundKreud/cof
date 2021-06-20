@@ -205,12 +205,6 @@ export class CofLootSheet extends CofBaseSheet {
                 items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
         }
-        data.folded = {
-            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-        };
         return data;
     }
 }

@@ -439,13 +439,6 @@ export class CofActorSheet extends CofBaseSheet {
                 }).sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)
             });
         }
-        data.folded = {
-            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-        };
-
         const overloadedMalus = this.actor.getOverloadedMalus();
         const overloadedOtherMod = this.actor.getOverloadedOtherMod();
         let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0);
@@ -453,10 +446,8 @@ export class CofActorSheet extends CofBaseSheet {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
-
         // Gestion des boutons de modification des effets (visible pour l'actor)
         data.isEffectsEditable = true;
-
         return data;
     }
 

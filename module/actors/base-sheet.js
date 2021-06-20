@@ -36,6 +36,12 @@ export class CofBaseSheet extends ActorSheet {
         data.logoPath = this.getPathRoot() + this.getLogoPath();
 		data.isGm = game.user.isGM;
         data.effects = data.actor.effects;
+        data.folded = {
+            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
+            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
+            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
+            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
+        };        
         data.actor = actorData;
         data.data = actorData.data;       
         return data;
