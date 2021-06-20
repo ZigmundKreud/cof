@@ -346,8 +346,9 @@
   "COF.sheet.item" : "Fiche d'Objet COF par défaut",
 
   "COF.notification.MacroMultipleTokensSelected": "Vous avez sélectionné plusieurs tokens",
-  "COF.notification.MacroItemMissing" : "Le personnage ne possède pas cet objet",
-  "COF.notification.MacroItemUnequiped" : "L'objet n'est pas équipé",
+  "COF.notification.MacroNoTokenSelected": "Vous devez sélectionner un token",
+  "COF.notification.MacroItemMissing" : "L'acteur n'a pas l'objet {item}",
+  "COF.notification.MacroItemUnequiped" : "L'objet {item} n'est pas équipé",
 
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",
