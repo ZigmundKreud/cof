@@ -21,7 +21,7 @@ export class CofSkillRoll {
 
     roll(actor){
         let r = new Roll(this._formula);
-        r.roll();
+        r.roll({"async": true});
         // Getting the dice kept in case of 2d12 or 2d20 rolls
         const result = r.terms[0].results.find(r => r.active).result;
         this._isCritical = ((result >= this._critrange.split("-")[0]) || result == 20);
@@ -31,7 +31,7 @@ export class CofSkillRoll {
         }
         this._buildRollMessage().then(msgFlavor => {
             r.toMessage({
-                user: game.user._id,
+                user: game.user.id,
                 flavor: msgFlavor,
                 speaker: ChatMessage.getSpeaker({actor: actor})
             });

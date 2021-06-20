@@ -8,11 +8,11 @@ export class CofDamageRoll {
 
     roll(actor){
         const r = new Roll(this._formula);
-        r.roll();
+        r.roll({"async": true});
         if (this._isCritical) r._total = r._total * 2;
         this._buildDamageRollMessage().then(msgFlavor => {
             r.toMessage({
-                user: game.user._id,
+                user: game.user.id,
                 flavor: msgFlavor,
                 speaker: ChatMessage.getSpeaker({actor: actor}),
                 flags : {msgType : "damage"}

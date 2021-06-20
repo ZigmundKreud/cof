@@ -151,7 +151,7 @@ export class CofRoll {
                         const r = new Roll(formula);
                         r.roll();
                         r.toMessage({
-                            user: game.user._id,
+                            user: game.user.id,
                             flavor: "<h2>Roll Hit Points</h2>",
                             speaker: ChatMessage.getSpeaker({ actor: actor })
                         });
@@ -211,7 +211,7 @@ export class CofRoll {
                         const r = new Roll(formula);
                         r.roll();
                         r.toMessage({
-                                user: game.user._id,
+                                user: game.user.id,
                                 flavor: "<h2>Dépense un point de récupération</h2>",
                                 speaker: ChatMessage.getSpeaker({ actor: actor })
                         });
