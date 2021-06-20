@@ -31,7 +31,7 @@ export class CofLootSheet extends CofBaseSheet {
         html.find('.compendium-pack').dblclick(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
-            if (li.attr("data-open") === "1") pack.close();
+            if (li.attr("data-open") === "1") pack.apps[0].close();
             else {
                 li.attr("data-open", "1");
                 pack.render(true);
@@ -41,7 +41,7 @@ export class CofLootSheet extends CofBaseSheet {
         html.find('.item-create.compendium-pack').click(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
-            if (li.attr("data-open") === "1") pack.close();
+            if (li.attr("data-open") === "1") pack.apps[0].close();
             else {
                 li.attr("data-open", "1");
                 pack.render(true);
@@ -98,8 +98,9 @@ export class CofLootSheet extends CofBaseSheet {
     _onDeleteItem(event) {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
-        const itemId = li.data("itemId");
-        return this.actor.deleteOwnedItem(itemId);
+        let itemId = li.data("itemId");
+        itemId = itemId instanceof Array ? itemId : [itemId];
+        this.actor.deleteEmbeddedDocuments("Item", itemId)
     }
 
     /**
@@ -126,24 +127,13 @@ export class CofLootSheet extends CofBaseSheet {
     /** @override */
     async _onDrop(event) {
         event.preventDefault();
-        // Get dropped data
         let data;
         try {
             data = JSON.parse(event.dataTransfer.getData('text/plain'));
-        } catch (err) {
-            return false;
-        }
+        } catch (err) {return false;}
         if (!data) return false;
-
-        // Case 1 - Dropped Item
-        if (data.type === "Item") {
-            return this._onDropItem(event, data);
-        }
-
-        // Case 2 - Dropped Actor
-        if (data.type === "Actor") {
-            return false; // NOT AUTHORIZED
-        }
+        if (data.type === "Item")  return this._onDropItem(event, data); 
+        if (data.type === "Actor") return false; 
     }
 
     /**
@@ -154,12 +144,13 @@ export class CofLootSheet extends CofBaseSheet {
      * @private
      */
     async _onDropItem(event, data) {
-        if (!this.actor.owner) return false;
+        if (!this.actor.isOwner) return false;
         // let authorized = true;
 
         // let itemData = await this._getItemDropData(event, data);
         const item = await Item.fromDropData(data);
-        const itemData = duplicate(item.data);
+        let itemData = duplicate(item.data);
+        itemData = itemData instanceof Array ? itemData : [itemData];
         switch (itemData.type) {
             case "path":
             case "profile":
@@ -171,24 +162,12 @@ export class CofLootSheet extends CofBaseSheet {
                 // if (itemData.type === "capacity") itemData.data.checked = true;
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
-                let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
+                let sameActor = (data.actorId === actor.id) || (actor.isToken && (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
-                return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+                return this.actor.createEmbeddedDocuments("Item", itemData);
         }
-        // if (authorized) {
-        //     // Handle item sorting within the same Actor
-        //     const actor = this.actor;
-        //     let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-        //     if (sameActor) return this._onSortItem(event, itemData);
-        //     // Create the owned item
-        //     return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-        // } else {
-        //     return false;
-        // }
     }
-
-    /* -------------------------------------------- */
 
     /** @override */
     getData(options = {}) {
