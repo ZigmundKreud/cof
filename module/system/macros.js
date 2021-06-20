@@ -13,18 +13,18 @@ export class Macros {
         
         const speaker = ChatMessage.getSpeaker();
         let actor;
-        // if a token is selected take it as target actor
+        // Si un token est sélectionné, le prendre comme acteur cible
         if (speaker.token) actor = game.actors.tokens[speaker.token];
-        // otherwise take the default actor for current user
+        // Sinon prendre l'acteur par défaut pour l'utilisateur courrant
         if (!actor) actor = game.actors.get(speaker.actor);
         return actor;
     }
 
     static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit", label, description) {
-        // Several tokens selected
+        // Plusieurs tokens sélectionnés
         if (actor === null) return;
-        // No token selected
-        if (actor === undefined) return ui.notifications.error(`${game.i18n.localize("COF.notification.MacroNoTokenSelected")}`);
+        // Aucun acteur cible
+        if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoActorAvailable"));
 
         let statObj;
         switch(stat){
@@ -72,8 +72,8 @@ export class Macros {
         const actor = this.getSpeakersActor();
         // Several tokens selected
         if (actor === null) return;
-        // No token selected
-        if (actor === undefined) return ui.notifications.error(`${game.i18n.localize("COF.notification.MacroNoTokenSelected")}`);
+        // Aucun acteur cible
+        if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoActorAvailable"));
 
         const item = actor.items.get(itemId);
         if (!item) return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemMissing', {item:itemName}));
@@ -110,7 +110,7 @@ export class Macros {
         // Several tokens selected
         if (actor === null) return;
         // No token selected
-        if (actor === undefined) return ui.notifications.error(`${game.i18n.localize("COF.notification.MacroNoTokenSelected")}`);
+        if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoTokenSelected"));
 
         new CofHealingRoll(label, healFormula, isCritical).roll(actor);
     }
@@ -120,8 +120,8 @@ export class Macros {
 
         // Several tokens selected
         if (actor === null) return;
-        // No token selected
-        if (actor === undefined) return ui.notifications.error(`${game.i18n.localize("COF.notification.MacroNoTokenSelected")}`);
+        // Aucun acteur cible
+        if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoActorAvailable"));
 
         let crit = parseInt(critRange);
         crit = !isNaN(crit) ? crit : 20;
@@ -133,8 +133,8 @@ export class Macros {
         
         // Several tokens selected
         if (actor === null) return;
-        // No token selected
-        if (actor === undefined) return ui.notifications.error(`${game.i18n.localize("COF.notification.MacroNoTokenSelected")}`);
+        // Aucun acteur cible
+        if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoActorAvailable"));
 
         CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, "submit", dmgDescr);
           

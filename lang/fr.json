@@ -346,6 +346,7 @@
   "COF.sheet.item" : "Fiche d'Objet COF par défaut",
 
   "COF.notification.MacroMultipleTokensSelected": "Vous avez sélectionné plusieurs tokens",
+  "COF.notification.MacroNoActorAvailable": "Aucun acteur n'a pu être ciblé",
   "COF.notification.MacroNoTokenSelected": "Vous devez sélectionner un token",
   "COF.notification.MacroItemMissing" : "L'acteur n'a pas l'objet {item}",
   "COF.notification.MacroItemUnequiped" : "L'objet {item} n'est pas équipé",

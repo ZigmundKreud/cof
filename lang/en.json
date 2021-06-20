@@ -345,6 +345,7 @@
   "COF.sheet.item" : "COF Default Item Sheet",
 
   "COF.notification.MacroMultipleTokensSelected": "You have selected several tokens",
+  "COF.notification.MacroNoActorAvailable": "No actor could be targeted",
   "COF.notification.MacroNoTokenSelected": "You must select a token",  
   "COF.notification.MacroItemMissing" : "The actor does not have the item {item}",
   "COF.notification.MacroItemUnequiped" : "The item {item} is not equiped",
