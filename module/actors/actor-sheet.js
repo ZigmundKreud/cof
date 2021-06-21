@@ -345,9 +345,9 @@ export class CofActorSheet extends CofBaseSheet {
         const item = await Item.fromDropData(data);
         const itemData = duplicate(item.data);
         switch (itemData.type) {
-            case "path": return await Path.addToActor(this.actor, itemData);
+            case "path": return await Path.addToActor(this.actor, item);
             case "profile": return await Profile.addToActor(this.actor, itemData);
-            case "species": return await Species.addToActor(this.actor, itemData);
+            case "species": return await Species.addToActor(this.actor, item);
             case "capacity":
             default: {
                 // Handle item sorting within the same Actor

@@ -9,9 +9,9 @@ export class Path {
      */
     static addPathsToActor(actor, pathsData) {
         let items = [];
+        pathsData = pathsData instanceof Array ? pathsData : [pathsData];
         pathsData.forEach(p => { items.push(p.toObject(false)) });
         return actor.createEmbeddedDocuments("Item", items).then(newPaths => {
-            newPaths = newPaths instanceof Array ? newPaths : [newPaths];
             // on ajoute toutes les metadonnees aux voies nouvellement creees pour faciliter la gestions des capacites qui en dependent
             let updatedPaths = newPaths.map(newPath => {
                 const index = newPaths.indexOf(newPath);
@@ -48,8 +48,10 @@ export class Path {
         if (actor.items.filter(item => item.type === "path" && item.data.name === pathData.name).length > 0) {
             ui.notifications.error("Vous possédez déjà cette voie.");
             return false;
+        } else {
+            return this.addPathsToActor(actor, pathData);
+            return this.addPathsToActor(actor, [{ "itemData": pathData, "sourceId": pathData.data.flags.core.sourceId }]);
         }
-        else return this.addPathsToActor(actor, [{ "itemData": pathData, "sourceId": pathData.flags.core.sourceId }]);
     }
     /**
      * 

@@ -6,7 +6,7 @@ export class Species {
     /**
      * 
      * @param {CofActor} actor 
-     * @param {CofItem} itemData 
+     * @param {Array<CofItem>} itemData 
      * @returns 
      */
     static addToActor(actor, itemData) {
@@ -15,7 +15,10 @@ export class Species {
             return false;
         } else {
             // ajoute la race (species) dans Items
-            return actor.createEmbeddedDocuments("Item", [itemData]).then(newSpecies => {
+            let items = [];
+            itemData = itemData instanceof Array ? itemData : [itemData];
+            itemData.forEach(s => { items.push(s.toObject(false)) });
+            return actor.createEmbeddedDocuments("Item", items).then(newSpecies => {
                 let newSpeciesData = newSpecies[0].data;
                 return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
                     newSpeciesData.data.capacities = newSpeciesData.data.capacities.map(cap => {
