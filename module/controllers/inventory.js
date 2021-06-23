@@ -6,7 +6,7 @@ export class Inventory {
      */
     static onModifyQuantity(actor, event, increment, isDecrease) {
         const li = $(event.currentTarget).closest(".item");
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.items.get(li.data("itemId"));
         const stackable = li.data("itemStackable");
         if(stackable){
             let itemData = duplicate(item.data);
@@ -29,7 +29,7 @@ export class Inventory {
      */
     static onToggleEquip(actor, event) {
         const li = $(event.currentTarget).closest(".item");
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.items.get(li.data("itemId"));
         const equipable = li.data("itemEquipable");
         if(equipable){
             let itemData = duplicate(item.data);
@@ -60,7 +60,7 @@ export class Inventory {
      */
     static onConsume(actor, event) {
         const li = $(event.currentTarget).closest(".item");
-        const item = actor.getOwnedItem(li.data("itemId"));
+        const item = actor.items.get(li.data("itemId"));
         const consumable = li.data("itemConsumable");
         if(consumable){
             let itemData = duplicate(item.data);

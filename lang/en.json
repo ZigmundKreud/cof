@@ -344,8 +344,11 @@
   "COF.sheet.encounter" : "COF Default Encounter Sheet",
   "COF.sheet.item" : "COF Default Item Sheet",
 
-  "COF.notification.MacroItemMissing" : "Your controlled Actor does not have such an item.",
-  "COF.notification.MacroItemUnequiped" : "Item is unequiped",
+  "COF.notification.MacroMultipleTokensSelected": "You have selected several tokens",
+  "COF.notification.MacroNoActorAvailable": "No actor could be targeted",
+  "COF.notification.MacroNoTokenSelected": "You must select a token",  
+  "COF.notification.MacroItemMissing" : "The actor does not have the item {item}",
+  "COF.notification.MacroItemUnequiped" : "The item {item} is not equiped",
 
   "COF.dialog.deletePath.title": "Delete the path ?",
   "COF.dialog.deleteProfile.title": "Delete the profile ?",
@@ -354,8 +357,6 @@
   "COF.dialog.rollDamage.title": "Damage Roll",
   "COF.dialog.rollHitPoints.title": "Hit Points Roll",
   "COF.dialog.spendRecoveryPoint.title": "Spend one Recovery Point",  
-  "COF.dialog.chooseCharacteristics.title": "Characteristic scores",
-
-  "COF.version.alert": "COF IS NOT COMPATIBLE WITH FOUNDRY 0.8.6 YET. Please rollback your Foundry version to 0.7.10 until a compatible version is released."
+  "COF.dialog.chooseCharacteristics.title": "Characteristic scores"
 
 }

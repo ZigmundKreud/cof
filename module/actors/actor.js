@@ -14,11 +14,10 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */   
     constructor(...args) {
         let data = args[0];
-        if (!data.img && COF.actorIcons[data.type]){
+        if (data.img !== undefined && COF.actorIcons[data.type]){
             data.img = COF.actorIcons[data.type];
             data.token.img = COF.actorIcons[data.type];
         }
-
         super(...args);
     }
 
@@ -156,26 +155,25 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveSpells(items) {
-        // return items.filter(item => item.type === "spell" && item.data.worn)
-        return items.filter(item => item.type === "spell")
+        return items.filter(i => i.data.type === "spell")
     }
 
     /* -------------------------------------------- */
 
     getProfile(items) {
-        return items.find(i => i.type === "profile")
+        return items.find(i => i.data.type === "profile")
     }
 
     /* -------------------------------------------- */
 
     getSpecies(items) {
-        return items.find(i => i.type === "species")
+        return items.find(i => i.data.type === "species")
     }
 
     /* -------------------------------------------- */
 
     getActiveCapacities(items) {
-        return items.filter(i => i.type === "capacity" && i.data.rank)
+        return items.filter(item => item.data.type === "capacity" && item.data.data.rank)
     }
 
 
@@ -200,7 +198,7 @@ export class CofActor extends Actor {
 
         // Caractéristiques et leurs modificateurs
         for (const [key, stat] of Object.entries(stats)) {
-            stat.racial = (species && species.data.bonuses[key]) ? species.data.bonuses[key] : stat.racial;
+            stat.racial = (species && species.data.data.bonuses[key]) ? species.data.data.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
         }
@@ -235,7 +233,7 @@ export class CofActor extends Actor {
         if (attributes.rp.value < 0) attributes.rp.value = 0;
 
         // DV
-        if (profile) attributes.hd.value = profile.data.dv;
+        if (profile) attributes.hd.value = profile.data.data.dv;
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
 
         // Points de vie
@@ -324,11 +322,12 @@ export class CofActor extends Actor {
      * 
      */
     computeXP(actorData) {
+        if (COF.debug) console.log("computeXP for ", actorData);
         let items = actorData.items;
         let lvl = actorData.data.level.value;
         const alert = actorData.data.alert;
         const capacities = this.getActiveCapacities(items);
-        let currxp = capacities.map(cap => (cap.data.rank > 2) ? 2 : 1).reduce((acc, curr) => acc + curr, 0);
+        let currxp = capacities.map(cap => (cap.data.data.rank > 2) ? 2 : 1).reduce((acc, curr) => acc + curr, 0);
         const maxxp = 2 * lvl;
         // UPDATE XP
         actorData.data.xp.max = maxxp;
@@ -712,7 +711,7 @@ export class CofActor extends Actor {
      */
     getDefenceFromArmor() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.type === "item" && i.data.subtype === "armor" && i.data.worn && i.data.def).map(i => i.data.def);     
+        let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "armor" && i.data.data.worn && i.data.data.def).map(i => i.data.data.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
@@ -724,7 +723,7 @@ export class CofActor extends Actor {
      */
     getDefenceFromShield() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.type === "item" && i.data.subtype === "shield" && i.data.worn && i.data.def).map(i => i.data.def);     
+        let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "shield" && i.data.data.worn && i.data.data.def).map(i => i.data.data.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }

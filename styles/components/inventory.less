@@ -1,5 +1,4 @@
 .currencies {
-  //box-shadow: 0 4px 3px -3px gray;
   margin: 0 0 5px 0;
   padding: 5px;
 }
@@ -9,7 +8,7 @@
   padding: 0 5px;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: $colorTan;
+  color: @colorTan;
 
   &.foldable {
     .inventory-header {
@@ -33,7 +32,7 @@
   .item {
     line-height: 30px;
     padding: 0 2px; // to align with the header border
-    border-bottom: 1px solid $colorFaint;
+    border-bottom: 1px solid @colorFaint;
     &:last-child { border-bottom: none; }
 
     // Item Header Name
@@ -52,7 +51,7 @@
         margin: 0;
         white-space: nowrap;
         overflow-x: hidden;
-        @include ellipsis;
+        .ellipse();
       }
 
       &.rollable:hover .item-image {
@@ -63,7 +62,7 @@
       }
 
       i.attuned {
-        color: $colorTan;
+        color: @colorTan;
       }
     }
 
@@ -83,7 +82,7 @@
       flex: 0 0 80px;
       text-align: right;
       font-size: 11px;
-      color: $colorTan;
+      color: @colorTan;
       white-space: nowrap;
     }
   }
@@ -93,14 +92,14 @@
     padding: 0;
     align-items: center;
     background: rgba(0, 0, 0, 0.05);
-    border: $borderGroove;
+    border: @borderGroove;
     font-weight: bold;
     line-height: 24px;
 
     h3 {
       margin: 0 -5px 0 0;
       padding-left: 5px;
-      @include modesto;
+      .modesto();
       //font-size: 16px;
       font-size: 18px;
     }
@@ -118,17 +117,17 @@
 
   // Item names
   .item-name {
-    //color: $colorDark;
-    color: $colorOlive;
+    //color: @colorDark;
+    color: @colorOlive;
   }
 
   // Item Detail Sections
   .item-detail {
     flex: 0 0 70px;
     font-size: 12px;
-    color: $colorTan;
+    color: @colorTan;
     text-align: center;
-    border-right: 1px solid $colorFaint;
+    border-right: 1px solid @colorFaint;
     word-break: break-word;
     white-space: nowrap;
     overflow: hidden;
@@ -139,8 +138,8 @@
 
   .item-weight {
     flex: 0 0 60px;
-    border-left: 1px solid $colorFaint;
-    border-right: 1px solid $colorFaint;
+    border-left: 1px solid @colorFaint;
+    border-right: 1px solid @colorFaint;
   }
 
   .item-list {
@@ -161,20 +160,20 @@
   // Item Control Buttons
   .item-controls-1 {
     flex: 0 0 22px;
-    @include flexrow;
+    .flxrow();
     justify-content: flex-end;
 
     a {
       flex: 0 0 22px;
       font-size: 12px;
       text-align: center;
-      color: $colorTan;
+      color: @colorTan;
     }
   }
   .item-controls,
   .item-controls-2 {
     flex: 0 0 44px;
-    @include flexrow;
+    .flxrow();
     justify-content: flex-end;
     text-align: center;
 
@@ -182,31 +181,31 @@
       flex: 0 0 22px;
       font-size: 12px;
       text-align: center;
-      color: $colorTan;
+      color: @colorTan;
     }
   }
   .item-controls-3 {
     flex: 0 0 66px;
-    @include flexrow;
+    .flxrow();
     justify-content: flex-end;
 
     a {
       flex: 0 0 22px;
       font-size: 12px;
       text-align: center;
-      color: $colorTan;
+      color: @colorTan;
     }
   }
   .item-controls-4 {
     flex: 0 0 88px;
-    @include flexrow;
+    .flxrow();
     justify-content: flex-end;
 
     a {
       flex: 0 0 22px;
       font-size: 12px;
       text-align: center;
-      color: $colorTan;
+      color: @colorTan;
     }
   }
 
@@ -216,6 +215,6 @@
     font-size: 12px;
     line-height: 16px;
     padding: 0.25em 0.5em;
-    border-top: 1px solid $colorFaint;
+    border-top: 1px solid @colorFaint;
   }
 }
