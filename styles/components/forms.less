@@ -17,8 +17,6 @@ input[type="text"]:hover,
 input[type="number"]:hover,
 input[type="text"]:focus,
 input[type="number"]:focus {
-  //border: 1px solid #111;
-  //box-shadow: 0 0 8px #26641c;
   border-radius: 0;
   border: none;
   box-shadow: none;
@@ -27,7 +25,7 @@ input[type="number"]:focus {
 input:disabled,
 select:disabled,
 textarea:disabled {
-  color: $colorOlive;
+  color: @colorOlive;
 }
 
 input:disabled:hover,
@@ -43,15 +41,12 @@ textarea:disabled:focus {
 
 button {
   background: rgba(0, 0, 0, 0.1);
-  border: $borderGroove;
+  border: @borderGroove;
 }
 
 select {
-  //-webkit-appearance: none;
-  //-moz-appearance: none;
-  //color: $c-black;
-  color: $colorDark;
-  font-family: $font-primary;
+  color: @colorDark;
+  font-family: @font-primary;
   font-size: 14px;
   text-align: center;
   text-align-last: center;
@@ -59,14 +54,6 @@ select {
   width: 100%;
   border:none;
   border-radius:0;
-
-//  height: calc(100% - 2px);
-//  //border: 1px solid $colorTan;
-//  background: rgba(0, 0, 0, 0.05);
-//  border-radius: 0;
-//  border: none;
-//  box-shadow: none;
-//  color: $colorDark;
 }
 
 
@@ -96,7 +83,7 @@ label.checkbox {
 .form-group {
   label {
     flex: 2;
-    color: $colorOlive;
+    color: @colorOlive;
     font-weight: bold;
   }
   .form-fields {
@@ -143,9 +130,9 @@ label.checkbox {
 .form-header {
   margin: 0 0 0.25em 0;
   padding: 2px 0;
-  border-top: $borderGroove;
-  border-bottom: $borderGroove;
-  font-family: $font-tertiary;
+  border-top: @borderGroove;
+  border-bottom: @borderGroove;
+  font-family: @font-tertiary;
   font-size: 20px;
   font-weight: 700;
 }

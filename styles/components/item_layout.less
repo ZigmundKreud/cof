@@ -5,16 +5,16 @@
   padding: 0;
   margin: 0;
   overflow-y: hidden;
-  background: $sheetBackground;
   font-size: 13px;
-  color: $colorDark;
+  color: @colorDark;
+  //background: @sheetBackground;
   background-image: url("../ui/bg-2.webp");
   background-repeat: repeat;
   background-color: white;
 
   .sheet-header {
     flex: 0 0 100px;
-    border-bottom: $borderGroove;
+    border-bottom: @borderGroove;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,9 +27,6 @@
     }
 
     img {
-      //flex: 0 0 64px;
-      //height: 64px;
-      //margin-right: 6px;
 
       &.profile {
         flex: 0 0 100px;
@@ -37,13 +34,11 @@
         height: 100px;
         object-fit: contain;
         border: none;
-        //border: 2px solid #000;
-        //border-right: $borderGrooveGreen;
       }
     }
 
     .header-details {
-      font-family: $font-tertiary;
+      font-family: @font-tertiary;
       font-size: 20px;
       font-weight: 700;
 
@@ -65,12 +60,11 @@
 
       .item-subtitle {
         flex: 0 0 150px;
-        //flex: 0 0 80px;
         height: 60px;
         margin: 0;
         padding: 5px;
         text-align: right;
-        color: $lightGreen;
+        color: @lightGreen;
 
         .item-type {
           font-size: 24px;
@@ -90,7 +84,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        border-top: $borderGrooveGreen;
+        border-top: @borderGrooveGreen;
         border-bottom: none;
 
         li {
@@ -98,16 +92,16 @@
           float: left;
           margin: 2px 0;
           padding: 0;
-          border-right: $borderGrooveGreen;
+          border-right: @borderGrooveGreen;
           line-height: 34px;
-          color: $lightGreen;
+          color: @lightGreen;
 
           &:last-child {
             border-right: none;
           }
 
           input {
-            color: $lightGreen;
+            color: @lightGreen;
           }
         }
       }
@@ -122,7 +116,7 @@
     margin-top: -2px;
     margin-bottom: 5px;
     flex: 0 0 20px;
-    font-family: $font-tertiary;
+    font-family: @font-tertiary;
     font-size: 20px;
     font-weight: 700;
 
@@ -152,7 +146,7 @@
         flex: 0 0 150px;
         margin: 5px 5px 5px 0;
         padding-right: 5px;
-        border-right: $borderGroove;
+        border-right: @borderGroove;
 
         .form-group {
           margin: 0;
@@ -175,7 +169,7 @@
             margin: 3px 0;
             padding: 0 2px;
             background: rgba(0, 0, 0, 0.05);
-            border: $borderGroove;
+            border: @borderGroove;
             text-align: center;
             font-size: 12px;
             line-height: 18px;
@@ -213,7 +207,6 @@
         input[type="number"],
         select {
           height: 24px;
-          //border: 1px solid $colorTan;
           background: rgba(0, 0, 0, 0.05);
         }
 
@@ -295,7 +288,7 @@
     padding: 0;
     font-weight: bold;
     line-height: 24px;
-    color: $colorOlive;
+    color: @colorOlive;
   }
 
   .damage-parts {
@@ -324,7 +317,7 @@
     line-height: 24px;
     float: right;
     text-align: right;
-    color: $colorTan;
+    color: @colorTan;
   }
 
   .recharge.form-group {

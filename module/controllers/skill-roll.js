@@ -19,9 +19,9 @@ export class CofSkillRoll {
         this._description = description;
     }
 
-    roll(actor){
+    async roll(actor){
         let r = new Roll(this._formula);
-        r.roll();
+        await r.roll({"async": true});
         // Getting the dice kept in case of 2d12 or 2d20 rolls
         const result = r.terms[0].results.find(r => r.active).result;
         this._isCritical = ((result >= this._critrange.split("-")[0]) || result == 20);
@@ -31,25 +31,25 @@ export class CofSkillRoll {
         }
         this._buildRollMessage().then(msgFlavor => {
             r.toMessage({
-                user: game.user._id,
+                user: game.user.id,
                 flavor: msgFlavor,
                 speaker: ChatMessage.getSpeaker({actor: actor})
             });
         })
     }
 
-    weaponRoll(actor, dmgFormula, dmgDescr){
-        this.roll(actor);
+    async weaponRoll(actor, dmgFormula, dmgDescr){
+        await this.roll(actor);
         if (this._difficulty) {
             if(this._isSuccess && game.settings.get("cof", "useComboRolls")){
                 let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr);
-                r.roll(actor);
+                await r.roll(actor);
             }
         }
         else {
             if(game.settings.get("cof", "useComboRolls")){
                 let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr);
-                r.roll(actor);
+                await r.roll(actor);
             }
         }
     }

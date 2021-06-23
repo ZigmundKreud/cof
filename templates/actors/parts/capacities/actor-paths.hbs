@@ -18,7 +18,7 @@
                         <span class="path-controls item" data-item-id="{{path._id}}" style="padding-right:5px;"><a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a></span>
                     </div>
                     {{#each path.data.capacities as |capacity id|}}
-                        <div class="gridcell gridcell-sm item capacity left color-default" data-item-id="{{capacity._id}}" data-item-type="item" data-pack="capacities" data-path-id="{{path._id}}">
+                        <div class="gridcell gridcell-sm item capacity left color-default no-wrap" data-item-id="{{capacity._id}}" data-item-type="item" data-pack="capacities" data-path-id="{{path._id}}">
                             {{#if capacity.data.checked}}
                                 <a class="capacity-control capacity-checked" title="{{capacity.name}}"><i class="fas fa-square"></i></a>&nbsp;
                                 <a class="capacity-control item-edit ellipsis">{{capacity.name}}</a>

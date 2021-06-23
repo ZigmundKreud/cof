@@ -1,17 +1,17 @@
-<li class="item effect flexrow" data-item-id="{{_id}}" data-item-type="effect" draggable="true">
+<li class="item effect flexrow" data-item-id="{{id}}" data-item-type="effect" draggable="true">
     <div class="item-name flexrow">
-        <div class="item-image effect-icon" style="background-image: url('{{icon}}')"></div>
-        <h4>{{label}}</h4>
+        <div class="item-image effect-icon" style="background-image: url('{{data.icon}}')"></div>
+        <h4>{{data.label}}</h4>
     </div>
     <div class="item-detail">
-        {{#if duration.rounds}}{{duration.rounds}} rounds{{/if}}
-        {{#if duration.turns}}{{duration.rounds}} turns{{/if}}
-        {{#if duration.seconds}}{{duration.rounds}} seconds{{/if}}
-        {{#if isTemporary}}(T)){{/if}}
+        {{#if data.duration.rounds}}{{data.duration.rounds}} R{{/if}}
+        {{#if data.duration.turns}}{{data.duration.turns}} T{{/if}}
+        {{#if data.duration.seconds}}{{data.duration.seconds}} S{{/if}}
+        {{#if data.isTemporary}}(T)){{/if}}
     </div>
     {{#if @root.isEffectsEditable}}
         <div class="item-detail">
-        {{#if disabled}}
+        {{#if data.disabled}}
             <a class="item-control effect-toggle" title="Activer" style="color:lightgray;"><i class="fas fa-toggle-off"></i></a>
         {{else}}
             <a class="item-control effect-toggle" title="Désactiver"><i class="fas fa-toggle-on"></i></a>

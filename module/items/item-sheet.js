@@ -2,12 +2,11 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-import {ArrayUtils} from "../utils/array-utils.js";
-import {Traversal} from "../utils/traversal.js";
-import {System} from "../system/config.js";
-import {Path} from "../controllers/path.js";
-import {Capacity} from "../controllers/capacity.js";
-import { COF } from "../system/config.js";
+import { Capacity } from "../controllers/capacity.js";
+import { Path } from "../controllers/path.js";
+import { COF, System } from "../system/config.js";
+import { ArrayUtils } from "../utils/array-utils.js";
+import { Traversal } from "../utils/traversal.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -18,14 +17,16 @@ export class CofItemSheet extends ItemSheet {
             template: System.templatesPath + "/items/item-sheet.hbs",
             width: 600,
             height: 600,
-            tabs: [{navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "description"}],
-            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+            tabs: [{ navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "description" }],
+            dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
     }
 
-    getPackPrefix(){
-        return "cof-srd";
-    }
+    /**
+     * 
+     * @returns 
+     */
+    getPackPrefix() { return "cof-srd"; }
 
     /**
      * Activate the default set of listeners for the Entity sheet
@@ -38,19 +39,19 @@ export class CofItemSheet extends ItemSheet {
 
         // html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
 
-        html.find('.droppable').on("dragover", function(event) {
+        html.find('.droppable').on("dragover", function (event) {
             event.preventDefault();
             event.stopPropagation();
             $(event.currentTarget).addClass('dragging');
         });
 
-        html.find('.droppable').on("dragleave", function(event) {
+        html.find('.droppable').on("dragleave", function (event) {
             event.preventDefault();
             event.stopPropagation();
             $(event.currentTarget).removeClass('dragging');
         });
 
-        html.find('.droppable').on("drop", function(event) {
+        html.find('.droppable').on("drop", function (event) {
             event.preventDefault();
             event.stopPropagation();
             $(event.currentTarget).removeClass('dragging');
@@ -59,12 +60,12 @@ export class CofItemSheet extends ItemSheet {
         // Click to open
         html.find('.compendium-pack').click(ev => {
             ev.preventDefault();
-            const li = $(ev.currentTarget) 
+            const li = $(ev.currentTarget)
             const pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (pack) {
-                if ( li.attr("data-open") === "1" ) {
+                if (li.attr("data-open") === "1") {
                     li.attr("data-open", "0");
-                    pack.close();
+                    pack.apps[0].close();
                 } else {
                     li.attr("data-open", "1");
                     li.find("i.folder").removeClass("fa-folder").addClass("fa-folder-open");
@@ -79,7 +80,7 @@ export class CofItemSheet extends ItemSheet {
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
 
         // Item Effects
-        html.find('.item-name').click(ev=>{
+        html.find('.item-name').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
             if (!elt || elt.length === 0) this._onEditItem(ev);
@@ -87,30 +88,31 @@ export class CofItemSheet extends ItemSheet {
                 if (this.item.actor) return;    // Si l'item appartient à un actor, l'effet n'est pas modifiable
                 const effectId = elt.data("itemId");
                 let effect = this.item.effects.get(effectId);
-                if (effect){
+                if (effect) {
                     new ActiveEffectConfig(effect).render(true);
                 }
             }
         });
-        
+        // Abonnement des évènements sur les effets
+        html.find('.effect-create').click(ev => {
+            ev.preventDefault();
+            if (!this.isEditable) return;
+            return this.item.createEmbeddedDocuments("ActiveEffect", [{
+                label: game.i18n.localize("COF.ui.newEffect"),
+                icon: "icons/svg/aura.svg",
+                origin: this.item.uuid,
+                "duration.rounds": undefined,
+                disabled: false
+            }]);
+        });
         html.find('.effect-edit').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
-            if (effect){
+            if (effect) {
                 new ActiveEffectConfig(effect).render(true);
             }
-        });        
-        html.find('.effect-create').click(ev => {
-            ev.preventDefault();
-            if (!this.isEditable) return;
-            return ActiveEffect.create({
-                label: game.i18n.localize("COF.ui.newEffect"),
-                icon: "icons/svg/aura.svg",
-                "duration.rounds": undefined,
-                disabled: false
-            }, this.item).create();
         });
         html.find('.effect-delete').click(ev => {
             ev.preventDefault();
@@ -125,11 +127,10 @@ export class CofItemSheet extends ItemSheet {
             const elt = $(ev.currentTarget).parents(".effect");
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
-            if (effect){
-                effect.update({disabled:!effect.data.disabled})
+            if (effect) {
+                effect.update({ disabled: !effect.data.disabled })
             }
-        });          
-
+        });
     }
 
     /** @override */
@@ -182,12 +183,12 @@ export class CofItemSheet extends ItemSheet {
         Item.fromDropData(data).then(item => {
             const itemData = duplicate(item.data);
             switch (itemData.type) {
-                case "path"    :
+                case "path":
                     return this._onDropPathItem(event, itemData);
-                case "capacity" :
+                case "capacity":
                     return this._onDropCapacityItem(event, itemData);
-                case "profile" :
-                case "species" :
+                case "profile":
+                case "species":
                 default:
                     return false;
             }
@@ -198,7 +199,7 @@ export class CofItemSheet extends ItemSheet {
 
     _onDropPathItem(event, itemData) {
         event.preventDefault();
-        if(this.item.data.type === "profile" || this.item.data.type === "species")  return Path.addToItem(this.item, itemData);
+        if (this.item.data.type === "profile" || this.item.data.type === "species") return Path.addToItem(this.item, itemData);
         else return false;
     }
 
@@ -206,7 +207,7 @@ export class CofItemSheet extends ItemSheet {
 
     _onDropCapacityItem(event, itemData) {
         event.preventDefault();
-        if(this.item.data.type === "path" || this.item.data.type === "species")  return Capacity.addToItem(this.item, itemData);
+        if (this.item.data.type === "path" || this.item.data.type === "species") return Capacity.addToItem(this.item, itemData);
         else return false;
     }
 
@@ -221,9 +222,9 @@ export class CofItemSheet extends ItemSheet {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
-        if(id) {
+        if (id) {
             return Traversal.find(id).then(e => {
-                if(e) return e.sheet.render(true);
+                if (e) return e.sheet.render(true);
                 else {
                     ui.notifications.error("Impossible de trouver l'entité");
                     return false;
@@ -235,30 +236,30 @@ export class CofItemSheet extends ItemSheet {
 
     /* -------------------------------------------- */
 
-    _onDeleteItem(ev){
+    _onDeleteItem(ev) {
         ev.preventDefault();
         let data = duplicate(this.item.data);
         const li = $(ev.currentTarget).closest(".item");
         const id = li.data("itemId");
         const itemType = li.data("itemType");
         let array = null;
-        switch(itemType){
-            case "path" : {
+        switch (itemType) {
+            case "path": {
                 array = data.data.paths;
                 const item = array.find(e => e._id === id);
-                if(array && array.includes(item)) {
+                if (array && array.includes(item)) {
                     ArrayUtils.remove(array, item);
                 }
             }
-            break;
-            case "capacity" : {
+                break;
+            case "capacity": {
                 array = data.data.capacities;
                 const item = array.find(e => e._id === id);
-                if(array && array.includes(item)) {
+                if (array && array.includes(item)) {
                     ArrayUtils.remove(array, item);
                 }
             }
-            break;
+                break;
         }
         return this.item.update(data);
     }
@@ -272,8 +273,8 @@ export class CofItemSheet extends ItemSheet {
      */
     _getItemProperties(item) {
         const props = [];
-        if ( item.type === "item" ) {
-            const entries = Object.entries(item.data.properties)
+        if (item.type === "item") {
+            const entries = Object.entries(item.data.data.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.itemProperties[e[0]]
             }));
@@ -286,17 +287,18 @@ export class CofItemSheet extends ItemSheet {
     /** @override */
     getData(options) {
         const data = super.getData(options);
+        const itemData = data.data;
         if (COF.debug) console.log(data);
         data.labels = this.item.labels;
         data.config = game.cof.config;
         data.itemType = data.item.type.titleCase();
         data.itemProperties = this._getItemProperties(data.item);
         data.effects = data.item.effects;
-
         // Gestion de l'affichage des boutons de modification des effets
         // Les boutons sont masqués si l'item appartient à un actor
         data.isEffectsEditable = this.item.actor ? false : true;
-
+        data.item = itemData;
+        data.data = itemData.data;
         return data;
     }
 }

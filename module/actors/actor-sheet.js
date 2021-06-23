@@ -26,7 +26,7 @@ export class CofActorSheet extends CofBaseSheet {
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
             dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
         });
-    }  
+    }
 
     /** @override */
     activateListeners(html) {
@@ -42,7 +42,7 @@ export class CofActorSheet extends CofBaseSheet {
             if (pack) {
                 if (li.attr("data-open") === "1") {
                     li.attr("data-open", "0");
-                    pack.close();                    
+                    pack.apps[0].close();
                 }
                 else {
                     li.attr("data-open", "1");
@@ -56,7 +56,7 @@ export class CofActorSheet extends CofBaseSheet {
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") {
                 li.attr("data-open", "0");
-                pack.close();
+                pack.apps[0].close();
             }
             else {
                 li.attr("data-open", "1");
@@ -129,44 +129,25 @@ export class CofActorSheet extends CofBaseSheet {
             if (effect) {
                 effect.disabled = !effect.disabled;
                 return this.actor.update(updateData);
-                // .then(a => {
-                //     if(a instanceof Token) {
-                //         return a.toggleEffect(effect);
-                //     }
-                //     else {
-                //         console.log(a);
-                //         let tokens = canvas.tokens.objects.children.filter(t => t.data.actorId === this.actor._id);
-                //         console.log(tokens);
-                //         // for(let t of tokens){
-                //         //     t.toggleEffect(effect);
-                //         // }
-                //         // return canvas.tokens.objects.children.filter(t => t.data.actorId === this.actor._id).map(t => t.toggleEffect(effect));
-                //     }
-                // });
             }
         });
         html.find('.effect-create').click(ev => {
             ev.preventDefault();
-            return ActiveEffect.create({
+            return this.actor.createEmbeddedDocuments("ActiveEffect", [{
                 label: game.i18n.localize("COF.ui.newEffect"),
                 icon: "icons/svg/aura.svg",
                 origin: this.actor.uuid,
                 "duration.rounds": undefined,
                 disabled: true
-            }, this.actor).create();
+            }]);
         });
         html.find('.effect-edit').click(this._onEditItem.bind(this));
         html.find('.effect-delete').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".effect");
             const effectId = elt.data("itemId");
-            let updateData = duplicate(this.actor);
-            let effects = updateData.effects;
-            const effect = effects.find(e => e._id === effectId);
-            if (effect) {
-                ArrayUtils.remove(effects, effect);
-                return this.actor.update(updateData);
-            }
+            let effect = this.actor.effects.get(effectId);
+            if (effect) effect.delete();
         });
 
         // WEAPONS (Encounters)
@@ -203,7 +184,7 @@ export class CofActorSheet extends CofBaseSheet {
      * 
      * @returns l'acteur modifié
      */
-    _onCheckedCapacity(actor, event, isUncheck) {return Capacity.toggleCheck(actor, event, isUncheck);}
+    _onCheckedCapacity(actor, event, isUncheck) { return Capacity.toggleCheck(actor, event, isUncheck); }
 
     _onIncrease(event) {
         event.preventDefault();
@@ -240,14 +221,15 @@ export class CofActorSheet extends CofBaseSheet {
     _onDeleteItem(event) {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
-        const itemId = li.data("itemId");
-        const entity = this.actor.items.find(item => item._id === itemId);
+        let itemId = li.data("itemId");
+        const entity = this.actor.items.find(item => item.id === itemId);
+        itemId = itemId instanceof Array ? itemId : [itemId];
         switch (entity.data.type) {
             case "capacity": return Capacity.removeFromActor(this.actor, entity);
             case "path": return Path.removeFromActor(this.actor, entity);
             case "profile": return Profile.removeFromActor(this.actor, entity);
             case "species": return Species.removeFromActor(this.actor, entity);
-            default: return this.actor.deleteOwnedItem(itemId);
+            default: return this.actor.deleteEmbeddedDocuments("Item", itemId);
         }
     }
 
@@ -262,7 +244,6 @@ export class CofActorSheet extends CofBaseSheet {
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
         const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
-
         if (type === "effect") {
             let effects = this.actor.effects;
             const effect = effects.get(id);
@@ -271,20 +252,20 @@ export class CofActorSheet extends CofBaseSheet {
             } else return false;
         } else {
             // look first in actor onwed items
-            let entity = this.actor.getOwnedItem(id);
-            return (entity) ? entity.sheet.render(true) : Traversal.getEntity(id, type, pack).then(e => e.sheet.render(true));
+            let entity = this.actor.items.get(id);
+            return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
         }
     }
 
-     /**
-     * Callback on render item actions : display or not the summary
-     * @param event
-     * @private
-     */
-    _onItemSummary(event){
+    /**
+    * Callback on render item actions : display or not the summary
+    * @param event
+    * @private
+    */
+    _onItemSummary(event) {
         event.preventDefault();
         let li = $(event.currentTarget).parents('.item').children('.item-summary');
-        let entity = this.actor.getOwnedItem($(event.currentTarget).parents('.item').data("itemId"));
+        let entity = this.actor.items.get($(event.currentTarget).parents('.item').data("itemId"));
         if (entity && entity.data.type === "capacity") {
             if (li.hasClass('expanded')) {
                 li.css("display", "none");
@@ -292,7 +273,7 @@ export class CofActorSheet extends CofBaseSheet {
             else {
                 li.css("display", "block");
             }
-            li.toggleClass('expanded');                
+            li.toggleClass('expanded');
         } else {
             this._onEditItem(event);
         }
@@ -343,20 +324,10 @@ export class CofActorSheet extends CofBaseSheet {
         let data;
         try {
             data = JSON.parse(event.dataTransfer.getData('text/plain'));
-        } catch (err) {
-            return false;
-        }
+        } catch (err) {return false;}
         if (!data) return false;
-
-        // Case 1 - Dropped Item
-        if (data.type === "Item") {
-            return this._onDropItem(event, data);
-        }
-
-        // Case 2 - Dropped Actor
-        if (data.type === "Actor") {
-            return false; // NOT AUTHORIZED
-        }
+        if (data.type === "Item") {return this._onDropItem(event, data);}
+        if (data.type === "Actor") {return false; }
     }
 
     /**
@@ -367,50 +338,35 @@ export class CofActorSheet extends CofBaseSheet {
      * @private
      */
     async _onDropItem(event, data) {
-        if (!this.actor.owner) return false;
-        // let authorized = true;
+        if (!this.actor.isOwner) return false;
 
-        // let itemData = await this._getItemDropData(event, data);
         const item = await Item.fromDropData(data);
+        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+        
         const itemData = duplicate(item.data);
         switch (itemData.type) {
-            case "path": return await Path.addToActor(this.actor, itemData);
+            case "path": return await Path.addToActor(this.actor, item);
             case "profile": return await Profile.addToActor(this.actor, itemData);
-            case "species": return await Species.addToActor(this.actor, itemData);
+            case "species": return await Species.addToActor(this.actor, item);
             case "capacity":
             default: {
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
-                let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
+                let sameActor = (data.actorId === actor.id) || (actor.isToken && (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
-                return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+                return this.actor.createEmbeddedDocuments("Item", [itemData]);
             }
         }
-        // if (authorized) {
-        //     // Handle item sorting within the same Actor
-        //     const actor = this.actor;
-        //     let sameActor = (data.actorId === actor._id) || (actor.isToken && (data.tokenId === actor.token.id));
-        //     if (sameActor) return this._onSortItem(event, itemData);
-        //     // Create the owned item
-        //     return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-        // } else {
-        //     return false;
-        // }
     }
 
     /* -------------------------------------------- */
     /* DATA CONSOLIDATION FOR TEMPLATE RENDERING    */
-
     /* -------------------------------------------- */
-
     /** @override */
     getData(options = {}) {
         const data = super.getData(options);
-        if (COF.debug) {
-            console.log("COTA | ActorSheet getData");
-            console.log(data);
-        }
+        if (COF.debug) console.log("COTA | ActorSheet getData", data);
         data.config = game.cof.config;
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");
@@ -436,18 +392,18 @@ export class CofActorSheet extends CofBaseSheet {
         }
 
         data.combat.categories.forEach(category => {
-            if (category.items.length > 0) {                
+            if (category.items.length > 0) {
                 category.items.forEach(item => {
                     if (item.data.properties?.weapon) {
                         // Compute MOD
                         const itemModStat = item.data.skill.split("@")[1];
                         const itemModBonus = parseInt(item.data.skillBonus);
                         const weaponCategory = this.getCategory(item.data);
-                        
+
                         item.data.mod = this.actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
 
                         // Compute DM
-                        const itemDmgBase = item.data.dmgBase;                        
+                        const itemDmgBase = item.data.dmgBase;
                         const itemDmgStat = item.data.dmgStat.split("@")[1];
                         const itemDmgBonus = parseInt(item.data.dmgBonus);
 
@@ -483,25 +439,15 @@ export class CofActorSheet extends CofBaseSheet {
                 }).sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)
             });
         }
-        data.effects = data.actor.effects;
-        data.folded = {
-            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
-        };       
-
         const overloadedMalus = this.actor.getOverloadedMalus();
         const overloadedOtherMod = this.actor.getOverloadedOtherMod();
-        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0) ;
+        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0);
         data.overloaded = {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
-        
         // Gestion des boutons de modification des effets (visible pour l'actor)
         data.isEffectsEditable = true;
-
         return data;
     }
 
@@ -513,7 +459,5 @@ export class CofActorSheet extends CofBaseSheet {
      * @param {*} itemData 
      * @returns Retourne "cof" en attendant l'implémentation
      */
-    getCategory(itemData){
-        return "cof";
-    }
+    getCategory(itemData) {return "cof";}
 }

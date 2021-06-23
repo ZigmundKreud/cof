@@ -7,7 +7,6 @@ export class Hitpoints {
             ui.notifications.error("Vous devez sélectionner au moins une cible pour appliquer les dégâts.");
         } else {
             for(let target of targets){
-                // console.log(target);
                 let data = duplicate(target.actor.data);
                 let hp = data.data.attributes.hp;
                 hp.value += amount;

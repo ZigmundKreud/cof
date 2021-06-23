@@ -173,33 +173,4 @@ export default function registerHooks() {
             }        
         }        
     });
-
-        // Hooks.on("preCreateChatMessage", (data, options, user) => {
-    //     console.debug("preCreateChatMessage");
-    //     // console.log(data,options,user);
-    //     return true;
-    // });
-    // Hooks.on("createChatMessage", (message, options, user) => {
-    //     console.debug("createChatMessage");
-    //     // console.log(message,options,user);
-    //     return true;
-    // });
-    // Hooks.on("updateChatMessage", (message, update, options, user) => {
-    //     console.debug("updateChatMessage");
-    //     // console.log(message,update,options,user);
-    //     return true;
-    // });
-    
-    // Hooks.on("renderItemSheet", (app, html, data) => {
-    //     console.debug("renderItemSheet");
-    //     return true;
-    // });
-    // Hooks.on("renderChatLog", (app, html, data) => {
-    //     console.debug("renderChatLog");
-    //     return true;
-    // });
-    // Hooks.on('dropCanvasData', function (canvas, dropData) {
-    //     console.debug("dropCanvasData");
-    //     return true;
-    // });
 }
