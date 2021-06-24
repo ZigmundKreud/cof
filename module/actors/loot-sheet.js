@@ -28,7 +28,7 @@ export class CofLootSheet extends CofBaseSheet {
         if (!this.options.editable) return;
 
         // Click to open
-        html.find('.compendium-pack').dblclick(ev => {
+        html.find('.cof-compendium-pack').dblclick(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.apps[0].close();
@@ -38,7 +38,7 @@ export class CofLootSheet extends CofBaseSheet {
             }
         });
         // Click to open
-        html.find('.item-create.compendium-pack').click(ev => {
+        html.find('.item-create.cof-compendium-pack').click(ev => {
             ev.preventDefault();
             let li = $(ev.currentTarget), pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
             if (li.attr("data-open") === "1") pack.apps[0].close();

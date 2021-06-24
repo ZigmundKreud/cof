@@ -233,10 +233,10 @@ strong {
   min-width: 430px;
   overflow: hidden;
 }
-div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .pack-title {
+div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .pack-title {
   color: #fffe80;
 }
-div#sidebar .tab#compendium .compendium-pack[data-pack^="cof"] .compendium-footer {
+div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-footer {
   color: #a4a164;
 }
 .grid {
@@ -880,7 +880,7 @@ Copied from dnd5e
   font-family: 'Signika', sans-serif;
   font-size: 13px;
 }
-.cof.actor .compendium-pack {
+.cof.actor .cof-compendium-pack {
   cursor: pointer;
 }
 .cof.actor .row {
