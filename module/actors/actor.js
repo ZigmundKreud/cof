@@ -150,7 +150,13 @@ export class CofActor extends Actor {
 
     /* -------------------------------------------- */
 
-    _prepareDerivedEncounterData(actorData) { }
+    _prepareDerivedEncounterData(actorData) { 
+        let attributes = actorData.data.attributes;
+        
+        // Points de vie
+        if (attributes.hp.value > attributes.hp.max) attributes.hp.value = attributes.hp.max;
+        if (attributes.hp.value < 0) attributes.hp.value = 0;
+    }
 
     /* -------------------------------------------- */
 

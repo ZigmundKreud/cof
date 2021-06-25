@@ -57,7 +57,7 @@
                 <div class="field-label">{{ localize 'COF.ui.bonus' }}</div>
             </div>
             <div class="flex1 center">
-                <div class="field-label">{{ localize 'COF.ui.mod' }}</div>
+                <div class="field-label">{{ localize 'COF.ui.total' }}</div>
             </div>
         </div>
         {{#each actor.data.attacks as |attack id|}}
@@ -141,10 +141,10 @@
                         <div class="field-label">{{ localize 'COF.attributes.vitality.label' }}&nbsp;{{#with profile}}({{data.dv}}){{/with}}</div>
                     </div>
                     <div class="flex1 center">
-                        <div class="field-label">{{ localize 'COF.attributes.val.abbrev' }}</div>
-                    </div>
-                    <div class="flex1 center">
                         <div class="field-label">{{ localize 'COF.attributes.max.abbrev' }}</div>
+                    </div>                    
+                    <div class="flex1 center">
+                        <div class="field-label">{{ localize 'COF.ui.current' }}</div>
                     </div>
                 </div>
                 <div class="row flexrow no-wrap">
@@ -152,10 +152,10 @@
                         <span class="field-label"><i class="fas fa-heart"></i>&nbsp;{{ localize 'COF.attributes.hp.abbrev' }}</span>
                     </div>
                     <div class="flex1 center cell">
-                        <input class="field-value" name="data.attributes.hp.value" type="text" value="{{actor.data.attributes.hp.value}}" placeholder="Value" data-dtype="Number"/>
-                    </div>
-                    <div class="flex1 center cell">
                         <input class="field-value" name="data.attributes.hp.max" type="text" value="{{actor.data.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>
+                    </div>                    
+                    <div class="flex1 center cell">
+                        <input class="field-value" name="data.attributes.hp.value" type="text" value="{{actor.data.attributes.hp.value}}" placeholder="Value" data-dtype="Number"/>
                     </div>
                 </div>
             </div>
