@@ -104,6 +104,7 @@
   "COF.ui.minutes" : "Minutes",
   "COF.ui.days" : "Days",
   "COF.ui.random" : "Random",
+  "COF.ui.dr.abbrev": "DR",
   "COF.ui.applyDamage": "Apply damage",
   "COF.ui.applyHalfDamage": "Apply half damage",
   "COF.ui.applyDoubleDamage": "Apply double damage",

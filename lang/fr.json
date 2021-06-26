@@ -105,6 +105,7 @@
   "COF.ui.minutes" : "Minutes",
   "COF.ui.days" : "Jours",
   "COF.ui.random" : "Aléatoire",
+  "COF.ui.dr.abbrev": "RD",
   "COF.ui.applyDamage": "Appliquer les dégâts",
   "COF.ui.applyHalfDamage": "Appliquer la moitié des dégâts",
   "COF.ui.applyDoubleDamage": "Appliquer le double des dégâts",
