@@ -14,9 +14,9 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */   
     constructor(...args) {
         let data = args[0];
-        if (data.img !== undefined && COF.actorIcons[data.type]){
+        if (data.img == null && COF.actorIcons[data.type]){
             data.img = COF.actorIcons[data.type];
-            data.token.img = COF.actorIcons[data.type];
+            if (data.token != null && data.token.img == null) data.token.img = COF.actorIcons[data.type];
         }
         super(...args);
     }

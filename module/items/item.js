@@ -14,7 +14,7 @@ export class CofItem extends Item {
     /* -------------------------------------------- */   
     constructor(...args) {
         let data = args[0];
-        if (!data.img && COF.itemIcons[data.type]) data.img = COF.itemIcons[data.type];
+        if (data.img == null && COF.itemIcons[data.type]) data.img = COF.itemIcons[data.type];
 
         super(...args);
     }	
