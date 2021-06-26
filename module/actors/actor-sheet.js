@@ -296,7 +296,8 @@ export class CofActorSheet extends CofBaseSheet {
         // SHIFT + click
         if (event.shiftKey) {
             switch (rolltype) {
-                case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, false)
+                // Spend recovery point without getting hit points
+                case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, false)    
             }
         }
         switch (rolltype) {

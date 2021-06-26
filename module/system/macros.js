@@ -43,7 +43,7 @@ export class Macros {
             case "atm" :
             case "magic" : statObj = eval(`actor.data.data.attacks.magic`); break;
             default :
-                ui.notifications.error("La compétence à tester n'a pas été reconnue.");
+                ui.notifications.error(game.i18n.localize("COF.notification.MacroUnknownStat")); 
                 break;
         }
         let mod = statObj.mod;

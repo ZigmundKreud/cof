@@ -15,17 +15,17 @@ export class CharacterGeneration {
         });
     }
 
-    static statsCommand(actor) {
-        const stats = CharacterGeneration.rollStats();
+    static async statsCommand(actor) {
+        const stats = await CharacterGeneration.rollStats();
         CharacterGeneration._buildStatsMessage(actor, "<h2>Création de personnage</h2><h3>Jets de caractéristiques</h3>", stats);
         return stats;
     }
 
-    static rollStats() {
+    static async rollStats() {
         let stats = [];
         for(let i=0; i<6; i++){
             let r = new Roll("4d6kh3");
-            r.roll();
+            await r.roll({"async": true});
             stats[i] = {
                 formula : r.formula,
                 result : r.result,

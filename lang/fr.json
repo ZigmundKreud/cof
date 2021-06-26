@@ -94,6 +94,8 @@
   "COF.ui.stackable" : "Empilable",
   "COF.ui.stacksize" : "Quantité max",
   "COF.ui.formula" : "Formule",
+  "COF.ui.customFormula" : "Formule personnalisée",
+  "COF.ui.bonusMalus" : "Bonus/Malus",
   "COF.ui.mpfactor" : "Multiplicateur de PM",
   "COF.placeholders.stacksize" : "Quantité infinie si vide",
   "COF.ui.buff" : "Amélioration",
@@ -351,13 +353,15 @@
   "COF.notification.MacroNoTokenSelected": "Vous devez sélectionner un token",
   "COF.notification.MacroItemMissing" : "L'acteur n'a pas l'objet {item}",
   "COF.notification.MacroItemUnequiped" : "L'objet {item} n'est pas équipé",
-
+  "COF.notification.MacroUnknownStat" : "La compétence à tester n'a pas été reconnue",
+  
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",
   "COF.dialog.deleteSpecie.title": "Supprimer la race ?",
   "COF.dialog.rollWeapon.title": "Jet d'attaque",
   "COF.dialog.rollDamage.title": "Jet de dommages",
   "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
+  "COF.dialog.rollHitPoints.error": "Vous devez sélectionner un profil ou choisir un Dé de Vie",
   "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
   "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
 
