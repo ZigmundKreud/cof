@@ -381,11 +381,11 @@ export class CofRoll {
         return d.render(true);
     }
 
-    static async rollDamageDialog(actor, label, formula, bonus, critical = false, onEnter = "submit", dmgDescr) {
+    static async rollDamageDialog(actor, label, formula, dmgBonus, critical = false, onEnter = "submit", dmgDescr) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-dmg-dialog.hbs';
         const rollOptionContent = await renderTemplate(rollOptionTpl, { 
             dmgFormula: formula,
-            dmgBonus: bonus,
+            dmgBonus: dmgBonus,
             dmgCustomFormula: "",
             isCritical: critical,
             hasDescription: dmgDescr && dmgDescr.length > 0,
