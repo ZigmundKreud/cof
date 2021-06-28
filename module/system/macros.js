@@ -102,7 +102,7 @@ export class Macros {
                     if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
                     else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
                 }
-                else return ui.notifications.warn(`${game.i18n.localize("COF.notification.MacroItemUnequiped")}: "${itemName}"`);
+                else return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
             }
             if (itemData.data.properties.heal){
                 new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
