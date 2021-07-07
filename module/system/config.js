@@ -87,7 +87,7 @@ COF.itemIcons = {
 
 COF.actorIcons = {
     "npc": "icons/environment/people/commoner.webp",
-    "encounter":"icons/svg/mystery-man-black.svg",
+    "encounter": "systems/cof/ui/icons/creature.webp",
     "loot": "icons/containers/bags/sack-simple-leather-brown.webp"
 }
 

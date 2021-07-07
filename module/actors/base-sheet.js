@@ -37,10 +37,10 @@ export class CofBaseSheet extends ActorSheet {
 		data.isGm = game.user.isGM;
         data.effects = data.actor.effects;
         data.folded = {
-            "combat": (data.data.settings?.combat) ? data.data.settings?.combat.folded : [],
-            "inventory": (data.data.settings?.inventory) ? data.data.settings?.inventory.folded : [],
-            "capacities": (data.data.settings?.capacities) ? data.data.settings?.capacities.folded : [],
-            "effects": (data.data.settings?.effects) ? data.data.settings?.effects.folded : []
+            "combat": (actorData.data.settings?.combat) ? actorData.data.settings?.combat.folded : [],
+            "inventory": (actorData.data.settings?.inventory) ? actorData.data.settings?.inventory.folded : [],
+            "capacities": (actorData.data.settings?.capacities) ? actorData.data.settings?.capacities.folded : [],
+            "effects": (actorData.data.settings?.effects) ? actorData.data.settings?.effects.folded : []
         };        
         data.actor = actorData;
         data.data = actorData.data;       

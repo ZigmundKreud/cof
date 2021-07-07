@@ -28,7 +28,7 @@
                     <div class="item-detail"><i title="Valeur totale en pièces d'argent (10 pc)" class="fas fa-coins" style="color:silver"></i></div>
                     {{#if (or (equals ../actor.type "character") (equals ../actor.type "npc"))}}<div class="item-detail">Action</div>{{/if}}
                     <div class="item-controls">
-                        <a class="item-control item-create compendium-pack" data-pack="items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+                        <a class="item-control item-create cof-compendium-pack" data-pack="items" data-open="0" title="Ajouter un objet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
                     </div>
                 </li>
                 <ol class="item-list" {{#if (includes ../folded.inventory category.id)}}style="display: none;"{{/if}}>

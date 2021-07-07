@@ -93,6 +93,8 @@
   "COF.ui.capacity" : "Capacity",
   "COF.ui.capacities" : "Capacities",
   "COF.ui.formula" : "Formula",
+  "COF.ui.customFormula" : "Custom Formula",
+  "COF.ui.bonusMalus" : "Bonus/Malus",
   "COF.ui.mpfactor" : "MP Factor",
   "COF.placeholders.stacksize" : "Infinite if empty",
   "COF.ui.buff" : "Buff",
@@ -104,13 +106,14 @@
   "COF.ui.minutes" : "Minutes",
   "COF.ui.days" : "Days",
   "COF.ui.random" : "Random",
+  "COF.ui.dr.abbrev": "DR",
   "COF.ui.applyDamage": "Apply damage",
   "COF.ui.applyHalfDamage": "Apply half damage",
   "COF.ui.applyDoubleDamage": "Apply double damage",
   "COF.ui.applyHealing" : "Apply healing",
   "COF.ui.newEffect" : "New Effect",
   "COF.ui.noCapacitySelected": "No capacity has been selected yet",
-  "COF.ui.noPathSelected": "No path have been added yet.",
+  "COF.ui.noPathSelected": "No path have been added yet",
   "COF.ui.activeCapacities": "Active capacities",
   "COF.ui.CapacityPoints": "Capacity points",
 
@@ -349,6 +352,7 @@
   "COF.notification.MacroNoTokenSelected": "You must select a token",  
   "COF.notification.MacroItemMissing" : "The actor does not have the item {item}",
   "COF.notification.MacroItemUnequiped" : "The item {item} is not equiped",
+  "COF.notification.MacroUnknownStat" : "The skill to test is unknown",
 
   "COF.dialog.deletePath.title": "Delete the path ?",
   "COF.dialog.deleteProfile.title": "Delete the profile ?",
@@ -356,6 +360,7 @@
   "COF.dialog.rollWeapon.title": "Weapon Roll",
   "COF.dialog.rollDamage.title": "Damage Roll",
   "COF.dialog.rollHitPoints.title": "Hit Points Roll",
+  "COF.dialog.rollHitPoints.error": "You must select a profile or choose a Hit dice",
   "COF.dialog.spendRecoveryPoint.title": "Spend one Recovery Point",  
   "COF.dialog.chooseCharacteristics.title": "Characteristic scores"
 

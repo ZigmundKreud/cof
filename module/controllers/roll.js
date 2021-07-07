@@ -134,8 +134,8 @@ export class CofRoll {
 
         Dialog.confirm({
             title: game.i18n.format("COF.dialog.rollHitPoints.title"),
-            content: `<p>Êtes-vous sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong></p>`,
-            yes: () => {
+            content: `<p>Êtes-vous sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong> ?</p>`,
+            yes: async () => {
                 if (actorData.data.attributes.hd && actorData.data.attributes.hd.value) {
                     const hd = actorData.data.attributes.hd.value;
                     const hdmax = parseInt(hd.split("d")[1]);
@@ -148,11 +148,11 @@ export class CofRoll {
                         const hpLvl1 = hdmax + conMod;
                         const dice2Roll = lvl - 1;
                         const formula = `${dice2Roll}d${hdmax} + ${dice2Roll * conMod}`;
-                        const r = new Roll(formula);
-                        r.roll();
+                        let r = new Roll(formula);
+                        await r.roll({"async": true});
                         r.toMessage({
                             user: game.user.id,
-                            flavor: "<h2>Roll Hit Points</h2>",
+                            flavor: "<h2>" + game.i18n.localize("COF.dialog.rollHitPoints.title") + "</h2>",
                             speaker: ChatMessage.getSpeaker({ actor: actor })
                         });
                         hp.base = hpLvl1 + r.total;
@@ -160,7 +160,7 @@ export class CofRoll {
                         hp.value = hp.max;
                     }
                     actor.update({ 'data.attributes.hp': hp });
-                } else ui.notifications.error("Vous devez sélectionner un profil ou choisir un Dé de Vie.");
+                } else ui.notifications.error(game.i18n.localize("COF.dialog.rollHitPoints.error"));
             },
             defaultYes: false
         });
@@ -178,13 +178,14 @@ export class CofRoll {
 
     /**
      *  Handles recovery roll
-     * @param 
-     * @param 
-     * @param
-     * @param
-     * @private
+     * 
+     * @param {*} data 
+     * @param {*} actor 
+     * @param {*} event 
+     * @param {*} withHPrecovery true to Get HitPoints
+     * @returns 
      */
-    static async rollRecoveryUse(data, actor, event, withHPrecovery) {
+    static rollRecoveryUse(data, actor, event, withHPrecovery) {
         let recoveryPoints = data.attributes.rp.value;
         if (!recoveryPoints > 0) return;
 
@@ -203,13 +204,13 @@ export class CofRoll {
         Dialog.confirm({
                 title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
                 content: `<p>Êtes-vous sûr de vouloir dépenser 1 point de récupération ?`,
-                yes: () => {
+                yes: async () => {
                         const hd = actorData.data.attributes.hd.value;
                         const hdmax = parseInt(hd.split("d")[1]);
                         const bonus = level + conMod;
                         const formula = `1d${hdmax} + ${bonus}`;
                         const r = new Roll(formula);
-                        r.roll();
+                        await r.roll({"async": true});
                         r.toMessage({
                                 user: game.user.id,
                                 flavor: "<h2>Dépense un point de récupération</h2>",
@@ -380,11 +381,11 @@ export class CofRoll {
         return d.render(true);
     }
 
-    static async rollDamageDialog(actor, label, formula, bonus, critical = false, onEnter = "submit", dmgDescr) {
+    static async rollDamageDialog(actor, label, formula, dmgBonus, critical = false, onEnter = "submit", dmgDescr) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-dmg-dialog.hbs';
         const rollOptionContent = await renderTemplate(rollOptionTpl, { 
             dmgFormula: formula,
-            dmgBonus: bonus,
+            dmgBonus: dmgBonus,
             dmgCustomFormula: "",
             isCritical: critical,
             hasDescription: dmgDescr && dmgDescr.length > 0,

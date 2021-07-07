@@ -58,7 +58,7 @@ export class CofItemSheet extends ItemSheet {
         });
 
         // Click to open
-        html.find('.compendium-pack').click(ev => {
+        html.find('.cof-compendium-pack').click(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget)
             const pack = game.packs.get(this.getPackPrefix() + "." + li.data("pack"));
