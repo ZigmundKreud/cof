@@ -50,7 +50,6 @@ export class Path {
             return false;
         } else {
             return this.addPathsToActor(actor, pathData);
-            return this.addPathsToActor(actor, [{ "itemData": pathData, "sourceId": pathData.data.flags.core.sourceId }]);
         }
     }
     /**
