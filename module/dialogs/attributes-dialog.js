@@ -77,8 +77,8 @@ export class CofAttributesDialog extends FormApplication {
     /* -------------------------------------------- */
 
     /** @override */
-    _onRandom() {
-        const rolls = CharacterGeneration.statsCommand(this.object);
+    async _onRandom() {
+        const rolls = await CharacterGeneration.statsCommand(this.object);
         let i = 0;
         const stats = ["str", "dex", "con", "int", "wis", "cha"];
         for (const stat of stats) {
