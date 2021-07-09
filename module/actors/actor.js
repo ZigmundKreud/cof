@@ -469,7 +469,7 @@ export class CofActor extends Actor {
         // Caractéristique et calcul selon le profil
         let magicMod = intMod;
         if (profile) {
-            switch (profile.data.spellcasting) {
+            switch (profile.data.data.spellcasting) {
                 case "wis":
                     magicMod = wisMod;
                     break;
@@ -480,10 +480,13 @@ export class CofActor extends Actor {
                     magicMod = intMod;
                     break;
             }
-            if (profile.data.mpfactor === "2") {
+            if (profile.data.data.mpfactor === "2") {
                 pm = (2 * level) + magicMod;
             }
-            else pm = level + magicMod;
+            else if (profile.data.data.mpfactor === "1") {
+                pm = level + magicMod;
+            }
+            else pm = magicMod;
         }
 
         if (pm < 0) pm = 0;
