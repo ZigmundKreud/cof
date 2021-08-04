@@ -430,7 +430,7 @@ export class CofActor extends Actor {
         // Caractéristique selon le profil
         let magicMod = intMod;
         if (profile) {
-            switch (profile.data.spellcasting) {
+            switch (profile.data.data.spellcasting) {
                 case "wis":
                     magicMod = wisMod;
                     break;
