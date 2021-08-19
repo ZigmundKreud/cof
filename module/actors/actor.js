@@ -213,6 +213,7 @@ export class CofActor extends Actor {
 
         // Initiative
         attributes.init.base = stats.dex.value;
+        attributes.init.malus = 0;
      
         // Encombrement de l'armure
         attributes.init.malus += this.getOverloadedMalusTotal();
@@ -288,7 +289,7 @@ export class CofActor extends Actor {
 
         // Malus de l'incompétence avec les armures et boucliers
         for (let attack of Object.values(attacks)) {
-            attack.malus += this.getArmourMalus() + this.getShieldMalus();
+            attack.malus = this.getArmourMalus() + this.getShieldMalus();
         }
 
         // Malus de l'encombrement de l'armure
