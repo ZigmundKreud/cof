@@ -4,7 +4,6 @@
  */
 import { Stats } from "../system/stats.js";
 import { COF } from "../system/config.js";
-import { CofRoll } from "../controllers/roll.js";
 import { Macros } from "../system/macros.js";
 
 export class CofActor extends Actor {
