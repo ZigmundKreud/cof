@@ -740,6 +740,17 @@ export class CofActor extends Actor {
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
-    
+
+    /**
+     * @name rollAbilities
+     * @description Lance un dé pour l'habilité demandée
+     * @returns {Promise}
+     */
+    rollAbility(ability, options = {}) {
+        const { bonus = 0, malus = 0 } = options;
+
+        return Macros.rollStatMacro(this, ability, bonus, malus);
+    }
+
 }
 
