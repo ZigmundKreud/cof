@@ -20,6 +20,30 @@ System.ASCII = `
 
 export const COF = {};
 
+COF.abilities = {
+    "str": "COF.stats.str.label",
+    "dex": "COF.stats.dex.label",
+    "con": "COF.stats.con.label",
+    "int": "COF.stats.int.label",
+    "wis": "COF.stats.wis.label",
+    "cha": "COF.stats.cha.label"
+};
+
+COF.skills = {
+    "melee": "COF.attacks.melee.label",
+    "ranged": "COF.attacks.ranged.label",
+    "magic": "COF.attacks.magic.label"
+};
+
+COF.abilityAbbreviations = {
+    "str": "COF.stats.str.abbrev",
+    "dex": "COF.stats.dex.abbrev",
+    "con": "COF.stats.con.abbrev",
+    "int": "COF.stats.int.abbrev",
+    "wis": "COF.stats.wis.abbrev",
+    "cha": "COF.stats.cha.abbrev"
+};
+
 COF.itemProperties = {
     "equipable": "COF.properties.equipable",
     "stackable": "COF.properties.stackable",
@@ -56,7 +80,7 @@ COF.itemProperties = {
     "alternative": "COF.properties.alternative",
     "consumable": "COF.properties.consumable",
     "racial": "COF.properties.racial",
-    "creature" : "COF.properties.creature"
+    "creature": "COF.properties.creature"
 };
 
 COF.itemCategories = {
@@ -79,7 +103,7 @@ COF.itemCategories = {
 
 COF.itemIcons = {
     "item": "icons/containers/chest/chest-worn-oak-tan.webp",
-    "capacity":"icons/sundries/scrolls/scroll-plain-tan-red.webp",
+    "capacity": "icons/sundries/scrolls/scroll-plain-tan-red.webp",
     "species": "icons/environment/people/group.webp",
     "profile": "icons/sundries/documents/blueprint-axe.webp",
     "path": "icons/sundries/books/book-embossed-gold-red.webp"
@@ -92,26 +116,26 @@ COF.actorIcons = {
 }
 
 COF.actorsAllowedItems = {
-    "character":[
+    "character": [
         "item",
         "capacity",
         "species",
         "profile",
         "path"
     ],
-    "npc":[
+    "npc": [
         "item",
         "capacity",
         "species",
         "profile",
         "path"
     ],
-    "encounter":[
+    "encounter": [
         "item",
         "capacity",
         "path"
     ],
-    "loot":[
+    "loot": [
         "item"
     ]
 }
