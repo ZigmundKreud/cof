@@ -1,4 +1,4 @@
-export const registerSystemSettings = function() {
+export const registerSystemSettings = function () {
 
     game.settings.register("cof", "useRecovery", {
         name: "Points de Récupération",
@@ -45,8 +45,13 @@ export const registerSystemSettings = function() {
         hint: "Active l'affichage de la difficulté sur les jets de compétences/attributs et d'armes.",
         scope: "world",
         config: true,
-        default: true,
-        type: Boolean,
+        default: "all",
+        type: String,
+        choices: {
+            "all": "Pour tout le monde",
+            "GM": "Uniquement les jets d'attaques au MJ",
+            "none": "Désactiver"
+        },
         onChange: lang => window.location.reload()
     });
 
@@ -89,5 +94,5 @@ export const registerSystemSettings = function() {
         type: Boolean,
         onChange: lang => window.location.reload()
     });
-    
+
 };

@@ -170,7 +170,17 @@ export default function registerHooks() {
                 html.find(".apply-dmg").each((i, btn) => {
                     btn.style.display = "none"
                   });
-            }        
-        }        
+            }
+        }
+
+        // Affiche ou non la difficulté aux PJ si l'option displayDifficulty est configurée à uniquement pour le MJ
+        if(game.settings.get("cof", "displayDifficulty") === "GM" && !game.user.isGM) {
+            html.find(".difficulty").each((i, elm) => {
+                elm.style.display = "none"
+            })
+            html.find(".difficulty-hidden").each((i, elm) => {
+                elm.style.display = "block"
+            })
+        }
     });
 }

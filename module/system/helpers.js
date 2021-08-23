@@ -1,4 +1,4 @@
-import {Traversal} from "../utils/traversal.js";
+import { Traversal } from "../utils/traversal.js";
 
 export const registerHandlebarsHelpers = function () {
 
@@ -63,17 +63,17 @@ export const registerHandlebarsHelpers = function () {
     // Handlebars.registerHelper('getCapacitiesByIds', function (ids) {
     //     if (ids) {
     //         console.log(ids);
-            // const caps = Traversal.getItemsOfType(["capacity"]);
-            // console.log(caps);
-                // .filter(c => ids.includes(c._id));
-            // caps.sort(function (a, b) {
-            //     const indexA = ids.indexOf(a._id);
-            //     const indexB = ids.indexOf(b._id);
-            //     return (indexA > indexB) ? 1 : -1
-            // });
-            // return caps;
-            // return null;
-        // } else return null;
+    // const caps = Traversal.getItemsOfType(["capacity"]);
+    // console.log(caps);
+    // .filter(c => ids.includes(c._id));
+    // caps.sort(function (a, b) {
+    //     const indexA = ids.indexOf(a._id);
+    //     const indexB = ids.indexOf(b._id);
+    //     return (indexA > indexB) ? 1 : -1
+    // });
+    // return caps;
+    // return null;
+    // } else return null;
     // });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
@@ -151,6 +151,10 @@ export const registerHandlebarsHelpers = function () {
     Handlebars.registerHelper('split', function (str, separator, keep) {
         return str.split(separator)[keep];
     });
+
+    Handlebars.registerHelper('isGM', function () {
+        return game.user.isGM;
+    })
 
     // Handlebars.registerHelper('listProfiles', function () {
     //     return Traversal.getAllProfilesData()

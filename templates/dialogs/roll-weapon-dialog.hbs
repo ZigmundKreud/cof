@@ -23,7 +23,8 @@
         <span class="field-label">{{localize 'COF.ui.modifier'}}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true" value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value readonly" id="mod" name="mod" type="text" readonly="true"
+            value="{{numberFormat mod decimals=0 sign=true}}" data-dtype="Number" />
     </div>
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">
@@ -31,7 +32,8 @@
         <span class="field-label">{{localize 'COF.ui.critrange'}}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" id="critrange" name="critrange" type="text" value="{{critrange}}" data-dtype="String"/>
+        <input class="field-value" id="critrange" name="critrange" type="text" value="{{critrange}}"
+            data-dtype="String" />
     </div>
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">
@@ -39,7 +41,8 @@
         <span class="field-label">{{localize 'COF.ui.bonus'}}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" id="bonus" name="bonus" type="text" value="{{numberFormat bonus decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value" id="bonus" name="bonus" type="text"
+            value="{{numberFormat bonus decimals=0 sign=true}}" data-dtype="Number" />
     </div>
 </div>
 <div class="row flexrow" style="margin-bottom: 1px;">
@@ -47,30 +50,35 @@
         <span class="field-label">{{localize 'COF.ui.malus'}}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" id="malus" name="malus" type="text" value="{{numberFormat malus decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value" id="malus" name="malus" type="text"
+            value="{{numberFormat malus decimals=0 sign=true}}" data-dtype="Number" />
     </div>
 </div>
-<hr/>
-{{#if (isEnabled "displayDifficulty")}}
-<!-- DIFFICULTY -->
+<hr />
+{{#if showDifficulty}}
 <div class="row flexrow" style="margin-bottom: 5px;">
     <div class="flex1 center bg-darkslate">
         <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
+        <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}"
+            data-dtype="Number" />
     </div>
 </div>
-<hr/>
+{{ else if isDifficultySet}}
+    <input class="field-value" id="difficulty" name="difficulty" type="hidden" value="{{difficulty}}"
+            data-dtype="Number" />
 {{/if}}
+
 {{#if hasSkillDescr}}
-    <hr/>
-    <div>
-        <div class="flex1 center bg-darkslate">
-            <span class="field-label">Description</span>
-        </div>
-        <textarea class="readonly rollDialogDescr" readonly="true" id="skillDescr" name="skillDescr">{{skillDescr}}</textarea>
+<hr />
+<div>
+    <div class="flex1 center bg-darkslate">
+        <span class="field-label">Description</span>
     </div>
+    <textarea class="readonly rollDialogDescr" readonly="true" id="skillDescr"
+        name="skillDescr">{{skillDescr}}</textarea>
+</div>
 {{/if}}
 
 {{#if (isEnabled "useComboRolls")}}
@@ -83,11 +91,11 @@
 {{> "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs"}}
 {{/if}}
 {{#if hasDmgDescr}}
-    <hr/>
-    <div>
-        <div class="flex1 center bg-darkslate">
-            <span class="field-label">Description</span>
-        </div>
-        <textarea class="readonly rollDialogDescr" readonly="true" id="dmgDescr" name="dmgDescr">{{dmgDescr}}</textarea>
+<hr />
+<div>
+    <div class="flex1 center bg-darkslate">
+        <span class="field-label">Description</span>
     </div>
+    <textarea class="readonly rollDialogDescr" readonly="true" id="dmgDescr" name="dmgDescr">{{dmgDescr}}</textarea>
+</div>
 {{/if}}

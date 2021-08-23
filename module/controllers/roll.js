@@ -20,11 +20,11 @@ export class CofRoll {
         let label = eval(`${key}.label`);
 
         // Prise en compte de la notion de PJ incompétent et de l'encombrement
-        let mod = eval(`${key}.mod`) ;
+        let mod = eval(`${key}.mod`);
         let malus = actor.getIncompetentSkillMalus(key) + actor.getOverloadedSkillMalus(key);
-        
+
         // Prise en compte des bonus ou malus liés à la caractéristique
-        let bonus =  eval(`${key}.skillbonus`);
+        let bonus = eval(`${key}.skillbonus`);
         if (!bonus) bonus = 0;
         let skillMalus = eval(`${key}.skillmalus`);
         if (!skillMalus) skillMalus = 0;
@@ -43,10 +43,10 @@ export class CofRoll {
      * @private
      */
     static rollWeapon(data, actor, event) {
-        const li = $(event.currentTarget).parents(".item");        
+        const li = $(event.currentTarget).parents(".item");
         let item = actor.items.get(li.data("itemId"));
         const itemData = item.data;
-    
+
         const label = itemData.name;
         const critrange = itemData.data.critrange;
         const itemMod = $(event.currentTarget).parents().children(".item-mod");
@@ -108,15 +108,15 @@ export class CofRoll {
      * @private
      */
     static rollDamage(data, actor, event) {
-        const li = $(event.currentTarget).parents(".item");        
+        const li = $(event.currentTarget).parents(".item");
         const item = actor.items.get(li.data("itemId"));
         const itemData = item.data;
-    
+
         const label = itemData.name;
-        
+
         const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
         const dmg = dmgMod.data('itemDmg');
-        
+
         return this.rollDamageDialog(actor, label, dmg, 0);
     }
 
@@ -149,7 +149,7 @@ export class CofRoll {
                         const dice2Roll = lvl - 1;
                         const formula = `${dice2Roll}d${hdmax} + ${dice2Roll * conMod}`;
                         let r = new Roll(formula);
-                        await r.roll({"async": true});
+                        await r.roll({ "async": true });
                         r.toMessage({
                             user: game.user.id,
                             flavor: "<h2>" + game.i18n.localize("COF.dialog.rollHitPoints.title") + "</h2>",
@@ -194,38 +194,38 @@ export class CofRoll {
         const level = data.level.value;
         const conMod = data.stats.con.mod;
         const actorData = actor.data;
-    
+
         if (!withHPrecovery) {
             rp.value -= 1;
             actor.update({ 'data.attributes.rp': rp });
         }
         else {
 
-        Dialog.confirm({
+            Dialog.confirm({
                 title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
                 content: `<p>Êtes-vous sûr de vouloir dépenser 1 point de récupération ?`,
                 yes: async () => {
-                        const hd = actorData.data.attributes.hd.value;
-                        const hdmax = parseInt(hd.split("d")[1]);
-                        const bonus = level + conMod;
-                        const formula = `1d${hdmax} + ${bonus}`;
-                        const r = new Roll(formula);
-                        await r.roll({"async": true});
-                        r.toMessage({
-                                user: game.user.id,
-                                flavor: "<h2>Dépense un point de récupération</h2>",
-                                speaker: ChatMessage.getSpeaker({ actor: actor })
-                        });
-    
-                        hp.value += r.total;
-                        rp.value -= 1;
-                        actor.update({ 'data.attributes.hp': hp, 'data.attributes.rp': rp });
+                    const hd = actorData.data.attributes.hd.value;
+                    const hdmax = parseInt(hd.split("d")[1]);
+                    const bonus = level + conMod;
+                    const formula = `1d${hdmax} + ${bonus}`;
+                    const r = new Roll(formula);
+                    await r.roll({ "async": true });
+                    r.toMessage({
+                        user: game.user.id,
+                        flavor: "<h2>Dépense un point de récupération</h2>",
+                        speaker: ChatMessage.getSpeaker({ actor: actor })
+                    });
+
+                    hp.value += r.total;
+                    rp.value -= 1;
+                    actor.update({ 'data.attributes.hp': hp, 'data.attributes.rp': rp });
                 },
                 defaultYes: false
             });
-        }   
+        }
     }
-    
+
 
     /* -------------------------------------------- */
     /* ROLL DIALOGS                                 */
@@ -251,8 +251,8 @@ export class CofRoll {
             malus: malus,
             critrange: critrange,
             superior: superior,
-            hasDescription : description && description.length > 0,
-			skillDescr: description
+            hasDescription: description && description.length > 0,
+            skillDescr: description
         });
         let d = new Dialog({
             title: label,
@@ -300,8 +300,9 @@ export class CofRoll {
      */
     static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
+        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
         let diff = null;
-        if (game.settings.get("cof", "displayDifficulty") && game.user.targets.size > 0) {
+        if (displayDifficulty !== "none" && game.user.targets.size > 0) {
             diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
         }
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
@@ -310,6 +311,8 @@ export class CofRoll {
             malus: malus,
             critrange: critrange,
             difficulty: diff,
+            isDifficultySet: !!diff,
+            showDifficulty: displayDifficulty === "all" || (displayDifficulty === "GM" && game.user.isGM),
             dmgFormula: dmgFormula,
             dmgBonus: dmgBonus,
             dmgCustomFormula: "",
@@ -342,7 +345,7 @@ export class CofRoll {
                         if (!malus) malus = 0;
 
                         // Jet d'attaque uniquement
-                        if(!game.settings.get("cof", "useComboRolls")) {
+                        if (!game.settings.get("cof", "useComboRolls")) {
                             let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
                             r.weaponRoll(actor, "", dmgDescr);
                         }
@@ -354,7 +357,7 @@ export class CofRoll {
                             let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
 
                             if (dmgBonus.indexOf("d") !== -1 || dmgBonus.indexOf("D") !== -1) {
-                                if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)){
+                                if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)) {
                                     dmgFormula = dmgFormula.concat('+', dmgBonus);
                                 }
                                 else dmgFormula = dmgFormula.concat(dmgBonus);
@@ -383,7 +386,7 @@ export class CofRoll {
 
     static async rollDamageDialog(actor, label, formula, dmgBonus, critical = false, onEnter = "submit", dmgDescr) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-dmg-dialog.hbs';
-        const rollOptionContent = await renderTemplate(rollOptionTpl, { 
+        const rollOptionContent = await renderTemplate(rollOptionTpl, {
             dmgFormula: formula,
             dmgBonus: dmgBonus,
             dmgCustomFormula: "",
@@ -413,7 +416,7 @@ export class CofRoll {
                         let dmgFormula = (dmgCustomFormula) ? dmgCustomFormula : dmgBaseFormula;
 
                         if (dmgBonus.indexOf("d") !== -1 || dmgBonus.indexOf("D") !== -1) {
-                            if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)){
+                            if ((dmgBonus.indexOf("+") === -1) && (dmgBonus.indexOf("-") === -1)) {
                                 dmgFormula = dmgFormula.concat('+', dmgBonus);
                             }
                             else dmgFormula = dmgFormula.concat(dmgBonus);
