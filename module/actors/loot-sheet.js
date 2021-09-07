@@ -167,6 +167,10 @@ export class CofLootSheet extends CofBaseSheet {
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
                 return this.actor.createEmbeddedDocuments("Item", itemData).then((item)=>{
+                    
+                    // Si il n'y as pas d'actor id, il s'agit d'un objet du compendium, on quitte
+                    if (!data.actorId) return item;
+                                        
                     // Si l'item doit être "move", on le supprime de l'actor précédent
                     let moveItem = game.settings.get("cof","moveItem");                    
                     if (moveItem ^ event.shiftKey) {
