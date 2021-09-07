@@ -356,7 +356,14 @@ export class CofActorSheet extends CofBaseSheet {
                 let sameActor = (data.actorId === actor.id) || (actor.isToken && (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
-                return this.actor.createEmbeddedDocuments("Item", [itemData]);
+                return this.actor.createEmbeddedDocuments("Item", [itemData]).then((item)=>{
+                    // Si l'item doit être "move", on le supprime de l'actor précédent
+                    let moveItem = game.settings.get("cof","moveItem");                    
+                    if (moveItem ^ event.shiftKey) {
+                        let originalActor = ActorDirectory.collection.get(data.actorId);
+                        originalActor.deleteEmbeddedDocuments("Item", [data.data._id]);
+                    }
+                });
             }
         }
     }
