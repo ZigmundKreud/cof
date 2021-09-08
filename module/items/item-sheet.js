@@ -287,6 +287,10 @@ export class CofItemSheet extends ItemSheet {
     /** @override */
     getData(options) {
         const data = super.getData(options);
+
+        let lockItem = game.settings.get("cof", "lockItems");
+        options.editable &= (game.user.isGM || !lockItem);
+
         const itemData = data.data;
         if (COF.debug) console.log(data);
         data.labels = this.item.labels;

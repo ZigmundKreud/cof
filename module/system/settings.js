@@ -90,4 +90,13 @@ export const registerSystemSettings = function() {
         onChange: lang => window.location.reload()
     });
     
+    game.settings.register("cof", "lockItems",{
+        name: "Verrouiller les items",
+        hint: "Interdire aux joueurs de modifier les items",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()        
+    });
 };
