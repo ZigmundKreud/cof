@@ -207,4 +207,8 @@ export const registerHandlebarsHelpers = function () {
         }
         return false;
     });
+
+    Handlebars.registerHelper('isNotLimited', function(context){
+        return !this?.limited;    
+    });
 }
