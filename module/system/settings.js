@@ -90,6 +90,20 @@ export const registerSystemSettings = function() {
         onChange: lang => window.location.reload()
     });
     
+    game.settings.register("cof", "moveItem", {
+        name: "Mode de déplacement des items",
+        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser)",
+        scope: "world",
+        type: String,
+        choices: {
+            "0" : "Copier l'item (par défaut dans Foundry)",
+            "1" : "Déplacer l'item"
+        },
+        default: "0",
+        config: true,
+        onChange: lang => window.location.reload()
+    });    
+
     game.settings.register("cof", "lockItems",{
         name: "Verrouiller les items",
         hint: "Interdire aux joueurs de modifier les items",
@@ -98,5 +112,5 @@ export const registerSystemSettings = function() {
         default: false,
         type: Boolean,
         onChange: lang => window.location.reload()        
-    });
+    });    
 };
