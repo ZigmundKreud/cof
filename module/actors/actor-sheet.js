@@ -198,8 +198,44 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onToggleEquip(event) {
         event.preventDefault();
-        AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-        return Inventory.onToggleEquip(this.actor, event);
+        if (this._hasEnoughFreeHands(event)){
+            AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+            return Inventory.onToggleEquip(this.actor, event);
+        }
+        else{
+            ui.notifications.warn(game.i18n.localize("COF.notification.NotEnoughFreeHands"));
+        }
+    }
+
+    /**
+     * Check if actor has enough free hands to equip this item
+     * @param event
+     * @private
+     */    
+    _hasEnoughFreeHands(event){
+        // Si le contrôle de mains libres n'est pas demandé, on renvoi Vrai
+        let checkFreehands = game.settings.get("cof", "checkFreeHandsBeforeEquip");
+        if (!checkFreehands) return true;
+
+        // Récupération de l'item
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        
+        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
+        if (item.data.data.worn) return true;
+
+        // Si l'objet n'est pas tenu en main, on renvoi Vrai
+        if (item.data.data.slot !== "hand") return true;
+
+        // Nombre de mains nécessaire pour l'objet que l'on veux équipper
+        let neededHands = item.data.data.properties["2h"] ? 2 : 1;
+
+        // Calcul du nombre de mains déjà utilisées
+        let itemsInHands = this.actor.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
+        let usedHands = 0;
+        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
+
+        return usedHands + neededHands <= 2;        
     }
 
     /**

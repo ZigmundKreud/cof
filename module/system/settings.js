@@ -102,5 +102,15 @@ export const registerSystemSettings = function() {
         default: "0",
         config: true,
         onChange: lang => window.location.reload()
+    });
+    
+    game.settings.register("cof", "checkFreeHandsBeforeEquip", {
+        name: "Vérifier les mains libres",
+        hint: "Vérifier que le personnage a suffisament de mains libres avant d'équiper un objet",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()
     });    
 };
