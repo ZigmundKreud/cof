@@ -366,6 +366,10 @@
   "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
   "COF.dialog.rollHitPoints.error": "Vous devez sélectionner un profil ou choisir un Dé de Vie",
   "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
-  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
+  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques",
+
+  "COF.oveloaded.label": "ENCOMBREMENT",
+  "COF.overloaded.armor": "Armure",
+  "COF.overloaded.enchantments": "Bonus"
 
 }

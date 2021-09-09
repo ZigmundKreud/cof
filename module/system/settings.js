@@ -61,8 +61,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useVarInit", {
-        name: "Initiative variable",
-        hint: "Utilise la règle d'initiative variable (p.173 du LdB) au lieu de la règle de base.",
+        name: "Utilise la règle de l'initiative variable",
+        hint: "Le résultat d’un d6 explosif est ajouté à l'initiative : ajout et relance sur 6.",
         scope: "world",
         config: true,
         default: false,
@@ -71,14 +71,24 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
-        name: "PJ incompétent",
-        hint: "Utilise la règle du PJ Incompétent.",
+        name: "Utilise la règle de l'incompétence",
+        hint: "Une arme ou une armure non maitrisée donne différents malus.",
         scope: "world",
         config: false,
         default: false,
         type: Boolean,
         onChange: lang => window.location.reload()
     });
+
+    game.settings.register("cof", "useOverload", {
+        name: "Utilise la règle de l'encombrement",
+        hint: "L'encombrement de l'armure cause des malus pour les jets de FOR et de DEX.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });   
 
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
         name: "Affiche les boutons de dommages",
@@ -92,12 +102,12 @@ export const registerSystemSettings = function() {
     
     game.settings.register("cof", "moveItem", {
         name: "Mode de déplacement des items",
-        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser)",
+        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser).",
         scope: "world",
         type: String,
         choices: {
-            "0" : "Copier l'item (par défaut dans Foundry)",
-            "1" : "Déplacer l'item"
+            "0" : "Copier l'objet (par défaut dans Foundry)",
+            "1" : "Déplacer l'objet"
         },
         default: "0",
         config: true,
