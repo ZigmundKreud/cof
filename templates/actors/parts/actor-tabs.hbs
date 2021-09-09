@@ -3,7 +3,9 @@
     {{#if (isNotLimited @root)}}
         <a class="item" data-tab="stats">{{ localize "COF.tabs.stats" }}</a>
     {{/if}}
-    <a class="item" data-tab="combat">{{ localize "COF.tabs.combat" }}</a>
+    {{#if (isNotLimitedEncounter @root)}}
+        <a class="item" data-tab="combat">{{ localize "COF.tabs.combat" }}</a>
+    {{/if}}
     {{#if (isNotLimited @root)}}
         <a class="item cof-compendium-pack" data-pack="items" data-open="0" data-tab="inventory" title="click droit pour ouvrir le compendium"><i class="fas fa-atlas"></i>&nbsp;&nbsp;{{ localize "COF.tabs.inventory" }}</a>
         {{#if (equals actor.type "encounter")}}
@@ -25,10 +27,12 @@
         <div class="tab stats" data-group="primary" data-tab="stats">
             {{> "systems/cof/templates/actors/parts/stats/encounter-stats.hbs"}}
         </div>
+        {{#if (isNotLimited @root)}}
         {{!-- Combat Tab --}}
-        <div class="tab combat" data-group="primary" data-tab="combat">
-            {{> "systems/cof/templates/actors/parts/combat/encounter-combat.hbs"}}
-        </div>
+            <div class="tab combat" data-group="primary" data-tab="combat">
+                {{> "systems/cof/templates/actors/parts/combat/encounter-combat.hbs"}}
+            </div>
+        {{/if}}
     {{else}}
         {{#if (isNotLimited @root)}}
             <div class="tab stats" data-group="primary" data-tab="stats">

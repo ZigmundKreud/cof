@@ -211,4 +211,8 @@ export const registerHandlebarsHelpers = function () {
     Handlebars.registerHelper('isNotLimited', function(options){
         return !options?.limited;    
     });
+
+    Handlebars.registerHelper('isNotLimitedEncounter', function(options){
+        return !(options?.limited && options?.actor?.type === "encounter");    
+    });
 }

@@ -10,16 +10,18 @@
             </div>
         </div>
         <!-- /NAME -->
-        <!-- NC -->
-        <div class="row flexrow">
-            <div class="flex1 center bg-header">
-                <span class="field-label">{{ localize 'COF.attributes.nc.abbrev' }}</span>
+        {{#if (isNotLimited @root)}}
+            <!-- NC -->
+            <div class="row flexrow">
+                <div class="flex1 center bg-header">
+                    <span class="field-label">{{ localize 'COF.attributes.nc.abbrev' }}</span>
+                </div>
+                <div class="flex2 center cell">
+                    <input class="field-value" name="data.nc.value" type="text" value="{{actor.data.nc.value}}" placeholder="{{ localize 'COF.attributes.nc.label' }}" data-dtype="Number"/>
+                </div>
             </div>
-            <div class="flex2 center cell">
-                <input class="field-value" name="data.nc.value" type="text" value="{{actor.data.nc.value}}" placeholder="{{ localize 'COF.attributes.nc.label' }}" data-dtype="Number"/>
-            </div>
-        </div>
-        <!-- /NC -->
+            <!-- /NC -->
+        {{/if}}
         <!-- SIZE -->
         <div class="row flexrow">
             <div class="flex1 center bg-header">
@@ -43,73 +45,75 @@
         <!-- /SIZE -->
     </div>
     <div class="flex1">
-        <!-- ARCHETYPE -->
-        <div class="row flexrow">
-            <div class="flex1 center bg-header">
-                <span class="field-label">{{ localize 'COF.ui.archetype' }}</span>
+        {{#if (isNotLimited @root)}}
+            <!-- ARCHETYPE -->
+            <div class="row flexrow">
+                <div class="flex1 center bg-header">
+                    <span class="field-label">{{ localize 'COF.ui.archetype' }}</span>
+                </div>
+                <div class="flex2 center cell">
+                    <select name="data.archetype" data-type="String" style="width:100%">
+                        {{#select data.archetype}}
+                            <option value="">{{localize "COF.None"}}</option>
+                            <option value="standard">Standard</option>
+                            <option value="rapide">Rapide</option>
+                            <option value="puissant">Puissant</option>
+                            <option value="inférieur">Inférieur</option>
+                        {{/select}}
+                    </select>
+                </div>
             </div>
-            <div class="flex2 center cell">
-                <select name="data.archetype" data-type="String" style="width:100%">
-                    {{#select data.archetype}}
-                        <option value="">{{localize "COF.None"}}</option>
-                        <option value="standard">Standard</option>
-                        <option value="rapide">Rapide</option>
-                        <option value="puissant">Puissant</option>
-                        <option value="inférieur">Inférieur</option>
-                    {{/select}}
-                </select>
-            </div>
-        </div>
-        <!-- /ARCHETYPE -->
-        <!-- CATEGORY -->
-        <div class="row flexrow">
-            <div class="flex1 center bg-header">
-                <span class="field-label">{{ localize 'COF.ui.category' }}</span>
-            </div>
-            <div class="flex2 center cell">
-                <select name="data.category" data-type="String" style="width:100%">
-                    {{#select data.category}}
-                        <option value="">{{localize "COF.None"}}</option>
-                        <option value="vivante">Vivante</option>
-                        <option value="humanoïde">Humanoïde</option>
-                        <option value="non-vivante">Non-vivante</option>
-                    {{/select}}
-                </select>
+            <!-- /ARCHETYPE -->
+            <!-- CATEGORY -->
+            <div class="row flexrow">
+                <div class="flex1 center bg-header">
+                    <span class="field-label">{{ localize 'COF.ui.category' }}</span>
+                </div>
+                <div class="flex2 center cell">
+                    <select name="data.category" data-type="String" style="width:100%">
+                        {{#select data.category}}
+                            <option value="">{{localize "COF.None"}}</option>
+                            <option value="vivante">Vivante</option>
+                            <option value="humanoïde">Humanoïde</option>
+                            <option value="non-vivante">Non-vivante</option>
+                        {{/select}}
+                    </select>
 
+                </div>
             </div>
-        </div>
-        <!-- /CATEGORY -->
-        <!-- BOSS RANK -->
-        <div class="row flexrow">
-            <div class="flex1 center bg-header">
-                <span class="field-label">{{ localize 'COF.ui.boss' }}</span>
-            </div>
-            <div class="flex1 center cell">
-<!--                <input class="field-value sans" name="data.boss.rank" type="text" value="{{actor.data.boss.rank}}" placeholder="{{ localize 'COF.ui.rank' }}" data-dtype="String"/>-->
-                <select name="data.boss.rank" data-type="String" style="width:100%">
-                    {{#select data.boss.rank}}
-                        <option value="">{{localize "COF.None"}}</option>
-                        <option value="1">Boss 1 (Remarquable)</option>
-                        <option value="2">Boss 2 (Supérieur)</option>
-                        <option value="3">Boss 3 (Majeur)</option>
-                        <option value="4">Boss 4 (Exceptionnel)</option>
-                        <option value="5">Boss 5 (Légendaire)</option>
-                    {{/select}}
-                </select>
-            </div>
-            <div class="flex1 center cell">
-                <select name="data.boss.type" data-type="String" style="width:100%">
-                    {{#select data.boss.type}}
-                        <option value="">{{localize "COF.None"}}</option>
-                        <option value="rapide">Rapide</option>
-                        <option value="puissant">Puissant</option>
-                        <option value="berserk">Berserk</option>
-                        <option value="résistant">Résistant</option>
-                    {{/select}}
-                </select>
+            <!-- /CATEGORY -->
+            <!-- BOSS RANK -->
+            <div class="row flexrow">
+                <div class="flex1 center bg-header">
+                    <span class="field-label">{{ localize 'COF.ui.boss' }}</span>
+                </div>
+                <div class="flex1 center cell">
+    <!--                <input class="field-value sans" name="data.boss.rank" type="text" value="{{actor.data.boss.rank}}" placeholder="{{ localize 'COF.ui.rank' }}" data-dtype="String"/>-->
+                    <select name="data.boss.rank" data-type="String" style="width:100%">
+                        {{#select data.boss.rank}}
+                            <option value="">{{localize "COF.None"}}</option>
+                            <option value="1">Boss 1 (Remarquable)</option>
+                            <option value="2">Boss 2 (Supérieur)</option>
+                            <option value="3">Boss 3 (Majeur)</option>
+                            <option value="4">Boss 4 (Exceptionnel)</option>
+                            <option value="5">Boss 5 (Légendaire)</option>
+                        {{/select}}
+                    </select>
+                </div>
+                <div class="flex1 center cell">
+                    <select name="data.boss.type" data-type="String" style="width:100%">
+                        {{#select data.boss.type}}
+                            <option value="">{{localize "COF.None"}}</option>
+                            <option value="rapide">Rapide</option>
+                            <option value="puissant">Puissant</option>
+                            <option value="berserk">Berserk</option>
+                            <option value="résistant">Résistant</option>
+                        {{/select}}
+                    </select>
 
+                </div>
             </div>
-        </div>
-        <!-- /BOSS RANK -->
+            <!-- /BOSS RANK -->
+        {{/if}}
     </div>
 </div>
