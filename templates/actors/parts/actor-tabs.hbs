@@ -1,10 +1,10 @@
 <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="description">{{ localize "COF.tabs.description" }}</a>    
-    {{#if (isNotLimited)}}
+    {{#if (isNotLimited @root)}}
         <a class="item" data-tab="stats">{{ localize "COF.tabs.stats" }}</a>
     {{/if}}
     <a class="item" data-tab="combat">{{ localize "COF.tabs.combat" }}</a>
-    {{#if (isNotLimited)}}
+    {{#if (isNotLimited @root)}}
         <a class="item cof-compendium-pack" data-pack="items" data-open="0" data-tab="inventory" title="click droit pour ouvrir le compendium"><i class="fas fa-atlas"></i>&nbsp;&nbsp;{{ localize "COF.tabs.inventory" }}</a>
         {{#if (equals actor.type "encounter")}}
             <a class="item cof-compendium-pack" data-pack="encounters-paths" data-open="0" data-tab="capacities" title="click droit pour ouvrir le compendium"><i class="fas fa-atlas"></i>&nbsp;&nbsp;{{ localize "COF.tabs.paths" }} & {{ localize "COF.tabs.capacities" }}</a>
@@ -30,7 +30,7 @@
             {{> "systems/cof/templates/actors/parts/combat/encounter-combat.hbs"}}
         </div>
     {{else}}
-        {{#if (isNotLimited)}}
+        {{#if (isNotLimited @root)}}
             <div class="tab stats" data-group="primary" data-tab="stats">
                 {{> "systems/cof/templates/actors/parts/stats/actor-stats.hbs"}}
             </div>
@@ -40,7 +40,7 @@
             {{> "systems/cof/templates/actors/parts/combat/actor-combat.hbs"}}
         </div>
     {{/if}}
-    {{#if (isNotLimited)}}
+    {{#if (isNotLimited @root)}}
         {{!-- Capacitites Tab --}}
         <div class="tab capacities" data-group="primary" data-tab="capacities">
             {{> "systems/cof/templates/actors/parts/capacities/actor-paths.hbs"}}

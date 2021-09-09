@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- /NAME -->
-        {{#if (isNotLimited)}}
+        {{#if (isNotLimited @root)}}
             <!-- LEVEL -->
             <div class="flexrow">
                 <div class="flex1 center bg-header">
@@ -43,7 +43,7 @@
             {{/if}}
         </div>
         <!-- /SPECIES -->
-        {{#if (isNotLimited)}}
+        {{#if (isNotLimited @root)}}
             <!-- PROFILE -->
             <div class="flexrow">
                 <div class="flex2 center bg-header">

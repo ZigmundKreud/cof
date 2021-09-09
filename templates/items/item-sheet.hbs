@@ -35,7 +35,7 @@
             </ul>
         </div>
     </header>
-    {{#if (isNotLimited)}}
+    {{#if (isNotLimited @root)}}
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-navigation tabs" data-group="primary">
         <a class="item active" data-tab="description">{{localize "COF.tabs.description"}}</a>
@@ -50,7 +50,7 @@
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
-        {{#if (isNotLimited)}}
+        {{#if (isNotLimited @root)}}
             <div class="tab details" data-group="primary" data-tab="details">
                 {{#if (equals item.type "item")}}
                     {{> "systems/cof/templates/items/parts/details/item-details.hbs"}}

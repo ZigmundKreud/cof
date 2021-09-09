@@ -208,7 +208,7 @@ export const registerHandlebarsHelpers = function () {
         return false;
     });
 
-    Handlebars.registerHelper('isNotLimited', function(context){
-        return !this?.limited;    
+    Handlebars.registerHelper('isNotLimited', function(options){
+        return !options?.limited;    
     });
 }
