@@ -35,37 +35,42 @@
             </ul>
         </div>
     </header>
+    {{#if (isNotLimited @root)}}
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-navigation tabs" data-group="primary">
         <a class="item active" data-tab="description">{{localize "COF.tabs.description"}}</a>
         <a class="item" data-tab="details">{{localize "COF.tabs.details"}}</a>
         <a class="item" data-tab="effets">{{localize "COF.tabs.effects"}}</a>
     </nav>
+    {{/if}}
     {{!-- Sheet Body --}}
     <section class="sheet-body">
         <div class="tab flexrow active" data-group="primary" data-tab="description">
             {{> "systems/cof/templates/items/parts/properties/item-properties.hbs"}}
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
-        <div class="tab details" data-group="primary" data-tab="details">
-            {{#if (equals item.type "item")}}
-                {{> "systems/cof/templates/items/parts/details/item-details.hbs"}}
-            {{/if}}
-            {{#if (equals item.type "capacity")}}
-                {{> "systems/cof/templates/items/parts/details/capacity-details.hbs"}}
-            {{/if}}
-            {{#if (equals item.type "path")}}
-                {{> "systems/cof/templates/items/parts/details/path-details.hbs"}}
-            {{/if}}
-            {{#if (equals item.type "profile")}}
-                {{> "systems/cof/templates/items/parts/details/profile-details.hbs"}}
-            {{/if}}
-            {{#if (equals item.type "species")}}
-                {{> "systems/cof/templates/items/parts/details/species-details.hbs"}}
-            {{/if}}
-        </div>
-        <div class="tab" data-group="primary" data-tab="effets">
-            {{> "systems/cof/templates/effects/effects.hbs"}}            
-        </div>          
+
+        {{#if (isNotLimited @root)}}
+            <div class="tab details" data-group="primary" data-tab="details">
+                {{#if (equals item.type "item")}}
+                    {{> "systems/cof/templates/items/parts/details/item-details.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "capacity")}}
+                    {{> "systems/cof/templates/items/parts/details/capacity-details.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "path")}}
+                    {{> "systems/cof/templates/items/parts/details/path-details.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "profile")}}
+                    {{> "systems/cof/templates/items/parts/details/profile-details.hbs"}}
+                {{/if}}
+                {{#if (equals item.type "species")}}
+                    {{> "systems/cof/templates/items/parts/details/species-details.hbs"}}
+                {{/if}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="effets">
+                {{> "systems/cof/templates/effects/effects.hbs"}}            
+            </div>
+        {{/if}}   
     </section>
 </form>

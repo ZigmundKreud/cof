@@ -465,8 +465,8 @@ export class CofActorSheet extends CofBaseSheet {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
-        // Gestion des boutons de modification des effets (visible pour l'actor)
-        data.isEffectsEditable = true;
+        // Gestion des boutons de modification des effets (visible pour l'actor si il en propriétaire)
+        data.isEffectsEditable = options.editable;
         return data;
     }
 
