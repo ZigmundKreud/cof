@@ -105,12 +105,17 @@ export const registerSystemSettings = function() {
     });
     
     game.settings.register("cof", "checkFreeHandsBeforeEquip", {
-        name: "Vérifier les mains libres",
-        hint: "Vérifier que le personnage a suffisament de mains libres avant d'équiper un objet",
+        name: "Vérification des mains libres",
+        hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
         scope: "world",
         config: true,
-        default: false,
-        type: Boolean,
+        default: "0",
+        type: String,
+        choices: {
+            "0" : "Ne pas vérifier",
+            "1" : "Vérification (ignorable par tous)",
+            "2" : "Vérification (ignorable uniquement par le MJ)"
+        },        
         onChange: lang => window.location.reload()
-    });    
+    });
 };

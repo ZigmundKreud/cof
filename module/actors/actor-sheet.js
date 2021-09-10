@@ -215,7 +215,12 @@ export class CofActorSheet extends CofBaseSheet {
     _hasEnoughFreeHands(event){
         // Si le contrôle de mains libres n'est pas demandé, on renvoi Vrai
         let checkFreehands = game.settings.get("cof", "checkFreeHandsBeforeEquip");
-        if (!checkFreehands) return true;
+        if (!checkFreehands || +checkFreehands === 0) return true;
+
+        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
+        // checkFreeHands === 1 => Tous le monde peux ignorer le contrôle
+        // checkFreeHands === 2 => Uniquement le MJ peux ignorer le contrôle
+        if (event.shiftKey && (+checkFreehands === 1 || (+checkFreehands === 2 && game.user.isGM))) return true;
 
         // Récupération de l'item
         const li = $(event.currentTarget).closest(".item");
