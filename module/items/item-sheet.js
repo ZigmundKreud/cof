@@ -86,7 +86,7 @@ export class CofItemSheet extends ItemSheet {
             if (!elt || elt.length === 0) this._onEditItem(ev);
             else {
                 let lockItems = game.settings.get("cof", "lockItems");
-                if ((!game.user.isGM && lockItems) || this.item.actor) return;    // Si l'item est verrouilé ou appartient à un actor, l'effet n'est pas modifiable
+                if ((!game.user.isGM && lockItems) || this.item.actor) return;    // Si l'item est verrouillé ou appartient à un actor, l'effet n'est pas modifiable
                 const effectId = elt.data("itemId");
                 let effect = this.item.effects.get(effectId);
                 if (effect) {
@@ -300,7 +300,7 @@ export class CofItemSheet extends ItemSheet {
         data.itemProperties = this._getItemProperties(data.item);
         data.effects = data.item.effects;
         // Gestion de l'affichage des boutons de modification des effets
-        // Les boutons sont masqués si l'item appartient à un actor ou est verrouilé
+        // Les boutons sont masqués si l'item appartient à un actor ou est verrouillé
         data.isEffectsEditable = !this.item.actor && options.editable;
         data.item = itemData;
         data.data = itemData.data;

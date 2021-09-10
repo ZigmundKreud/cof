@@ -105,8 +105,8 @@ export const registerSystemSettings = function() {
     });    
 
     game.settings.register("cof", "lockItems",{
-        name: "Verrouiller les items",
-        hint: "Interdire aux joueurs de modifier les items",
+        name: "Verrouiller les objets",
+        hint: "Interdire aux joueurs de modifier les objets",
         scope: "world",
         config: true,
         default: false,
