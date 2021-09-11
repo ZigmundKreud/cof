@@ -229,15 +229,8 @@ export class CofActor extends Actor {
 
         // Initiative
         attributes.init.base = stats.dex.value;
-        attributes.init.malus = 0;
-     
-        // Encombrement de l'armure
-        attributes.init.malus += this.getOverloadedMalusTotal();
-        // Incompétence avec l'armure
-        attributes.init.malus += this.getArmourMalus();
-        // Incompétence avec le bouclier
-        attributes.init.malus += this.getShieldMalus();
-
+        
+        attributes.init.malus = this.getOverloadMalusToInitiative();
         attributes.init.value = attributes.init.base + attributes.init.bonus + attributes.init.malus;
 
         // Points de chance
@@ -309,8 +302,11 @@ export class CofActor extends Actor {
         }
 
         // Malus de l'encombrement de l'armure
-        attacks.magic.malus += this.getOverloadedMalusTotal();
+        /*attacks.magic.malus += this.getOverloadedMalusTotal();
         attacks.ranged.malus += Math.ceil(this.getOverloadedMalusTotal()/2);
+        */
+        attacks.magic.malus += this.getOverloadMalusToRangedAttack();
+        attacks.ranged.malus += this.getOverloadMalusToMagicAttack();
 
         // Calcul du total
         for (let attack of Object.values(attacks)) {
@@ -539,6 +535,40 @@ export class CofActor extends Actor {
         return malus;
     }
 
+    /* OVERLOAD Malus */
+    /**
+     * @name getOverloadMalusToInitiative
+     * @description Retourne le malus à l'initiative lié à l'armure
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */
+    getOverloadMalusToInitiative() {
+        return 0;
+    }
+
+    /**
+     * @name getOverloadMalusToRangedAttack
+     * @description Retourne le malus à l'attaque à distance lié à l'encombrement et l'incompétence
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */
+    getOverloadMalusToRangedAttack() {
+        return 0;
+    }
+    
+    /**
+     * @name getOverloadMalusToMagicAttack
+     * @description Retourne le malus à l'attaque magique lié à l'encombrement et l'incompétence
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */    
+    getOverloadMalusToMagicAttack() {
+        return 0;
+    }
+
     /**
      * @name getArmourMalus
      * @description Retourne le malus lié à l'armure
@@ -579,11 +609,13 @@ export class CofActor extends Actor {
      * @returns {int} retourne le malus (négatif)
      */
     getOverloadedSkillMalus(skill){
-        let malus = 0;
+        let malus = 0;        
         if (skill.includes("dex")) {
-            const malusFromArmor = this.getMalusFromArmor();
-            const otherMod = this.getOverloadedOtherMod();
-            malus = malus + (malusFromArmor + otherMod > 0 ? 0 : malusFromArmor + otherMod);
+            if (game.settings.get("cof","useOverload")) {
+                const malusFromArmor = this.getMalusFromArmor();
+                const otherMod = this.getOverloadedOtherMod();
+                malus = malus + (malusFromArmor + otherMod > 0 ? 0 : malusFromArmor + otherMod);
+            }
         }
         return malus;
     }

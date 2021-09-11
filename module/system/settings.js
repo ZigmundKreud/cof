@@ -51,7 +51,7 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useComboRolls", {
-        name: "Active les jets \"combo\"",
+        name: "Activer les jets \"combo\"",
         hint: "Permet de lancer les jets d'attaque et de dommages simultanément.",
         scope: "world",
         config: true,
@@ -61,7 +61,7 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useVarInit", {
-        name: "Utilise la règle de l'initiative variable",
+        name: "Utiliser la règle de l'initiative variable",
         hint: "Le résultat d’un d6 explosif est ajouté à l'initiative : ajout et relance sur 6.",
         scope: "world",
         config: true,
@@ -71,7 +71,7 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
-        name: "Utilise la règle de l'incompétence",
+        name: "Utiliser la règle de l'incompétence des PJ",
         hint: "Une arme ou une armure non maitrisée donne différents malus.",
         scope: "world",
         config: false,
@@ -81,8 +81,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useOverload", {
-        name: "Utilise la règle de l'encombrement",
-        hint: "L'encombrement de l'armure cause des malus pour les jets de FOR et de DEX.",
+        name: "Utiliser la règle de l'encombrement",
+        hint: "L'encombrement de l'armure cause des malus pour les jets de DEX.",
         scope: "world",
         config: true,
         default: true,
@@ -91,7 +91,7 @@ export const registerSystemSettings = function() {
     });   
 
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
-        name: "Affiche les boutons de dommages",
+        name: "Afficher les boutons de dommages",
         hint: "Affiche les boutons d'application des dommages dans les messages de chat à tout le monde.",
         scope: "world",
         config: true,

@@ -66,7 +66,7 @@
   "COF.ui.inPath" : "Dans une Voie",
   "COF.ui.def": "Défense",
   "COF.ui.defBase": "Défense (Base)",
-  "COF.ui.defBonus": "Défense (Bonus)",
+  "COF.ui.defBonus": "Défense (Bonus magique)",
   "COF.ui.skill": "Compétence",
   "COF.ui.skillBonus": "Compétence (Bonus)",
   "COF.ui.price": "Prix unitaire (en PA)",
@@ -370,6 +370,6 @@
 
   "COF.oveloaded.label": "ENCOMBREMENT",
   "COF.overloaded.armor": "Armure",
-  "COF.overloaded.enchantments": "Bonus"
+  "COF.overloaded.enchantments": "Autre"
 
 }
