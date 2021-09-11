@@ -354,6 +354,8 @@
   "COF.notification.MacroItemMissing" : "L'acteur n'a pas l'objet {item}",
   "COF.notification.MacroItemUnequiped" : "L'objet {item} n'est pas équipé",
   "COF.notification.MacroUnknownStat" : "La compétence à tester n'a pas été reconnue",
+  "COF.notification.MacroNotAnEncounter" : "Le token sélectionné n'est pas une rencontre",
+  "COF.notification.WeaponIndexMissing" : "Cette rencontre ne possède pas d'arme numéro",
   
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",

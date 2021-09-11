@@ -314,6 +314,27 @@ export class CofActorSheet extends CofBaseSheet {
     }
 
     /* -------------------------------------------- */
+    /* DRAG EVENTS CALLBACKS                        */
+    /* -------------------------------------------- */    
+    /** @override */
+    _onDragStart(event){
+        super._onDragStart(event);
+        
+        // Si le drag concerne une arme de rencontre
+        const li = event.currentTarget;
+        if (li.dataset.weaponId){
+            let eventData = JSON.parse(event.dataTransfer.getData('text/plain'));
+            let weapon = this.actor.data.data.weapons[+li.dataset.weaponId];
+            eventData.type = "Weapon";
+            eventData.data = weapon;
+            eventData.weaponId = +li.dataset.weaponId;
+
+            // Set data transfer
+            event.dataTransfer.setData("text/plain", JSON.stringify(eventData));            
+        }
+    }
+
+    /* -------------------------------------------- */
     /* DROP EVENTS CALLBACKS                        */
 
     /* -------------------------------------------- */

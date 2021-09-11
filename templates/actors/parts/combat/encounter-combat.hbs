@@ -14,7 +14,7 @@
         </li>
     {{#each actor.data.weapons as |weapon id|}}
         <ol class="item-list">
-            <li class="item flexrow weapon" data-item-id="{{id}}" data-item-type="weapon" draggable="true">
+            <li class="item flexrow weapon" data-weapon-id="{{id}}" data-item-type="Weapon" draggable="true">
                 <div class="item-name flexrow" data-roll-type="weapon">
                     <div class="item-image weapon-image"></div>
                     <input class="weapon-name" name="data.weapons.{{id}}.name" type="text" value="{{weapon.name}}" placeholder="{{ localize 'COF.weapons.name.abbrev' }}" data-dtype="String"/>
