@@ -102,8 +102,18 @@ export const registerSystemSettings = function() {
         default: "0",
         config: true,
         onChange: lang => window.location.reload()
+    });    
+
+    game.settings.register("cof", "lockItems",{
+        name: "Verrouiller les objets",
+        hint: "Interdire aux joueurs de modifier les objets",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: lang => window.location.reload()        
     });
-    
+
     game.settings.register("cof", "checkFreeHandsBeforeEquip", {
         name: "Vérification des mains libres",
         hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
@@ -117,5 +127,5 @@ export const registerSystemSettings = function() {
             "2" : "Vérification (ignorable uniquement par le MJ)"
         },        
         onChange: lang => window.location.reload()
-    });
+    });    
 };

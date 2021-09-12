@@ -355,6 +355,27 @@ export class CofActorSheet extends CofBaseSheet {
     }
 
     /* -------------------------------------------- */
+    /* DRAG EVENTS CALLBACKS                        */
+    /* -------------------------------------------- */    
+    /** @override */
+    _onDragStart(event){
+        super._onDragStart(event);
+        
+        // Si le drag concerne une arme de rencontre
+        const li = event.currentTarget;
+        if (li.dataset.weaponId){
+            let eventData = JSON.parse(event.dataTransfer.getData('text/plain'));
+            let weapon = this.actor.data.data.weapons[+li.dataset.weaponId];
+            eventData.type = "Weapon";
+            eventData.data = weapon;
+            eventData.weaponId = +li.dataset.weaponId;
+
+            // Set data transfer
+            event.dataTransfer.setData("text/plain", JSON.stringify(eventData));            
+        }
+    }
+
+    /* -------------------------------------------- */
     /* DROP EVENTS CALLBACKS                        */
 
     /* -------------------------------------------- */
@@ -506,8 +527,8 @@ export class CofActorSheet extends CofBaseSheet {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
-        // Gestion des boutons de modification des effets (visible pour l'actor)
-        data.isEffectsEditable = true;
+        // Gestion des boutons de modification des effets (visible pour l'actor si il en propriétaire)
+        data.isEffectsEditable = options.editable;
         return data;
     }
 

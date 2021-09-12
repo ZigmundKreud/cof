@@ -3,7 +3,8 @@
  * @extends {Actor}
  */
 import { Stats } from "../system/stats.js";
-import {COF} from "../system/config.js";
+import { COF } from "../system/config.js";
+import { CofRoll } from "../controllers/roll.js";
 
 export class CofActor extends Actor {
     
@@ -21,6 +22,21 @@ export class CofActor extends Actor {
             if (!data.token.img) data.token.img = COF.actorIcons[data.type];
         }
         super(...args);
+        
+        // Si il s'agit d'un actor de type "encounter", on lui ajoute la méthode "rollWeapon"
+        if (data.type === "encounter"){
+            this.rollWeapon = function(weaponId, customLabel="", onlyDamage=false, bonus=0, malus=0, dmgBonus=0, skillDescr="", dmgDescr=""){
+                let weapons = this.data.data.weapons;
+                if ((Array.isArray(weapons) && weapons.length <= weaponId) || !weapons[weaponId]){
+                    ui.notifications.warn(`${game.i18n.localize("COF.notification.WeaponIndexMissing")} ${weaponId}`);
+                    return;
+                }
+                let weapon = this.data.data.weapons[weaponId];
+                let label = customLabel ? customLabel : weapon.name;
+                if (!onlyDamage) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr);
+                else CofRoll.rollDamageDialog(this, label, weapon.dmg, 0, false, null, dmgDescr);
+            }
+        }
     }
 
     /* -------------------------------------------- */
