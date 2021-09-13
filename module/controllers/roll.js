@@ -210,12 +210,11 @@ export class CofRoll {
                         const hdmax = parseInt(hd.split("d")[1]);
                         const bonus = level + conMod;
                         const formula = `1d${hdmax} + ${bonus}`;
-                        const r = new Roll(formula);
                         
                         let healingRoll = new CofHealingRoll("", formula, false, "Point de récupération", false);
-                        healingRoll.roll(actor);
-    
-                        hp.value += r.total;
+                        let result = await healingRoll.roll(actor);
+
+                        hp.value += result.total;
                         rp.value -= 1;
                         actor.update({ 'data.attributes.hp': hp, 'data.attributes.rp': rp });
                 },

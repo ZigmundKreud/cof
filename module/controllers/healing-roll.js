@@ -19,6 +19,7 @@ export class CofHealingRoll {
                 flags : {msgType : "heal"}
             });
         });
+        return r;
     }
 
     _buildHealingRollMessage() {
