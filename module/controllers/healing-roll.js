@@ -1,8 +1,10 @@
 export class CofHealingRoll {
-    constructor(label, formula, isCritical){
+    constructor(label, formula, isCritical, title, showButtons=true){
         this._label = label;
         this._formula = formula;
         this._isCritical = isCritical;
+        this._title = title;
+        this._showButtons = showButtons;
     }
 
     async roll(actor){
@@ -23,7 +25,9 @@ export class CofHealingRoll {
         const rollMessageTpl = 'systems/cof/templates/chat/healing-roll-card.hbs';
         const tplData = {
             label : this._label,
-            isCritical : this._isCritical
+            isCritical : this._isCritical,
+            title : this._title ? this._title : this._isCritical ? game.i18n.localize("COF.roll.criticalHeal") : game.i18n.localize("COF.roll.heal"),
+            showButtons : this._showButtons
         };
         return renderTemplate(rollMessageTpl, tplData);
     }
