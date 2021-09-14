@@ -38,11 +38,11 @@
                     <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="{{numberFormat attack.bonus decimals=0 sign=true}}" placeholder="Bonus" data-dtype="Number"/>
                 {{/if}}
             </div>
-            <div class="flex1 center cell">
+            <div class="flex1 center cell readonly">
                 {{#if (isNull attack.base)}}
-                    <input class="field-value" name="data.attacks.{{id}}.malus" type="text" value="" placeholder="Malus" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.malus" readonly="true" type="text" value="" placeholder="Malus" data-dtype="Number"/>
                 {{else}}
-                    <input class="field-value" name="data.attacks.{{id}}.malus" type="text" value="{{numberFormat attack.malus decimals=0 sign=true}}" placeholder="Malus" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.malus" readonly="true" type="text" value="{{numberFormat attack.malus decimals=0 sign=true}}" placeholder="Malus" data-dtype="Number"/>
                 {{/if}}
             </div>
             <div class="flex1 center cell readonly">
