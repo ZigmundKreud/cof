@@ -49,3 +49,33 @@
     </div>
 </div>
 {{/if}}
+{{#if (isEnabled "useOverload")}}
+<div class="flexrow table-header blue no-wrap">
+    <div class="flex3 center">
+        <div class="field-label"></div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.overloaded.armor' }}</div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.overloaded.enchantments' }}</div>
+    </div>
+    <div class="flex1 center">
+        <div class="field-label">{{ localize 'COF.ui.total' }}</div>
+    </div>
+</div>
+<div class="flexrow no-wrap">
+    <div class="flex3 center bg-blue">
+        <div class="field-label">{{ localize 'COF.attributes.over.label' }}</div>
+    </div>
+    <div class="flex1 center cell readonly">
+        <input class="field-value" name="overloaded.armor" type="text" readonly="true" value="{{numberFormat overloaded.armor sign=true}}" placeholder="Armure" data-dtype="Number"/>
+    </div>
+    <div class="flex1 center cell">
+        <input class="field-value" name="data.attributes.overload.misc" type="text" value="{{numberFormat actor.data.attributes.overload.misc sign=true}}" placeholder="Enchantements" data-dtype="Number"/>
+    </div>
+    <div class="flex1 center cell readonly">
+        <input class="field-value" name="overloaded.total" readonly="true" type="text" value="{{numberFormat overloaded.total sign=true}}" placeholder="Total" data-dtype="Number"/>
+    </div>
+</div>
+{{/if}}

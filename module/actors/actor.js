@@ -23,7 +23,7 @@ export class CofActor extends Actor {
         }
         super(...args);
         
-        // Si il s'agit d'un actor de type "encounter", on lui ajoute la méthode "rollWeapon"
+        // S'il s'agit d'un actor de type "encounter", on lui ajoute la méthode "rollWeapon"
         if (data.type === "encounter"){
             this.rollWeapon = function(weaponId, customLabel="", onlyDamage=false, bonus=0, malus=0, dmgBonus=0, skillDescr="", dmgDescr=""){
                 let weapons = this.data.data.weapons;
@@ -229,15 +229,8 @@ export class CofActor extends Actor {
 
         // Initiative
         attributes.init.base = stats.dex.value;
-        attributes.init.malus = 0;
-     
-        // Encombrement de l'armure
-        attributes.init.malus += this.getOverloadedMalusTotal();
-        // Incompétence avec l'armure
-        attributes.init.malus += this.getArmourMalus();
-        // Incompétence avec le bouclier
-        attributes.init.malus += this.getShieldMalus();
-
+        
+        attributes.init.malus = this.getMalusToInitiative();
         attributes.init.value = attributes.init.base + attributes.init.bonus + attributes.init.malus;
 
         // Points de chance
@@ -303,14 +296,14 @@ export class CofActor extends Actor {
         ranged.base = (rangedMod) ? rangedMod + lvl : lvl;
         magic.base = (magicMod) ? magicMod + lvl : lvl;
 
-        // Malus de l'incompétence avec les armures et boucliers
+        // Malus de l'incompétence avec l'armure ou le bouclier
         for (let attack of Object.values(attacks)) {
-            attack.malus = this.getArmourMalus() + this.getShieldMalus();
+            attack.malus = this.getIncompetentArmourMalus() + this.getIncompetentShieldMalus();
         }
 
         // Malus de l'encombrement de l'armure
-        attacks.magic.malus += this.getOverloadedMalusTotal();
-        attacks.ranged.malus += Math.ceil(this.getOverloadedMalusTotal()/2);
+        attacks.magic.malus += this.getOverloadMalusToMagicAttack();
+        attacks.ranged.malus += this.getOverloadMalusToRangedAttack();
 
         // Calcul du total
         for (let attack of Object.values(attacks)) {
@@ -525,9 +518,6 @@ export class CofActor extends Actor {
      * @name getIncompetentSkillMalus
      * @description obtenir le malus lié à la notion PJ incompétent pour les jets de FOR et DEX
      *              Le malus est la somme du malus d'armure et de bouclier
-     *      COF : pas encore implémenté
-     *      -> à implémenter dans chacun des modules Chroniques Oubliées.
-     * //TODO Implémenter dans COF
      * @param {string} skill le nom de la caractéristique
      * @returns {int} retourne le malus (nombre négatif)
      */
@@ -535,36 +525,95 @@ export class CofActor extends Actor {
         let malus = 0;
         if (game.settings.get("cof", "useIncompetentPJ")) {
             if (skill.includes("str") || skill.includes("dex")) {
-                malus += this.getArmourMalus();
-                malus += this.getShieldMalus();    
+                malus += this.getIncompetentArmourMalus();
+                malus += this.getIncompetentShieldMalus();    
             }
         }
         return malus;
     }
 
     /**
-     * @name getArmourMalus
-     * @description Retourne le malus lié à l'armure
-     *      COF : pas encore implémenté, retourne 0
+     * @name getMalusToInitiative
+     * @description Retourne le malus à l'initiative lié à l'armure et à l'incompétence armes/armures
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0
+     */
+    getMalusToInitiative() {
+        return this.getOverloadMalusToInitiative() + this.getIncompetentMalusToInitiative();
+    }
+    
+    /**
+     * @name getOverloadMalusToInitiative
+     * @description Retourne le malus à l'initiative lié à l'armure
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */
+    getOverloadMalusToInitiative() {
+        return 0;
+    }
+
+    /**
+     * @name getIncompetentMalusToInitiative
+     * @description Retourne le malus à l'initiative lié à l'incompétence armes/armures
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */
+     getIncompetentMalusToInitiative() {
+        return 0;
+    }
+    
+    /**
+     * @name getOverloadMalusToRangedAttack
+     * @description Retourne le malus à l'attaque à distance lié à l'encombrement et l'incompétence
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */
+     getOverloadMalusToRangedAttack() {
+        return 0;
+    }
+    
+    /**
+     * @name getOverloadMalusToMagicAttack
+     * @description Retourne le malus à l'attaque magique lié à l'encombrement et l'incompétence
+     * @public
+     * 
+     * @returns {int} retourne le malus (négatif) ou 0 ; dans COF retourne 0
+     */    
+     getOverloadMalusToMagicAttack() {
+        return 0;
+    }
+    
+    /**
+     * @name getIncompetentArmourMalus
+     * @description Retourne le malus d'incompétence lié à l'armure
      * @public
      * 
      * @param {*} 
      * @returns {int} retourne le malus (négatif)
      */    
-    getArmourMalus() {
+    getIncompetentArmourMalus() {
+        /*if (game.settings.get("cof", "useIncompetentPJ")){
+            return -3;
+        }*/
         return 0;
     }
 
     /**
-     * @name getShieldMalus
-     * @description Retourne le malus lié au bouclier
-     *      COF : pas encore implémenté, retourne 0
+     * @name getIncompetentShieldMalus
+     * @description Retourne le malus d'incompétence lié au bouclier
      * @public
      * 
      * @param {*} 
      * @returns {int} retourne le malus (négatif)
      */      
-    getShieldMalus() {
+    getIncompetentShieldMalus() {
+        /*if (game.settings.get("cof", "useIncompetentPJ")){
+            return -3;
+        }*/
         return 0;
     };
     
@@ -578,18 +627,20 @@ export class CofActor extends Actor {
      * @returns {int} retourne le malus (négatif)
      */
     getOverloadedSkillMalus(skill){
-        let malus = 0;
+        let malus = 0;        
         if (skill.includes("dex")) {
-            const malusFromArmor = -1 * this.getDefenceFromArmor();
-            const otherMod = this.getOverloadedOtherMod();
-            malus = malus + (malusFromArmor + otherMod > 0 ? 0 : malusFromArmor + otherMod);
+            if (game.settings.get("cof","useOverload")) {
+                const malusFromArmor = this.getMalusFromArmor();
+                const otherMod = this.getOverloadedOtherMod();
+                malus = malus + (malusFromArmor + otherMod > 0 ? 0 : malusFromArmor + otherMod);
+            }
         }
         return malus;
     }
 
     /**
      * @name getOverloadedMalusTotal
-     * @description obtenir le malus total lié à l'encombrement de l'armures pour l'initiative, l'attaque magique et l'attaque à distance
+     * @description obtenir le malus total lié à l'encombrement de l'armure
      *      COF : Pas de malus
      * 
      * @returns {int} retourne le malus (négatif)
@@ -601,24 +652,34 @@ export class CofActor extends Actor {
 
     /**
      * @name getOverloadedMalus
-     * @description obtenir le malus lié à l'encombrement de l'armures pour l'initiative, l'attaque magique et l'attaque à distance
-     *      COF : Pas de malus
+     * @description obtenir le malus lié à l'encombrement de l'armure
      * 
      * @returns {int} retourne le malus (négatif)
      */
     getOverloadedMalus() {
-        return 0;
+        return this.getMalusFromArmor();
+    }
+
+    /**
+     * @name getMalusFromArmor
+     * @description calcule le malus lié à l'armure équipée, en tenant compte du bonus éventuel qui diminue le malus
+     * @returns {Int} 0 ou la valeur négative du malus
+     */
+    getMalusFromArmor() {
+            let malus = 0;
+            let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "armor" && i.data.data.worn && i.data.data.def).map(i => (-1 * i.data.data.defBase) + i.data.data.defBonus);     
+            if (protections.length > 0) malus = protections.reduce((acc, curr) => acc + curr, 0);
+            return malus;
     }
 
     /**
      * @name getOverloadedOtherMod
      * @description obtenir les modificateurs liés à l'encombrement d'autres sources pour l'initiative, l'attaque magique, l'attaque à distance et les jets de compétence
-     *      COF : Pas de malus
      * 
      * @returns {int} retourne le modificateur (positif ou négatif)
      */
     getOverloadedOtherMod() {
-        return 0;
+        return this.data.data?.attributes?.overload?.misc ? this.data.data?.attributes?.overload?.misc : 0;
     }    
 
     /**

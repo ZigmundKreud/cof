@@ -66,7 +66,7 @@
   "COF.ui.inPath" : "Dans une Voie",
   "COF.ui.def": "Défense",
   "COF.ui.defBase": "Défense (Base)",
-  "COF.ui.defBonus": "Défense (Bonus)",
+  "COF.ui.defBonus": "Défense (Bonus magique)",
   "COF.ui.skill": "Compétence",
   "COF.ui.skillBonus": "Compétence (Bonus)",
   "COF.ui.price": "Prix unitaire (en PA)",
@@ -366,6 +366,10 @@
   "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
   "COF.dialog.rollHitPoints.error": "Vous devez sélectionner un profil ou choisir un Dé de Vie",
   "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
-  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
+  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques",
+
+  "COF.oveloaded.label": "ENCOMBREMENT",
+  "COF.overloaded.armor": "Armure",
+  "COF.overloaded.enchantments": "Autre"
 
 }

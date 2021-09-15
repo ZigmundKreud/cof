@@ -522,7 +522,10 @@ export class CofActorSheet extends CofBaseSheet {
         }
         const overloadedMalus = this.actor.getOverloadedMalus();
         const overloadedOtherMod = this.actor.getOverloadedOtherMod();
-        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0);
+        let overloadedTotal = 0;
+        if (overloadedMalus !== 0) {
+            overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0)
+        }
         data.overloaded = {
             "armor": overloadedMalus,
             "total": overloadedTotal

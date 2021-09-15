@@ -63,7 +63,7 @@
   "COF.ui.inPath" : "In Path",
   "COF.ui.def": "Defence",
   "COF.ui.defBase": "Defence (Base)",
-  "COF.ui.defBonus": "Defence (Bonus)",
+  "COF.ui.defBonus": "Defence (Magic bonus)",
   "COF.ui.skill": "Skill",
   "COF.ui.skillBonus": "Skill (Bonus)",
   "COF.ui.price": "Unitary price (SP)",
@@ -365,6 +365,10 @@
   "COF.dialog.rollHitPoints.title": "Hit Points Roll",
   "COF.dialog.rollHitPoints.error": "You must select a profile or choose a Hit dice",
   "COF.dialog.spendRecoveryPoint.title": "Spend one Recovery Point",  
-  "COF.dialog.chooseCharacteristics.title": "Characteristic scores"
+  "COF.dialog.chooseCharacteristics.title": "Characteristic scores",
+
+  "COF.oveloaded.label": "OVERLOADED",
+  "COF.overloaded.armor": "Armor",
+  "COF.overloaded.enchantments": "Misc"
 
 }

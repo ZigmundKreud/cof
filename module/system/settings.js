@@ -51,7 +51,7 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useComboRolls", {
-        name: "Active les jets \"combo\"",
+        name: "Activer les jets \"combo\"",
         hint: "Permet de lancer les jets d'attaque et de dommages simultanément.",
         scope: "world",
         config: true,
@@ -61,8 +61,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useVarInit", {
-        name: "Initiative variable",
-        hint: "Utilise la règle d'initiative variable (p.173 du LdB) au lieu de la règle de base.",
+        name: "Utiliser la règle de l'initiative variable",
+        hint: "Le résultat d’un d6 explosif est ajouté à l'initiative : ajout et relance sur 6.",
         scope: "world",
         config: true,
         default: false,
@@ -71,8 +71,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
-        name: "PJ incompétent",
-        hint: "Utilise la règle du PJ Incompétent.",
+        name: "Utiliser la règle de l'incompétence des PJ",
+        hint: "Une arme ou une armure non maitrisée donne différents malus.",
         scope: "world",
         config: false,
         default: false,
@@ -80,8 +80,18 @@ export const registerSystemSettings = function() {
         onChange: lang => window.location.reload()
     });
 
+    game.settings.register("cof", "useOverload", {
+        name: "Utiliser la règle de l'encombrement",
+        hint: "L'encombrement de l'armure cause des malus pour les jets de DEX.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+        onChange: lang => window.location.reload()
+    });   
+
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
-        name: "Affiche les boutons de dommages",
+        name: "Afficher les boutons de dommages",
         hint: "Affiche les boutons d'application des dommages dans les messages de chat à tout le monde.",
         scope: "world",
         config: true,
@@ -92,12 +102,12 @@ export const registerSystemSettings = function() {
     
     game.settings.register("cof", "moveItem", {
         name: "Mode de déplacement des items",
-        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser)",
+        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser).",
         scope: "world",
         type: String,
         choices: {
-            "0" : "Copier l'item (par défaut dans Foundry)",
-            "1" : "Déplacer l'item"
+            "0" : "Copier l'objet (par défaut dans Foundry)",
+            "1" : "Déplacer l'objet"
         },
         default: "0",
         config: true,
