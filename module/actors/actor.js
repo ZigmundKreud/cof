@@ -745,10 +745,10 @@ export class CofActor extends Actor {
      * @description Lance un dé pour l'habilité demandée
      * @returns {Promise}
      */
-    rollAbility(ability, options = {}) {
+    rollStat(stat, options = {}) {
         const { bonus = 0, malus = 0 } = options;
 
-        return Macros.rollStatMacro(this, ability, bonus, malus);
+        return Macros.rollStatMacro(this, stat, bonus, malus);
     }
 
 }

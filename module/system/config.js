@@ -20,7 +20,7 @@ System.ASCII = `
 
 export const COF = {};
 
-COF.abilities = {
+COF.stats = {
     "str": "COF.stats.str.label",
     "dex": "COF.stats.dex.label",
     "con": "COF.stats.con.label",
@@ -35,7 +35,7 @@ COF.skills = {
     "magic": "COF.attacks.magic.label"
 };
 
-COF.abilityAbbreviations = {
+COF.statAbbreviations = {
     "str": "COF.stats.str.abbrev",
     "dex": "COF.stats.dex.abbrev",
     "con": "COF.stats.con.abbrev",
