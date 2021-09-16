@@ -66,7 +66,7 @@
   "COF.ui.inPath" : "Dans une Voie",
   "COF.ui.def": "Défense",
   "COF.ui.defBase": "Défense (Base)",
-  "COF.ui.defBonus": "Défense (Bonus)",
+  "COF.ui.defBonus": "Défense (Bonus magique)",
   "COF.ui.skill": "Compétence",
   "COF.ui.skillBonus": "Compétence (Bonus)",
   "COF.ui.price": "Prix unitaire (en PA)",
@@ -354,7 +354,10 @@
   "COF.notification.MacroItemMissing" : "L'acteur n'a pas l'objet {item}",
   "COF.notification.MacroItemUnequiped" : "L'objet {item} n'est pas équipé",
   "COF.notification.MacroUnknownStat" : "La compétence à tester n'a pas été reconnue",
-  
+  "COF.notification.MacroNotAnEncounter" : "Le token sélectionné n'est pas une rencontre",
+  "COF.notification.WeaponIndexMissing" : "Cette rencontre ne possède pas d'arme numéro",
+  "COF.notification.NotEnoughFreeHands" : "Pas suffisament de mains libres pour équiper l'objet",  
+
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",
   "COF.dialog.deleteSpecie.title": "Supprimer la race ?",
@@ -363,6 +366,10 @@
   "COF.dialog.rollHitPoints.title": "Lancer les points de vie",
   "COF.dialog.rollHitPoints.error": "Vous devez sélectionner un profil ou choisir un Dé de Vie",
   "COF.dialog.spendRecoveryPoint.title": "Dépenser un point de récupération",  
-  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques"
+  "COF.dialog.chooseCharacteristics.title": "Scores de caractéristiques",
+
+  "COF.oveloaded.label": "ENCOMBREMENT",
+  "COF.overloaded.armor": "Armure",
+  "COF.overloaded.enchantments": "Autre"
 
 }

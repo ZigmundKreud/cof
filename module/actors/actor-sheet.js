@@ -198,8 +198,49 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onToggleEquip(event) {
         event.preventDefault();
-        AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-        return Inventory.onToggleEquip(this.actor, event);
+        if (this._hasEnoughFreeHands(event)){
+            AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+            return Inventory.onToggleEquip(this.actor, event);
+        }
+        else{
+            ui.notifications.warn(game.i18n.localize("COF.notification.NotEnoughFreeHands"));
+        }
+    }
+
+    /**
+     * Check if actor has enough free hands to equip this item
+     * @param event
+     * @private
+     */    
+    _hasEnoughFreeHands(event){
+        // Si le contrôle de mains libres n'est pas demandé, on renvoi Vrai
+        let checkFreehands = game.settings.get("cof", "checkFreeHandsBeforeEquip");
+        if (!checkFreehands || +checkFreehands === 0) return true;
+
+        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
+        // checkFreeHands === 1 => Tous le monde peux ignorer le contrôle
+        // checkFreeHands === 2 => Uniquement le MJ peux ignorer le contrôle
+        if (event.shiftKey && (+checkFreehands === 1 || (+checkFreehands === 2 && game.user.isGM))) return true;
+
+        // Récupération de l'item
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        
+        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
+        if (item.data.data.worn) return true;
+
+        // Si l'objet n'est pas tenu en main, on renvoi Vrai
+        if (item.data.data.slot !== "hand") return true;
+
+        // Nombre de mains nécessaire pour l'objet que l'on veux équipper
+        let neededHands = item.data.data.properties["2h"] ? 2 : 1;
+
+        // Calcul du nombre de mains déjà utilisées
+        let itemsInHands = this.actor.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
+        let usedHands = 0;
+        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
+
+        return usedHands + neededHands <= 2;        
     }
 
     /**
@@ -314,6 +355,27 @@ export class CofActorSheet extends CofBaseSheet {
     }
 
     /* -------------------------------------------- */
+    /* DRAG EVENTS CALLBACKS                        */
+    /* -------------------------------------------- */    
+    /** @override */
+    _onDragStart(event){
+        super._onDragStart(event);
+        
+        // Si le drag concerne une arme de rencontre
+        const li = event.currentTarget;
+        if (li.dataset.weaponId){
+            let eventData = JSON.parse(event.dataTransfer.getData('text/plain'));
+            let weapon = this.actor.data.data.weapons[+li.dataset.weaponId];
+            eventData.type = "Weapon";
+            eventData.data = weapon;
+            eventData.weaponId = +li.dataset.weaponId;
+
+            // Set data transfer
+            event.dataTransfer.setData("text/plain", JSON.stringify(eventData));            
+        }
+    }
+
+    /* -------------------------------------------- */
     /* DROP EVENTS CALLBACKS                        */
 
     /* -------------------------------------------- */
@@ -353,10 +415,28 @@ export class CofActorSheet extends CofBaseSheet {
             default: {
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
-                let sameActor = (data.actorId === actor.id) || (actor.isToken && (data.tokenId === actor.token.id));
+                let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
                 // Create the owned item
-                return this.actor.createEmbeddedDocuments("Item", [itemData]);
+                return this.actor.createEmbeddedDocuments("Item", [itemData]).then((item)=>{                    
+                    // Si il n'y as pas d'actor id, il s'agit d'un objet du compendium, on quitte
+                    if (!data.actorId) return item;
+                                        
+                    // Si l'item doit être "move", on le supprime de l'actor précédent
+                    let moveItem = game.settings.get("cof","moveItem");                    
+                    if (moveItem ^ event.shiftKey) {
+
+                        if (!data.tokenId){
+                            let originalActor = ActorDirectory.collection.get(data.actorId);
+                            originalActor.deleteEmbeddedDocuments("Item", [data.data._id]);
+                        }
+                        else{
+                            let token = TokenLayer.instance.placeables.find(token=>token.id === data.tokenId);
+                            let oldItem = token?.document.getEmbeddedCollection('Item').get(data.data._id);
+                            oldItem?.delete();
+                        }
+                    }                     
+                });
             }
         }
     }
@@ -442,13 +522,16 @@ export class CofActorSheet extends CofBaseSheet {
         }
         const overloadedMalus = this.actor.getOverloadedMalus();
         const overloadedOtherMod = this.actor.getOverloadedOtherMod();
-        let overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0);
+        let overloadedTotal = 0;
+        if (overloadedMalus !== 0) {
+            overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0)
+        }
         data.overloaded = {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
-        // Gestion des boutons de modification des effets (visible pour l'actor)
-        data.isEffectsEditable = true;
+        // Gestion des boutons de modification des effets (visible pour l'actor si il en propriétaire)
+        data.isEffectsEditable = options.editable;
         return data;
     }
 

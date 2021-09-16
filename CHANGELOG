@@ -1,5 +1,36 @@
-- 0.5.0
+0.8.8.4
+-------
+Corrections
+- Pour l'initiative et les attaques, le malus n'était pas remis à 0
 
+0.8.8.3
+-------
+Corrections
+- Caractéristique d'attaque magique selon le profil (#83)
+
+0.8.8.2
+-------
+Corrections
+- Tirage aléatoire des caractéristiques (#84)
+- Nombre de points de magie selon le profil
+
+0.8.8.1
+-------
+Corrections
+- Déplier/Replier des onglets inventaire et combat
+- Image par défaut d'une rencontre
+- Affichage jet de dégâts
+
+Fonctionnalités
+- Rencontre : pv ne peut être supérieur à pv max
+- Application ou non de la RD aux dommages avec une case à cocher
+
+0.8.7.1
+-------
+Mise à jour pour supporter Foundry 0.8
+
+0.5.0
+-----
 Fonctionnalités
 	- Tous les calculs de la fiche sont maintenant réalisés après la prise en compte des effets
 	- Ajout de l'onglet Effets dans les Items
