@@ -4,6 +4,7 @@
  */
 import { Stats } from "../system/stats.js";
 import { COF } from "../system/config.js";
+import { Macros } from "../system/macros.js";
 import { CofRoll } from "../controllers/roll.js";
 
 export class CofActor extends Actor {
@@ -816,6 +817,17 @@ export class CofActor extends Actor {
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
-    
+
+    /**
+     * @name rollAbilities
+     * @description Lance un dé pour l'habilité demandée
+     * @returns {Promise}
+     */
+    rollStat(stat, options = {}) {
+        const { bonus = 0, malus = 0 } = options;
+
+        return Macros.rollStatMacro(this, stat, bonus, malus);
+    }
+
 }
 
