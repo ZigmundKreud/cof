@@ -193,14 +193,16 @@ export default function registerHooks() {
     /**
      * Intercepte la création d'un active effect
      * Si l'effet provient d'un item équipable, on disable l'effet si l'item n'est pas équipé (par défaut il n'est pas équipé)
+     * Il n'y as pas de preCreateActiveEffect pour les effets transférés depuis un item
+     * On procède donc à une mise à jour de l'effet
      */
     Hooks.on("createActiveEffect", (activeEffect)=>{
         // Si l'effet ne s'applique pas à un actor, on quitte en laissant l'effet se créer normalement
-        if (!activeEffect.parent instanceof CofActor) return true;
+        if (!activeEffect.parent instanceof CofActor) return;
 
         let origin = activeEffect.data.origin;
         // Si l'effet ne provient pas d'un item, on quitte en laissant l'effet se créer normalement
-        if (!/Item\.[^.]+$/.test(origin)) return true;
+        if (!/Item\.[^.]+$/.test(origin)) return;
 
         let parts = origin.split('.');
         let item;
@@ -216,9 +218,12 @@ export default function registerHooks() {
 
         // Si l'item parent n'est pas équipable, on quitte en laissant l'effet se créer normalement
         let itemData = item.data;
-        if (!itemData.data.properties.equipable) return true;
+        if (!itemData.data.properties.equipable) return;
         
+        // Si l'effet est déjà à jour, on quitte
+        if (activeEffect.data.disabled === !itemData.worn) return;
+
         // On met à jour l'effet en fonction du fait que l'item est équipé ou non
-        activeEffect.data.disabled = !itemData.worn;
+        activeEffect.update({disabled: !itemData.worn});
     });
 }
