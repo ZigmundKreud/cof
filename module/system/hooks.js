@@ -1,3 +1,4 @@
+import { CofActor } from "../actors/actor.js";
 import {Hitpoints} from "../controllers/hitpoints.js";
 import {CharacterGeneration} from "../system/chargen.js";
 
@@ -187,5 +188,37 @@ export default function registerHooks() {
                   });
             }        
         }        
+    });
+
+    /**
+     * Intercepte la création d'un active effect
+     * Si l'effet provient d'un item équipable, on disable l'effet si l'item n'est pas équipé (par défaut il n'est pas équipé)
+     */
+    Hooks.on("createActiveEffect", (activeEffect)=>{
+        // Si l'effet ne s'applique pas à un actor, on quitte en laissant l'effet se créer normalement
+        if (!activeEffect.parent instanceof CofActor) return true;
+
+        let origin = activeEffect.data.origin;
+        // Si l'effet ne provient pas d'un item, on quitte en laissant l'effet se créer normalement
+        if (!/Item\.[^.]+$/.test(origin)) return true;
+
+        let parts = origin.split('.');
+        let item;
+
+        // Récupération de l'item parent en fonction de si il vient d'un actor du compendium ou d'un token
+        if (parts[0] === "Actor"){
+            item = ActorDirectory.collection.get(parts[1])?.getEmbeddedDocument("Item",parts[3]);
+        }
+        else if (parts[0] === "Scene"){
+            item = SceneDirectory.collection.get(parts[1])?.tokens.get(parts[3])?.getEmbeddedDocument("Item",parts[5]);
+        }
+        else return true;
+
+        // Si l'item parent n'est pas équipable, on quitte en laissant l'effet se créer normalement
+        let itemData = item.data;
+        if (!itemData.data.properties.equipable) return true;
+        
+        // On met à jour l'effet en fonction du fait que l'item est équipé ou non
+        activeEffect.data.disabled = !itemData.worn;
     });
 }
