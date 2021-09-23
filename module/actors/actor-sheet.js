@@ -463,7 +463,7 @@ export class CofActorSheet extends CofBaseSheet {
             data.combat.categories.push({
                 id: category,
                 label: game.cof.config.itemCategories[category],
-                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category && item.data.worn).sort((a, b) => (a.name > b.name) ? 1 : -1)
+                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category && item.data.worn && (item.data.properties.weapon || item.data.properties.protection)).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
             data.inventory.categories.push({
                 id: category,
