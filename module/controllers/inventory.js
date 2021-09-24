@@ -50,7 +50,9 @@ export class Inventory {
                     }    
                 }
             }
-            return item.update(itemData);
+            return item.update(itemData).then((item)=>{
+                if (!event.shiftKey) actor.syncItemActiveEffects(item);
+            });
         }
     }
 
