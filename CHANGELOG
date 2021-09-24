@@ -1,3 +1,49 @@
+0.8.9.1
+-------
+Nouvelles fonctionnalités
+
+- Ajout d'une option Mode de déplacement des items
+		Permet de choisir si le déplacement est une copie ou un transfert de l'objet. SHIFT lors du drag n' drop permet d'avoir l'autre comportement
+		
+- Prise en compte du droit Limité sur un acteur
+
+- Gestion des droits sur une fiche :
+			- Propriétaire : Le joueur peut voir la fiche dans sa totalité et la modifier 
+			- Observateur : Le joueur peut voir la fiche dans sa totalité MAIS ne peut pas la modifier
+			- Limité : Le joueur ne peut voir qu'une partie des informations de la fiche et ne peut pas la modifier
+	
+		Sur un Personnage ou un PNJ : de nombreuses informations sont masquées.
+		Il reste 2 onglets :
+			- onglet Description
+			- onglet Combat : des infos générales sur les armes équipées
+		Sur une Rencontre : seule la description est visible
+		
+	Dans la description, le contenu d'un texte formaté avec Custom/Secret n'est visible que par le MJ.
+	
+- Ajout d'une option "Verrouiller les objets"
+		L'activation fait que le joueur peut équiper, consommer, etc… ses propres objets, mais ne peut pas modifier les infos sur la fiche de l'objet
+		
+- Ajout d'une option "Vérification des mains libres"
+		Ne pas vérifier
+		Vérifié : ignorable par tout le monde en utilisant SHIFT
+		Vérifié : ignorable uniquement par le MJ en utilisant SHIFT
+		
+- Drag and drop des armes de rencontre
+		Le Drag and drop des armes de rencontre est maintenant possible dans la hotbar
+	
+- Ajout compatibilité avec le module "Let Me Roll That For You" lmrfy
+	
+- Remplacement du jet de dé des points de récupération par un healing roll
+		Ajout de la possibilité de changer le titre et de masquer les boutons dans les HealingRoll
+		
+- Ajout d'une option "Utiliser la règle de l'encombrement"
+		L'activation fait apparaître le champ Encombrement sur la fiche, calcule le malus en fonction de l'armure, et est pris en compte pour les jets de DEX
+	
+- Effet d'un Item "équipable"
+		Ajout d'un filtre pour n'afficher que les items de type "arme" ou "protection" sur l'onglet combat
+		Activation/Désactivation des active effects provenant de l'item lors que l'on équipe/déséquipe cet item
+		Possibilité d'ignorer la synchro item/effet en maintenant la touche MAJ lors du clique sur le bouton
+
 0.8.8.4
 -------
 Corrections
