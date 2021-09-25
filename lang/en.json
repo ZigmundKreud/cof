@@ -355,7 +355,8 @@
   "COF.notification.MacroUnknownStat" : "The skill to test is unknown",
   "COF.notification.MacroNotAnEncounter" : "The selected token is not an encounter",
   "COF.notification.WeaponIndexMissing" : "This encounter does not posses a weapon number",
-  "COF.notification.NotEnoughFreeHands" : "Not enough free hands to equip this object",  
+  "COF.notification.NotEnoughFreeHands" : "Not enough free hands to equip this object",
+  "COF.notification.ArmorSlotNotAvailable" : "This armor slot is not available",    
 
   "COF.dialog.deletePath.title": "Delete the path ?",
   "COF.dialog.deleteProfile.title": "Delete the profile ?",

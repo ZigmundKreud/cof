@@ -137,5 +137,20 @@ export const registerSystemSettings = function() {
             "2" : "Vérification (ignorable uniquement par le MJ)"
         },        
         onChange: lang => window.location.reload()
+    });
+    
+    game.settings.register("cof", "checkArmorSlotAvailability", {
+        name: "Vérification des emplacements d'armure",
+        hint: "Vérifier que l'emplacement d'armure est disponible avant d'équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
+        scope: "world",
+        config: true,
+        default: "none",
+        type: String,
+        choices: {
+            "none" : "Ne pas vérifier",
+            "all" : "Vérification (ignorable par tous)",
+            "gm" : "Vérification (ignorable uniquement par le MJ)"
+        },        
+        onChange: lang => window.location.reload()
     });    
 };
