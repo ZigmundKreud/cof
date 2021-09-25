@@ -129,19 +129,19 @@ export const registerSystemSettings = function() {
         hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
         scope: "world",
         config: true,
-        default: "0",
+        default: "none",
         type: String,
         choices: {
-            "0" : "Ne pas vérifier",
-            "1" : "Vérification (ignorable par tous)",
-            "2" : "Vérification (ignorable uniquement par le MJ)"
+            "none" : "Ne pas vérifier",
+            "all" : "Vérification (ignorable par tous)",
+            "gm" : "Vérification (ignorable uniquement par le MJ)"
         },        
         onChange: lang => window.location.reload()
     });
     
     game.settings.register("cof", "checkArmorSlotAvailability", {
         name: "Vérification des emplacements d'armure",
-        hint: "Vérifier que l'emplacement d'armure est disponible avant d'équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
+        hint: "Vérifier la disponibilité d'un emplacement avant d'équiper une armure (Maintenir MAJ pour ignorer le contrôle)",
         scope: "world",
         config: true,
         default: "none",
