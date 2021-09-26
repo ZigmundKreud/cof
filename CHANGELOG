@@ -1,5 +1,8 @@
 0.8.9.1
 -------
+Corrections
+- Menu Options du système : la sélection multiple ne marche pas
+
 Nouvelles fonctionnalités
 
 - Ajout d'une option Mode de déplacement des items
@@ -23,10 +26,15 @@ Nouvelles fonctionnalités
 - Ajout d'une option "Verrouiller les objets"
 		L'activation fait que le joueur peut équiper, consommer, etc… ses propres objets, mais ne peut pas modifier les infos sur la fiche de l'objet
 		
-- Ajout d'une option "Vérification des mains libres"
+- Ajout d'une option "Vérification des mains libres" : vérifie qu'il reste assez de mains pour équipier l'objet
 		Ne pas vérifier
 		Vérifié : ignorable par tout le monde en utilisant SHIFT
 		Vérifié : ignorable uniquement par le MJ en utilisant SHIFT
+
+- Ajout d'une option "Vérification des emplacements d'armure" : vérifie que le slot n'est pas déjà pris par une armure équipée
+		Ne pas vérifier
+		Vérifié : ignorable par tout le monde en utilisant SHIFT
+		Vérifié : ignorable uniquement par le MJ en utilisant SHIFT		
 		
 - Drag and drop des armes de rencontre
 		Le Drag and drop des armes de rencontre est maintenant possible dans la hotbar
@@ -36,13 +44,19 @@ Nouvelles fonctionnalités
 - Remplacement du jet de dé des points de récupération par un healing roll
 		Ajout de la possibilité de changer le titre et de masquer les boutons dans les HealingRoll
 		
-- Ajout d'une option "Utiliser la règle de l'encombrement"
+- Ajout d'une option "Utiliser la règle de l'encombrement" pour gérer le malus d'armure
 		L'activation fait apparaître le champ Encombrement sur la fiche, calcule le malus en fonction de l'armure, et est pris en compte pour les jets de DEX
 	
 - Effet d'un Item "équipable"
 		Ajout d'un filtre pour n'afficher que les items de type "arme" ou "protection" sur l'onglet combat
 		Activation/Désactivation des active effects provenant de l'item lors que l'on équipe/déséquipe cet item
 		Possibilité d'ignorer la synchro item/effet en maintenant la touche MAJ lors du clique sur le bouton
+
+- Synchronisation des effets avec l'état "équipé"
+		Synchronisation de l'état des effets avec l'état "Equipé" de l'objet qui contient les effets : les effets ne sont appliqués que si l'objet est équipé
+		Possibilité d'ignorer la synchronisation de l'état des effets en utilisant la touche SHIFT
+
+- Ajout d'un filtre sur l'onglet combat pour n'afficher que les objets de type "arme" et "protection"		
 
 0.8.8.4
 -------

@@ -9,8 +9,8 @@ Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://
 * Allez dans la page d'accueil de Foundry (Configuration and Setup), cliquer sur Game Systems.
 * Cliquez sur "Install System" et chercher le système "Chroniques Oubliées Fantasy"
 * Cliquez sur "Install"
-### Installation manuelle
 
+### Installation manuelle
 * Allez dans la page d'accueil de Foundry (Configuration and Setup), cliquer sur Game Systems.
 * Cliquez sur "Install System" et coller le lien vers le [manifest](https://raw.githubusercontent.com/ZigmundKreud/cof/master/system.json) dans le champ "Manifest URL" en bas de la fenêtre. 
 * Cliquez sur "Install"
