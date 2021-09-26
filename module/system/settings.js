@@ -6,8 +6,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useFortune", {
@@ -16,8 +15,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useMana", {
@@ -26,8 +24,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useDamageResistance", {
@@ -36,8 +33,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "displayDifficulty", {
@@ -46,8 +42,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useComboRolls", {
@@ -56,8 +51,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useVarInit", {
@@ -66,8 +60,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
@@ -76,8 +69,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: false,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useOverload", {
@@ -86,8 +78,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });   
 
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
@@ -96,8 +87,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
     
     game.settings.register("cof", "moveItem", {
@@ -110,8 +100,7 @@ export const registerSystemSettings = function() {
             "1" : "Déplacer l'objet"
         },
         default: "0",
-        config: true,
-        onChange: lang => window.location.reload()
+        config: true
     });    
 
     game.settings.register("cof", "lockItems",{
@@ -120,8 +109,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()        
+        type: Boolean        
     });
 
     game.settings.register("cof", "checkFreeHandsBeforeEquip", {
@@ -135,8 +123,7 @@ export const registerSystemSettings = function() {
             "none" : "Ne pas vérifier",
             "all" : "Vérification (ignorable par tous)",
             "gm" : "Vérification (ignorable uniquement par le MJ)"
-        },        
-        onChange: lang => window.location.reload()
+        }
     });
     
     game.settings.register("cof", "checkArmorSlotAvailability", {
@@ -150,7 +137,6 @@ export const registerSystemSettings = function() {
             "none" : "Ne pas vérifier",
             "all" : "Vérification (ignorable par tous)",
             "gm" : "Vérification (ignorable uniquement par le MJ)"
-        },        
-        onChange: lang => window.location.reload()
+        }
     });    
 };
