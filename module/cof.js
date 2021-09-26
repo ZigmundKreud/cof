@@ -47,6 +47,9 @@ Hooks.once("init", async function () {
         };
     }
 
+    // Record Configuration Values
+    CONFIG.COF = COF;
+
     // Define custom Entity classes
     CONFIG.Actor.documentClass = CofActor;
     CONFIG.Item.documentClass = CofItem;

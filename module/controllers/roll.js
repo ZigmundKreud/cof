@@ -2,6 +2,7 @@ import { CharacterGeneration } from "../system/chargen.js";
 import { CofSkillRoll } from "./skill-roll.js";
 import { CofDamageRoll } from "./dmg-roll.js";
 import { CofAttributesDialog } from "../dialogs/attributes-dialog.js";
+import { CofHealingRoll } from "./healing-roll.js";
 
 export class CofRoll {
     static options() {
@@ -209,15 +210,11 @@ export class CofRoll {
                         const hdmax = parseInt(hd.split("d")[1]);
                         const bonus = level + conMod;
                         const formula = `1d${hdmax} + ${bonus}`;
-                        const r = new Roll(formula);
-                        await r.roll({"async": true});
-                        r.toMessage({
-                                user: game.user.id,
-                                flavor: "<h2>Dépense un point de récupération</h2>",
-                                speaker: ChatMessage.getSpeaker({ actor: actor })
-                        });
-    
-                        hp.value += r.total;
+                        
+                        let healingRoll = new CofHealingRoll("", formula, false, "Point de récupération", false);
+                        let result = await healingRoll.roll(actor);
+
+                        hp.value += result.total;
                         rp.value -= 1;
                         actor.update({ 'data.attributes.hp': hp, 'data.attributes.rp': rp });
                 },

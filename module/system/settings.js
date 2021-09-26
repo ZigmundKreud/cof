@@ -6,8 +6,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useFortune", {
@@ -16,8 +15,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useMana", {
@@ -26,8 +24,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useDamageResistance", {
@@ -36,8 +33,7 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "displayDifficulty", {
@@ -46,48 +42,101 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useComboRolls", {
-        name: "Active les jets \"combo\"",
+        name: "Activer les jets \"combo\"",
         hint: "Permet de lancer les jets d'attaque et de dommages simultanément.",
         scope: "world",
         config: true,
         default: true,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useVarInit", {
-        name: "Initiative variable",
-        hint: "Utilise la règle d'initiative variable (p.173 du LdB) au lieu de la règle de base.",
+        name: "Utiliser la règle de l'initiative variable",
+        hint: "Le résultat d’un d6 explosif est ajouté à l'initiative : ajout et relance sur 6.",
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
-        name: "PJ incompétent",
-        hint: "Utilise la règle du PJ Incompétent.",
+        name: "Utiliser la règle de l'incompétence des PJ",
+        hint: "Une arme ou une armure non maitrisée donne différents malus.",
         scope: "world",
         config: false,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
 
+    game.settings.register("cof", "useOverload", {
+        name: "Utiliser la règle de l'encombrement",
+        hint: "L'encombrement de l'armure cause des malus pour les jets de DEX.",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean
+    });   
+
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
-        name: "Affiche les boutons de dommages",
+        name: "Afficher les boutons de dommages",
         hint: "Affiche les boutons d'application des dommages dans les messages de chat à tout le monde.",
         scope: "world",
         config: true,
         default: false,
-        type: Boolean,
-        onChange: lang => window.location.reload()
+        type: Boolean
     });
     
+    game.settings.register("cof", "moveItem", {
+        name: "Mode de déplacement des items",
+        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser).",
+        scope: "world",
+        type: String,
+        choices: {
+            "0" : "Copier l'objet (par défaut dans Foundry)",
+            "1" : "Déplacer l'objet"
+        },
+        default: "0",
+        config: true
+    });    
+
+    game.settings.register("cof", "lockItems",{
+        name: "Verrouiller les objets",
+        hint: "Interdire aux joueurs de modifier les objets",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean        
+    });
+
+    game.settings.register("cof", "checkFreeHandsBeforeEquip", {
+        name: "Vérification des mains libres",
+        hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
+        scope: "world",
+        config: true,
+        default: "none",
+        type: String,
+        choices: {
+            "none" : "Ne pas vérifier",
+            "all" : "Vérification (ignorable par tous)",
+            "gm" : "Vérification (ignorable uniquement par le MJ)"
+        }
+    });
+    
+    game.settings.register("cof", "checkArmorSlotAvailability", {
+        name: "Vérification des emplacements d'armure",
+        hint: "Vérifier la disponibilité d'un emplacement avant d'équiper une armure (Maintenir MAJ pour ignorer le contrôle)",
+        scope: "world",
+        config: true,
+        default: "none",
+        type: String,
+        choices: {
+            "none" : "Ne pas vérifier",
+            "all" : "Vérification (ignorable par tous)",
+            "gm" : "Vérification (ignorable uniquement par le MJ)"
+        }
+    });    
 };

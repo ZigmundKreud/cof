@@ -25,8 +25,8 @@
     <div class="flex1 center cell">
         <input class="field-value" name="data.attributes.init.bonus" type="text" value="{{numberFormat actor.data.attributes.init.bonus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.bonus' }}" data-dtype="Number"/>
     </div>
-    <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.init.malus" type="text" value="{{numberFormat actor.data.attributes.init.malus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.malus' }}" data-dtype="Number"/>
+    <div class="flex1 center cell readonly">
+        <input class="field-value" name="data.attributes.init.malus" readonly="true" type="text" value="{{numberFormat actor.data.attributes.init.malus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.malus' }}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
         <input class="field-value" name="data.attributes.init.value" readonly="true" type="text" value="{{actor.data.attributes.init.value}}" placeholder="{{ localize 'COF.attributes.value.abbrev' }}" data-dtype="Number"/>
