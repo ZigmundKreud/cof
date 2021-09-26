@@ -198,13 +198,27 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onToggleEquip(event) {
         event.preventDefault();
-        if (this._hasEnoughFreeHands(event)){
+        if (this._canEquipItem(event)){
             AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
             return Inventory.onToggleEquip(this.actor, event);
         }
-        else{
+    }
+
+    /**
+     * Check if an item can be equiped
+     * @param event
+     * @private
+     */        
+    _canEquipItem(event){
+        if (!this._hasEnoughFreeHands(event)){
             ui.notifications.warn(game.i18n.localize("COF.notification.NotEnoughFreeHands"));
+            return false;
         }
+        if (!this._isArmorSlotAvailable(event)){
+            ui.notifications.warn(game.i18n.localize("COF.notification.ArmorSlotNotAvailable"));
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -215,12 +229,12 @@ export class CofActorSheet extends CofBaseSheet {
     _hasEnoughFreeHands(event){
         // Si le contrôle de mains libres n'est pas demandé, on renvoi Vrai
         let checkFreehands = game.settings.get("cof", "checkFreeHandsBeforeEquip");
-        if (!checkFreehands || +checkFreehands === 0) return true;
+        if (!checkFreehands || checkFreehands === "none") return true;
 
         // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
         // checkFreeHands === 1 => Tous le monde peux ignorer le contrôle
         // checkFreeHands === 2 => Uniquement le MJ peux ignorer le contrôle
-        if (event.shiftKey && (+checkFreehands === 1 || (+checkFreehands === 2 && game.user.isGM))) return true;
+        if (event.shiftKey && (checkFreehands === "all" || (checkFreehands === "gm" && game.user.isGM))) return true;
 
         // Récupération de l'item
         const li = $(event.currentTarget).closest(".item");
@@ -241,6 +255,41 @@ export class CofActorSheet extends CofBaseSheet {
         itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
 
         return usedHands + neededHands <= 2;        
+    }
+
+    /**
+     * Check if armor slot is available to equip this item
+     * @param event
+     * @private
+     */        
+    _isArmorSlotAvailable(event){
+        // Si le contrôle de disponibilité de l'emplacement d'armure n'est pas demandé, on renvoi Vrai
+        let checkArmorSlotAvailability = game.settings.get("cof", "checkArmorSlotAvailability");
+        if (!checkArmorSlotAvailability || checkArmorSlotAvailability === "none") return true;
+
+        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
+        if (event.shiftKey && (checkArmorSlotAvailability === "all" || (checkArmorSlotAvailability === "gm" && game.user.isGM))) return true;
+        
+        // Récupération de l'item
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        const itemData = item.data.data;
+
+        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
+        if (itemData.worn) return true;
+        
+        // Si l'objet n'est pas une protection, on renvoi Vrai
+        if (!itemData.properties.protection) return true;
+
+        // Recheche d'une item de type protection déjà équipé dans le slot cible
+        let equipedItem = this.actor.items.find((slotItem)=>{
+            let slotItemData = slotItem.data.data;
+
+            return slotItemData.properties?.protection && slotItemData.properties.equipable && slotItemData.worn && slotItemData.slot === itemData.slot;
+        });
+        
+        // Renvoi vrai si le le slot est libre, sinon renvoi faux
+        return !equipedItem;    
     }
 
     /**
@@ -417,6 +466,10 @@ export class CofActorSheet extends CofBaseSheet {
                 const actor = this.actor;
                 let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
+
+                // On force le nouvel Item a ne pas être équipé (notamment lors du transfert d'un inventaire à un autre)
+                if (itemData.data.worn) itemData.data.worn = false;
+
                 // Create the owned item
                 return this.actor.createEmbeddedDocuments("Item", [itemData]).then((item)=>{                    
                     // Si il n'y as pas d'actor id, il s'agit d'un objet du compendium, on quitte
