@@ -70,4 +70,20 @@ export class CofItem extends Item {
         if (!this.data.data.properties?.weapon) return;
         return ;
     }
+
+    modifyQuantity(increment, isDecrease) {
+        if(this.data.data.properties.stackable){
+            let itemData = duplicate(this.data);
+            const qty = itemData.data.qty;
+            if(isDecrease) itemData.data.qty = qty - increment;
+            else itemData.data.qty = qty + increment;
+            if(itemData.data.qty < 0) itemData.data.qty = 0;
+            if(itemData.data.stacksize && itemData.data.qty > itemData.data.stacksize) itemData.data.qty = itemData.data.stacksize;
+            if(itemData.data.price){
+                const qty = (itemData.data.qty) ? itemData.data.qty : 1;
+                itemData.data.value = qty * itemData.data.price;
+            }
+            return this.update(itemData);
+        }
+    }
 }

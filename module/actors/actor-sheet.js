@@ -9,7 +9,6 @@ import { Species } from "../controllers/species.js";
 import { CofRoll } from "../controllers/roll.js";
 import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
-import { Inventory } from "../controllers/inventory.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
 import { COF } from "../system/config.js";
@@ -188,12 +187,16 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onIncrease(event) {
         event.preventDefault();
-        return Inventory.onModifyQuantity(this.actor, event, 1, false);
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyQuantity(1, false);
     }
 
     _onDecrease(event) {
         event.preventDefault();
-        return Inventory.onModifyQuantity(this.actor, event, 1, true);
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyQuantity(1, true);
     }
 
     _onToggleEquip(event) {

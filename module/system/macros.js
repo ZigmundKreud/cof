@@ -81,28 +81,28 @@ export class Macros {
 
         if(itemData.data.properties.weapon || itemData.data.properties.heal){
             if (itemData.data.properties.weapon){
-                if(itemData.data.worn){
-                    const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
-                    const critrange = itemData.data.critrange;              
-
-                    // Compute MOD
-                    const itemModStat = itemData.data.skill.split("@")[1];
-                    const itemModBonus = parseInt(itemData.data.skillBonus);
-                    const weaponCategory = item.getMartialCategory();
-                    
-                    let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
-
-                    // Compute DM
-                    const itemDmgBase = itemData.data.dmgBase;                        
-                    const itemDmgStat = itemData.data.dmgStat.split("@")[1];
-                    const itemDmgBonus = parseInt(itemData.data.dmgBonus);
-
-                    let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
-
-                    if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
-                    else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
+                if (itemData.data.properties.equipable && !itemData.data.worn) {
+                    return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
                 }
-                else return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
+                const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
+                const critrange = itemData.data.critrange;              
+
+                // Compute MOD
+                const itemModStat = itemData.data.skill.split("@")[1];
+                const itemModBonus = parseInt(itemData.data.skillBonus);
+                const weaponCategory = item.getMartialCategory();
+                
+                let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+
+                // Compute DM
+                const itemDmgBase = itemData.data.dmgBase;                        
+                const itemDmgStat = itemData.data.dmgStat.split("@")[1];
+                const itemDmgBonus = parseInt(itemData.data.dmgBonus);
+
+                let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
+
+                if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
+                else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);                    
             }
             if (itemData.data.properties.heal){
                 new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
