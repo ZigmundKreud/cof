@@ -198,10 +198,12 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onToggleEquip(event) {
         event.preventDefault();
-        if (this._canEquipItem(event)){
-            AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-            return Inventory.onToggleEquip(this.actor, event);
-        }
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+
+        const bypassChecks = event.shiftKey;
+
+        return this.actor.toggleEquipItem(item, bypassChecks);
     }
 
     /**
@@ -299,8 +301,11 @@ export class CofActorSheet extends CofBaseSheet {
      */
     _onConsume(event) {
         event.preventDefault();
-        AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-        return Inventory.onConsume(this.actor, event);
+
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+
+        this.actor.consumeItem(item);
     }
 
     /**

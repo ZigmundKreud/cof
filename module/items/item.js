@@ -56,9 +56,9 @@ export class CofItem extends Item {
         }
     }
 
-    applyEffects(actor, event){
+    applyEffects(actor){
         const itemData = this.data;
-        // console.log(itemData)
+
         if(itemData.data.properties.heal){
             const heal = itemData.data.effects.heal;
             const r = new CofHealingRoll(itemData.name, heal.formula, false);
