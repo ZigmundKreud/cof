@@ -41,8 +41,8 @@ export class CofItem extends Item {
     _prepareWeaponData(itemData, actorData) {
         itemData.data.skillBonus = (itemData.data.skillBonus) ? itemData.data.skillBonus : 0;
         itemData.data.dmgBonus = (itemData.data.dmgBonus) ? itemData.data.dmgBonus : 0;
+        
         if (actorData && actorData.type !== "loot") {
-
             // Compute skill mod
             const skillMod = eval("actorData.data." + itemData.data.skill.split("@")[1]);
             itemData.data.mod = parseInt(skillMod) + parseInt(itemData.data.skillBonus);

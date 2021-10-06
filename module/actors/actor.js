@@ -980,7 +980,7 @@ export class CofActor extends Actor {
             return slotItemData.properties?.protection && slotItemData.properties.equipable && slotItemData.worn && slotItemData.slot === itemData.slot;
         });
         
-        // Renvoi vrai si le le slot est libre, sinon renvoi faux
+        // Renvoie vrai si le le slot est libre, sinon renvoi faux
         return !equipedItem;    
     }   
 
