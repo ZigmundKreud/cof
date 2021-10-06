@@ -826,7 +826,7 @@ export class CofActor extends Actor {
     rollStat(stat, options = {}) {
         const { bonus = 0, malus = 0 } = options;
 
-        return Macros.rollStatMacro(this, stat, bonus, malus);
+        return Macros.rollStatMacro(this, stat, bonus, malus, null, options.label, options.descr, options.dialog, options.dice, options.difficulty);
     }
 
     /**
