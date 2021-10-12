@@ -9,7 +9,6 @@ import { Species } from "../controllers/species.js";
 import { CofRoll } from "../controllers/roll.js";
 import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
-import { Inventory } from "../controllers/inventory.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
 import { COF } from "../system/config.js";
@@ -188,108 +187,26 @@ export class CofActorSheet extends CofBaseSheet {
 
     _onIncrease(event) {
         event.preventDefault();
-        return Inventory.onModifyQuantity(this.actor, event, 1, false);
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyQuantity(1, false);
     }
 
     _onDecrease(event) {
         event.preventDefault();
-        return Inventory.onModifyQuantity(this.actor, event, 1, true);
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyQuantity(1, true);
     }
 
     _onToggleEquip(event) {
         event.preventDefault();
-        if (this._canEquipItem(event)){
-            AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-            return Inventory.onToggleEquip(this.actor, event);
-        }
-    }
-
-    /**
-     * Check if an item can be equiped
-     * @param event
-     * @private
-     */        
-    _canEquipItem(event){
-        if (!this._hasEnoughFreeHands(event)){
-            ui.notifications.warn(game.i18n.localize("COF.notification.NotEnoughFreeHands"));
-            return false;
-        }
-        if (!this._isArmorSlotAvailable(event)){
-            ui.notifications.warn(game.i18n.localize("COF.notification.ArmorSlotNotAvailable"));
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * Check if actor has enough free hands to equip this item
-     * @param event
-     * @private
-     */    
-    _hasEnoughFreeHands(event){
-        // Si le contrôle de mains libres n'est pas demandé, on renvoi Vrai
-        let checkFreehands = game.settings.get("cof", "checkFreeHandsBeforeEquip");
-        if (!checkFreehands || checkFreehands === "none") return true;
-
-        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
-        // checkFreeHands === 1 => Tous le monde peux ignorer le contrôle
-        // checkFreeHands === 2 => Uniquement le MJ peux ignorer le contrôle
-        if (event.shiftKey && (checkFreehands === "all" || (checkFreehands === "gm" && game.user.isGM))) return true;
-
-        // Récupération de l'item
         const li = $(event.currentTarget).closest(".item");
         const item = this.actor.items.get(li.data("itemId"));
-        
-        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
-        if (item.data.data.worn) return true;
 
-        // Si l'objet n'est pas tenu en main, on renvoi Vrai
-        if (item.data.data.slot !== "hand") return true;
+        const bypassChecks = event.shiftKey;
 
-        // Nombre de mains nécessaire pour l'objet que l'on veux équipper
-        let neededHands = item.data.data.properties["2h"] ? 2 : 1;
-
-        // Calcul du nombre de mains déjà utilisées
-        let itemsInHands = this.actor.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
-        let usedHands = 0;
-        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
-
-        return usedHands + neededHands <= 2;        
-    }
-
-    /**
-     * Check if armor slot is available to equip this item
-     * @param event
-     * @private
-     */        
-    _isArmorSlotAvailable(event){
-        // Si le contrôle de disponibilité de l'emplacement d'armure n'est pas demandé, on renvoi Vrai
-        let checkArmorSlotAvailability = game.settings.get("cof", "checkArmorSlotAvailability");
-        if (!checkArmorSlotAvailability || checkArmorSlotAvailability === "none") return true;
-
-        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
-        if (event.shiftKey && (checkArmorSlotAvailability === "all" || (checkArmorSlotAvailability === "gm" && game.user.isGM))) return true;
-        
-        // Récupération de l'item
-        const li = $(event.currentTarget).closest(".item");
-        const item = this.actor.items.get(li.data("itemId"));
-        const itemData = item.data.data;
-
-        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
-        if (itemData.worn) return true;
-        
-        // Si l'objet n'est pas une protection, on renvoi Vrai
-        if (!itemData.properties.protection) return true;
-
-        // Recheche d'une item de type protection déjà équipé dans le slot cible
-        let equipedItem = this.actor.items.find((slotItem)=>{
-            let slotItemData = slotItem.data.data;
-
-            return slotItemData.properties?.protection && slotItemData.properties.equipable && slotItemData.worn && slotItemData.slot === itemData.slot;
-        });
-        
-        // Renvoi vrai si le le slot est libre, sinon renvoi faux
-        return !equipedItem;    
+        return this.actor.toggleEquipItem(item, bypassChecks);
     }
 
     /**
@@ -299,8 +216,10 @@ export class CofActorSheet extends CofBaseSheet {
      */
     _onConsume(event) {
         event.preventDefault();
-        AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-        return Inventory.onConsume(this.actor, event);
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+
+        this.actor.consumeItem(item);
     }
 
     /**
