@@ -941,12 +941,12 @@ export class CofActor extends Actor {
         if (item.data.data.slot !== "hand") return true;
 
         // Nombre de mains nécessaire pour l'objet que l'on veux équipper
-        let neededHands = item.data.data.properties["2h"] ? 2 : 1;
+        let neededHands = item.data.data.properties["2H"] ? 2 : 1;
 
         // Calcul du nombre de mains déjà utilisées
         let itemsInHands = this.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
         let usedHands = 0;
-        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
+        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2H"] ? 2 : 1);                
 
         return usedHands + neededHands <= 2;        
     }
