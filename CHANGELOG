@@ -1,10 +1,40 @@
+0.8.9.2
+-------
+Nouvelles fonctionnalités
+- Ajout du support du module Token Action HUD
+	Caractéristiques : 
+		Clic gauche : Jet avec dialogue
+		Clic droit : Jet sans dialogue
+		
+		Caractéristiques : Jet de dé
+		Attaques : Jet de dé
+
+	Combat
+		Clic gauche : Toucher + DM
+		Shift + Click : DM
+		
+		Armes : armes de contact ou à distance équipées
+		Sorts : de type armes ou les sorts activables
+			Cliquer sur un sort activable ouvre sa fiche
+		
+	Inventaire
+		Clic droit (si option activée): ouvre la fiche de l'objet
+		Clic gauche :
+			Armes et Protections : Equipe/Déséquipe
+			Consommables : affiche les objets consommables sauf les sorts, consomme une unité de l'objet
+			Sorts : consomme le sort s'il est "consommable", sinon ne fait rien
+			Equipement : les autres objets, ne fait rien
+			
+	Capacité 
+		Clic gauche : ouvre la capacité
+
+
 0.8.9.1
 -------
 Corrections
 - Menu Options du système : la sélection multiple ne marche pas
 
 Nouvelles fonctionnalités
-
 - Ajout d'une option Mode de déplacement des items
 		Permet de choisir si le déplacement est une copie ou un transfert de l'objet. SHIFT lors du drag n' drop permet d'avoir l'autre comportement
 		
