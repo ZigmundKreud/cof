@@ -358,6 +358,7 @@
   "COF.notification.WeaponIndexMissing" : "Cette rencontre ne possède pas d'arme numéro",
   "COF.notification.NotEnoughFreeHands" : "Pas suffisament de mains libres pour équiper l'objet",
   "COF.notification.ArmorSlotNotAvailable" : "L'emplacement pour équiper cette armure n'est pas disponible",
+  "COF.notification.ItemNotEquipable" : "{itemName} n'est pas un objet équipable",
 
   "COF.dialog.deletePath.title": "Supprimer la voie ?",
   "COF.dialog.deleteProfile.title": "Supprimer le profil ?",

@@ -819,14 +819,14 @@ export class CofActor extends Actor {
     }
 
     /**
-     * @name rollAbilities
+     * @name rollStat
      * @description Lance un dé pour l'habilité demandée
      * @returns {Promise}
      */
     rollStat(stat, options = {}) {
         const { bonus = 0, malus = 0 } = options;
 
-        return Macros.rollStatMacro(this, stat, bonus, malus);
+        return Macros.rollStatMacro(this, stat, bonus, malus, null, options.label, options.descr, options.dialog, options.dice, options.difficulty);
     }
 
     /**
@@ -844,6 +844,162 @@ export class CofActor extends Actor {
             this.updateEmbeddedDocuments("ActiveEffect", effectsData);
         }
     }    
+
+    /**
+     * @name rollWeapon
+     * @description
+     * @returns {Promise}
+     */
+     rollWeapon(item, options = {}) {
+        const { bonus = 0, malus = 0, dmgBonus = 0, dmgOnly = false } = options;
+
+        return Macros.rollItemMacro(item.id, item.name, item.type, bonus, malus, dmgBonus, dmgOnly);
+     }
+    
+    /**
+     * 
+     * @param {*} item 
+     * @param {*} bypassChecks 
+     * @returns 
+     */
+     toggleEquipItem(item, bypassChecks) {
+        if (!this.canEquipItem(item, bypassChecks)) return;        
+
+        const equipable = item.data.data.properties.equipable;
+        if(equipable){
+            let itemData = duplicate(item.data);
+            itemData.data.worn = !itemData.data.worn;
+
+            if (game.settings.get("cof", "useIncompetentPJ") && itemData.data.worn) {
+                // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
+                if (itemData.data.subtype === "armor" || itemData.data.subtype === "shield") {
+                    const armorCategory = item.getMartialCategory();
+                    if (!this.isCompetentWithArmor(armorCategory)) {
+                        ui.notifications?.warn(this.name + " est incompétent dans le port de l'armure " + item.name);
+                    }    
+                }
+                if (itemData.data.subtype === "melee" || itemData.data.subtype === "ranged") {
+                    const weaponCategory = item.getMartialCategory();
+                    if (!this.isCompetentWithWeapon(weaponCategory)) {
+                        ui.notifications?.warn(this.name + " est incompétent dans le port de l'arme " + item.name);
+                    }    
+                }
+            }
+            return item.update(itemData).then((item)=>{
+                AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+                if (!bypassChecks) this.syncItemActiveEffects(item);
+            });
+        }
+    }
+       
+    /**
+     * Check if an item can be equiped
+     * @param item
+     * @param bypassChecks      
+     */        
+     canEquipItem(item, bypassChecks) {
+        if (!this.items.some(it=>it.id === item.id)){
+            ui.notifications.warn(game.i18n.format('COF.notification.MacroItemMissing', {item:item.name}));
+            return false;
+        }
+        let itemData = item.data.data;
+        if (!itemData?.properties.equipment || !itemData?.properties.equipable){
+            ui.notifications.warn(game.i18n.format("COF.notification.ItemNotEquipable", {itemName:item.name}));
+            return;
+        }
+      
+        if (!this._hasEnoughFreeHands(item, bypassChecks)){
+            ui.notifications.warn(game.i18n.localize("COF.notification.NotEnoughFreeHands"));
+            return false;
+        }
+        if (!this._isArmorSlotAvailable(item, bypassChecks)){
+            ui.notifications.warn(game.i18n.localize("COF.notification.ArmorSlotNotAvailable"));
+            return false;
+        }
+        
+        return true;
+    }
+
+    /**
+     * Check if actor has enough free hands to equip this item
+     * @param event
+     * @param bypassChecks     
+     * @private
+     */    
+     _hasEnoughFreeHands(item, bypassChecks){
+        // Si le contrôle de mains libres n'est pas demandé, on renvoi Vrai
+        let checkFreehands = game.settings.get("cof", "checkFreeHandsBeforeEquip");
+        if (!checkFreehands || checkFreehands === "none") return true;
+
+        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
+        if (bypassChecks && (checkFreehands === "all" || (checkFreehands === "gm" && game.user.isGM))) return true;      
+        
+        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
+        if (item.data.data.worn) return true;
+
+        // Si l'objet n'est pas tenu en main, on renvoi Vrai
+        if (item.data.data.slot !== "hand") return true;
+
+        // Nombre de mains nécessaire pour l'objet que l'on veux équipper
+        let neededHands = item.data.data.properties["2h"] ? 2 : 1;
+
+        // Calcul du nombre de mains déjà utilisées
+        let itemsInHands = this.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
+        let usedHands = 0;
+        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
+
+        return usedHands + neededHands <= 2;        
+    }
+
+    /**
+     * Check if armor slot is available to equip this item
+     * @param event
+     * @param bypassChecks          
+     * @private
+     */        
+    _isArmorSlotAvailable(item, bypassChecks){
+        // Si le contrôle de disponibilité de l'emplacement d'armure n'est pas demandé, on renvoi Vrai
+        let checkArmorSlotAvailability = game.settings.get("cof", "checkArmorSlotAvailability");
+        if (!checkArmorSlotAvailability || checkArmorSlotAvailability === "none") return true;
+
+        // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
+        if (bypassChecks && (checkArmorSlotAvailability === "all" || (checkArmorSlotAvailability === "gm" && game.user.isGM))) return true;
+        
+        const itemData = item.data.data;
+
+        // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
+        if (itemData.worn) return true;
+        
+        // Si l'objet n'est pas une protection, on renvoi Vrai
+        if (!itemData.properties.protection) return true;
+
+        // Recheche d'une item de type protection déjà équipé dans le slot cible
+        let equipedItem = this.items.find((slotItem)=>{
+            let slotItemData = slotItem.data.data;
+
+            return slotItemData.properties?.protection && slotItemData.properties.equipable && slotItemData.worn && slotItemData.slot === itemData.slot;
+        });
+        
+        // Renvoie vrai si le le slot est libre, sinon renvoi faux
+        return !equipedItem;    
+    }   
+
+    /**
+     * Consume one item
+     * @param {*} item 
+     * @returns 
+     */
+    consumeItem(item) {
+        const consumable = item.data.data.properties.consumable;
+        const quantity = item.data.data.qty;
+
+        if(consumable && quantity>0){
+            let itemData = duplicate(item.data);
+            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty - 1 : 0;
+            AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+            return item.update(itemData).then(item => item.applyEffects(this));
+        }
+    }
 
 }
 

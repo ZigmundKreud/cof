@@ -41,8 +41,8 @@ export class CofItem extends Item {
     _prepareWeaponData(itemData, actorData) {
         itemData.data.skillBonus = (itemData.data.skillBonus) ? itemData.data.skillBonus : 0;
         itemData.data.dmgBonus = (itemData.data.dmgBonus) ? itemData.data.dmgBonus : 0;
+        
         if (actorData && actorData.type !== "loot") {
-
             // Compute skill mod
             const skillMod = eval("actorData.data." + itemData.data.skill.split("@")[1]);
             itemData.data.mod = parseInt(skillMod) + parseInt(itemData.data.skillBonus);
@@ -56,9 +56,9 @@ export class CofItem extends Item {
         }
     }
 
-    applyEffects(actor, event){
+    applyEffects(actor){
         const itemData = this.data;
-        // console.log(itemData)
+
         if(itemData.data.properties.heal){
             const heal = itemData.data.effects.heal;
             const r = new CofHealingRoll(itemData.name, heal.formula, false);
@@ -69,5 +69,21 @@ export class CofItem extends Item {
     getMartialCategory() {
         if (!this.data.data.properties?.weapon) return;
         return ;
+    }
+
+    modifyQuantity(increment, isDecrease) {
+        if(this.data.data.properties.stackable){
+            let itemData = duplicate(this.data);
+            const qty = itemData.data.qty;
+            if(isDecrease) itemData.data.qty = qty - increment;
+            else itemData.data.qty = qty + increment;
+            if(itemData.data.qty < 0) itemData.data.qty = 0;
+            if(itemData.data.stacksize && itemData.data.qty > itemData.data.stacksize) itemData.data.qty = itemData.data.stacksize;
+            if(itemData.data.price){
+                const qty = (itemData.data.qty) ? itemData.data.qty : 1;
+                itemData.data.value = qty * itemData.data.price;
+            }
+            return this.update(itemData);
+        }
     }
 }
