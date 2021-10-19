@@ -26,17 +26,28 @@ export class Capacity {
 
     /**
      * 
-     * @param {*} entity 
+     * @param {*} actor 
+     * @param {*} capsData 
+     * @returns 
+     */
+    static addToActor(actor, capacity) {
+        capacity = capacity instanceof Array ? capacity : [capacity];
+        return actor.createEmbeddedDocuments("Item", capacity);
+    }
+
+    /**
+     * 
+     * @param {*} item 
      * @param {*} capacityData 
      * @returns 
      */
-    static addToItem(entity, capacityData) {
-        let data = duplicate(entity.data);
+    static addToItem(item, capacityData) {
+        let data = duplicate(item.data);
         let caps = data.data.capacities;
         let capsIds = caps.map(c => c._id);
         if (capsIds && !capsIds.includes(capacityData._id)) {
             data.data.capacities.push(EntitySummary.create(capacityData));
-            return entity.update(data);
+            return item.update(data);
         }
         else ui.notifications.error("Cet objet contient déjà cette capacité.")
     }

@@ -171,7 +171,7 @@ export class CofItemSheet extends ItemSheet {
     }
 
     /**
-     * Handle dropping of an item reference or item data onto an Actor Sheet
+     * Handle dropping of an item reference or item data onto an Item Sheet
      * @param {DragEvent} event     The concluding DragEvent which contains drop data
      * @param {Object} data         The data transfer extracted from the event
      * @return {Object}             OwnedItem data to create
@@ -244,7 +244,7 @@ export class CofItemSheet extends ItemSheet {
      * @returns 
      */
     _onDeleteItem(event) {
-        ev.preventDefault();
+        event.preventDefault();
         let data = duplicate(this.item.data);
         const li = $(event.currentTarget).closest(".item");
         const id = li.data("itemId");
@@ -393,6 +393,20 @@ export class CofItemSheet extends ItemSheet {
             const entries = Object.entries(item.data.data.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.itemProperties[e[0]]
+            }));
+        }
+        if (item.type === "capacity") {
+            let entries = [];
+            entries.push(["limited",item.data.data.limited]);
+            entries.push(["spell", item.data.data.spell]);
+            entries.push(["ranged", item.data.data.ranged]);
+            entries.push(["limitedUsage", item.data.data.limitedUsage]);
+            entries.push(["save", item.data.data.save]);
+            entries.push(["activable", item.data.data.activable]);
+            entries.push(["heal", item.data.data.heal]);
+            entries.push(["attack", item.data.data.attack]);
+            props.push(...entries.filter(e => e[1] === true).map(e => {
+                return game.cof.config.capacityProperties[e[0]]
             }));
         }
         return props.filter(p => !!p);

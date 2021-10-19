@@ -2,8 +2,10 @@
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-import {CofHealingRoll} from "../controllers/healing-roll.js";
-import {COF} from "../system/config.js"; 
+import { CofHealingRoll } from "../controllers/healing-roll.js";
+import { CofRoll } from "../controllers/roll.js";
+import { CofSkillRoll }  from "../controllers/skill-roll.js";
+import { COF } from "../system/config.js"; 
 
 export class CofItem extends Item {
 
@@ -56,16 +58,40 @@ export class CofItem extends Item {
         }
     }
 
-    applyEffects(actor){
+    getProperty(property) {
         const itemData = this.data;
-
-        if(itemData.data.properties.heal){
-            const heal = itemData.data.effects.heal;
-            const r = new CofHealingRoll(itemData.name, heal.formula, false);
-            r.roll(actor);
+        if (itemData.type === "capacity") {
+            return itemData.data[property];
+        }
+        else {
+            return itemData.data.properties[property];
         }
     }
 
+    getHealFormula() {
+        const itemData = this.data;
+        if (itemData.type === "capacity") {
+            return itemData.data.properties.heal.formula;
+        }
+        else {
+            return itemData.data.effects.heal.formula;
+        }
+    }
+
+    applyEffects(actor) {
+        // Capacité de soin
+        if(this.getProperty("heal")) {
+            const r = new CofHealingRoll(this.data.name, this.getHealFormula(), false);
+            r.roll(actor);
+            return r;
+        }
+
+        // Capacité d'attaque
+        if (this.getProperty("attack")) {
+            return CofRoll.rollAttackCapacity(actor, this);
+        }
+    }
+    
     getMartialCategory() {
         if (!this.data.data.properties?.weapon) return;
         return ;
@@ -77,7 +103,7 @@ export class CofItem extends Item {
     }
     
     modifyQuantity(increment, isDecrease) {
-        if(this.data.data.properties.stackable){
+        if(this.data.data.properties.stackable) {
             let itemData = duplicate(this.data);
             const qty = itemData.data.qty;
             increment = Math.abs(increment);
@@ -95,4 +121,16 @@ export class CofItem extends Item {
             return this.update(itemData);
         }
     }
+
+    modifyUse(increment, isDecrease) {
+        if(this.data.data.limitedUsage) {
+            let itemData = duplicate(this.data);
+            const qty = itemData.data.properties.limitedUsage.use;
+            if (isDecrease) itemData.data.properties.limitedUsage.use = qty - increment;
+            else itemData.data.properties.limitedUsage.use = qty + increment;
+            if (itemData.data.properties.limitedUsage.use < 0) itemData.data.properties.limitedUsage.use = 0;
+            return this.update(itemData);
+        }
+    }
+
 }

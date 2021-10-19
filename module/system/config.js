@@ -101,6 +101,17 @@ COF.itemCategories = {
     "trapping": "COF.category.trapping"
 }
 
+COF.capacityProperties = {
+    "limited": "COF.ui.limited",
+    "spell": "COF.ui.spell",
+    "ranged": "COF.properties.ranged",
+    "limitedUsage": "COF.ui.limitedUsage",
+    "save": "COF.ui.save",
+    "activable": "COF.properties.activable",
+    "heal": "COF.ui.heal",
+    "attack": "COF.ui.attack"
+}
+
 COF.itemIcons = {
     "item": "icons/containers/chest/chest-worn-oak-tan.webp",
     "capacity": "icons/sundries/scrolls/scroll-plain-tan-red.webp",

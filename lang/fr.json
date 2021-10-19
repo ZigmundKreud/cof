@@ -13,7 +13,7 @@
 
   "COF.title": "Chroniques Oubliées Fantasy",
 
-  "COF.ui.na": "N.C.",
+  "COF.ui.na": "N.A.",
   "COF.ui.cancel": "Annuler",
   "COF.ui.submit": "Valider",
   "COF.ui.roll.options": "Options de Jet",
@@ -59,6 +59,8 @@
   "COF.ui.capacity" : "Capacité",
   "COF.ui.capacities" : "Capacités",
   "COF.ui.spell" : "Sort",
+  "COF.ui.limitedUsage" : "Usage limité",
+  "COF.ui.save" : "Résistance",
   "COF.ui.spellcasting" : "Incantation",
   "COF.ui.limited" : "Action limitée",
   "COF.ui.summary" : "Résumé",
@@ -102,6 +104,7 @@
   "COF.ui.buff" : "Amélioration",
   "COF.ui.duration" : "Durée",
   "COF.ui.heal" : "Soins",
+  "COF.ui.attack" : "Attaque",
   "COF.ui.units" : "Unités",
   "COF.ui.rounds" : "Tours",
   "COF.ui.hours" : "Heures",
@@ -338,6 +341,7 @@
   "COF.properties.specialization" : "Spécialisation",
   "COF.properties.effects" : "Effet magique",
   "COF.properties.heal" : "Soin",
+  "COF.properties.attack" : "Attaque",
   "COF.properties.buff" : "Amélioration",
   "COF.properties.temporary" : "Temporaire",
   "COF.properties.persistent" : "Persistant",

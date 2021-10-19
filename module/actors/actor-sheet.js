@@ -119,6 +119,9 @@ export class CofActorSheet extends CofBaseSheet {
             const li = $(ev.currentTarget).closest(".capacity");
             li.find(".capacity-description").slideToggle(200);
         });
+        html.find('.capacity-activate').click(this._onActivate.bind(this));
+        html.find('.capacity-qty').click(this._onIncreaseCapacityUse.bind(this));
+        html.find('.capacity-qty').contextmenu(this._onDecreaseCapacityUse.bind(this));
 
         // Effects controls
         html.find('.effect-toggle').click(ev => {
@@ -236,6 +239,33 @@ export class CofActorSheet extends CofBaseSheet {
         const item = this.actor.items.get(li.data("itemId"));
 
         this.actor.consumeItem(item);
+    }
+
+    /**
+     * Callbacks on activate action
+     * @param event
+     * @private
+     */
+    _onActivate(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).closest(".item");
+        const capacity = this.actor.items.get(li.data("itemId"));
+
+        this.actor.activateCapacity(capacity);
+    }
+
+    _onIncreaseCapacityUse(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyUse(1, false);
+    }
+
+    _onDecreaseCapacityUse(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyUse(1, true);
     }
 
     /**
@@ -395,7 +425,7 @@ export class CofActorSheet extends CofBaseSheet {
             case "path": return await Path.addToActor(this.actor, item);
             case "profile": return await Profile.addToActor(this.actor, itemData);
             case "species": return await Species.addToActor(this.actor, item);
-            case "capacity":
+            case "capacity": return await Capacity.addToActor(this.actor, itemData);
             default: {
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
@@ -483,6 +513,12 @@ export class CofActorSheet extends CofBaseSheet {
                 });
             }
         });
+
+        /*data.combat.capacities.push({
+                id: "capacity",
+                label: "COF.ui.capacities",
+                items: Object.values(data.items).filter(item => item.type === "capacity" && item.data?.activable).sort((a, b) => (a.name > b.name) ? 1 : -1)
+        });*/
 
         // PATHS & CAPACITIES
         const paths = data.items.filter(item => item.type === "path");

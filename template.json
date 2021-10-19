@@ -447,12 +447,43 @@
       "templates": [
         "base"
       ],
+      "type": null,
       "summary" : "",
       "rank": null,
+      "path": "",
+      "checked": false,
       "limited": false,
       "spell": false,
-      "path": "",
-      "checked": false
+      "ranged": false,
+      "limitedUsage": false,
+      "save": false,
+      "activable": false,      
+      "heal": false,
+      "attack": false,
+      "properties": {
+        "ranged": {
+          "range": "",
+          "radius": ""
+        },
+        "limitedUsage": {
+          "use": 0,
+          "maxUse": 0
+        },
+        "save": {
+          "stat": "",
+          "difficulty": "",
+          "text": ""
+        },
+        "heal": {
+          "formula": null
+        },
+        "attack": {
+            "skill": "",
+            "difficulty": null,
+            "dmgBase": "",
+            "dmgStat": ""     
+        }
+      }
     },
     "profile": {
       "templates": [

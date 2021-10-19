@@ -1113,4 +1113,30 @@ export class CofActor extends Actor {
         }
         return rank;
     }
+    
+    /**
+     * Activate a capacity
+     * @param {*} item 
+     * @returns 
+     */
+     activateCapacity(capacity) {
+        const capacityData = capacity.data.data;
+        const activable = capacityData.activable;
+        const limitedUsage = capacityData.limitedUsage;
+
+        if(activable) {
+            // Capacité activable avec un nombre d'usage limités
+            if ( limitedUsage ) {
+                if (capacityData.properties.limitedUsage.use > 0) {
+                    let itemData = duplicate(capacity.data);
+                    itemData.data.properties.limitedUsage.use = (itemData.data.properties.limitedUsage.use > 0) ? itemData.data.properties.limitedUsage.use - 1 : 0;
+                    AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+                    return capacity.update(itemData).then(capacity => capacity.applyEffects(this));
+                }
+                return ui.notifications.warn("Vous ne pouvez plus utiliser cette capacité !");
+            }
+            // Capacité à usage illimité
+            return capacity.applyEffects(this);
+        } 
+    }
 }
