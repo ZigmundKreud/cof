@@ -140,4 +140,13 @@ COF.actorsAllowedItems = {
     ]
 }
 
+COF.diceIcon = {
+    "d4":"icons/dice/d4black.svg",
+    "d6":"icons/dice/d6black.svg",
+    "d8":"icons/dice/d8black.svg",
+    "d10":"icons/dice/d10black.svg",
+    "d12":"icons/dice/d12black.svg",
+    "d20":"icons/dice/d20black.svg"
+}
+
 COF.debug = false;

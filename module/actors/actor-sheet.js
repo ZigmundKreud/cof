@@ -12,6 +12,8 @@ import { ArrayUtils } from "../utils/array-utils.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
 import { COF } from "../system/config.js";
+import { LevelUpSheet } from "./levelUp-sheet.js";
+import { CofHealingRoll } from "../controllers/healing-roll.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -166,6 +168,19 @@ export class CofActorSheet extends CofBaseSheet {
             if (data.weapons.length == 1) data.weapons[0] = { "name": "", "mod": null, "dmg": null };
             else data.weapons.splice(idx, 1);
             this.actor.update({ 'data.weapons': data.weapons });
+        });
+
+        html.find('.levelUp').click(ev => {
+            ev.preventDefault;            
+
+            let dv = this.actor.getDV();
+            let modCon = this.actor.getStatMod("con");
+            let healingRoll = new CofHealingRoll("Gain de points de vie", `${dv}+${modCon}`,false, "Montée de niveau", false);            
+
+            healingRoll.roll(this.actor).then((roll)=>{
+                let levelUp = new LevelUpSheet(this.actor, {resizable:true, hpRoll:roll});
+                levelUp.render(true);
+            });
         });
     }
 

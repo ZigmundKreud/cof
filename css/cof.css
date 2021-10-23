@@ -501,6 +501,197 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-f
   line-height: 15px;
   white-space: pre-line;
 }
+.system-cof .levelUp {
+  background-image: url('/icons/svg/upgrade.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  background-origin: content-box;
+  padding: 5px;
+}
+.system-cof .levelUp-sheet .header {
+  display: flex;
+  flex-direction: row;
+}
+.system-cof .levelUp-sheet .header .leftHeader {
+  flex-grow: 1;
+}
+.system-cof .levelUp-sheet .header .leftHeader .title {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .title p {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 40px;
+  font-family: "PermanentMarker", cursive;
+  color: forestgreen;
+  text-shadow: black 1px 1px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .bonusPv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.system-cof .levelUp-sheet .header .leftHeader .bonusPv span:first-of-type {
+  background-color: #003c1e;
+  color: white;
+  font-family: "PermanentMarker", cursive;
+  font-size: 25px;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 50px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .bonusPv span {
+  font-size: 30px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .bonusPv .bonusTotal {
+  font-size: 50px;
+  color: forestgreen;
+  text-shadow: black 1px 1px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .bonusPv .smallMargin {
+  margin-left: 5px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .bonusPv .diceIcon {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
+  font-size: 35px;
+  background-position: center;
+  text-align: center;
+  height: 50px;
+  width: 50px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .attacks {
+  font-size: 20px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .attacks span {
+  color: #cd071e;
+  font-family: "PermanentMarker", cursive;
+  margin: 5px;
+  padding: 5px;
+}
+.system-cof .levelUp-sheet .header .leftHeader .attacks span:first-of-type {
+  margin-left: 15px;
+}
+.system-cof .levelUp-sheet .header .actorIcon {
+  flex-basis: 200px;
+}
+.system-cof .levelUp-sheet .header .actorIcon img {
+  display: block;
+  max-width: 225px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  border: none;
+  position: absolute;
+  right: 5px;
+}
+.system-cof .levelUp-sheet .capacities {
+  border: solid 1px;
+}
+.system-cof .levelUp-sheet .capacities-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 30px;
+}
+.system-cof .levelUp-sheet .capacities-header > span {
+  font-family: "PermanentMarker", cursive;
+  font-size: 20px;
+}
+.system-cof .levelUp-sheet .capacities-header div {
+  margin-right: 10px;
+}
+.system-cof .levelUp-sheet .capacities tr:first-of-type,
+.system-cof .levelUp-sheet .capacities td:first-of-type {
+  background-color: #003c1e;
+  color: white;
+  text-align: center;
+}
+.system-cof .levelUp-sheet .capacities td:first-of-type {
+  width: 20px;
+}
+.system-cof .levelUp-sheet .capacities .capacity {
+  border: solid 1px;
+}
+.system-cof .levelUp-sheet .capacities .capacity-label {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.system-cof .levelUp-sheet .capacities .capacity .reduced {
+  font-size: 12px;
+}
+.system-cof .levelUp-sheet .capacities .capacity .cost {
+  color: coral;
+}
+.system-cof .levelUp-sheet .capacities .capacity .tooltip {
+  width: 400px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.system-cof .levelUp-sheet .capacities .capacity .hidden {
+  visibility: hidden;
+}
+.system-cof .levelUp-sheet .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+.system-cof .levelUp-sheet .footer span {
+  color: coral;
+}
+.system-cof .levelUp-sheet .footer button {
+  flex-basis: 250px;
+}
+.system-cof .levelUp-card .header .title p {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 20px;
+  font-family: "PermanentMarker", cursive;
+  color: forestgreen;
+  text-shadow: black 1px 1px;
+  line-height: 5px;
+}
+.system-cof .levelUp-card .header .bonusPv {
+  font-family: "PermanentMarker", cursive;
+  font-size: 15px;
+  margin: 10px;
+  line-height: 5px;
+  margin-top: 20px;
+}
+.system-cof .levelUp-card .capacities-header {
+  font-family: "PermanentMarker", cursive;
+  font-size: 15px;
+  margin: 10px;
+  line-height: 5px;
+  margin-top: 15px;
+}
+.system-cof .levelUp-card .capacities .path,
+.system-cof .levelUp-card .capacities td:first-of-type {
+  background-color: #003c1e;
+  color: white;
+  text-align: center;
+}
+.system-cof .levelUp-card .capacities td:first-of-type {
+  width: 20px;
+}
+.system-cof .levelUp-card .capacities .capacity {
+  border: solid 1px;
+  padding-left: 5px;
+}
 /* Styles limited to cof sheets */
 .cof {
   /*

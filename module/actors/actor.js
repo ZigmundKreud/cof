@@ -1001,5 +1001,47 @@ export class CofActor extends Actor {
         }
     }
 
-}
+    /**
+     * Get Actor level 
+     * @returns 
+     */
+    getLevel(){
+        return this.data.data.level?.value;
+    }
 
+    /**
+     * Get Actor HD
+     * @returns 
+     */
+    getDV(){
+        return this.data.data.attributes.hd.value;
+    }
+
+    /**
+     * Get Actor Stat Modificator
+     * @param stat
+     * @returns 
+     */
+    getStatMod(stat){
+        let statObj;
+        switch(stat){
+			case "for" :
+			case "str" : statObj = this.data.data.stats?.str; break;
+			case "dex" : statObj = this.data.data.stats?.dex; break;
+			case "con" : statObj = this.data.data.stats?.con; break;
+			case "int" : statObj = this.data.data.stats?.int; break;
+			case "sag" :
+			case "wis" : statObj = this.data.data.stats?.wis; break;
+			case "cha" : statObj = this.data.data.stats?.cha; break;
+			case "atc" :
+			case "melee" : statObj = this.data.data.attacks?.melee; break;
+			case "atd" :
+			case "ranged" : statObj = this.data.data.attacks?.ranged; break;
+			case "atm" :
+			case "magic" : statObj = this.data.data.attacks?.magic; break;
+			default :				
+				return null;
+		}
+		return statObj?.mod;
+    }        
+}
