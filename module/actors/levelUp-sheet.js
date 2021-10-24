@@ -303,19 +303,19 @@ export class LevelUpSheet extends FormApplication {
                 }
             };
 
-            let historic = actor.data.data.level.historic;
-            if (!historic) historic = [];
+            let history = actor.data.data.level.history;
+            if (!history) history = [];
 
-            let levelIndex = historic.findIndex(levelData=>levelData.level === level);
-            if (levelIndex > -1) historic[levelIndex] = this.levelData;            
-            else historic.push(this.levelData);
+            let levelIndex = history.findIndex(levelData=>levelData.level === level);
+            if (levelIndex > -1) history[levelIndex] = this.levelData;            
+            else history.push(this.levelData);
 
             // Trie des niveaux par ordre croissant
-            historic.sort((a,b)=>{
+            history.sort((a,b)=>{
                 return a.level < b.level ? -1 : a.level > b.level ? 1 : 0;
             });
             
-            await actor.update({"data.level.value":level, "data.level.historic":historic, "data.attributes.hp.base": baseHp, "data.attributes.hp.value": currentHp}).then(()=>{
+            await actor.update({"data.level.value":level, "data.level.history":history, "data.attributes.hp.base": baseHp, "data.attributes.hp.value": currentHp}).then(()=>{
                 actor.updateEmbeddedDocuments('Item', pathsData).then(()=>{
                     actor.createEmbeddedDocuments('Item', itemsToAdd);
                 });
