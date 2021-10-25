@@ -25,7 +25,7 @@
 
     <div class="capacities-header">
         <span>Sélectionnez la/les nouvelle(s) capacité(s)</span>
-        {{#unless reduceDisplay}}<div>Points disponibles <span id="remainingPoints">{{remainingPoints}}</span><span>/{{remainingPoints}}</div>{{/unless}}
+        {{#unless reduceDisplay}}<div>Points disponibles <span id="remainingPoints">{{remainingPoints}}</span><span>/{{availablePoints}}</div>{{/unless}}
     </div>
 
     <table class="capacities">
@@ -39,11 +39,11 @@
             <tr>
                 <td>{{rank.rank}}</td>
                 {{#each capacities as |capacity|}}
-                    <td class="capacity {{#if enabled}}selectable{{/if}}{{#if disabled}}grey{{/if}}" path-id={{pathId}} capacity-id={{id}} capacity-cost="{{cost}}" capacity-rank="{{capacity.rank}}">
+                    <td class="capacity {{#if enabled}}selectable{{/if}}{{#if disabled}}grey{{/if}}" path-id={{pathId}} capacity-id={{id}} capacity-rank="{{capacity.rank}}">
                         <input type="checkbox" class="select" {{#if checked}}checked{{/if}} {{#if disabled}}disabled{{/if}} />
                         <span class="capacity-label{{#if @root.reduceDisplay}} reduced{{/if}}" loaded="false">{{capacity.capacity.name}}</span>
                         <span class="tooltip hidden">Veuillez patienter, chargement de la description</span>
-                        {{#unless @root.reduceDisplay}}{{#if enabled}}<span class="cost"> ({{displayCost}})</span>{{/if}}{{/unless}}
+                        {{#unless @root.reduceDisplay}}{{#if enabled}}<span class="cost"> ({{cost}})</span>{{/if}}{{/unless}}
                     </td>
                 {{/each}}
             </tr>

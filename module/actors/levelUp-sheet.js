@@ -239,8 +239,9 @@ export class LevelUpSheet extends FormApplication {
                 }
             });
 
-            // Mise à jour de l'affichage des points restants
-            document.querySelector('#remainingPoints').childNodes[0].nodeValue = Math.max(0, this.remainingPoints);            
+            // Mise à jour de l'affichage des points restants si ils sont visible
+            let remainingPoints = document.querySelector('#remainingPoints');
+            if (remainingPoints) remainingPoints.textContent = Math.max(0, this.remainingPoints);            
         });
 
         html.find('.dialog-button').click(async (ev) => {
@@ -397,11 +398,11 @@ export class LevelUpSheet extends FormApplication {
 
                 let capacity = { capacity : paths[pathIndex].data.data.capacities[rankIndex] };
  
-                capacity.displayCost =  rankIndex <= 1 ? 1 : 2;
+                capacity.cost =  rankIndex <= 1 ? 1 : 2;
                 
-                if (capacity.capacity.data.checked) capacity.cost = 0;
+                if (capacity.capacity.data.checked) capacity.totalCost = 0;
                 else {
-                    capacity.cost = capacity.displayCost;
+                    capacity.totalCost = capacity.cost;
 
                     // Calcul du cout de la capacité en ajoutant celui de la capacité précédente
                     // On ignore la capacacité de rang 1 (index commence à 0) car elle n'as pas de capacité précédente
@@ -410,7 +411,7 @@ export class LevelUpSheet extends FormApplication {
                         if (data.ranks.length >= rankIndex && data.ranks[rankIndex-1].capacities.length > pathIndex){
                             // Si la capacité précédente n'est pas coché, on ajoute son coût à celui de la capacité en cours
                             let previousCapacity = data.ranks[rankIndex-1].capacities[pathIndex];
-                            if (!previousCapacity.capacity.data.checked) capacity.cost += previousCapacity.cost;
+                            if (!previousCapacity.capacity.data.checked) capacity.totalCost += previousCapacity.totalCost;
                         }
                     }
                 }
@@ -423,7 +424,7 @@ export class LevelUpSheet extends FormApplication {
                 // - Le rang de la capacité est <= au nouveau niveau
                 capacity.enabled = true;        
                 capacity.enabled &= !capacity.capacity.data.checked;
-                capacity.enabled &= this.remainingPoints >= capacity.cost;
+                capacity.enabled &= this.remainingPoints >= capacity.totalCost;
                 capacity.enabled &= this.levelData.level > rankIndex;
                 capacity.disabled = !capacity.enabled;
 
@@ -439,6 +440,7 @@ export class LevelUpSheet extends FormApplication {
             data.level = this.levelData.level;
 
             data.remainingPoints = this.remainingPoints;
+            data.availablePoints = this.remainingPoints;
 
             let dice = `d${this.hpRoll.dice[0].faces}`;
             data.diceIcon = COF.diceIcon[dice];
