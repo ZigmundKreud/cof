@@ -1,3 +1,9 @@
+0.8.9.3
+-------
+Corrections
+- Affichage du nombre de mains dans l'onglet Combat
+- La désélection des propriétés d'un objet entraine la désélection des propriétés liées
+
 0.8.9.2
 -------
 Nouvelles fonctionnalités
