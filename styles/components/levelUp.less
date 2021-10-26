@@ -1,0 +1,261 @@
+.levelUp {
+
+    & {
+        background-image: url('/icons/svg/upgrade.svg');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+        background-origin: content-box;
+
+        padding: 5px;
+    }
+
+    &-sheet {
+
+        .header {
+            & {
+                display: flex; 
+                flex-direction:row
+            }
+            
+            .leftHeader{
+                & {
+                    flex-grow: 1;
+                }
+
+                .title{
+                    & {
+                        display: flex; 
+                        flex-direction: row;
+                        height:100px
+                    }
+
+                    p {
+                        text-align: center;
+                        flex-grow:1;
+                        font-size: 40px;
+                        font-family: "PermanentMarker", cursive;
+                        color: forestgreen;
+                        text-shadow: black 1px 1px;
+                    }
+                }
+
+                .bonusPv {
+                    & {
+                        display:flex;
+                        flex-direction:row;
+                        align-items: center;
+                    }
+
+                    span:first-of-type {
+                        background-color:rgb(0, 60, 30);
+                        color:white;
+                        font-family: "PermanentMarker", cursive;
+                        font-size: 25px;
+                        margin: 15px;
+                        padding: 10px;
+                        border-radius: 50px;
+                    }
+
+                    span {
+                        font-size: 30px;
+                    }
+
+                    .bonusTotal {
+                        font-size: 50px;
+                        color: forestgreen;
+                        text-shadow: black 1px 1px;
+                    }
+
+                    .smallMargin {
+                        margin-left: 5px;
+                    }
+
+                    .diceIcon {
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        color:white;
+                        font-size: 35px;
+                        background-position: center;
+                        text-align: center;
+                        height: 50px;
+                        width: 50px;
+                    }
+                }
+
+                .attacks {
+                    font-size: 20px;
+
+                    span {
+                        color:rgb(205, 7, 30);
+                        font-family: "PermanentMarker", cursive;
+                        margin: 5px;
+                        padding: 5px;
+                    }
+
+                    span:first-of-type {
+                        margin-left: 15px;
+                    }
+                }
+            }
+
+            .actorIcon{
+                & {
+                    flex-basis:200px;
+                }
+
+                img {
+                    display: block;
+                    max-width:225px; 
+                    max-height:250px;
+                    width: auto;
+                    height: auto;
+                    border:none;
+                    position: absolute;
+                    right: 5px;
+                }
+            }
+        }
+
+        .capacities {
+
+            & {
+                border:solid 1px;
+            }
+
+            &-header {
+                & {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    margin-top: 30px;
+                }
+    
+                > span {
+                    font-family: "PermanentMarker", cursive;
+                    font-size: 20px;
+                }
+    
+                div {
+                    margin-right: 10px;
+                }
+            }
+
+            tr:first-of-type, td:first-of-type {
+                background-color: rgb(0, 60, 30);
+                color: white;
+                text-align:center;
+            }        
+
+            td:first-of-type{
+                width:20px;
+            }
+
+            .capacity {
+                & {
+                    border:solid 1px;
+                }
+            
+                &-label {
+                    position: relative;
+                    display: inline-block;
+                    border-bottom: 1px dotted black;                
+                } 
+                            
+                .reduced {
+                    font-size: 12px;
+                }
+
+                .cost {
+                    color:coral;
+                }
+
+                .tooltip {
+                    width: 400px;
+                    background-color: grey;
+                    color: #fff;
+                    text-align: center;
+                    padding: 10px;
+                    border-radius: 6px;
+                    position: absolute;
+                    z-index: 1;
+                    margin-left: 10px;
+                    margin-top: 20px;
+                }
+
+                .hidden{
+                    visibility: hidden;
+                }               
+            }
+        }
+
+        .footer {
+            & {
+                display: flex;
+                flex-direction:row;
+                justify-content: space-between;
+                align-items: start;
+            }
+
+            span {
+                color:coral;
+            }
+
+            button {
+                flex-basis: 250px;
+            }
+        }
+    }
+
+    &-card {
+        
+        .header {
+
+            .title p {
+                text-align: center;
+                flex-grow:1;
+                font-size: 20px;
+                font-family: "PermanentMarker", cursive;
+                color: forestgreen;
+                text-shadow: black 1px 1px;
+                line-height:5px;
+            }
+
+            .bonusPv {
+                font-family: "PermanentMarker", cursive;
+                font-size: 15px;
+                margin: 10px;
+                line-height:5px;
+                margin-top: 20px;
+            }
+        }
+
+        .capacities {
+            
+            &-header {
+                font-family: "PermanentMarker", cursive;
+                font-size: 15px;
+                margin:10px;
+                line-height:5px;
+                margin-top: 15px;
+            }
+
+            .path, td:first-of-type {
+                background-color: rgb(0, 60, 30);
+                color: white;
+                text-align:center;
+            }        
+
+            td:first-of-type{
+                width:20px;
+            }
+            
+            .capacity {
+                border:solid 1px;
+                padding-left:5px;
+            }
+        }
+
+    }
+}

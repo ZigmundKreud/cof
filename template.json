@@ -101,7 +101,8 @@
           "label" : "COF.attributes.level.label",
           "abbrev" : "COF.attributes.level.abbrev",
           "value": 1,
-          "max": 20
+          "max": 20,
+          "history": []
         },
         "xp": {
           "key" : "xp",

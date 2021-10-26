@@ -1,0 +1,27 @@
+<div class="levelUp-card">
+    <div class="header">
+        <div class="title">
+            <p>{{name}}</p>
+            <p>monte au niveau {{level}}</p>  		
+        </div>
+        <p class="bonusPv">Gain de points de vie : {{pv}}</p>
+    </div>
+
+    <div class="capacities">
+        <p class="capacities-header">Capacités :</p>
+        <table>
+            {{#each paths as |path|}}
+                <tr class="path">
+                    <td></td>
+                    <td>{{path.name}}</td>           
+                </tr>        
+                {{#each capacities as |capacity|}}
+                    <tr>
+                        <td>{{capacity.rank}}</td>
+                        <td class="capacity">{{capacity.name}}</td>
+                    </tr>
+                {{/each}}		
+            {{/each}}
+        </table>
+    </div>
+</div>
