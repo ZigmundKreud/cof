@@ -41,8 +41,13 @@ export const registerSystemSettings = function() {
         hint: "Active l'affichage de la difficulté sur les jets de compétences/attributs et d'armes.",
         scope: "world",
         config: true,
-        default: true,
-        type: Boolean
+        default: "none",
+        type: String,
+        choices: {
+            "none" : "Pour personne",
+            "all" : "Pour tout le monde",
+            "gm" : "Uniquement pour le MJ"
+        }
     });
 
     game.settings.register("cof", "useComboRolls", {

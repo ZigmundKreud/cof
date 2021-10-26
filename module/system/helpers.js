@@ -145,7 +145,21 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('isEnabled', function (configKey) {
-        return game.settings.get("cof", configKey);
+        const value = game.settings.get("cof", configKey);
+        if (value === false || value === "none") return false;
+        return true;
+    });
+
+    Handlebars.registerHelper('displayDifficulty', function () {
+        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
+        if (displayDifficulty === "none") return false;
+        return true;
+    });
+
+    Handlebars.registerHelper('displayDifficultyForAll', function () {
+        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
+        if (displayDifficulty === "all") return true;
+        return false;
     });
 
     Handlebars.registerHelper('split', function (str, separator, keep) {
@@ -192,7 +206,6 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('includesKey', function (items, type, key) {
-        // console.log(items);
         return items.filter(i => i.type === type).map(i => i.data.key).includes(key);
     });
 
