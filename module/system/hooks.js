@@ -186,6 +186,9 @@ export default function registerHooks() {
                 html.find(".apply-dmg").each((i, btn) => {
                     btn.style.display = "none"
                   });
+                html.find(".dr-checkbox").each((i, btn) => {
+                    btn.style.display = "none"
+                });
             }        
         }        
     });
