@@ -242,11 +242,18 @@ export class CofRoll {
      */
     static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
+        let diff = null;
+        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
+        if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
+            diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+        }
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
             malus: malus,
             critrange: critrange,
+            difficulty: diff,
+            isGM: game.user.isGM,
             superior: superior,
             hasDescription : description && description.length > 0,
 			skillDescr: description
