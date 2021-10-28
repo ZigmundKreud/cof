@@ -190,6 +190,14 @@ export default function registerHooks() {
                     btn.style.display = "none"
                 });
             }        
+        }      
+        
+        // Affiche ou non la difficulté
+        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
+        if (displayDifficulty === "none" || (displayDifficulty === "gm" && !game.user.isGM)) {
+            html.find(".display-difficulty").each((i, elt) => {
+                elt.remove();
+            });
         }        
     });
 
