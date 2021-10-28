@@ -150,18 +150,6 @@ export const registerHandlebarsHelpers = function () {
         return true;
     });
 
-    Handlebars.registerHelper('displayDifficulty', function () {
-        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
-        if (displayDifficulty === "none") return false;
-        return true;
-    });
-
-    Handlebars.registerHelper('displayDifficultyForAll', function () {
-        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
-        if (displayDifficulty === "all") return true;
-        return false;
-    });
-
     Handlebars.registerHelper('split', function (str, separator, keep) {
         return str.split(separator)[keep];
     });

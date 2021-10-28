@@ -37,16 +37,16 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "displayDifficulty", {
-        name: "Affiche la difficulté",
+        name: "Afficher la difficulté",
         hint: "Active l'affichage de la difficulté sur les jets de compétences/attributs et d'armes.",
         scope: "world",
         config: true,
         default: "none",
         type: String,
         choices: {
-            "none" : "Pour personne",
-            "all" : "Pour tout le monde",
-            "gm" : "Uniquement pour le MJ"
+            "none" : "Ne pas utiliser ni afficher la difficulté",
+            "all" : "Utiliser la difficulté et l'afficher pour tout le monde",
+            "gm" : "Utiliser la difficulté et l'afficher uniquement au MJ"
         }
     });
 

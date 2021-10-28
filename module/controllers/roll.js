@@ -247,13 +247,14 @@ export class CofRoll {
         if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
             diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
         }
+        const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
             malus: malus,
             critrange: critrange,
             difficulty: diff,
-            isGM: game.user.isGM,
+            displayDifficulty: isDifficultyDisplayed,
             superior: superior,
             hasDescription : description && description.length > 0,
 			skillDescr: description
@@ -309,13 +310,14 @@ export class CofRoll {
         if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
             diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
         }
+        const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
             malus: malus,
             critrange: critrange,
             difficulty: diff,
-            isGM: game.user.isGM,
+            displayDifficulty: isDifficultyDisplayed,
             dmgFormula: dmgFormula,
             dmgBonus: dmgBonus,
             dmgCustomFormula: "",

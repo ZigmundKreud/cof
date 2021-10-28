@@ -51,9 +51,8 @@
     </div>
 </div>
 <hr/>
-{{#if (displayDifficulty)}}
     <!-- DIFFICULTY -->
-    {{#if (displayDifficultyForAll)}}
+    {{#if displayDifficulty}}    
         <div class="row flexrow" style="margin-bottom: 5px;">
             <div class="flex1 center bg-darkslate">
                 <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
@@ -61,32 +60,18 @@
             <div class="flex1 center cell">
                 <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
             </div>
-        </div>
-        <hr/>   
+        </div> 
     {{else}}
-        {{#if isGM}}
-            <div class="row flexrow" style="margin-bottom: 5px;">
-                <div class="flex1 center bg-darkslate">
-                    <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
-                </div>
-                <div class="flex1 center cell">
-                    <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
-                </div>
+        <div class="row flexrow" style="margin-bottom: 5px; visibility:hidden">
+            <div class="flex1 center bg-darkslate">
+                <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
             </div>
-            <hr/>   
-        {{else}}
-            <div class="row flexrow" style="margin-bottom: 5px; visibility: hidden;">
-                <div class="flex1 center bg-darkslate">
-                    <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
-                </div>
-                <div class="flex1 center cell">
-                    <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
-                </div>
+            <div class="flex1 center cell">
+                <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
             </div>
-            <hr/>  
-        {{/if}}
+        </div>
     {{/if}}
-{{/if}}
+<hr/>
 
 
 {{#if hasSkillDescr}}
