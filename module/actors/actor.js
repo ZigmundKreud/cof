@@ -717,15 +717,17 @@ export class CofActor extends Actor {
      * //TODO Implémenter dans COF
      * @param {string} itemDmgBase le modificateur issue de la caractéristique
      * @param {string} itemDmgStat la caractéristique utilisée pour les dégâts
-     * @param {int} itemDmgBonus le bonus aux dégâts
+     * @param {int} itemDmgBonus le bonus aux dégâts de l'arme
+     * @param {int} skillDmgBonus le bonus aux dégâts du skill
      *  COF : return "cof" en attendant l'implémentation
      * @returns {string} retourne la chaine de caractères utilisée pour le lancer de dés
      */      
-    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus) {
+    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus) {
         let total = itemDmgBase;
         
         const fromStat = eval("this.data.data." + itemDmgStat);
-        const fromBonus = (fromStat) ? parseInt(fromStat) + itemDmgBonus : itemDmgBonus;
+        let fromBonus = (fromStat) ? parseInt(fromStat) + itemDmgBonus : itemDmgBonus;
+        fromBonus += skillDmgBonus;
         if (fromBonus < 0) total = itemDmgBase + " - " + parseInt(-fromBonus);
         if (fromBonus > 0) total = itemDmgBase + " + " + fromBonus;
 

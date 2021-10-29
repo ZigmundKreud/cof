@@ -123,7 +123,8 @@
             "base": 1,
             "bonus": 0,
             "malus": 0,
-            "mod": 1
+            "mod": 1,
+            "dmBonus":0
           },
           "ranged" : {
             "key" : "ranged",
@@ -134,7 +135,8 @@
             "base": 1,
             "bonus": 0,
             "malus": 0,
-            "mod": 1
+            "mod": 1,
+            "dmBonus":0
           },
           "magic" : {
             "key" : "magic",
@@ -145,7 +147,8 @@
             "base": 1,
             "bonus": 0,
             "malus": 0,
-            "mod": 1
+            "mod": 1,
+            "dmBonus":0
           }
         }
       },

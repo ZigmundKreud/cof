@@ -475,7 +475,9 @@ export class CofActorSheet extends CofBaseSheet {
                         const itemDmgStat = item.data.dmgStat.split("@")[1];
                         const itemDmgBonus = parseInt(item.data.dmgBonus);
 
-                        item.data.dmg = this.actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
+                        const skillDmgBonus = eval("this.actor.data.data." + itemModStat.replace('mod','dmBonus'));  
+
+                        item.data.dmg = this.actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
                     }
                 });
             }
