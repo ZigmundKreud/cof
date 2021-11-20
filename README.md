@@ -16,6 +16,9 @@ Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://
 * Cliquez sur "Install"
 
 ---
+### Fonctionnalités
+Le détail des fonctionnalités par version est dans le [changelog](https://github.com/ZigmundKreud/cof/blob/master/CHANGELOG).
+---
 ### Mentions Légales
 
 #### DRS Chroniques Oubliées Fantasy

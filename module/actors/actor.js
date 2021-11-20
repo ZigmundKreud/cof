@@ -1004,7 +1004,30 @@ export class CofActor extends Actor {
     }
 
     /**
-     * Get Actor level 
+     * 
+     * @param {*} itemName 
+     * @returns 
+     */
+    getItemByName(itemName){
+        return this.items.find(item=>item.name === itemName);
+    }
+
+    /**
+     * 
+     * @param {*} item 
+     * @returns 
+     */
+    isItemEquipped(item){
+        if (!this.items.some(it=>it._id === item._id)){
+            ui.notifications.warn(game.i18n.format('COF.notification.MacroItemMissing', {item:item.name}));
+            return false;
+        }
+        return (item.data.data.properties?.equipable ?? false) && item.data.data.worn;
+    }
+    
+    /**
+     * @name getLevel
+     * @description Get Actor level 
      * @returns 
      */
     getLevel(){
@@ -1012,7 +1035,8 @@ export class CofActor extends Actor {
     }
 
     /**
-     * Get Actor HD
+     * @name getDV
+     * @description Get Actor HD
      * @returns 
      */
     getDV(){
@@ -1020,9 +1044,10 @@ export class CofActor extends Actor {
     }
 
     /**
-     * Get Actor Stat Modificator
-     * @param stat
-     * @returns 
+     * @name getStatMod 
+     * @description Get Actor Mod of a specific stat
+     * @param stat en français ou anglais
+     * @returns le Mod de la caractéristique
      */
     getStatMod(stat){
         let statObj;
@@ -1045,5 +1070,22 @@ export class CofActor extends Actor {
 				return null;
 		}
 		return statObj?.mod;
-    }        
+    }     
+    
+    getPathRank(pathName){
+        let rank = 0;
+        let path = this.getItemByName(pathName);
+        if (path){
+
+            let capacities = [...path.data.data.capacities];
+            capacities.sort((a,b)=>{
+                if (a.data.rank < b.data.rank) return 1;
+                if (a.data.rank > b.data.rank) return 0;
+                else return -1
+            });
+
+            rank = capacities.find(capa=>capa.data.checked)?.data.rank; 
+        }
+        return rank;
+    }
 }

@@ -71,6 +71,11 @@ export class CofItem extends Item {
         return ;
     }
 
+    getQuantity(){
+        if(this.data.data.properties.stackable) return this.data.data.qty;
+        else return 1;
+    }
+    
     modifyQuantity(increment, isDecrease) {
         if(this.data.data.properties.stackable){
             let itemData = duplicate(this.data);
