@@ -1,0 +1,57 @@
+<form class="levelUp-sheet" autocomplete="off" style="overflow: hidden;">    
+    <div class="header">
+        <div class="leftHeader">
+            <div class="title">        
+                <p>{{actorName}} monte au niveau {{level}}</p>            
+            </div>
+            <div class="bonusPv">
+                <span>Gain de points de vie</span>
+                <span class="bonusTotal">{{bonusPV}}</span>
+                <span class="smallMargin">(</span>
+                <span class="diceIcon" style='background-image:url("{{diceIcon}}");'>{{dv}}</span>
+                <span>+ {{modCon}} )</span>
+            </div>
+
+            <div class="attacks">
+                <span>Contact</span>+ 1
+                <span>Distance</span>+ 1
+                <span>Magique</span>+ 1
+            </div>
+        </div>
+        <div class="actorIcon">
+            <img src="{{actorIcon}}">
+        </div>
+    </div>
+
+    <div class="capacities-header">
+        <span>Sélectionnez la/les nouvelle(s) capacité(s)</span>
+        {{#unless reduceDisplay}}<div>Points disponibles <span id="remainingPoints">{{remainingPoints}}</span><span>/{{availablePoints}}</div>{{/unless}}
+    </div>
+
+    <table class="capacities">
+        <tr>
+            <td></td>
+            {{#each paths as |path|}}
+                <td>{{path.name}}</td>
+            {{/each}}
+        </tr>
+        {{#each ranks as |rank|}}
+            <tr>
+                <td>{{rank.rank}}</td>
+                {{#each capacities as |capacity|}}
+                    <td class="capacity {{#if enabled}}selectable{{/if}}{{#if disabled}}grey{{/if}}" path-id={{pathId}} capacity-id={{id}} capacity-rank="{{capacity.rank}}">
+                        <input type="checkbox" class="select" {{#if checked}}checked{{/if}} {{#if disabled}}disabled{{/if}} />
+                        <span class="capacity-label{{#if @root.reduceDisplay}} reduced{{/if}}" loaded="false">{{capacity.capacity.name}}</span>
+                        <span class="tooltip hidden">Veuillez patienter, chargement de la description</span>
+                        {{#unless @root.reduceDisplay}}{{#if enabled}}<span class="cost"> ({{cost}})</span>{{/if}}{{/unless}}
+                    </td>
+                {{/each}}
+            </tr>
+        {{/each}}                          
+    </table>
+
+    <div class="footer">
+        <span>{{#unless reduceDisplay}}* Coût en point{{/unless}}</span>
+        <button class="dialog-button"><i class="fas fa-check"></i>Appliquer la montée de niveau</button>
+    </div>
+</form>

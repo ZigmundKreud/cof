@@ -145,7 +145,9 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('isEnabled', function (configKey) {
-        return game.settings.get("cof", configKey);
+        const value = game.settings.get("cof", configKey);
+        if (value === false || value === "none") return false;
+        return true;
     });
 
     Handlebars.registerHelper('split', function (str, separator, keep) {
@@ -192,7 +194,6 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('includesKey', function (items, type, key) {
-        // console.log(items);
         return items.filter(i => i.type === type).map(i => i.data.key).includes(key);
     });
 

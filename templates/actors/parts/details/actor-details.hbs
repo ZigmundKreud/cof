@@ -13,8 +13,8 @@
         {{#if (isNotLimited @root)}}
             <!-- LEVEL -->
             <div class="flexrow">
-                <div class="flex1 center bg-header">
-                    <span class="field-label">{{ localize 'COF.attributes.level.label' }}</span>
+                <div class="flex1 center bg-header">                                        
+                    <a class="flex2 levelUp">{{ localize 'COF.attributes.level.label' }}</a>                    
                 </div>
                 <div class="flex2 center cell">
                     <input class="field-value" name="data.level.value" type="text" value="{{actor.data.level.value}}" placeholder="Level" data-dtype="Number"/>

@@ -1,3 +1,18 @@
+0.8.9.3
+-------
+Nouvelles fonctionnalités
+- Ecran de montée de niveau avec gestion des points de vie, des capacités et des différents bonus
+- Ajout option et affichage de la difficulté conditionnelle avec 3 options
+		"Ne pas utiliser ni afficher la difficulté",
+        "Utiliser la difficulté et l'afficher pour tout le monde",
+        "Utiliser la difficulté et l'afficher uniquement au MJ"
+- Ajout champ dmBonus pour les attaques simples (mêlée, distance, magique)
+
+Corrections
+- Affichage du nombre de mains dans l'onglet Combat
+- La désélection des propriétés d'un objet entraine la désélection des propriétés liées
+- Corrige checkbox DR cachée si option non activée
+
 0.8.9.2
 -------
 Nouvelles fonctionnalités

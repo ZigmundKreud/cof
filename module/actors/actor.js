@@ -717,15 +717,17 @@ export class CofActor extends Actor {
      * //TODO Implémenter dans COF
      * @param {string} itemDmgBase le modificateur issue de la caractéristique
      * @param {string} itemDmgStat la caractéristique utilisée pour les dégâts
-     * @param {int} itemDmgBonus le bonus aux dégâts
+     * @param {int} itemDmgBonus le bonus aux dégâts de l'arme
+     * @param {int} skillDmgBonus le bonus aux dégâts du skill
      *  COF : return "cof" en attendant l'implémentation
      * @returns {string} retourne la chaine de caractères utilisée pour le lancer de dés
      */      
-    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus) {
+    computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus) {
         let total = itemDmgBase;
         
         const fromStat = eval("this.data.data." + itemDmgStat);
-        const fromBonus = (fromStat) ? parseInt(fromStat) + itemDmgBonus : itemDmgBonus;
+        let fromBonus = (fromStat) ? parseInt(fromStat) + itemDmgBonus : itemDmgBonus;
+        fromBonus += skillDmgBonus;
         if (fromBonus < 0) total = itemDmgBase + " - " + parseInt(-fromBonus);
         if (fromBonus > 0) total = itemDmgBase + " + " + fromBonus;
 
@@ -941,12 +943,12 @@ export class CofActor extends Actor {
         if (item.data.data.slot !== "hand") return true;
 
         // Nombre de mains nécessaire pour l'objet que l'on veux équipper
-        let neededHands = item.data.data.properties["2h"] ? 2 : 1;
+        let neededHands = item.data.data.properties["2H"] ? 2 : 1;
 
         // Calcul du nombre de mains déjà utilisées
         let itemsInHands = this.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
         let usedHands = 0;
-        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2h"] ? 2 : 1);                
+        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2H"] ? 2 : 1);                
 
         return usedHands + neededHands <= 2;        
     }
@@ -1001,5 +1003,89 @@ export class CofActor extends Actor {
         }
     }
 
-}
+    /**
+     * 
+     * @param {*} itemName 
+     * @returns 
+     */
+    getItemByName(itemName){
+        return this.items.find(item=>item.name === itemName);
+    }
 
+    /**
+     * 
+     * @param {*} item 
+     * @returns 
+     */
+    isItemEquipped(item){
+        if (!this.items.some(it=>it._id === item._id)){
+            ui.notifications.warn(game.i18n.format('COF.notification.MacroItemMissing', {item:item.name}));
+            return false;
+        }
+        return (item.data.data.properties?.equipable ?? false) && item.data.data.worn;
+    }
+    
+    /**
+     * @name getLevel
+     * @description Get Actor level 
+     * @returns 
+     */
+    getLevel(){
+        return this.data.data.level?.value;
+    }
+
+    /**
+     * @name getDV
+     * @description Get Actor HD
+     * @returns 
+     */
+    getDV(){
+        return this.data.data.attributes.hd.value;
+    }
+
+    /**
+     * @name getStatMod 
+     * @description Get Actor Mod of a specific stat
+     * @param stat en français ou anglais
+     * @returns le Mod de la caractéristique
+     */
+    getStatMod(stat){
+        let statObj;
+        switch(stat){
+			case "for" :
+			case "str" : statObj = this.data.data.stats?.str; break;
+			case "dex" : statObj = this.data.data.stats?.dex; break;
+			case "con" : statObj = this.data.data.stats?.con; break;
+			case "int" : statObj = this.data.data.stats?.int; break;
+			case "sag" :
+			case "wis" : statObj = this.data.data.stats?.wis; break;
+			case "cha" : statObj = this.data.data.stats?.cha; break;
+			case "atc" :
+			case "melee" : statObj = this.data.data.attacks?.melee; break;
+			case "atd" :
+			case "ranged" : statObj = this.data.data.attacks?.ranged; break;
+			case "atm" :
+			case "magic" : statObj = this.data.data.attacks?.magic; break;
+			default :				
+				return null;
+		}
+		return statObj?.mod;
+    }     
+    
+    getPathRank(pathName){
+        let rank = 0;
+        let path = this.getItemByName(pathName);
+        if (path){
+
+            let capacities = [...path.data.data.capacities];
+            capacities.sort((a,b)=>{
+                if (a.data.rank < b.data.rank) return 1;
+                if (a.data.rank > b.data.rank) return 0;
+                else return -1
+            });
+
+            rank = capacities.find(capa=>capa.data.checked)?.data.rank; 
+        }
+        return rank;
+    }
+}
