@@ -488,6 +488,10 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-f
   border: none;
   resize: none;
   height: 80px;
+  font-family: "Signika", sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #4b4a44;
 }
 .rollDialogDescr:focus {
   border: none;
