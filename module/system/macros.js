@@ -144,8 +144,9 @@ export class Macros {
                 const itemDmgBase = itemData.data.dmgBase;                        
                 const itemDmgStat = itemData.data.dmgStat.split("@")[1];
                 const itemDmgBonus = parseInt(itemData.data.dmgBonus);
+                const skillDmgBonus = eval("actor.data.data." + itemModStat.replace('mod','dmBonus'));
 
-                let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus)
+                let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
 
                 if (dialog){
                     if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
