@@ -121,7 +121,7 @@ export default function registerHooks() {
         }
         else if (data.type == "Weapon"){
             let weapon = data.data;
-            let command = `let weaponId = ${data.weaponId};\nlet onlyDamage = false;\nlet customLabel = "";\nlet skillDescription = "";\nlet dmgDescription = "";\nlet tokenActor = game.cof.macros.getSpeakersActor();\n\nif (event) {\n  if (event.shiftKey) onlyDamage = true;\n}\n\nif (!tokenActor) {\n  ui.notifications.warn(game.i18n.localize("COF.notification.MacroNoTokenSelected"));\n}\nelse if(!tokenActor?.rollWeapon) {\n  ui.notifications.warn(game.i18n.localize("COF.notification.MacroNotAnEncounter"));\n}\nelse {\n  tokenActor.rollWeapon(weaponId, customLabel, onlyDamage, 0, 0, 0, skillDescription, dmgDescription);\n}`;
+            let command = `let weaponId = ${data.weaponId};\nlet onlyDamage = false;\nlet customLabel = "";\nlet skillDescription = "";\nlet dmgDescription = "";\nlet withDialog = true;\nlet tokenActor = game.cof.macros.getSpeakersActor();\n\nif (event) {\n  if (event.shiftKey) onlyDamage = true;\n}\n\nif (!tokenActor) {\n  ui.notifications.warn(game.i18n.localize("COF.notification.MacroNoTokenSelected"));\n}\nelse if(!tokenActor?.rollWeapon) {\n  ui.notifications.warn(game.i18n.localize("COF.notification.MacroNotAnEncounter"));\n}\nelse {\n  tokenActor.rollWeapon(weaponId, customLabel, onlyDamage, 0, 0, 0, skillDescription, dmgDescription, withDialog);\n}`;
 
             let macro = game.macros.entities.find(m => (m.name === weapon.name) && (m.command === command));
             if (!macro) {
