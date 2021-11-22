@@ -500,6 +500,7 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-f
   font-style: italic;
   line-height: 15px;
   white-space: pre-line;
+  font-family: "Signika", sans-serif;
 }
 .system-cof .levelUp {
   background-image: url('/icons/svg/upgrade.svg');

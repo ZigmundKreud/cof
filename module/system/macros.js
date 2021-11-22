@@ -1,6 +1,7 @@
 import { CofRoll } from "../controllers/roll.js";
 import { CofHealingRoll } from "../controllers/healing-roll.js";
 import { CofSkillRoll } from "../controllers/skill-roll.js";
+import { CofDamageRoll } from "../controllers/dmg-roll.js";
 
 export class Macros {
 
@@ -170,14 +171,14 @@ export class Macros {
         else { return item.sheet.render(true); }
     };
 
-    static rollHealMacro = async function (label, healFormula, isCritical){
+    static rollHealMacro = async function (label, healFormula, isCritical, title, showButtons=true, description){
         const actor = this.getSpeakersActor();
         // Several tokens selected
         if (actor === null) return;
         // No token selected
         if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoTokenSelected"));
 
-        new CofHealingRoll(label, healFormula, isCritical).roll(actor);
+        return new CofHealingRoll(label, healFormula, isCritical, title, showButtons, description).roll(actor);
     }
 
     static rollSkillMacro = async function(label, mod, bonus, malus, critRange, isSuperior = false, description){
@@ -193,7 +194,7 @@ export class Macros {
         CofRoll.skillRollDialog(actor, label, mod, bonus, malus, crit, isSuperior, "submit", description);  
     }
 
-    static rollDamageMacro = async function(label, dmgFormula, dmgBonus, isCritical, dmgDescr){
+    static rollDamageMacro = async function(label, dmgFormula, dmgBonus, isCritical, dmgDescr, dialog=true){
         const actor = this.getSpeakersActor();
         
         // Several tokens selected
@@ -201,8 +202,12 @@ export class Macros {
         // Aucun acteur cible
         if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoActorAvailable"));
 
-        CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, "submit", dmgDescr);
-          
+        if (dialog){
+            CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, "submit", dmgDescr);
+        }
+        else{
+            let formula = dmgBonus ? `${dmgFormula} + ${dmgBonus}` : dmgFormula;
+            return new CofDamageRoll(label, formula, isCritical, dmgDescr).roll();
+        }          
     }
-
 }

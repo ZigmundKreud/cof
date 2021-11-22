@@ -1,10 +1,11 @@
 export class CofHealingRoll {
-    constructor(label, formula, isCritical, title, showButtons=true){
+    constructor(label, formula, isCritical, title, showButtons=true, description){
         this._label = label;
         this._formula = formula;
         this._isCritical = isCritical;
         this._title = title;
         this._showButtons = showButtons;
+        this._description = Array.isArray(description) ? description.join("<br>") : description;
     }
 
     async roll(actor){
@@ -28,7 +29,9 @@ export class CofHealingRoll {
             label : this._label,
             isCritical : this._isCritical,
             title : this._title ? this._title : this._isCritical ? game.i18n.localize("COF.roll.criticalHeal") : game.i18n.localize("COF.roll.heal"),
-            showButtons : this._showButtons
+            showButtons : this._showButtons,
+            hasDescription : this._description && this._description.length > 0,
+            description : this._description
         };
         return renderTemplate(rollMessageTpl, tplData);
     }
