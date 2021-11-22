@@ -50,29 +50,28 @@
         <input class="field-value" id="malus" name="malus" type="text" value="{{numberFormat malus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
-<hr/>
-    <!-- DIFFICULTY -->
-    {{#if displayDifficulty}}    
-        <div class="row flexrow" style="margin-bottom: 5px;">
-            <div class="flex1 center bg-darkslate">
-                <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
-            </div>
-            <div class="flex1 center cell">
-                <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
-            </div>
-        </div> 
-    {{else}}
-        <div class="row flexrow" style="margin-bottom: 5px; visibility:hidden">
-            <div class="flex1 center bg-darkslate">
-                <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
-            </div>
-            <div class="flex1 center cell">
-                <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
-            </div>
-        </div>
-    {{/if}}
-<hr/>
 
+<!-- DIFFICULTY -->
+{{#if displayDifficulty}}
+    <hr/>    
+    <div class="row flexrow" style="margin-bottom: 5px;">
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
+        </div>
+        <div class="flex1 center cell">
+            <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
+        </div>
+    </div> 
+{{else}}
+    <div class="row flexrow" style="margin-bottom: 5px; display:none;">
+        <div class="flex1 center bg-darkslate">
+            <span class="field-label">{{localize 'COF.ui.difficulty'}}</span>
+        </div>
+        <div class="flex1 center cell">
+            <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
+        </div>
+    </div>
+{{/if}}
 
 {{#if hasSkillDescr}}
     <hr/>
@@ -85,13 +84,14 @@
 {{/if}}
 
 {{#if (isEnabled "useComboRolls")}}
-<div class="row flexrow table-header red">
-    <div class="flex1 center">
-        <h3>{{localize 'COF.ui.damage'}}</h3>
+    <hr/>
+    <div class="row flexrow table-header red">
+        <div class="flex1 center">
+            <h3>{{localize 'COF.ui.damage'}}</h3>
+        </div>
     </div>
-</div>
-<!-- DAMAGES -->
-{{> "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs"}}
+    <!-- DAMAGES -->
+    {{> "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs"}}
 {{/if}}
 {{#if hasDmgDescr}}
     <hr/>
