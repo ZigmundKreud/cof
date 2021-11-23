@@ -3,7 +3,7 @@ export class CofDamageRoll {
         this._label = label;
         this._formula = formula;
         this._isCritical = isCritical;
-        this._description = description;
+        this._description = Array.isArray(description) ? description.join("<br>") : description;
     }
 
     async roll(actor){
@@ -18,6 +18,7 @@ export class CofDamageRoll {
                 flags : {msgType : "damage"}
             });
         });
+        return r;
     }
 
     _buildDamageRollMessage() {
