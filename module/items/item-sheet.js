@@ -350,6 +350,7 @@ export class CofItemSheet extends ItemSheet {
             data.data.reload = "";
             return this.item.update(data);
         }        
+         
         if (name === "data.properties.effects" && !checked) {
             let data = duplicate(this.item.data);
             data.data.properties.heal = false;
@@ -359,8 +360,6 @@ export class CofItemSheet extends ItemSheet {
             data.data.properties.spell = false;
             data.data.effects.heal.formula = null;
             data.data.effects.buff.formula = null;
-            data.data.properties.duration.formula = null;
-            data.data.properties.duration.units = "";
             data.data.properties.activable = false;
             return this.item.update(data);
         }
@@ -372,12 +371,6 @@ export class CofItemSheet extends ItemSheet {
         if (name === "data.properties.buff" && !checked) {
             let data = duplicate(this.item.data);
             data.data.effects.buff.formula = null;
-            return this.item.update(data);
-        }
-        if (name === "data.properties.temporary" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.properties.duration.formula = null;
-            data.data.properties.duration.units = "";
             return this.item.update(data);
         }
         if (name === "data.properties.spell" && !checked) {

@@ -50,8 +50,9 @@
         <input class="field-value" id="malus" name="malus" type="text" value="{{numberFormat malus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
-<hr/>
+
 {{#if displayDifficulty}}
+    <hr/>
     <!-- DIFFICULTY -->
     <div class="row flexrow" style="margin-bottom: 5px;">
         <div class="flex1 center bg-darkslate">
@@ -61,7 +62,6 @@
             <input class="field-value" id="difficulty" name="difficulty" type="text" value="{{difficulty}}" data-dtype="Number"/>
         </div>
     </div>
-    <hr/> 
 {{/if}}
 
 {{#if hasDescription}}

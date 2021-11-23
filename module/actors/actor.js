@@ -6,6 +6,8 @@ import { Stats } from "../system/stats.js";
 import { COF } from "../system/config.js";
 import { Macros } from "../system/macros.js";
 import { CofRoll } from "../controllers/roll.js";
+import { CofSkillRoll } from "../controllers/skill-roll.js";
+import { CofDamageRoll } from "../controllers/dmg-roll.js";
 
 export class CofActor extends Actor {
     
@@ -26,7 +28,7 @@ export class CofActor extends Actor {
         
         // S'il s'agit d'un actor de type "encounter", on lui ajoute la méthode "rollWeapon"
         if (data.type === "encounter"){
-            this.rollWeapon = function(weaponId, customLabel="", onlyDamage=false, bonus=0, malus=0, dmgBonus=0, skillDescr="", dmgDescr=""){
+            this.rollWeapon = async function(weaponId, customLabel="", dmgOnly=false, bonus=0, malus=0, dmgBonus=0, skillDescr="", dmgDescr="", dialog=true){
                 let weapons = this.data.data.weapons;
                 if ((Array.isArray(weapons) && weapons.length <= weaponId) || !weapons[weaponId]){
                     ui.notifications.warn(`${game.i18n.localize("COF.notification.WeaponIndexMissing")} ${weaponId}`);
@@ -34,8 +36,24 @@ export class CofActor extends Actor {
                 }
                 let weapon = this.data.data.weapons[weaponId];
                 let label = customLabel ? customLabel : weapon.name;
-                if (!onlyDamage) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr);
-                else CofRoll.rollDamageDialog(this, label, weapon.dmg, 0, false, null, dmgDescr);
+
+                if (dialog){
+                    if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr);
+                    else CofRoll.rollDamageDialog(this, label, weapon.dmg, dmgBonus, false, null, dmgDescr);
+                }
+                else
+                {
+                    let formula = dmgBonus ? `${weapon.dmg} + ${dmgBonus}` : weapon.dmg;
+                    if (dmgOnly) new CofDamageRoll(label, formula, false, dmgDescr).roll(); 
+                    else {        
+                        let skillRoll = await new CofSkillRoll(label, "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr).roll();
+
+                        let result = skillRoll.dice[0].results[0].result;
+                        let critical = ((result >= weapon.critrange.split("-")[0]) || result == 20);
+                        
+                        new CofDamageRoll(label, formula, critical, dmgDescr).roll();                            
+                    }                    
+                }
             }
         }
     }
@@ -853,9 +871,7 @@ export class CofActor extends Actor {
      * @returns {Promise}
      */
      rollWeapon(item, options = {}) {
-        const { bonus = 0, malus = 0, dmgBonus = 0, dmgOnly = false } = options;
-
-        return Macros.rollItemMacro(item.id, item.name, item.type, bonus, malus, dmgBonus, dmgOnly);
+        return Macros.rollItemMacro(item.id, item.name, item.type, options.bonus, options.malus, options.dmgBonus, options.dmgOnly, options.customLabel, options.skillDescr, options.dmgDescr, options.dialog);
      }
     
     /**
