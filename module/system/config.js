@@ -149,4 +149,32 @@ COF.diceIcon = {
     "d20":"icons/dice/d20black.svg"
 }
 
+COF.activeEffectChanges = {
+    "data.stats.str.bonus": "COF.stats.str.label",
+    "data.stats.dex.bonus": "COF.stats.dex.label",
+    "data.stats.con.bonus": "COF.stats.con.label",
+    "data.stats.int.bonus": "COF.stats.int.label",
+    "data.stats.wis.bonus": "COF.stats.wis.label",
+    "data.stats.cha.bonus": "COF.stats.cha.label",
+    "data.stats.str.skillbonus": "COF.stats.str.skill.label",
+    "data.stats.dex.skillbonus": "COF.stats.dex.skill.label",
+    "data.stats.con.skillbonus": "COF.stats.con.skill.label",
+    "data.stats.int.skillbonus": "COF.stats.int.skill.label",
+    "data.stats.wis.skillbonus": "COF.stats.wis.skill.label",
+    "data.stats.cha.skillbonus": "COF.stats.cha.skill.label",
+    "data.attacks.melee.bonus": "COF.attacks.melee.label",
+    "data.attacks.ranged.bonus": "COF.attacks.ranged.label",
+    "data.attacks.magic.bonus": "COF.attacks.magic.label",
+    "data.attacks.melee.dmBonus": "COF.attacks.melee.dmBonus",
+    "data.attacks.ranged.dmBonus": "COF.attacks.ranged.dmBonus",
+    "data.attacks.magic.dmBonus": "COF.attacks.magic.dmBonus",
+    "data.attributes.hp.bonus": "COF.attributes.hp.max.label",
+    "data.attributes.def.bonus": "COF.attributes.def.label",
+    "data.attributes.init.bonus": "COF.attributes.init.label",    
+    "data.attributes.dr.bonus.value": "COF.attributes.dr.label",
+    "data.attributes.rp.bonus": "COF.attributes.rp.label",
+    "data.attributes.fp.bonus": "COF.attributes.fp.label",
+    "data.attributes.mp.bonus": "COF.attributes.mp.label"
+}
+
 COF.debug = false;

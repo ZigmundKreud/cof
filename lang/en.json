@@ -189,6 +189,7 @@
 
   "COF.attributes.hp.label": "Hit Points",
   "COF.attributes.hp.abbrev": "HP",
+  "COF.attributes.hp.max.label": "Max Hit Points",
   "COF.attributes.xp.label": "Experience points",
   "COF.attributes.xp.abbrev": "XP",
   "COF.attributes.init.label": "Initiative",
@@ -222,12 +223,15 @@
   "COF.weapons.dmg.abbrev" : "DM",
   "COF.weapons.bonus.abbrev" : "Bonus",
 
-  "COF.attacks.melee.label": "Melee attack",
+  "COF.attacks.melee.label": "Melee Attack",
   "COF.attacks.melee.abbrev": "MELEE",
+  "COF.attacks.melee.dmBonus": "Damages Melee Attack",
   "COF.attacks.ranged.label": "Ranged Attack",
   "COF.attacks.ranged.abbrev": "RANGED",
+  "COF.attacks.ranged.dmBonus": "Damages Ranged Attack",
   "COF.attacks.magic.label": "Magical Attack",
   "COF.attacks.magic.abbrev": "MAGIC",
+  "COF.attacks.magic.dmBonus": "Damages Magical Attack",
 
   "COF.attributes.recovery.label": "RECOVERY",
   "COF.attributes.fortune.label": "FORTUNE",

@@ -5,21 +5,22 @@
  */
 
 // Import Modules
-import {CofActor} from "./actors/actor.js";
-import {CofItem} from "./items/item.js";
+import { CofActor } from "./actors/actor.js";
+import { CofItem } from "./items/item.js";
 
-import {CofItemSheet} from "./items/item-sheet.js";
-import {CofActorSheet} from "./actors/actor-sheet.js";
+import { CofItemSheet } from "./items/item-sheet.js";
+import { CofActorSheet } from "./actors/actor-sheet.js";
 
 import { preloadHandlebarsTemplates } from "./system/templates.js";
 import { registerHandlebarsHelpers } from "./system/helpers.js";
 import { registerSystemSettings } from "./system/settings.js";
 
-import {System, COF} from "./system/config.js";
-import {Macros} from "./system/macros.js";
+import { System, COF } from "./system/config.js";
+import { Macros } from "./system/macros.js";
 import registerHooks from "./system/hooks.js";
-import {CofLootSheet} from "./actors/loot-sheet.js";
-import {UpdateUtils} from "./utils/update-utils.js";
+import { CofLootSheet } from "./actors/loot-sheet.js";
+import { UpdateUtils } from "./utils/update-utils.js";
+import { COFActiveEffectConfig } from "./system/active-effect-config.js";
 
 Hooks.once("init", async function () {
 
@@ -53,7 +54,8 @@ Hooks.once("init", async function () {
     // Define custom Entity classes
     CONFIG.Actor.documentClass = CofActor;
     CONFIG.Item.documentClass = CofItem;
-
+    CONFIG.ActiveEffect.sheetClass = COFActiveEffectConfig;
+    
     // Create a namespace within the game global
     game.cof = {
         skin : "base",
