@@ -14,6 +14,7 @@ import { CofBaseSheet } from "./base-sheet.js";
 import { COF } from "../system/config.js";
 import { LevelUpSheet } from "./levelUp-sheet.js";
 import { CofHealingRoll } from "../controllers/healing-roll.js";
+import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -272,7 +273,7 @@ export class CofActorSheet extends CofBaseSheet {
             let effects = this.actor.effects;
             const effect = effects.get(id);
             if (effect) {
-                return new ActiveEffectConfig(effect, {}).render(true);
+                return new COFActiveEffectConfig(effect, {}).render(true);
             } else return false;
         } else {
             // look first in actor onwed items

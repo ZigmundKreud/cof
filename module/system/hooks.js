@@ -229,7 +229,7 @@ export default function registerHooks() {
 
         // Si l'item parent n'est pas équipable, on quitte en laissant l'effet se créer normalement
         let itemData = item.data;
-        if (!itemData.data.properties.equipable) return;
+        if (!itemData.data?.properties?.equipable) return;
         
         // Si l'effet est déjà à jour, on quitte
         if (activeEffect.data.disabled === !itemData.worn) return;
@@ -237,4 +237,5 @@ export default function registerHooks() {
         // On met à jour l'effet en fonction du fait que l'item est équipé ou non
         activeEffect.update({disabled: !itemData.worn});
     });
+
 }

@@ -7,6 +7,7 @@ import { Path } from "../controllers/path.js";
 import { COF, System } from "../system/config.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 import { Traversal } from "../utils/traversal.js";
+import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -88,7 +89,7 @@ export class CofItemSheet extends ItemSheet {
                 const effectId = elt.data("itemId");
                 let effect = this.item.effects.get(effectId);
                 if (effect) {
-                    new ActiveEffectConfig(effect).render(true);
+                    new COFActiveEffectConfig(effect).render(true);
                 }
             }
         });
@@ -100,8 +101,8 @@ export class CofItemSheet extends ItemSheet {
                 label: game.i18n.localize("COF.ui.newEffect"),
                 icon: "icons/svg/aura.svg",
                 origin: this.item.uuid,
-                "duration.rounds": undefined,
-                disabled: false
+                tint: "#050505",
+                disabled: true
             }]);
         });
         html.find('.effect-edit').click(ev => {
@@ -110,7 +111,7 @@ export class CofItemSheet extends ItemSheet {
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
             if (effect) {
-                new ActiveEffectConfig(effect).render(true);
+                new COFActiveEffectConfig(effect).render(true);
             }
         });
         html.find('.effect-delete').click(ev => {

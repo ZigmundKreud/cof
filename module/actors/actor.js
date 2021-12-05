@@ -111,6 +111,15 @@ export class CofActor extends Actor {
         this.computeXP(actorData);
     }
 
+      /** @override 
+    applyActiveEffects() {
+        // The Active Effects do not have access to their parent at preparation time so we wait until this stage to
+        // determine whether they are suppressed or not.
+        // this.effects.forEach(e => e.determineSuppression());
+        console.log("Custom applyActiveEffects");
+        return super.applyActiveEffects();
+    }*/
+
     /* -------------------------------------------- */
 
     _prepareBaseEncounterData(actorData) {
@@ -340,12 +349,14 @@ export class CofActor extends Actor {
      * 
      */  
     computeDef(actorData) {
-        let stats = actorData.data.stats;
-        let attributes = actorData.data.attributes;
+        let data = actorData.data;
+
+        let stats = data.stats;
+        let attributes = data.attributes;
 
         const protection = this.getDefenceFromArmorAndShield();
         
-        attributes.def.base = 10 + stats.dex.mod + protection;
+        attributes.def.base = 10 + stats.dex.mod + protection ;
         attributes.def.value = attributes.def.base + attributes.def.bonus + attributes.def.malus;
     }
 

@@ -697,6 +697,12 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-f
   border: solid 1px;
   padding-left: 5px;
 }
+.system-cof .active-effect-sheet .window-content .SelectEffectTarget select {
+  width: 100%;
+}
+.system-cof .active-effect-sheet .window-content .changeEffectTarget {
+  font-size: 20px;
+}
 /* Styles limited to cof sheets */
 .cof {
   /*
