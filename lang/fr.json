@@ -253,7 +253,7 @@
   "COF.attributes.fp.abbrev" : "PC",
   "COF.attributes.mp.label" : "Points de magie",
   "COF.attributes.mp.abbrev" : "PM",
-  "COF.attributes.dr.label" : "Réduction de dégâts",
+  "COF.attributes.dr.label" : "Réduction des dégâts",
   "COF.attributes.dr.abbrev" : "RD",
 
   "COF.currency.pp.label": "Pièces de platine",
