@@ -396,6 +396,9 @@
 
   "COF.oveloaded.label": "ENCOMBREMENT",
   "COF.overloaded.armor": "Armure",
-  "COF.overloaded.enchantments": "Autre"
+  "COF.overloaded.enchantments": "Autre",
 
+  "COFCUSTOMSTATUS.prone":"Renversé",
+  "COFCUSTOMSTATUS.blind":"Aveuglé",
+  "COFCUSTOMSTATUS.stun":"Etourdi"
 }

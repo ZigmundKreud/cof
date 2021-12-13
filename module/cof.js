@@ -19,8 +19,8 @@ import { System, COF } from "./system/config.js";
 import { Macros } from "./system/macros.js";
 import registerHooks from "./system/hooks.js";
 import { CofLootSheet } from "./actors/loot-sheet.js";
-import { UpdateUtils } from "./utils/update-utils.js";
 import { COFActiveEffectConfig } from "./system/active-effect-config.js";
+import { EffectsModifications, customizeStatusEffects } from "./effects/effects.js";
 
 Hooks.once("init", async function () {
 
@@ -94,6 +94,9 @@ Hooks.once("init", async function () {
 
     // Register hooks
     registerHooks();
+
+    // Customize Status Effects
+    customizeStatusEffects();
 });
 
 Hooks.once("setup", function() {
