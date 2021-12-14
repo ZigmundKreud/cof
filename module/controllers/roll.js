@@ -35,7 +35,7 @@ export class CofRoll {
         let superior = eval(`${key}.superior`);
         const critrange = 20;
         label = (label) ? game.i18n.localize(label) : null;
-        return this.skillRollDialog(actor, label, mod, bonus, malus, critrange, superior);
+        return this.skillRollDialog(actor, label, mod, bonus, malus, critrange, superior, "submit", null, actor.isWeakened());
     }
 
     /**
@@ -319,7 +319,7 @@ export class CofRoll {
      * @param {*} description 
      * @returns 
      */
-    static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description) {
+    static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description, weakened = false) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
         let diff = null;
         const displayDifficulty = game.settings.get("cof", "displayDifficulty");
@@ -336,7 +336,8 @@ export class CofRoll {
             displayDifficulty: isDifficultyDisplayed,
             superior: superior,
             hasDescription : description && description.length > 0,
-			skillDescr: description
+			skillDescr: description,
+            weakened: weakened
         });
         let d = new Dialog({
             title: label,

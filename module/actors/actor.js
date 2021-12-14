@@ -1139,4 +1139,12 @@ export class CofActor extends Actor {
             return capacity.applyEffects(this);
         } 
     }
+
+    /**
+     * 
+     * @returns true si l'active Effect Affaibli (radiation) et Immobilisé (restrain) est actif
+     */
+    isWeakened(){
+        return (this.effects.find(e => (e.getFlag("core","statusId") === "restrain") || (e.getFlag("core","statusId") === "radiation")) !== undefined);
+    }
 }

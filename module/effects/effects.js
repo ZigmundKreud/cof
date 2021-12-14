@@ -84,6 +84,12 @@ export const EffectsModifications = {
 				value: -5
 			}
 		]        
+    },
+    "radiation":{
+        label:"COFCUSTOMSTATUS.weak"        
+    },
+    "restrain":{
+        label:"COFCUSTOMSTATUS.restrain"        
     }
 }
 

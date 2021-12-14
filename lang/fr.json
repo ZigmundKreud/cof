@@ -398,7 +398,9 @@
   "COF.overloaded.armor": "Armure",
   "COF.overloaded.enchantments": "Autre",
 
-  "COFCUSTOMSTATUS.prone":"Renversé",
-  "COFCUSTOMSTATUS.blind":"Aveuglé",
-  "COFCUSTOMSTATUS.stun":"Etourdi"
+  "COFCUSTOMSTATUS.prone":"Renversé (malus)",
+  "COFCUSTOMSTATUS.blind":"Aveuglé (malus)",
+  "COFCUSTOMSTATUS.stun":"Etourdi (malus)",
+  "COFCUSTOMSTATUS.weak":"Affaibli (d12)",
+  "COFCUSTOMSTATUS.restrain":"Immobilisé (d12)"
 }
