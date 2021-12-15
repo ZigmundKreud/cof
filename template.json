@@ -381,6 +381,7 @@
         "slot": "",
         "qty" : 1,
         "stacksize" : null,
+        "deleteWhen0" : false,
         "price": 0,
         "value" : 0,
         "rarity" : "common",
