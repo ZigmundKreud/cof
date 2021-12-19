@@ -13,8 +13,8 @@ export class COFActiveEffectConfig extends ActiveEffectConfig {
         let targetType = this.object.getFlag("cof", "targetType");
 
         if (!targetType) {
-            this.object.setFlag("cof", "targetType", "SelectEffectTarget");
-            targetType = "SelectEffectTarget";
+            this.object.setFlag("cof", "targetType", "InputEffectTarget");
+            targetType = "InputEffectTarget";
         }
 
         sheetData.targetType = targetType;

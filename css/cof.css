@@ -1961,3 +1961,8 @@ Copied from dnd5e
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
 }
+img[data-status-id="dead"],img[data-status-id="prone"],img[data-status-id="blind"],img[data-status-id="stun"],img[data-status-id="radiation"],img[data-status-id="restrain"] {
+
+  background-color: green;
+
+}

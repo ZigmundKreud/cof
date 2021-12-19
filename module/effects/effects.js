@@ -5,22 +5,30 @@ export function customizeStatusEffects() {
     /// Parcours des modifications
     for(let modificationId in EffectsModifications) {
         // Recherche du status correspondant à la modification
-        let status = CONFIG.statusEffects.find(eff=>eff.id === modificationId);
+        //let status = CONFIG.statusEffects.find(eff=>eff.id === modificationId);
+		let statusIndex = CONFIG.statusEffects.findIndex(eff=>eff.id === modificationId);
+		let status;
+
         // Si le statut a été trouvé
         // Modification du libellé et ajout de l'effet (des modificateurs) si nécessaire
-        if (status){
-            // Récupération de l'objet de modification concerné
+        if (statusIndex){				
+            // Récupération de l'objet de modification concerné 
+			status = CONFIG.statusEffects[statusIndex];
             let modifications = EffectsModifications[modificationId];
             
             if (modifications.label) status.label = modifications.label;
             if (modifications.changes) status.changes = modifications.changes;
+			if (modifications.icon) status.icon = modifications.icon;
+
         }
+		CONFIG.statusEffects.splice(statusIndex,1);
+		CONFIG.statusEffects.unshift(status);
     }
 }
 
 export const EffectsModifications = {     
     "prone":{
-        label:"COFCUSTOMSTATUS.prone",
+        label:"COF.CustomStatus.prone",
         changes:[
 			{
 				key: "data.attacks.melee.bonus",
@@ -48,7 +56,7 @@ export const EffectsModifications = {
 		]
     },
     "blind":{
-        label:"COFCUSTOMSTATUS.blind",
+        label:"COF.CustomStatus.blind",
         changes:[
 			{
 				key: "data.attacks.melee.bonus",
@@ -76,7 +84,7 @@ export const EffectsModifications = {
 		]        
     },
     "stun":{
-        label:"COFCUSTOMSTATUS.stun",
+        label:"COF.CustomStatus.stun",
         changes:[
 			{
 				key: "data.attributes.def.bonus",
@@ -86,10 +94,21 @@ export const EffectsModifications = {
 		]        
     },
     "radiation":{
-        label:"COFCUSTOMSTATUS.weak"        
+        label:"COF.CustomStatus.weak",
+		icon: "icons/svg/unconscious.svg"        
     },
     "restrain":{
-        label:"COFCUSTOMSTATUS.restrain"        
-    }
+        label:"COF.CustomStatus.restrain"        
+    },
+	"dead":{
+		label:"COF.CustomStatus.dead",
+        changes:[
+			{
+				key: "data.attributes.hp.value",
+				mode: 5,
+				value: "0"
+			}
+		] 
+	}
 }
 
