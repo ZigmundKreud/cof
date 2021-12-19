@@ -164,10 +164,16 @@
     <div class="form-group">
         <label>{{localize "COF.ui.macroName"}}</label>
         <div class="form-fields">
-            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="Nom de la macro" data-dtype="String"> <input name="data.properties.macro.id" type="text" value="{{data.properties.macro.id}}" data-dtype="String" >          
-            <input name="data.properties.macro.pack" type="text" value="{{data.properties.macro.pack}}" placeholder="Pack" data-dtype="String" style="display: none;">
+            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="Nom de la macro" data-dtype="String">            
         </div>       
     </div>
+    <div class="form-group">
+        <label>{{localize "COF.ui.macroId"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.macro.id" type="text" value="{{data.properties.macro.id}}" placeholder="Id de la macro" data-dtype="String">          
+        </div>       
+    </div>
+    <input name="data.properties.macro.pack" type="text" value="{{data.properties.macro.pack}}" placeholder="Pack" data-dtype="String" style="display: none;">
 {{/if}}
 
 

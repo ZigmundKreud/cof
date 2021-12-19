@@ -109,7 +109,8 @@ COF.capacityProperties = {
     "save": "COF.ui.save",
     "activable": "COF.properties.activable",
     "heal": "COF.ui.heal",
-    "attack": "COF.ui.attack"
+    "attack": "COF.ui.attack",
+    "useMacro": "COF.ui.useMacro"
 }
 
 COF.itemIcons = {

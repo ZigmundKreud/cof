@@ -126,7 +126,8 @@
   "COF.ui.automatic": "Automatic",
   "COF.ui.stat": "Characteristic",
   "COF.ui.useMacro": "Managed by macro",
-  "COF.ui.macroName": "Macro Name and Id",
+  "COF.ui.macroName": "Macro Name",
+  "COF.ui.macroId": "Macro Id",
 
   "COF.roll.skillcheck" : "Skill check",
   "COF.roll.success" : "Success",
