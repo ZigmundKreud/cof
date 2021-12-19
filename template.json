@@ -460,6 +460,7 @@
       "activable": false,      
       "heal": false,
       "attack": false,
+      "useMacro": false,
       "properties": {
         "ranged": {
           "range": "",
@@ -482,6 +483,11 @@
             "difficulty": null,
             "dmgBase": "",
             "dmgStat": ""     
+        },
+        "macro": {
+          "name": null,
+          "id": null,
+          "pack": null
         }
       }
     },

@@ -125,8 +125,8 @@ export class Macros {
 
         const itemData = item.data;
 
-        if((itemData.data.properties.weapon != null && itemData.data.properties.weapon) || (itemData.data.properties.heal != null && itemData.data.properties.heal) || (itemData.data.properties.attack != null && itemData.data.properties.attack)){
-            if (itemData.data.properties.weapon != null && itemData.data.properties.weapon){
+        if((itemData.data.properties.weapon) || (itemData.data.properties.heal) || (itemData.data.properties.attack) || (itemData.data.properties.macro)){
+            if (itemData.data.properties.weapon){
                 if (itemData.data.properties.equipable && !itemData.data.worn) {
                     return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
                 }
@@ -165,7 +165,7 @@ export class Macros {
                         }
                     }                   
             }
-            if (itemData.data.heal != null && itemData.data.heal){
+            if (itemData.data.heal){
                 // object
                 if (item.type === "item") {
                     new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
@@ -176,7 +176,7 @@ export class Macros {
                 }
                 
             }
-            if (itemData.data.attack != null && itemData.data.attack && itemData.data.activable != null && itemData.data.activable){
+            if (itemData.data.activable && (itemData.data.attack || itemData.data.useMacro)){
                 actor.activateCapacity(item);
             }
         }

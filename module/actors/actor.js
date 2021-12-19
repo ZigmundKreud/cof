@@ -1124,7 +1124,7 @@ export class CofActor extends Actor {
         const activable = capacityData.activable;
         const limitedUsage = capacityData.limitedUsage;
 
-        if(activable) {
+        if (activable) {
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
                 if (capacityData.properties.limitedUsage.use > 0) {

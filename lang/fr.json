@@ -121,6 +121,13 @@
   "COF.ui.noPathSelected": "Aucune voie n'a été ajoutée pour le moment.",
   "COF.ui.activeCapacities": "Capacités actives",
   "COF.ui.CapacityPoints": "Points de capacités",
+  "COF.ui.attributes": "Attributs",
+  "COF.ui.radius": "Rayon",
+  "COF.ui.healFormula": "Formule de soin",
+  "COF.ui.automatic": "Automatique",
+  "COF.ui.stat": "Caractéristique", 
+  "COF.ui.useMacro": "Gestion par macro",
+  "COF.ui.macroName": "Nom et Id de la macro",
 
   "COF.roll.skillcheck" : "Test de compétence",
   "COF.roll.success" : "Succès",

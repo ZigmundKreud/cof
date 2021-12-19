@@ -161,12 +161,13 @@ export class CofItemSheet extends ItemSheet {
         if (data.type === "Item") {
             return this._onDropItem(event, data);
         }
-        /**
-         * Handle dropping an Actor on the sheet to trigger a Polymorph workflow
-         */
         // Case 2 - Dropped Actor
         if (data.type === "Actor") {
             return false;
+        }
+        // Case 3 - Dropped Macro
+        if (data.type === "Macro") {
+            return this._onDropMacro(event, data);
         }
     }
 
@@ -192,6 +193,44 @@ export class CofItemSheet extends ItemSheet {
             }
         });
     }
+
+    /**
+     * @name _onDropMacro
+     * @description Handles the dropping of a macro - Used for capacity Item
+     * @param {DragEvent} event     The concluding DragEvent which contains drop data
+     * @param {Object} data         The data transfer extracted from the event
+     * @return {Object}             OwnedItem data to create
+     * @private
+     */
+    async _onDropMacro(event, data) {
+        event.preventDefault();
+       if (this.object.type !== "capacity") return false;
+
+       // Macro d'un compendium
+        if (data.pack != undefined) {
+            const pack = game.packs.get(data.pack);
+            const item = pack.index.get(data.id);
+            let itemId = item != undefined ? item._id : null;
+            let macro;
+            if (itemId) {
+                macro = await pack.getDocument(itemId);
+            }
+            if (macro && this.object.data.data.useMacro) {
+                this.object.data.data.properties.macro.id = data.id;
+                this.object.data.data.properties.macro.name = macro.name;
+                this.object.data.data.properties.macro.pack = data.pack;
+                return this.render(true);
+            }
+        }
+
+        // Macro de la hotbar
+        if (this.object.data.data.useMacro) {
+            this.object.data.data.properties.macro.id = data.id;
+            this.object.data.data.properties.macro.name = game.macros.get(data.id).name;
+            return this.render(true);
+        }
+    }
+
 
     /**
      * 

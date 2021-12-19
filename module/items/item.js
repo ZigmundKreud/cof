@@ -78,10 +78,12 @@ export class CofItem extends Item {
         }
     }
 
-    applyEffects(actor) {
+    async applyEffects(actor) {
+        const itemData = this.data;
+
         // Capacité de soin
         if(this.getProperty("heal")) {
-            const r = new CofHealingRoll(this.data.name, this.getHealFormula(), false);
+            const r = new CofHealingRoll(itemData.name, this.getHealFormula(), false);
             r.roll(actor);
             return r;
         }
@@ -90,6 +92,56 @@ export class CofItem extends Item {
         if (this.getProperty("attack")) {
             return CofRoll.rollAttackCapacity(actor, this);
         }
+
+        // Capacité utilisant une macro
+        if (this.getProperty("useMacro")) {
+           let macro;
+           // Recherche de la macro avec l'ID
+           if (itemData.data.properties.macro.id !== null && itemData.data.properties.macro.id != "") {
+               macro = game.macros.get(itemData.data.properties.macro.id);
+               if (macro !== undefined) {
+                   return macro.execute();
+               }
+
+               // Recherche dans le compendium
+               if (itemData.data.properties.macro.pack != null && itemData.data.properties.macro.pack != "") {
+                    const pack = game.packs.get(itemData.data.properties.macro.pack);
+                    const item = pack.index.get(itemData.data.properties.macro.id);                
+                    let itemId = item != undefined ? item._id : null;
+                    if (itemId) {
+                        macro = await pack.getDocument(itemId);
+                    }
+    
+                    if (macro != undefined) {
+                        return macro.execute();
+                    }
+               }
+
+            }
+            // Recherche de la macro avec le nom
+            else {                
+                let macro;
+
+                // Recherche dans le monde
+                macro = game.macros.getName(itemData.data.properties.macro.name);
+                if (macro != undefined) {
+                    return macro.execute();
+                }
+
+                // Recherche dans le compendium des macros
+                const pack = game.packs.get("cof.macros");
+                const item = pack.index.getName(itemData.data.properties.macro.name);                
+                let itemId = item != undefined ? item._id : null;
+                if (itemId) {
+                    macro = await pack.getDocument(itemId);
+                }
+
+                if (macro != undefined) {
+                    return macro.execute();
+                }                
+            }
+            
+        }        
     }
     
     getMartialCategory() {

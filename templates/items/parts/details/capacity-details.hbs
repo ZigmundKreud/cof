@@ -1,7 +1,6 @@
-<h3 class="form-header">Attributs</h3>
-<input class="field-value" name="data.key" type="hidden" value="{{data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
+<h3 class="form-header">{{localize "COF.ui.attributes"}}</h3>
+<input class="field-value" name="data.key" type="hidden" value="{{data.key}}" placeholder="{{localize "COF.ui.key"}}" data-dtype="String">
 <div class="form-group stacked">
-    <label></label>
     <div class="form-fields">
         <label class="checkbox">
             <input type="checkbox" name="data.limited" {{checked data.limited}}> {{localize "COF.ui.limited"}}
@@ -24,29 +23,31 @@
     </div>
 </div>
 <div class="form-group stacked">
-    <label></label>
     <div class="form-fields">
         <label class="checkbox">
             <input type="checkbox" name="data.heal" {{checked data.heal}}> {{localize "COF.ui.heal"}}
         </label>
         <label class="checkbox">
             <input type="checkbox" name="data.attack" {{checked data.attack}}> {{localize "COF.ui.attack"}}
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.useMacro" {{checked data.useMacro}}> {{localize "COF.ui.useMacro"}}
         </label>      
     </div>
 </div>
 
-<h3 class="form-header">Propriétés</h3> 
+<h3 class="form-header">{{localize "COF.ui.properties"}}</h3> 
 {{#if data.ranged}}
     <div class="form-group">
         <label>{{localize "COF.ui.range"}}</label> 
         <div class="form-fields">            
-            <input type="text" name="data.properties.ranged.range" value="{{data.properties.ranged.range}}" placeholder="Contact" data-dtype="String"/>            
+            <input type="text" name="data.properties.ranged.range" value="{{data.properties.ranged.range}}" placeholder="{{localize "COF.ui.range"}}" data-dtype="String"/>            
         </div>
     </div>    
     <div class="form-group">
-        <label>Rayon</label>
+        <label>{{localize "COF.ui.radius"}}</label>
         <div class="form-fields">            
-            <input type="text" name="data.properties.ranged.radius" value="{{data.properties.ranged.radius}}" placeholder="Contact" data-dtype="String"/>
+            <input type="text" name="data.properties.ranged.radius" value="{{data.properties.ranged.radius}}" placeholder="{{localize "COF.ui.radius"}}" data-dtype="String"/>
         </div>
     </div>
 {{/if}}
@@ -69,7 +70,7 @@
     <div class="form-group">
         <label>{{localize "COF.ui.save"}}</label>
         <div class="form-group">
-            <label>Caractéristique</label>
+            <label>{{localize "COF.ui.stat"}}</label>
             <div class="form-fields">
                 <select name="data.properties.save.stat" data-type="String" style="width:100%">
                     {{#select data.properties.save.stat}}
@@ -84,13 +85,13 @@
                 </select>
             </div>
         </div>
-        <label>Difficulté</label>
+        <label>{{localize "COF.ui.difficulty"}}</label>
         <div class="form-fields">            
             <input type="text" name="data.properties.save.difficulty" value="{{data.properties.save.difficulty}}" data-dtype="String"/>
         </div>        
     </div>   
     <div class="form-group"  >
-        <label>Description</label>
+        <label>{{localize "COF.ui.description"}}</label>
         <div class="form-fields">            
             <input type="text" name="data.properties.save.text" value="{{data.properties.save.text}}" data-dtype="String"/>
         </div>
@@ -99,9 +100,9 @@
 
 {{#if data.heal}}
 <div class="form-group">
-    <label>Formule de soin</label>
+    <label>{{localize "COF.ui.healFormula"}}</label>
     <div class="form-fields">
-        <input type="text" name="data.properties.heal.formula" value="{{data.properties.heal.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
+        <input type="text" name="data.properties.heal.formula" value="{{data.properties.heal.formula}}" placeholder="{{localize "COF.ui.healFormula"}}" data-dtype="String"/>
     </div>
 </div>
 {{/if}}
@@ -112,7 +113,7 @@
         <div class="form-fields">
             <select name="data.properties.attack.skill" data-type="String" style="width:100%">
                 {{#select data.properties.attack.skill}}
-                    <option value="auto">Automatique</option>
+                    <option value="auto">{{localize "COF.ui.automatic"}}</option>
                     <option value="@attacks.melee.mod">{{localize "COF.attacks.melee.label"}}</option>
                     <option value="@attacks.ranged.mod">{{localize "COF.attacks.ranged.label"}}</option>
                     <option value="@attacks.magic.mod">{{localize "COF.attacks.magic.label"}}</option>
@@ -128,7 +129,7 @@
     </div>
 
     <div class="form-group">
-        <label>Difficulté</label>
+        <label>{{localize "COF.ui.difficulty"}}</label>
         <div class="form-fields">
             <input name="data.properties.attack.difficulty" type="text" value="{{data.properties.attack.difficulty}}" placeholder="" data-dtype="String">
         </div>
@@ -158,5 +159,15 @@
         </div>
     </div>
 {{/if}}    
+
+{{#if data.useMacro}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.macroName"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="Nom de la macro" data-dtype="String"> <input name="data.properties.macro.id" type="text" value="{{data.properties.macro.id}}" data-dtype="String" >          
+            <input name="data.properties.macro.pack" type="text" value="{{data.properties.macro.pack}}" placeholder="Pack" data-dtype="String" style="display: none;">
+        </div>       
+    </div>
+{{/if}}
 
 

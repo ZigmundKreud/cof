@@ -403,8 +403,8 @@ export class CofActorSheet extends CofBaseSheet {
             data = JSON.parse(event.dataTransfer.getData('text/plain'));
         } catch (err) {return false;}
         if (!data) return false;
-        if (data.type === "Item") {return this._onDropItem(event, data);}
-        if (data.type === "Actor") {return false; }
+        if (data.type === "Item") { return this._onDropItem(event, data); }
+        if (data.type === "Actor") { return false; }
     }
 
     /**
