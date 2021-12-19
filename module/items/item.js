@@ -78,6 +78,13 @@ export class CofItem extends Item {
         }
     }
 
+    /**
+     * @name applyEffects
+     * @description Active les effets d'un objets
+     *  Pour les types Soin, Attaque et useMacro
+     * @param {*} actor 
+     * @returns 
+     */
     async applyEffects(actor) {
         const itemData = this.data;
 
@@ -149,7 +156,7 @@ export class CofItem extends Item {
         return ;
     }
 
-    getQuantity(){
+    getQuantity() {
         if(this.data.data.properties.stackable) return this.data.data.qty;
         else return 1;
     }
@@ -160,13 +167,13 @@ export class CofItem extends Item {
             const qty = itemData.data.qty;
             increment = Math.abs(increment);
 
-            if(isDecrease) {
+            if (isDecrease) {
                 itemData.data.qty = Math.max(0, qty - increment);
                 if (itemData.data.deleteWhen0 && itemData.data.qty === 0) return this.delete();
             }
             else itemData.data.qty = itemData.data.stacksize ? Math.min(itemData.data.stacksize, qty + increment) : qty + increment;
 
-            if(itemData.data.price){
+            if (itemData.data.price) {
                 const qty = (itemData.data.qty) ? itemData.data.qty : 1;
                 itemData.data.value = qty * itemData.data.price;
             }
@@ -178,8 +185,8 @@ export class CofItem extends Item {
         if(this.data.data.limitedUsage) {
             let itemData = duplicate(this.data);
             const qty = itemData.data.properties.limitedUsage.use;
-            if (isDecrease) itemData.data.properties.limitedUsage.use = qty - increment;
-            else itemData.data.properties.limitedUsage.use = qty + increment;
+            if (isDecrease) itemData.data.properties.limitedUsage.use = Math.max(0, qty - increment);
+            else itemData.data.properties.limitedUsage.use = Math.min(itemData.data.properties.limitedUsage.maxUse, qty + increment)
             if (itemData.data.properties.limitedUsage.use < 0) itemData.data.properties.limitedUsage.use = 0;
             return this.update(itemData);
         }
