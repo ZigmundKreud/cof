@@ -306,6 +306,7 @@ export class CofItemSheet extends ItemSheet {
             let data = duplicate(this.item.data);
             data.data.qty = 1;
             data.data.stacksize = null;
+            data.data.deleteWhen0 = false;
             return this.item.update(data);
         }
         if (name === "data.properties.weapon" && !checked) {

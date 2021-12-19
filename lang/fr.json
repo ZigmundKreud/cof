@@ -93,6 +93,7 @@
   "COF.ui.equipable" :  "Équipable",
   "COF.ui.stackable" : "Empilable",
   "COF.ui.stacksize" : "Quantité max",
+  "COF.ui.deleteWhen0" : "Supprimer quand la quantité atteint 0",
   "COF.ui.formula" : "Formule",
   "COF.ui.customFormula" : "Formule personnalisée",
   "COF.ui.bonusMalus" : "Bonus/Malus",

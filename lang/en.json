@@ -90,6 +90,7 @@
   "COF.ui.equipable" :  "Equipable",
   "COF.ui.stackable" : "Stackable",
   "COF.ui.stacksize" : "Max quantity",
+  "COF.ui.deleteWhen0" : "Delete when quantity reach 0",  
   "COF.ui.capacity" : "Capacity",
   "COF.ui.capacities" : "Capacities",
   "COF.ui.formula" : "Formula",

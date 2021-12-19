@@ -1022,11 +1022,9 @@ export class CofActor extends Actor {
         const consumable = item.data.data.properties.consumable;
         const quantity = item.data.data.qty;
 
-        if(consumable && quantity>0){
-            let itemData = duplicate(item.data);
-            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty - 1 : 0;
+        if(consumable && quantity > 0){
             AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-            return item.update(itemData).then(item => item.applyEffects(this));
+            return item.modifyQuantity(1,true).then(item => item.applyEffects(this));;
         }
     }
 
