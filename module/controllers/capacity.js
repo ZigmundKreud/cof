@@ -58,12 +58,7 @@ export class Capacity {
      * @param {*} isUncheck 
      * @returns 
      */
-    static toggleCheck(actor, event, isUncheck) {
-        const elt = $(event.currentTarget).parents(".capacity");
-        // get id of clicked capacity
-        const capId = elt.data("itemId");
-        // get id of parent path
-        const pathId = elt.data("pathId");
+    static toggleCheck(actor, capId, pathId, isUncheck) {
         // get path from owned items
         const path = duplicate(actor.items.get(pathId).data);
         const pathData = path.data;
@@ -111,7 +106,7 @@ export class Capacity {
                     toAdd = toAdd instanceof Array ? toAdd : [toAdd];
                     let items = [];
                     toAdd.forEach(c => { items.push(c.toObject(false)) });
-                    // création de l'élémént 
+                    // création de l'élément 
                     return actor.createEmbeddedDocuments("Item", items);
                 }
             });

@@ -5,7 +5,7 @@ export class Traversal {
     static async getDocument(id, type, pack) {
         let entity = null;
         // Case 1 - Import from World entities
-        if(type === "item") entity = game.items.get(id);
+        if(type === "item" || type === "capacity") entity = game.items.get(id);
         else if(type === "actor") entity = game.actors.get(id);
         else if(type === "journal") entity = game.journal.get(id);
         // Case 2 - Import from a Compendium pack
