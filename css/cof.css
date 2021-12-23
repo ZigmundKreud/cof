@@ -703,6 +703,14 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-f
 .system-cof .active-effect-sheet .window-content .changeEffectTarget {
   font-size: 20px;
 }
+.system-cof img[data-status-id="dead"],
+.system-cof img[data-status-id="prone"],
+.system-cof img[data-status-id="blind"],
+.system-cof img[data-status-id="stun"],
+.system-cof img[data-status-id="downgrade"],
+.system-cof img[data-status-id="restrain"] {
+  background-color: green;
+}
 /* Styles limited to cof sheets */
 .cof {
   /*
@@ -1960,9 +1968,4 @@ Copied from dnd5e
   line-height: 16px;
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
-}
-img[data-status-id="dead"],img[data-status-id="prone"],img[data-status-id="blind"],img[data-status-id="stun"],img[data-status-id="downgrade"],img[data-status-id="restrain"] {
-
-  background-color: green;
-
 }
