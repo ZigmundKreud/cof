@@ -396,6 +396,12 @@
 
   "COF.oveloaded.label": "ENCOMBREMENT",
   "COF.overloaded.armor": "Armure",
-  "COF.overloaded.enchantments": "Autre"
+  "COF.overloaded.enchantments": "Autre",
 
+  "COF.CustomStatus.prone": "Renversé (malus)",
+  "COF.CustomStatus.blind": "Aveuglé (malus)",
+  "COF.CustomStatus.stun": "Etourdi (malus)",
+  "COF.CustomStatus.weak": "Affaibli (d12)",
+  "COF.CustomStatus.restrain": "Immobilisé (d12)",
+  "COF.CustomStatus.dead": "Hors d'état"
 }

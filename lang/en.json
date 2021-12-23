@@ -389,6 +389,12 @@
 
   "COF.oveloaded.label": "OVERLOADED",
   "COF.overloaded.armor": "Armor",
-  "COF.overloaded.enchantments": "Misc"
+  "COF.overloaded.enchantments": "Misc",
 
+  "COF.CustomStatus.prone": "Prone (malus)",
+  "COF.CustomStatus.blind": "Blind (malus)",
+  "COF.CustomStatus.stun": "Stun (malus)",
+  "COF.CustomStatus.weak": "Weak (d12)",
+  "COF.CustomStatus.restrain": "Restrain (d12)",
+  "COF.CustomStatus.dead": "Dead"
 }
