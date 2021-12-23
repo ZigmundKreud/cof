@@ -64,7 +64,7 @@ export class CofRoll {
         const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
         const dmg = dmgMod.data('itemDmg');
 
-        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
+        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0, "submit", null, null, null, actor.isWeakened());
     }
 
     /**
@@ -105,7 +105,7 @@ export class CofRoll {
         }
 
         if (attack.skill !== "auto") {
-            return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0, "submit", "", dmgDescr, difficulty);
+            return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0, "submit", "", dmgDescr, difficulty, actor.isWeakened());
         }
         else return this.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);        
     }
@@ -383,7 +383,7 @@ export class CofRoll {
      * @param {*} onEnter 
      * @returns 
      */
-    static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null) {
+    static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null, weakened = false) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
         let diff = null;
         let isDifficultyDisplayed = true;
@@ -413,7 +413,8 @@ export class CofRoll {
             hasSkillDescr: skillDescr && skillDescr.length > 0,
             skillDescr: skillDescr,
             hasDmgDescr: dmgDescr && dmgDescr.length > 0,
-            dmgDescr: dmgDescr
+            dmgDescr: dmgDescr,
+            weakened: weakened
         });
 
         let d = new Dialog({

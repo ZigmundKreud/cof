@@ -38,7 +38,7 @@ export class CofActor extends Actor {
                 let label = customLabel ? customLabel : weapon.name;
 
                 if (dialog){
-                    if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr);
+                    if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr, this.isWeakened());
                     else CofRoll.rollDamageDialog(this, label, weapon.dmg, dmgBonus, false, null, dmgDescr);
                 }
                 else
@@ -46,7 +46,7 @@ export class CofActor extends Actor {
                     let formula = dmgBonus ? `${weapon.dmg} + ${dmgBonus}` : weapon.dmg;
                     if (dmgOnly) new CofDamageRoll(label, formula, false, dmgDescr).roll(); 
                     else {        
-                        let skillRoll = await new CofSkillRoll(label, "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr).roll();
+                        let skillRoll = await new CofSkillRoll(label, this.isWeakened() ? "1d12": "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr).roll();
 
                         let result = skillRoll.dice[0].results[0].result;
                         let critical = ((result >= weapon.critrange.split("-")[0]) || result == 20);
@@ -1145,6 +1145,6 @@ export class CofActor extends Actor {
      * @returns true si l'active Effect Affaibli (radiation) et Immobilisé (restrain) est actif
      */
     isWeakened(){
-        return (this.effects.find(e => (e.getFlag("core","statusId") === "restrain") || (e.getFlag("core","statusId") === "radiation")) !== undefined);
+        return (this.effects.find(e => (e.getFlag("core","statusId") === "restrain") || (e.getFlag("core","statusId") === "downgrade")) !== undefined);
     }
 }

@@ -9,8 +9,8 @@
     </div>
     <div class="flex1 center cell">
         <select class="flex1" name="dice" id="dice" data-type="String">
-            <option value="1d20" selected>1d20</option>
-            <option value="1d12">1d12</option>
+            <option value="1d20" {{#unless weakened}}{{else}}selected{{/unless}}>1d20</option>
+            <option value="1d12" {{#if weakened}}selected{{/if}}>1d12</option>
             <option value="2d12kh">2d12 ({{localize 'COF.ui.kh'}})</option>
             <option value="2d20kh">2d20 ({{localize 'COF.ui.kh'}})</option>
             <option value="2d12kl">2d12 ({{localize 'COF.ui.kl'}})</option>

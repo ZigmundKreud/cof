@@ -93,9 +93,8 @@ export const EffectsModifications = {
 			}
 		]        
     },
-    "radiation":{
-        label:"COF.CustomStatus.weak",
-		icon: "icons/svg/unconscious.svg"        
+    "downgrade":{
+        label:"COF.CustomStatus.weak"
     },
     "restrain":{
         label:"COF.CustomStatus.restrain"        
