@@ -161,17 +161,18 @@ export class CofItemSheet extends ItemSheet {
         if (data.type === "Item") {
             return this._onDropItem(event, data);
         }
-        /**
-         * Handle dropping an Actor on the sheet to trigger a Polymorph workflow
-         */
         // Case 2 - Dropped Actor
         if (data.type === "Actor") {
             return false;
         }
+        // Case 3 - Dropped Macro
+        if (data.type === "Macro") {
+            return this._onDropMacro(event, data);
+        }
     }
 
     /**
-     * Handle dropping of an item reference or item data onto an Actor Sheet
+     * Handle dropping of an item reference or item data onto an Item Sheet
      * @param {DragEvent} event     The concluding DragEvent which contains drop data
      * @param {Object} data         The data transfer extracted from the event
      * @return {Object}             OwnedItem data to create
@@ -192,6 +193,44 @@ export class CofItemSheet extends ItemSheet {
             }
         });
     }
+
+    /**
+     * @name _onDropMacro
+     * @description Handles the dropping of a macro - Used for capacity Item
+     * @param {DragEvent} event     The concluding DragEvent which contains drop data
+     * @param {Object} data         The data transfer extracted from the event
+     * @return {Object}             OwnedItem data to create
+     * @private
+     */
+    async _onDropMacro(event, data) {
+        event.preventDefault();
+       if (this.object.type !== "capacity") return false;
+
+       // Macro d'un compendium
+        if (data.pack != undefined) {
+            const pack = game.packs.get(data.pack);
+            const item = pack.index.get(data.id);
+            let itemId = item != undefined ? item._id : null;
+            let macro;
+            if (itemId) {
+                macro = await pack.getDocument(itemId);
+            }
+            if (macro && this.object.data.data.useMacro) {
+                this.object.data.data.properties.macro.id = data.id;
+                this.object.data.data.properties.macro.name = macro.name;
+                this.object.data.data.properties.macro.pack = data.pack;
+                return this.render(true);
+            }
+        }
+
+        // Macro de la hotbar
+        if (this.object.data.data.useMacro) {
+            this.object.data.data.properties.macro.id = data.id;
+            this.object.data.data.properties.macro.name = game.macros.get(data.id).name;
+            return this.render(true);
+        }
+    }
+
 
     /**
      * 
@@ -244,7 +283,7 @@ export class CofItemSheet extends ItemSheet {
      * @returns 
      */
     _onDeleteItem(event) {
-        ev.preventDefault();
+        event.preventDefault();
         let data = duplicate(this.item.data);
         const li = $(event.currentTarget).closest(".item");
         const id = li.data("itemId");
@@ -393,6 +432,21 @@ export class CofItemSheet extends ItemSheet {
             const entries = Object.entries(item.data.data.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.itemProperties[e[0]]
+            }));
+        }
+        if (item.type === "capacity") {
+            let entries = [];
+            entries.push(["limited",item.data.data.limited]);
+            entries.push(["spell", item.data.data.spell]);
+            entries.push(["ranged", item.data.data.ranged]);
+            entries.push(["limitedUsage", item.data.data.limitedUsage]);
+            entries.push(["save", item.data.data.save]);
+            entries.push(["activable", item.data.data.activable]);
+            entries.push(["heal", item.data.data.heal]);
+            entries.push(["attack", item.data.data.attack]);
+            entries.push(["useMacro", item.data.data.useMacro]);
+            props.push(...entries.filter(e => e[1] === true).map(e => {
+                return game.cof.config.capacityProperties[e[0]]
             }));
         }
         return props.filter(p => !!p);

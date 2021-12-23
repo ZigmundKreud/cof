@@ -1,7 +1,6 @@
-<h3 class="form-header">{{localize "COF.ui.properties"}}</h3>
-<input class="field-value" name="data.key" type="hidden" value="{{data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
+<h3 class="form-header">{{localize "COF.ui.attributes"}}</h3>
+<input class="field-value" name="data.key" type="hidden" value="{{data.key}}" placeholder="{{localize "COF.ui.key"}}" data-dtype="String">
 <div class="form-group stacked">
-    <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
         <label class="checkbox">
             <input type="checkbox" name="data.limited" {{checked data.limited}}> {{localize "COF.ui.limited"}}
@@ -9,5 +8,177 @@
         <label class="checkbox">
             <input type="checkbox" name="data.spell" {{checked data.spell}}> {{localize "COF.ui.spell"}}
         </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.ranged" {{checked data.ranged}}> {{localize "COF.properties.ranged"}}
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.limitedUsage" {{checked data.limitedUsage}}> {{localize "COF.ui.limitedUsage"}} 
+        </label>  
+        <label class="checkbox">
+            <input type="checkbox" name="data.save" {{checked data.save}}> {{localize "COF.ui.save"}} 
+        </label>                  
+        <label class="checkbox">
+            <input type="checkbox" name="data.activable" {{checked data.activable}}> {{localize "COF.properties.activable"}}
+        </label>        
     </div>
 </div>
+<div class="form-group stacked">
+    <div class="form-fields">
+        <label class="checkbox">
+            <input type="checkbox" name="data.heal" {{checked data.heal}}> {{localize "COF.ui.heal"}}
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.attack" {{checked data.attack}}> {{localize "COF.ui.attack"}}
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" name="data.useMacro" {{checked data.useMacro}}> {{localize "COF.ui.useMacro"}}
+        </label>      
+    </div>
+</div>
+
+<h3 class="form-header">{{localize "COF.ui.properties"}}</h3> 
+{{#if data.ranged}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.range"}}</label> 
+        <div class="form-fields">            
+            <input type="text" name="data.properties.ranged.range" value="{{data.properties.ranged.range}}" placeholder="{{localize "COF.ui.range"}}" data-dtype="String"/>            
+        </div>
+    </div>    
+    <div class="form-group">
+        <label>{{localize "COF.ui.radius"}}</label>
+        <div class="form-fields">            
+            <input type="text" name="data.properties.ranged.radius" value="{{data.properties.ranged.radius}}" placeholder="{{localize "COF.ui.radius"}}" data-dtype="String"/>
+        </div>
+    </div>
+{{/if}}
+{{#if data.limitedUsage}}
+    <div class="form-group">
+        <label>{{ localize "COF.ui.quantity" }}</label>
+        <div class="form-fields">
+            <input type="number" name="data.properties.limitedUsage.use" value="{{data.properties.limitedUsage.use}}" placeholder="{{localize "COF.ui.quantity"}}" data-dtype="Number"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>{{localize "COF.ui.stacksize"}}</label>
+        <div class="form-fields">
+            <input type="text" name="data.properties.limitedUsage.maxUse" value="{{data.properties.limitedUsage.maxUse}}" placeholder="{{localize "COF.placeholders.stacksize"}}" data-dtype="Number">
+        </div>
+    </div>
+{{/if}}
+
+{{#if data.save}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.save"}}</label>
+        <div class="form-group">
+            <label>{{localize "COF.ui.stat"}}</label>
+            <div class="form-fields">
+                <select name="data.properties.save.stat" data-type="String" style="width:100%">
+                    {{#select data.properties.save.stat}}
+                        <option value="">{{localize "COF.None"}}</option>
+                        <option value="str">{{localize "COF.stats.str.label"}}</option>
+                        <option value="dex">{{localize "COF.stats.dex.label"}}</option>
+                        <option value="con">{{localize "COF.stats.con.label"}}</option>
+                        <option value="int">{{localize "COF.stats.int.label"}}</option>
+                        <option value="wis">{{localize "COF.stats.wis.label"}}</option>
+                        <option value="cha">{{localize "COF.stats.cha.label"}}</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+        <label>{{localize "COF.ui.difficulty"}}</label>
+        <div class="form-fields">            
+            <input type="text" name="data.properties.save.difficulty" value="{{data.properties.save.difficulty}}" data-dtype="String"/>
+        </div>        
+    </div>   
+    <div class="form-group"  >
+        <label>{{localize "COF.ui.description"}}</label>
+        <div class="form-fields">            
+            <input type="text" name="data.properties.save.text" value="{{data.properties.save.text}}" data-dtype="String"/>
+        </div>
+    </div>
+{{/if}}  
+
+{{#if data.heal}}
+<div class="form-group">
+    <label>{{localize "COF.ui.healFormula"}}</label>
+    <div class="form-fields">
+        <input type="text" name="data.properties.heal.formula" value="{{data.properties.heal.formula}}" placeholder="{{localize "COF.ui.healFormula"}}" data-dtype="String"/>
+    </div>
+</div>
+{{/if}}
+
+{{#if data.attack}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.skill"}}</label>
+        <div class="form-fields">
+            <select name="data.properties.attack.skill" data-type="String" style="width:100%">
+                {{#select data.properties.attack.skill}}
+                    <option value="auto">{{localize "COF.ui.automatic"}}</option>
+                    <option value="@attacks.melee.mod">{{localize "COF.attacks.melee.label"}}</option>
+                    <option value="@attacks.ranged.mod">{{localize "COF.attacks.ranged.label"}}</option>
+                    <option value="@attacks.magic.mod">{{localize "COF.attacks.magic.label"}}</option>
+                    <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
+                    <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
+                    <option value="@stats.con.mod">{{localize "COF.stats.con.label"}}</option>
+                    <option value="@stats.int.mod">{{localize "COF.stats.int.label"}}</option>
+                    <option value="@stats.wis.mod">{{localize "COF.stats.wis.label"}}</option>
+                    <option value="@stats.cha.mod">{{localize "COF.stats.cha.label"}}</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "COF.ui.difficulty"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.attack.difficulty" type="text" value="{{data.properties.attack.difficulty}}" placeholder="" data-dtype="String">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "COF.ui.dmgBase"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.attack.dmgBase" type="text" value="{{data.properties.attack.dmgBase}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "COF.ui.dmgStat"}}</label>
+        <div class="form-fields">
+            <select name="data.properties.attack.dmgStat" data-type="String" style="width:100%">
+                {{#select data.properties.attack.dmgStat}}
+                    <option value="">{{localize "COF.None"}}</option>
+                    <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
+                    <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
+                    <option value="@stats.con.mod">{{localize "COF.stats.con.label"}}</option>
+                    <option value="@stats.int.mod">{{localize "COF.stats.int.label"}}</option>
+                    <option value="@stats.wis.mod">{{localize "COF.stats.wis.label"}}</option>
+                    <option value="@stats.cha.mod">{{localize "COF.stats.cha.label"}}</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+{{/if}}    
+
+{{#if data.useMacro}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.macroName"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="Nom de la macro" data-dtype="String">            
+        </div>       
+    </div>
+    <div class="form-group">
+        <label>{{localize "COF.ui.macroId"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.macro.id" type="text" value="{{data.properties.macro.id}}" data-dtype="String">          
+        </div>       
+    </div>
+    <div class="form-group">
+        <label>{{localize "COF.ui.macroCompendium"}}</label>
+        <div class="form-fields">
+            <input name="data.properties.macro.pack" type="text" value="{{data.properties.macro.pack}}" data-dtype="String">          
+        </div>       
+    </div>    
+{{/if}}
+
+

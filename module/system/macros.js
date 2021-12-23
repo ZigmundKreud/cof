@@ -125,7 +125,7 @@ export class Macros {
 
         const itemData = item.data;
 
-        if(itemData.data.properties.weapon || itemData.data.properties.heal){
+        if((itemData.data.properties.weapon) || (itemData.data.properties.heal) || (itemData.data.properties.attack) || (itemData.data.properties.macro)){
             if (itemData.data.properties.weapon){
                 if (itemData.data.properties.equipable && !itemData.data.worn) {
                     return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
@@ -165,8 +165,19 @@ export class Macros {
                         }
                     }                   
             }
-            if (itemData.data.properties.heal){
-                new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
+            if (itemData.data.heal){
+                // object
+                if (item.type === "item") {
+                    new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
+                }                
+                // capacity
+                else if (item.type === "capacity") {
+                    actor.activateCapacity(item);
+                }
+                
+            }
+            if (itemData.data.activable && (itemData.data.attack || itemData.data.useMacro)){
+                actor.activateCapacity(item);
             }
         }
         else { return item.sheet.render(true); }

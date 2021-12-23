@@ -4,7 +4,7 @@
         <h4>{{name}}</h4>
     </div>
     <div class="item-detail">
-        <a class="item-control inventory-qty {{#if data.properties.stackable}}unlocked{{else}}locked{{/if}}" title="Clic gauche pour ajouter, clic droit pour supprimer">{{data.qty}}</a>
+        <a class="item-control inventory-qty {{#if data.properties.stackable}}unlocked{{else}}locked{{/if}}" title="Clic gauche pour augmenter, clic droit pour diminuer">{{data.qty}}</a>
     </div>
     <div class="item-detail">{{#if data.value}}{{data.value}}{{else}}N.C.{{/if}}</div>
     {{#if (or (equals owner.type "character") (equals owner.type "npc"))}}

@@ -26,17 +26,28 @@ export class Capacity {
 
     /**
      * 
-     * @param {*} entity 
+     * @param {*} actor 
+     * @param {*} capsData 
+     * @returns 
+     */
+    static addToActor(actor, capacity) {
+        capacity = capacity instanceof Array ? capacity : [capacity];
+        return actor.createEmbeddedDocuments("Item", capacity);
+    }
+
+    /**
+     * 
+     * @param {*} item 
      * @param {*} capacityData 
      * @returns 
      */
-    static addToItem(entity, capacityData) {
-        let data = duplicate(entity.data);
+    static addToItem(item, capacityData) {
+        let data = duplicate(item.data);
         let caps = data.data.capacities;
         let capsIds = caps.map(c => c._id);
         if (capsIds && !capsIds.includes(capacityData._id)) {
             data.data.capacities.push(EntitySummary.create(capacityData));
-            return entity.update(data);
+            return item.update(data);
         }
         else ui.notifications.error("Cet objet contient déjà cette capacité.")
     }
@@ -47,12 +58,7 @@ export class Capacity {
      * @param {*} isUncheck 
      * @returns 
      */
-    static toggleCheck(actor, event, isUncheck) {
-        const elt = $(event.currentTarget).parents(".capacity");
-        // get id of clicked capacity
-        const capId = elt.data("itemId");
-        // get id of parent path
-        const pathId = elt.data("pathId");
+    static toggleCheck(actor, capId, pathId, isUncheck) {
         // get path from owned items
         const path = duplicate(actor.items.get(pathId).data);
         const pathData = path.data;
@@ -100,7 +106,7 @@ export class Capacity {
                     toAdd = toAdd instanceof Array ? toAdd : [toAdd];
                     let items = [];
                     toAdd.forEach(c => { items.push(c.toObject(false)) });
-                    // création de l'élémént 
+                    // création de l'élément 
                     return actor.createEmbeddedDocuments("Item", items);
                 }
             });
