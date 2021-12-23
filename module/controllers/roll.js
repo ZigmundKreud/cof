@@ -74,6 +74,7 @@ export class CofRoll {
      * @returns 
      */
      static rollAttackCapacity(actor, capacity) {
+         
         const itemData = capacity.data;
         const attack = itemData.data.properties.attack;
     
@@ -81,7 +82,7 @@ export class CofRoll {
 
         const critrange = "20";
         const mod = attack.skill !== "auto" ? eval("actor.data.data." + attack.skill.split("@")[1]) : 0;
-        const difficulty = attack.difficulty !== null ? attack.difficulty : null;
+        const difficulty = (attack.difficulty !== null && attack.difficulty !== "") ? attack.difficulty : null;
 
         // Compute damage
         let dmg;
