@@ -1,3 +1,12 @@
+0.8.9.5
+-------
+Nouvelles fonctionnalités
+- Fenêtre Active Effect customisée : bouton permettant de passer en mode liste déroulante au lieu d'un champ texte libre
+- Nouvelle option sur les objets consommables : Supprimer quand la quantité atteint 0
+- Mise en place des capacités de soin, d'attaque et gérées par une macro
+- Mise en place des Status Effects : aveuglé, étourdi, renversé, affaibli, immobilisé et mort. Changement de l'ordre des icônes et de la couleur de fond.
+
+
 0.8.9.4
 -------
 Nouvelles fonctionnalités
