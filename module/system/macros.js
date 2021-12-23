@@ -171,8 +171,8 @@ export class Macros {
                     new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
                 }                
                 // capacity
-                else if (item.type === "capacity" && itemData.data.properties.heal.formula != "") {
-                    new CofHealingRoll(itemData.name, itemData.data.properties.heal.formula, false).roll(actor);
+                else if (item.type === "capacity") {
+                    actor.activateCapacity(item);
                 }
                 
             }

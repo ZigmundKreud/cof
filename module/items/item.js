@@ -90,6 +90,8 @@ export class CofItem extends Item {
 
         // Capacité de soin
         if(this.getProperty("heal")) {
+            // S'il n'a pas de formule
+            if (itemData.data.properties.heal.formula === "") return;
             const r = new CofHealingRoll(itemData.name, this.getHealFormula(), false);
             r.roll(actor);
             return r;
