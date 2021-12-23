@@ -128,6 +128,7 @@
   "COF.ui.useMacro": "Managed by macro",
   "COF.ui.macroName": "Macro Name",
   "COF.ui.macroId": "Macro Id",
+  "COF.ui.macroCompendium": "Macro Compendium",
 
   "COF.roll.skillcheck" : "Skill check",
   "COF.roll.success" : "Success",

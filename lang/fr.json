@@ -129,6 +129,7 @@
   "COF.ui.useMacro": "Gestion par macro",
   "COF.ui.macroName": "Nom de la macro",
   "COF.ui.macroId": "Id de la macro",
+  "COF.ui.macroCompendium": "Compendium",
 
   "COF.roll.skillcheck" : "Test de compétence",
   "COF.roll.success" : "Succès",
