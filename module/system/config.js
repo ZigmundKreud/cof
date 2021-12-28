@@ -110,6 +110,7 @@ COF.capacityProperties = {
     "activable": "COF.properties.activable",
     "heal": "COF.ui.heal",
     "attack": "COF.ui.attack",
+    "buff": "COF.ui.buff",
     "useMacro": "COF.ui.useMacro"
 }
 

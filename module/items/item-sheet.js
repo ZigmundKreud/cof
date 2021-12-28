@@ -444,6 +444,7 @@ export class CofItemSheet extends ItemSheet {
             entries.push(["activable", item.data.data.activable]);
             entries.push(["heal", item.data.data.heal]);
             entries.push(["attack", item.data.data.attack]);
+            entries.push(["buff", item.data.data.buff]);
             entries.push(["useMacro", item.data.data.useMacro]);
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.capacityProperties[e[0]]

@@ -130,6 +130,9 @@
   "COF.ui.macroName": "Nom de la macro",
   "COF.ui.macroId": "Id de la macro",
   "COF.ui.macroCompendium": "Compendium",
+  "COF.ui.activated": "Activée",
+  "COF.ui.activateCapacity": "Activer la capacité",
+  "COF.ui.desactivateCapacity": "Désactiver la capacité",
 
   "COF.roll.skillcheck" : "Test de compétence",
   "COF.roll.success" : "Succès",

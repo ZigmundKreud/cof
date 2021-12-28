@@ -28,9 +28,18 @@
                         <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
                         <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
                         <div class="item-detail capacity-qty" title="Clic gauche pour augmenter, clic droit pour diminuer">{{#if capacity.data.limitedUsage}}{{capacity.data.properties.limitedUsage.use}} / {{capacity.data.properties.limitedUsage.maxUse}}{{/if}}</div>
-                        <div class="item-detail">{{#if capacity.data.activable}}
-                            <a class="item-control capacity-activate" title="Activer la capacité"><i class="fas fa-check"></i></a>
-                        {{/if}}
+                        <div class="item-detail">
+                            {{#if capacity.data.activable}}
+                                {{#unless capacity.data.buff}}                                
+                                        <a class="item-control capacity-activate" title="{{localize "COF.ui.activateCapacity"}}"><i class="fas fa-check"></i></a>            
+                                {{else}}
+                                    {{#if capacity.data.properties.buff.activated}}
+                                        <a class="item-control capacity-activate" title="{{localize "COF.ui.desactivateCapacity"}}"><i class="fas fa-times"></i></a> 
+                                    {{else}}  
+                                        <a class="item-control capacity-activate" title="{{localize "COF.ui.activateCapacity"}}"><i class="fas fa-check"></i></a>
+                                    {{/if}}
+                                {{/unless}}
+                            {{/if}}
                         </div>
                         {{#if @root.editable}}
                             <div class="item-controls">
@@ -49,6 +58,7 @@
                                 {{#if capacity.data.activable}}<span class="tag">{{localize "COF.properties.activable"}}</span>{{/if}}
                                 {{#if capacity.data.heal}}<span class="tag">{{localize "COF.ui.heal"}}</span>{{/if}}
                                 {{#if capacity.data.attack}}<span class="tag">{{localize "COF.ui.attack"}}</span>{{/if}}
+                                {{#if capacity.data.buff}}<span class="tag">{{localize "COF.ui.buff"}}</span>{{/if}}
                                 {{#if capacity.data.useMacro}}<span class="tag">{{localize "COF.ui.useMacro"}}</span>{{/if}}
                             </div>
                         </div>

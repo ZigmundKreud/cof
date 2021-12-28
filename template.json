@@ -461,6 +461,7 @@
       "heal": false,
       "attack": false,
       "useMacro": false,
+      "buff": false,
       "properties": {
         "ranged": {
           "range": "",
@@ -488,6 +489,9 @@
           "name": null,
           "id": null,
           "pack": null
+        },
+        "buff": {
+          "activated": false
         }
       }
     },

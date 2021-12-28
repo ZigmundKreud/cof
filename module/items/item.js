@@ -80,8 +80,8 @@ export class CofItem extends Item {
 
     /**
      * @name applyEffects
-     * @description Active les effets d'un objets
-     *  Pour les types Soin, Attaque et useMacro
+     * @description Active les effets d'un objet
+     *  Pour les types Soin, Attaque, useMacro et Buff
      * @param {*} actor 
      * @returns 
      */
@@ -100,6 +100,16 @@ export class CofItem extends Item {
         // Capacité d'attaque
         if (this.getProperty("attack")) {
             return CofRoll.rollAttackCapacity(actor, this);
+        }
+
+        // Capacité de buff
+        if (this.getProperty("buff")) {
+            // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
+            let effects = actor.getEffectsFromItemId(this.id);
+            if (effects.length > 0) {
+                effects.forEach(e => e.disabled = !e.disabled);
+                actor.updateEmbeddedDocuments("ActiveEffect", effects);
+            }
         }
 
         // Capacité utilisant une macro
@@ -151,6 +161,7 @@ export class CofItem extends Item {
             }
             
         }        
+
     }
     
     getMartialCategory() {

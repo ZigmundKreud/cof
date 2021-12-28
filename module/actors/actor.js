@@ -1016,7 +1016,7 @@ export class CofActor extends Actor {
     /**
      * Consume one item
      * @param {*} item 
-     * @returns 
+     * @returns l'objet avec la quantité mise à jour
      */
     consumeItem(item) {
         const consumable = item.data.data.properties.consumable;
@@ -1029,9 +1029,10 @@ export class CofActor extends Actor {
     }
 
     /**
-     * 
+     * @name getItemByName
+     * @description
      * @param {*} itemName 
-     * @returns 
+     * @returns
      */
     getItemByName(itemName){
         return this.items.find(item=>item.name === itemName);
@@ -1097,6 +1098,11 @@ export class CofActor extends Actor {
 		return statObj?.mod;
     }     
     
+    /**
+     * 
+     * @param {*} pathName 
+     * @returns 
+     */
     getPathRank(pathName){
         let rank = 0;
         let path = this.getItemByName(pathName);
@@ -1123,13 +1129,20 @@ export class CofActor extends Actor {
         const capacityData = capacity.data.data;
         const activable = capacityData.activable;
         const limitedUsage = capacityData.limitedUsage;
+        const buff = capacityData.buff;
 
         if (activable) {
+            if (buff) {
+                let itemData = duplicate(capacity.data);
+                itemData.data.properties.buff.activated = !itemData.data.properties.buff.activated;
+                capacity.update(itemData);
+            }
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
                 if (capacityData.properties.limitedUsage.use > 0) {
                     let itemData = duplicate(capacity.data);
                     itemData.data.properties.limitedUsage.use = (itemData.data.properties.limitedUsage.use > 0) ? itemData.data.properties.limitedUsage.use - 1 : 0;
+
                     AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
                     return capacity.update(itemData).then(capacity => capacity.applyEffects(this));
                 }
@@ -1141,10 +1154,21 @@ export class CofActor extends Actor {
     }
 
     /**
-     * 
+     * @name isWeakened
      * @returns true si l'active Effect Affaibli (radiation) et Immobilisé (restrain) est actif
      */
     isWeakened(){
         return (this.effects.find(e => (e.getFlag("core","statusId") === "restrain") || (e.getFlag("core","statusId") === "downgrade")) !== undefined);
+    }
+
+   /**
+    * @name getEffectsFromItemId
+    * @description Retourne la liste des effets donnés par l'objet d'id itemId
+    * @param {*} itemId
+    * @returns 
+    */
+    getEffectsFromItemId(itemId) {
+        const criteria = "Item." + itemId;
+        return this.effects.filter(e => e.data.origin.indexOf(criteria) !== -1);
     }
 }

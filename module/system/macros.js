@@ -125,7 +125,7 @@ export class Macros {
 
         const itemData = item.data;
 
-        if((itemData.data.properties.weapon) || (itemData.data.properties.heal) || (itemData.data.properties.attack) || (itemData.data.properties.macro)){
+        if((itemData.data.properties.weapon) || (itemData.data.properties.heal) || (itemData.data.properties.attack) || (itemData.data.properties.macro) || (itemData.data.properties.buff)){
             if (itemData.data.properties.weapon){
                 if (itemData.data.properties.equipable && !itemData.data.worn) {
                     return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
@@ -176,7 +176,7 @@ export class Macros {
                 }
                 
             }
-            if (itemData.data.activable && (itemData.data.attack || itemData.data.useMacro)){
+            if (itemData.data.activable && (itemData.data.attack || itemData.data.useMacro || itemData.data.buff)){
                 actor.activateCapacity(item);
             }
         }

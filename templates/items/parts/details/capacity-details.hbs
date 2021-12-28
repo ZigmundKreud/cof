@@ -31,6 +31,9 @@
             <input type="checkbox" name="data.attack" {{checked data.attack}}> {{localize "COF.ui.attack"}}
         </label>
         <label class="checkbox">
+            <input type="checkbox" name="data.buff" {{checked data.buff}}> {{localize "COF.ui.buff"}}
+        </label>        
+        <label class="checkbox">
             <input type="checkbox" name="data.useMacro" {{checked data.useMacro}}> {{localize "COF.ui.useMacro"}}
         </label>      
     </div>
@@ -159,6 +162,15 @@
         </div>
     </div>
 {{/if}}    
+
+{{#if data.buff}}
+    <div class="form-group">
+        <label>{{localize "COF.ui.activated"}}</label>
+        <div class="form-fields">
+            <input type="checkbox" name="data.properties.buff.activated" {{checked data.properties.buff.activated}}>
+        </div>
+    </div>   
+{{/if}}
 
 {{#if data.useMacro}}
     <div class="form-group">
