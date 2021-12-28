@@ -119,6 +119,7 @@
   "COF.ui.noCapacitySelected": "No capacity has been selected yet",
   "COF.ui.noPathSelected": "No path have been added yet",
   "COF.ui.activeCapacities": "Active capacities",
+  "COF.ui.selectedCapacities": "Selected capacities",
   "COF.ui.CapacityPoints": "Capacity points",
   "COF.ui.attributes": "Attributes",
   "COF.ui.radius": "Radius",

@@ -120,6 +120,7 @@
   "COF.ui.noCapacitySelected" : "Aucune capacité n'a été sélectionnée pour le moment",
   "COF.ui.noPathSelected": "Aucune voie n'a été ajoutée pour le moment.",
   "COF.ui.activeCapacities": "Capacités actives",
+  "COF.ui.selectedCapacities": "Capacités sélectionnées",
   "COF.ui.CapacityPoints": "Points de capacités",
   "COF.ui.attributes": "Attributs",
   "COF.ui.radius": "Rayon",
