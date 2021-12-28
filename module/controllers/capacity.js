@@ -91,11 +91,19 @@ export class Capacity {
                     let toRemove = items.filter(i => inter.includes(i.data.data.key)).map(i => i.id);
                     return actor.deleteEmbeddedDocuments("Item", toRemove);
                 } else {
+                    const actorCapacities = actor.items.filter(i => i.type === "capacity");
+                    const actorCapacitiesKeys = actorCapacities.map(i => i.data.data.key);
                     const checked = newPath.data.capacities.filter(c => c.data.checked);
                     const checkedIds = checked.map(c => c._id);
                     let diff = ArrayUtils.difference(checkedIds, itemsIds);
+                    // Pour les capacités déjà sélectionnées, vérifie qu'une capacité avec la même clé n'existe pas
+                    let diffWithoutAlreadySelected = [];
+                    for (var id of diff){
+                        const capacity = checked.find(i=>i._id === id);
+                        if (!actorCapacitiesKeys.includes(capacity.data.key)) diffWithoutAlreadySelected.push(id);
+                    }
                     let newCap = null;
-                    let toAdd = checked.filter(c => diff.includes(c._id)).map(c => {
+                    let toAdd = checked.filter(c => diffWithoutAlreadySelected.includes(c._id)).map(c => {
                         newCap = caps[c._id];
                         newCap.data.rank = c.data.rank;
                         newCap.data.path = c.data.path;
@@ -112,6 +120,8 @@ export class Capacity {
             });
         });
     }
+
+
     /**
      * @name removeCapacitiesFromActor
      * @description Supprime les capacités de l'acteur en paramêtre
