@@ -78,8 +78,7 @@ export default function registerHooks() {
         if (data.type == "Item") {
             let item = data.data;
             let command = `let onlyDamage = false;\nlet customLabel = "";\nlet skillDescription = "";\nlet dmgDescription = "";\nlet withDialog = true;\n\nif (event) {\n  if (event.shiftKey) onlyDamage = true;\n}\n\ngame.cof.macros.rollItemMacro("${item._id}", "${item.name}", "${item.type}", 0, 0, 0, onlyDamage, customLabel, skillDescription, dmgDescription, withDialog);`;
-
-            let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+            let macro = game.macros.contents.find(m => (m.name === item.name) && (m.data.command === command));
             if (!macro) {
                 macro = await Macro.create({
                     name: item.name,
@@ -87,53 +86,52 @@ export default function registerHooks() {
                     img: item.img,
                     command : command
                 }, {displaySheet: false})
-            }
-            game.user.assignHotbarMacro(macro, slot);
+                game.user.assignHotbarMacro(macro, slot);
+            }            
         }
         // Create a macro to open the actor sheet of the actor dropped on the hotbar
         else if (data.type == "Actor") {
             let actor = game.actors.get(data.id);
-            let command = `game.actors.get("${data.id}").sheet.render(true)`
-            let macro = game.macros.entities.find(m => (m.name === actor.name) && (m.command === command));
+            let command = `game.actors.get("${data.id}").sheet.render(true)`;
+            let macro = game.macros.contents.find(m => (m.name === actor.name) && (m.data.command === command));
             if (!macro) {
                 macro = await Macro.create({
                     name: actor.data.name,
                     type: "script",
                     img: actor.data.img,
                     command: command
-                }, {displaySheet: false})
+                }, {displaySheet: false});
                 game.user.assignHotbarMacro(macro, slot);
             }
         }
         // Create a macro to open the journal sheet of the journal dropped on the hotbar
         else if (data.type == "JournalEntry") {
             let journal = game.journal.get(data.id);
-            let command = `game.journal.get("${data.id}").sheet.render(true)`
-            let macro = game.macros.entities.find(m => (m.name === journal.name) && (m.command === command));
+            let command = `game.journal.get("${data.id}").sheet.render(true)`;
+            let macro = game.macros.contents.find(m => (m.name === journal.name) && (m.data.command === command));
             if (!macro) {
                 macro = await Macro.create({
                     name: journal.data.name,
                     type: "script",
                     img: (journal.data.img) ? journal.data.img : "icons/svg/book.svg",
                     command: command
-                }, {displaySheet: false})
+                }, {displaySheet: false});
                 game.user.assignHotbarMacro(macro, slot);
             }
         }
         else if (data.type == "Weapon"){
             let weapon = data.data;
             let command = `let weaponId = ${data.weaponId};\nlet onlyDamage = false;\nlet customLabel = "";\nlet skillDescription = "";\nlet dmgDescription = "";\nlet withDialog = true;\nlet tokenActor = game.cof.macros.getSpeakersActor();\n\nif (event) {\n  if (event.shiftKey) onlyDamage = true;\n}\n\nif (!tokenActor) {\n  ui.notifications.warn(game.i18n.localize("COF.notification.MacroNoTokenSelected"));\n}\nelse if(!tokenActor?.rollWeapon) {\n  ui.notifications.warn(game.i18n.localize("COF.notification.MacroNotAnEncounter"));\n}\nelse {\n  tokenActor.rollWeapon(weaponId, customLabel, onlyDamage, 0, 0, 0, skillDescription, dmgDescription, withDialog);\n}`;
-
-            let macro = game.macros.entities.find(m => (m.name === weapon.name) && (m.command === command));
+            let macro = game.macros.contents.find(m => (m.name === weapon.name) && (m.data.command === command));
             if (!macro) {
                 macro = await Macro.create({
                     name: weapon.name,
                     type : "script",
                     img: "systems/cof/ui/icons/attack.webp",
                     command : command
-                }, {displaySheet: false})
-            }
-            game.user.assignHotbarMacro(macro, slot);            
+                }, {displaySheet: false});
+                game.user.assignHotbarMacro(macro, slot);   
+            }                     
         }
         return false;
     });
