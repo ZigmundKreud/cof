@@ -150,7 +150,7 @@ export class Macros {
 
                 if (dialog){
                     if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
-                    else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr, actor.isWeakened());
+                    else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr, null, actor.isWeakened());
                 }
                     else{
                         let formula = dmgBonus ? dmg +  "+" + dmgBonus : dmg;
