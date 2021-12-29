@@ -1,6 +1,7 @@
 import { CofActor } from "../actors/actor.js";
 import {Hitpoints} from "../controllers/hitpoints.js";
 import {CharacterGeneration} from "../system/chargen.js";
+import { COF } from "./config.js";
 
 export default function registerHooks() {
 
@@ -238,4 +239,26 @@ export default function registerHooks() {
         activeEffect.update({disabled: !itemData.worn});
     });
 
+    Hooks.on("pauseGame", async () => {
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause");
+        if (!game.user.isGM && lockDuringPause) {
+            updateApplicationToLockDuringPause();
+        }
+    });
+
+    Hooks.on("updateSetting", async (setting) => {
+        if (setting.data.key === "cof.lockDuringPause") {
+            if (!game.user.isGM && game.paused) {
+                updateApplicationToLockDuringPause();
+            }
+        }
+    });
+}
+
+function updateApplicationToLockDuringPause(){
+    Object.values(ui.windows).forEach((app)=>{
+        COF.applicationsToLockDuringPause.forEach((appClass) => {
+            if (app instanceof appClass) app.render();
+        });
+    });
 }

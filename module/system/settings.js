@@ -117,6 +117,15 @@ export const registerSystemSettings = function() {
         type: Boolean        
     });
 
+    game.settings.register("cof", "lockDuringPause",{
+        name: "Verrouillage pendant le mode Pause",
+        hint: "Interdire aux joueurs de modifier les personnages et les objets durant le mode Pause",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean
+    });
+    
     game.settings.register("cof", "checkFreeHandsBeforeEquip", {
         name: "Vérification des mains libres",
         hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",

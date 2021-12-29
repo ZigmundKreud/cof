@@ -6,9 +6,12 @@ export class COFActiveEffectConfig extends ActiveEffectConfig {
         return "systems/cof/templates/effects/activeEffect-config.hbs";
     }
 
-    getData() {
+    getData(options = {}) {
         let sheetData = super.getData();
         sheetData.config = COF;
+
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
+        options.editable &= (game.user.isGM || !lockDuringPause);
 
         let targetType = this.object.getFlag("cof", "targetType");
 
