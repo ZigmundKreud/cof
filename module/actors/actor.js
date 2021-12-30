@@ -863,7 +863,7 @@ export class CofActor extends Actor {
     /**
     * @name syncItemActiveEffects
     * @param {*} item 
-    * @description synchronise l'état des effets qui appartiennent à un item équipable avec l'état "équipé" de cet item
+    * @description synchronise l'état des effets qui appartiennent à un item à un nouveau statut
     * @returns {Promise}
     */
     syncItemActiveEffects(item, value){
@@ -1138,7 +1138,7 @@ export class CofActor extends Actor {
                 let itemData = duplicate(capacity.data);
                 const newStatus = !itemData.data.properties.buff.activated;
                 itemData.data.properties.buff.activated = newStatus;
-                return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, newStatus));
+                return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, !newStatus));
             }
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
