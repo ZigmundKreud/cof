@@ -1024,10 +1024,11 @@ export class CofActor extends Actor {
         const consumable = item.data.data.properties.consumable;
         const quantity = item.data.data.qty;
 
-        if(consumable && quantity > 0){
+        if (consumable && quantity > 0) {
             AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
             return item.modifyQuantity(1,true).then(item => item.applyEffects(this));;
         }
+        return ui.notifications.warn("Vous ne pouvez plus utiliser cet objet !");
     }
 
     /**
