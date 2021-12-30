@@ -133,6 +133,30 @@ export class CofItemSheet extends ItemSheet {
         });
 
         html.find('.checkbox').click(this._onVerifyCheckboxes.bind(this));
+
+        html.find('.capacity-activated-toggle').click(ev => {
+            ev.preventDefault();
+            const isChecked = $(ev.currentTarget).prop("checked");
+            
+            // Capacité rattachée à un acteur
+            if (this.actor !== null) {
+                this.actor.syncItemActiveEffects(this.item, !isChecked);
+                let data = duplicate(this.item.data);
+                data.data.properties.buff.activated = isChecked;
+                return this.item.update(data);
+            }
+
+            // Capacité non rattachée à un acteur
+            else {
+                let data = duplicate(this.item.data);
+                if (data.effects.length > 0){        
+                    data.effects.forEach(effect => effect.disabled = isChecked ? false : true);
+                    data.data.properties.buff.activated = isChecked;
+                    return this.item.update(data);
+                }
+            }
+            
+        });
     }
 
     /** @override */

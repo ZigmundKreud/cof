@@ -105,10 +105,10 @@ export class CofItem extends Item {
         // Capacité de buff
         if (this.getProperty("buff")) {
             // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
-            let effects = actor.getEffectsFromItemId(this.id);
-            if (effects.length > 0) {
-                effects.forEach(e => e.disabled = !e.disabled);
-                actor.updateEmbeddedDocuments("ActiveEffect", effects);
+            let effectsData = actor.getEffectsFromItemId(this.id)?.map(effect=> duplicate(effect.data));
+            if (effectsData.length > 0) {
+                effectsData.forEach(effect => effect.disabled = !this.data.data.properties.buff.activated);
+                actor.updateEmbeddedDocuments("ActiveEffect", effectsData);
             }
         }
 

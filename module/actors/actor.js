@@ -866,11 +866,13 @@ export class CofActor extends Actor {
     * @description synchronise l'état des effets qui appartiennent à un item équipable avec l'état "équipé" de cet item
     * @returns {Promise}
     */
-    syncItemActiveEffects(item){
+    syncItemActiveEffects(item, value){
         // Récupération des effets qui proviennent de l'item
-        let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> duplicate(effect.data));
+        //let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> duplicate(effect.data));
+        let effectsData = this.getEffectsFromItemId(item.id)?.map(effect => duplicate(effect.data));
+        
         if (effectsData.length > 0){        
-            effectsData.forEach(effect=>effect.disabled = !item.data.data.worn);
+            effectsData.forEach(effect => effect.disabled = value);
 
             this.updateEmbeddedDocuments("ActiveEffect", effectsData);
         }
@@ -916,7 +918,7 @@ export class CofActor extends Actor {
             }
             return item.update(itemData).then((item)=>{
                 AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-                if (!bypassChecks) this.syncItemActiveEffects(item);
+                if (!bypassChecks) this.syncItemActiveEffects(item, !itemData.data.worn);
             });
         }
     }
@@ -1134,8 +1136,9 @@ export class CofActor extends Actor {
         if (activable) {
             if (buff) {
                 let itemData = duplicate(capacity.data);
-                itemData.data.properties.buff.activated = !itemData.data.properties.buff.activated;
-                capacity.update(itemData);
+                const newStatus = !itemData.data.properties.buff.activated;
+                itemData.data.properties.buff.activated = newStatus;
+                return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, newStatus));
             }
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
@@ -1169,6 +1172,6 @@ export class CofActor extends Actor {
     */
     getEffectsFromItemId(itemId) {
         const criteria = "Item." + itemId;
-        return this.effects.filter(e => e.data.origin.indexOf(criteria) !== -1);
+        return this.effects.filter(effect=>effect.data.origin.endsWith(criteria));
     }
 }
