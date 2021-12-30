@@ -458,7 +458,8 @@ export class CofItemSheet extends ItemSheet {
         const data = super.getData(options);
 
         let lockItems = game.settings.get("cof", "lockItems");
-        options.editable &= (game.user.isGM || !lockItems);
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
+        options.editable &= (game.user.isGM || (!lockItems && !lockDuringPause));
 
         const itemData = data.data;
         if (COF.debug) console.log(data);

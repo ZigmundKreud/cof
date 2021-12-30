@@ -502,6 +502,10 @@ export class CofActorSheet extends CofBaseSheet {
     getData(options = {}) {
         const data = super.getData(options);
         if (COF.debug) console.log("COF | ActorSheet getData", data);
+
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
+        options.editable &= (game.user.isGM || !lockDuringPause);
+
         data.config = game.cof.config;
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");

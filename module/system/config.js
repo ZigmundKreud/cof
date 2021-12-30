@@ -190,4 +190,10 @@ COF.activeEffectChanges = {
     "data.attributes.mp.bonus": "COF.attributes.mp.label"
 }
 
+COF.applicationsToLockDuringPause = [
+    ActorSheet,
+    ItemSheet,
+    ActiveEffectConfig
+];
+
 COF.debug = false;
