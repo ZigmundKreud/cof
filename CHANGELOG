@@ -5,6 +5,7 @@ Nouvelles fonctionnalités
 - Nouvelle option sur les objets consommables : Supprimer quand la quantité atteint 0
 - Mise en place des capacités de soin, d'attaque, de buff (via Active Effect) et gérées par une macro
 - Mise en place des Status Effects : aveuglé, étourdi, renversé, affaibli, immobilisé et mort. Changement de l'ordre des icônes et de la couleur de fond.
+- Nouvelle option : Verrouillage des feuilles pour les joueurs pendant le mode pause
 
 
 0.8.9.4
