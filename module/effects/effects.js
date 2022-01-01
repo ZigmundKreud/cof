@@ -94,10 +94,24 @@ export const EffectsModifications = {
 		]        
     },
     "downgrade":{
-        label:"COF.CustomStatus.weak"
+        label:"COF.CustomStatus.weak",
+		changes:[
+			{
+				key: "flags.cof.weakened",
+				mode: 5,
+				value: "true"
+			}
+		] 
     },
     "restrain":{
-        label:"COF.CustomStatus.restrain"        
+        label:"COF.CustomStatus.restrain",
+		changes:[
+			{
+				key: "flags.cof.weakened",
+				mode: 5,
+				value: "true"
+			}
+		]        
     },
 	"dead":{
 		label:"COF.CustomStatus.dead",

@@ -1162,7 +1162,7 @@ export class CofActor extends Actor {
      * @returns true si l'active Effect Affaibli (radiation) et Immobilisé (restrain) est actif
      */
     isWeakened(){
-        return (this.effects.find(e => (e.getFlag("core","statusId") === "restrain") || (e.getFlag("core","statusId") === "downgrade")) !== undefined);
+        return (this.getFlag("cof","weakened"));
     }
 
    /**
