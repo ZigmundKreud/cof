@@ -99,7 +99,6 @@ export class CofRoll {
             const st = "COF.stats." + itemData.data.properties.save.stat + ".label";
             let stat = game.i18n.localize(st) ;
             let diff = this._evaluateSaveDifficulty(itemData.data.properties.save.difficulty, actor);
-            //dmgDescr += " Résistance : Jet de " + stat + " avec une difficulté de " + diff;
             let description = itemData.data.properties.save.text.replace('@stat',stat).replace('@diff',diff);
             dmgDescr += description;
         }
@@ -115,7 +114,7 @@ export class CofRoll {
         let difficulty = 0;
         terms.forEach(element => {
             if (element.includes("@")) {
-                difficulty += parseInt(eval("actor.data.data." + element.substring(1) + ".mod"));
+                difficulty += parseInt(eval("actor.data.data." + element.substring(1)));
             }
             else difficulty += parseInt(element);
         });
