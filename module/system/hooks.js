@@ -1,6 +1,7 @@
 import { CofActor } from "../actors/actor.js";
 import {Hitpoints} from "../controllers/hitpoints.js";
 import {CharacterGeneration} from "../system/chargen.js";
+import { COF } from "./config.js";
 
 export default function registerHooks() {
 
@@ -229,12 +230,35 @@ export default function registerHooks() {
 
         // Si l'item parent n'est pas équipable, on quitte en laissant l'effet se créer normalement
         let itemData = item.data;
-        if (!itemData.data.properties.equipable) return;
+        if (!itemData.data?.properties?.equipable) return;
         
         // Si l'effet est déjà à jour, on quitte
         if (activeEffect.data.disabled === !itemData.worn) return;
 
         // On met à jour l'effet en fonction du fait que l'item est équipé ou non
         activeEffect.update({disabled: !itemData.worn});
+    });
+
+    Hooks.on("pauseGame", async () => {
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause");
+        if (!game.user.isGM && lockDuringPause) {
+            updateApplicationToLockDuringPause();
+        }
+    });
+
+    Hooks.on("updateSetting", async (setting) => {
+        if (setting.data.key === "cof.lockDuringPause") {
+            if (!game.user.isGM && game.paused) {
+                updateApplicationToLockDuringPause();
+            }
+        }
+    });
+}
+
+function updateApplicationToLockDuringPause(){
+    Object.values(ui.windows).forEach((app)=>{
+        COF.applicationsToLockDuringPause.forEach((appClass) => {
+            if (app instanceof appClass) app.render();
+        });
     });
 }

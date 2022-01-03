@@ -7,8 +7,10 @@
                 <li class="inventory-header flexrow">
                     <h3 class="item-name flexrow">{{collection.label}}</h3>
                     <div class="item-detail">{{localize "COF.ui.rank"}}</div>
-                    <div class="item-detail">L</div>
-                    <div class="item-detail">S</div>
+                    <div class="item-detail">Limitée</div>
+                    <div class="item-detail">{{localize "COF.ui.spell"}}</div>
+                    <div class="item-detail">Usages</div>
+                    <div class="item-detail">Actions</div>
                     {{#if @root.editable}}
                         <div class="item-controls">
                             <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
@@ -25,17 +27,39 @@
                         <div class="item-detail">{{#if capacity.data.rank}}{{capacity.data.rank}}{{/if}}</div>
                         <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
                         <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
+                        <div class="item-detail capacity-qty" title="Clic gauche pour augmenter, clic droit pour diminuer">{{#if capacity.data.limitedUsage}}{{capacity.data.properties.limitedUsage.use}} / {{capacity.data.properties.limitedUsage.maxUse}}{{/if}}</div>
+                        <div class="item-detail">
+                            {{#if capacity.data.activable}}
+                                {{#unless capacity.data.buff}}                                
+                                        <a class="item-control capacity-activate" title="{{localize "COF.ui.activateCapacity"}}"><i class="fas fa-check"></i></a>            
+                                {{else}}
+                                    {{#if capacity.data.properties.buff.activated}}
+                                        <a class="item-control capacity-activate" title="{{localize "COF.ui.desactivateCapacity"}}"><i class="fas fa-times"></i></a> 
+                                    {{else}}  
+                                        <a class="item-control capacity-activate" title="{{localize "COF.ui.activateCapacity"}}"><i class="fas fa-check"></i></a>
+                                    {{/if}}
+                                {{/unless}}
+                            {{/if}}
+                        </div>
                         {{#if @root.editable}}
                             <div class="item-controls">
-                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                                <a class="item-control item-edit" title="Editer la capacité"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Supprimer la capacité"><i class="fas fa-trash"></i></a>
                             </div>
                         {{/if}}
                         <div class="item-summary" style="display: none">
                             {{{capacity.data.description}}}
                             <div class="item-properties">
-                                {{#if capacity.data.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
                                 {{#if capacity.data.limited}}<span class="tag">{{localize "COF.ui.limited"}}</span>{{/if}}
+                                {{#if capacity.data.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
+                                {{#if capacity.data.ranged}}<span class="tag">{{localize "COF.properties.ranged"}}</span>{{/if}}                    
+                                {{#if capacity.data.limitedUsage}}<span class="tag">{{localize "COF.ui.limitedUsage"}}</span>{{/if}}
+                                {{#if capacity.data.save}}<span class="tag">{{localize "COF.ui.save"}}</span>{{/if}}
+                                {{#if capacity.data.activable}}<span class="tag">{{localize "COF.properties.activable"}}</span>{{/if}}
+                                {{#if capacity.data.heal}}<span class="tag">{{localize "COF.ui.heal"}}</span>{{/if}}
+                                {{#if capacity.data.attack}}<span class="tag">{{localize "COF.ui.attack"}}</span>{{/if}}
+                                {{#if capacity.data.buff}}<span class="tag">{{localize "COF.ui.buff"}}</span>{{/if}}
+                                {{#if capacity.data.useMacro}}<span class="tag">{{localize "COF.ui.useMacro"}}</span>{{/if}}
                             </div>
                         </div>
                     </li>

@@ -14,6 +14,7 @@ import { CofBaseSheet } from "./base-sheet.js";
 import { COF } from "../system/config.js";
 import { LevelUpSheet } from "./levelUp-sheet.js";
 import { CofHealingRoll } from "../controllers/healing-roll.js";
+import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 
 export class CofActorSheet extends CofBaseSheet {
 
@@ -118,6 +119,9 @@ export class CofActorSheet extends CofBaseSheet {
             const li = $(ev.currentTarget).closest(".capacity");
             li.find(".capacity-description").slideToggle(200);
         });
+        html.find('.capacity-activate').click(this._onActivateCapacity.bind(this));
+        html.find('.capacity-qty').click(this._onIncreaseCapacityUse.bind(this));
+        html.find('.capacity-qty').contextmenu(this._onDecreaseCapacityUse.bind(this));
 
         // Effects controls
         html.find('.effect-toggle').click(ev => {
@@ -190,16 +194,29 @@ export class CofActorSheet extends CofBaseSheet {
     /* -------------------------------------------- */
     /**
      * @name _onCheckedCapacity
-     * @description Evènement sur la case à cocher d'une capacité
-     * 
+     * @description Evènement sur la case à cocher d'une capacité dans la partie voie
      * @param {CofActor} actor l'acteur
      * @param {Event} event l'évènement
      * @param {boolean} isUncheck la capacité est décochée
-     * 
      * @returns l'acteur modifié
+     * @private
      */
-    _onCheckedCapacity(actor, event, isUncheck) { return Capacity.toggleCheck(actor, event, isUncheck); }
+    _onCheckedCapacity(actor, event, isUncheck) { 
+        const elt = $(event.currentTarget).parents(".capacity");
+        // get id of clicked capacity
+        const capId = elt.data("itemId");
+        // get id of parent path
+        const pathId = elt.data("pathId");
+        return Capacity.toggleCheck(actor, capId, pathId, isUncheck); 
+    }
 
+    /**
+     * @name _onIncrease
+     * @description Augmente la quantité d'un objet de 1
+     * @param {*} event 
+     * @returns l'objet modifié
+     * @private
+     */
     _onIncrease(event) {
         event.preventDefault();
         const li = $(event.currentTarget).closest(".item");
@@ -207,6 +224,13 @@ export class CofActorSheet extends CofBaseSheet {
         return item.modifyQuantity(1, false);
     }
 
+    /**
+     * @name _onDecrease
+     * @description Diminue la quantité d'un objet de 1
+     * @param {*} event 
+     * @returns l'objet modifié
+     * @private
+     */    
     _onDecrease(event) {
         event.preventDefault();
         const li = $(event.currentTarget).closest(".item");
@@ -214,6 +238,13 @@ export class CofActorSheet extends CofBaseSheet {
         return item.modifyQuantity(1, true);
     }
 
+    /**
+     * @name _onToggleEquip
+     * @description Equipe / Déséquipe un objet
+     * @param {*} event 
+     * @returns l'acteur mis à jour
+     * @private
+     */
     _onToggleEquip(event) {
         event.preventDefault();
         const li = $(event.currentTarget).closest(".item");
@@ -225,7 +256,8 @@ export class CofActorSheet extends CofBaseSheet {
     }
 
     /**
-     * Callbacks on consume actions
+     * @name _onConsume
+     * @description Consomme un objet
      * @param event
      * @private
      */
@@ -272,9 +304,16 @@ export class CofActorSheet extends CofBaseSheet {
             let effects = this.actor.effects;
             const effect = effects.get(id);
             if (effect) {
-                return new ActiveEffectConfig(effect, {}).render(true);
+                return new COFActiveEffectConfig(effect, {}).render(true);
             } else return false;
-        } else {
+        } 
+        else if (type === "capacity"){
+            // Recherche d'un capacité existante avec la même clé
+            const key = li.data("key");
+            let entity = this.actor.items.find(i => i.type === "capacity" && i.data.data.key === key);
+            return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
+        }
+        else {
             // look first in actor onwed items
             let entity = this.actor.items.get(id);
             return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
@@ -301,6 +340,34 @@ export class CofActorSheet extends CofBaseSheet {
         } else {
             this._onEditItem(event);
         }
+    }
+
+   /**
+     * @name _onActivate
+     * @description Active un objet
+     * @param event
+     * @private
+     */
+    _onActivateCapacity(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).closest(".item");
+        const capacity = this.actor.items.get(li.data("itemId"));
+
+        this.actor.activateCapacity(capacity);
+    }
+
+    _onIncreaseCapacityUse(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyUse(1, false);
+    }
+
+    _onDecreaseCapacityUse(event) {
+        event.preventDefault();
+        const li = $(event.currentTarget).closest(".item");
+        const item = this.actor.items.get(li.data("itemId"));
+        return item.modifyUse(1, true);
     }
 
     /* -------------------------------------------- */
@@ -372,8 +439,8 @@ export class CofActorSheet extends CofBaseSheet {
             data = JSON.parse(event.dataTransfer.getData('text/plain'));
         } catch (err) {return false;}
         if (!data) return false;
-        if (data.type === "Item") {return this._onDropItem(event, data);}
-        if (data.type === "Actor") {return false; }
+        if (data.type === "Item") { return this._onDropItem(event, data); }
+        if (data.type === "Actor") { return false; }
     }
 
     /**
@@ -394,7 +461,7 @@ export class CofActorSheet extends CofBaseSheet {
             case "path": return await Path.addToActor(this.actor, item);
             case "profile": return await Profile.addToActor(this.actor, itemData);
             case "species": return await Species.addToActor(this.actor, item);
-            case "capacity":
+            case "capacity": return await Capacity.addToActor(this.actor, itemData);
             default: {
                 // Handle item sorting within the same Actor
                 const actor = this.actor;
@@ -435,6 +502,10 @@ export class CofActorSheet extends CofBaseSheet {
     getData(options = {}) {
         const data = super.getData(options);
         if (COF.debug) console.log("COF | ActorSheet getData", data);
+
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
+        options.editable &= (game.user.isGM || !lockDuringPause);
+
         data.config = game.cof.config;
         data.profile = data.items.find(item => item.type === "profile");
         data.species = data.items.find(item => item.type === "species");
@@ -482,6 +553,12 @@ export class CofActorSheet extends CofBaseSheet {
                 });
             }
         });
+
+        /*data.combat.capacities.push({
+                id: "capacity",
+                label: "COF.ui.capacities",
+                items: Object.values(data.items).filter(item => item.type === "capacity" && item.data?.activable).sort((a, b) => (a.name > b.name) ? 1 : -1)
+        });*/
 
         // PATHS & CAPACITIES
         const paths = data.items.filter(item => item.type === "path");

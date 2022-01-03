@@ -1,4 +1,3 @@
-import { CharacterGeneration } from "../system/chargen.js";
 import { CofSkillRoll } from "./skill-roll.js";
 import { CofDamageRoll } from "./dmg-roll.js";
 import { CofAttributesDialog } from "../dialogs/attributes-dialog.js";
@@ -10,10 +9,12 @@ export class CofRoll {
     }
 
     /**
-     *  Handles skill check rolls
-     * @param elt DOM element which raised the roll event
-     * @param key the key of the attribute to roll
-     * @private
+     * @name skillCheck
+     * @description 
+     * @param {*} data 
+     * @param {*} actor 
+     * @param {*} event 
+     * @returns 
      */
     static skillCheck(data, actor, event) {
         const elt = $(event.currentTarget)[0];
@@ -34,7 +35,7 @@ export class CofRoll {
         let superior = eval(`${key}.superior`);
         const critrange = 20;
         label = (label) ? game.i18n.localize(label) : null;
-        return this.skillRollDialog(actor, label, mod, bonus, malus, critrange, superior);
+        return this.skillRollDialog(actor, label, mod, bonus, malus, critrange, superior, "submit", null, actor.isWeakened());
     }
 
     /**
@@ -42,6 +43,14 @@ export class CofRoll {
      * @param elt DOM element which raised the roll event
      * @param key the key of the attribute to roll
      * @private
+     */
+    /**
+     * @name rollWeapon
+     * @description Handles weapon check rolls
+     * @param {*} data 
+     * @param {*} actor 
+     * @param {*} event 
+     * @returns 
      */
     static rollWeapon(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
@@ -55,14 +64,70 @@ export class CofRoll {
         const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
         const dmg = dmgMod.data('itemDmg');
 
-        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
+        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0, "submit", null, null, null, actor.isWeakened());
     }
 
     /**
-     *  Handles encounter attack checks
-     * @param elt DOM element which raised the roll event
-     * @param key the key of the attribute to roll
-     * @private
+     * 
+     * @param {*} actor 
+     * @param {*} capacity 
+     * @returns 
+     */
+     static rollAttackCapacity(actor, capacity) {
+         
+        const itemData = capacity.data;
+        const attack = itemData.data.properties.attack;
+    
+        const label = itemData.name;
+
+        const critrange = "20";
+        const mod = attack.skill !== "auto" ? eval("actor.data.data." + attack.skill.split("@")[1]) : 0;
+        const difficulty = (attack.difficulty !== null && attack.difficulty !== "") ? attack.difficulty : null;
+
+        // Compute damage
+        let dmg;
+        const dmgBase = attack.dmgBase;
+        const stat = attack.dmgStat.split("@")[1];
+        const dmgStat = eval("actor.data.data." + stat);
+        dmg = dmgBase;
+
+        if (dmgStat < 0) dmg = dmg + " - " + parseInt(-dmgStat);
+        else if (dmgStat > 0) dmg = dmg + " + " + dmgStat;
+        
+        let dmgDescr = "";
+        if (itemData.data.save) {
+            const st = "COF.stats." + itemData.data.properties.save.stat + ".label";
+            let stat = game.i18n.localize(st) ;
+            let diff = this._evaluateSaveDifficulty(itemData.data.properties.save.difficulty, actor);
+            let description = itemData.data.properties.save.text.replace('@stat',stat).replace('@diff',diff);
+            dmgDescr += description;
+        }
+
+        if (attack.skill !== "auto") {
+            return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0, "submit", "", dmgDescr, difficulty, actor.isWeakened());
+        }
+        else return this.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);        
+    }
+
+    static _evaluateSaveDifficulty(formula, actor){
+        const terms = formula.split('+');
+        let difficulty = 0;
+        terms.forEach(element => {
+            if (element.includes("@")) {
+                difficulty += parseInt(eval("actor.data.data." + element.substring(1)));
+            }
+            else difficulty += parseInt(element);
+        });
+        return difficulty;
+    }
+
+    /**
+     * @name rollEncounterWeapon
+     * @description Handles encounter attack checks
+     * @param {*} data 
+     * @param {*} actor 
+     * @param {*} event 
+     * @returns 
      */
     static rollEncounterWeapon(data, actor, event) {
         const item = $(event.currentTarget).parents(".weapon");
@@ -230,17 +295,30 @@ export class CofRoll {
     /* -------------------------------------------- */
 
     /**
-     * 
+     * @name attributesRollDialog
+     * @description Fenêtre de dialogue de tirage de caractéristiques
+     * @param {*} actor 
+     * @returns 
+     */
+    static async attributesRollDialog(actor) {
+        return new CofAttributesDialog(actor, {}).render(true);
+    }
+
+    /**
+     * @name skillRollDialog
+     * @description Fenêtre de dialogue pour le jet de caractéristique ou le jet d'attaque simple
      * @param {*} actor 
      * @param {*} label 
      * @param {*} mod 
      * @param {*} bonus 
+     * @param {*} malus 
      * @param {*} critrange 
-     * @param {*} superior 
+     * @param {*} superior      Avantage
      * @param {*} onEnter 
+     * @param {*} description 
      * @returns 
      */
-    static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description) {
+    static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description, weakened = false) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/skillroll-dialog.hbs';
         let diff = null;
         const displayDifficulty = game.settings.get("cof", "displayDifficulty");
@@ -257,7 +335,8 @@ export class CofRoll {
             displayDifficulty: isDifficultyDisplayed,
             superior: superior,
             hasDescription : description && description.length > 0,
-			skillDescr: description
+			skillDescr: description,
+            weakened: weakened
         });
         let d = new Dialog({
             title: label,
@@ -303,14 +382,23 @@ export class CofRoll {
      * @param {*} onEnter 
      * @returns 
      */
-    static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr) {
+    static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null, weakened = false) {
         const rollOptionTpl = 'systems/cof/templates/dialogs/roll-weapon-dialog.hbs';
         let diff = null;
-        const displayDifficulty = game.settings.get("cof", "displayDifficulty");
-        if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
-            diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+        let isDifficultyDisplayed = true;
+        
+        if (difficulty !== null) {
+            diff = difficulty;   
         }
-        const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
+        else {
+            const displayDifficulty = game.settings.get("cof", "displayDifficulty");
+            if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
+                diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+            }
+            isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
+        }
+
+        
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
             mod: mod,
             bonus: bonus,
@@ -324,7 +412,8 @@ export class CofRoll {
             hasSkillDescr: skillDescr && skillDescr.length > 0,
             skillDescr: skillDescr,
             hasDmgDescr: dmgDescr && dmgDescr.length > 0,
-            dmgDescr: dmgDescr
+            dmgDescr: dmgDescr,
+            weakened: weakened
         });
 
         let d = new Dialog({
@@ -448,7 +537,4 @@ export class CofRoll {
         return d.render(true);
     }
 
-    static async attributesRollDialog(actor) {
-        return new CofAttributesDialog(actor, {}).render(true);
-    }
 }

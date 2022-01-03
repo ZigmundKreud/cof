@@ -697,6 +697,20 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-f
   border: solid 1px;
   padding-left: 5px;
 }
+.system-cof .active-effect-sheet .window-content .SelectEffectTarget select {
+  width: 100%;
+}
+.system-cof .active-effect-sheet .window-content .changeEffectTarget {
+  font-size: 20px;
+}
+.system-cof img[data-status-id="dead"],
+.system-cof img[data-status-id="prone"],
+.system-cof img[data-status-id="blind"],
+.system-cof img[data-status-id="stun"],
+.system-cof img[data-status-id="downgrade"],
+.system-cof img[data-status-id="restrain"] {
+  background-color: green;
+}
 /* Styles limited to cof sheets */
 .cof {
   /*

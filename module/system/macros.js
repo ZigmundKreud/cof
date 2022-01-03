@@ -90,7 +90,7 @@ export class Macros {
             if (skillMalus) malus += skillMalus;
         }
         if (dialog){
-            CofRoll.skillRollDialog(actor, label && label.length > 0 ? label : game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description);
+            CofRoll.skillRollDialog(actor, label && label.length > 0 ? label : game.i18n.localize(statObj.label), mod, bonus, malus, 20, statObj.superior, onEnter, description, actor.isWeakened());
         }
         else{
             return new CofSkillRoll(label && label.length > 0 ? label : game.i18n.localize(statObj.label), dice, "+" + +mod, bonus, malus, difficulty, "20", description).roll();
@@ -111,6 +111,7 @@ export class Macros {
      * @param {*} customLabel 
      * @param {*} skillDescr 
      * @param {*} dmgDescr 
+     * @param {*} dialog
      * @returns 
      */
     static rollItemMacro = async function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus=0, dmgOnly=false, customLabel, skillDescr, dmgDescr, dialog=true) {
@@ -125,33 +126,35 @@ export class Macros {
 
         const itemData = item.data;
 
-        if(itemData.data.properties.weapon || itemData.data.properties.heal){
-            if (itemData.data.properties.weapon){
-                if (itemData.data.properties.equipable && !itemData.data.worn) {
-                    return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
-                }
-                const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
-                const critrange = itemData.data.critrange;              
-
-                // Compute MOD
-                const itemModStat = itemData.data.skill.split("@")[1];
-                const itemModBonus = parseInt(itemData.data.skillBonus);
-                const weaponCategory = item.getMartialCategory();
-                
-                let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
-
-                // Compute DM
-                const itemDmgBase = itemData.data.dmgBase;                        
-                const itemDmgStat = itemData.data.dmgStat.split("@")[1];
-                const itemDmgBonus = parseInt(itemData.data.dmgBonus);
-                const skillDmgBonus = eval("actor.data.data." + itemModStat.replace('mod','dmBonus'));
-
-                let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
-
-                if (dialog){
-                    if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
-                    else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr);
-                }
+        // Objet
+        if (itemData.type === "item") {
+            if (itemData.data.properties.weapon || itemData.data.properties.heal) {
+                if (itemData.data.properties.weapon){
+                    if (itemData.data.properties.equipable && !itemData.data.worn) {
+                        return ui.notifications.warn(game.i18n.format('COF.notification.MacroItemUnequiped', {item: itemName}));
+                    }
+                    const label =  customLabel && customLabel.length > 0 ? customLabel : itemData.name;                
+                    const critrange = itemData.data.critrange;              
+    
+                    // Compute MOD
+                    const itemModStat = itemData.data.skill.split("@")[1];
+                    const itemModBonus = parseInt(itemData.data.skillBonus);
+                    const weaponCategory = item.getMartialCategory();
+                    
+                    let mod = actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+    
+                    // Compute DM
+                    const itemDmgBase = itemData.data.dmgBase;                        
+                    const itemDmgStat = itemData.data.dmgStat.split("@")[1];
+                    const itemDmgBonus = parseInt(itemData.data.dmgBonus);
+                    const skillDmgBonus = eval("actor.data.data." + itemModStat.replace('mod','dmBonus'));
+    
+                    let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
+    
+                    if (dialog){
+                        if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
+                        else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr, null, actor.isWeakened());
+                    }
                     else{
                         let formula = dmgBonus ? dmg +  "+" + dmgBonus : dmg;
                         if (dmgOnly) new CofDamageRoll(label, formula, false, dmgDescr).roll(); 
@@ -164,12 +167,25 @@ export class Macros {
                             new CofDamageRoll(label, formula, critical, dmgDescr).roll();                            
                         }
                     }                   
+                }
+                if (itemData.data.properties.heal){
+                    if (itemData.data.properties.consumable) {
+                        actor.consumeItem(item);
+                    }
+                    else {
+                        new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor); 
+                    }                                               
+                }
             }
-            if (itemData.data.properties.heal){
-                new CofHealingRoll(itemData.name, itemData.data.effects.heal.formula, false).roll(actor);
-            }
+
         }
-        else { return item.sheet.render(true); }
+        // Capacité
+        else if (itemData.type === "capacity") {
+            if (itemData.data.activable && (itemData.data.heal ||itemData.data.attack || itemData.data.useMacro || itemData.data.buff)){
+                return actor.activateCapacity(item);
+            }
+        }      
+        else return item.sheet.render(true);
     };
 
     static rollHealMacro = async function (label, healFormula, isCritical, title, showButtons=true, description){

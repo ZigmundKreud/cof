@@ -1,4 +1,4 @@
-import {CofDamageRoll} from "./dmg-roll.js";
+import { CofDamageRoll } from "./dmg-roll.js";
 
 export class CofSkillRoll {
 

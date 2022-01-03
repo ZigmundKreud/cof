@@ -36,6 +36,7 @@ export const preloadHandlebarsTemplates = async function () {
         // EFFECTS
         "systems/cof/templates/effects/effects.hbs",
         "systems/cof/templates/effects/effects-item.hbs",
+        "systems/cof/templates/effects/activeEffect-config.hbs",
 
         // DIALOGS
         "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs",

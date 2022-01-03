@@ -7,6 +7,7 @@ import { Path } from "../controllers/path.js";
 import { COF, System } from "../system/config.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 import { Traversal } from "../utils/traversal.js";
+import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 
 export class CofItemSheet extends ItemSheet {
 
@@ -88,7 +89,7 @@ export class CofItemSheet extends ItemSheet {
                 const effectId = elt.data("itemId");
                 let effect = this.item.effects.get(effectId);
                 if (effect) {
-                    new ActiveEffectConfig(effect).render(true);
+                    new COFActiveEffectConfig(effect).render(true);
                 }
             }
         });
@@ -100,8 +101,8 @@ export class CofItemSheet extends ItemSheet {
                 label: game.i18n.localize("COF.ui.newEffect"),
                 icon: "icons/svg/aura.svg",
                 origin: this.item.uuid,
-                "duration.rounds": undefined,
-                disabled: false
+                tint: "#050505",
+                disabled: true
             }]);
         });
         html.find('.effect-edit').click(ev => {
@@ -110,7 +111,7 @@ export class CofItemSheet extends ItemSheet {
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
             if (effect) {
-                new ActiveEffectConfig(effect).render(true);
+                new COFActiveEffectConfig(effect).render(true);
             }
         });
         html.find('.effect-delete').click(ev => {
@@ -132,6 +133,30 @@ export class CofItemSheet extends ItemSheet {
         });
 
         html.find('.checkbox').click(this._onVerifyCheckboxes.bind(this));
+
+        html.find('.capacity-activated-toggle').click(ev => {
+            ev.preventDefault();
+            const isChecked = $(ev.currentTarget).prop("checked");
+            
+            // Capacité rattachée à un acteur
+            if (this.actor !== null) {
+                this.actor.syncItemActiveEffects(this.item, !isChecked);
+                let data = duplicate(this.item.data);
+                data.data.properties.buff.activated = isChecked;
+                return this.item.update(data);
+            }
+
+            // Capacité non rattachée à un acteur
+            else {
+                let data = duplicate(this.item.data);
+                if (data.effects.length > 0){        
+                    data.effects.forEach(effect => effect.disabled = isChecked ? false : true);
+                    data.data.properties.buff.activated = isChecked;
+                    return this.item.update(data);
+                }
+            }
+            
+        });
     }
 
     /** @override */
@@ -160,17 +185,18 @@ export class CofItemSheet extends ItemSheet {
         if (data.type === "Item") {
             return this._onDropItem(event, data);
         }
-        /**
-         * Handle dropping an Actor on the sheet to trigger a Polymorph workflow
-         */
         // Case 2 - Dropped Actor
         if (data.type === "Actor") {
             return false;
         }
+        // Case 3 - Dropped Macro
+        if (data.type === "Macro") {
+            return this._onDropMacro(event, data);
+        }
     }
 
     /**
-     * Handle dropping of an item reference or item data onto an Actor Sheet
+     * Handle dropping of an item reference or item data onto an Item Sheet
      * @param {DragEvent} event     The concluding DragEvent which contains drop data
      * @param {Object} data         The data transfer extracted from the event
      * @return {Object}             OwnedItem data to create
@@ -191,6 +217,44 @@ export class CofItemSheet extends ItemSheet {
             }
         });
     }
+
+    /**
+     * @name _onDropMacro
+     * @description Handles the dropping of a macro - Used for capacity Item
+     * @param {DragEvent} event     The concluding DragEvent which contains drop data
+     * @param {Object} data         The data transfer extracted from the event
+     * @return {Object}             OwnedItem data to create
+     * @private
+     */
+    async _onDropMacro(event, data) {
+        event.preventDefault();
+       if (this.object.type !== "capacity") return false;
+
+       // Macro d'un compendium
+        if (data.pack != undefined) {
+            const pack = game.packs.get(data.pack);
+            const item = pack.index.get(data.id);
+            let itemId = item != undefined ? item._id : null;
+            let macro;
+            if (itemId) {
+                macro = await pack.getDocument(itemId);
+            }
+            if (macro && this.object.data.data.useMacro) {
+                this.object.data.data.properties.macro.id = data.id;
+                this.object.data.data.properties.macro.name = macro.name;
+                this.object.data.data.properties.macro.pack = data.pack;
+                return this.render(true);
+            }
+        }
+
+        // Macro de la hotbar
+        if (this.object.data.data.useMacro) {
+            this.object.data.data.properties.macro.id = data.id;
+            this.object.data.data.properties.macro.name = game.macros.get(data.id).name;
+            return this.render(true);
+        }
+    }
+
 
     /**
      * 
@@ -243,7 +307,7 @@ export class CofItemSheet extends ItemSheet {
      * @returns 
      */
     _onDeleteItem(event) {
-        ev.preventDefault();
+        event.preventDefault();
         let data = duplicate(this.item.data);
         const li = $(event.currentTarget).closest(".item");
         const id = li.data("itemId");
@@ -305,6 +369,7 @@ export class CofItemSheet extends ItemSheet {
             let data = duplicate(this.item.data);
             data.data.qty = 1;
             data.data.stacksize = null;
+            data.data.deleteWhen0 = false;
             return this.item.update(data);
         }
         if (name === "data.properties.weapon" && !checked) {
@@ -393,6 +458,22 @@ export class CofItemSheet extends ItemSheet {
                 return game.cof.config.itemProperties[e[0]]
             }));
         }
+        if (item.type === "capacity") {
+            let entries = [];
+            entries.push(["limited",item.data.data.limited]);
+            entries.push(["spell", item.data.data.spell]);
+            entries.push(["ranged", item.data.data.ranged]);
+            entries.push(["limitedUsage", item.data.data.limitedUsage]);
+            entries.push(["save", item.data.data.save]);
+            entries.push(["activable", item.data.data.activable]);
+            entries.push(["heal", item.data.data.heal]);
+            entries.push(["attack", item.data.data.attack]);
+            entries.push(["buff", item.data.data.buff]);
+            entries.push(["useMacro", item.data.data.useMacro]);
+            props.push(...entries.filter(e => e[1] === true).map(e => {
+                return game.cof.config.capacityProperties[e[0]]
+            }));
+        }
         return props.filter(p => !!p);
     }
 
@@ -401,7 +482,8 @@ export class CofItemSheet extends ItemSheet {
         const data = super.getData(options);
 
         let lockItems = game.settings.get("cof", "lockItems");
-        options.editable &= (game.user.isGM || !lockItems);
+        let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
+        options.editable &= (game.user.isGM || (!lockItems && !lockDuringPause));
 
         const itemData = data.data;
         if (COF.debug) console.log(data);

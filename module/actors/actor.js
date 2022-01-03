@@ -38,7 +38,7 @@ export class CofActor extends Actor {
                 let label = customLabel ? customLabel : weapon.name;
 
                 if (dialog){
-                    if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr);
+                    if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr, this.isWeakened());
                     else CofRoll.rollDamageDialog(this, label, weapon.dmg, dmgBonus, false, null, dmgDescr);
                 }
                 else
@@ -46,7 +46,7 @@ export class CofActor extends Actor {
                     let formula = dmgBonus ? `${weapon.dmg} + ${dmgBonus}` : weapon.dmg;
                     if (dmgOnly) new CofDamageRoll(label, formula, false, dmgDescr).roll(); 
                     else {        
-                        let skillRoll = await new CofSkillRoll(label, "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr).roll();
+                        let skillRoll = await new CofSkillRoll(label, this.isWeakened() ? "1d12": "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr).roll();
 
                         let result = skillRoll.dice[0].results[0].result;
                         let critical = ((result >= weapon.critrange.split("-")[0]) || result == 20);
@@ -110,6 +110,15 @@ export class CofActor extends Actor {
         this.computeDef(actorData);
         this.computeXP(actorData);
     }
+
+      /** @override 
+    applyActiveEffects() {
+        // The Active Effects do not have access to their parent at preparation time so we wait until this stage to
+        // determine whether they are suppressed or not.
+        // this.effects.forEach(e => e.determineSuppression());
+        console.log("Custom applyActiveEffects");
+        return super.applyActiveEffects();
+    }*/
 
     /* -------------------------------------------- */
 
@@ -340,12 +349,14 @@ export class CofActor extends Actor {
      * 
      */  
     computeDef(actorData) {
-        let stats = actorData.data.stats;
-        let attributes = actorData.data.attributes;
+        let data = actorData.data;
+
+        let stats = data.stats;
+        let attributes = data.attributes;
 
         const protection = this.getDefenceFromArmorAndShield();
         
-        attributes.def.base = 10 + stats.dex.mod + protection;
+        attributes.def.base = 10 + stats.dex.mod + protection ;
         attributes.def.value = attributes.def.base + attributes.def.bonus + attributes.def.malus;
     }
 
@@ -852,14 +863,16 @@ export class CofActor extends Actor {
     /**
     * @name syncItemActiveEffects
     * @param {*} item 
-    * @description synchronise l'état des effets qui appartiennent à un item équipable avec l'état "équipé" de cet item
+    * @description synchronise l'état des effets qui appartiennent à un item à un nouveau statut
     * @returns {Promise}
     */
-    syncItemActiveEffects(item){
+    syncItemActiveEffects(item, value){
         // Récupération des effets qui proviennent de l'item
-        let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> duplicate(effect.data));
+        //let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> duplicate(effect.data));
+        let effectsData = this.getEffectsFromItemId(item.id)?.map(effect => duplicate(effect.data));
+        
         if (effectsData.length > 0){        
-            effectsData.forEach(effect=>effect.disabled = !item.data.data.worn);
+            effectsData.forEach(effect => effect.disabled = value);
 
             this.updateEmbeddedDocuments("ActiveEffect", effectsData);
         }
@@ -905,7 +918,7 @@ export class CofActor extends Actor {
             }
             return item.update(itemData).then((item)=>{
                 AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-                if (!bypassChecks) this.syncItemActiveEffects(item);
+                if (!bypassChecks) this.syncItemActiveEffects(item, !itemData.data.worn);
             });
         }
     }
@@ -1005,24 +1018,24 @@ export class CofActor extends Actor {
     /**
      * Consume one item
      * @param {*} item 
-     * @returns 
+     * @returns l'objet avec la quantité mise à jour
      */
     consumeItem(item) {
         const consumable = item.data.data.properties.consumable;
         const quantity = item.data.data.qty;
 
-        if(consumable && quantity>0){
-            let itemData = duplicate(item.data);
-            itemData.data.qty = (itemData.data.qty > 0) ? itemData.data.qty - 1 : 0;
+        if (consumable && quantity > 0) {
             AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-            return item.update(itemData).then(item => item.applyEffects(this));
+            return item.modifyQuantity(1,true).then(item => item.applyEffects(this));;
         }
+        return ui.notifications.warn("Vous ne pouvez plus utiliser cet objet !");
     }
 
     /**
-     * 
+     * @name getItemByName
+     * @description
      * @param {*} itemName 
-     * @returns 
+     * @returns
      */
     getItemByName(itemName){
         return this.items.find(item=>item.name === itemName);
@@ -1088,6 +1101,11 @@ export class CofActor extends Actor {
 		return statObj?.mod;
     }     
     
+    /**
+     * 
+     * @param {*} pathName 
+     * @returns 
+     */
     getPathRank(pathName){
         let rank = 0;
         let path = this.getItemByName(pathName);
@@ -1103,5 +1121,58 @@ export class CofActor extends Actor {
             rank = capacities.find(capa=>capa.data.checked)?.data.rank; 
         }
         return rank;
+    }
+    
+    /**
+     * Activate a capacity
+     * @param {*} item 
+     * @returns 
+     */
+     activateCapacity(capacity) {
+        const capacityData = capacity.data.data;
+        const activable = capacityData.activable;
+        const limitedUsage = capacityData.limitedUsage;
+        const buff = capacityData.buff;
+
+        if (activable) {
+            if (buff) {
+                let itemData = duplicate(capacity.data);
+                const newStatus = !itemData.data.properties.buff.activated;
+                itemData.data.properties.buff.activated = newStatus;
+                return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, !newStatus));
+            }
+            // Capacité activable avec un nombre d'usage limités
+            if ( limitedUsage ) {
+                if (capacityData.properties.limitedUsage.use > 0) {
+                    let itemData = duplicate(capacity.data);
+                    itemData.data.properties.limitedUsage.use = (itemData.data.properties.limitedUsage.use > 0) ? itemData.data.properties.limitedUsage.use - 1 : 0;
+
+                    AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+                    return capacity.update(itemData).then(capacity => capacity.applyEffects(this));
+                }
+                return ui.notifications.warn("Vous ne pouvez plus utiliser cette capacité !");
+            }
+            // Capacité à usage illimité
+            return capacity.applyEffects(this);
+        } 
+    }
+
+    /**
+     * @name isWeakened
+     * @returns true si l'active Effect Affaibli (radiation) et Immobilisé (restrain) est actif
+     */
+    isWeakened(){
+        return (this.getFlag("cof","weakened"));
+    }
+
+   /**
+    * @name getEffectsFromItemId
+    * @description Retourne la liste des effets donnés par l'objet d'id itemId
+    * @param {*} itemId
+    * @returns 
+    */
+    getEffectsFromItemId(itemId) {
+        const criteria = "Item." + itemId;
+        return this.effects.filter(effect=>effect.data.origin.endsWith(criteria));
     }
 }
