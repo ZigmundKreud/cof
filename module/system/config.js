@@ -49,7 +49,6 @@ COF.itemProperties = {
     "stackable": "COF.properties.stackable",
     "unique": "COF.properties.unique",
     "tailored": "COF.properties.tailored",
-    "2h": "COF.properties.2H",
     "predilection": "COF.properties.predilection",
     "ranged": "COF.properties.ranged",
     "proficient": "COF.properties.proficient",

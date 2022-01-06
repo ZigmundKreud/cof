@@ -1685,6 +1685,7 @@ Copied from dnd5e
   color: #464331c4;
   text-align: center;
   border: none;
+  justify-content: center;
 }
 .cof nav.sheet-tabs.tabs .item {
   text-overflow: ellipsis;
@@ -1696,6 +1697,7 @@ Copied from dnd5e
   height: 28px;
   box-shadow: 0 0 10px #00000052 inset;
   background: rgba(0, 0, 0, 0.05);
+  width: 16.66%;
 }
 .cof nav.sheet-tabs.tabs .item:hover {
   color: #464331c4;
