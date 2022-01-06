@@ -10,7 +10,7 @@
         </div>
         <div class="item-detail">
             {{#if (equals data.slot "hand")}}
-                {{#if (equals data.hands 2)}}
+                {{#if data.properties.2H}}
                     <i class="fas fa-hand-paper"></i><i class="fas fa-hand-paper"></i>
                 {{else}}
                     <i class="fas fa-hand-paper"></i>
