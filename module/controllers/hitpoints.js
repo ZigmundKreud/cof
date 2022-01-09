@@ -10,7 +10,9 @@ export class Hitpoints {
                 let data = duplicate(target.actor.data);
                 let hp = data.data.attributes.hp;
                 // Application de la RD si c'est cochée
-                const finalAmount = amount + (dr ? data.data.attributes.dr.value : 0);
+                let finalAmount = amount + (dr ? data.data.attributes.dr.value : 0);
+                finalAmount = finalAmount <= 0 ? finalAmount : 0;
+
                 hp.value += finalAmount;
 
                 target.actor.update(data);

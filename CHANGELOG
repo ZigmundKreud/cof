@@ -1,5 +1,11 @@
 9.238.1
 -------
+Corrections
+- Clés manquantes en anglais dans le type de bonus d'un Active Effect
+- Cas où la RD est supérieure aux dommages subis
+
+9.238.1
+-------
 Nouvelles fonctionnalités
 - Compatibilité avec Foundry v9
 
