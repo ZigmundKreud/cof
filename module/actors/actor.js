@@ -58,6 +58,41 @@ export class CofActor extends Actor {
         }
     }
 
+  /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    // Token size category
+    const s = CONFIG.COF.tokenSizes[this.data.data.details.size || "med"];
+    this.data.token.update({width: s, height: s});
+
+    // Player character configuration
+    if ( this.type === "character" ) {
+      this.data.token.update({vision: true, actorLink: true, disposition: 1});
+    }
+    
+  }
+
+  /* -------------------------------------------- */
+
+  /** @inheritdoc */
+  async _preUpdate(changed, options, user) {
+    await super._preUpdate(changed, options, user);
+
+    // Apply changes in Actor size to Token width/height
+    const newSize = foundry.utils.getProperty(changed, "data.details.size");
+    if ( newSize && (newSize !== foundry.utils.getProperty(this.data, "data.details.size")) ) {
+      let size = CONFIG.COF.tokenSizes[newSize];
+      if ( !foundry.utils.hasProperty(changed, "token.width") ) {
+        changed.token = changed.token || {};
+        changed.token.height = size;
+        changed.token.width = size;
+      }
+      
+    }
+  }
+    
+
     /* -------------------------------------------- */
     /*  Data Preparation                            */
     /* -------------------------------------------- */
@@ -172,6 +207,7 @@ export class CofActor extends Actor {
         }
 
         // MODIFY TOKEN REGARDING SIZE
+        /*
         switch (actorData.data.details.size) {
             case "big":
                 actorData.token.width = 2;
@@ -186,12 +222,22 @@ export class CofActor extends Actor {
                 actorData.token.height = 8;
                 break;
             case "tiny":
+                actorData.token.width = 0.25;
+                actorData.token.height = 0.25;
+                break;
             case "small":
+                actorData.token.width = 0.5;
+                actorData.token.height = 0.5;
+                break;
             case "short":
+                actorData.token.width = 0.8;
+                actorData.token.height = 0.8;
+                break;
             case "med":
             default:
                 break;
         }
+        */
     }
 
     /* -------------------------------------------- */

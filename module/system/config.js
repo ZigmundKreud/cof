@@ -195,4 +195,43 @@ COF.applicationsToLockDuringPause = [
     ActiveEffectConfig
 ];
 
+/**
+ * Creature sizes.
+ * @enum {string}
+ */
+ COF.actorSizes = {
+    tiny: "COF.SizeTiny",
+    small: "COF.SizeSmall",
+    short: "COF.SizeShort",
+    med: "COF.SizeMedium",
+    big: "COF.SizeBig",
+    huge: "COF.SizeHuge",
+    colossal: "COF.SizeColossal"
+};
+  
+/**
+ * Default token image size for the values of `COF.actorSizes`.
+ * @enum {number}
+ */
+COF.tokenSizes = {
+    tiny: 0.25,
+    small: 0.5,
+    short: 0.8,
+    med: 1,
+    big: 2,
+    huge: 3,
+    colossal: 4
+};
+
+/**
+ * Encounter archetype.
+ * @enum {string}
+ */
+ COF.encounterArchetypes = {
+    standard: "COF.ArchetypeStandard",
+    fast: "COF.ArchetypeFast",
+    powerful: "COF.ArchetypePowerful",
+    lesser: "COF.ArchetypeLesser"
+};
+
 COF.debug = false;

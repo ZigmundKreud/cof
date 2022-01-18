@@ -30,16 +30,12 @@
             <div class="flex2 center cell">
                 <select name="data.details.size" data-type="String" style="width:100%">
                     {{#select data.details.size}}
-                        <option value="">{{localize "COF.None"}}</option>
-                        <option value="tiny">Minuscule</option>
-                        <option value="small">Très petite</option>
-                        <option value="short">Petite</option>
-                        <option value="med">Moyenne</option>
-                        <option value="big">Grande</option>
-                        <option value="huge">Énorme</option>
-                        <option value="colossal">Colossale</option>
+                        {{#each config.actorSizes as |label size|}}
+                                <option value="{{size}}">{{label}}</option>
+                        {{/each}}
                     {{/select}}
                 </select>
+        </select>
             </div>
         </div>
         <!-- /SIZE -->
@@ -55,10 +51,9 @@
                     <select name="data.archetype" data-type="String" style="width:100%">
                         {{#select data.archetype}}
                             <option value="">{{localize "COF.None"}}</option>
-                            <option value="standard">Standard</option>
-                            <option value="rapide">Rapide</option>
-                            <option value="puissant">Puissant</option>
-                            <option value="inférieur">Inférieur</option>
+                            {{#each config.encounterArchetypes as |label size|}}
+                                    <option value="{{size}}">{{label}}</option>
+                            {{/each}}                            
                         {{/select}}
                     </select>
                 </div>
