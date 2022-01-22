@@ -1,7 +1,7 @@
 <form autocomplete="off" onsubmit="event.preventDefault();">
     <div class="row flexrow table-header color-default">
         <div class="flex1 center">
-            <h3>Déterminer les scores de caractéristiques</h3>
+            <h3>{{localize "COF.dialog.rollAttributes.title"}}</h3>
         </div>
     </div>
     <div style="padding:10px;">
@@ -34,7 +34,7 @@
 
         <div id="spent" class="row flexrow" style="margin-bottom: 5px;">
             <div class="flex1 center spent-header bg-darkslate">
-                <span class="field-label">Points dépensés</span>
+                <span class="field-label">{{localize "COF.dialog.rollAttributes.spentPoints"}}</span>
             </div>
             <div class="flex2 center cell">
                 <input class="field-value" id="total" readonly="true" name="total" type="text" value="{{total}}" data-dtype="Number"/>
@@ -45,8 +45,8 @@
     </div>
     </div>
     <div class="dialog-buttons flexrow">
-        <button class="dialog-button cancel" data-button="cancel"><i class="fas fa-times"></i> Annuler</button>
-        <button class="dialog-button random" data-button="random"><i class="fas fa-dice-d6"></i> Aléatoire</button>
-        <button class="dialog-button submit default" data-button="submit"><i class="fas fa-check"></i> Valider</button>
+        <button class="dialog-button cancel" data-button="cancel"><i class="fas fa-times"></i> {{localize "COF.ui.cancel"}}</button> 
+        <button class="dialog-button random" data-button="random"><i class="fas fa-dice-d6"></i> {{localize "COF.ui.random"}}</button>
+        <button class="dialog-button submit default" data-button="submit"><i class="fas fa-check"></i> {{localize "COF.ui.submit"}}</button>
     </div>
 </form>

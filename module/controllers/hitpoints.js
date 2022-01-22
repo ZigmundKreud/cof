@@ -4,7 +4,7 @@ export class Hitpoints {
         // notation [...] transforme un Set en Array
         let targets = ([...game.user.targets].length > 0) ? [...game.user.targets] : canvas.tokens.objects.children.filter(t => t._controlled);
         if (targets.length == 0) {
-            ui.notifications.error("Vous devez sélectionner au moins une cible pour appliquer les dégâts.");
+            ui.notifications.error(game.i18n.localize("COF.notification.HitPointsNoTarget"));
         } else {
             for(let target of targets){
                 let data = duplicate(target.actor.data);

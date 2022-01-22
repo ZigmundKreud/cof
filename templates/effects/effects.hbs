@@ -2,11 +2,11 @@
     <ol class="inventory-list">
         <li class="inventory-header flexrow">
             <h3 class="item-name flexrow">{{localize "COF.category.effects"}}</h3>
-            <div class="item-detail">Durée</div>
+            <div class="item-detail">{{localize "COF.ui.duration"}}</div>
             {{#if isEffectsEditable}}
-                <div class="item-detail">Action</div>
+                <div class="item-detail">{{localize "COF.ui.action"}}</div>
                 <div class="item-controls">
-                    <a class="item-control item-create effect-create" title="Ajouter un effet"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+                    <a class="item-control item-create effect-create" title="{{localize "COF.effect.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
                 </div>
             {{/if}}
         </li>

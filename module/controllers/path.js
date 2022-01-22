@@ -46,7 +46,7 @@ export class Path {
      */
     static addToActor(actor, pathData) {
         if (actor.items.filter(item => item.type === "path" && item.data.name === pathData.name).length > 0) {
-            ui.notifications.error("Vous possédez déjà cette voie.");
+            ui.notifications.error(game.i18n.localize("COF.notification.PathAlreadyOwned"));
             return false;
         } else {
             return this.addPathsToActor(actor, pathData);
@@ -66,7 +66,7 @@ export class Path {
             data.data.paths.push(EntitySummary.create(pathData));
             return entity.update(data);
         }
-        else ui.notifications.error("Cet objet contient déjà cette voie.")
+        else ui.notifications.error(game.i18n.localize("COF.notification.PathAlreadyOnItem"));
     }
     /**
      * 
@@ -76,7 +76,7 @@ export class Path {
     static removeFromActor(actor, path) {
         Dialog.confirm({
             title: game.i18n.format("COF.dialog.deleteProfile.title"),
-            content: `<p>Etes-vous sûr de vouloir supprimer la voie ${path.name} ?</p>`,
+            content: game.i18n.format('COF.dialog.deletePath.confirm', {name:actor.name}),
             yes: () => {
                 const pathData = path.data;
                 let items = actor.items.filter(item => item.data.type === "capacity" && item.data.data.path._id === pathData._id).map(c => c.data._id);

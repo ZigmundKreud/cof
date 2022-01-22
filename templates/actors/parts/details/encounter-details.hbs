@@ -51,8 +51,8 @@
                     <select name="data.archetype" data-type="String" style="width:100%">
                         {{#select data.archetype}}
                             <option value="">{{localize "COF.None"}}</option>
-                            {{#each config.encounterArchetypes as |label size|}}
-                                    <option value="{{size}}">{{label}}</option>
+                            {{#each config.encounterArchetypes as |label archetype|}}
+                                    <option value="{{archetype}}">{{label}}</option>
                             {{/each}}                            
                         {{/select}}
                     </select>
@@ -68,9 +68,9 @@
                     <select name="data.category" data-type="String" style="width:100%">
                         {{#select data.category}}
                             <option value="">{{localize "COF.None"}}</option>
-                            <option value="vivante">Vivante</option>
-                            <option value="humanoïde">Humanoïde</option>
-                            <option value="non-vivante">Non-vivante</option>
+                            {{#each config.encounterCategories as |label category|}}
+                                    <option value="{{category}}">{{label}}</option>
+                            {{/each}}                              
                         {{/select}}
                     </select>
 
@@ -83,15 +83,12 @@
                     <span class="field-label">{{ localize 'COF.ui.boss' }}</span>
                 </div>
                 <div class="flex1 center cell">
-    <!--                <input class="field-value sans" name="data.boss.rank" type="text" value="{{actor.data.boss.rank}}" placeholder="{{ localize 'COF.ui.rank' }}" data-dtype="String"/>-->
                     <select name="data.boss.rank" data-type="String" style="width:100%">
                         {{#select data.boss.rank}}
-                            <option value="">{{localize "COF.None"}}</option>
-                            <option value="1">Boss 1 (Remarquable)</option>
-                            <option value="2">Boss 2 (Supérieur)</option>
-                            <option value="3">Boss 3 (Majeur)</option>
-                            <option value="4">Boss 4 (Exceptionnel)</option>
-                            <option value="5">Boss 5 (Légendaire)</option>
+                            <option value="">{{localize "COF.None"}}</option>   
+                            {{#each config.encounterBossRanks as |label rank|}}
+                                    <option value="{{rank}}">{{label}}</option>
+                            {{/each}}                             
                         {{/select}}
                     </select>
                 </div>
@@ -99,10 +96,9 @@
                     <select name="data.boss.type" data-type="String" style="width:100%">
                         {{#select data.boss.type}}
                             <option value="">{{localize "COF.None"}}</option>
-                            <option value="rapide">Rapide</option>
-                            <option value="puissant">Puissant</option>
-                            <option value="berserk">Berserk</option>
-                            <option value="résistant">Résistant</option>
+                            {{#each config.encounterBossTypes as |label type|}}
+                                    <option value="{{type}}">{{label}}</option>
+                            {{/each}}  
                         {{/select}}
                     </select>
 

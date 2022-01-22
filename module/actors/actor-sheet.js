@@ -570,7 +570,7 @@ export class CofActorSheet extends CofBaseSheet {
         }
         data.capacities.collections.push({
             id: "standalone-capacities",
-            label: "Capacités Hors-Voies",
+            label: game.i18n.localize("COF.ui.OffPathsCapacities"),
             items: Object.values(data.items).filter(item => {
                 if (item.type === "capacity" && !item.data.path) {
                     return true;

@@ -31,7 +31,7 @@
             </div>
             {{#if species}}
                 {{#with species}}
-                    <div class="flex2 center cell drop-field cof-compendium-pack item" data-item-id="{{_id}}" data-item-type="species" data-pack="species" data-open="0" title="click gauche ouvre le peuple, click droit ouvre le compendium">                
+                    <div class="flex2 center cell drop-field cof-compendium-pack item" data-item-id="{{_id}}" data-item-type="species" data-pack="species" data-open="0" title="{{ localize "COF.species.openCompendium" }}">                
                         <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
                         <div class="species-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
@@ -39,7 +39,7 @@
                     </div>
                 {{/with}}
             {{else}}
-                <div class="flex2 center cell drop-field cof-compendium-pack" data-item-type="species" data-pack="species" data-open="0" title="click droit pour ouvrir le compendium"></div>
+                <div class="flex2 center cell drop-field cof-compendium-pack" data-item-type="species" data-pack="species" data-open="0" title="{{localize "COF.ui.openCompendium"}}"></div>
             {{/if}}
         </div>
         <!-- /SPECIES -->
@@ -51,7 +51,7 @@
                 </div>
                 {{#if profile}}
                     {{#with profile}}
-                        <div class="flex4 center cell drop-field cof-compendium-pack item" data-item-id="{{_id}}" data-item-type="profile" data-pack="profiles" data-open="0" title="click gauche ouvre le peuple, click droit ouvre le compendium">                
+                        <div class="flex4 center cell drop-field cof-compendium-pack item" data-item-id="{{_id}}" data-item-type="profile" data-pack="profiles" data-open="0" title="{{ localize "COF.path.openCompendium" }}">                
                             <div class="flex5 field-value sans item-edit" style="background-image: url('{{img}}'); background-size: 26px 26px; background-repeat: no-repeat">{{name}}</div>
                             <div class="profile-controls item" data-item-id="{{_id}}" style="padding-right:5px;">
                                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a>
@@ -59,7 +59,7 @@
                         </div>
                     {{/with}}
                 {{else}}
-                    <div class="flex4 center cell drop-field cof-compendium-pack" data-item-type="profile" data-pack="profiles" data-open="0" title="click droit pour ouvrir le compendium"></div>
+                    <div class="flex4 center cell drop-field cof-compendium-pack" data-item-type="profile" data-pack="profiles" data-open="0" title="{{localize "COF.ui.openCompendium"}}"></div>
                 {{/if}}
             </div>
             <!-- /PROFILE -->
