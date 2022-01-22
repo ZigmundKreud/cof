@@ -406,5 +406,18 @@
   "COF.CustomStatus.stun": "Stun (malus)",
   "COF.CustomStatus.weak": "Weak (d12)",
   "COF.CustomStatus.restrain": "Restrain (d12)",
-  "COF.CustomStatus.dead": "Dead"
+  "COF.CustomStatus.dead": "Dead",
+
+  "COF.SizeTiny": "Tiny",
+  "COF.SizeSmall": "Small",
+  "COF.SizeShort": "Short",
+  "COF.SizeMedium": "Medium",
+  "COF.SizeBig": "Big",
+  "COF.SizeHuge": "Huge",
+  "COF.SizeColossal": "Colossal",
+
+  "COF.ArchetypeStandard": "Standard",
+  "COF.ArchetypeFast": "Fast",
+  "COF.ArchetypePowerful": "Powerful",
+  "COF.ArchetypeLesser": "Lesser"
 }

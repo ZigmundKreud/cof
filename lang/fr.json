@@ -407,5 +407,18 @@
   "COF.CustomStatus.stun": "Etourdi (malus)",
   "COF.CustomStatus.weak": "Affaibli (d12)",
   "COF.CustomStatus.restrain": "Immobilisé (d12)",
-  "COF.CustomStatus.dead": "Hors d'état"
+  "COF.CustomStatus.dead": "Hors d'état",
+
+  "COF.SizeTiny": "Minuscule",
+  "COF.SizeSmall": "Très petite",
+  "COF.SizeShort": "Petite",
+  "COF.SizeMedium": "Moyenne",
+  "COF.SizeBig": "Grande",
+  "COF.SizeHuge": "Énorme",
+  "COF.SizeColossal": "Colossale",
+
+  "COF.ArchetypeStandard": "Standard",
+  "COF.ArchetypeFast": "Rapide",
+  "COF.ArchetypePowerful": "Puissant",
+  "COF.ArchetypeLesser": "Inférieur"
 }
