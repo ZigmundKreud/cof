@@ -269,14 +269,14 @@ export class CofRoll {
 
         Dialog.confirm({
                 title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
-                content: `<p>Êtes-vous sûr de vouloir dépenser 1 point de récupération ?`,
+                content: game.i18n.localize("COF.dialog.spendRecoveryPoint.content"),
                 yes: async () => {
                         const hd = actorData.data.attributes.hd.value;
                         const hdmax = parseInt(hd.split("d")[1]);
                         const bonus = level + conMod;
                         const formula = `1d${hdmax} + ${bonus}`;
                         
-                        let healingRoll = new CofHealingRoll("", formula, false, "Point de récupération", false);
+                        let healingRoll = new CofHealingRoll("", formula, false, game.i18n.localize("COF.dialog.spendRecoveryPoint.rollTitle"), false);
                         let result = await healingRoll.roll(actor);
 
                         hp.value += result.total;

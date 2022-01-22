@@ -158,54 +158,7 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareBaseEncounterData(actorData) {
-        // STATS
-        let stats = actorData.data.stats;
-        // COMPUTE STATS FROM MODS
-        for (let stat of Object.values(stats)) {
-            stat.value = Stats.getStatValueFromMod(stat.mod);
-        }
-
-        // ATTACKS
-        if (!actorData.data.attacks) {
-            actorData.data.attacks = {
-                "melee": {
-                    "key": "melee",
-                    "label": "COF.attacks.melee.label",
-                    "abbrev": "COF.attacks.melee.abbrev",
-                    "stat": "@stats.str.mod",
-                    "enabled": true,
-                    "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod,
-                    "bonus": 0,
-                    "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod
-                },
-                "ranged": {
-                    "key": "ranged",
-                    "label": "COF.attacks.ranged.label",
-                    "abbrev": "COF.attacks.ranged.abbrev",
-                    "stat": "@stats.dex.mod",
-                    "enabled": true,
-                    "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod,
-                    "bonus": 0,
-                    "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod
-                },
-                "magic": {
-                    "key": "magic",
-                    "label": "COF.attacks.magic.label",
-                    "abbrev": "COF.attacks.magic.abbrev",
-                    "stat": "@stats.int.mod",
-                    "enabled": true,
-                    "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod,
-                    "bonus": 0,
-                    "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod
-                }
-            }
-        } else {
-            let attacks = actorData.data.attacks;
-            for (let attack of Object.values(attacks)) {
-                attack.mod = attack.base + attack.bonus;
-            }
-        }
-
+  
         // MODIFY TOKEN REGARDING SIZE
         /*
         switch (actorData.data.details.size) {
@@ -243,6 +196,54 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareDerivedEncounterData(actorData) { 
+      // STATS
+      let stats = actorData.data.stats;
+      // COMPUTE STATS FROM MODS
+      for (let stat of Object.values(stats)) {
+          stat.value = Stats.getStatValueFromMod(stat.mod);
+      }
+
+      // ATTACKS
+      if (!actorData.data.attacks) {
+          actorData.data.attacks = {
+              "melee": {
+                  "key": "melee",
+                  "label": "COF.attacks.melee.label",
+                  "abbrev": "COF.attacks.melee.abbrev",
+                  "stat": "@stats.str.mod",
+                  "enabled": true,
+                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod,
+                  "bonus": 0,
+                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod
+              },
+              "ranged": {
+                  "key": "ranged",
+                  "label": "COF.attacks.ranged.label",
+                  "abbrev": "COF.attacks.ranged.abbrev",
+                  "stat": "@stats.dex.mod",
+                  "enabled": true,
+                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod,
+                  "bonus": 0,
+                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod
+              },
+              "magic": {
+                  "key": "magic",
+                  "label": "COF.attacks.magic.label",
+                  "abbrev": "COF.attacks.magic.abbrev",
+                  "stat": "@stats.int.mod",
+                  "enabled": true,
+                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod,
+                  "bonus": 0,
+                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod
+              }
+          }
+      } else {
+          let attacks = actorData.data.attacks;
+          for (let attack of Object.values(attacks)) {
+              attack.mod = attack.base + attack.bonus;
+          }
+      }
+              
         let attributes = actorData.data.attributes;
         
         // Points de vie
