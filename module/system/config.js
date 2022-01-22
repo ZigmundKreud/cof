@@ -110,7 +110,7 @@ COF.capacityProperties = {
     "heal": "COF.ui.heal",
     "attack": "COF.ui.attack",
     "buff": "COF.ui.buff",
-    "useMacro": "COF.ui.useMacro"
+    "useMacro": "COF.capacity.useMacro"
 }
 
 COF.itemIcons = {
@@ -200,13 +200,13 @@ COF.applicationsToLockDuringPause = [
  * @enum {string}
  */
  COF.actorSizes = {
-    tiny: "COF.SizeTiny",
-    small: "COF.SizeSmall",
-    short: "COF.SizeShort",
-    med: "COF.SizeMedium",
-    big: "COF.SizeBig",
-    huge: "COF.SizeHuge",
-    colossal: "COF.SizeColossal"
+    tiny: "COF.encounter.size.tiny",
+    small: "COF.encounter.size.small",
+    short: "COF.encounter.size.short",
+    med: "COF.encounter.size.medium",
+    big: "COF.encounter.size.big",
+    huge: "COF.encounter.size.huge",
+    colossal: "COF.encounter.size.colossal"
 };
   
 /**
@@ -228,10 +228,44 @@ COF.tokenSizes = {
  * @enum {string}
  */
  COF.encounterArchetypes = {
-    standard: "COF.ArchetypeStandard",
-    fast: "COF.ArchetypeFast",
-    powerful: "COF.ArchetypePowerful",
-    lesser: "COF.ArchetypeLesser"
+    standard: "COF.encounter.archetype.standard",
+    fast: "COF.encounter.archetype.fast",
+    powerful: "COF.encounter.archetype.powerful",
+    lesser: "COF.encounter.archetype.lesser"
+};
+
+/**
+ * Encounter category.
+ * @enum {string}
+ */
+ COF.encounterCategories = {
+    living: "COF.encounter.category.living",
+    humanoid: "COF.encounter.category.humanoid",
+    plant: "COF.encounter.category.plant",
+    unliving: "COF.encounter.category.unliving"
+};
+
+/**
+ * Encounter Boss Rank.
+ * @enum {string}
+ */
+ COF.encounterBossRanks = {
+    "1": "COF.encounter.boss.rank.remarkable",
+    "2": "COF.encounter.boss.rank.superior",
+    "3": "COF.encounter.boss.rank.major",
+    "4": "COF.encounter.boss.rank.exceptional",
+    "5": "COF.encounter.boss.rank.legendary"
+};
+
+/**
+ * Encounter Boss Type.
+ * @enum {string}
+ */
+ COF.encounterBossTypes = {
+    fast: "COF.encounter.boss.type.fast",
+    powerful: "COF.encounter.boss.type.powerful",
+    berserk: "COF.encounter.boss.type.berserk",
+    resistant: "COF.encounter.boss.type.resistant"
 };
 
 COF.debug = false;

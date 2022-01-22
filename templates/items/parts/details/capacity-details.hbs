@@ -34,7 +34,7 @@
             <input type="checkbox" name="data.buff" {{checked data.buff}}> {{localize "COF.ui.buff"}}
         </label>        
         <label class="checkbox">
-            <input type="checkbox" name="data.useMacro" {{checked data.useMacro}}> {{localize "COF.ui.useMacro"}}
+            <input type="checkbox" name="data.useMacro" {{checked data.useMacro}}> {{localize "COF.capacity.useMacro"}}
         </label>      
     </div>
 </div>
@@ -165,7 +165,7 @@
 
 {{#if data.buff}}
     <div class="form-group">
-        <label>{{localize "COF.ui.activated"}}</label>
+        <label>{{localize "COF.capacity.activated"}}</label>
         <div class="form-fields">
             <input class="capacity-activated-toggle" name="data.properties.buff.activated" type="checkbox" {{checked data.properties.buff.activated}}>
         </div>
@@ -174,19 +174,19 @@
 
 {{#if data.useMacro}}
     <div class="form-group">
-        <label>{{localize "COF.ui.macroName"}}</label>
+        <label>{{localize "COF.capacity.macroName"}}</label>
         <div class="form-fields">
-            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="Nom de la macro" data-dtype="String">            
+            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="{{localize "COF.capacity.macroName"}}" data-dtype="String">            
         </div>       
     </div>
     <div class="form-group">
-        <label>{{localize "COF.ui.macroId"}}</label>
+        <label>{{localize "COF.capacity.macroId"}}</label>
         <div class="form-fields">
             <input name="data.properties.macro.id" type="text" value="{{data.properties.macro.id}}" data-dtype="String">          
         </div>       
     </div>
     <div class="form-group">
-        <label>{{localize "COF.ui.macroCompendium"}}</label>
+        <label>{{localize "COF.capacity.macroCompendium"}}</label>
         <div class="form-fields">
             <input name="data.properties.macro.pack" type="text" value="{{data.properties.macro.pack}}" data-dtype="String">          
         </div>       

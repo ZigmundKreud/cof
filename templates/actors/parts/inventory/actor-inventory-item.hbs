@@ -4,27 +4,27 @@
         <h4>{{name}}</h4>
     </div>
     <div class="item-detail">
-        <a class="item-control inventory-qty {{#if data.properties.stackable}}unlocked{{else}}locked{{/if}}" title="Clic gauche pour augmenter, clic droit pour diminuer">{{data.qty}}</a>
+        <a class="item-control inventory-qty {{#if data.properties.stackable}}unlocked{{else}}locked{{/if}}" title="{{ localize "COF.ui.modifyQuantity"}}">{{data.qty}}</a>
     </div>
-    <div class="item-detail">{{#if data.value}}{{data.value}}{{else}}N.C.{{/if}}</div>
+    <div class="item-detail">{{#if data.value}}{{data.value}}{{else}}{{localize "COF.ui.nc"}}{{/if}}</div>
     {{#if (or (equals owner.type "character") (equals owner.type "npc"))}}
     <div class="item-detail">
         {{#if data.properties.equipable}}
             {{#if data.worn}}
-                <a class="item-control inventory-equip" title="Déséquiper"><i class="fas fa-shield-alt"></i></a>
+                <a class="item-control inventory-equip" title="{{localize "COF.item.unequip"}}"><i class="fas fa-shield-alt"></i></a>
             {{else}}
-                <a class="item-control inventory-equip" title="Équiper" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
+                <a class="item-control inventory-equip" title="{{localize "COF.item.equip"}}" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
             {{/if}}
         {{/if}}
         {{#if (and data.properties.consumable (isPositive data.qty))}}
-            <a class="item-control inventory-consume" title="Consommer"><i class="fas fa-drumstick-bite"></i></a>
+            <a class="item-control inventory-consume" title="{{localize "COF.item.consume"}}"><i class="fas fa-drumstick-bite"></i></a>
         {{/if}}
     </div>
     {{/if}}
     {{#if @root.editable}}
         <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-edit" title="{{localize "COF.item.edit"}}"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize "COF.item.delete"}}"><i class="fas fa-trash"></i></a>
         </div>
     {{/if}}
 </li>

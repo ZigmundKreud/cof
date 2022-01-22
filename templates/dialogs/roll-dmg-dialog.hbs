@@ -1,12 +1,12 @@
 <div class="row flexrow table-header red">
     <div class="flex1 center">
-        <h3>Jet de dommages</h3>
+        <h3>{{localize "COF.dialog.rollDamage.title"}}</h3>
     </div>
 </div>
 {{> "systems/cof/templates/dialogs/parts/roll-dmg-fields.hbs"}}
 <div class="row flexrow" style="margin-bottom: 10px;">
     <div class="flex1 center bg-darkslate">
-        <span class="field-label">Dommages critiques ?</span>
+        <span class="field-label">{{localize "COF.roll.criticalDmg"}} ?</span>
     </div>
     <div class="flex1 center cell">
         <input class="field-value" id="isCritical" name="isCritical" type="checkbox" {{#if isCritical}}checked{{/if}}/>
@@ -16,7 +16,7 @@
     <hr/>
     <div>
         <div class="flex1 center bg-darkslate">
-            <span class="field-label">Description</span>
+            <span class="field-label">{{localize "COF.ui.description"}}</span>
         </div>
         <textarea class="readonly rollDialogDescr" readonly="true" id="dmgDescr" name="dmgDescr">{{dmgDescr}}</textarea>
     </div>

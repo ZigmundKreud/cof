@@ -15,7 +15,7 @@
                 <div class="gridrow grid-6col-150 item" data-item-id="{{path._id}}" data-item-type="item" data-pack="paths">
                     <div class="gridcell left gridheader color-default no-border">
                         <a class="item-edit ellipsis" style="width: 100%; text-align: left" title="{{path.name}}">{{path.name}}</a>&nbsp;
-                        <span class="path-controls item" data-item-id="{{path._id}}" style="padding-right:5px;"><a class="item-control item-delete" title="Delete Item"><i class="fas fa-times"></i></a></span>
+                        <span class="path-controls item" data-item-id="{{path._id}}" style="padding-right:5px;"><a class="item-control item-delete" title="{{localize "COF.ui.deletePath"}}"><i class="fas fa-times"></i></a></span>
                     </div>
                     {{#each path.data.capacities as |capacity id|}}
                         <div class="gridcell gridcell-sm item capacity left color-default no-wrap" data-item-id="{{capacity._id}}" data-item-type="capacity" data-pack="capacities" data-path-id="{{path._id}}" data-key="{{capacity.data.key}}">
