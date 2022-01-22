@@ -162,7 +162,7 @@ export default function registerHooks() {
             if(arg1 && validCommands.includes(arg1)) {
                 game.cof.macros.rollStatMacro(actor, arg1, 0, 0, null);
             } else {
-                ui.notifications.error("Vous devez préciser la caractéristique à tester, par exemple \"/skill str\".");
+                ui.notifications.error(game.i18n.localize("COF.notification.chatHook.noSkillSelected"));
             }
             return false;
         }

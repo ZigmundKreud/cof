@@ -66,27 +66,27 @@ export class Species {
         const capacities = actor.items.filter(item => item.type === "capacity" && item.data.data.species?._id === specie.id);
         return Dialog.confirm({
             title: game.i18n.format("COF.dialog.deleteSpecie.title"),
-            content: `<p>Etes-vous sûr de vouloir supprimer la race de ${actor.name} ?</p>`,
+            content: game.i18n.format('COF.dialog.deleteSpecie.confirm', {name:actor.name}),
             yes: () => {
                 if (paths.length > 0 && capacities.length > 0) {
                     Path.removePathsFromActor(actor, paths).then(() => {
-                        ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée."));
+                        ui.notifications.info(paths.length > 1 ?  game.i18n.format("COF.dialog.deletePath.confirmSeveralPaths", {nb: paths.length}) : game.i18n.localize("COF.dialog.deletePath.confirmOnePath"));
                         Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée."));
+                            ui.notifications.info(capacities.length > 1 ? game.i18n.format("COF.dialog.deleteSpecie.confirmSeveralCapacities", {nb: capacities.length}) : game.i18n.localize("COF.dialog.deleteSpecie.confirmOneCapacity"));                            
                         });
                     });                        
                 } else {
                     if (paths.length > 0 ) {
                         Path.removePathsFromActor(actor, paths).then(() => {
-                            ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée."));
+                            ui.notifications.info(paths.length > 1 ?  game.i18n.format("COF.dialog.deletePath.confirmSeveralPaths", {nb: paths.length}) : game.i18n.localize("COF.dialog.deletePath.confirmOnePath"));
                         });                            
                     } else if (capacities.length > 0 ) {
                         Capacity.removeCapacitiesFromActor(actor, capacities).then(() => {
-                            ui.notifications.info(parseInt(capacities.length) + ((capacities.length > 1) ? " capacités ont été supprimées." : " capacité a été supprimée."));
+                            ui.notifications.info(capacities.length > 1 ? game.i18n.format("COF.dialog.deleteSpecie.confirmSeveralCapacities", {nb: capacities.length}) : game.i18n.localize("COF.dialog.deleteSpecie.confirmOneCapacity"));                            
                         });
                     }
                 }
-                ui.notifications.info("La race a été supprimée.");
+                ui.notifications.info(game.i18n.localize("COF.dialog.deleteSpecie.confirmDelete"));
                 return actor.deleteEmbeddedDocuments("Item", [specie.id]);
             },
             defaultYes: false

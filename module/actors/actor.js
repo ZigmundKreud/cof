@@ -428,11 +428,11 @@ export class CofActor extends Actor {
         actorData.data.xp.value = maxxp - currxp;
         if (maxxp - currxp < 0) {
             const diff = currxp - maxxp;
-            alert.msg = (diff == 1) ? `Vous avez dépensé ${diff} point de capacité en trop !` : `Vous avez dépensé ${diff} points de capacité en trop !`;
+            alert.msg = game.i18n.format('COF.msg.xp.superior', {diff:diff, plural:diff > 1 ? 's' : ''});             
             alert.type = "error";
         } else if (maxxp - currxp > 0) {
             const diff = maxxp - currxp;
-            alert.msg = (diff == 1) ? `Il vous reste ${diff} point de capacité à dépenser !` : `Il vous reste ${diff} points de capacité à dépenser !`;
+            alert.msg = game.i18n.format('COF.msg.xp.inferior', {diff:diff, plural:diff > 1 ? 's' : ''});  
             alert.type = "info";
         } else {
             alert.msg = null;
@@ -952,13 +952,13 @@ export class CofActor extends Actor {
                 if (itemData.data.subtype === "armor" || itemData.data.subtype === "shield") {
                     const armorCategory = item.getMartialCategory();
                     if (!this.isCompetentWithArmor(armorCategory)) {
-                        ui.notifications?.warn(this.name + " est incompétent dans le port de l'armure " + item.name);
+                        ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithArmor', {name:this.name, item:item.name}));
                     }    
                 }
                 if (itemData.data.subtype === "melee" || itemData.data.subtype === "ranged") {
                     const weaponCategory = item.getMartialCategory();
                     if (!this.isCompetentWithWeapon(weaponCategory)) {
-                        ui.notifications?.warn(this.name + " est incompétent dans le port de l'arme " + item.name);
+                        ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithWeapon', {name:this.name, item:item.name}));
                     }    
                 }
             }
@@ -1074,7 +1074,7 @@ export class CofActor extends Actor {
             AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
             return item.modifyQuantity(1,true).then(item => item.applyEffects(this));;
         }
-        return ui.notifications.warn("Vous ne pouvez plus utiliser cet objet !");
+        return ui.notifications.warn(game.i18n.localize("COF.notification.ConsumeEmptyObject"));
     }
 
     /**
@@ -1196,7 +1196,7 @@ export class CofActor extends Actor {
                     AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
                     return capacity.update(itemData).then(capacity => capacity.applyEffects(this));
                 }
-                return ui.notifications.warn("Vous ne pouvez plus utiliser cette capacité !");
+                return ui.notifications.warn(game.i18n.localize("COF.notification.ActivateEmptyCapacity"));
             }
             // Capacité à usage illimité
             return capacity.applyEffects(this);
