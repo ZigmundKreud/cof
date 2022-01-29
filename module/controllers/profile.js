@@ -10,7 +10,7 @@ export class Profile {
      */
     static addToActor(actor, itemData) {
         if (actor.items.filter(item => item.type === "profile").length > 0) {
-            ui.notifications.error("Vous avez déjà un profil.");
+            ui.notifications.error(game.i18n.localize("COF.notification.ProfileAlreadyOwned"));
             return false;
         } else {
             itemData = itemData instanceof Array ? itemData : [itemData];
@@ -48,13 +48,13 @@ export class Profile {
     static removeFromActor(actor, profile) {
         const paths = actor.items.filter(item => item.type === "path" && item.data.data.profile?._id === profile.id);
         return Dialog.confirm({
-            title: game.i18n.format("COF.dialog.deletePath.title"),
-            content: `<p>Etes-vous sûr de vouloir supprimer le profil de ${actor.name} ?</p>`,
+            title: game.i18n.localize("COF.dialog.deleteProfile.title"),
+            content: game.i18n.format('COF.dialog.deleteProfile.confirm', {name:actor.name}),
             yes: () => {
                 Path.removePathsFromActor(actor, paths).then(() => {
-                    ui.notifications.info(parseInt(paths.length) + ((paths.length > 1) ? " voies ont été supprimées." : " voie a été supprimée"));
+                    ui.notifications.info(paths.length == 1 ? game.i18n.localize("COF.dialog.deletePath.confirmOnePath") : game.i18n.format("COF.dialog.deletePath.confirmSeveralPaths", {nb: paths.length}));
                 });
-                ui.notifications.info("Le profil a été supprimé.");
+                ui.notifications.info(game.i18n.localize("COF.dialog.deleteProfile.confirmDelete"));
                 return actor.deleteEmbeddedDocuments("Item", [profile.id]);
             },
             defaultYes: false

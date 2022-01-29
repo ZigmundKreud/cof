@@ -1,8 +1,8 @@
 export const registerSystemSettings = function() {
 
     game.settings.register("cof", "useRecovery", {
-        name: "Points de Récupération",
-        hint: "Utiliser la règle optionnelle des Points de Récupération (PR).",
+        name: "SETTINGS.useRecovery.name",
+        hint: "SETTINGS.useRecovery.hint",
         scope: "world",
         config: true,
         default: false,
@@ -10,8 +10,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useFortune", {
-        name: "Points de Chance",
-        hint: "Utiliser la règle optionnelle des Points de Chance (PC).",
+        name: "SETTINGS.useFortune.name",
+        hint: "SETTINGS.useFortune.hint",
         scope: "world",
         config: true,
         default: true,
@@ -19,8 +19,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useMana", {
-        name: "Points de Mana",
-        hint: "Utiliser la règle optionnelle des Points de Mana (PM).",
+        name: "SETTINGS.useMana.name",
+        hint: "SETTINGS.useMana.hint",
         scope: "world",
         config: true,
         default: false,
@@ -28,8 +28,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useDamageResistance", {
-        name: "Résistance aux dommages",
-        hint: "Afficher la résistance aux dommages sur la feuille de personnage.",
+        name: "SETTINGS.useDamageResistance.name",
+        hint: "SETTINGS.useDamageResistance.hint",
         scope: "world",
         config: true,
         default: false,
@@ -37,22 +37,22 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "displayDifficulty", {
-        name: "Afficher la difficulté",
-        hint: "Active l'affichage de la difficulté sur les jets de compétences/attributs et d'armes.",
+        name: "SETTINGS.displayDifficulty.name",
+        hint: "SETTINGS.displayDifficulty.hint",
         scope: "world",
         config: true,
         default: "none",
         type: String,
         choices: {
-            "none" : "Ne pas utiliser ni afficher la difficulté",
-            "all" : "Utiliser la difficulté et l'afficher pour tout le monde",
-            "gm" : "Utiliser la difficulté et l'afficher uniquement au MJ"
+            "none" : "SETTINGS.displayDifficulty.none",
+            "all" : "SETTINGS.displayDifficulty.all",
+            "gm" : "SETTINGS.displayDifficulty.gm"
         }
     });
 
     game.settings.register("cof", "useComboRolls", {
-        name: "Activer les jets \"combo\"",
-        hint: "Permet de lancer les jets d'attaque et de dommages simultanément.",
+        name: "SETTINGS.useComboRolls.name",
+        hint: "SETTINGS.useComboRolls.hint",
         scope: "world",
         config: true,
         default: true,
@@ -60,8 +60,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useVarInit", {
-        name: "Utiliser la règle de l'initiative variable",
-        hint: "Le résultat d’un d6 explosif est ajouté à l'initiative : ajout et relance sur 6.",
+        name: "SETTINGS.useVarInit.name",
+        hint: "SETTINGS.useVarInit.hint",
         scope: "world",
         config: true,
         default: false,
@@ -69,8 +69,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
-        name: "Utiliser la règle de l'incompétence des PJ",
-        hint: "Une arme ou une armure non maitrisée donne différents malus.",
+        name: "SETTINGS.useIncompetentPJ.name",
+        hint: "SETTINGS.useIncompetentPJ.hint",
         scope: "world",
         config: false,
         default: false,
@@ -78,8 +78,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "useOverload", {
-        name: "Utiliser la règle de l'encombrement",
-        hint: "L'encombrement de l'armure cause des malus pour les jets de DEX.",
+        name: "SETTINGS.useOverload.name",
+        hint: "SETTINGS.useOverload.hint",
         scope: "world",
         config: true,
         default: true,
@@ -87,8 +87,8 @@ export const registerSystemSettings = function() {
     });   
 
     game.settings.register("cof", "displayChatDamageButtonsToAll", {
-        name: "Afficher les boutons de dommages",
-        hint: "Affiche les boutons d'application des dommages dans les messages de chat à tout le monde.",
+        name: "SETTINGS.displayChatDamageButtonsToAll.name",
+        hint: "SETTINGS.displayChatDamageButtonsToAll.hint",
         scope: "world",
         config: true,
         default: false,
@@ -96,21 +96,21 @@ export const registerSystemSettings = function() {
     });
     
     game.settings.register("cof", "moveItem", {
-        name: "Mode de déplacement des items",
-        hint: "Comportement du drag & drop d'un item sur une fiche de personnage (Maintenir MAJ lors du drop pour inverser).",
+        name: "SETTINGS.moveItem.name",
+        hint: "SETTINGS.moveItem.hint",
         scope: "world",
         type: String,
         choices: {
-            "0" : "Copier l'objet (par défaut dans Foundry)",
-            "1" : "Déplacer l'objet"
+            "0" : "SETTINGS.moveItem.copy",
+            "1" : "SETTINGS.moveItem.move"
         },
         default: "0",
         config: true
     });    
 
     game.settings.register("cof", "lockItems",{
-        name: "Verrouiller les objets",
-        hint: "Interdire aux joueurs de modifier les objets",
+        name: "SETTINGS.lockItems.name",
+        hint: "SETTINGS.lockItems.hint",
         scope: "world",
         config: true,
         default: false,
@@ -118,8 +118,8 @@ export const registerSystemSettings = function() {
     });
 
     game.settings.register("cof", "lockDuringPause",{
-        name: "Verrouillage pendant le mode Pause",
-        hint: "Interdire aux joueurs de modifier les personnages et les objets durant le mode Pause",
+        name: "SETTINGS.lockDuringPause.name",
+        hint: "SETTINGS.lockDuringPause.hint",
         scope: "world",
         config: true,
         default: false,
@@ -127,30 +127,30 @@ export const registerSystemSettings = function() {
     });
     
     game.settings.register("cof", "checkFreeHandsBeforeEquip", {
-        name: "Vérification des mains libres",
-        hint: "Vérifier que le personnage a assez de mains libres pour équiper un objet (Maintenir MAJ pour ignorer le contrôle)",
+        name: "SETTINGS.checkFreeHandsBeforeEquip.name",
+        hint: "SETTINGS.checkFreeHandsBeforeEquip.hint",
         scope: "world",
         config: true,
         default: "none",
         type: String,
         choices: {
-            "none" : "Ne pas vérifier",
-            "all" : "Vérification (ignorable par tous)",
-            "gm" : "Vérification (ignorable uniquement par le MJ)"
+            "none" : "SETTINGS.checkFreeHandsBeforeEquip.none",
+            "all" : "SETTINGS.checkFreeHandsBeforeEquip.all",
+            "gm" : "SETTINGS.checkFreeHandsBeforeEquip.gm"
         }
     });
     
     game.settings.register("cof", "checkArmorSlotAvailability", {
-        name: "Vérification des emplacements d'armure",
-        hint: "Vérifier la disponibilité d'un emplacement avant d'équiper une armure (Maintenir MAJ pour ignorer le contrôle)",
+        name: "SETTINGS.checkArmorSlotAvailability.name",
+        hint: "SETTINGS.checkArmorSlotAvailability.hint",
         scope: "world",
         config: true,
         default: "none",
         type: String,
         choices: {
-            "none" : "Ne pas vérifier",
-            "all" : "Vérification (ignorable par tous)",
-            "gm" : "Vérification (ignorable uniquement par le MJ)"
+            "none" : "SETTINGS.checkArmorSlotAvailability.none",
+            "all" : "SETTINGS.checkArmorSlotAvailability.all",
+            "gm" : "SETTINGS.checkArmorSlotAvailability.gm"
         }
     });    
 };

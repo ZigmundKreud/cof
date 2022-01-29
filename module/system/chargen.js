@@ -17,7 +17,7 @@ export class CharacterGeneration {
 
     static async statsCommand(actor) {
         const stats = await CharacterGeneration.rollStats();
-        CharacterGeneration._buildStatsMessage(actor, "<h2>Création de personnage</h2><h3>Jets de caractéristiques</h3>", stats);
+        CharacterGeneration._buildStatsMessage(actor, game.i18n.localize("COF.characterGeneration"), stats);
         return stats;
     }
 

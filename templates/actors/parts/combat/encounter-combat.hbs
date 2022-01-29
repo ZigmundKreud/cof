@@ -1,16 +1,13 @@
 <ol class="inventory-list">
     <!-- MELEE -->
         <li class="inventory-header flexrow">
-            <h3 class="item-name flexrow">Attaques</h3>
-            <div class="item-detail">Mod</div>
-            <div class="item-detail">Critique</div>
-            <div class="item-detail">DM</div>
+            <h3 class="item-name flexrow">{{ localize 'COF.combat.attacks' }}</h3>
+            <div class="item-detail">{{ localize 'COF.combat.mod' }}</div>
+            <div class="item-detail">{{ localize 'COF.combat.critical' }}</div>
+            <div class="item-detail">{{ localize 'COF.combat.dm' }}</div>
             <div class="item-controls-3">
-                <a class="item-control item-create weapon-add" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
-                <!--                <a class="item-control" title="Ajouter une attaque"><i class="fas fa-plus"></i>&nbsp;Add</a>-->
+                <a class="item-control item-create weapon-add" title="{{ localize 'COF.combat.addAttack' }}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
             </div>
-            <!--                <a class="item-control weapon-add btn" title="Ajouter une attaque" style="padding:3px"><i class="fas fa-plus"></i></a>-->
-            <!--                <a class="weapons-control weapon-remove btn" title="Supprimer une attaque" style="padding:3px"><i class="fas fa-minus"></i></a>-->
         </li>
     {{#each actor.data.weapons as |weapon id|}}
         <ol class="item-list">
@@ -37,9 +34,9 @@
                     <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.dmg}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
                 </div>
                 <div class="item-controls-3">
-                    <a class="item-control rollable" data-roll-type="encounter-weapon"><i class="fas fa-dice-d20"></i></a>
-                    <a class="item-control rollable" data-roll-type="encounter-damage"><i class="fas fa-dice"></i></a>
-                    <a class="item-control weapon-remove" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    <a class="item-control rollable" data-roll-type="encounter-weapon" title="{{ localize 'COF.roll.attackAndDamages' }}"><i class="fas fa-dice-d20"></i></a>
+                    <a class="item-control rollable" data-roll-type="encounter-damage" title="{{ localize 'COF.roll.damages' }}"><i class="fas fa-dice"></i></a>
+                    <a class="item-control weapon-remove" title="{{ localize 'COF.combat.deleteAttack' }}"><i class="fas fa-trash"></i></a>
                 </div>
             </li>
         </ol>

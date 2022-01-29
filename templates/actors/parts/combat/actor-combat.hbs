@@ -4,12 +4,12 @@
             <li class="inventory-header flexrow">
                 <h3 class="item-name flexrow">{{localize category.label}}</h3>
                 {{#if (isNotLimited @root)}}
-                    {{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">Def</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "ranged" "spell")}}<div class="item-detail">Portée(m)</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "shield")}}<div class="item-detail">Usage</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">Crit</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">Mod</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">DM</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">{{localize "COF.combat.defense"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.range"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "shield")}}<div class="item-detail">{{localize "COF.combat.usage"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.critical"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.mod"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.dm"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
                     {{#if @root.editable}} <div class="item-controls"></div> {{/if}}
                 {{/if}}
             </li>
@@ -25,13 +25,13 @@
     <ol class="inventory-list foldable">
                 <li class="inventory-header flexrow">
                     <h3 class="item-name flexrow">{{combat.capacities.label}}</h3>
-                    <div class="item-detail">Limitée</div>
-                    <div class="item-detail">Sort</div>
-                    <div class="item-detail">Usages</div>
-                    <div class="item-detail">Actions</div>
+                    <div class="item-detail">{{localize "COF.capacity.limited"}}</div>
+                    <div class="item-detail">{{localize "COF.ui.spell"}}</div>
+                    <div class="item-detail">{{localize "COF.capacity.usages"}}</div>
+                    <div class="item-detail">{{localize "COF.capacity.actions"}}</div>
                     {{#if @root.editable}}
                         <div class="item-controls">
-                            <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+                            <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="{{localize "COF.capacity.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
                         </div>
                     {{/if}}
                 </li>
@@ -46,13 +46,13 @@
                         <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
                         <div class="item-detail">{{#if capacity.data.use}}{{capacity.data.use}}{{/if}}</div>
                         <div class="item-detail">{{#if capacity.data.activable}}
-                            <a class="item-control capacity-activate" title="Activer"><i class="fas fa-check"></i></a>
+                            <a class="item-control capacity-activate" title="{{localize "COF.capacity.activate"}}"><i class="fas fa-check"></i></a>
                         {{/if}}
                         </div>
                         {{#if @root.editable}}
                             <div class="item-controls">
-                                <a class="item-control item-edit" title="Editer la capacité"><i class="fas fa-edit"></i></a>
-                                <a class="item-control item-delete" title="Supprimer la capacité"><i class="fas fa-trash"></i></a>
+                                <a class="item-control item-edit" title="{{localize "COF.capacity.edit"}}"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize "COF.capacity.delete"}}"><i class="fas fa-trash"></i></a>
                             </div>
                         {{/if}}
                         <div class="item-summary" style="display: none">

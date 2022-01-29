@@ -25,7 +25,7 @@ export class LevelUpSheet extends FormApplication {
         let nbPaths = this.object.getEmbeddedCollection('Item').filter(item=>item.type==="path").length;
         this.position.width = Math.clamped(nbPaths*this.pathSize , this.minSize, this.maxSize);
 
-        this.options.title = this.options.title ? this.options.title : `${object.data.name} monte de niveau`;
+        this.options.title = this.options.title ? this.options.title : game.i18n.format('COF.levelUp.title', {name:object.data.name});  
         
         // Si le jet n'as pas été fourni, effectue un jet de dé pour les PV Bonus
         this.hpRoll = this.options.hpRoll;

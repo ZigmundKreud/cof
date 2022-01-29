@@ -293,7 +293,7 @@ export class CofItemSheet extends ItemSheet {
             return Traversal.find(id).then(e => {
                 if (e) return e.sheet.render(true);
                 else {
-                    ui.notifications.error("Impossible de trouver l'entité");
+                    ui.notifications.error(game.i18n.localize("COF.notification.ItemNotFound"));
                     return false;
                 }
             });

@@ -1,4 +1,4 @@
-<h3 class="form-header">Bonus raciaux</h3>
+<h3 class="form-header">{{localize "COF.species.bonus"}}</h3>
 <input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
 
 <div class="form-group">
@@ -38,13 +38,13 @@
     </div>
 </div>
 
-<h3 class="form-header">Ressources</h3>
+<h3 class="form-header">{{localize "COF.attributes.resources.label"}}</h3>
 
 <ol class="inventory-list">
     <li class="inventory-header flexrow">
-        <h3 class="item-name flexrow">Voies raciales</h3>
+        <h3 class="item-name flexrow">{{localize "COF.species.paths"}}</h3>
         <div class="item-controls">
-            <a class="item-control item-create cof-compendium-pack" data-pack="paths" data-open="0" title="Ajouter une voie"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+            <a class="item-control item-create cof-compendium-pack" data-pack="paths" data-open="0" title="{{localize "COF.path.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
         </div>
     </li>
     {{#each data.paths as |path id|}}
@@ -55,17 +55,17 @@
                     <h4>{{path.name}}</h4>
                 </div>
                 <div class="item-controls">
-                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    <a class="item-control item-edit" title="{{localize "COF.path.edit"}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="{{localize "COF.path.delete"}}"><i class="fas fa-trash"></i></a>
                 </div>
             </li>
         </ol>
     {{/each}}
 
     <li class="inventory-header flexrow">
-        <h3 class="item-name flexrow">Capacités raciales</h3>
+        <h3 class="item-name flexrow">{{localize "COF.species.capacities"}}</h3>
         <div class="item-controls">
-            <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; Aj.</a>
+            <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="{{localize "COF.capacity.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
         </div>
     </li>
     {{#each data.capacities as |capacity id|}}
@@ -76,8 +76,8 @@
                     <h4>{{capacity.name}}</h4>
                 </div>
                 <div class="item-controls">
-                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                    <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    <a class="item-control item-edit" title="{{localize "COF.capacity.edit"}}"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-delete" title="{{localize "COF.capacity.delete"}}"><i class="fas fa-trash"></i></a>
                 </div>
             </li>
         </ol>

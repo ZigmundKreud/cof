@@ -58,6 +58,41 @@ export class CofActor extends Actor {
         }
     }
 
+  /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    // Token size category
+    const s = CONFIG.COF.tokenSizes[this.data.data.details.size || "med"];
+    this.data.token.update({width: s, height: s});
+
+    // Player character configuration
+    if ( this.type === "character" ) {
+      this.data.token.update({vision: true, actorLink: true, disposition: 1});
+    }
+    
+  }
+
+  /* -------------------------------------------- */
+
+  /** @inheritdoc */
+  async _preUpdate(changed, options, user) {
+    await super._preUpdate(changed, options, user);
+
+    // Apply changes in Actor size to Token width/height
+    const newSize = foundry.utils.getProperty(changed, "data.details.size");
+    if ( newSize && (newSize !== foundry.utils.getProperty(this.data, "data.details.size")) ) {
+      let size = CONFIG.COF.tokenSizes[newSize];
+      if ( !foundry.utils.hasProperty(changed, "token.width") ) {
+        changed.token = changed.token || {};
+        changed.token.height = size;
+        changed.token.width = size;
+      }
+      
+    }
+  }
+    
+
     /* -------------------------------------------- */
     /*  Data Preparation                            */
     /* -------------------------------------------- */
@@ -123,55 +158,9 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     _prepareBaseEncounterData(actorData) {
-        // STATS
-        let stats = actorData.data.stats;
-        // COMPUTE STATS FROM MODS
-        for (let stat of Object.values(stats)) {
-            stat.value = Stats.getStatValueFromMod(stat.mod);
-        }
-
-        // ATTACKS
-        if (!actorData.data.attacks) {
-            actorData.data.attacks = {
-                "melee": {
-                    "key": "melee",
-                    "label": "COF.attacks.melee.label",
-                    "abbrev": "COF.attacks.melee.abbrev",
-                    "stat": "@stats.str.mod",
-                    "enabled": true,
-                    "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod,
-                    "bonus": 0,
-                    "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod
-                },
-                "ranged": {
-                    "key": "ranged",
-                    "label": "COF.attacks.ranged.label",
-                    "abbrev": "COF.attacks.ranged.abbrev",
-                    "stat": "@stats.dex.mod",
-                    "enabled": true,
-                    "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod,
-                    "bonus": 0,
-                    "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod
-                },
-                "magic": {
-                    "key": "magic",
-                    "label": "COF.attacks.magic.label",
-                    "abbrev": "COF.attacks.magic.abbrev",
-                    "stat": "@stats.int.mod",
-                    "enabled": true,
-                    "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod,
-                    "bonus": 0,
-                    "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod
-                }
-            }
-        } else {
-            let attacks = actorData.data.attacks;
-            for (let attack of Object.values(attacks)) {
-                attack.mod = attack.base + attack.bonus;
-            }
-        }
-
+  
         // MODIFY TOKEN REGARDING SIZE
+        /*
         switch (actorData.data.details.size) {
             case "big":
                 actorData.token.width = 2;
@@ -186,17 +175,75 @@ export class CofActor extends Actor {
                 actorData.token.height = 8;
                 break;
             case "tiny":
+                actorData.token.width = 0.25;
+                actorData.token.height = 0.25;
+                break;
             case "small":
+                actorData.token.width = 0.5;
+                actorData.token.height = 0.5;
+                break;
             case "short":
+                actorData.token.width = 0.8;
+                actorData.token.height = 0.8;
+                break;
             case "med":
             default:
                 break;
         }
+        */
     }
 
     /* -------------------------------------------- */
 
     _prepareDerivedEncounterData(actorData) { 
+      // STATS
+      let stats = actorData.data.stats;
+      // COMPUTE STATS FROM MODS
+      for (let stat of Object.values(stats)) {
+          stat.value = Stats.getStatValueFromMod(stat.mod);
+      }
+
+      // ATTACKS
+      if (!actorData.data.attacks) {
+          actorData.data.attacks = {
+              "melee": {
+                  "key": "melee",
+                  "label": "COF.attacks.melee.label",
+                  "abbrev": "COF.attacks.melee.abbrev",
+                  "stat": "@stats.str.mod",
+                  "enabled": true,
+                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod,
+                  "bonus": 0,
+                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod
+              },
+              "ranged": {
+                  "key": "ranged",
+                  "label": "COF.attacks.ranged.label",
+                  "abbrev": "COF.attacks.ranged.abbrev",
+                  "stat": "@stats.dex.mod",
+                  "enabled": true,
+                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod,
+                  "bonus": 0,
+                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod
+              },
+              "magic": {
+                  "key": "magic",
+                  "label": "COF.attacks.magic.label",
+                  "abbrev": "COF.attacks.magic.abbrev",
+                  "stat": "@stats.int.mod",
+                  "enabled": true,
+                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod,
+                  "bonus": 0,
+                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod
+              }
+          }
+      } else {
+          let attacks = actorData.data.attacks;
+          for (let attack of Object.values(attacks)) {
+              attack.mod = attack.base + attack.bonus;
+          }
+      }
+              
         let attributes = actorData.data.attributes;
         
         // Points de vie
@@ -382,11 +429,11 @@ export class CofActor extends Actor {
         actorData.data.xp.value = maxxp - currxp;
         if (maxxp - currxp < 0) {
             const diff = currxp - maxxp;
-            alert.msg = (diff == 1) ? `Vous avez dépensé ${diff} point de capacité en trop !` : `Vous avez dépensé ${diff} points de capacité en trop !`;
+            alert.msg = game.i18n.format('COF.msg.xp.superior', {diff:diff, plural:diff > 1 ? 's' : ''});             
             alert.type = "error";
         } else if (maxxp - currxp > 0) {
             const diff = maxxp - currxp;
-            alert.msg = (diff == 1) ? `Il vous reste ${diff} point de capacité à dépenser !` : `Il vous reste ${diff} points de capacité à dépenser !`;
+            alert.msg = game.i18n.format('COF.msg.xp.inferior', {diff:diff, plural:diff > 1 ? 's' : ''});  
             alert.type = "info";
         } else {
             alert.msg = null;
@@ -906,13 +953,13 @@ export class CofActor extends Actor {
                 if (itemData.data.subtype === "armor" || itemData.data.subtype === "shield") {
                     const armorCategory = item.getMartialCategory();
                     if (!this.isCompetentWithArmor(armorCategory)) {
-                        ui.notifications?.warn(this.name + " est incompétent dans le port de l'armure " + item.name);
+                        ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithArmor', {name:this.name, item:item.name}));
                     }    
                 }
                 if (itemData.data.subtype === "melee" || itemData.data.subtype === "ranged") {
                     const weaponCategory = item.getMartialCategory();
                     if (!this.isCompetentWithWeapon(weaponCategory)) {
-                        ui.notifications?.warn(this.name + " est incompétent dans le port de l'arme " + item.name);
+                        ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithWeapon', {name:this.name, item:item.name}));
                     }    
                 }
             }
@@ -1028,7 +1075,7 @@ export class CofActor extends Actor {
             AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
             return item.modifyQuantity(1,true).then(item => item.applyEffects(this));;
         }
-        return ui.notifications.warn("Vous ne pouvez plus utiliser cet objet !");
+        return ui.notifications.warn(game.i18n.localize("COF.notification.ConsumeEmptyObject"));
     }
 
     /**
@@ -1150,7 +1197,7 @@ export class CofActor extends Actor {
                     AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
                     return capacity.update(itemData).then(capacity => capacity.applyEffects(this));
                 }
-                return ui.notifications.warn("Vous ne pouvez plus utiliser cette capacité !");
+                return ui.notifications.warn(game.i18n.localize("COF.notification.ActivateEmptyCapacity"));
             }
             // Capacité à usage illimité
             return capacity.applyEffects(this);

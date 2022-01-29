@@ -179,7 +179,7 @@ export class CofActorSheet extends CofBaseSheet {
 
             let dv = this.actor.getDV();
             let modCon = this.actor.getStatMod("con");
-            let healingRoll = new CofHealingRoll("Gain de points de vie", `${dv}+${modCon}`,false, "Montée de niveau", false);            
+            let healingRoll = new CofHealingRoll(game.i18n.localize("COF.roll.healing.label"), `${dv}+${modCon}`,false, game.i18n.localize("COF.roll.healing.title"), false);            
 
             healingRoll.roll(this.actor).then((roll)=>{
                 let levelUp = new LevelUpSheet(this.actor, {resizable:true, hpRoll:roll});
@@ -570,7 +570,7 @@ export class CofActorSheet extends CofBaseSheet {
         }
         data.capacities.collections.push({
             id: "standalone-capacities",
-            label: "Capacités Hors-Voies",
+            label: game.i18n.localize("COF.ui.OffPathsCapacities"),
             items: Object.values(data.items).filter(item => {
                 if (item.type === "capacity" && !item.data.path) {
                     return true;

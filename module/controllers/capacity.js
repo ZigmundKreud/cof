@@ -49,7 +49,7 @@ export class Capacity {
             data.data.capacities.push(EntitySummary.create(capacityData));
             return item.update(data);
         }
-        else ui.notifications.error("Cet objet contient déjà cette capacité.")
+        else ui.notifications.error(game.i18n.localize("COF.notification.CapacityAlreadyOnItem"));
     }
     /**
      * 

@@ -26,30 +26,30 @@
             </div>
             <div class="flex1 center cell readonly">
                 {{#if (isNull attack.base)}}
-                    <input class="field-value" name="data.attacks.{{id}}.base" readonly="true" type="text" value="" placeholder="Base" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.base" readonly="true" type="text" value="" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
                 {{else}}
-                    <input class="field-value" name="data.attacks.{{id}}.base" readonly="true" type="text" value="{{numberFormat attack.base decimals=0 sign=true}}" placeholder="Base" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.base" readonly="true" type="text" value="{{numberFormat attack.base decimals=0 sign=true}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
                 {{/if}}
             </div>
             <div class="flex1 center cell">
                 {{#if (isNull attack.base)}}
-                    <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="" placeholder="Bonus" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
                 {{else}}
-                    <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="{{numberFormat attack.bonus decimals=0 sign=true}}" placeholder="Bonus" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.bonus" type="text" value="{{numberFormat attack.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
                 {{/if}}
             </div>
             <div class="flex1 center cell readonly">
                 {{#if (isNull attack.base)}}
-                    <input class="field-value" name="data.attacks.{{id}}.malus" readonly="true" type="text" value="" placeholder="Malus" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.malus" readonly="true" type="text" value="" placeholder="{{localize "COF.ui.malus"}}" data-dtype="Number"/>
                 {{else}}
-                    <input class="field-value" name="data.attacks.{{id}}.malus" readonly="true" type="text" value="{{numberFormat attack.malus decimals=0 sign=true}}" placeholder="Malus" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.malus" readonly="true" type="text" value="{{numberFormat attack.malus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.malus"}}" data-dtype="Number"/>
                 {{/if}}
             </div>
             <div class="flex1 center cell readonly">
                 {{#if (isNull attack.base)}}
-                    <input class="field-value" name="data.attacks.{{id}}.mod" readonly="true" type="text" value="" placeholder="Mod" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.mod" readonly="true" type="text" value="" placeholder="{{localize "COF.ui.mod"}}" data-dtype="Number"/>
                 {{else}}
-                    <input class="field-value" name="data.attacks.{{id}}.mod" readonly="true" type="text" value="{{numberFormat attack.mod decimals=0 sign=true}}" placeholder="Mod" data-dtype="Number"/>
+                    <input class="field-value" name="data.attacks.{{id}}.mod" readonly="true" type="text" value="{{numberFormat attack.mod decimals=0 sign=true}}" placeholder="{{localize "COF.ui.mod"}}" data-dtype="Number"/>
                 {{/if}}
             </div>
         </div>
