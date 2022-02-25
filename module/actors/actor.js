@@ -410,7 +410,10 @@ export class CofActor extends Actor {
    /**
      * @name computeXP
      * @description Calcule la dépense des XPs pour les achats des points de capacité
-     *      COF : Les rangs 1 et 2 coûtent 1 XP, les rangs 3, 4 et 5 coûtent 2 XP
+     *      COF : 
+     *          Voie standard : Les rangs 1 et 2 coûtent 1 XP, les rangs 3, 4 et 5 coûtent 2 XP
+     *          Voie de prestige : tous les rangs coûtent 2 XPs
+     * 
      * @public
      * 
      * @param {Actor.data} actorData
@@ -422,7 +425,12 @@ export class CofActor extends Actor {
         let lvl = actorData.data.level.value;
         const alert = actorData.data.alert;
         const capacities = this.getActiveCapacities(items);
-        let currxp = capacities.map(cap => (cap.data.data.rank > 2) ? 2 : 1).reduce((acc, curr) => acc + curr, 0);
+        let currxp = capacities.map(cap => {
+            const path = this.getItemByName(cap.data.data.path.name);
+            const isPrestige = path?.data.data.properties.prestige ? true : false;
+            const cost = isPrestige ? 2 : (cap.data.data.rank > 2 ? 2 : 1);
+            return cost;
+            }).reduce((acc, curr) => acc + curr, 0);
         const maxxp = 2 * lvl;
         // UPDATE XP
         actorData.data.xp.max = maxxp;

@@ -554,12 +554,6 @@ export class CofActorSheet extends CofBaseSheet {
             }
         });
 
-        /*data.combat.capacities.push({
-                id: "capacity",
-                label: "COF.ui.capacities",
-                items: Object.values(data.items).filter(item => item.type === "capacity" && item.data?.activable).sort((a, b) => (a.name > b.name) ? 1 : -1)
-        });*/
-
         // PATHS & CAPACITIES
         const paths = data.items.filter(item => item.type === "path");
         data.paths = paths;
