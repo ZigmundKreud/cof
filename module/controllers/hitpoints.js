@@ -9,9 +9,14 @@ export class Hitpoints {
             for(let target of targets){
                 let data = duplicate(target.actor.data);
                 let hp = data.data.attributes.hp;
-                // Application de la RD si c'est cochée
-                let finalAmount = amount + (dr ? data.data.attributes.dr.value : 0);
-                finalAmount = finalAmount <= 0 ? finalAmount : 0;
+
+                let finalAmount = amount;
+                // Dommages
+                if (amount < 0) {
+                    // Application de la RD si c'est cochée
+                    finalAmount += (dr ? data.data.attributes.dr.value : 0) ;
+                    if (finalAmount > 0) finalAmount = 0;
+                }
 
                 hp.value += finalAmount;
 
