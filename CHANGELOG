@@ -1,3 +1,19 @@
+9.255.1
+-------
+Corrections
+- Prise en compte effective du contenu de la 9.245.1
+
+Nouvelles fonctionnalités
+- Pour la configuration des Active Effects, la liste déroulante est proposée par défaut
+
+9.249.1
+-------
+Corrections
+- Bouton application des soins dans le chat qui ne fonctionnait plus
+
+Nouvelles fonctionnalités
+- Calcul de l'expérience pour les voies de prestige
+
 9.245.1
 -------
 Corrections
