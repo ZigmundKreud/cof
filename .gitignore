@@ -4,3 +4,4 @@ node_modules
 /_assets/
 _data
 package-lock.json
+.github/
