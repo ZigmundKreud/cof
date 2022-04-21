@@ -1,4 +1,6 @@
 import { System, COF } from "../system/config.js";
+import { Capacity } from "../controllers/capacity.js";
+import { Traversal } from "../utils/traversal.js";
 
 export class LevelUpSheet extends FormApplication {
     
@@ -106,39 +108,13 @@ export class LevelUpSheet extends FormApplication {
                 tooltip.classList.remove("hidden");
             }
             else {
-
                 let parent = target.parentNode;
-                
-                let pathId = parent.getAttribute('path-id');
                 let capacityId = parent.getAttribute('capacity-id');
+           
+                let capacity = game.items.get(capacityId)?.data;                
+                if (!capacity) await Traversal.mapItemsOfType("capacity").then(capacities=> capacity = capacities[capacityId]);
 
-                let path = this.object.getEmbeddedDocument("Item",pathId);
-                let capacity = path.data.data.capacities.find(capa=>capa._id === capacityId);
-                let sourceId = capacity.sourceId;
-                let parts = sourceId.split('.');
-
-                let capa;
-                if (parts[0] === "Item"){
-                    capa = ItemDirectory.collection.get(parts[1]);
-                }
-                else if (parts[0] === "Compendium"){
-                
-                    let packData = game.data.packs.find(pack=>pack.package === parts[1] && pack.name === parts[2]);
-
-                    if (!packData){
-                        // Si le compendium d'origine est introuvable, on désactive les events qui gère l'affichage du tooltip
-                        // Et on masque l'ancien tooltip
-                        currentTarget.off("mouseenter");
-                        currentTarget.off("mouseleave");
-                        if (this.previousTooltip) this.previousTooltip.classList.add("hidden");
-                        return;
-                    }
-
-                    let compendium = new CompendiumCollection(packData);
-                    capa = await compendium.getDocument(capacityId);
-                }
-
-                let description = capa.data.data.description;
+                let description = capacity.data.description;
                 description = this._changeTooltipHeader(description, capacity);
                 tooltip.innerHTML = description;
 
@@ -255,53 +231,9 @@ export class LevelUpSheet extends FormApplication {
             let baseHp = hp.base + this.levelData.hpBonus.total;
             let currentHp = hp.value + this.levelData.hpBonus.total;
 
-            let itemsToAdd = [];
-            let pathsData = [];
-            let compendiums = [];
-
             for (let p = 0; p < this.levelData.paths.length; p++){
-                for (let c = 0; c < this.levelData.paths[p].capacities.length; c++){
-
-                    let capa = this.levelData.paths[p].capacities[c];
-
-                    let path = actor.getEmbeddedDocument('Item', this.levelData.paths[p].id);
-                    let pathData = pathsData.find(pathData=>pathData._id===path.data._id);
-                    if (!pathData){
-                        pathData = duplicate(path.data);
-                        pathsData.push(pathData);
-                    }
-                    
-                    let capacity = pathData.data.capacities.find(cap=>cap._id===capa.id);
-                    capacity.data.checked = true;
-
-                    let sourceId = capacity.sourceId;
-                    let parts = sourceId.split('.');
-
-                    let capacityData;
-                    if (parts[0] === "Item"){
-                        capacityData = duplicate(ItemDirectory.collection.get(parts[1]).data);
-                    }
-                    else if (parts[0] === "Compendium"){
-                    
-                        let packData = game.data.packs.find(pack=>pack.package === parts[1] && pack.name === parts[2]);
-                        
-                        let compendium = compendiums.find(comp=>comp.metadata.package === packData.package && comp.metadata.name === packData.name);
-                        if (!compendium) {
-                            compendium = new CompendiumCollection(packData);
-                            compendiums.push(compendium);
-                        }
-
-                        let compendiumCap = await compendium.getDocument(capa.id);                    
-                        capacityData = duplicate(compendiumCap.data);
-                    }
-
-                    capacityData.data.rank = capacity.data.rank;
-                    capacityData.data.path = capacity.data.path;
-                    capacityData.data.checked = capacity.data.checked;
-                    capacityData.flags.core = { sourceId: capacity.sourceId };
-
-                    itemsToAdd.push(capacityData);
-                }
+                let path = this.levelData.paths[p];
+                Capacity.toggleCheck(actor, path.capacities[path.capacities.length-1].id, path.id, false);
             };
 
             let history = actor.data.data.level.history;
@@ -316,11 +248,7 @@ export class LevelUpSheet extends FormApplication {
                 return a.level < b.level ? -1 : a.level > b.level ? 1 : 0;
             });
             
-            await actor.update({"data.level.value":level, "data.level.history":history, "data.attributes.hp.base": baseHp, "data.attributes.hp.value": currentHp}).then(()=>{
-                actor.updateEmbeddedDocuments('Item', pathsData).then(()=>{
-                    actor.createEmbeddedDocuments('Item', itemsToAdd);
-                });
-            });            
+            await actor.update({"data.level.value":level, "data.level.history":history, "data.attributes.hp.base": baseHp, "data.attributes.hp.value": currentHp});     
             this._sendMessageToGM();
             this.close();
         });
