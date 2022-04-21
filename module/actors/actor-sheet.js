@@ -468,6 +468,18 @@ export class CofActorSheet extends CofBaseSheet {
                 let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
 
+                // Faut-il déplacer ou copier l'item ?
+                let moveItem = game.settings.get("cof","moveItem");
+                
+                // Récupération de l'actor d'origine                
+                let originalActor = ActorDirectory.collection.get(data.actorId);
+
+                // Si l'item doit être déplacé ET qu'il n'est plus dans l'inventaire d'origine, affichage d'un message d'avertissement et on arrête le traitement
+                if (moveItem && originalActor && !originalActor.items.get(itemData._id)) {
+                    ui.notifications.warn(game.i18n.format("COF.notification.ItemNotInInventory",{itemName:itemData.name, actorName: originalActor.name}));
+                    return null;
+                }
+
                 // On force le nouvel Item a ne pas être équipé (notamment lors du transfert d'un inventaire à un autre)
                 if (itemData.data.worn) itemData.data.worn = false;
 
@@ -476,12 +488,11 @@ export class CofActorSheet extends CofBaseSheet {
                     // Si il n'y as pas d'actor id, il s'agit d'un objet du compendium, on quitte
                     if (!data.actorId) return item;
                                         
-                    // Si l'item doit être "move", on le supprime de l'actor précédent
-                    let moveItem = game.settings.get("cof","moveItem");                    
+                    // Si l'item doit être "move", on le supprime de l'actor précédent                 
                     if (moveItem ^ event.shiftKey) {
 
                         if (!data.tokenId){
-                            let originalActor = ActorDirectory.collection.get(data.actorId);
+                            //let originalActor = ActorDirectory.collection.get(data.actorId);
                             originalActor.deleteEmbeddedDocuments("Item", [data.data._id]);
                         }
                         else{

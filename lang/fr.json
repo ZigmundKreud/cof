@@ -431,6 +431,7 @@
   "COF.notification.incompetentWithWeapon": "{name} est incompétent pour utiliser l'arme {item}",
   "COF.notification.incompetentWithArmor": "{name} est incompétent dans le port de l'armure {item}",
   "COF.notification.chatHook.noSkillSelected": "Vous devez préciser la caractéristique à tester, par exemple /skill str.",
+  "COF.notification.ItemNotInInventory" : "L'objet '{itemName}' n'est pas dans l'inventaire de {actorName}",
 
   "COF.msg.xp.superior" : "Vous avez dépensé {diff} point{plural} de capacité en trop !",
   "COF.msg.xp.inferior" : "Il vous reste {diff} point{plural} de capacité à dépenser !",

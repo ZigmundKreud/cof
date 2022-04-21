@@ -1169,8 +1169,8 @@ export class CofActor extends Actor {
             let capacities = [...path.data.data.capacities];
             capacities.sort((a,b)=>{
                 if (a.data.rank < b.data.rank) return 1;
-                if (a.data.rank > b.data.rank) return 0;
-                else return -1
+                if (a.data.rank > b.data.rank) return -1;
+                else return 0
             });
 
             rank = capacities.find(capa=>capa.data.checked)?.data.rank; 
