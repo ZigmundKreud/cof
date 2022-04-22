@@ -92,11 +92,11 @@ export class Capacity {
                     return actor.deleteEmbeddedDocuments("Item", toRemove);
                 } else {
                     const checked = newPath.data.capacities.filter(c => c.data.checked);
-                    const checkedIds = checked.map(c => c._id);
+                    const checkedIds = checked.map(c => c.sourceId.split('.').pop());                    
                     let diff = ArrayUtils.difference(checkedIds, itemsIds);
  
                     let newCap = null;
-                    let toAdd = checked.filter(c => diff.includes(c._id)).map(c => {
+                    let toAdd = checked.filter(c => diff.includes(c.sourceId.split('.').pop())).map(c => {
                         newCap = caps[c._id];
                         newCap.data.rank = c.data.rank;
                         newCap.data.path = c.data.path;
