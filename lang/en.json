@@ -430,7 +430,8 @@
   "COF.notification.ItemNotFound" : "Unable to find the item",
   "COF.notification.incompetentWithWeapon": "{name} is unskilled with the weapon {item}",
   "COF.notification.incompetentWithArmor": "{name} is unskilled with the armor {item}",
-  "COF.notification.chatHook.noSkillSelected": "You must define the characteristic to test, by exemple /skill str.",  
+  "COF.notification.chatHook.noSkillSelected": "You must define the characteristic to test, by exemple /skill str.", 
+  "COF.notification.ItemNotInInventory" : "Item '{itemName}' is not in {actorName}'s Inventory",
 
   "COF.msg.xp.superior" : "You have spent {diff} capacity point{plural} too many !",
   "COF.msg.xp.inferior" : "You have {diff} capacity point{plural} left to spend !", 

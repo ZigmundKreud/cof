@@ -4,14 +4,27 @@ export class Traversal {
 
     static async getDocument(id, type, pack) {
         let entity = null;
+
         // Case 1 - Import from World entities
-        if(type === "item" || type === "capacity") entity = game.items.get(id);
-        else if(type === "actor") entity = game.actors.get(id);
-        else if(type === "journal") entity = game.journal.get(id);
+        if (type === "item" || type === "capacity") entity = game.items.get(id);
+        else if (type === "actor") entity = game.actors.get(id);
+        else if (type === "journal") entity = game.journal.get(id);
+        
         // Case 2 - Import from a Compendium pack
         if (!entity && pack) {
             await game.packs.get(pack).getDocument(id).then(e => entity = e);
         }
+
+        if (!entity) {
+            // Case 3 - Import from a World compendium
+            for (const key of game.packs.keys()) {
+                if (key.startsWith('world')){
+                    entity = await game.packs.get(key).getDocument(id);
+                    if (entity) return entity;
+                }
+            }
+        }
+
         return entity;
     }
 
