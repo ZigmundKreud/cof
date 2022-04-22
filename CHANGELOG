@@ -1,3 +1,16 @@
+9.269.1
+-------
+Corrections
+- Bug sur la montée de niveau #128
+- Correction de l'activation d'une capacité pour prendre en compte les capacités du SRD dupliquées dans un autre compendium
+- Correction de la méthode getPathRank pour obtenir le rang dans une voie
+- Ajout d'un contrôle lors du déplacement d'un item pour éviter les duplications accidentelles
+- Affichage d'une capacité dans des compendiums locals au monde
+
+Nouvelles fonctionnalités
+- Ajout de paramètres pour la macro skillMacro
+- Mise à jour des macros de base avec affichage de toutes les options
+
 9.255.1
 -------
 Corrections
