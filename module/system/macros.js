@@ -213,7 +213,7 @@ export class Macros {
             CofRoll.skillRollDialog(actor, label, mod, bonus, malus, crit, isSuperior, "submit", description);
         }
         else {
-            new CofSkillRoll(label, dice, mod, bonus, malus, difficulty, critrange, description).roll(actor);
+            new CofSkillRoll(label, dice, "+" + +mod, bonus, malus, difficulty, critRange, description).roll(actor);
         }
         
     }
