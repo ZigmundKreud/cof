@@ -1,5 +1,7 @@
 export const registerSystemSettings = function() {
 
+    const reload = foundry.utils.debounce(() => window.location.reload(), 250);
+
     game.settings.register("cof", "useRecovery", {
         name: "SETTINGS.useRecovery.name",
         hint: "SETTINGS.useRecovery.hint",
@@ -65,7 +67,8 @@ export const registerSystemSettings = function() {
         scope: "world",
         config: true,
         default: false,
-        type: Boolean
+        type: Boolean,
+        onChange: reload
     });
 
     game.settings.register("cof", "useIncompetentPJ", {
