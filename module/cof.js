@@ -32,7 +32,6 @@ Hooks.once("init", async function () {
 
     /**
      * Set an initiative formula for the system
-     * @type {String}
      */
 
     if(game.settings.get("cof", "useVarInit")){

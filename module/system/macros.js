@@ -82,13 +82,14 @@ export class Macros {
 
             // Prise en compte de la notion d'encombrement
             malus += actor.getOverloadedSkillMalus(stat);
-
-            // Prise en compte des bonus ou malus liés à la caractéristique
-            let skillBonus = statObj.skillbonus;
-            if (skillBonus) bonus += skillBonus;
-            let skillMalus = statObj.skillmalus;
-            if (skillMalus) malus += skillMalus;
         }
+
+        // Prise en compte des bonus ou malus liés à la caractéristique
+        let skillBonus = statObj.skillbonus;
+        if (skillBonus) bonus += skillBonus;
+        let skillMalus = statObj.skillmalus;
+        if (skillMalus) malus += skillMalus;
+
         if (dialog){
             CofRoll.skillRollDialog(actor, label && label.length > 0 ? label : game.i18n.localize(statObj.label), mod, bonus, malus, "20", statObj.superior, onEnter, description, actor.isWeakened());
         }
