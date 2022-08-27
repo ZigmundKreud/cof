@@ -79,6 +79,7 @@ export class CofActorSheet extends CofBaseSheet {
         html.find('.item-edit').click(this._onEditItem.bind(this));
         html.find('.item .item-name h4').click(this._onItemSummary.bind(this));
         html.find('.item-delete').click(this._onDeleteItem.bind(this));
+        html.find('.item-to-chat').click(this._onItemToChat.bind(this));
         html.find('.foldable h3.item-name').click(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget);
@@ -318,6 +319,33 @@ export class CofActorSheet extends CofBaseSheet {
             let entity = this.actor.items.get(id);
             return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
         }
+    }
+
+    /**
+    * Callback on render item actions : send description to chat
+    * @param event
+    * @private
+    */	
+    _onItemToChat(event) {
+        event.preventDefault();
+        let entity = this.actor.items.get($(event.currentTarget).parents('.item').data("itemId"));
+        let msg = '<h1>' +entity.data.name+ '</h1>';
+        msg += entity.data.data.description
+        if (entity.data.data.limited) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.limited")+ ' | </span>';}
+        if (entity.data.data.spell) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.spell")+ ' | </span>';}
+        if (entity.data.data.ranged) { msg +='<span class="tag">' +game.i18n.localize("COF.properties.ranged")+ ' | </span>';}                    
+        if (entity.data.data.limitedUsage) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.limitedUsage")+ ' | </span>';}
+        if (entity.data.data.save) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.save")+ ' | </span>';}
+        if (entity.data.data.activable) { msg +='<span class="tag">' +game.i18n.localize("COF.properties.activable")+ ' | </span>';}
+        if (entity.data.data.heal) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.heal")+ ' | </span>';}
+        if (entity.data.data.attack) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.attack")+ ' | </span>';}
+        if (entity.data.data.buff) { msg +='<span class="tag">' +game.i18n.localize("COF.ui.buff")+ ' | </span>';}
+        if (entity.data.data.useMacro) { msg +='<span class="tag">' +game.i18n.localize("COF.capacity.useMacro")+ ' | </span>';}
+        let chatData = {
+            speaker: ChatMessage.getSpeaker(),
+            content : msg
+        };
+        ChatMessage.create(chatData,{});
     }
 
     /**
