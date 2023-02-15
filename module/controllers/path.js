@@ -8,25 +8,25 @@ export class Path {
      * @returns 
      */
     static addPathsToActor(actor, pathsData) {
-        let items = [];
+        //let items = [];
         pathsData = pathsData instanceof Array ? pathsData : [pathsData];
-        pathsData.forEach(p => { items.push(p.toObject(false)) });
-        return actor.createEmbeddedDocuments("Item", items).then(newPaths => {
+        //pathsData.forEach(p => { items.push(p.toObject(false)) });
+        return actor.createEmbeddedDocuments("Item", pathsData).then(newPaths => {
             // on ajoute toutes les metadonnees aux voies nouvellement creees pour faciliter la gestions des capacites qui en dependent
             let updatedPaths = newPaths.map(newPath => {
                 const index = newPaths.indexOf(newPath);
                 let updatedPath = duplicate(newPath);
-                updatedPath.data.capacities = updatedPath.data.capacities.map(cap => {
+                updatedPath.system.capacities = updatedPath.system.capacities.map(cap => {
                     // Ajout de données utilisées pour la gestion des voies/capa
                     cap.data = {
                         key: cap.name.slugify({ strict: true }),
-                        rank: updatedPath.data.capacities.indexOf(cap) + 1,
+                        rank: updatedPath.system.capacities.indexOf(cap) + 1,
                         checked: false,
                         path: {
                             _id: updatedPath._id,
                             name: updatedPath.name,
                             img: updatedPath.img,
-                            key: updatedPath.data.key,
+                            key: updatedPath.system.key,
                             sourceId: pathsData[index].sourceId,
                         }
                     };
@@ -45,7 +45,7 @@ export class Path {
      * @returns 
      */
     static addToActor(actor, pathData) {
-        if (actor.items.filter(item => item.type === "path" && item.data.name === pathData.name).length > 0) {
+        if (actor.items.filter(item => item.type === "path" && item.name === pathData.name).length > 0) {
             ui.notifications.error(game.i18n.localize("COF.notification.PathAlreadyOwned"));
             return false;
         } else {
@@ -79,7 +79,7 @@ export class Path {
             content: game.i18n.format('COF.dialog.deletePath.confirm', {name:actor.name}),
             yes: () => {
                 const pathData = path.data;
-                let items = actor.items.filter(item => item.data.type === "capacity" && item.system.path._id === pathData._id).map(c => c.data._id);
+                let items = actor.items.filter(item => item.type === "capacity" && item.system.path._id === pathData._id).map(c => c.data._id);
                 items.push(path.id);
                 return actor.deleteEmbeddedDocuments("Item", items);
             },
@@ -97,7 +97,7 @@ export class Path {
         paths = paths instanceof Array ? paths : [paths];
         paths.map(path => {
             let caps = actor.items.filter(item => {
-                if (item.data.type === "capacity") {
+                if (item.type === "capacity") {
                     if (item.system.path._id === path.id) return true;
                 }
             });

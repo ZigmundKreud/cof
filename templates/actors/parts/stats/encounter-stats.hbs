@@ -14,7 +14,7 @@
                 <div class="field-label">{{ localize 'COF.stats.tmpmod.abbrev' }}</div>
             </div>
         </div>
-        {{#each actor.data.stats as |stat id|}}
+        {{#each actor.system.stats as |stat id|}}
         <div class="flexrow no-wrap">
             <div class="flex3 bg-stats">
                 <div class="flexrow no-wrap">
@@ -60,7 +60,7 @@
                 <div class="field-label">{{ localize 'COF.ui.total' }}</div>
             </div>
         </div>
-        {{#each actor.data.attacks as |attack id|}}
+        {{#each actor.system.attacks as |attack id|}}
             <div class="row flexrow no-wrap">
                 <div class="flex2 center bg-red rollable" data-rolling="data.attacks.{{id}}" data-roll-type="skillcheck">
                     <span class="field-label ellipsis"><i class="fas fa-dice-d20"></i>&nbsp;{{ localize attack.abbrev }}</span>
@@ -98,10 +98,10 @@
                 <span class="field-label"><i class="fas fa-bolt"></i>&nbsp;{{ localize 'COF.attributes.init.abbrev' }}</span>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value" name="data.attributes.init.value" type="text" value="{{actor.data.attributes.init.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+                <input class="field-value" name="data.attributes.init.value" type="text" value="{{actor.system.attributes.init.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value" name="data.attributes.init.tmpval" type="text" value="{{actor.data.attributes.init.tmpval}}" placeholder="Temp" data-dtype="Number"/>
+                <input class="field-value" name="data.attributes.init.tmpval" type="text" value="{{actor.system.attributes.init.tmpval}}" placeholder="Temp" data-dtype="Number"/>
             </div>
         </div>
     </div>
@@ -114,10 +114,10 @@
                 <span class="field-label"><i class="fas fa-shield-alt"></i>&nbsp;{{ localize 'COF.attributes.def.abbrev' }}</span>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value" name="data.attributes.def.value" type="text" value="{{actor.data.attributes.def.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+                <input class="field-value" name="data.attributes.def.value" type="text" value="{{actor.system.attributes.def.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value" name="data.attributes.def.tmp" type="text" value="{{actor.data.attributes.def.tmp}}" placeholder="Temp" data-dtype="Number"/>
+                <input class="field-value" name="data.attributes.def.tmp" type="text" value="{{actor.system.attributes.def.tmp}}" placeholder="Temp" data-dtype="Number"/>
             </div>
         </div>
         <div class="row flexrow no-wrap">
@@ -125,10 +125,10 @@
                 <span class="field-label"><i class="fas fa-user-shield"></i>&nbsp;{{ localize 'COF.attributes.dr.abbrev' }}</span>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value" name="data.attributes.dr.value" type="text" value="{{actor.data.attributes.dr.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+                <input class="field-value" name="data.attributes.dr.value" type="text" value="{{actor.system.attributes.dr.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
             </div>
             <div class="flex1 center cell">
-                <input class="field-value" name="data.attributes.dr.tmp" type="text" value="{{actor.data.attributes.dr.tmp}}" placeholder="Temp" data-dtype="Number"/>
+                <input class="field-value" name="data.attributes.dr.tmp" type="text" value="{{actor.system.attributes.dr.tmp}}" placeholder="Temp" data-dtype="Number"/>
             </div>
         </div>
     </div>
@@ -152,10 +152,10 @@
                         <span class="field-label"><i class="fas fa-heart"></i>&nbsp;{{ localize 'COF.attributes.hp.abbrev' }}</span>
                     </div>
                     <div class="flex1 center cell">
-                        <input class="field-value" name="data.attributes.hp.max" type="text" value="{{actor.data.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>
+                        <input class="field-value" name="data.attributes.hp.max" type="text" value="{{actor.system.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>
                     </div>                    
                     <div class="flex1 center cell">
-                        <input class="field-value" name="data.attributes.hp.value" type="text" value="{{actor.data.attributes.hp.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+                        <input class="field-value" name="data.attributes.hp.value" type="text" value="{{actor.system.attributes.hp.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
                     </div>
                 </div>
             </div>

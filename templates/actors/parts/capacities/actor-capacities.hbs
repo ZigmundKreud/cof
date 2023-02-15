@@ -24,16 +24,16 @@
                             <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                             <h4>{{capacity.name}}</h4>
                         </div>
-                        <div class="item-detail">{{#if capacity.data.rank}}{{capacity.data.rank}}{{/if}}</div>
-                        <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
-                        <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
-                        <div class="item-detail capacity-qty" title="{{localize "COF.ui.modifyQuantity"}}">{{#if capacity.data.limitedUsage}}{{capacity.data.properties.limitedUsage.use}} / {{capacity.data.properties.limitedUsage.maxUse}}{{/if}}</div>
+                        <div class="item-detail">{{#if capacity.system.rank}}{{capacity.system.rank}}{{/if}}</div>
+                        <div class="item-detail">{{#if capacity.system.limited}}L{{/if}}</div>
+                        <div class="item-detail">{{#if capacity.system.spell}}&#10033;{{/if}}</div>
+                        <div class="item-detail capacity-qty" title="{{localize "COF.ui.modifyQuantity"}}">{{#if capacity.system.limitedUsage}}{{capacity.system.properties.limitedUsage.use}} / {{capacity.system.properties.limitedUsage.maxUse}}{{/if}}</div>
                         <div class="item-detail">
-                            {{#if capacity.data.activable}}
-                                {{#unless capacity.data.buff}}                                
+                            {{#if capacity.system.activable}}
+                                {{#unless capacity.system.buff}}                                
                                         <a class="item-control capacity-activate" title="{{localize "COF.capacity.activate"}}"><i class="fas fa-check"></i></a>            
                                 {{else}}
-                                    {{#if capacity.data.properties.buff.activated}}
+                                    {{#if capacity.system.properties.buff.activated}}
                                         <a class="item-control capacity-activate" title="{{localize "COF.capacity.desactivate"}}"><i class="fas fa-times"></i></a> 
                                     {{else}}  
                                         <a class="item-control capacity-activate" title="{{localize "COF.capacity.activate"}}"><i class="fas fa-check"></i></a>
@@ -48,18 +48,18 @@
                             </div>
                         {{/if}}
                         <div class="item-summary" style="display: none">
-                            {{{capacity.data.description}}}
+                            {{{capacity.system.description}}}
                             <div class="item-properties">
-                                {{#if capacity.data.limited}}<span class="tag">{{localize "COF.ui.limited"}}</span>{{/if}}
-                                {{#if capacity.data.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
-                                {{#if capacity.data.ranged}}<span class="tag">{{localize "COF.properties.ranged"}}</span>{{/if}}                    
-                                {{#if capacity.data.limitedUsage}}<span class="tag">{{localize "COF.ui.limitedUsage"}}</span>{{/if}}
-                                {{#if capacity.data.save}}<span class="tag">{{localize "COF.ui.save"}}</span>{{/if}}
-                                {{#if capacity.data.activable}}<span class="tag">{{localize "COF.properties.activable"}}</span>{{/if}}
-                                {{#if capacity.data.heal}}<span class="tag">{{localize "COF.ui.heal"}}</span>{{/if}}
-                                {{#if capacity.data.attack}}<span class="tag">{{localize "COF.ui.attack"}}</span>{{/if}}
-                                {{#if capacity.data.buff}}<span class="tag">{{localize "COF.ui.buff"}}</span>{{/if}}
-                                {{#if capacity.data.useMacro}}<span class="tag">{{localize "COF.capacity.useMacro"}}</span>{{/if}}
+                                {{#if capacity.system.limited}}<span class="tag">{{localize "COF.ui.limited"}}</span>{{/if}}
+                                {{#if capacity.system.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
+                                {{#if capacity.system.ranged}}<span class="tag">{{localize "COF.properties.ranged"}}</span>{{/if}}                    
+                                {{#if capacity.system.limitedUsage}}<span class="tag">{{localize "COF.ui.limitedUsage"}}</span>{{/if}}
+                                {{#if capacity.system.save}}<span class="tag">{{localize "COF.ui.save"}}</span>{{/if}}
+                                {{#if capacity.system.activable}}<span class="tag">{{localize "COF.properties.activable"}}</span>{{/if}}
+                                {{#if capacity.system.heal}}<span class="tag">{{localize "COF.ui.heal"}}</span>{{/if}}
+                                {{#if capacity.system.attack}}<span class="tag">{{localize "COF.ui.attack"}}</span>{{/if}}
+                                {{#if capacity.system.buff}}<span class="tag">{{localize "COF.ui.buff"}}</span>{{/if}}
+                                {{#if capacity.system.useMacro}}<span class="tag">{{localize "COF.capacity.useMacro"}}</span>{{/if}}
                             </div>
                         </div>
                     </li>

@@ -446,27 +446,45 @@ export class CofActorSheet extends CofBaseSheet {
     /**
      * Handle dropping of an item reference or item data onto an Actor Sheet
      * @param {DragEvent} event     The concluding DragEvent which contains drop data
-     * @param {Object} data         The data transfer extracted from the event
-     * @return {Object}             OwnedItem data to create
+     * @param {Object} data         The data transfer extracted from the event : only type and uuid are provided
+     * @returns {Promise<Item[]|boolean>}  The created or updated Item instances, or false if the drop was not permitted.
      * @private
      */
     async _onDropItem(event, data) {
         if (!this.actor.isOwner) return false;
 
-        const item = await Item.fromDropData(data);
+        // Get the item from the drop
+        const item = await Item.implementation.fromDropData(data);
         if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         
-        const itemData = duplicate(item.data);
+        const itemData = item.toObject();
+
+        // Handle item sorting within the same Actor
+        if ( this.actor.uuid === item.parent?.uuid ) return this._onSortItem(event, itemData);
+
+        // Create the owned item
+        return this._onDropItemCreate(itemData, event.shiftKey);
+    }
+
+    /**
+     * Handle the final creation of dropped Item data on the Actor.
+     * @param {object[]|object} itemData     The item data requested for creation
+     * @param {boolean} shiftKey 
+     * @returns {Promise<Item[]>}
+     * @private
+     */
+    async _onDropItemCreate(itemData, shiftKey) {
+
         switch (itemData.type) {
-            case "path": return await Path.addToActor(this.actor, item);
+            case "path": return await Path.addToActor(this.actor, itemData);
             case "profile": return await Profile.addToActor(this.actor, itemData);
-            case "species": return await Species.addToActor(this.actor, item);
+            case "species": return await Species.addToActor(this.actor, itemData);
             case "capacity": return await Capacity.addToActor(this.actor, itemData);
             default: {
                 // Handle item sorting within the same Actor
-                const actor = this.actor;
-                let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
-                if (sameActor) return this._onSortItem(event, itemData);
+                //const actor = this.actor;
+                //let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
+                //if (sameActor) return this._onSortItem(event, itemData);
 
                 // Faut-il déplacer ou copier l'item ?
                 let moveItem = game.settings.get("cof","moveItem");
@@ -483,13 +501,14 @@ export class CofActorSheet extends CofBaseSheet {
                 // On force le nouvel Item a ne pas être équipé (notamment lors du transfert d'un inventaire à un autre)
                 if (itemData.system.worn) itemData.system.worn = false;
 
+                itemData = itemData instanceof Array ? itemData : [itemData];
                 // Create the owned item
-                return this.actor.createEmbeddedDocuments("Item", [itemData]).then((item)=>{                    
+                return this.actor.createEmbeddedDocuments("Item", itemData).then((item)=>{                    
                     // Si il n'y as pas d'actor id, il s'agit d'un objet du compendium, on quitte
                     if (!data.actorId) return item;
                                         
                     // Si l'item doit être "move", on le supprime de l'actor précédent                 
-                    if (moveItem ^ event.shiftKey) {
+                    if (moveItem ^ shiftKey) {
 
                         if (!data.tokenId){
                             //let originalActor = ActorDirectory.collection.get(data.actorId);
@@ -504,7 +523,7 @@ export class CofActorSheet extends CofBaseSheet {
                 });
             }
         }
-    }
+    }    
 
     /* -------------------------------------------- */
     /* DATA CONSOLIDATION FOR TEMPLATE RENDERING    */

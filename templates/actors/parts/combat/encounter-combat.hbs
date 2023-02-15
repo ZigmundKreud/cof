@@ -9,7 +9,7 @@
                 <a class="item-control item-create weapon-add" title="{{ localize 'COF.combat.addAttack' }}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
             </div>
         </li>
-    {{#each actor.data.weapons as |weapon id|}}
+    {{#each actor.system.weapons as |weapon id|}}
         <ol class="item-list">
             <li class="item flexrow weapon" data-weapon-id="{{id}}" data-item-type="Weapon" draggable="true">
                 <div class="item-name flexrow" data-roll-type="weapon">

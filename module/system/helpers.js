@@ -11,7 +11,7 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
-        return items.filter(item => item.type === "path").find(p => p.data.key === pathKey);
+        return items.filter(item => item.type === "path").find(p => p.system.key === pathKey);
     });
 
     Handlebars.registerHelper('isNull', function (val) {
@@ -107,7 +107,7 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('includesKey', function (items, type, key) {
-        return items.filter(i => i.type === type).map(i => i.data.key).includes(key);
+        return items.filter(i => i.type === type).map(i => i.system.key).includes(key);
     });
 
     Handlebars.registerHelper('includes', function (array, val) {

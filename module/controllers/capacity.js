@@ -19,9 +19,9 @@ export class Capacity {
      * @returns 
      */
     static addCapsToActor(actor, capsData) {
-        let items = [];
-        capsData.forEach(c => { items.push(c.toObject(false)) });
-        return actor.createEmbeddedDocuments("Item", items);
+        //let items = [];
+        //capsData.forEach(c => { items.push(c.) });
+        return actor.createEmbeddedDocuments("Item", capsData);
     }
 
     /**
@@ -60,7 +60,7 @@ export class Capacity {
      */
     static toggleCheck(actor, capId, pathId, isUncheck) {
         // get path from owned items
-        const path = duplicate(actor.items.get(pathId).data);
+        const path = duplicate(actor.items.get(pathId));
         const pathData = path.data;
         const capacities = pathData.capacities;
         const capsIds = capacities.map(c => c._id);

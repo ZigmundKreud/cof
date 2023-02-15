@@ -151,10 +151,10 @@ export class CofLootSheet extends CofBaseSheet {
         if (!this.actor.isOwner) return false;
 
         const item = await Item.fromDropData(data);
-        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+        if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         
         let itemData = duplicate(item.data);
-        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+        if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         itemData = itemData instanceof Array ? itemData : [itemData];
         switch (itemData.type) {
             case "path":

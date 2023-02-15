@@ -27,7 +27,7 @@ export class LevelUpSheet extends FormApplication {
         let nbPaths = this.object.getEmbeddedCollection('Item').filter(item=>item.type==="path").length;
         this.position.width = Math.clamped(nbPaths*this.pathSize , this.minSize, this.maxSize);
 
-        this.options.title = this.options.title ? this.options.title : game.i18n.format('COF.levelUp.title', {name:object.data.name});  
+        this.options.title = this.options.title ? this.options.title : game.i18n.format('COF.levelUp.title', {name:object.system.name});  
         
         // Si le jet n'as pas été fourni, effectue un jet de dé pour les PV Bonus
         this.hpRoll = this.options.hpRoll;
@@ -62,7 +62,7 @@ export class LevelUpSheet extends FormApplication {
         else {
             levelPath = {
                 id : pathId,
-                name : path?.data.name,
+                name : path?.system.name,
                 capacities : []
             }
             this.levelData.paths.push(levelPath);
@@ -72,7 +72,7 @@ export class LevelUpSheet extends FormApplication {
         let levelCapacity = {
             id : CapacityId,
             name : pathCapacity.name,
-            rank: pathCapacity.data.rank
+            rank: pathCapacity.system.rank
         }
 
         levelPath.capacities.push(levelCapacity);
@@ -114,7 +114,7 @@ export class LevelUpSheet extends FormApplication {
                 let capacity = game.items.get(capacityId)?.data;                
                 if (!capacity) await Traversal.mapItemsOfType("capacity").then(capacities=> capacity = capacities[capacityId]);
 
-                let description = capacity.data.description;
+                let description = capacity.system.description;
                 description = this._changeTooltipHeader(description, capacity);
                 tooltip.innerHTML = description;
 
@@ -271,7 +271,7 @@ export class LevelUpSheet extends FormApplication {
         let usedPoints = 0;
         paths.forEach((path=>{
             path.system.capacities.forEach((capacity)=>{
-                if (capacity.data.checked) usedPoints += capacity.data.rank <= 2 ? 1 : 2;
+                if (capacity.system.checked) usedPoints += capacity.system.rank <= 2 ? 1 : 2;
             });
         }));
         return usedPoints;
@@ -328,7 +328,7 @@ export class LevelUpSheet extends FormApplication {
  
                 capacity.cost =  rankIndex <= 1 ? 1 : 2;
                 
-                if (capacity.capacity.data.checked) capacity.totalCost = 0;
+                if (capacity.capacity.system.checked) capacity.totalCost = 0;
                 else {
                     capacity.totalCost = capacity.cost;
 
@@ -339,19 +339,19 @@ export class LevelUpSheet extends FormApplication {
                         if (data.ranks.length >= rankIndex && data.ranks[rankIndex-1].capacities.length > pathIndex){
                             // Si la capacité précédente n'est pas coché, on ajoute son coût à celui de la capacité en cours
                             let previousCapacity = data.ranks[rankIndex-1].capacities[pathIndex];
-                            if (!previousCapacity.capacity.data.checked) capacity.totalCost += previousCapacity.totalCost;
+                            if (!previousCapacity.capacity.system.checked) capacity.totalCost += previousCapacity.totalCost;
                         }
                     }
                 }
 
-                capacity.checked = capacity.capacity.data.checked;
+                capacity.checked = capacity.capacity.system.checked;
 
                 // La capacité est sélectionnable si :
                 // - La capacité n'est pas déjà coché
                 // - Le coût cumulé de la capacité est <= aux points restants
                 // - Le rang de la capacité est <= au nouveau niveau
                 capacity.enabled = true;        
-                capacity.enabled &= !capacity.capacity.data.checked;
+                capacity.enabled &= !capacity.capacity.system.checked;
                 capacity.enabled &= this.remainingPoints >= capacity.totalCost;
                 capacity.enabled &= this.levelData.level > rankIndex;
                 capacity.disabled = !capacity.enabled;
@@ -363,8 +363,8 @@ export class LevelUpSheet extends FormApplication {
                 capacities.push(capacity);
             }
             data.ranks.push({rank:rankIndex+1, capacities:capacities});
-            data.actorIcon = data.object.data.img;
-            data.actorName = data.object.data.name;
+            data.actorIcon = data.object.system.img;
+            data.actorName = data.object.system.name;
             data.level = this.levelData.level;
 
             data.remainingPoints = this.remainingPoints;

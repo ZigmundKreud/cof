@@ -6,47 +6,47 @@ export class Species {
     /**
      * 
      * @param {CofActor} actor 
-     * @param {Array<CofItem>} itemData 
+     * @param {object[]|object} itemData     The item data requested for creation 
      * @returns 
      */
-    static addToActor(actor, itemData) {
+    static addToActor(actor, itemsData) {
         if (actor.items.filter(item => item.type === "species").length > 0) {
             ui.notifications.error("Vous avez déjà une race.");
             return false;
         } else {
             // ajoute la race (species) dans Items
-            let items = [];
-            itemData = itemData instanceof Array ? itemData : [itemData];
-            itemData.forEach(s => { items.push(s.toObject(false)) });
-            return actor.createEmbeddedDocuments("Item", items).then(newSpecies => {
-                let newSpeciesData = newSpecies[0].data;
+            //let items = [];
+            itemsData = itemsData instanceof Array ? itemsData : [itemsData];
+            //itemsData.forEach(s => { items.push(s) });
+            return actor.createEmbeddedDocuments("Item", itemsData).then(newSpecies => {
+                let newSpeciesData = newSpecies[0];
                 return Traversal.mapItemsOfType(["path", "capacity"]).then(entities => {
-                    newSpeciesData.data.capacities = newSpeciesData.data.capacities.map(cap => {
+                    newSpeciesData.system.capacities = newSpeciesData.system.capacities.map(cap => {
                         let capData = entities[cap._id];
                         capData.flags.core = { sourceId: cap.sourceId };
-                        capData.data.species = {
+                        capData.system.species = {
                             _id: newSpeciesData._id,
                             name: newSpeciesData.name,
                             img: newSpeciesData.img,
-                            key: newSpeciesData.data.key,
+                            key: newSpeciesData.system.key,
                             sourceId: newSpeciesData.flags.core.sourceId,
                         };
                         return capData;
                     });
-                    let capacities = newSpeciesData.data.capacities
-                    newSpeciesData.data.paths = newSpeciesData.data.paths.map(p => {
+                    let capacities = newSpeciesData.system.capacities;
+                    newSpeciesData.system.paths = newSpeciesData.system.paths.map(p => {
                         let pathData = entities[p._id];
                         pathData.flags.core = { sourceId: p.sourceId };
-                        pathData.data.species = {
+                        pathData.system.species = {
                             _id: newSpeciesData._id,
                             name: newSpeciesData.name,
                             img: newSpeciesData.img,
-                            key: newSpeciesData.data.key,
+                            key: newSpeciesData.system.key,
                             sourceId: newSpeciesData.flags.core.sourceId,
                         };
                         return pathData;
                     });
-                    const paths = newSpeciesData.data.paths;
+                    const paths = newSpeciesData.system.paths;
                     Capacity.addCapsToActor(actor, capacities).then(() => {return Path.addPathsToActor(actor, paths);});
                 });
             });
