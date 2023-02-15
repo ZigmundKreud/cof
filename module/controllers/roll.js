@@ -81,14 +81,14 @@ export class CofRoll {
         const label = itemData.name;
 
         const critrange = "20";
-        const mod = attack.skill !== "auto" ? eval("actor.data.data." + attack.skill.split("@")[1]) : 0;
+        const mod = attack.skill !== "auto" ? eval("actor.system." + attack.skill.split("@")[1]) : 0;
         const difficulty = (attack.difficulty !== null && attack.difficulty !== "") ? attack.difficulty : null;
 
         // Compute damage
         let dmg;
         const dmgBase = attack.dmgBase;
         const stat = attack.dmgStat.split("@")[1];
-        const dmgStat = eval("actor.data.data." + stat);
+        const dmgStat = eval("actor.system." + stat);
         dmg = dmgBase;
 
         if (dmgStat < 0) dmg = dmg + " - " + parseInt(-dmgStat);
@@ -114,7 +114,7 @@ export class CofRoll {
         let difficulty = 0;
         terms.forEach(element => {
             if (element.includes("@")) {
-                difficulty += parseInt(eval("actor.data.data." + element.substring(1)));
+                difficulty += parseInt(eval("actor.system." + element.substring(1)));
             }
             else difficulty += parseInt(element);
         });
@@ -161,9 +161,9 @@ export class CofRoll {
         const li = $(event.currentTarget).parents(".item");
         let item = actor.items.get(li.data("itemId"));
         let label = item.data.name;
-        let mod = item.data.data.mod;
-        let critrange = item.data.data.critrange;
-        let dmg = item.data.data.dmg;
+        let mod = item.system.mod;
+        let critrange = item.system.critrange;
+        let dmg = item.system.dmg;
         return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
     }
 
@@ -323,7 +323,7 @@ export class CofRoll {
         let diff = null;
         const displayDifficulty = game.settings.get("cof", "displayDifficulty");
         if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
-            diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+            diff = [...game.user.targets][0].actor.system.attributes.def.value;
         }
         const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
         const rollOptionContent = await renderTemplate(rollOptionTpl, {
@@ -393,7 +393,7 @@ export class CofRoll {
         else {
             const displayDifficulty = game.settings.get("cof", "displayDifficulty");
             if ( displayDifficulty !== "none" && game.user.targets.size > 0) {
-                diff = [...game.user.targets][0].actor.data.data.attributes.def.value;
+                diff = [...game.user.targets][0].actor.system.attributes.def.value;
             }
             isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
         }

@@ -53,19 +53,19 @@ export class Macros {
         let statObj;
         switch(stat){
             case "for" :
-            case "str" : statObj = eval(`actor.data.data.stats.str`); break;
-            case "dex" : statObj = eval(`actor.data.data.stats.dex`); break;
-            case "con" : statObj = eval(`actor.data.data.stats.con`); break;
-            case "int" : statObj = eval(`actor.data.data.stats.int`); break;
+            case "str" : statObj = eval(`actor.system.stats.str`); break;
+            case "dex" : statObj = eval(`actor.system.stats.dex`); break;
+            case "con" : statObj = eval(`actor.system.stats.con`); break;
+            case "int" : statObj = eval(`actor.system.stats.int`); break;
             case "sag" :
-            case "wis" : statObj = eval(`actor.data.data.stats.wis`); break;
-            case "cha" : statObj = eval(`actor.data.data.stats.cha`); break;
+            case "wis" : statObj = eval(`actor.system.stats.wis`); break;
+            case "cha" : statObj = eval(`actor.system.stats.cha`); break;
             case "atc" :
-            case "melee" : statObj = eval(`actor.data.data.attacks.melee`); break;
+            case "melee" : statObj = eval(`actor.system.attacks.melee`); break;
             case "atd" :
-            case "ranged" : statObj = eval(`actor.data.data.attacks.ranged`); break;
+            case "ranged" : statObj = eval(`actor.system.attacks.ranged`); break;
             case "atm" :
-            case "magic" : statObj = eval(`actor.data.data.attacks.magic`); break;
+            case "magic" : statObj = eval(`actor.system.attacks.magic`); break;
             default :
                 ui.notifications.error(game.i18n.localize("COF.notification.MacroUnknownStat")); 
                 break;
@@ -148,7 +148,7 @@ export class Macros {
                     const itemDmgBase = itemData.data.dmgBase;                        
                     const itemDmgStat = itemData.data.dmgStat.split("@")[1];
                     const itemDmgBonus = parseInt(itemData.data.dmgBonus);
-                    const skillDmgBonus = eval("actor.data.data." + itemModStat.replace('mod','dmBonus'));
+                    const skillDmgBonus = eval("actor.system." + itemModStat.replace('mod','dmBonus'));
     
                     let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
     

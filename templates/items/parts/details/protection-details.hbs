@@ -2,10 +2,10 @@
 <div class="form-group">
     <label>{{localize "COF.ui.defBase"}}</label>
     <div class="form-fields">
-        {{#if (isNull data.defBase)}}
-            <input name="data.defBase" type="text" value="" placeholder="{{localize "COF.ui.defBase"}}" data-dtype="Number">
+        {{#if (isNull system.defBase)}}
+            <input name="system.defBase" type="text" value="" placeholder="{{localize "COF.ui.defBase"}}" data-dtype="Number">
         {{else}}
-            <input name="data.defBase" type="text" value="{{numberFormat data.defBase decimals=0 sign=true}}" placeholder="{{localize "COF.ui.defBase"}}" data-dtype="Number">
+            <input name="system.defBase" type="text" value="{{numberFormat system.defBase decimals=0 sign=true}}" placeholder="{{localize "COF.ui.defBase"}}" data-dtype="Number">
         {{/if}}
     </div>
 </div>
@@ -13,10 +13,10 @@
 <div class="form-group">
     <label>{{localize "COF.ui.defBonus"}}</label>
     <div class="form-fields">
-        {{#if (isNull data.defBonus)}}
-            <input name="data.defBonus" type="text" value="" placeholder="{{localize "COF.ui.defBonus"}}" data-dtype="Number">
+        {{#if (isNull system.defBonus)}}
+            <input name="system.defBonus" type="text" value="" placeholder="{{localize "COF.ui.defBonus"}}" data-dtype="Number">
         {{else}}
-            <input name="data.defBonus" type="text" value="{{numberFormat data.defBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.defBonus"}}" data-dtype="Number">
+            <input name="system.defBonus" type="text" value="{{numberFormat system.defBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.defBonus"}}" data-dtype="Number">
         {{/if}}
     </div>
 </div>
@@ -24,15 +24,15 @@
     <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.dr" {{checked item.data.properties.dr}}> {{localize "COF.attributes.dr.label"}}
+            <input type="checkbox" name="system.properties.dr" {{checked item.system.properties.dr}}> {{localize "COF.attributes.dr.label"}}
         </label>
     </div>
 </div>
-{{#if data.properties.dr}}
+{{#if system.properties.dr}}
 <div class="form-group">
     <label>{{localize "COF.attributes.dr.label"}}</label>
     <div class="form-fields">
-        <input name="data.dr" type="text" value="{{data.dr}}" placeholder="COF.attributes.dr.abbrev" data-dtype="Number">
+        <input name="system.dr" type="text" value="{{system.dr}}" placeholder="COF.attributes.dr.abbrev" data-dtype="Number">
     </div>
 </div>
 {{/if}}

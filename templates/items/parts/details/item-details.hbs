@@ -2,8 +2,8 @@
 <div class="form-group">
     <label>Sous-catégorie</label>
     <div class="form-fields">
-        <select name="data.subtype" data-type="String" style="width:100%">
-            {{#select data.subtype}}
+        <select name="system.subtype" data-type="String" style="width:100%">
+            {{#select system.subtype}}
                 {{#each config.itemCategories as | category id |}}
                     <option value="{{id}}">{{localize category}}</option>
                 {{/each}}
@@ -16,39 +16,39 @@
     <label>Traits</label>
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.equipment" {{checked data.properties.equipment}}> {{localize "COF.properties.equipment"}}
+            <input type="checkbox" name="system.properties.equipment" {{checked system.properties.equipment}}> {{localize "COF.properties.equipment"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.weapon" {{checked data.properties.weapon}}> {{localize "COF.properties.weapon"}}
+            <input type="checkbox" name="system.properties.weapon" {{checked system.properties.weapon}}> {{localize "COF.properties.weapon"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.protection" {{checked data.properties.protection}}> {{localize "COF.properties.protection"}}
+            <input type="checkbox" name="system.properties.protection" {{checked system.properties.protection}}> {{localize "COF.properties.protection"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.ranged" {{checked data.properties.ranged}}> {{localize "COF.properties.ranged"}}
+            <input type="checkbox" name="system.properties.ranged" {{checked system.properties.ranged}}> {{localize "COF.properties.ranged"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.effects" {{checked data.properties.effects}}> {{localize "COF.properties.effects"}}
+            <input type="checkbox" name="system.properties.effects" {{checked system.properties.effects}}> {{localize "COF.properties.effects"}}
         </label>
     </div>
 </div>
 
-{{#if data.properties.equipment}}
+{{#if system.properties.equipment}}
     {{> "systems/cof/templates/items/parts/details/equipment-details.hbs"}}
 {{/if}}
-{{#if data.properties.weapon}}
+{{#if system.properties.weapon}}
     {{> "systems/cof/templates/items/parts/details/weapon-details.hbs"}}
 {{/if}}
-{{#if data.properties.protection}}
+{{#if system.properties.protection}}
     {{> "systems/cof/templates/items/parts/details/protection-details.hbs"}}
 {{/if}}
-{{#if data.properties.ranged}}
+{{#if system.properties.ranged}}
     {{> "systems/cof/templates/items/parts/details/ranged-details.hbs"}}
 {{/if}}
-{{#if data.properties.effects}}
+{{#if system.properties.effects}}
     {{> "systems/cof/templates/items/parts/details/effects-details.hbs"}}
 {{/if}}
-{{#if data.properties.spell}}
+{{#if system.properties.spell}}
     {{> "systems/cof/templates/items/parts/details/spell-details.hbs"}}
 {{/if}}
 {{#if actor}}

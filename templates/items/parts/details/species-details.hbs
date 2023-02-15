@@ -1,40 +1,40 @@
 <h3 class="form-header">{{localize "COF.species.bonus"}}</h3>
-<input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
+<input class="field-value" name="system.key" type="hidden" value="{{item.system.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
 
 <div class="form-group">
     <label>{{localize "COF.stats.str.label"}}</label>
     <div class="form-fields">
-        <input class="field-value" name="data.bonuses.str" type="text" value="{{numberFormat data.bonuses.str decimals=0 sign=true}}" placeholder="{{localize "COF.stats.str.label"}}" data-dtype="Number">
+        <input class="field-value" name="system.bonuses.str" type="text" value="{{numberFormat system.bonuses.str decimals=0 sign=true}}" placeholder="{{localize "COF.stats.str.label"}}" data-dtype="Number">
     </div>
 </div>
 <div class="form-group">
     <label>{{localize "COF.stats.dex.label"}}</label>
     <div class="form-fields">
-        <input class="field-value" name="data.bonuses.dex" type="text" value="{{numberFormat data.bonuses.dex decimals=0 sign=true}}" placeholder="{{localize "COF.stats.dex.label"}}" data-dtype="Number">
+        <input class="field-value" name="system.bonuses.dex" type="text" value="{{numberFormat system.bonuses.dex decimals=0 sign=true}}" placeholder="{{localize "COF.stats.dex.label"}}" data-dtype="Number">
     </div>
 </div>
 <div class="form-group">
     <label>{{localize "COF.stats.con.label"}}</label>
     <div class="form-fields">
-        <input class="field-value" name="data.bonuses.con" type="text" value="{{numberFormat data.bonuses.con decimals=0 sign=true}}" placeholder="{{localize "COF.stats.con.label"}}" data-dtype="Number">
+        <input class="field-value" name="system.bonuses.con" type="text" value="{{numberFormat system.bonuses.con decimals=0 sign=true}}" placeholder="{{localize "COF.stats.con.label"}}" data-dtype="Number">
     </div>
 </div>
 <div class="form-group">
     <label>{{localize "COF.stats.int.label"}}</label>
     <div class="form-fields">
-        <input class="field-value" name="data.bonuses.int" type="text" value="{{numberFormat data.bonuses.int decimals=0 sign=true}}" placeholder="{{localize "COF.stats.int.label"}}" data-dtype="Number">
+        <input class="field-value" name="system.bonuses.int" type="text" value="{{numberFormat system.bonuses.int decimals=0 sign=true}}" placeholder="{{localize "COF.stats.int.label"}}" data-dtype="Number">
     </div>
 </div>
 <div class="form-group">
     <label>{{localize "COF.stats.wis.label"}}</label>
     <div class="form-fields">
-        <input class="field-value" name="data.bonuses.wis" type="text" value="{{numberFormat data.bonuses.wis decimals=0 sign=true}}" placeholder="{{localize "COF.stats.wis.label"}}" data-dtype="Number">
+        <input class="field-value" name="system.bonuses.wis" type="text" value="{{numberFormat system.bonuses.wis decimals=0 sign=true}}" placeholder="{{localize "COF.stats.wis.label"}}" data-dtype="Number">
     </div>
 </div>
 <div class="form-group">
     <label>{{localize "COF.stats.cha.label"}}</label>
     <div class="form-fields">
-        <input class="field-value" name="data.bonuses.cha" type="text" value="{{numberFormat data.bonuses.cha decimals=0 sign=true}}" placeholder="{{localize "COF.stats.cha.label"}}" data-dtype="Number">
+        <input class="field-value" name="system.bonuses.cha" type="text" value="{{numberFormat system.bonuses.cha decimals=0 sign=true}}" placeholder="{{localize "COF.stats.cha.label"}}" data-dtype="Number">
     </div>
 </div>
 
@@ -47,9 +47,9 @@
             <a class="item-control item-create cof-compendium-pack" data-pack="paths" data-open="0" title="{{localize "COF.path.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
         </div>
     </li>
-    {{#each data.paths as |path id|}}
+    {{#each system.paths as |path id|}}
         <ol class="item-list">
-            <li class="item flexrow" data-item-id="{{path._id}}" data-item-type="path" data-key="{{path.data.key}}" draggable="true">
+            <li class="item flexrow" data-item-id="{{path._id}}" data-item-type="path" data-key="{{path.system.key}}" draggable="true">
                 <div class="item-name flexrow">
                     <div class="item-image" style="background-image: url('{{path.img}}')"></div>
                     <h4>{{path.name}}</h4>
@@ -68,9 +68,9 @@
             <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="{{localize "COF.capacity.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
         </div>
     </li>
-    {{#each data.capacities as |capacity id|}}
+    {{#each system.capacities as |capacity id|}}
         <ol class="item-list">
-            <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="capacity" data-key="{{capacity.data.key}}" draggable="true">
+            <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="capacity" data-key="{{capacity.system.key}}" draggable="true">
                 <div class="item-name flexrow">
                     <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                     <h4>{{capacity.name}}</h4>

@@ -20,15 +20,15 @@
         <span class="field-label ellipsis"><i class="fas fa-bolt"></i>&nbsp;{{ localize 'COF.attributes.init.label' }}</span>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.init.base" readonly="true" type="text" value="{{actor.data.attributes.init.base}}" placeholder="{{ localize 'COF.attributes.base.abbrev' }}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.init.base" readonly="true" type="text" value="{{actor.system.attributes.init.base}}" placeholder="{{ localize 'COF.attributes.base.abbrev' }}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.init.bonus" type="text" value="{{numberFormat actor.data.attributes.init.bonus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.bonus' }}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.init.bonus" type="text" value="{{numberFormat actor.system.attributes.init.bonus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.bonus' }}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.init.malus" readonly="true" type="text" value="{{numberFormat actor.data.attributes.init.malus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.malus' }}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.init.malus" readonly="true" type="text" value="{{numberFormat actor.system.attributes.init.malus decimals=0 sign=true}}" placeholder="{{ localize 'COF.ui.malus' }}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.init.value" readonly="true" type="text" value="{{actor.data.attributes.init.value}}" placeholder="{{ localize 'COF.attributes.value.abbrev' }}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.init.value" readonly="true" type="text" value="{{actor.system.attributes.init.value}}" placeholder="{{ localize 'COF.attributes.value.abbrev' }}" data-dtype="Number"/>
     </div>
 </div>

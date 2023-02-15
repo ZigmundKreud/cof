@@ -89,16 +89,16 @@ export class CofActorSheet extends CofBaseSheet {
             const actor = this.actor;
             itemList.slideToggle("fast", function () {
                 ol.toggleClass("folded");
-                if (actor.data.data.settings) {
+                if (actor.system.settings) {
                     if (ol.hasClass("folded")) {
-                        if (!actor.data.data.settings[tab].folded.includes(category)) {
-                            actor.data.data.settings[tab].folded.push(category);
+                        if (!actor.system.settings[tab].folded.includes(category)) {
+                            actor.system.settings[tab].folded.push(category);
                         }
                     } else {
-                        ArrayUtils.remove(actor.data.data.settings[tab].folded, category)
+                        ArrayUtils.remove(actor.system.settings[tab].folded, category)
                     }
                 }
-                actor.update({ "data.settings": actor.data.data.settings })
+                actor.update({ "data.settings": actor.system.settings })
             });
         });
         // Check/Uncheck capacities
@@ -280,7 +280,7 @@ export class CofActorSheet extends CofBaseSheet {
         let itemId = li.data("itemId");
         const entity = this.actor.items.find(item => item.id === itemId);
         itemId = itemId instanceof Array ? itemId : [itemId];
-        switch (entity.data.type) {
+        switch (entity.type) {
             case "capacity": return Capacity.removeFromActor(this.actor, entity);
             case "path": return Path.removeFromActor(this.actor, entity);
             case "profile": return Profile.removeFromActor(this.actor, entity);
@@ -310,7 +310,7 @@ export class CofActorSheet extends CofBaseSheet {
         else if (type === "capacity"){
             // Recherche d'un capacité existante avec la même clé
             const key = li.data("key");
-            let entity = this.actor.items.find(i => i.type === "capacity" && i.data.data.key === key);
+            let entity = this.actor.items.find(i => i.type === "capacity" && i.system.key === key);
             return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
         }
         else {
@@ -329,7 +329,7 @@ export class CofActorSheet extends CofBaseSheet {
         event.preventDefault();
         let li = $(event.currentTarget).parents('.item').children('.item-summary');
         let entity = this.actor.items.get($(event.currentTarget).parents('.item').data("itemId"));
-        if (entity && entity.data.type === "capacity") {
+        if (entity && entity.type === "capacity") {
             if (li.hasClass('expanded')) {
                 li.css("display", "none");
             }
@@ -415,7 +415,7 @@ export class CofActorSheet extends CofBaseSheet {
         const li = event.currentTarget;
         if (li.dataset.weaponId){
             let eventData = JSON.parse(event.dataTransfer.getData('text/plain'));
-            let weapon = this.actor.data.data.weapons[+li.dataset.weaponId];
+            let weapon = this.actor.system.weapons[+li.dataset.weaponId];
             eventData.type = "Weapon";
             eventData.data = weapon;
             eventData.weaponId = +li.dataset.weaponId;
@@ -454,7 +454,7 @@ export class CofActorSheet extends CofBaseSheet {
         if (!this.actor.isOwner) return false;
 
         const item = await Item.fromDropData(data);
-        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+        if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         
         const itemData = duplicate(item.data);
         switch (itemData.type) {
@@ -481,7 +481,7 @@ export class CofActorSheet extends CofBaseSheet {
                 }
 
                 // On force le nouvel Item a ne pas être équipé (notamment lors du transfert d'un inventaire à un autre)
-                if (itemData.data.worn) itemData.data.worn = false;
+                if (itemData.system.worn) itemData.system.worn = false;
 
                 // Create the owned item
                 return this.actor.createEmbeddedDocuments("Item", [itemData]).then((item)=>{                    
@@ -511,84 +511,83 @@ export class CofActorSheet extends CofBaseSheet {
     /* -------------------------------------------- */
     /** @override */
     getData(options = {}) {
-        const data = super.getData(options);
-        if (COF.debug) console.log("COF | ActorSheet getData", data);
+        const context = super.getData(options);
+        if (COF.debug) console.log("COF | ActorSheet getData", context);
 
         let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
         options.editable &= (game.user.isGM || !lockDuringPause);
 
-        data.config = game.cof.config;
-        data.profile = data.items.find(item => item.type === "profile");
-        data.species = data.items.find(item => item.type === "species");
-        data.combat = {
-            count: data.items.filter(i => i.data.worn).length,
+        context.config = game.cof.config;
+        context.profile = context.items.find(item => item.type === "profile");
+        context.species = context.items.find(item => item.type === "species");
+        context.combat = {
+            count: context.items.filter(i => i.system.worn).length,
             categories: []
         };
-        data.inventory = {
-            count: data.items.filter(i => i.type === "item").length,
+        context.inventory = {
+            count: context.items.filter(i => i.type === "item").length,
             categories: []
         };
         for (const category of Object.keys(game.cof.config.itemCategories)) {
-            data.combat.categories.push({
+            context.combat.categories.push({
                 id: category,
                 label: game.cof.config.itemCategories[category],
-                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category && item.data.worn && (item.data.properties.weapon || item.data.properties.protection)).sort((a, b) => (a.name > b.name) ? 1 : -1)
+                items: Object.values(context.items).filter(item => item.type === "item" && item.system.subtype === category && item.system.worn && (item.system.properties.weapon || item.system.properties.protection)).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
-            data.inventory.categories.push({
+            context.inventory.categories.push({
                 id: category,
                 label: "COF.category." + category,
-                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
+                items: Object.values(context.items).filter(item => item.type === "item" && item.system.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
         }
 
-        data.combat.categories.forEach(category => {
+        context.combat.categories.forEach(category => {
             if (category.items.length > 0) {
                 category.items.forEach(item => {
-                    if (item.data.properties?.weapon) {
+                    if (item.system.properties?.weapon) {
                         // Compute MOD
-                        const itemModStat = item.data.skill.split("@")[1];
-                        const itemModBonus = parseInt(item.data.skillBonus);
-                        const weaponCategory = this.getCategory(item.data);
+                        const itemModStat = item.system.skill.split("@")[1];
+                        const itemModBonus = parseInt(item.system.skillBonus);
+                        const weaponCategory = this.getCategory(item);
 
-                        item.data.mod = this.actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
+                        item.system.mod = this.actor.computeWeaponMod(itemModStat, itemModBonus, weaponCategory);
 
                         // Compute DM
-                        const itemDmgBase = item.data.dmgBase;
-                        const itemDmgStat = item.data.dmgStat.split("@")[1];
-                        const itemDmgBonus = parseInt(item.data.dmgBonus);
+                        const itemDmgBase = item.system.dmgBase;
+                        const itemDmgStat = item.system.dmgStat.split("@")[1];
+                        const itemDmgBonus = parseInt(item.system.dmgBonus);
 
-                        const skillDmgBonus = eval("this.actor.data.data." + itemModStat.replace('mod','dmBonus'));  
+                        const skillDmgBonus = eval("this.actor.system." + itemModStat.replace('mod','dmBonus'));  
 
-                        item.data.dmg = this.actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
+                        item.system.dmg = this.actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
                     }
                 });
             }
         });
 
         // PATHS & CAPACITIES
-        const paths = data.items.filter(item => item.type === "path");
-        data.paths = paths;
-        data.pathCount = data.paths.length;
-        data.capacities = {
-            count: data.items.filter(item => item.type === "capacity").length,
+        context.paths = context.items.filter(item => item.type === "path");
+        context.pathCount = context.paths.length;
+        context.capacities = {
+            count: context.items.filter(item => item.type === "capacity").length,
             collections: []
         }
-        data.capacities.collections.push({
+        context.capacities.collections.push({
             id: "standalone-capacities",
             label: game.i18n.localize("COF.ui.OffPathsCapacities"),
-            items: Object.values(data.items).filter(item => {
-                if (item.type === "capacity" && !item.data.path) {
+            items: Object.values(context.items).filter(item => {
+                if (item.type === "capacity" && !item.system.path) {
                     return true;
                 }
             }).sort((a, b) => (a.name > b.name) ? 1 : -1)
         });
-        for (const path of paths) {
-            data.capacities.collections.push({
-                id: (path.data.key) ? path.data.key : path.name.slugify({ strict: true }),
+        for (const path of context.paths) {
+            context.capacities.collections.push({
+                id: (path.system.key) ? path.system.key : path.name.slugify({ strict: true }),
                 label: path.name,
-                items: Object.values(data.items).filter(item => {
-                    if (item.type === "capacity" && item.data.path._id === path._id) return true;
-                }).sort((a, b) => (a.data.rank > b.data.rank) ? 1 : -1)
+                items: Object.values(context.items).filter(item => {
+                    if (item.type === "capacity" && item.system.path._id === path._id) return true;
+                }).sort((a, b) => (a.system.rank > b.system.rank) ? 1 : -1)
             });
         }
         const overloadedMalus = this.actor.getOverloadedMalus();
@@ -597,13 +596,13 @@ export class CofActorSheet extends CofBaseSheet {
         if (overloadedMalus !== 0) {
             overloadedTotal = (overloadedMalus + overloadedOtherMod <= 0 ? overloadedMalus + overloadedOtherMod : 0)
         }
-        data.overloaded = {
+        context.overloaded = {
             "armor": overloadedMalus,
             "total": overloadedTotal
         }
         // Gestion des boutons de modification des effets (visible pour l'actor si il en propriétaire)
-        data.isEffectsEditable = options.editable;
-        return data;
+        context.isEffectsEditable = options.editable;
+        return context;
     }
 
     /**

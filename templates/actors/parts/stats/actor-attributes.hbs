@@ -1,5 +1,5 @@
 <div class="flexrow table-header color-default no-wrap">
-    <div class="flex2 center rollable" data-rolling="data.stats" data-roll-type="attributes">
+    <div class="flex2 center rollable" data-rolling="system.stats" data-roll-type="attributes">
         <div class="field-label ellipsis"><i class="fas fa-dice-d6"></i>&nbsp;{{ localize 'COF.stats.abbrev' }}</div>
     </div>
     <div class="flex1 center color-default">
@@ -18,14 +18,14 @@
         <div class="field-label">{{ localize 'COF.ui.mod' }}</div>
     </div>
 </div>
-{{#each actor.data.stats as |stat id|}}
+{{#each actor.system.stats as |stat id|}}
 <div class="flexrow no-wrap">
     <div class="flex2 bg-default">
         <div class="flexrow no-wrap">
             <div class="flex1 center no-wrap" title="Supérieur (2d20)">
-                <input type="checkbox" name="data.stats.{{id}}.superior" {{checked stat.superior}}>
+                <input type="checkbox" name="system.stats.{{id}}.superior" {{checked stat.superior}}>
             </div>
-            <div class="flex8 center rollable no-wrap" data-rolling="data.stats.{{id}}" data-roll-type="skillcheck">
+            <div class="flex8 center rollable no-wrap" data-rolling="system.stats.{{id}}" data-roll-type="skillcheck">
                 <div class="field-label no-wrap" title="{{ localize stat.label }}">
                     <i class="fas fa-dice-d20"></i>&nbsp;{{ localize stat.abbrev }}
                 </div>
@@ -33,19 +33,19 @@
         </div>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.stats.{{id}}.base" type="text" value="{{stat.base}}" data-dtype="Number"/>
+        <input class="field-value" name="system.stats.{{id}}.base" type="text" value="{{stat.base}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.stats.{{id}}.racial" readonly="true" type="text" value="{{stat.racial}}" data-dtype="Number"/>
+        <input class="field-value" name="system.stats.{{id}}.racial" readonly="true" type="text" value="{{stat.racial}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.stats.{{id}}.bonus" type="text" value="{{numberFormat stat.bonus decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value" name="system.stats.{{id}}.bonus" type="text" value="{{numberFormat stat.bonus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.stats.{{id}}.value" readonly="true" type="text" value="{{stat.value}}" data-dtype="Number"/>
+        <input class="field-value" name="system.stats.{{id}}.value" readonly="true" type="text" value="{{stat.value}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.stats.{{id}}.mod" readonly="true" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value" name="system.stats.{{id}}.mod" readonly="true" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
 </div>
 {{/each}}

@@ -10,11 +10,11 @@ export class LevelUpSheet extends FormApplication {
         this.levelData = {
             level: +this.object.getLevel() + 1,
             paths:[],
-            previousBaseHp: +this.object.data.data.attributes.hp.base,
+            previousBaseHp: +this.object.system.attributes.hp.base,
             previousAttacks: {
-                melee: this.object.data.data.attacks.melee.base,
-                ranged: this.object.data.data.attacks.ranged.base,
-                magic: this.object.data.data.attacks.magic.base
+                melee: this.object.system.attacks.melee.base,
+                ranged: this.object.system.attacks.ranged.base,
+                magic: this.object.system.attacks.magic.base
             }
         };
         this.previousTooltip;
@@ -67,7 +67,7 @@ export class LevelUpSheet extends FormApplication {
             }
             this.levelData.paths.push(levelPath);
         }
-        let pathCapacity = path.data.data.capacities.find(capacity=>capacity._id === CapacityId);
+        let pathCapacity = path.system.capacities.find(capacity=>capacity._id === CapacityId);
 
         let levelCapacity = {
             id : CapacityId,
@@ -227,7 +227,7 @@ export class LevelUpSheet extends FormApplication {
             
             let level = this.levelData.level;            
 
-            let hp = actor.data.data.attributes.hp;
+            let hp = actor.system.attributes.hp;
             let baseHp = hp.base + this.levelData.hpBonus.total;
             let currentHp = hp.value + this.levelData.hpBonus.total;
 
@@ -236,7 +236,7 @@ export class LevelUpSheet extends FormApplication {
                 Capacity.toggleCheck(actor, path.capacities[path.capacities.length-1].id, path.id, false);
             };
 
-            let history = actor.data.data.level.history;
+            let history = actor.system.level.history;
             if (!history) history = [];
 
             let levelIndex = history.findIndex(levelData=>levelData.level === level);
@@ -270,7 +270,7 @@ export class LevelUpSheet extends FormApplication {
         let paths = this.object.getEmbeddedCollection('Item').filter(item=>item.type==="path");
         let usedPoints = 0;
         paths.forEach((path=>{
-            path.data.data.capacities.forEach((capacity)=>{
+            path.system.capacities.forEach((capacity)=>{
                 if (capacity.data.checked) usedPoints += capacity.data.rank <= 2 ? 1 : 2;
             });
         }));
@@ -313,7 +313,7 @@ export class LevelUpSheet extends FormApplication {
 
         let maxRank = 0;
         paths.forEach(path=>{
-            maxRank = Math.max(maxRank, path.data.data.capacities.length);
+            maxRank = Math.max(maxRank, path.system.capacities.length);
         });
 
         for(let rankIndex = 0; rankIndex < maxRank; rankIndex++){
@@ -322,9 +322,9 @@ export class LevelUpSheet extends FormApplication {
             for(let pathIndex = 0; pathIndex < paths.length; pathIndex++){
                 
                 // Si la voie ne possède pas de capacité pour le rang demandé, on passe à la voie suivante
-                if (rankIndex >= paths[pathIndex].data.data.capacities.length) continue;
+                if (rankIndex >= paths[pathIndex].system.capacities.length) continue;
 
-                let capacity = { capacity : paths[pathIndex].data.data.capacities[rankIndex] };
+                let capacity = { capacity : paths[pathIndex].system.capacities[rankIndex] };
  
                 capacity.cost =  rankIndex <= 1 ? 1 : 2;
                 

@@ -63,16 +63,16 @@ export class CofLootSheet extends CofBaseSheet {
             const actor = this.actor;
             itemList.slideToggle("fast", function () {
                 ol.toggleClass("folded");
-                if (actor.data.data.settings) {
+                if (actor.system.settings) {
                     if (ol.hasClass("folded")) {
-                        if (!actor.data.data.settings[tab].folded.includes(category)) {
-                            actor.data.data.settings[tab].folded.push(category);
+                        if (!actor.system.settings[tab].folded.includes(category)) {
+                            actor.system.settings[tab].folded.push(category);
                         }
                     } else {
-                        ArrayUtils.remove(actor.data.data.settings[tab].folded, category)
+                        ArrayUtils.remove(actor.system.settings[tab].folded, category)
                     }
                 }
-                actor.update({ "data.settings": actor.data.data.settings })
+                actor.update({ "data.settings": actor.system.settings })
             });
         });
     }

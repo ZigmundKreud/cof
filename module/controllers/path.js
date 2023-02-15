@@ -79,7 +79,7 @@ export class Path {
             content: game.i18n.format('COF.dialog.deletePath.confirm', {name:actor.name}),
             yes: () => {
                 const pathData = path.data;
-                let items = actor.items.filter(item => item.data.type === "capacity" && item.data.data.path._id === pathData._id).map(c => c.data._id);
+                let items = actor.items.filter(item => item.data.type === "capacity" && item.system.path._id === pathData._id).map(c => c.data._id);
                 items.push(path.id);
                 return actor.deleteEmbeddedDocuments("Item", items);
             },
@@ -98,7 +98,7 @@ export class Path {
         paths.map(path => {
             let caps = actor.items.filter(item => {
                 if (item.data.type === "capacity") {
-                    if (item.data.data.path._id === path.id) return true;
+                    if (item.system.path._id === path.id) return true;
                 }
             });
             caps.map(c => items.push(c.id));

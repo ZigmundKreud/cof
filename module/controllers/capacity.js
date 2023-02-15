@@ -81,14 +81,14 @@ export class Capacity {
             newPath = newPath instanceof Array ? newPath[0].data : [newPath.data];
             // liste de toutes les capacités (capacities)
             return Traversal.mapItemsOfType("capacity").then(caps => {
-                let items = actor.items.filter(i => i.type === "capacity" && i.data.data.path?._id === newPath._id);
+                let items = actor.items.filter(i => i.type === "capacity" && i.system.path?._id === newPath._id);
                 let itemsIds = items.map(i => i.data.flags.core.sourceId.split(".").pop());
-                let itemsKeys = items.map(i => i.data.data.key);
+                let itemsKeys = items.map(i => i.system.key);
                 if (isUncheck) {
                     const unchecked = newPath.data.capacities.filter(c => !c.data.checked);
                     const uncheckedKeys = unchecked.map(c => c.data.key);
                     let inter = ArrayUtils.intersection(uncheckedKeys, itemsKeys);
-                    let toRemove = items.filter(i => inter.includes(i.data.data.key)).map(i => i.id);
+                    let toRemove = items.filter(i => inter.includes(i.system.key)).map(i => i.id);
                     return actor.deleteEmbeddedDocuments("Item", toRemove);
                 } else {
                     const checked = newPath.data.capacities.filter(c => c.data.checked);

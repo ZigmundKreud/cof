@@ -2,29 +2,29 @@
 <div class="form-group">
     <label>{{localize "COF.ui.range"}}</label>
     <div class="form-fields">
-        <input name="data.range" type="text" value="{{item.data.range}}" placeholder="Range" data-dtype="Number">
+        <input name="system.range" type="text" value="{{item.system.range}}" placeholder="Range" data-dtype="Number">
     </div>
 </div>
 <div class="form-group stacked">
     <label>Classe</label>
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.bow" {{checked item.data.properties.bow}}> {{localize "COF.properties.bow"}}
+            <input type="checkbox" name="system.properties.bow" {{checked item.system.properties.bow}}> {{localize "COF.properties.bow"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.crossbow" {{checked item.data.properties.crossbow}}> {{localize "COF.properties.crossbow"}}
+            <input type="checkbox" name="system.properties.crossbow" {{checked item.system.properties.crossbow}}> {{localize "COF.properties.crossbow"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.powder" {{checked item.data.properties.powder}}> {{localize "COF.properties.powder"}}
+            <input type="checkbox" name="system.properties.powder" {{checked item.system.properties.powder}}> {{localize "COF.properties.powder"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.throwing" {{checked item.data.properties.throwing}}> {{localize "COF.properties.throwing"}}
+            <input type="checkbox" name="system.properties.throwing" {{checked item.system.properties.throwing}}> {{localize "COF.properties.throwing"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.sling" {{checked item.data.properties.sling}}> {{localize "COF.properties.sling"}}
+            <input type="checkbox" name="system.properties.sling" {{checked item.system.properties.sling}}> {{localize "COF.properties.sling"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.spell" {{checked item.data.properties.spell}}> {{localize "COF.properties.spell"}}
+            <input type="checkbox" name="system.properties.spell" {{checked item.system.properties.spell}}> {{localize "COF.properties.spell"}}
         </label>
     </div>
 </div>
@@ -32,16 +32,16 @@
     <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.reloadable" {{checked item.data.properties.reloadable}}> {{localize "COF.properties.reloadable"}}
+            <input type="checkbox" name="system.properties.reloadable" {{checked item.system.properties.reloadable}}> {{localize "COF.properties.reloadable"}}
         </label>
     </div>
 </div>
-{{#if data.properties.reloadable}}
+{{#if system.properties.reloadable}}
     <div class="form-group">
         <label>{{localize "COF.ui.reload"}}</label>
         <div class="form-fields">
-            <select name="data.reload" data-type="String" style="width:100%">
-                {{#select data.reload}}
+            <select name="system.reload" data-type="String" style="width:100%">
+                {{#select system.reload}}
                     <option value="">{{localize "COF.ui.noAction"}}</option>
                     <option value="s">{{localize "COF.ui.simpleAction"}}</option>
                     <option value="l">{{localize "COF.ui.limitedAction"}}</option>

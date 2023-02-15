@@ -62,8 +62,8 @@ export class Species {
      * @returns 
      */
     static removeFromActor(actor, specie) {
-        const paths = actor.items.filter(item => item.type === "path" && item.data.data.species?._id === specie.id);
-        const capacities = actor.items.filter(item => item.type === "capacity" && item.data.data.species?._id === specie.id);
+        const paths = actor.items.filter(item => item.type === "path" && item.system.species?._id === specie.id);
+        const capacities = actor.items.filter(item => item.type === "capacity" && item.system.species?._id === specie.id);
         return Dialog.confirm({
             title: game.i18n.format("COF.dialog.deleteSpecie.title"),
             content: game.i18n.format('COF.dialog.deleteSpecie.confirm', {name:actor.name}),

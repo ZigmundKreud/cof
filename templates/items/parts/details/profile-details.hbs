@@ -1,10 +1,10 @@
 <h3 class="form-header">{{localize "COF.ui.properties"}}</h3>
-<input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
+<input class="field-value" name="system.key" type="hidden" value="{{item.system.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
 <div class="form-group">
     <label>{{localize "COF.ui.hd"}}</label>
     <div class="form-fields">
-        <select name="data.dv" data-type="String" style="width:100%">
-            {{#select data.dv}}
+        <select name="system.dv" data-type="String" style="width:100%">
+            {{#select system.dv}}
                 <option value="">{{localize "COF.None"}}</option>
                 <option value="1d4">d4</option>
                 <option value="1d6">d6</option>
@@ -20,8 +20,8 @@
 <div class="form-group">
     <label>{{localize "COF.ui.spellcasting"}}</label>
     <div class="form-fields">
-        <select name="data.spellcasting" data-type="String" style="width:100%">
-            {{#select data.spellcasting}}
+        <select name="system.spellcasting" data-type="String" style="width:100%">
+            {{#select system.spellcasting}}
                 <option value="">{{localize "COF.None"}}</option>
                 <option value="int">{{localize "COF.stats.int.label"}}</option>
                 <option value="wis">{{localize "COF.stats.wis.label"}}</option>
@@ -34,8 +34,8 @@
 <div class="form-group">
     <label>{{localize "COF.ui.mpfactor"}}</label>
     <div class="form-fields">
-        <select name="data.mpfactor" data-type="Number" style="width:100%">
-            {{#select data.mpfactor}}
+        <select name="system.mpfactor" data-type="Number" style="width:100%">
+            {{#select system.mpfactor}}
                 <option value="0">0</option>
                 <option value="1">x1</option>
                 <option value="2">x2</option>
@@ -48,20 +48,20 @@
 <div class="form-group stacked">
     <label>{{localize "COF.category.melee-plural"}}</label>
     <div class="form-fields">
-        <label class="checkbox"> <input type="checkbox" name="data.proficiencies.daggers" {{checked item.data.proficiencies.daggers}}> {{localize "COF.weapons.daggers"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.swords" {{checked item.data.proficiencies.swords}}> {{localize "COF.weapons.swords"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.axes" {{checked item.data.proficiencies.axes}}> {{localize "COF.weapons.axes"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.staves" {{checked item.data.proficiencies.staves}}> {{localize "COF.weapons.staves"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.clubs" {{checked item.data.proficiencies.clubs}}> {{localize "COF.weapons.clubs"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.hammers" {{checked item.data.proficiencies.hammers}}> {{localize "COF.weapons.hammers"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.katanas" {{checked item.data.proficiencies.katanas}}> {{localize "COF.weapons.katanas"}} </label>
-        <label class="checkbox"> <input type="checkbox" name="data.proficiencies.2-hands" {{checked item.data.proficiencies.2-hands}}> {{localize "COF.weapons.twoHands"}} </label>
+        <label class="checkbox"> <input type="checkbox" name="system.proficiencies.daggers" {{checked item.system.proficiencies.daggers}}> {{localize "COF.weapons.daggers"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.swords" {{checked item.system.proficiencies.swords}}> {{localize "COF.weapons.swords"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.axes" {{checked item.system.proficiencies.axes}}> {{localize "COF.weapons.axes"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.staves" {{checked item.system.proficiencies.staves}}> {{localize "COF.weapons.staves"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.clubs" {{checked item.system.proficiencies.clubs}}> {{localize "COF.weapons.clubs"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.hammers" {{checked item.system.proficiencies.hammers}}> {{localize "COF.weapons.hammers"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.katanas" {{checked item.system.proficiencies.katanas}}> {{localize "COF.weapons.katanas"}} </label>
+        <label class="checkbox"> <input type="checkbox" name="system.proficiencies.2-hands" {{checked item.system.proficiencies.2-hands}}> {{localize "COF.weapons.twoHands"}} </label>
     </div>
 </div>
 <div class="form-group stacked">
     <label>{{localize "COF.category.ranged-plural"}}</label>
     <div class="form-fields">
-        <label class="checkbox"> <input type="checkbox" name="data.proficiencies.slings" {{checked item.data.proficiencies.slings}}> {{localize "COF.weapons.slings"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.bows" {{checked item.data.proficiencies.bows}}> {{localize "COF.weapons.bows"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.crossbows" {{checked item.data.proficiencies.crossbows}}> {{localize "COF.weapons.crossbows"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.throwing-weapons" {{checked item.data.proficiencies.throwing-weapons}}> {{localize "COF.weapons.throwing"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.powder-weapons" {{checked item.data.proficiencies.powder-weapons}}>{{localize "COF.weapons.powder"}} </label>
+        <label class="checkbox"> <input type="checkbox" name="system.proficiencies.slings" {{checked item.system.proficiencies.slings}}> {{localize "COF.weapons.slings"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.bows" {{checked item.system.proficiencies.bows}}> {{localize "COF.weapons.bows"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.crossbows" {{checked item.system.proficiencies.crossbows}}> {{localize "COF.weapons.crossbows"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.throwing-weapons" {{checked item.system.proficiencies.throwing-weapons}}> {{localize "COF.weapons.throwing"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.powder-weapons" {{checked item.system.proficiencies.powder-weapons}}>{{localize "COF.weapons.powder"}} </label>
     </div>
 </div>
 <div class="form-group stacked">
     <label>{{localize "COF.category.armor-plural"}}</label>
     <div class="form-fields">
-        <label class="checkbox"> <input type="checkbox" name="data.proficiencies.soft-leather" {{checked item.data.proficiencies.soft-leather}}> {{localize "COF.armors.softLeather"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.studded-leather" {{checked item.data.proficiencies.studded-leather}}> {{localize "COF.armors.studdedLeather"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.mail" {{checked item.data.proficiencies.mail}}> {{localize "COF.armors.mail"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.half-plate" {{checked item.data.proficiencies.half-plate}}> {{localize "COF.armors.halfPlate"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.full-plate" {{checked item.data.proficiencies.full-plate}}> {{localize "COF.armors.fullPlate"}} </label> <label class="checkbox"> <input type="checkbox" name="data.proficiencies.shield" {{checked item.data.proficiencies.shield}}> {{localize "COF.armors.shield"}} </label>
+        <label class="checkbox"> <input type="checkbox" name="system.proficiencies.soft-leather" {{checked item.system.proficiencies.soft-leather}}> {{localize "COF.armors.softLeather"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.studded-leather" {{checked item.system.proficiencies.studded-leather}}> {{localize "COF.armors.studdedLeather"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.mail" {{checked item.system.proficiencies.mail}}> {{localize "COF.armors.mail"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.half-plate" {{checked item.system.proficiencies.half-plate}}> {{localize "COF.armors.halfPlate"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.full-plate" {{checked item.system.proficiencies.full-plate}}> {{localize "COF.armors.fullPlate"}} </label> <label class="checkbox"> <input type="checkbox" name="system.proficiencies.shield" {{checked item.system.proficiencies.shield}}> {{localize "COF.armors.shield"}} </label>
     </div>
 </div>
 
@@ -74,9 +74,9 @@
             <a class="item-control item-create cof-compendium-pack" data-pack="paths" data-open="0" title="{{localize "COF.path.add"}}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
         </div>
     </li>
-{{#each data.paths as |path id|}}
+{{#each system.paths as |path id|}}
     <ol class="item-list">
-        <li class="item flexrow" data-item-id="{{path._id}}" data-item-type="path" data-key="{{path.data.key}}" draggable="true">
+        <li class="item flexrow" data-item-id="{{path._id}}" data-item-type="path" data-key="{{path.system.key}}" draggable="true">
             <div class="item-name flexrow">
                 <div class="item-image" style="background-image: url('{{path.img}}')"></div>
                 <h4>{{path.name}}</h4>

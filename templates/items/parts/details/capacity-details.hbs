@@ -1,82 +1,82 @@
 <h3 class="form-header">{{localize "COF.ui.attributes"}}</h3>
-<input class="field-value capacity" data-item-id="{{item._id}}" name="data.key" type="hidden" value="{{data.key}}" placeholder="{{localize "COF.ui.key"}}" data-dtype="String">
+<input class="field-value capacity" data-item-id="{{item._id}}" name="system.key" type="hidden" value="{{system.key}}" placeholder="{{localize "COF.ui.key"}}" data-dtype="String">
 <div class="form-group stacked">
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.limited" {{checked data.limited}}> {{localize "COF.ui.limited"}}
+            <input type="checkbox" name="system.limited" {{checked system.limited}}> {{localize "COF.ui.limited"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.spell" {{checked data.spell}}> {{localize "COF.ui.spell"}}
+            <input type="checkbox" name="system.spell" {{checked system.spell}}> {{localize "COF.ui.spell"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.ranged" {{checked data.ranged}}> {{localize "COF.properties.ranged"}}
+            <input type="checkbox" name="system.ranged" {{checked system.ranged}}> {{localize "COF.properties.ranged"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.limitedUsage" {{checked data.limitedUsage}}> {{localize "COF.ui.limitedUsage"}} 
+            <input type="checkbox" name="system.limitedUsage" {{checked system.limitedUsage}}> {{localize "COF.ui.limitedUsage"}} 
         </label>  
         <label class="checkbox">
-            <input type="checkbox" name="data.save" {{checked data.save}}> {{localize "COF.ui.save"}} 
+            <input type="checkbox" name="system.save" {{checked system.save}}> {{localize "COF.ui.save"}} 
         </label>                  
         <label class="checkbox">
-            <input type="checkbox" name="data.activable" {{checked data.activable}}> {{localize "COF.properties.activable"}}
+            <input type="checkbox" name="system.activable" {{checked system.activable}}> {{localize "COF.properties.activable"}}
         </label>        
     </div>
 </div>
 <div class="form-group stacked">
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.heal" {{checked data.heal}}> {{localize "COF.ui.heal"}}
+            <input type="checkbox" name="system.heal" {{checked system.heal}}> {{localize "COF.ui.heal"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.attack" {{checked data.attack}}> {{localize "COF.ui.attack"}}
+            <input type="checkbox" name="system.attack" {{checked system.attack}}> {{localize "COF.ui.attack"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.buff" {{checked data.buff}}> {{localize "COF.ui.buff"}}
+            <input type="checkbox" name="system.buff" {{checked system.buff}}> {{localize "COF.ui.buff"}}
         </label>        
         <label class="checkbox">
-            <input type="checkbox" name="data.useMacro" {{checked data.useMacro}}> {{localize "COF.capacity.useMacro"}}
+            <input type="checkbox" name="system.useMacro" {{checked system.useMacro}}> {{localize "COF.capacity.useMacro"}}
         </label>      
     </div>
 </div>
 
 <h3 class="form-header">{{localize "COF.ui.properties"}}</h3> 
-{{#if data.ranged}}
+{{#if system.ranged}}
     <div class="form-group">
         <label>{{localize "COF.ui.range"}}</label> 
         <div class="form-fields">            
-            <input type="text" name="data.properties.ranged.range" value="{{data.properties.ranged.range}}" placeholder="{{localize "COF.ui.range"}}" data-dtype="String"/>            
+            <input type="text" name="system.properties.ranged.range" value="{{system.properties.ranged.range}}" placeholder="{{localize "COF.ui.range"}}" data-dtype="String"/>            
         </div>
     </div>    
     <div class="form-group">
         <label>{{localize "COF.ui.radius"}}</label>
         <div class="form-fields">            
-            <input type="text" name="data.properties.ranged.radius" value="{{data.properties.ranged.radius}}" placeholder="{{localize "COF.ui.radius"}}" data-dtype="String"/>
+            <input type="text" name="system.properties.ranged.radius" value="{{system.properties.ranged.radius}}" placeholder="{{localize "COF.ui.radius"}}" data-dtype="String"/>
         </div>
     </div>
 {{/if}}
-{{#if data.limitedUsage}}
+{{#if system.limitedUsage}}
     <div class="form-group">
         <label>{{ localize "COF.ui.quantity" }}</label>
         <div class="form-fields">
-            <input type="number" name="data.properties.limitedUsage.use" value="{{data.properties.limitedUsage.use}}" placeholder="{{localize "COF.ui.quantity"}}" data-dtype="Number"/>
+            <input type="number" name="system.properties.limitedUsage.use" value="{{system.properties.limitedUsage.use}}" placeholder="{{localize "COF.ui.quantity"}}" data-dtype="Number"/>
         </div>
     </div>
     <div class="form-group">
         <label>{{localize "COF.ui.stacksize"}}</label>
         <div class="form-fields">
-            <input type="text" name="data.properties.limitedUsage.maxUse" value="{{data.properties.limitedUsage.maxUse}}" placeholder="{{localize "COF.placeholders.stacksize"}}" data-dtype="Number">
+            <input type="text" name="system.properties.limitedUsage.maxUse" value="{{system.properties.limitedUsage.maxUse}}" placeholder="{{localize "COF.placeholders.stacksize"}}" data-dtype="Number">
         </div>
     </div>
 {{/if}}
 
-{{#if data.save}}
+{{#if system.save}}
     <div class="form-group">
         <label>{{localize "COF.ui.save"}}</label>
         <div class="form-group">
             <label>{{localize "COF.ui.stat"}}</label>
             <div class="form-fields">
-                <select name="data.properties.save.stat" data-type="String" style="width:100%">
-                    {{#select data.properties.save.stat}}
+                <select name="system.properties.save.stat" data-type="String" style="width:100%">
+                    {{#select system.properties.save.stat}}
                         <option value="">{{localize "COF.None"}}</option>
                         <option value="str">{{localize "COF.stats.str.label"}}</option>
                         <option value="dex">{{localize "COF.stats.dex.label"}}</option>
@@ -90,32 +90,32 @@
         </div>
         <label>{{localize "COF.ui.difficulty"}}</label>
         <div class="form-fields">            
-            <input type="text" name="data.properties.save.difficulty" value="{{data.properties.save.difficulty}}" data-dtype="String"/>
+            <input type="text" name="system.properties.save.difficulty" value="{{system.properties.save.difficulty}}" data-dtype="String"/>
         </div>        
     </div>   
     <div class="form-group"  >
         <label>{{localize "COF.ui.description"}}</label>
         <div class="form-fields">            
-            <input type="text" name="data.properties.save.text" value="{{data.properties.save.text}}" data-dtype="String"/>
+            <input type="text" name="system.properties.save.text" value="{{system.properties.save.text}}" data-dtype="String"/>
         </div>
     </div>
 {{/if}}  
 
-{{#if data.heal}}
+{{#if system.heal}}
 <div class="form-group">
     <label>{{localize "COF.ui.healFormula"}}</label>
     <div class="form-fields">
-        <input type="text" name="data.properties.heal.formula" value="{{data.properties.heal.formula}}" placeholder="{{localize "COF.ui.healFormula"}}" data-dtype="String"/>
+        <input type="text" name="system.properties.heal.formula" value="{{system.properties.heal.formula}}" placeholder="{{localize "COF.ui.healFormula"}}" data-dtype="String"/>
     </div>
 </div>
 {{/if}}
 
-{{#if data.attack}}
+{{#if system.attack}}
     <div class="form-group">
         <label>{{localize "COF.ui.skill"}}</label>
         <div class="form-fields">
-            <select name="data.properties.attack.skill" data-type="String" style="width:100%">
-                {{#select data.properties.attack.skill}}
+            <select name="system.properties.attack.skill" data-type="String" style="width:100%">
+                {{#select system.properties.attack.skill}}
                     <option value="auto">{{localize "COF.ui.automatic"}}</option>
                     <option value="@attacks.melee.mod">{{localize "COF.attacks.melee.label"}}</option>
                     <option value="@attacks.ranged.mod">{{localize "COF.attacks.ranged.label"}}</option>
@@ -134,22 +134,22 @@
     <div class="form-group">
         <label>{{localize "COF.ui.difficulty"}}</label>
         <div class="form-fields">
-            <input name="data.properties.attack.difficulty" type="text" value="{{data.properties.attack.difficulty}}" placeholder="" data-dtype="String">
+            <input name="system.properties.attack.difficulty" type="text" value="{{system.properties.attack.difficulty}}" placeholder="" data-dtype="String">
         </div>
     </div>
 
     <div class="form-group">
         <label>{{localize "COF.ui.dmgBase"}}</label>
         <div class="form-fields">
-            <input name="data.properties.attack.dmgBase" type="text" value="{{data.properties.attack.dmgBase}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
+            <input name="system.properties.attack.dmgBase" type="text" value="{{system.properties.attack.dmgBase}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
         </div>
     </div>
 
     <div class="form-group">
         <label>{{localize "COF.ui.dmgStat"}}</label>
         <div class="form-fields">
-            <select name="data.properties.attack.dmgStat" data-type="String" style="width:100%">
-                {{#select data.properties.attack.dmgStat}}
+            <select name="system.properties.attack.dmgStat" data-type="String" style="width:100%">
+                {{#select system.properties.attack.dmgStat}}
                     <option value="">{{localize "COF.None"}}</option>
                     <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
                     <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
@@ -163,32 +163,32 @@
     </div>
 {{/if}}    
 
-{{#if data.buff}}
+{{#if system.buff}}
     <div class="form-group">
         <label>{{localize "COF.capacity.activated"}}</label>
         <div class="form-fields">
-            <input class="capacity-activated-toggle" name="data.properties.buff.activated" type="checkbox" {{checked data.properties.buff.activated}}>
+            <input class="capacity-activated-toggle" name="system.properties.buff.activated" type="checkbox" {{checked system.properties.buff.activated}}>
         </div>
     </div>   
 {{/if}}
 
-{{#if data.useMacro}}
+{{#if system.useMacro}}
     <div class="form-group">
         <label>{{localize "COF.capacity.macroName"}}</label>
         <div class="form-fields">
-            <input name="data.properties.macro.name" type="text" value="{{data.properties.macro.name}}" placeholder="{{localize "COF.capacity.macroName"}}" data-dtype="String">            
+            <input name="system.properties.macro.name" type="text" value="{{system.properties.macro.name}}" placeholder="{{localize "COF.capacity.macroName"}}" data-dtype="String">            
         </div>       
     </div>
     <div class="form-group">
         <label>{{localize "COF.capacity.macroId"}}</label>
         <div class="form-fields">
-            <input name="data.properties.macro.id" type="text" value="{{data.properties.macro.id}}" data-dtype="String">          
+            <input name="system.properties.macro.id" type="text" value="{{system.properties.macro.id}}" data-dtype="String">          
         </div>       
     </div>
     <div class="form-group">
         <label>{{localize "COF.capacity.macroCompendium"}}</label>
         <div class="form-fields">
-            <input name="data.properties.macro.pack" type="text" value="{{data.properties.macro.pack}}" data-dtype="String">          
+            <input name="system.properties.macro.pack" type="text" value="{{system.properties.macro.pack}}" data-dtype="String">          
         </div>       
     </div>    
 {{/if}}

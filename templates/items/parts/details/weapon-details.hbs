@@ -3,8 +3,8 @@
 <div class="form-group">
     <label>{{localize "COF.ui.skill"}}</label>
     <div class="form-fields">
-        <select name="data.skill" data-type="String" style="width:100%">
-            {{#select data.skill}}
+        <select name="system.skill" data-type="String" style="width:100%">
+            {{#select system.skill}}
                 <option value="@attacks.melee.mod">{{localize "COF.attacks.melee.label"}}</option>
                 <option value="@attacks.ranged.mod">{{localize "COF.attacks.ranged.label"}}</option>
                 <option value="@attacks.magic.mod">{{localize "COF.attacks.magic.label"}}</option>
@@ -16,22 +16,22 @@
 <div class="form-group">
     <label>{{localize "COF.ui.skillBonus"}}</label>
     <div class="form-fields">
-        <input name="data.skillBonus" type="text" value="{{numberFormat data.skillBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.skillBonus"}}" data-dtype="Number">
+        <input name="system.skillBonus" type="text" value="{{numberFormat system.skillBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.skillBonus"}}" data-dtype="Number">
     </div>
 </div>
 
 <div class="form-group">
     <label>{{localize "COF.ui.dmgBase"}}</label>
     <div class="form-fields">
-        <input name="data.dmgBase" type="text" value="{{data.dmgBase}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
+        <input name="system.dmgBase" type="text" value="{{system.dmgBase}}" placeholder="{{localize "COF.ui.dmgBase"}}" data-dtype="String">
     </div>
 </div>
 
 <div class="form-group">
     <label>{{localize "COF.ui.dmgStat"}}</label>
     <div class="form-fields">
-        <select name="data.dmgStat" data-type="String" style="width:100%">
-            {{#select data.dmgStat}}
+        <select name="system.dmgStat" data-type="String" style="width:100%">
+            {{#select system.dmgStat}}
                 <option value="">{{localize "COF.None"}}</option>
                 <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
                 <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
@@ -47,24 +47,24 @@
 <div class="form-group">
     <label>{{localize "COF.ui.dmgBonus"}}</label>
     <div class="form-fields">
-        <input name="data.dmgBonus" type="text" value="{{numberFormat data.dmgBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.dmgBonus"}}" data-dtype="Number">
+        <input name="system.dmgBonus" type="text" value="{{numberFormat system.dmgBonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.dmgBonus"}}" data-dtype="Number">
     </div>
 </div>
 
 <div class="form-group">
     <label>{{localize "COF.ui.critrange"}}</label>
     <div class="form-fields">
-        <input name="data.critrange" type="text" value="{{data.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
+        <input name="system.critrange" type="text" value="{{system.critrange}}" placeholder="{{localize "COF.ui.critrange"}}" data-dtype="String">
     </div>
 </div>
 <div class="form-group">
     <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.bashing" {{checked item.data.properties.bashing}}> {{localize "COF.properties.bashing"}}
+            <input type="checkbox" name="system.properties.bashing" {{checked item.system.properties.bashing}}> {{localize "COF.properties.bashing"}}
         </label>
         <label class="checkbox">
-            <input type="checkbox" name="data.properties.13strmin" {{checked item.data.properties.13strmin}}> {{localize "COF.properties.13strmin"}}
+            <input type="checkbox" name="system.properties.13strmin" {{checked item.system.properties.13strmin}}> {{localize "COF.properties.13strmin"}}
         </label>
     </div>
 </div>

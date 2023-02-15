@@ -29,12 +29,12 @@ export class CofActor extends Actor {
         // S'il s'agit d'un actor de type "encounter", on lui ajoute la méthode "rollWeapon"
         if (data.type === "encounter"){
             this.rollWeapon = async function(weaponId, customLabel="", dmgOnly=false, bonus=0, malus=0, dmgBonus=0, skillDescr="", dmgDescr="", dialog=true){
-                let weapons = this.data.data.weapons;
+                let weapons = this.system.weapons;
                 if ((Array.isArray(weapons) && weapons.length <= weaponId) || !weapons[weaponId]){
                     ui.notifications.warn(`${game.i18n.localize("COF.notification.WeaponIndexMissing")} ${weaponId}`);
                     return;
                 }
-                let weapon = this.data.data.weapons[weaponId];
+                let weapon = this.system.weapons[weaponId];
                 let label = customLabel ? customLabel : weapon.name;
 
                 if (dialog){
@@ -63,12 +63,12 @@ export class CofActor extends Actor {
     await super._preCreate(data, options, user);
 
     // Token size category
-    const s = CONFIG.COF.tokenSizes[this.data.data.details.size || "med"];
-    this.data.token.update({width: s, height: s});
+    const s = CONFIG.COF.tokenSizes[this.system.details.size || "med"];
+    this.token.update({width: s, height: s});
 
     // Player character configuration
     if ( this.type === "character" ) {
-      this.data.token.update({vision: true, actorLink: true, disposition: 1});
+      this.token.update({vision: true, actorLink: true, disposition: 1});
     }
     
   }
@@ -80,8 +80,8 @@ export class CofActor extends Actor {
     await super._preUpdate(changed, options, user);
 
     // Apply changes in Actor size to Token width/height
-    const newSize = foundry.utils.getProperty(changed, "data.details.size");
-    if ( newSize && (newSize !== foundry.utils.getProperty(this.data, "data.details.size")) ) {
+    const newSize = foundry.utils.getProperty(changed, "system.details.size");
+    if ( newSize && (newSize !== foundry.utils.getProperty(this.system, "system.details.size")) ) {
       let size = CONFIG.COF.tokenSizes[newSize];
       if ( !foundry.utils.hasProperty(changed, "token.width") ) {
         changed.token = changed.token || {};
@@ -100,18 +100,17 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
     /** @override */
     prepareBaseData() {
-        let actorData = this.data;
-        if (!actorData.data.settings) {
-            actorData.data.settings = {
+        if (!this.system.settings) {
+            this.system.settings = {
                 "combat": { "folded": [] },
                 "inventory": { "folded": [] },
                 "capacities": { "folded": [] },
                 "effects": { "folded": [] }
             };
         }
-        if (actorData.type === "loot") this._prepareBaseLootData(actorData);
-        else if (actorData.type === "encounter") this._prepareBaseEncounterData(actorData);
-        else this._prepareBaseCharacterData(actorData);
+        if (this.type === "loot") this._prepareBaseLootData();
+        else if (this.type === "encounter") this._prepareBaseEncounterData();
+        else this._prepareBaseCharacterData(this);
     }
 
     /* -------------------------------------------- */
@@ -119,102 +118,59 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
     /** @override */
     prepareDerivedData() {
-        let actorData = this.data;
-        if (actorData.type === "loot") this._prepareDerivedLootData(actorData);
-        else if (actorData.type === "encounter") this._prepareDerivedEncounterData(actorData);
-        else this._prepareDerivedCharacterData(actorData);
+        if (this.type === "loot") this._prepareDerivedLootData();
+        else if (this.type === "encounter") this._prepareDerivedEncounterData(this);
+        else this._prepareDerivedCharacterData();
     }
 
     /* -------------------------------------------- */
 
-    _prepareBaseLootData(actorData) { }
+    _prepareBaseLootData() { }
 
     /* -------------------------------------------- */
 
-    _prepareDerivedLootData(actorData) { }
+    _prepareDerivedLootData() { }
 
     /* -------------------------------------------- */
 
-    _prepareBaseCharacterData(actorData) {
+    _prepareBaseCharacterData() {
     }
     /* -------------------------------------------- */
 
-    _prepareDerivedCharacterData(actorData) {
-        this.computeModsAndAttributes(actorData);
-        this.computeAttacks(actorData);
-        this.computeDef(actorData);
-        this.computeXP(actorData);
-    }
-
-      /** @override 
-    applyActiveEffects() {
-        // The Active Effects do not have access to their parent at preparation time so we wait until this stage to
-        // determine whether they are suppressed or not.
-        // this.effects.forEach(e => e.determineSuppression());
-        console.log("Custom applyActiveEffects");
-        return super.applyActiveEffects();
-    }*/
-
-    /* -------------------------------------------- */
-
-    _prepareBaseEncounterData(actorData) {
-  
-        // MODIFY TOKEN REGARDING SIZE
-        /*
-        switch (actorData.data.details.size) {
-            case "big":
-                actorData.token.width = 2;
-                actorData.token.height = 2;
-                break;
-            case "huge":
-                actorData.token.width = 4;
-                actorData.token.height = 4;
-                break;
-            case "colossal":
-                actorData.token.width = 8;
-                actorData.token.height = 8;
-                break;
-            case "tiny":
-                actorData.token.width = 0.25;
-                actorData.token.height = 0.25;
-                break;
-            case "small":
-                actorData.token.width = 0.5;
-                actorData.token.height = 0.5;
-                break;
-            case "short":
-                actorData.token.width = 0.8;
-                actorData.token.height = 0.8;
-                break;
-            case "med":
-            default:
-                break;
-        }
-        */
+    _prepareDerivedCharacterData() {
+        this.computeModsAndAttributes(this);
+        this.computeAttacks(this);
+        this.computeDef(this);
+        this.computeXP(this);
     }
 
     /* -------------------------------------------- */
 
-    _prepareDerivedEncounterData(actorData) { 
+    _prepareBaseEncounterData() {
+    }
+
+    /* -------------------------------------------- */
+
+    _prepareDerivedEncounterData(actor) { 
       // STATS
-      let stats = actorData.data.stats;
+      let stats = actor.system.stats;
       // COMPUTE STATS FROM MODS
       for (let stat of Object.values(stats)) {
           stat.value = Stats.getStatValueFromMod(stat.mod);
       }
 
       // ATTACKS
-      if (!actorData.data.attacks) {
-          actorData.data.attacks = {
+      if (!actor.system.attacks) {
+          actor.system.attacks = {
               "melee": {
                   "key": "melee",
                   "label": "COF.attacks.melee.label",
                   "abbrev": "COF.attacks.melee.abbrev",
                   "stat": "@stats.str.mod",
                   "enabled": true,
-                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod,
+                  "base": Math.ceil(actor.system.nc.value) + actor.system.stats.str.mod,
                   "bonus": 0,
-                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.str.mod
+                  "mod": Math.ceil(actor.system.nc.value) + actor.system.stats.str.mod
               },
               "ranged": {
                   "key": "ranged",
@@ -222,9 +178,9 @@ export class CofActor extends Actor {
                   "abbrev": "COF.attacks.ranged.abbrev",
                   "stat": "@stats.dex.mod",
                   "enabled": true,
-                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod,
+                  "base": Math.ceil(actor.system.nc.value) + actor.system.stats.dex.mod,
                   "bonus": 0,
-                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.dex.mod
+                  "mod": Math.ceil(actor.system.nc.value) + actor.system.stats.dex.mod
               },
               "magic": {
                   "key": "magic",
@@ -232,19 +188,19 @@ export class CofActor extends Actor {
                   "abbrev": "COF.attacks.magic.abbrev",
                   "stat": "@stats.int.mod",
                   "enabled": true,
-                  "base": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod,
+                  "base": Math.ceil(actor.system.nc.value) + actor.system.stats.int.mod,
                   "bonus": 0,
-                  "mod": Math.ceil(actorData.data.nc.value) + actorData.data.stats.int.mod
+                  "mod": Math.ceil(actor.system.nc.value) + actor.system.stats.int.mod
               }
           }
       } else {
-          let attacks = actorData.data.attacks;
+          let attacks = actor.system.attacks;
           for (let attack of Object.values(attacks)) {
               attack.mod = attack.base + attack.bonus;
           }
       }
               
-        let attributes = actorData.data.attributes;
+        let attributes = actor.system.attributes;
         
         // Points de vie
         if (attributes.hp.value > attributes.hp.max) attributes.hp.value = attributes.hp.max;
@@ -254,25 +210,25 @@ export class CofActor extends Actor {
     /* -------------------------------------------- */
 
     getActiveSpells(items) {
-        return items.filter(i => i.data.type === "spell")
+        return items.filter(i => i.type === "spell")
     }
 
     /* -------------------------------------------- */
 
     getProfile(items) {
-        return items.find(i => i.data.type === "profile")
+        return items.find(i => i.type === "profile")
     }
 
     /* -------------------------------------------- */
 
     getSpecies(items) {
-        return items.find(i => i.data.type === "species")
+        return items.find(i => i.type === "species")
     }
 
     /* -------------------------------------------- */
 
     getActiveCapacities(items) {
-        return items.filter(item => item.data.type === "capacity" && item.data.data.rank)
+        return items.filter(item => item.type === "capacity" && item.system.rank)
     }
 
 
@@ -283,21 +239,21 @@ export class CofActor extends Actor {
      *              résistance aux dégâts
      * @public
      * 
-     * @param {Actor.data} actorData 
+     * @param {Actor} actor
      * 
      */
-    computeModsAndAttributes(actorData) {
+    computeModsAndAttributes(actor) {
 
-        let stats = actorData.data.stats;
-        let attributes = actorData.data.attributes;
-        let items = actorData.items;
-        let lvl = actorData.data.level.value;
+        let stats = actor.system.stats;
+        let attributes = actor.system.attributes;
+        let items = actor.items;
+        let lvl = actor.system.level.value;
         let species = this.getSpecies(items);
         let profile = this.getProfile(items);
 
         // Caractéristiques et leurs modificateurs
         for (const [key, stat] of Object.entries(stats)) {
-            stat.racial = (species && species.data.data.bonuses[key]) ? species.data.data.bonuses[key] : stat.racial;
+            stat.racial = (species && species.system.bonuses[key]) ? species.system.bonuses[key] : stat.racial;
             stat.value = stat.base + stat.racial + stat.bonus;
             stat.mod = Stats.getModFromStatValue(stat.value);
         }
@@ -319,14 +275,14 @@ export class CofActor extends Actor {
         attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
 
         // Points de récupération
-        attributes.rp.base = this.computeBaseRP(actorData);
+        attributes.rp.base = this.computeBaseRP(actor);
         attributes.rp.max = attributes.rp.base + attributes.rp.bonus;
 
         if (attributes.rp.value >= attributes.rp.max) attributes.rp.value = attributes.rp.max;
         if (attributes.rp.value < 0) attributes.rp.value = 0;
 
         // DV
-        if (profile) attributes.hd.value = profile.data.data.dv;
+        if (profile) attributes.hd.value = profile.system.dv;
         attributes.hp.max = attributes.hp.base + attributes.hp.bonus;
 
         // Points de vie
@@ -346,21 +302,21 @@ export class CofActor extends Actor {
      * @description Calcul les valeurs d'attaque (Contact, Distance, Magie)
      * @public
      * 
-     * @param {Actor.data} actorData 
+     * @param {Actor} actor
      * 
      */
-     computeAttacks(actorData) {
+     computeAttacks(actor) {
 
-        let stats = actorData.data.stats;                
-        let lvl = actorData.data.level.value;
+        let stats = actor.system.stats;                
+        let lvl = actor.system.level.value;
 
-        let attacks = actorData.data.attacks;
+        let attacks = actor.system.attacks;
         let melee = attacks.melee;
         let ranged = attacks.ranged;
         let magic = attacks.magic;
 
         // Retourne le modificateur en fonction de la caractéristique et d'un profil
-        let items = actorData.items;
+        let items = actor.items;
         let profile = this.getProfile(items);
         const meleeMod = this.getMeleeMod(stats, profile);
         const rangedMod = this.getRangedMod(stats, profile);
@@ -392,11 +348,10 @@ export class CofActor extends Actor {
      *      COF : 10 + Mod DEX + Défense Armure + Défense Bouclier
      * @public
      * 
-     * @param {Actor.data} actorData
-     * 
+     * @param {Actor} actor
      */  
-    computeDef(actorData) {
-        let data = actorData.data;
+    computeDef(actor) {
+        let data = actor.system;
 
         let stats = data.stats;
         let attributes = data.attributes;
@@ -416,25 +371,25 @@ export class CofActor extends Actor {
      * 
      * @public
      * 
-     * @param {Actor.data} actorData
+     * @param {Actor} actor
      * 
      */
-    computeXP(actorData) {
-        if (COF.debug) console.log("computeXP for ", actorData);
-        let items = actorData.items;
-        let lvl = actorData.data.level.value;
-        const alert = actorData.data.alert;
+    computeXP(actor) {
+        if (COF.debug) console.log("computeXP for ", actor);
+        let items = actor.items;
+        let lvl = actor.system.level.value;
+        const alert = actor.system.alert;
         const capacities = this.getActiveCapacities(items);
         let currxp = capacities.map(cap => {
-            const path = this.getItemByName(cap.data.data.path.name);
-            const isPrestige = path?.data.data.properties.prestige ? true : false;
-            const cost = isPrestige ? 2 : (cap.data.data.rank > 2 ? 2 : 1);
+            const path = this.getItemByName(cap.system.path.name);
+            const isPrestige = path?.system.properties.prestige ? true : false;
+            const cost = isPrestige ? 2 : (cap.system.rank > 2 ? 2 : 1);
             return cost;
             }).reduce((acc, curr) => acc + curr, 0);
         const maxxp = 2 * lvl;
         // UPDATE XP
-        actorData.data.xp.max = maxxp;
-        actorData.data.xp.value = maxxp - currxp;
+        actor.system.xp.max = maxxp;
+        actor.system.xp.value = maxxp - currxp;
         if (maxxp - currxp < 0) {
             const diff = currxp - maxxp;
             alert.msg = game.i18n.format('COF.msg.xp.superior', {diff:diff, plural:diff > 1 ? 's' : ''});             
@@ -481,7 +436,7 @@ export class CofActor extends Actor {
      *      -> à implémenter dans chacun des modules Chroniques Oubliées.
      * @public
      * 
-     * @param {Actor.data.data.stats} stats 
+     * @param {Actor.system.stats} stats 
      * @param {Profile} profile, non utilisé dans COF
      * @returns {int} le bonus d'attaque de contact 
      */
@@ -497,7 +452,7 @@ export class CofActor extends Actor {
      *      -> à implémenter dans chacun des modules Chroniques Oubliées.
      * @public
      * 
-     * @param {Actor.data.data.stats} stats 
+     * @param {Actor.system.stats} stats 
      * @param {Profile} profile, non utilisé dans COF
      * @returns {int} le bonus d'attaque à distance
      */    
@@ -513,7 +468,7 @@ export class CofActor extends Actor {
      *      -> à implémenter dans chacun des modules Chroniques Oubliées.
      * @public
      * 
-     * @param {Actor.data.data.stats} stats 
+     * @param {Actor.system.stats} stats 
      * @param {Profile} profile
      * @returns {Int} le bonus d'attaque magique
      */    
@@ -525,7 +480,7 @@ export class CofActor extends Actor {
         // Caractéristique selon le profil
         let magicMod = intMod;
         if (profile) {
-            switch (profile.data.data.spellcasting) {
+            switch (profile.system.spellcasting) {
                 case "wis":
                     magicMod = wisMod;
                     break;
@@ -550,7 +505,7 @@ export class CofActor extends Actor {
      * @public
      * 
      * @param {Int} level      
-     * @param {Actor.data.data.stats} stats 
+     * @param {Actor.system.stats} stats 
      * @param {CofItem} profile
      * @returns {Int} Le nombre de points de magie
      */    
@@ -564,7 +519,7 @@ export class CofActor extends Actor {
         // Caractéristique et calcul selon le profil
         let magicMod = intMod;
         if (profile) {
-            switch (profile.data.data.spellcasting) {
+            switch (profile.system.spellcasting) {
                 case "wis":
                     magicMod = wisMod;
                     break;
@@ -575,10 +530,10 @@ export class CofActor extends Actor {
                     magicMod = intMod;
                     break;
             }
-            if (profile.data.data.mpfactor === "2") {
+            if (profile.system.mpfactor === "2") {
                 pm = (2 * level) + magicMod;
             }
-            else if (profile.data.data.mpfactor === "1") {
+            else if (profile.system.mpfactor === "1") {
                 pm = level + magicMod;
             }
             else pm = magicMod;
@@ -752,7 +707,7 @@ export class CofActor extends Actor {
      */
     getMalusFromArmor() {
             let malus = 0;
-            let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "armor" && i.data.data.worn && i.data.data.def).map(i => (-1 * i.data.data.defBase) + i.data.data.defBonus);     
+            let protections = this.items.filter(i => i.system.type === "item" && i.system.subtype === "armor" && i.system.worn && i.system.def).map(i => (-1 * i.system.defBase) + i.system.defBonus);     
             if (protections.length > 0) malus = protections.reduce((acc, curr) => acc + curr, 0);
             return malus;
     }
@@ -764,7 +719,7 @@ export class CofActor extends Actor {
      * @returns {int} retourne le modificateur (positif ou négatif)
      */
     getOverloadedOtherMod() {
-        return this.data.data?.attributes?.overload?.misc ? this.data.data?.attributes?.overload?.misc : 0;
+        return this.system?.attributes?.overload?.misc ? this.system?.attributes?.overload?.misc : 0;
     }    
 
     /**
@@ -783,7 +738,7 @@ export class CofActor extends Actor {
         let total = 0;
         let incompetentMod = 0;
 
-        const fromStat = eval("this.data.data." + itemModStat);        
+        const fromStat = eval("this.system." + itemModStat);        
         if (game.settings.get("cof", "useIncompetentPJ") && weaponCategory && !this.isCompetentWithWeapon(weaponCategory)){
             incompetentMod = this.getIncompetentMalus();
         }
@@ -809,7 +764,7 @@ export class CofActor extends Actor {
     computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus) {
         let total = itemDmgBase;
         
-        const fromStat = eval("this.data.data." + itemDmgStat);
+        const fromStat = eval("this.system." + itemDmgStat);
         let fromBonus = (fromStat) ? parseInt(fromStat) + itemDmgBonus : itemDmgBonus;
         fromBonus += skillDmgBonus;
         if (fromBonus < 0) total = itemDmgBase + " - " + parseInt(-fromBonus);
@@ -887,7 +842,7 @@ export class CofActor extends Actor {
      */
     getDefenceFromArmor() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "armor" && i.data.data.worn && i.data.data.def).map(i => i.data.data.def);     
+        let protections = this.items.filter(i => i.type === "item" && i.system.subtype === "armor" && i.system.worn && i.system.def).map(i => i.system.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
@@ -899,7 +854,7 @@ export class CofActor extends Actor {
      */
     getDefenceFromShield() {
         let protection = 0;
-        let protections = this.data.items.filter(i => i.data.type === "item" && i.data.data.subtype === "shield" && i.data.data.worn && i.data.data.def).map(i => i.data.data.def);     
+        let protections = this.items.filter(i => i.type === "item" && i.system.subtype === "shield" && i.system.worn && i.system.def).map(i => i.system.def);     
         if (protections.length > 0) protection = protections.reduce((acc, curr) => acc + curr, 0);
         return protection;
     }
@@ -951,20 +906,20 @@ export class CofActor extends Actor {
      toggleEquipItem(item, bypassChecks) {
         if (!this.canEquipItem(item, bypassChecks)) return;        
 
-        const equipable = item.data.data.properties.equipable;
+        const equipable = item.system.properties.equipable;
         if(equipable){
             let itemData = duplicate(item.data);
-            itemData.data.worn = !itemData.data.worn;
+            itemsystem.worn = !itemsystem.worn;
 
-            if (game.settings.get("cof", "useIncompetentPJ") && itemData.data.worn) {
+            if (game.settings.get("cof", "useIncompetentPJ") && itemsystem.worn) {
                 // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
-                if (itemData.data.subtype === "armor" || itemData.data.subtype === "shield") {
+                if (itemsystem.subtype === "armor" || itemsystem.subtype === "shield") {
                     const armorCategory = item.getMartialCategory();
                     if (!this.isCompetentWithArmor(armorCategory)) {
                         ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithArmor', {name:this.name, item:item.name}));
                     }    
                 }
-                if (itemData.data.subtype === "melee" || itemData.data.subtype === "ranged") {
+                if (itemsystem.subtype === "melee" || itemsystem.subtype === "ranged") {
                     const weaponCategory = item.getMartialCategory();
                     if (!this.isCompetentWithWeapon(weaponCategory)) {
                         ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithWeapon', {name:this.name, item:item.name}));
@@ -973,7 +928,7 @@ export class CofActor extends Actor {
             }
             return item.update(itemData).then((item)=>{
                 AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-                if (!bypassChecks) this.syncItemActiveEffects(item, !itemData.data.worn);
+                if (!bypassChecks) this.syncItemActiveEffects(item, !itemsystem.worn);
             });
         }
     }
@@ -988,7 +943,7 @@ export class CofActor extends Actor {
             ui.notifications.warn(game.i18n.format('COF.notification.MacroItemMissing', {item:item.name}));
             return false;
         }
-        let itemData = item.data.data;
+        let itemData = item.system;
         if (!itemData?.properties.equipment || !itemData?.properties.equipable){
             ui.notifications.warn(game.i18n.format("COF.notification.ItemNotEquipable", {itemName:item.name}));
             return;
@@ -1021,18 +976,18 @@ export class CofActor extends Actor {
         if (bypassChecks && (checkFreehands === "all" || (checkFreehands === "gm" && game.user.isGM))) return true;      
         
         // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
-        if (item.data.data.worn) return true;
+        if (item.system.worn) return true;
 
         // Si l'objet n'est pas tenu en main, on renvoi Vrai
-        if (item.data.data.slot !== "hand") return true;
+        if (item.system.slot !== "hand") return true;
 
         // Nombre de mains nécessaire pour l'objet que l'on veux équipper
-        let neededHands = item.data.data.properties["2H"] ? 2 : 1;
+        let neededHands = item.system.properties["2H"] ? 2 : 1;
 
         // Calcul du nombre de mains déjà utilisées
-        let itemsInHands = this.items.filter(item=>item.data.data.worn && item.data.data.slot === "hand");
+        let itemsInHands = this.items.filter(item=>item.system.worn && item.system.slot === "hand");
         let usedHands = 0;
-        itemsInHands.forEach(item=>usedHands += item.data.data.properties["2H"] ? 2 : 1);                
+        itemsInHands.forEach(item=>usedHands += item.system.properties["2H"] ? 2 : 1);                
 
         return usedHands + neededHands <= 2;        
     }
@@ -1051,7 +1006,7 @@ export class CofActor extends Actor {
         // Si le contrôle est ignoré ponctuellement avec la touche MAJ, on renvoi Vrai
         if (bypassChecks && (checkArmorSlotAvailability === "all" || (checkArmorSlotAvailability === "gm" && game.user.isGM))) return true;
         
-        const itemData = item.data.data;
+        const itemData = item.system;
 
         // Si l'objet est équipé, on tente de le déséquiper donc on ne fait pas de contrôle et on renvoi Vrai
         if (itemData.worn) return true;
@@ -1061,7 +1016,7 @@ export class CofActor extends Actor {
 
         // Recheche d'une item de type protection déjà équipé dans le slot cible
         let equipedItem = this.items.find((slotItem)=>{
-            let slotItemData = slotItem.data.data;
+            let slotItemData = slotItem.system;
 
             return slotItemData.properties?.protection && slotItemData.properties.equipable && slotItemData.worn && slotItemData.slot === itemData.slot;
         });
@@ -1076,8 +1031,8 @@ export class CofActor extends Actor {
      * @returns l'objet avec la quantité mise à jour
      */
     consumeItem(item) {
-        const consumable = item.data.data.properties.consumable;
-        const quantity = item.data.data.qty;
+        const consumable = item.system.properties.consumable;
+        const quantity = item.system.qty;
 
         if (consumable && quantity > 0) {
             AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
@@ -1106,7 +1061,7 @@ export class CofActor extends Actor {
             ui.notifications.warn(game.i18n.format('COF.notification.MacroItemMissing', {item:item.name}));
             return false;
         }
-        return (item.data.data.properties?.equipable ?? false) && item.data.data.worn;
+        return (item.system.properties?.equipable ?? false) && item.system.worn;
     }
     
     /**
@@ -1115,7 +1070,7 @@ export class CofActor extends Actor {
      * @returns 
      */
     getLevel(){
-        return this.data.data.level?.value;
+        return this.system.level?.value;
     }
 
     /**
@@ -1124,7 +1079,7 @@ export class CofActor extends Actor {
      * @returns 
      */
     getDV(){
-        return this.data.data.attributes.hd.value;
+        return this.system.attributes.hd.value;
     }
 
     /**
@@ -1137,19 +1092,19 @@ export class CofActor extends Actor {
         let statObj;
         switch(stat){
 			case "for" :
-			case "str" : statObj = this.data.data.stats?.str; break;
-			case "dex" : statObj = this.data.data.stats?.dex; break;
-			case "con" : statObj = this.data.data.stats?.con; break;
-			case "int" : statObj = this.data.data.stats?.int; break;
+			case "str" : statObj = this.system.stats?.str; break;
+			case "dex" : statObj = this.system.stats?.dex; break;
+			case "con" : statObj = this.system.stats?.con; break;
+			case "int" : statObj = this.system.stats?.int; break;
 			case "sag" :
-			case "wis" : statObj = this.data.data.stats?.wis; break;
-			case "cha" : statObj = this.data.data.stats?.cha; break;
+			case "wis" : statObj = this.system.stats?.wis; break;
+			case "cha" : statObj = this.system.stats?.cha; break;
 			case "atc" :
-			case "melee" : statObj = this.data.data.attacks?.melee; break;
+			case "melee" : statObj = this.system.attacks?.melee; break;
 			case "atd" :
-			case "ranged" : statObj = this.data.data.attacks?.ranged; break;
+			case "ranged" : statObj = this.system.attacks?.ranged; break;
 			case "atm" :
-			case "magic" : statObj = this.data.data.attacks?.magic; break;
+			case "magic" : statObj = this.system.attacks?.magic; break;
 			default :				
 				return null;
 		}
@@ -1166,7 +1121,7 @@ export class CofActor extends Actor {
         let path = this.getItemByName(pathName);
         if (path){
 
-            let capacities = [...path.data.data.capacities];
+            let capacities = [...path.system.capacities];
             capacities.sort((a,b)=>{
                 if (a.data.rank < b.data.rank) return 1;
                 if (a.data.rank > b.data.rank) return -1;
@@ -1184,7 +1139,7 @@ export class CofActor extends Actor {
      * @returns 
      */
      activateCapacity(capacity) {
-        const capacityData = capacity.data.data;
+        const capacityData = capacity.system;
         const activable = capacityData.activable;
         const limitedUsage = capacityData.limitedUsage;
         const buff = capacityData.buff;
@@ -1192,15 +1147,15 @@ export class CofActor extends Actor {
         if (activable) {
             if (buff) {
                 let itemData = duplicate(capacity.data);
-                const newStatus = !itemData.data.properties.buff.activated;
-                itemData.data.properties.buff.activated = newStatus;
+                const newStatus = !itemsystem.properties.buff.activated;
+                itemsystem.properties.buff.activated = newStatus;
                 return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, !newStatus));
             }
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
                 if (capacityData.properties.limitedUsage.use > 0) {
                     let itemData = duplicate(capacity.data);
-                    itemData.data.properties.limitedUsage.use = (itemData.data.properties.limitedUsage.use > 0) ? itemData.data.properties.limitedUsage.use - 1 : 0;
+                    itemsystem.properties.limitedUsage.use = (itemsystem.properties.limitedUsage.use > 0) ? itemsystem.properties.limitedUsage.use - 1 : 0;
 
                     AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
                     return capacity.update(itemData).then(capacity => capacity.applyEffects(this));

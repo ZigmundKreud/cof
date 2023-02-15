@@ -46,7 +46,7 @@ export class Profile {
      * @returns 
      */
     static removeFromActor(actor, profile) {
-        const paths = actor.items.filter(item => item.type === "path" && item.data.data.profile?._id === profile.id);
+        const paths = actor.items.filter(item => item.type === "path" && item.system.profile?._id === profile.id);
         return Dialog.confirm({
             title: game.i18n.localize("COF.dialog.deleteProfile.title"),
             content: game.i18n.format('COF.dialog.deleteProfile.confirm', {name:actor.name}),

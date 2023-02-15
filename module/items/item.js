@@ -24,57 +24,57 @@ export class CofItem extends Item {
     /** @override */
     prepareData() {
         super.prepareData();
-        const itemData = this.data;
+        //const itemData = this.system;
+        //const itemData = this.data;
+        let system = this.system;
         const actorData = (this.actor) ? this.actor.data : null;
-        if(itemData.data.price){
-            const qty = (itemData.data.qty) ? itemData.data.qty : 1;
-            itemData.data.value = qty * itemData.data.price;
+        if(system.price){
+            const qty = (system.qty) ? system.qty : 1;
+            system.value = qty * system.price;
         }
-        if(itemData.data.properties?.protection) this._prepareArmorData(itemData);
-        if(itemData.data.properties?.weapon) this._prepareWeaponData(itemData, actorData);
+        if(system.properties?.protection) this._prepareArmorData(system);
+        if(system.properties?.weapon) this._prepareWeaponData(system, actorData);
         // utilisé par les capacités : ne pas effacer
-        if(!itemData.data.key) itemData.data.key = itemData.name.slugify({strict: true});
+        if(!system.key) system.key = this.name.slugify({strict: true});
     }
 
-    _prepareArmorData(itemData) {
-        itemData.data.def = parseInt(itemData.data.defBase, 10) + parseInt(itemData.data.defBonus, 10);
+    _prepareArmorData(system) {
+        system.def = parseInt(system.defBase, 10) + parseInt(system.defBonus, 10);
     }
 
-    _prepareWeaponData(itemData, actorData) {
-        itemData.data.skillBonus = (itemData.data.skillBonus) ? itemData.data.skillBonus : 0;
-        itemData.data.dmgBonus = (itemData.data.dmgBonus) ? itemData.data.dmgBonus : 0;
+    _prepareWeaponData(system, actorData) {
+        system.skillBonus = (system.skillBonus) ? system.skillBonus : 0;
+        system.dmgBonus = (system.dmgBonus) ? system.dmgBonus : 0;
         
         if (actorData && actorData.type !== "loot") {
             // Compute skill mod
-            const skillMod = eval("actorData.data." + itemData.data.skill.split("@")[1]);
-            itemData.data.mod = parseInt(skillMod) + parseInt(itemData.data.skillBonus);
+            const skillMod = eval("actorData.data." + system.skill.split("@")[1]);
+            system.mod = parseInt(skillMod) + parseInt(system.skillBonus);
 
             // Compute damage mod
-            const dmgStat = eval("actorData.data." + itemData.data.dmgStat.split("@")[1]);
-            const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(itemData.data.dmgBonus) : parseInt(itemData.data.dmgBonus);
-            if (dmgBonus < 0) itemData.data.dmg = itemData.data.dmgBase + " - " + parseInt(-dmgBonus);
-            else if (dmgBonus === 0) itemData.data.dmg = itemData.data.dmgBase;
-            else itemData.data.dmg = itemData.data.dmgBase + " + " + dmgBonus;
+            const dmgStat = eval("actorData.data." + system.dmgStat.split("@")[1]);
+            const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(system.dmgBonus) : parseInt(system.dmgBonus);
+            if (dmgBonus < 0) system.dmg = system.dmgBase + " - " + parseInt(-dmgBonus);
+            else if (dmgBonus === 0) system.dmg = system.dmgBase;
+            else system.dmg = system.dmgBase + " + " + dmgBonus;
         }
     }
 
     getProperty(property) {
-        const itemData = this.data;
-        if (itemData.type === "capacity") {
-            return itemData.data[property];
+        if (item.type === "capacity") {
+            return system[property];
         }
         else {
-            return itemData.data.properties[property];
+            return system.properties[property];
         }
     }
 
     getHealFormula() {
-        const itemData = this.data;
-        if (itemData.type === "capacity") {
-            return itemData.data.properties.heal.formula;
+        if (item.type === "capacity") {
+            return system.properties.heal.formula;
         }
         else {
-            return itemData.data.effects.heal.formula;
+            return system.effects.heal.formula;
         }
     }
 
@@ -86,12 +86,11 @@ export class CofItem extends Item {
      * @returns 
      */
     async applyEffects(actor) {
-        const itemData = this.data;
 
         // Capacité de soin
         if(this.getProperty("heal")) {
             // S'il n'a pas de formule
-            if (itemData.data.properties.heal.formula === "") return;
+            if (system.properties.heal.formula === "") return;
             const r = new CofHealingRoll(itemData.name, this.getHealFormula(), false);
             r.roll(actor);
             return r;
@@ -107,7 +106,7 @@ export class CofItem extends Item {
             // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
             let effectsData = actor.getEffectsFromItemId(this.id)?.map(effect=> duplicate(effect.data));
             if (effectsData.length > 0) {
-                effectsData.forEach(effect => effect.disabled = !this.data.data.properties.buff.activated);
+                effectsData.forEach(effect => effect.disabled = !this.system.properties.buff.activated);
                 actor.updateEmbeddedDocuments("ActiveEffect", effectsData);
             }
         }
@@ -116,16 +115,16 @@ export class CofItem extends Item {
         if (this.getProperty("useMacro")) {
            let macro;
            // Recherche de la macro avec l'ID
-           if (itemData.data.properties.macro.id !== null && itemData.data.properties.macro.id != "") {
-               macro = game.macros.get(itemData.data.properties.macro.id);
+           if (system.properties.macro.id !== null && system.properties.macro.id != "") {
+               macro = game.macros.get(system.properties.macro.id);
                if (macro !== undefined) {
                    return macro.execute();
                }
 
                // Recherche dans le compendium
-               if (itemData.data.properties.macro.pack != null && itemData.data.properties.macro.pack != "") {
-                    const pack = game.packs.get(itemData.data.properties.macro.pack);
-                    const item = pack.index.get(itemData.data.properties.macro.id);                
+               if (system.properties.macro.pack != null && system.properties.macro.pack != "") {
+                    const pack = game.packs.get(system.properties.macro.pack);
+                    const item = pack.index.get(system.properties.macro.id);                
                     let itemId = item != undefined ? item._id : null;
                     if (itemId) {
                         macro = await pack.getDocument(itemId);
@@ -142,14 +141,14 @@ export class CofItem extends Item {
                 let macro;
 
                 // Recherche dans le monde
-                macro = game.macros.getName(itemData.data.properties.macro.name);
+                macro = game.macros.getName(system.properties.macro.name);
                 if (macro != undefined) {
                     return macro.execute();
                 }
 
                 // Recherche dans le compendium des macros
                 const pack = game.packs.get("cof.macros");
-                const item = pack.index.getName(itemData.data.properties.macro.name);                
+                const item = pack.index.getName(system.properties.macro.name);                
                 let itemId = item != undefined ? item._id : null;
                 if (itemId) {
                     macro = await pack.getDocument(itemId);
@@ -165,43 +164,43 @@ export class CofItem extends Item {
     }
     
     getMartialCategory() {
-        if (!this.data.data.properties?.weapon) return;
+        if (!this.system.properties?.weapon) return;
         return ;
     }
 
     getQuantity() {
-        if(this.data.data.properties.stackable) return this.data.data.qty;
+        if(this.system.properties.stackable) return this.system.qty;
         else return 1;
     }
     
     modifyQuantity(increment, isDecrease) {
-        if(this.data.data.properties.stackable) {
-            let itemData = duplicate(this.data);
-            const qty = itemData.data.qty;
+        if(this.system.properties.stackable) {
+            let qty = this.system.qty;
+            let value = this.system.value;
             increment = Math.abs(increment);
 
             if (isDecrease) {
-                itemData.data.qty = Math.max(0, qty - increment);
-                if (itemData.data.deleteWhen0 && itemData.data.qty === 0) return this.delete();
+                qty = Math.max(0, qty - increment);
+                if (system.deleteWhen0 && system.qty === 0) return this.delete();
             }
-            else itemData.data.qty = itemData.data.stacksize ? Math.min(itemData.data.stacksize, qty + increment) : qty + increment;
+            else qty = this.system.stacksize ? Math.min(this.system.stacksize, qty + increment) : qty + increment;
 
-            if (itemData.data.price) {
-                const qty = (itemData.data.qty) ? itemData.data.qty : 1;
-                itemData.data.value = qty * itemData.data.price;
+            if (this.system.price) {
+                const qty = (this.system.qty) ? this.system.qty : 1;
+                value = qty * this.system.price;
             }
-            return this.update(itemData);
+            return this.update({'system.qty': qty},{'system.value': value});
         }
     }
 
     modifyUse(increment, isDecrease) {
-        if(this.data.data.limitedUsage) {
-            let itemData = duplicate(this.data);
-            const qty = itemData.data.properties.limitedUsage.use;
-            if (isDecrease) itemData.data.properties.limitedUsage.use = Math.max(0, qty - increment);
-            else itemData.data.properties.limitedUsage.use = Math.min(itemData.data.properties.limitedUsage.maxUse, qty + increment)
-            if (itemData.data.properties.limitedUsage.use < 0) itemData.data.properties.limitedUsage.use = 0;
-            return this.update(itemData);
+        if(this.system.limitedUsage) {
+            //let itemData = duplicate(this.data);
+            let newQty = system.properties.limitedUsage.use;
+            if (isDecrease) newQty = Math.max(0, qty - increment);
+            else newQty = Math.min(system.properties.limitedUsage.maxUse, newQty + increment);
+            if (newQty < 0) newQty = 0;
+            return this.update({'system.properties.limitedUsage.use': newQty});
         }
     }
 
