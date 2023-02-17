@@ -153,7 +153,7 @@ export class CofLootSheet extends CofBaseSheet {
         const item = await Item.fromDropData(data);
         if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         
-        let itemData = duplicate(item.data);
+        let itemData = foundry.utils.duplicate(item.data);
         if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         itemData = itemData instanceof Array ? itemData : [itemData];
         switch (itemData.type) {

@@ -6,19 +6,20 @@ export class Compendia {
      * @param {*} filters 
      * @returns 
      */
-    static getContent(filters = []) {
+    static async getContent(filters = []) {
         let promises = game.packs.map(comp => {
             return comp.getDocuments().then(content => {
                 if (filters.length > 0) return content.filter(i => filters.includes(i.type));
                 else return content;
             });
         });
-        return Promise.all(promises).then(function (indices) {
+        let resultat = await Promise.all(promises).then(function (indices) {
             return indices.flat().reduce(function (map, obj) {
                 map[obj.id] = obj;
                 return map;
             }, {});
         });
+        return resultat;
     }
 
     static getIndex() {

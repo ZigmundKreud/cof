@@ -27,7 +27,7 @@ export class CofItem extends Item {
         //const itemData = this.system;
         //const itemData = this.data;
         let system = this.system;
-        const actorData = (this.actor) ? this.actor.data : null;
+        const actorData = (this.actor) ? this.actor : null;
         if(system.price){
             const qty = (system.qty) ? system.qty : 1;
             system.value = qty * system.price;
@@ -48,11 +48,11 @@ export class CofItem extends Item {
         
         if (actorData && actorData.type !== "loot") {
             // Compute skill mod
-            const skillMod = eval("actorData.data." + system.skill.split("@")[1]);
+            const skillMod = eval("actorData.system." + system.skill.split("@")[1]);
             system.mod = parseInt(skillMod) + parseInt(system.skillBonus);
 
             // Compute damage mod
-            const dmgStat = eval("actorData.data." + system.dmgStat.split("@")[1]);
+            const dmgStat = eval("actorData.system." + system.dmgStat.split("@")[1]);
             const dmgBonus = (dmgStat) ? parseInt(dmgStat) + parseInt(system.dmgBonus) : parseInt(system.dmgBonus);
             if (dmgBonus < 0) system.dmg = system.dmgBase + " - " + parseInt(-dmgBonus);
             else if (dmgBonus === 0) system.dmg = system.dmgBase;
@@ -104,7 +104,7 @@ export class CofItem extends Item {
         // Capacité de buff
         if (this.getProperty("buff")) {
             // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
-            let effectsData = actor.getEffectsFromItemId(this.id)?.map(effect=> duplicate(effect.data));
+            let effectsData = actor.getEffectsFromItemId(this.id)?.map(effect=> foundry.utils.duplicate(effect.data));
             if (effectsData.length > 0) {
                 effectsData.forEach(effect => effect.disabled = !this.system.properties.buff.activated);
                 actor.updateEmbeddedDocuments("ActiveEffect", effectsData);
@@ -195,7 +195,7 @@ export class CofItem extends Item {
 
     modifyUse(increment, isDecrease) {
         if(this.system.limitedUsage) {
-            //let itemData = duplicate(this.data);
+            //let itemData = foundry.utils.duplicate(this.data);
             let newQty = system.properties.limitedUsage.use;
             if (isDecrease) newQty = Math.max(0, qty - increment);
             else newQty = Math.min(system.properties.limitedUsage.maxUse, newQty + increment);

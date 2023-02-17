@@ -4,13 +4,14 @@ import {Compendia} from "./compendia.js";
 import { COF } from "../system/config.js";
 export class UpdateUtils {
 
+    //FIXME Supprimer toute cette classe ?
     static updatePacks() {
         return Traversal.getIndex().then(index => {
             // PATHS
             return Promise.all([
                 Traversal.getEntitiesOfType(["path"]).then(paths => {
                     paths.forEach(path => {
-                        let data = duplicate(path.data);
+                        let data = foundry.utils.duplicate(path.data);
                         data.data.capacities = data.data.capacities.map(cid => {
                             if (typeof cid === "string") {
                                 // not updated
@@ -27,7 +28,7 @@ export class UpdateUtils {
                 // PROFILES
                 Traversal.getEntitiesOfType(["profile"]).then(profiles => {
                     profiles.forEach(profile => {
-                        let data = duplicate(profile.data);
+                        let data = foundry.utils.duplicate(profile.data);
                         data.data.paths = data.data.paths.map(pid => {
                             if (typeof pid === "string") {
                                 // not updated
@@ -44,7 +45,7 @@ export class UpdateUtils {
                 // SPECIES
                 Traversal.getEntitiesOfType(["species"]).then(species => {
                     species.forEach(specie => {
-                        let data = duplicate(specie.data);
+                        let data = foundry.utils.duplicate(specie.data);
                         data.data.capacities = data.data.capacities.map(cid => {
                             if (typeof cid === "string") {
                                 // not updated
@@ -75,7 +76,7 @@ export class UpdateUtils {
         return Traversal.getEntitiesOfType(["path"]).then(paths => {
             paths.forEach(path => {
                 return Traversal.getIndex().then(index => {
-                    let data = duplicate(path.data);
+                    let data = foundry.utils.duplicate(path.data);
                     data.data.capacities = data.data.capacities.map(cid => {
                         if (typeof cid === "string") {
                             // not updated
@@ -96,7 +97,7 @@ export class UpdateUtils {
         return Traversal.getEntitiesOfType(["profile"]).then(profiles => {
             profiles.forEach(profile => {
                 return Traversal.getIndex().then(index => {
-                    let data = duplicate(profile.data);
+                    let data = foundry.utils.duplicate(profile.data);
                     data.data.paths = data.data.paths.map(pid => {
                         if (typeof pid === "string") {
                             // not updated
@@ -117,7 +118,7 @@ export class UpdateUtils {
         return Traversal.getEntitiesOfType(["species"]).then(species => {
             species.forEach(specie => {
                 return Traversal.getIndex().then(index => {
-                    let data = duplicate(specie.data);
+                    let data = foundry.utils.duplicate(specie.data);
                     data.data.capacities = data.data.capacities.map(cid => {
                         if (typeof cid === "string") {
                             // not updated
@@ -148,7 +149,7 @@ export class UpdateUtils {
             // PATHS
             return game.packs.get("cof-srd.encounters").getContent().then(encounters =>{
                 encounters.forEach(encounter => {
-                    let data = duplicate(encounter.data);
+                    let data = foundry.utils.duplicate(encounter.data);
                     // data.data.capacities = data.data.capacities.map(cid => {
                     //     if (typeof cid === "string") {
                     //         // not updated
@@ -165,7 +166,7 @@ export class UpdateUtils {
             // return Traversal.getEntitiesOfType(["encounter"]).then(encounters => {
             //     console.log(encounters);
             //     encounters.forEach(encounter => {
-            //         let data = duplicate(encounter.data);
+            //         let data = foundry.utils.duplicate(encounter.data);
             //         // data.data.capacities = data.data.capacities.map(cid => {
             //         //     if (typeof cid === "string") {
             //         //         // not updated

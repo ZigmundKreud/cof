@@ -76,7 +76,7 @@
     </li>
 {{#each system.paths as |path id|}}
     <ol class="item-list">
-        <li class="item flexrow" data-item-id="{{path._id}}" data-item-type="path" data-key="{{path.system.key}}" draggable="true">
+        <li class="item flexrow" data-item-id="{{path._id}}" data-item-uuid="{{path.sourceId}}" data-item-type="path" data-key="{{path.system.key}}" draggable="true">
             <div class="item-name flexrow">
                 <div class="item-image" style="background-image: url('{{path.img}}')"></div>
                 <h4>{{path.name}}</h4>

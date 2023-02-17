@@ -8,15 +8,39 @@ export class Profile {
      * @param {*} itemData 
      * @returns 
      */
-    static addToActor(actor, itemData) {
+    static async addToActor(actor, itemData) {
         if (actor.items.filter(item => item.type === "profile").length > 0) {
             ui.notifications.error(game.i18n.localize("COF.notification.ProfileAlreadyOwned"));
             return false;
         } else {
             itemData = itemData instanceof Array ? itemData : [itemData];
-            // ajoute le profil dans Items
-            return actor.createEmbeddedDocuments("Item", itemData).then(newProfile => {
-                let newProfileData = newProfile[0].data;
+            // Ajout du profil dans les embedded items
+            let newProfileData = await actor.createEmbeddedDocuments("Item", itemData);
+            let newProfile = newProfileData[0];
+
+            let paths = [];
+//            let newPaths = duplicate(newProfile.system.paths)
+            for (const path of newProfile.system.paths) {
+                let pathData = await fromUuid(path.sourceId);
+                pathData.flags.core = { sourceId: path.sourceId };
+                pathData.system.profile = {
+                    _id: newProfile._id,
+                    name: newProfile.name,
+                    img: newProfile.img,
+                    key: newProfile.system.key,
+                    sourceId: newProfile.flags.core.sourceId,
+                };
+                paths.push(pathData);
+            }
+            
+            const updates = {"_id": newProfile._id, "system.paths": paths};            
+            await actor.updateEmbeddedDocuments("Item", [updates]);
+            
+            // add paths from profile
+            return Path.addPathsToActor(actor, paths);          
+
+            /* return actor.createEmbeddedDocuments("Item", itemData).then(newProfile => {
+                let newProfileData = newProfile[0].system;
                 return Traversal.mapItemsOfType(["path"]).then(paths => {
                     newProfileData.data.paths = newProfileData.data.paths.map(p => {
                         let pathData = paths[p._id];
@@ -34,6 +58,7 @@ export class Profile {
                     return Path.addPathsToActor(actor, newProfileData.data.paths)
                 });
             });
+            */
         }
     }
     /**

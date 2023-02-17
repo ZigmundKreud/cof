@@ -141,14 +141,14 @@ export class CofItemSheet extends ItemSheet {
             // Capacité rattachée à un acteur
             if (this.actor !== null) {
                 this.actor.syncItemActiveEffects(this.item, !isChecked);
-                let data = duplicate(this.item.data);
+                let data = foundry.utils.duplicate(this.item.data);
                 system.properties.buff.activated = isChecked;
                 return this.item.update(data);
             }
 
             // Capacité non rattachée à un acteur
             else {
-                let data = duplicate(this.item.data);
+                let data = foundry.utils.duplicate(this.item.data);
                 if (data.effects.length > 0){        
                     data.effects.forEach(effect => effect.disabled = isChecked ? false : true);
                     system.properties.buff.activated = isChecked;
@@ -203,13 +203,12 @@ export class CofItemSheet extends ItemSheet {
      * @private
      */
     _onDropItem(event, data) {
-        Item.fromDropData(data).then(item => {
-            const itemData = duplicate(item.data);
-            switch (itemData.type) {
+        Item.implementation.fromDropData(data).then(item => {
+            switch (item.type) {
                 case "path":
-                    return this._onDropPathItem(event, itemData);
+                    return this._onDropPathItem(event, item);
                 case "capacity":
-                    return this._onDropCapacityItem(event, itemData);
+                    return this._onDropCapacityItem(event, item);
                 case "profile":
                 case "species":
                 default:
@@ -277,7 +276,7 @@ export class CofItemSheet extends ItemSheet {
     _onDropCapacityItem(event, itemData) {
         event.preventDefault();
         if (this.item.type === "path" || this.item.type === "species") return Capacity.addToItem(this.item, itemData);
-        else return false;
+        return false;
     }
 
     /**
@@ -289,8 +288,18 @@ export class CofItemSheet extends ItemSheet {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
-        if (id) {
+        const uuid = li.data("itemUuid");
+        /*if (id) {
             return Traversal.find(id).then(e => {
+                if (e) return e.sheet.render(true);
+                else {
+                    ui.notifications.error(game.i18n.localize("COF.notification.ItemNotFound"));
+                    return false;
+                }
+            });
+        }*/
+        if (uuid) {
+            return fromUuid(uuid).then(e => {
                 if (e) return e.sheet.render(true);
                 else {
                     ui.notifications.error(game.i18n.localize("COF.notification.ItemNotFound"));
@@ -308,30 +317,29 @@ export class CofItemSheet extends ItemSheet {
      */
     _onDeleteItem(event) {
         event.preventDefault();
-        let data = duplicate(this.item.data);
+        // let data = foundry.utils.duplicate(this.item.data);
         const li = $(event.currentTarget).closest(".item");
         const id = li.data("itemId");
         const itemType = li.data("itemType");
         let array = null;
         switch (itemType) {
             case "path": {
-                array = system.paths;
+                array = this.item.system.paths;
                 const item = array.find(e => e._id === id);
                 if (array && array.includes(item)) {
                     ArrayUtils.remove(array, item);
                 }
+                return this.item.update({'system.paths': array});
             }
-                break;
             case "capacity": {
-                array = system.capacities;
+                array = this.item.system.capacities;
                 const item = array.find(e => e._id === id);
                 if (array && array.includes(item)) {
                     ArrayUtils.remove(array, item);
                 }
-            }
-                break;
+                return this.item.update({'system.capacities': array});
+            }            
         }
-        return this.item.update(data);
     }
 
 
@@ -344,104 +352,104 @@ export class CofItemSheet extends ItemSheet {
         const input = $(event.currentTarget).find("input");
         const name = input.attr('name');
         const checked = input.prop('checked')
-        if (name === "data.properties.equipment" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.properties.equipable = false;
-            data.system.slot = "";
-            data.system.properties.stackable = false;
-            data.system.qty = 1;
-            data.system.stacksize = null;
-            data.system.properties.unique = false;
-            data.system.properties.consumable = false;
-            data.system.properties.tailored = false;
-            data.system.properties["2H"] = false;
-            data.system.price = 0;
-            data.system.value = 0;
-            data.system.rarity = "";
-            return this.item.update(data);
+        if (name === "system.properties.equipment" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.properties.equipable = false;
+            system.slot = "";
+            system.properties.stackable = false;
+            system.qty = 1;
+            system.stacksize = null;
+            system.properties.unique = false;
+            system.properties.consumable = false;
+            system.properties.tailored = false;
+            system.properties["2H"] = false;
+            system.price = 0;
+            system.value = 0;
+            system.rarity = "";
+            return this.item.update({"system": system});
         }        
-        if (name === "data.properties.equipable" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.slot = "";
-            return this.item.update(data);
+        if (name === "system.properties.equipable" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.slot = "";
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.stackable" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.qty = 1;
-            data.system.stacksize = null;
-            data.system.deleteWhen0 = false;
-            return this.item.update(data);
+        if (name === "system.properties.stackable" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.qty = 1;
+            system.stacksize = null;
+            system.deleteWhen0 = false;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.weapon" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.skill = "@attacks.melee.mod";
-            data.system.skillBonus = 0;
-            data.system.dmgBase = 0;
-            data.system.dmgStat = "";
-            data.system.dmgBonus = 0;
-            data.system.critrange = "20"
-            data.system.properties.bashing = false;
-            data.system.properties["13strmin"] = false;
-            return this.item.update(data);
+        if (name === "system.properties.weapon" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.skill = "@attacks.melee.mod";
+            system.skillBonus = 0;
+            system.dmgBase = 0;
+            system.dmgStat = "";
+            system.dmgBonus = 0;
+            system.critrange = "20"
+            system.properties.bashing = false;
+            system.properties["13strmin"] = false;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.protection" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.defBase = 0;
-            data.system.defBonus = 0;
-            data.system.properties.dr = false;
-            data.system.dr = 0;
-            return this.item.update(data);
+        if (name === "system.properties.protection" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.defBase = 0;
+            system.defBonus = 0;
+            system.properties.dr = false;
+            system.dr = 0;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.dr" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.dr = 0;
-            return this.item.update(data);
+        if (name === "system.properties.dr" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.dr = 0;
+            return this.item.update({"system": system});
         }        
-        if (name === "data.properties.ranged" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.range = 0;
-            data.system.properties.bow = false;
-            data.system.properties.crossbow = false;
-            data.system.properties.powder = false;            
-            data.system.properties.throwing = false;
-            data.system.properties.sling = false;
-            data.system.properties.spell = false;
-            data.system.properties.reloadable = false;
-            data.system.reload = "";
-            return this.item.update(data);
+        if (name === "system.properties.ranged" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.range = 0;
+            system.properties.bow = false;
+            system.properties.crossbow = false;
+            system.properties.powder = false;            
+            system.properties.throwing = false;
+            system.properties.sling = false;
+            system.properties.spell = false;
+            system.properties.reloadable = false;
+            system.reload = "";
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.reloadable" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.reload = "";
-            return this.item.update(data);
+        if (name === "system.properties.reloadable" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.reload = "";
+            return this.item.update({"system": system});
         }        
          
-        if (name === "data.properties.effects" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.properties.heal = false;
-            data.system.properties.buff = false;
-            data.system.properties.temporary = false;
-            data.system.properties.persistent = false;
-            data.system.properties.spell = false;
-            data.system.effects.heal.formula = null;
-            data.system.effects.buff.formula = null;
-            data.system.properties.activable = false;
-            return this.item.update(data);
+        if (name === "system.properties.effects" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.properties.heal = false;
+            system.properties.buff = false;
+            system.properties.temporary = false;
+            system.properties.persistent = false;
+            system.properties.spell = false;
+            system.effects.heal.formula = null;
+            system.effects.buff.formula = null;
+            system.properties.activable = false;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.heal" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.effects.heal.formula = null;
-            return this.item.update(data);
+        if (name === "system.properties.heal" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.effects.heal.formula = null;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.buff" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.effects.buff.formula = null;
-            return this.item.update(data);
+        if (name === "system.properties.buff" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.effects.buff.formula = null;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.spell" && !checked) {
-            let data = duplicate(this.item.data);
-            data.system.properties.activable = false;
-            return this.item.update(data);
+        if (name === "system.properties.spell" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.properties.activable = false;
+            return this.item.update({"system": system});
         }        
     }
 

@@ -32,26 +32,26 @@ export class Traversal {
         return Compendia.getIndex().then(index =>{
             let items = game.items.map(entity => {
                 return {
-                    _id : entity.data._id,
-                    name : entity.data.name,
-                    img : entity.data.img,
-                    sourceId : "Item."+entity.data._id
+                    _id : entity.system._id,
+                    name : entity.system.name,
+                    img : entity.system.img,
+                    sourceId : "Item."+entity.system._id
                 }
             });
             let actors = game.actors.map(entity => {
                 return {
-                    _id : entity.data._id,
-                    name : entity.data.name,
-                    img : entity.data.img,
-                    sourceId : "Actor."+entity.data._id
+                    _id : entity.system._id,
+                    name : entity.system.name,
+                    img : entity.system.img,
+                    sourceId : "Actor."+entity.system._id
                 }
             });
             let journal = game.journal.map(entity => {
                 return {
-                    _id : entity.data._id,
-                    name : entity.data.name,
-                    img : entity.data.img,
-                    sourceId : "JournalEntry."+entity.data._id
+                    _id : entity.system._id,
+                    name : entity.system.name,
+                    img : entity.system.img,
+                    sourceId : "JournalEntry."+entity.system._id
                 }
             });
             return items.concat(actors).concat(journal).concat(Object.values(index)).reduce(function (map, obj) {
@@ -63,7 +63,7 @@ export class Traversal {
 
     static mapItemsOfType(types) {
         return Compendia.getContent(types).then(content =>{
-            return game.items.filter(item => types.includes(item.type)).map(entity => entity.data).concat(Object.values(content).map(entity => entity.data)).reduce(function (map, obj) {
+            return game.items.filter(item => types.includes(item.type)).map(entity => entity.system).concat(Object.values(content).map(entity => entity.system)).reduce(function (map, obj) {
                 map[obj._id] = obj;
                 return map;
             }, {});
@@ -78,7 +78,7 @@ export class Traversal {
 
     static getItemsOfType(types) {
         return Compendia.getContent(types).then(content =>{
-            return game.items.filter(item => types.includes(item.type)).map(entity => entity.data).concat(Object.values(content).map(entity => entity.data));
+            return game.items.filter(item => types.includes(item.type)).map(entity => entity.system).concat(Object.values(content).map(entity => entity.system));
         });
     }
 

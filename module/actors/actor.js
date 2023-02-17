@@ -64,11 +64,11 @@ export class CofActor extends Actor {
 
     // Token size category
     const s = CONFIG.COF.tokenSizes[this.system.details.size || "med"];
-    this.token.update({width: s, height: s});
+    this.prototypeToken.update({width: s, height: s});
 
     // Player character configuration
     if ( this.type === "character" ) {
-      this.token.update({vision: true, actorLink: true, disposition: 1});
+      this.prototypeToken.update({'sight.enabled': true, actorLink: true, disposition: 1});
     }
     
   }
@@ -726,7 +726,7 @@ export class CofActor extends Actor {
      * @name computeWeaponMod
      * @description calcule le modificateur final pour une arme
      *  Total = Mod lié à la caractéristique + Mod lié au bonus + malus éventuel d'incompétence en fonction de la catégorie de l'arme
-     * //TODO      COF : pas encore implémenté
+     * //TODO COF : pas encore implémenté
      *      -> à implémenter dans chacun des modules Chroniques Oubliées.
      * @param {int} itemModStat le modificateur issue de la caractéristique
      * @param {int} itemModBonus le modificateur issue du bonus
@@ -878,8 +878,8 @@ export class CofActor extends Actor {
     */
     syncItemActiveEffects(item, value){
         // Récupération des effets qui proviennent de l'item
-        //let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> duplicate(effect.data));
-        let effectsData = this.getEffectsFromItemId(item.id)?.map(effect => duplicate(effect.data));
+        //let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> foundry.utils.duplicate(effect.data));
+        let effectsData = this.getEffectsFromItemId(item.id)?.map(effect => foundry.utils.duplicate(effect.data));
         
         if (effectsData.length > 0){        
             effectsData.forEach(effect => effect.disabled = value);
@@ -908,7 +908,7 @@ export class CofActor extends Actor {
 
         const equipable = item.system.properties.equipable;
         if(equipable){
-            let itemData = duplicate(item.data);
+            let itemData = foundry.utils.duplicate(item.data);
             itemsystem.worn = !itemsystem.worn;
 
             if (game.settings.get("cof", "useIncompetentPJ") && itemsystem.worn) {
@@ -1123,12 +1123,12 @@ export class CofActor extends Actor {
 
             let capacities = [...path.system.capacities];
             capacities.sort((a,b)=>{
-                if (a.data.rank < b.data.rank) return 1;
-                if (a.data.rank > b.data.rank) return -1;
+                if (a.system.rank < b.system.rank) return 1;
+                if (a.system.rank > b.system.rank) return -1;
                 else return 0
             });
 
-            rank = capacities.find(capa=>capa.data.checked)?.data.rank; 
+            rank = capacities.find(capa=>capa.system.checked)?.system.rank; 
         }
         return rank;
     }
@@ -1146,7 +1146,7 @@ export class CofActor extends Actor {
 
         if (activable) {
             if (buff) {
-                let itemData = duplicate(capacity.data);
+                let itemData = foundry.utils.duplicate(capacity.data);
                 const newStatus = !itemsystem.properties.buff.activated;
                 itemsystem.properties.buff.activated = newStatus;
                 return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, !newStatus));
@@ -1154,7 +1154,7 @@ export class CofActor extends Actor {
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
                 if (capacityData.properties.limitedUsage.use > 0) {
-                    let itemData = duplicate(capacity.data);
+                    let itemData = foundry.utils.duplicate(capacity.data);
                     itemsystem.properties.limitedUsage.use = (itemsystem.properties.limitedUsage.use > 0) ? itemsystem.properties.limitedUsage.use - 1 : 0;
 
                     AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
@@ -1183,6 +1183,6 @@ export class CofActor extends Actor {
     */
     getEffectsFromItemId(itemId) {
         const criteria = "Item." + itemId;
-        return this.effects.filter(effect=>effect.data.origin.endsWith(criteria));
+        return this.effects.filter(effect=>effect.system.origin.endsWith(criteria));
     }
 }

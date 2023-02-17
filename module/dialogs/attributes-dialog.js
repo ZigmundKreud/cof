@@ -172,7 +172,7 @@ export class CofAttributesDialog extends FormApplication {
     /** @override */
     getData(options) {
         let data = super.getData(options);
-        data.stats = duplicate(this.object.system.stats);
+        data.stats = foundry.utils.duplicate(this.object.system.stats);
         for(let stat of Object.values(data.stats)){
             stat.mod = HandlebarsHelpers.numberFormat(Stats.getModFromStatValue(stat.base), {hash: {decimals: 0, sign: true}})
         }

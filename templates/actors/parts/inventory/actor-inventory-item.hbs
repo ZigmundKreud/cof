@@ -1,22 +1,22 @@
-<li class="item flexrow {{#if (and data.properties.stackable (isNegativeOrNull data.qty))}}out-of-charge{{/if}}" data-item-id="{{_id}}" data-item-type="item" data-item-equipable="{{data.properties.equipable}}" data-item-stackable="{{data.properties.stackable}}"  data-item-consumable="{{data.properties.consumable}}" draggable="true">
+<li class="item flexrow {{#if (and system.properties.stackable (isNegativeOrNull data.qty))}}out-of-charge{{/if}}" data-item-id="{{_id}}" data-item-type="item" data-item-equipable="{{system.properties.equipable}}" data-item-stackable="{{system.properties.stackable}}"  data-item-consumable="{{system.properties.consumable}}" draggable="true">
     <div class="item-name flexrow">
         <div class="item-image" style="background-image: url('{{img}}')"></div>
         <h4>{{name}}</h4>
     </div>
     <div class="item-detail">
-        <a class="item-control inventory-qty {{#if data.properties.stackable}}unlocked{{else}}locked{{/if}}" title="{{ localize "COF.ui.modifyQuantity"}}">{{data.qty}}</a>
+        <a class="item-control inventory-qty {{#if system.properties.stackable}}unlocked{{else}}locked{{/if}}" title="{{ localize "COF.ui.modifyQuantity"}}">{{data.qty}}</a>
     </div>
     <div class="item-detail">{{#if data.value}}{{data.value}}{{else}}{{localize "COF.ui.nc"}}{{/if}}</div>
     {{#if (or (equals owner.type "character") (equals owner.type "npc"))}}
     <div class="item-detail">
-        {{#if data.properties.equipable}}
+        {{#if system.properties.equipable}}
             {{#if data.worn}}
                 <a class="item-control inventory-equip" title="{{localize "COF.item.unequip"}}"><i class="fas fa-shield-alt"></i></a>
             {{else}}
                 <a class="item-control inventory-equip" title="{{localize "COF.item.equip"}}" style="color:lightgray;"><i class="fas fa-shield-alt"></i></a>
             {{/if}}
         {{/if}}
-        {{#if (and data.properties.consumable (isPositive data.qty))}}
+        {{#if (and system.properties.consumable (isPositive data.qty))}}
             <a class="item-control inventory-consume" title="{{localize "COF.item.consume"}}"><i class="fas fa-drumstick-bite"></i></a>
         {{/if}}
     </div>
