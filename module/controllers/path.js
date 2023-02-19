@@ -1,4 +1,5 @@
 import { EntitySummary } from "./entity-summary.js";
+import { CofItem } from "../items/item.js";
 
 export class Path {
   /**
@@ -12,9 +13,15 @@ export class Path {
     pathsData = pathsData instanceof Array ? pathsData : [pathsData];
     // pathsData.forEach(p => { items.push(p.toObject(false)) });
     pathsData.forEach(p => { 
-        const profile = p.system.profile;
-        let path = p.toObject();
-        path.system.profile = profile;
+        let path = p instanceof CofItem ? p.toObject() : p;
+        if (p.system.profile != null) {
+          const profile = p.system.profile;        
+          path.system.profile = profile;
+        }
+        if (p.system.species != null) {
+          const species = p.system.species;        
+          path.system.species = species;
+        }        
         items.push(path);
     });
     return actor.createEmbeddedDocuments("Item", items).then(newPaths => {

@@ -1,14 +1,4 @@
-import {Traversal} from "../utils/traversal.js";
-
 export const registerHandlebarsHelpers = function () {
-
-    Handlebars.registerHelper('getEmbeddedItems', function (type, ids) {
-        if (ids) {
-            return Traversal.getItemsOfType([type]).then(items => {
-                return ids.map(id => items.find(i => i._id === id));
-            });
-        } else return null;
-    });
 
     Handlebars.registerHelper('getPath', function (items, pathKey) {
         return items.filter(item => item.type === "path").find(p => p.system.key === pathKey);

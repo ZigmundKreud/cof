@@ -1,4 +1,3 @@
-import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 import { EntitySummary } from "./entity-summary.js";
 
@@ -20,7 +19,7 @@ export class Capacity {
      * @param {*} capsData 
      * @returns 
      */
-    static addCapsToActor(actor, capsData) {
+    static addCapacitiesToActor(actor, capsData) {
         //let items = [];
         //capsData.forEach(c => { items.push(c.) });
         return actor.createEmbeddedDocuments("Item", capsData);

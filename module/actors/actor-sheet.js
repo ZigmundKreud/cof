@@ -7,7 +7,6 @@ import { Path } from "../controllers/path.js";
 import { Profile } from "../controllers/profile.js";
 import { Species } from "../controllers/species.js";
 import { CofRoll } from "../controllers/roll.js";
-import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 import { System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
@@ -300,7 +299,9 @@ export class CofActorSheet extends CofBaseSheet {
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
-        const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
+        //  const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
+        const uuid = li.data("uuid");
+
         if (type === "effect") {
             let effects = this.actor.effects;
             const effect = effects.get(id);
@@ -312,12 +313,12 @@ export class CofActorSheet extends CofBaseSheet {
             // Recherche d'un capacité existante avec la même clé
             const key = li.data("key");
             let entity = this.actor.items.find(i => i.type === "capacity" && i.system.key === key);
-            return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
+            return (entity) ? entity.sheet.render(true) : fromUuid(uuid).then(e => e.sheet.render(true));
         }
         else {
-            // look first in actor onwed items
+            // look first in actor embedded items
             let entity = this.actor.items.get(id);
-            return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
+            return (entity) ? entity.sheet.render(true) : fromUuid(uuid).then(e => e.sheet.render(true));
         }
     }
 

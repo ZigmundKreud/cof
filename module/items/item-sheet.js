@@ -6,7 +6,6 @@ import { Capacity } from "../controllers/capacity.js";
 import { Path } from "../controllers/path.js";
 import { COF, System } from "../system/config.js";
 import { ArrayUtils } from "../utils/array-utils.js";
-import { Traversal } from "../utils/traversal.js";
 import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 
 export class CofItemSheet extends ItemSheet {
@@ -289,15 +288,6 @@ export class CofItemSheet extends ItemSheet {
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
         const uuid = li.data("itemUuid");
-        /*if (id) {
-            return Traversal.find(id).then(e => {
-                if (e) return e.sheet.render(true);
-                else {
-                    ui.notifications.error(game.i18n.localize("COF.notification.ItemNotFound"));
-                    return false;
-                }
-            });
-        }*/
         if (uuid) {
             return fromUuid(uuid).then(e => {
                 if (e) return e.sheet.render(true);

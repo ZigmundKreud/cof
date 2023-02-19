@@ -1,4 +1,3 @@
-import { Traversal } from "../utils/traversal.js";
 import { Path } from "./path.js";
 
 export class Profile {
@@ -38,27 +37,6 @@ export class Profile {
             
             // add paths from profile
             return Path.addPathsToActor(actor, paths);          
-
-            /* return actor.createEmbeddedDocuments("Item", itemData).then(newProfile => {
-                let newProfileData = newProfile[0].system;
-                return Traversal.mapItemsOfType(["path"]).then(paths => {
-                    newProfileData.data.paths = newProfileData.data.paths.map(p => {
-                        let pathData = paths[p._id];
-                        pathData.flags.core = { sourceId: p.sourceId };
-                        pathData.data.profile = {
-                            _id: newProfileData._id,
-                            name: newProfileData.name,
-                            img: newProfileData.img,
-                            key: newProfileData.data.key,
-                            sourceId: newProfileData.flags.core.sourceId,
-                        };
-                        return pathData;
-                    });
-                    // add paths from profile
-                    return Path.addPathsToActor(actor, newProfileData.data.paths)
-                });
-            });
-            */
         }
     }
     /**
