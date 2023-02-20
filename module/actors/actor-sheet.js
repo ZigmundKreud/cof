@@ -299,7 +299,6 @@ export class CofActorSheet extends CofBaseSheet {
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
         const type = (li.data("itemType")) ? li.data("itemType") : "item";
-        //  const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
         const uuid = li.data("uuid");
 
         if (type === "effect") {
@@ -398,7 +397,6 @@ export class CofActorSheet extends CofBaseSheet {
             case "weapon": return CofRoll.rollWeapon(data.data, this.actor, event)
             case "encounter-weapon": return CofRoll.rollEncounterWeapon(data.data, this.actor, event)
             case "encounter-damage": return CofRoll.rollEncounterDamage(data.data, this.actor, event)
-            case "spell": return CofRoll.rollSpell(data.data, this.actor, event)
             case "damage": return CofRoll.rollDamage(data.data, this.actor, event)
             case "hp": return CofRoll.rollHitPoints(data.data, this.actor, event)
             case "attributes": return CofRoll.rollAttributes(data.data, this.actor, event)

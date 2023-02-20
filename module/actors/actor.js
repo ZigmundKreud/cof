@@ -64,11 +64,13 @@ export class CofActor extends Actor {
 
     // Token size category
     const s = CONFIG.COF.tokenSizes[this.system.details.size || "med"];
-    this.prototypeToken.update({width: s, height: s});
-
+    const prototypeToken = {width: s, height: s};
+    
     // Player character configuration
-    if ( this.type === "character" ) {
-      this.prototypeToken.update({'sight.enabled': true, actorLink: true, disposition: 1});
+    if ( this.type === "character" ) { Object.assign(prototypeToken, {
+        sight: { enabled: true }, actorLink: true, disposition: 1
+      });
+      this.updateSource({prototypeToken});
     }
     
   }
@@ -83,12 +85,11 @@ export class CofActor extends Actor {
     const newSize = foundry.utils.getProperty(changed, "system.details.size");
     if ( newSize && (newSize !== foundry.utils.getProperty(this.system, "system.details.size")) ) {
       let size = CONFIG.COF.tokenSizes[newSize];
-      if ( !foundry.utils.hasProperty(changed, "token.width") ) {
-        changed.token = changed.token || {};
-        changed.token.height = size;
-        changed.token.width = size;
-      }
-      
+      if ( !foundry.utils.hasProperty(changed, "prototypeToken.width") ) {
+        changed.prototypeToken ||= {};
+        changed.prototypeToken.height = size;
+        changed.prototypeToken.width = size;
+      }      
     }
   }
     
