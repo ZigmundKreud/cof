@@ -876,7 +876,7 @@ export class CofActor extends Actor {
     * @description synchronise l'état des effets qui appartiennent à un item à un nouveau statut
     * @returns {Promise}
     */
-    syncItemActiveEffects(item, value){
+    async syncItemActiveEffects(item, value){
         // Récupération des effets qui proviennent de l'item
         //let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> foundry.utils.duplicate(effect.data));
         let effectsData = this.getEffectsFromItemId(item.id)?.map(effect => foundry.utils.duplicate(effect.data));
@@ -884,7 +884,7 @@ export class CofActor extends Actor {
         if (effectsData.length > 0){        
             effectsData.forEach(effect => effect.disabled = value);
 
-            this.updateEmbeddedDocuments("ActiveEffect", effectsData);
+            await this.updateEmbeddedDocuments("ActiveEffect", effectsData);
         }
     }    
 
@@ -903,33 +903,31 @@ export class CofActor extends Actor {
      * @param {*} bypassChecks 
      * @returns 
      */
-     toggleEquipItem(item, bypassChecks) {
+     async toggleEquipItem(item, bypassChecks) {
         if (!this.canEquipItem(item, bypassChecks)) return;        
 
         const equipable = item.system.properties.equipable;
-        if(equipable){
-            let itemData = foundry.utils.duplicate(item.data);
-            itemsystem.worn = !itemsystem.worn;
+        if (equipable) {
+            let updates = {"_id": item._id, "system.worn": !item.system.worn};
 
-            if (game.settings.get("cof", "useIncompetentPJ") && itemsystem.worn) {
+            if (game.settings.get("cof", "useIncompetentPJ") && item.system.worn) {
                 // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
-                if (itemsystem.subtype === "armor" || itemsystem.subtype === "shield") {
+                if (item.system.subtype === "armor" || item.system.subtype === "shield") {
                     const armorCategory = item.getMartialCategory();
                     if (!this.isCompetentWithArmor(armorCategory)) {
                         ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithArmor', {name:this.name, item:item.name}));
                     }    
                 }
-                if (itemsystem.subtype === "melee" || itemsystem.subtype === "ranged") {
+                if (item.system.subtype === "melee" || item.system.subtype === "ranged") {
                     const weaponCategory = item.getMartialCategory();
                     if (!this.isCompetentWithWeapon(weaponCategory)) {
                         ui.notifications?.warn(game.i18n.format('COF.notification.incompetentWithWeapon', {name:this.name, item:item.name}));
                     }    
                 }
             }
-            return item.update(itemData).then((item)=>{
-                AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-                if (!bypassChecks) this.syncItemActiveEffects(item, !itemsystem.worn);
-            });
+            await this.updateEmbeddedDocuments("Item", [updates]);
+            if (game.settings.get("cof","useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+            if (!bypassChecks) this.syncItemActiveEffects(item, !item.system.worn);
         }
     }
        
@@ -1035,7 +1033,7 @@ export class CofActor extends Actor {
         const quantity = item.system.qty;
 
         if (consumable && quantity > 0) {
-            AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+            if (game.settings.get("cof","useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
             return item.modifyQuantity(1,true).then(item => item.applyEffects(this));;
         }
         return ui.notifications.warn(game.i18n.localize("COF.notification.ConsumeEmptyObject"));
@@ -1147,17 +1145,17 @@ export class CofActor extends Actor {
         if (activable) {
             if (buff) {
                 let itemData = foundry.utils.duplicate(capacity.data);
-                const newStatus = !itemsystem.properties.buff.activated;
-                itemsystem.properties.buff.activated = newStatus;
+                const newStatus = !item.system.properties.buff.activated;
+                item.system.properties.buff.activated = newStatus;
                 return capacity.update(itemData).then(capacity => this.syncItemActiveEffects(capacity, !newStatus));
             }
             // Capacité activable avec un nombre d'usage limités
             if ( limitedUsage ) {
                 if (capacityData.properties.limitedUsage.use > 0) {
                     let itemData = foundry.utils.duplicate(capacity.data);
-                    itemsystem.properties.limitedUsage.use = (itemsystem.properties.limitedUsage.use > 0) ? itemsystem.properties.limitedUsage.use - 1 : 0;
+                    item.system.properties.limitedUsage.use = (item.system.properties.limitedUsage.use > 0) ? item.system.properties.limitedUsage.use - 1 : 0;
 
-                    AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+                    if (game.settings.get("cof","useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
                     return capacity.update(itemData).then(capacity => capacity.applyEffects(this));
                 }
                 return ui.notifications.warn(game.i18n.localize("COF.notification.ActivateEmptyCapacity"));

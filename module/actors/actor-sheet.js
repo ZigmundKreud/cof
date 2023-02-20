@@ -382,10 +382,10 @@ export class CofActorSheet extends CofBaseSheet {
      * @param event the roll event
      * @private
      */
-    _onRoll(event) {
+    async _onRoll(event) {
         const elt = $(event.currentTarget)[0];
         const rolltype = elt.attributes["data-roll-type"].value;
-        const data = this.getData();
+        const data = await this.getData();
         // SHIFT + click
         if (event.shiftKey) {
             switch (rolltype) {

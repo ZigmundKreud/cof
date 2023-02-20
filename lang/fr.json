@@ -584,6 +584,8 @@
   "SETTINGS.checkArmorSlotAvailability.hint": "Vérifier la disponibilité d'un emplacement avant d'équiper une armure (Maintenir MAJ pour ignorer le contrôle)",
   "SETTINGS.checkArmorSlotAvailability.none": "Ne pas vérifier",
   "SETTINGS.checkArmorSlotAvailability.all": "Vérification (ignorable par tous)",
-  "SETTINGS.checkArmorSlotAvailability.gm": "Vérification (ignorable uniquement par le MJ)"    
+  "SETTINGS.checkArmorSlotAvailability.gm": "Vérification (ignorable uniquement par le MJ)",
+  "SETTINGS.useActionSound.name": "Son des actions",
+  "SETTINGS.useActionSound.hint": "Joue un son pour certaines actions (équiper, consommer)"     
 
 }

@@ -4,12 +4,12 @@
         <h4>{{name}}</h4>
     </div>   
     {{#if (isNotLimited @root)}}
-        {{#if data.def}}<div class="item-detail">{{numberFormat data.def decimals=0 sign=true}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+        {{#if system.def}}<div class="item-detail">{{numberFormat system.def decimals=0 sign=true}}</div>{{else}}<div class="item-detail"></div>{{/if}}
         <div class="item-detail">
-            {{#if system.properties.ranged}}{{data.range}}{{/if}}
+            {{#if system.properties.ranged}}{{system.range}}{{/if}}
         </div>
         <div class="item-detail">
-            {{#if (equals data.slot "hand")}}
+            {{#if (equals system.slot "hand")}}
                 {{#if system.properties.2H}}
                     <i class="fas fa-hand-paper"></i><i class="fas fa-hand-paper"></i>
                 {{else}}
@@ -18,12 +18,12 @@
             {{/if}}
         </div>
         <div class="item-detail item-critrange">
-            {{#if system.properties.weapon}}{{data.critrange}}{{/if}}
+            {{#if system.properties.weapon}}{{system.critrange}}{{/if}}
         </div>
-        <div class="item-detail item-mod" data-item-mod="{{data.mod}}">
-            {{#if system.properties.weapon}}{{data.mod}}{{/if}}
+        <div class="item-detail item-mod" data-item-mod="{{system.mod}}">
+            {{#if system.properties.weapon}}{{system.mod}}{{/if}}
         </div>
-        <div class="item-detail item-dmg" data-item-dmg="{{data.dmg}}">{{#if system.properties.weapon}}{{data.dmg}}{{/if}}</div>
+        <div class="item-detail item-dmg" data-item-dmg="{{system.dmg}}">{{#if system.properties.weapon}}{{system.dmg}}{{/if}}</div>
         {{#if @root.editable}}
             <div class="item-controls">
                 {{#if system.properties.weapon}}

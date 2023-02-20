@@ -584,6 +584,7 @@
   "SETTINGS.checkArmorSlotAvailability.hint": "Check availability of a slot before equipping armour (Hold Shift to ignore the check)",
   "SETTINGS.checkArmorSlotAvailability.none": "Do not check",
   "SETTINGS.checkArmorSlotAvailability.all": "Verification (can be ignored by all)",
-  "SETTINGS.checkArmorSlotAvailability.gm": "Verification (can only be ignored by the GM)"  
-
+  "SETTINGS.checkArmorSlotAvailability.gm": "Verification (can only be ignored by the GM)",
+  "SETTINGS.useActionSound.name": "Sound for actions",
+  "SETTINGS.useActionSound.hint": "Play a sound for some actions" 
 }

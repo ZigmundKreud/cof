@@ -41,8 +41,8 @@
             </div>
             <div class="flex1 right {{#if (isNegative actor.system.xp.value)}}red{{/if}}">
                 <span class="field-label">{{localize "COF.ui.CapacityPoints"}} {{actor.system.xp.value}}/{{actor.system.xp.max}}</span>
-                <input name="data.xp.value" type="hidden" value="{{actor.system.xp.value}}" data-dtype="Number"/>
-                <input name="data.xp.max" type="hidden" value="{{actor.system.xp.max}}" data-dtype="Number"/>
+                <input name="system.xp.value" type="hidden" value="{{actor.system.xp.value}}" data-dtype="Number"/>
+                <input name="system.xp.max" type="hidden" value="{{actor.system.xp.max}}" data-dtype="Number"/>
             </div>
         </div>
         {{/if}}

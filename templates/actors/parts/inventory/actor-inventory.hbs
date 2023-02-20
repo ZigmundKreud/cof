@@ -3,19 +3,19 @@
     <div class="flex1 left">{{localize "COF.inventory.purse"}}</div>
     <div class="flex1 left">
         <i title="{{localize "COF.currency.pp.label"}}" class="fas fa-coins" style="color:dimgray"></i>
-        <input class="field-value center" name="data.currency.pp.qty" type="number" value="{{actor.system.currency.pp.qty}}" data-dtype="Number"/>
+        <input class="field-value center" name="system.currency.pp.qty" type="number" value="{{actor.system.currency.pp.qty}}" data-dtype="Number"/>
     </div>
     <div class="flex1 left">
         <i title="{{localize "COF.currency.gp.label"}}" class="fas fa-coins" style="color:goldenrod"></i>
-        <input class="field-value center" name="data.currency.gp.qty" type="number" value="{{actor.system.currency.gp.qty}}" data-dtype="Number"/>
+        <input class="field-value center" name="system.currency.gp.qty" type="number" value="{{actor.system.currency.gp.qty}}" data-dtype="Number"/>
     </div>
     <div class="flex1 left">
         <i title="{{localize "COF.currency.sp.label"}}" class="fas fa-coins" style="color:silver"></i>
-        <input class="field-value center" name="data.currency.sp.qty" type="number" value="{{actor.system.currency.sp.qty}}" data-dtype="Number"/>
+        <input class="field-value center" name="system.currency.sp.qty" type="number" value="{{actor.system.currency.sp.qty}}" data-dtype="Number"/>
     </div>
     <div class="flex1 left">
         <i title="{{localize "COF.currency.cp.label"}}" class="fas fa-coins" style="color:saddlebrown"></i>
-        <input class="field-value center" name="data.currency.cp.qty" type="number" value="{{actor.system.currency.cp.qty}}" data-dtype="Number"/>
+        <input class="field-value center" name="system.currency.cp.qty" type="number" value="{{actor.system.currency.cp.qty}}" data-dtype="Number"/>
     </div>
 </div>
 {{#if (gt inventory.count 0)}}

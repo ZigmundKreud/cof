@@ -22,10 +22,10 @@
                     <div class="field-label no-wrap" title="{{ localize stat.label }}">{{ localize stat.abbrev }}</div>
                 </div>
                 <div class="flex1 center cell">
-                    <input class="field-value base" name="data.stats.{{id}}.base" type="text" value="{{stat.base}}" data-attr="base" data-dtype="Number"/>
+                    <input class="field-value base" name="system.stats.{{id}}.base" type="text" value="{{stat.base}}" data-attr="base" data-dtype="Number"/>
                 </div>
                 <div class="flex1 center cell">
-                    <input class="field-value mod" name="data.stats.{{id}}.mod" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-attr="mod" data-dtype="Number"/>
+                    <input class="field-value mod" name="system.stats.{{id}}.mod" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-attr="mod" data-dtype="Number"/>
                 </div>
             </div>
         {{/each}}

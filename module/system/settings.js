@@ -155,5 +155,14 @@ export const registerSystemSettings = function() {
             "all" : "SETTINGS.checkArmorSlotAvailability.all",
             "gm" : "SETTINGS.checkArmorSlotAvailability.gm"
         }
-    });    
+    });
+    
+    game.settings.register("cof", "useActionSound",{
+        name: "SETTINGS.useActionSound.name",
+        hint: "SETTINGS.useActionSound.hint",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean
+    });
 };

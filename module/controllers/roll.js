@@ -19,20 +19,20 @@ export class CofRoll {
     static skillCheck(data, actor, event) {
         const elt = $(event.currentTarget)[0];
         let key = elt.attributes["data-rolling"].value;
-        let label = eval(`${key}.label`);
+        let label = eval(`data.${key}.label`);
 
         // Prise en compte de la notion de PJ incompétent et de l'encombrement
-        let mod = eval(`${key}.mod`) ;
+        let mod = eval(`data.${key}.mod`) ;
         let malus = actor.getIncompetentSkillMalus(key) + actor.getOverloadedSkillMalus(key);
         
         // Prise en compte des bonus ou malus liés à la caractéristique
-        let bonus =  eval(`${key}.skillbonus`);
+        let bonus =  eval(`data.${key}.skillbonus`);
         if (!bonus) bonus = 0;
-        let skillMalus = eval(`${key}.skillmalus`);
+        let skillMalus = eval(`data.${key}.skillmalus`);
         if (!skillMalus) skillMalus = 0;
         malus += skillMalus;
 
-        let superior = eval(`${key}.superior`);
+        let superior = eval(`data.${key}.superior`);
         const critrange = 20;
         label = (label) ? game.i18n.localize(label) : null;
         return this.skillRollDialog(actor, label, mod, bonus, malus, critrange, superior, "submit", null, actor.isWeakened());
@@ -55,10 +55,9 @@ export class CofRoll {
     static rollWeapon(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
         let item = actor.items.get(li.data("itemId"));
-        const itemData = item.data;
     
-        const label = itemData.name;
-        const critrange = itemData.data.critrange;
+        const label = item.name;
+        const critrange = item.system.critrange;
         const itemMod = $(event.currentTarget).parents().children(".item-mod");
         const mod = itemMod.data('itemMod');
         const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
@@ -152,22 +151,6 @@ export class CofRoll {
     }
 
     /**
-     *  Handles spell rolls
-     * @param elt DOM element which raised the roll event
-     * @param key the key of the attribute to roll
-     * @private
-     */
-    static rollSpell(data, actor, event) {
-        const li = $(event.currentTarget).parents(".item");
-        let item = actor.items.get(li.data("itemId"));
-        let label = item.data.name;
-        let mod = item.system.mod;
-        let critrange = item.system.critrange;
-        let dmg = item.system.dmg;
-        return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0);
-    }
-
-    /**
      *  Handles damage rolls
      * @param elt DOM element which raised the roll event
      * @param key the key of the attribute to roll
@@ -176,9 +159,8 @@ export class CofRoll {
     static rollDamage(data, actor, event) {
         const li = $(event.currentTarget).parents(".item");        
         const item = actor.items.get(li.data("itemId"));
-        const itemData = item.data;
-    
-        const label = itemData.name;
+   
+        const label = item.name;
         
         const dmgMod = $(event.currentTarget).parents().children(".item-dmg");
         const dmg = dmgMod.data('itemDmg');
@@ -259,7 +241,6 @@ export class CofRoll {
         let rp = data.attributes.rp;
         const level = data.level.value;
         const conMod = data.stats.con.mod;
-        const actorData = actor.data;
     
         if (!withHPrecovery) {
             rp.value -= 1;
@@ -271,7 +252,7 @@ export class CofRoll {
                 title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
                 content: game.i18n.localize("COF.dialog.spendRecoveryPoint.content"),
                 yes: async () => {
-                        const hd = actorData.data.attributes.hd.value;
+                        const hd = actor.system.attributes.hd.value;
                         const hdmax = parseInt(hd.split("d")[1]);
                         const bonus = level + conMod;
                         const formula = `1d${hdmax} + ${bonus}`;

@@ -28,7 +28,7 @@ export class Path {
         // on ajoute toutes les metadonnees aux voies nouvellement creees pour faciliter la gestions des capacites qui en dependent
         let updatedPaths = newPaths.map(newPath => {
             const index = newPaths.indexOf(newPath);
-            let updatedPath = duplicate(newPath);
+            let updatedPath = foundry.utils.duplicate(newPath);
             updatedPath.system.capacities = updatedPath.system.capacities.map(cap => {
                 // Ajout de données utilisées pour la gestion des voies/capa
                 cap.data = {

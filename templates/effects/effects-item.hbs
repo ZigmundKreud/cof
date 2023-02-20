@@ -1,17 +1,17 @@
 <li class="item effect flexrow" data-item-id="{{id}}" data-item-type="effect" draggable="true">
     <div class="item-name flexrow">
-        <div class="item-image effect-icon" style="background-image: url('{{data.icon}}')"></div>
-        <h4>{{data.label}}</h4>
+        <div class="item-image effect-icon" style="background-image: url('{{system.icon}}')"></div>
+        <h4>{{system.label}}</h4>
     </div>
     <div class="item-detail">
-        {{#if data.duration.rounds}}{{data.duration.rounds}} R{{/if}}
-        {{#if data.duration.turns}}{{data.duration.turns}} T{{/if}}
-        {{#if data.duration.seconds}}{{data.duration.seconds}} S{{/if}}
-        {{#if data.isTemporary}}(T)){{/if}}
+        {{#if system.duration.rounds}}{{system.duration.rounds}} R{{/if}}
+        {{#if system.duration.turns}}{{system.duration.turns}} T{{/if}}
+        {{#if system.duration.seconds}}{{system.duration.seconds}} S{{/if}}
+        {{#if system.isTemporary}}(T)){{/if}}
     </div>
     {{#if @root.isEffectsEditable}}
         <div class="item-detail">
-        {{#if data.disabled}}
+        {{#if system.disabled}}
             <a class="item-control effect-toggle" title="{{localize "COF.effect.activate"}}" style="color:lightgray;"><i class="fas fa-toggle-off"></i></a>
         {{else}}
             <a class="item-control effect-toggle" title="{{localize "COF.effect.deactivate"}}"><i class="fas fa-toggle-on"></i></a>
