@@ -109,11 +109,6 @@ export class CofActorSheet extends CofBaseSheet {
             ev.preventDefault();
             return this._onCheckedCapacity(this.actor, ev, false)
         });
-        //FIXME To Remove ?
-        /*html.find('.capacity-create').click(ev => {
-            ev.preventDefault();
-            return Capacity.create(this.actor, ev);
-        });*/
         html.find('.capacity-toggle').click(ev => {
             ev.preventDefault();
             const li = $(ev.currentTarget).closest(".capacity");
@@ -161,8 +156,9 @@ export class CofActorSheet extends CofBaseSheet {
             const data = this.getData().data;
             data.weapons = Object.values(data.weapons);
             data.weapons.push({ "name": "", "mod": null, "dmg": null });
-            this.actor.update({ 'data.weapons': data.weapons });
+            this.actor.update({ 'system.weapons': data.weapons });
         });
+
         html.find('.weapon-remove').click(ev => {
             ev.preventDefault();
             const elt = $(ev.currentTarget).parents(".weapon");
@@ -171,7 +167,7 @@ export class CofActorSheet extends CofBaseSheet {
             data.weapons = Object.values(data.weapons);
             if (data.weapons.length == 1) data.weapons[0] = { "name": "", "mod": null, "dmg": null };
             else data.weapons.splice(idx, 1);
-            this.actor.update({ 'data.weapons': data.weapons });
+            this.actor.update({ 'system.weapons': data.weapons });
         });
 
         html.find('.levelUp').click(ev => {
@@ -389,7 +385,7 @@ export class CofActorSheet extends CofBaseSheet {
         if (event.shiftKey) {
             switch (rolltype) {
                 // Spend recovery point without getting hit points
-                case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, false)    
+                case "recovery": return CofRoll.rollRecoveryUse(data.system, this.actor, event, false)    
             }
         }
         switch (rolltype) {
@@ -398,9 +394,9 @@ export class CofActorSheet extends CofBaseSheet {
             case "encounter-weapon": return CofRoll.rollEncounterWeapon(data.data, this.actor, event)
             case "encounter-damage": return CofRoll.rollEncounterDamage(data.data, this.actor, event)
             case "damage": return CofRoll.rollDamage(data.data, this.actor, event)
-            case "hp": return CofRoll.rollHitPoints(data.data, this.actor, event)
+            case "hp": return CofRoll.rollHitPoints(data.system, this.actor, event)
             case "attributes": return CofRoll.rollAttributes(data.data, this.actor, event)
-            case "recovery": return CofRoll.rollRecoveryUse(data.data, this.actor, event, true)
+            case "recovery": return CofRoll.rollRecoveryUse(data.system, this.actor, event, true)
         }
     }
 
@@ -414,14 +410,13 @@ export class CofActorSheet extends CofBaseSheet {
         // Si le drag concerne une arme de rencontre
         const li = event.currentTarget;
         if (li.dataset.weaponId){
-            let eventData = JSON.parse(event.dataTransfer.getData('text/plain'));
+            let dragData = {};
             let weapon = this.actor.system.weapons[+li.dataset.weaponId];
-            eventData.type = "Weapon";
-            eventData.data = weapon;
-            eventData.weaponId = +li.dataset.weaponId;
+            dragData.type = "Weapon";
+            dragData.data = weapon;
+            dragData.weaponId = +li.dataset.weaponId;
 
-            // Set data transfer
-            event.dataTransfer.setData("text/plain", JSON.stringify(eventData));            
+            event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
         }
     }
 
@@ -485,10 +480,6 @@ export class CofActorSheet extends CofBaseSheet {
             case "species": return await Species.addToActor(this.actor, itemData);
             case "capacity": return await Capacity.addToActor(this.actor, itemData);
             default: {
-                // Handle item sorting within the same Actor
-                //const actor = this.actor;
-                //let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
-                //if (sameActor) return this._onSortItem(event, itemData);
                 const itemId = itemData._id;
 
                 // Faut-il déplacer ou copier l'item ?
@@ -538,7 +529,7 @@ export class CofActorSheet extends CofBaseSheet {
     /* DATA CONSOLIDATION FOR TEMPLATE RENDERING    */
     /* -------------------------------------------- */
     /** @override */
-    getData(options = {}) {
+    async getData(options = {}) {
         const context = super.getData(options);
         if (COF.debug) console.log("COF | ActorSheet getData", context);
 
@@ -630,6 +621,8 @@ export class CofActorSheet extends CofBaseSheet {
         }
         // Gestion des boutons de modification des effets (visible pour l'actor si il en propriétaire)
         context.isEffectsEditable = options.editable;
+
+        context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
         return context;
     }
 

@@ -74,10 +74,10 @@ export class CofRoll {
      */
      static rollAttackCapacity(actor, capacity) {
          
-        const itemData = capacity.data;
-        const attack = itemData.data.properties.attack;
+        // const itemData = capacity.data;
+        const attack = capacity.system.properties.attack;
     
-        const label = itemData.name;
+        const label = capacity.name;
 
         const critrange = "20";
         const mod = attack.skill !== "auto" ? eval("actor.system." + attack.skill.split("@")[1]) : 0;
@@ -94,11 +94,11 @@ export class CofRoll {
         else if (dmgStat > 0) dmg = dmg + " + " + dmgStat;
         
         let dmgDescr = "";
-        if (itemData.data.save) {
-            const st = "COF.stats." + itemData.data.properties.save.stat + ".label";
+        if (capacity.system.save) {
+            const st = "COF.stats." + capacity.system.properties.save.stat + ".label";
             let stat = game.i18n.localize(st) ;
-            let diff = this._evaluateSaveDifficulty(itemData.data.properties.save.difficulty, actor);
-            let description = itemData.data.properties.save.text.replace('@stat',stat).replace('@diff',diff);
+            let diff = this._evaluateSaveDifficulty(capacity.system.properties.save.difficulty, actor);
+            let description = capacity.system.properties.save.text.replace('@stat',stat).replace('@diff',diff);
             dmgDescr += description;
         }
 
@@ -178,14 +178,13 @@ export class CofRoll {
         let hp = data.attributes.hp;
         const lvl = data.level.value;
         const conMod = data.stats.con.mod;
-        const actorData = actor.data;
 
         Dialog.confirm({
             title: game.i18n.format("COF.dialog.rollHitPoints.title"),
             content: `<p>Êtes-vous sûr de vouloir remplacer les points de vie de <strong>${actor.name}</strong> ?</p>`,
             yes: async () => {
-                if (actorData.data.attributes.hd && actorData.data.attributes.hd.value) {
-                    const hd = actorData.data.attributes.hd.value;
+                if (actor.system.attributes.hd && actor.system.attributes.hd.value) {
+                    const hd = actor.system.attributes.hd.value;
                     const hdmax = parseInt(hd.split("d")[1]);
                     // If LVL 1 COMPUTE HIT POINTS
                     if (lvl == 1) {

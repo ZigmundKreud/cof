@@ -2,17 +2,7 @@ import { ArrayUtils } from "../utils/array-utils.js";
 import { EntitySummary } from "./entity-summary.js";
 
 export class Capacity {
-    //FIXME To remove ?
-    /**
-     * Callback on capacity create action
-     * @param event the create event
-     * @private
-     
-    static create(actor, event) {
-        const data = [{ name: "New Capacity", type: "capacity", data: { checked: true } }];
-        return actor.createEmbeddedDocuments(data, { renderSheet: true }); // Returns one Entity, saved to the database
-    }
-    */
+
     /**
      * 
      * @param {*} actor 
@@ -36,7 +26,6 @@ export class Capacity {
         return actor.createEmbeddedDocuments("Item", capacity);
     }
 
-    //TODO V10
     /**
      * 
      * @param {*} item 
@@ -44,16 +33,6 @@ export class Capacity {
      * @returns 
      */
     static addToItem(item, capacity) {
-        /*
-        let data = foundry.utils.duplicate(item.data);
-        let caps = data.data.capacities;
-        let capsIds = caps.map(c => c._id);
-        if (capsIds && !capsIds.includes(capacityData._id)) {
-            data.data.capacities.push(EntitySummary.create(capacityData));
-            return item.update(data);
-        }
-        else ui.notifications.error(game.i18n.localize("COF.notification.CapacityAlreadyOnItem"));
-        */
        let capacities = item.system.capacities;
        let capsIds = capacities.map(c => c._id);
        if (capsIds && !capsIds.includes(capacity._id)) {

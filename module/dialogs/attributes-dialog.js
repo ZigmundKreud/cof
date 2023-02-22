@@ -152,14 +152,14 @@ export class CofAttributesDialog extends FormApplication {
     async _updateObject(event, formData) {
         event.preventDefault();
         const updateData = {
-            data: {
+            system: {
                 stats: {
-                    str: {base: formData["data.stats.str.base"]},
-                    dex: {base: formData["data.stats.dex.base"]},
-                    con: {base: formData["data.stats.con.base"]},
-                    int: {base: formData["data.stats.int.base"]},
-                    wis: {base: formData["data.stats.wis.base"]},
-                    cha: {base: formData["data.stats.cha.base"]}
+                    str: {base: formData["system.stats.str.base"]},
+                    dex: {base: formData["system.stats.dex.base"]},
+                    con: {base: formData["system.stats.con.base"]},
+                    int: {base: formData["system.stats.int.base"]},
+                    wis: {base: formData["system.stats.wis.base"]},
+                    cha: {base: formData["system.stats.cha.base"]}
                 }
             }
         };

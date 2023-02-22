@@ -1,4 +1,4 @@
-<li class="item flexrow {{#if (and system.properties.stackable (isNegativeOrNull system.qty))}}out-of-charge{{/if}}" data-item-id="{{_id}}" data-item-type="item" data-item-equipable="{{system.properties.equipable}}" data-item-stackable="{{system.properties.stackable}}"  data-item-consumable="{{system.properties.consumable}}" draggable="true">
+<li class="item flexrow {{#if (and system.properties.stackable (isNegativeOrNull system.qty))}}out-of-charge{{/if}}" data-item-id="{{_id}}" data-item-type="item" data-item-uuid="{{uuid}}" data-item-equipable="{{system.properties.equipable}}" data-item-stackable="{{system.properties.stackable}}"  data-item-consumable="{{system.properties.consumable}}" draggable="true">
     <div class="item-name flexrow">
         <div class="item-image" style="background-image: url('{{img}}')"></div>
         <h4>{{name}}</h4>

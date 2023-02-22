@@ -127,7 +127,7 @@ export class CofItemSheet extends ItemSheet {
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
             if (effect) {
-                effect.update({ disabled: !effect.data.disabled })
+                effect.update({ disabled: !effect.disabled })
             }
         });
 
@@ -140,9 +140,7 @@ export class CofItemSheet extends ItemSheet {
             // Capacité rattachée à un acteur
             if (this.actor !== null) {
                 this.actor.syncItemActiveEffects(this.item, !isChecked);
-                let data = foundry.utils.duplicate(this.item.data);
-                system.properties.buff.activated = isChecked;
-                return this.item.update(data);
+                return this.item.update({"system.properties.buff.activated": isChecked});
             }
 
             // Capacité non rattachée à un acteur
@@ -476,7 +474,7 @@ export class CofItemSheet extends ItemSheet {
     }
 
     /** @override */
-    getData(options) {
+    async getData(options) {
         /*
         const data = super.getData(options);
 
@@ -518,6 +516,7 @@ export class CofItemSheet extends ItemSheet {
         //data.item = itemData;
 
         context.system = context.item.system;
+        context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
 
         return context;       
     }
