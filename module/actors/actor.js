@@ -880,12 +880,12 @@ export class CofActor extends Actor {
   async syncItemActiveEffects(item, value) {
     // Récupération des effets qui proviennent de l'item
     //let effectsData = this.effects.filter(effect=>effect.data.origin.endsWith(item.id))?.map(effect=> foundry.utils.duplicate(effect.data));
-    let effectsData = this.getEffectsFromItemId(item.id)?.map((effect) => foundry.utils.duplicate(effect.data));
+    let effects = this.getEffectsFromItemId(item.id)?.map((effect) => foundry.utils.duplicate(effect));
 
-    if (effectsData.length > 0) {
-      effectsData.forEach((effect) => (effect.disabled = value));
+    if (effects.length > 0) {
+      effects.forEach((effect) => (effect.disabled = value));
 
-      await this.updateEmbeddedDocuments("ActiveEffect", effectsData);
+      await this.updateEmbeddedDocuments("ActiveEffect", effects);
     }
   }
 
