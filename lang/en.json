@@ -148,6 +148,7 @@
   "COF.capacity.add": "Add a capacity",
   "COF.capacity.delete": "Delete the capacity",
   "COF.capacity.edit": "Edit the capacity",
+  "COF.capacity.sendToChat": "Send capacity to the chat",  
   "COF.capacity.useMacro": "Managed by macro",
   "COF.capacity.macroName": "Macro Name",
   "COF.capacity.macroId": "Macro Id",

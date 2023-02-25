@@ -148,6 +148,7 @@
   "COF.capacity.add": "Ajouter une capacité",
   "COF.capacity.delete": "Supprimer la capacité",
   "COF.capacity.edit": "Editer la capacité",  
+  "COF.capacity.sendToChat": "Envoyer la capacité dans le chat",
   "COF.capacity.useMacro": "Gestion par macro",
   "COF.capacity.macroName": "Nom de la macro",
   "COF.capacity.macroId": "Id de la macro",
@@ -503,6 +504,7 @@
   "COF.item.add": "Ajouter un objet",
   "COF.item.edit": "Editer l'objet",
   "COF.item.delete": "Supprimer l'objet",
+  "COF.item.sendToChat": "Envoyer l'objet dans le chat",
 
   "COF.inventory.purse": "Bourse",
 
