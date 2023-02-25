@@ -475,27 +475,6 @@ export class CofItemSheet extends ItemSheet {
 
     /** @override */
     async getData(options) {
-        /*
-        const data = super.getData(options);
-
-        let lockItems = game.settings.get("cof", "lockItems");
-        let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
-        options.editable &= (game.user.isGM || (!lockItems && !lockDuringPause));
-
-        const itemData = data.data;
-        if (COF.debug) console.log(data);
-        data.labels = this.item.labels;
-        data.config = game.cof.config;
-        data.itemType = data.item.type.titleCase();
-        data.itemProperties = this._getItemProperties(data.item);
-        data.effects = data.item.effects;
-        // Gestion de l'affichage des boutons de modification des effets
-        // Les boutons sont masqués si l'item appartient à un actor ou est verrouillé
-        data.isEffectsEditable = !this.item.actor && options.editable;
-        data.item = itemData;
-        data.data = itemData.data;
-        return data;
-        */
         const context = super.getData(options);
         if (COF.debug) console.log(context);
 
@@ -503,8 +482,6 @@ export class CofItemSheet extends ItemSheet {
         let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
         options.editable &= (game.user.isGM || (!lockItems && !lockDuringPause));
         context.config = game.cof.config;
-
-        //const itemData = data.data;
         
         context.labels = this.item.labels;        
         context.itemType = context.item.type.titleCase();
@@ -513,8 +490,6 @@ export class CofItemSheet extends ItemSheet {
         // Gestion de l'affichage des boutons de modification des effets
         // Les boutons sont masqués si l'item appartient à un actor ou est verrouillé
         context.isEffectsEditable = !this.item.actor && options.editable;
-        //data.item = itemData;
-
         context.system = context.item.system;
         context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
 

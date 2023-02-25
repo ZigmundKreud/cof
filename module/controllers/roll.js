@@ -74,7 +74,6 @@ export class CofRoll {
      */
      static rollAttackCapacity(actor, capacity) {
          
-        // const itemData = capacity.data;
         const attack = capacity.system.properties.attack;
     
         const label = capacity.name;

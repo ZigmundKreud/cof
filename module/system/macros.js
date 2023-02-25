@@ -221,8 +221,6 @@ export class Macros {
     const item = actor.items.get(itemId);
     if (!item) return ui.notifications.warn(game.i18n.format("COF.notification.MacroItemMissing", { item: itemName }));
 
-    //const itemData = item.data;
-
     // Objet
     if (item.type === "item") {
       if (item.system.properties.weapon || item.system.properties.heal) {

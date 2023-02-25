@@ -1,4 +1,3 @@
-{{log 'active-effect-config' this}}
 <form autocomplete="off">
 
     <!-- Effect Header -->
@@ -125,10 +124,6 @@
         <ol class="changes-list">
             {{#each data.changes as |change i|}}
             <li class="effect-change flexrow" data-index="{{i}}">
-                <!-- <div class="key">
-                    <input type="text" name="changes.{{i}}.key" value="{{change.key}}"/>
-                </div> -->
-                {{log '@root.targetType' @root.targetType}}
                 {{#if (equals @root.targetType "SelectEffectTarget")}}
                     <div class="key SelectEffectTarget">
                         <select name="changes.{{i}}.key">
