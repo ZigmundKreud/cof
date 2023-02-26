@@ -1,6 +1,5 @@
 import { System, COF } from "../system/config.js";
 import { Capacity } from "../controllers/capacity.js";
-import { Traversal } from "../utils/traversal.js";
 
 export class LevelUpSheet extends FormApplication {
     
@@ -72,7 +71,7 @@ export class LevelUpSheet extends FormApplication {
         let levelCapacity = {
             id : CapacityId,
             name : pathCapacity.name,
-            rank: pathCapacity.system.rank
+            rank: pathCapacity.data.rank
         }
 
         levelPath.capacities.push(levelCapacity);
@@ -109,10 +108,8 @@ export class LevelUpSheet extends FormApplication {
             }
             else {
                 let parent = target.parentNode;
-                let capacityId = parent.getAttribute('capacity-id');
-           
-                let capacity = game.items.get(capacityId)?.data;                
-                if (!capacity) await Traversal.mapItemsOfType("capacity").then(capacities=> capacity = capacities[capacityId]);
+                let capacityUuid = parent.getAttribute('capacity-uuid');
+                let capacity = await fromUuid(capacityUuid);
 
                 let description = capacity.system.description;
                 description = this._changeTooltipHeader(description, capacity);
@@ -271,7 +268,7 @@ export class LevelUpSheet extends FormApplication {
         let usedPoints = 0;
         paths.forEach((path=>{
             path.system.capacities.forEach((capacity)=>{
-                if (capacity.system.checked) usedPoints += capacity.system.rank <= 2 ? 1 : 2;
+                if (capacity.data.checked) usedPoints += capacity.data.rank <= 2 ? 1 : 2;
             });
         }));
         return usedPoints;
@@ -328,7 +325,7 @@ export class LevelUpSheet extends FormApplication {
  
                 capacity.cost =  rankIndex <= 1 ? 1 : 2;
                 
-                if (capacity.capacity.system.checked) capacity.totalCost = 0;
+                if (capacity.capacity.data.checked) capacity.totalCost = 0;
                 else {
                     capacity.totalCost = capacity.cost;
 
@@ -339,32 +336,33 @@ export class LevelUpSheet extends FormApplication {
                         if (data.ranks.length >= rankIndex && data.ranks[rankIndex-1].capacities.length > pathIndex){
                             // Si la capacité précédente n'est pas coché, on ajoute son coût à celui de la capacité en cours
                             let previousCapacity = data.ranks[rankIndex-1].capacities[pathIndex];
-                            if (!previousCapacity.capacity.system.checked) capacity.totalCost += previousCapacity.totalCost;
+                            if (!previousCapacity.capacity.data.checked) capacity.totalCost += previousCapacity.totalCost;
                         }
                     }
                 }
 
-                capacity.checked = capacity.capacity.system.checked;
+                capacity.checked = capacity.capacity.data.checked;
 
                 // La capacité est sélectionnable si :
                 // - La capacité n'est pas déjà coché
                 // - Le coût cumulé de la capacité est <= aux points restants
                 // - Le rang de la capacité est <= au nouveau niveau
                 capacity.enabled = true;        
-                capacity.enabled &= !capacity.capacity.system.checked;
+                capacity.enabled &= !capacity.capacity.data.checked;
                 capacity.enabled &= this.remainingPoints >= capacity.totalCost;
                 capacity.enabled &= this.levelData.level > rankIndex;
                 capacity.disabled = !capacity.enabled;
 
                 capacity.pathId = paths[pathIndex].id;
                 capacity.id = capacity.capacity._id;
+                capacity.uuid = capacity.capacity.sourceId;
                 capacity.rank = rankIndex+1;
 
                 capacities.push(capacity);
             }
             data.ranks.push({rank:rankIndex+1, capacities:capacities});
-            data.actorIcon = data.object.system.img;
-            data.actorName = data.object.system.name;
+            data.actorIcon = data.object.img;
+            data.actorName = data.object.name;
             data.level = this.levelData.level;
 
             data.remainingPoints = this.remainingPoints;

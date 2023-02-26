@@ -4,7 +4,6 @@
  */
 import { COF, System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
-import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 
 export class CofLootSheet extends CofBaseSheet {

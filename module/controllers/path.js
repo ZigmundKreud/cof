@@ -93,7 +93,7 @@ export class Path {
       title: game.i18n.format("COF.dialog.deleteProfile.title"),
       content: game.i18n.format("COF.dialog.deletePath.confirm", { name: actor.name }),
       yes: () => {
-        let items = actor.items.filter((item) => item.type === "capacity" && item.system.path._id === path.system._id).map((c) => c.data._id);
+        let items = actor.items.filter((item) => item.type === "capacity" && item.system.path._id === path.system._id).map((c) => c._id);
         items.push(path.id);
         return actor.deleteEmbeddedDocuments("Item", items);
       },
