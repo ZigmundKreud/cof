@@ -165,4 +165,12 @@ export const registerSystemSettings = function() {
         default: true,
         type: Boolean
     });
+
+    game.settings.register('cof', 'worldKey', {
+        name: "Unique world key",
+        scope: "world",
+        config: false,
+        type: String,
+        default: ""
+  });
 };
