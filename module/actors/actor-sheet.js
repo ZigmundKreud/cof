@@ -21,8 +21,8 @@ export class CofActorSheet extends CofBaseSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["cof", "sheet", "actor"],
       template: System.templatesPath + "/actors/actor-sheet.hbs",
-      width: 950,
-      height: 720,
+      width: 1200,
+      height: 750,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "stats" }],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
