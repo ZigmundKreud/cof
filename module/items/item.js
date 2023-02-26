@@ -81,6 +81,17 @@ export class CofItem extends Item {
    * @returns
    */
   async applyEffects(actor) {
+
+    // Capacité de buff
+    if (this.getProperty("buff")) {
+      // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
+      let effectsData = actor.getEffectsFromItemId(this.id)?.map((effect) => foundry.utils.duplicate(effect.data));
+      if (effectsData.length > 0) {
+        effectsData.forEach((effect) => (effect.disabled = !this.this.system.properties.buff.activated));
+        actor.updateEmbeddedDocuments("ActiveEffect", effectsData);
+      }
+    }
+
     // Capacité de soin
     if (this.getProperty("heal")) {
       // S'il n'a pas de formule
@@ -93,16 +104,6 @@ export class CofItem extends Item {
     // Capacité d'attaque
     if (this.getProperty("attack")) {
       return CofRoll.rollAttackCapacity(actor, this);
-    }
-
-    // Capacité de buff
-    if (this.getProperty("buff")) {
-      // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
-      let effectsData = actor.getEffectsFromItemId(this.id)?.map((effect) => foundry.utils.duplicate(effect.data));
-      if (effectsData.length > 0) {
-        effectsData.forEach((effect) => (effect.disabled = !this.this.system.properties.buff.activated));
-        actor.updateEmbeddedDocuments("ActiveEffect", effectsData);
-      }
     }
 
     // Capacité utilisant une macro
@@ -172,7 +173,7 @@ export class CofItem extends Item {
 
       if (isDecrease) {
         qty = Math.max(0, qty - increment);
-        if (this.system.deleteWhen0 && system.qty === 0) return this.delete();
+        if (this.system.deleteWhen0 && qty === 0) return this.delete();
       } else qty = this.system.stacksize ? Math.min(this.system.stacksize, qty + increment) : qty + increment;
 
       if (this.system.price) {
