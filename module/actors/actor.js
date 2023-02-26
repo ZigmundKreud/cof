@@ -704,7 +704,7 @@ export class CofActor extends Actor {
   getMalusFromArmor() {
     let malus = 0;
     let protections = this.items
-      .filter((i) => i.system.type === "item" && i.system.subtype === "armor" && i.system.worn && i.system.def)
+      .filter((i) => i.type === "item" && i.system.subtype === "armor" && i.system.worn && i.system.def)
       .map((i) => -1 * i.system.defBase + i.system.defBonus);
     if (protections.length > 0) malus = protections.reduce((acc, curr) => acc + curr, 0);
     return malus;
