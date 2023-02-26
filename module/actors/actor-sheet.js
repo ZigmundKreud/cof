@@ -154,21 +154,22 @@ export class CofActorSheet extends CofBaseSheet {
     // WEAPONS (Encounters)
     html.find(".weapon-add").click((ev) => {
       ev.preventDefault();
-      const data = this.getData().data;
-      data.weapons = Object.values(data.weapons);
-      data.weapons.push({ name: "", mod: null, dmg: null });
-      this.actor.update({ "system.weapons": data.weapons });
+      let weapons = Object.values(this.actor.system.weapons);
+      weapons.push({ name: "", mod: 0, dmg: 0 });
+      this.actor.update({ "system.weapons": weapons });
     });
 
     html.find(".weapon-remove").click((ev) => {
       ev.preventDefault();
       const elt = $(ev.currentTarget).parents(".weapon");
       const idx = elt.data("itemId");
-      const data = this.getData().data;
-      data.weapons = Object.values(data.weapons);
-      if (data.weapons.length == 1) data.weapons[0] = { name: "", mod: null, dmg: null };
-      else data.weapons.splice(idx, 1);
-      this.actor.update({ "system.weapons": data.weapons });
+      //const data = this.getData();
+      //data.weapons = Object.values(data.weapons);
+      let weapons = Object.values(this.actor.system.weapons);
+      //weapons = weapons instanceof Array ? weapons : [weapons];
+      if (weapons.length == 1) weapons = [];
+      else weapons.splice(idx, 1);
+      this.actor.update({ "system.weapons": weapons });
     });
 
     html.find(".levelUp").click((ev) => {

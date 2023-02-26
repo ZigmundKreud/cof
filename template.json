@@ -327,8 +327,8 @@
       "weapons" : [{
         "name" : "",
         "critrange" : 20,
-        "mod" : null,
-        "dmg" : null
+        "mod" : 0,
+        "dmg" : 0
       }],
       "capacities" : [],
       "paths": [],
