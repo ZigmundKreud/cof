@@ -239,6 +239,9 @@ div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .pack-title {
 div#sidebar .tab#compendium .cof-compendium-pack[data-pack^="cof"] .compendium-footer {
   color: #a4a164;
 }
+h3 {
+  border-bottom: none;
+}
 .grid {
   display: grid;
   margin: 0;
