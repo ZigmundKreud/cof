@@ -2,8 +2,7 @@
     <div class="item-name flexrow">
         <div class="item-image" style="background-image: url('{{img}}')"></div>
         <h4>{{name}}</h4>
-    </div>
-        {{#if system.def}}<div class="item-detail">{{numberFormat system.def decimals=0 sign=true}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+    </div>       
         <div class="item-detail">
             {{#if system.properties.ranged}}{{system.range}}{{/if}}
         </div>
@@ -22,7 +21,7 @@
         <div class="item-detail item-mod" data-item-mod="{{system.mod}}">
             {{#if system.properties.weapon}}{{system.mod}}{{/if}}
         </div>
-        <div class="item-detail item-dmg" data-item-dmg="{{system.dmg}}">{{#if system.properties.weapon}}{{system.dmg}}{{/if}}</div>    
+        <div class="item-detail item-dmg" data-item-dmg="{{system.dmg}}">{{#if system.properties.weapon}}{{system.dmg}}{{else}} {{#if system.def}}<div class="item-detail">{{numberFormat system.def decimals=0 sign=true}}</div>{{else}}<div class="item-detail"></div>{{/if}}{{/if}}</div>    
     <div class="item-detail">
         <a class="item-control inventory-qty {{#if system.properties.stackable}}unlocked{{else}}locked{{/if}}" title="{{ localize "COF.ui.modifyQuantity"}}">{{system.qty}}</a>
     </div>

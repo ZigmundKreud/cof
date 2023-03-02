@@ -24,12 +24,14 @@
             <ol class="inventory-list foldable {{#if (includes ../folded.inventory category.id)}}folded{{/if}}" data-tab="inventory" data-category="{{category.id}}">
                 <li class="inventory-header flexrow">
                     <h3 class="item-name flexrow">{{localize category.label}}</h3>
-                    {{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">{{localize "COF.combat.defense"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    
                     {{#if (isCategoryIn category.id "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.range"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
                     {{#if (isCategoryIn category.id "melee" "ranged" "shield")}}<div class="item-detail">{{localize "COF.combat.usage"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.critical"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.crit"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
                     {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.mod"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.dm"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.dm"}}</div>{{else}}{{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">{{localize "COF.combat.defense"}}</div>{{else}}<div class="item-detail"></div>{{/if}}                    
+                    {{/if}}
+
                     <div class="item-detail">{{localize "COF.ui.qty"}}</div>
                     <div class="item-detail"><i title="{{localize "COF.ui.stackValue"}}" class="fas fa-coins" style="color:silver"></i></div>
                     {{#if (or (equals ../actor.type "character") (equals ../actor.type "npc"))}}<div class="item-detail">{{localize "COF.ui.action"}}</div>{{/if}}

@@ -1808,9 +1808,10 @@ Copied from dnd5e
 }
 .cof .inventory-list .item-name {
   color: #4b4a44;
+  min-width: 100px;
 }
 .cof .inventory-list .item-detail {
-  flex: 0 0 70px;
+  flex: 0 0 45px;
   font-size: 12px;
   color: #7a7971;
   text-align: center;

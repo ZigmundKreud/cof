@@ -156,9 +156,10 @@
   "COF.capacity.activated": "Activée",
 
   "COF.combat.defense": "Def",
-  "COF.combat.range": "Portée(m)",
+  "COF.combat.range": "Portée",
   "COF.combat.usage": "Usage",
   "COF.combat.critical": "Critique",
+  "COF.combat.crit": "Crit.",
   "COF.combat.mod": "Mod",
   "COF.combat.dm": "DM",
   "COF.combat.attacks": "Attaques",
