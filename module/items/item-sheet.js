@@ -145,10 +145,10 @@ export class CofItemSheet extends ItemSheet {
 
             // Capacité non rattachée à un acteur
             else {
-                let data = foundry.utils.duplicate(this.item.data);
+                let data = foundry.utils.duplicate(this.item);
                 if (data.effects.length > 0){        
                     data.effects.forEach(effect => effect.disabled = isChecked ? false : true);
-                    system.properties.buff.activated = isChecked;
+                    data.system.properties.buff.activated = isChecked;
                     return this.item.update(data);
                 }
             }
