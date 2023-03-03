@@ -1,3 +1,4 @@
+{{!log 'item-sheet' this}}
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header flexrow header-background no-wrap">
         <img class="profile" src="{{item.img}}" title="{{item.name}}" data-edit="img">
@@ -15,17 +16,17 @@
             </div>
             <ul class="summary flexrow">
                 <li>
-                    {{#if data.source}}
-                        <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'COF.ui.source' }}"/>
+                    {{#if system.source}}
+                        <input type="text" name="system.source" value="{{system.source}}" placeholder="{{ localize 'COF.ui.source' }}"/>
                     {{else}}
-                        <input type="text" name="data.source" value="{{ localize 'COF.ui.na' }}" placeholder="{{ localize 'COF.ui.source' }}"/>
+                        <input type="text" name="system.source" value="{{ localize 'COF.ui.na' }}" placeholder="{{ localize 'COF.ui.source' }}"/>
                     {{/if}}
                 </li>
                 {{#if (equals item.type "item")}}
-                    {{#if (not (equals item.data.subtype "spell"))}}
+                    {{#if (not (equals item.system.subtype "spell"))}}
                     <li>
-                        {{#if data.rarity}}
-                            {{localize (concat "COF.rarity." data.rarity)}}
+                        {{#if system.rarity}}
+                            {{localize (concat "COF.rarity." system.rarity)}}
                         {{else}}
                             {{localize "COF.ui.na"}}
                         {{/if}}
@@ -47,7 +48,7 @@
     <section class="sheet-body">
         <div class="tab flexrow active" data-group="primary" data-tab="description">
             {{> "systems/cof/templates/items/parts/properties/item-properties.hbs"}}
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor enrichedDescription target="system.description" button=true owner=owner editable=editable}}
         </div>
 
         {{#if (isNotLimited @root)}}

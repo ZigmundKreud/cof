@@ -18,19 +18,19 @@
     </div>
     <div class="flexrow no-wrap">
         <div class="flex8 center bg-recovery">
-            <span class="field-label ellipsis rollable" data-rolling="data.attributes.hp" data-roll-type="recovery" title="dépenser un PR avec PV, SHIFT+click sans PV"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
+            <span class="field-label ellipsis rollable" data-rolling="system.attributes.hp" data-roll-type="recovery" title="dépenser un PR avec PV, SHIFT+click sans PV"><i class="fas fa-heartbeat"></i>&nbsp;{{ localize 'COF.attributes.rp.abbrev' }}</span>
         </div>
         <div class="flex3 center cell readonly">
-            <input class="field-value" name="data.attributes.rp.base" readonly="true" type="text" value="{{actor.data.attributes.rp.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
+            <input class="field-value" name="system.attributes.rp.base" readonly="true" type="text" value="{{actor.system.attributes.rp.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
         </div>
         <div class="flex3 center cell">
-            <input class="field-value" name="data.attributes.rp.bonus" type="text" value="{{numberFormat actor.data.attributes.rp.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
+            <input class="field-value" name="system.attributes.rp.bonus" type="text" value="{{numberFormat actor.system.attributes.rp.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
         </div>
         <div class="flex3 center cell readonly">
-            <input class="field-value" name="data.attributes.rp.max" readonly="true" type="text" value="{{actor.data.attributes.rp.max}}" placeholder="Max" data-dtype="Number"/>
+            <input class="field-value" name="system.attributes.rp.max" readonly="true" type="text" value="{{actor.system.attributes.rp.max}}" placeholder="Max" data-dtype="Number"/>
         </div>
         <div class="flex3 center cell">
-            <input class="field-value" name="data.attributes.rp.value" type="text" value="{{actor.data.attributes.rp.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+            <input class="field-value" name="system.attributes.rp.value" type="text" value="{{actor.system.attributes.rp.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
         </div>
     </div>
     <div class="flexrow"><div class="flex1 half-spacer"></div></div>

@@ -20,16 +20,16 @@
         <span class="field-label"><i class="fas fa-shield-alt"></i>&nbsp;{{ localize 'COF.attributes.def.abbrev' }}</span>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.def.base" type="text" readonly="true" value="{{actor.data.attributes.def.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.def.base" type="text" readonly="true" value="{{actor.system.attributes.def.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.def.bonus" type="text" value="{{numberFormat actor.data.attributes.def.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.def.bonus" type="text" value="{{numberFormat actor.system.attributes.def.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.def.malus" type="text" value="{{numberFormat actor.data.attributes.def.malus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.malus"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.def.malus" type="text" value="{{numberFormat actor.system.attributes.def.malus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.malus"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.def.value" readonly="true" type="text" value="{{actor.data.attributes.def.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.def.value" readonly="true" type="text" value="{{actor.system.attributes.def.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
     </div>
 </div>
 {{#if (isEnabled "useDamageResistance")}}
@@ -38,14 +38,14 @@
         <span class="field-label"><i class="fas fa-user-shield"></i>&nbsp;{{ localize 'COF.attributes.dr.abbrev' }}</span>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.dr.base.value" type="text" value="{{actor.data.attributes.dr.base.value}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.dr.base.value" type="text" value="{{actor.system.attributes.dr.base.value}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.dr.bonus.value" type="text" value="{{numberFormat actor.data.attributes.dr.bonus.value decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.dr.bonus.value" type="text" value="{{numberFormat actor.system.attributes.dr.bonus.value decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell"></div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.dr.value" readonly="true" type="text" value="{{actor.data.attributes.dr.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.dr.value" readonly="true" type="text" value="{{actor.system.attributes.dr.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
     </div>
 </div>
 {{/if}}
@@ -72,7 +72,7 @@
         <input class="field-value" name="overloaded.armor" type="text" readonly="true" value="{{numberFormat overloaded.armor sign=true}}" placeholder="Armure" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.overload.misc" type="text" value="{{numberFormat actor.data.attributes.overload.misc sign=true}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.overload.misc" type="text" value="{{numberFormat actor.system.attributes.overload.misc sign=true}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
         <input class="field-value" name="overloaded.total" readonly="true" type="text" value="{{numberFormat overloaded.total sign=true}}" placeholder="Total" data-dtype="Number"/>

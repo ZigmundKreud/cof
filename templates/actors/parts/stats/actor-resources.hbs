@@ -21,16 +21,16 @@
         <span class="field-label ellipsis"><i class="fas fa-hand-sparkles"></i>&nbsp;{{ localize 'COF.attributes.mp.abbrev' }}</span>
     </div>
     <div class="flex3 center cell readonly">
-        <input class="field-value" name="data.attributes.mp.base" type="text" readonly="true" value="{{actor.data.attributes.mp.base}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.mp.base" type="text" readonly="true" value="{{actor.system.attributes.mp.base}}" data-dtype="Number"/>
     </div>
     <div class="flex3 center cell">
-        <input class="field-value" name="data.attributes.mp.bonus" type="text" value="{{numberFormat actor.data.attributes.mp.bonus decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.mp.bonus" type="text" value="{{numberFormat actor.system.attributes.mp.bonus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
     <div class="flex3 center cell readonly">
-        <input class="field-value" name="data.attributes.mp.max" type="text" readonly="true" value="{{actor.data.attributes.mp.max}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.mp.max" type="text" readonly="true" value="{{actor.system.attributes.mp.max}}" data-dtype="Number"/>
     </div>
     <div class="flex3 center cell">
-        <input class="field-value" name="data.attributes.mp.value" type="text" value="{{actor.data.attributes.mp.value}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.mp.value" type="text" value="{{actor.system.attributes.mp.value}}" data-dtype="Number"/>
     </div>    
 </div>
 {{/if}}
@@ -40,16 +40,16 @@
         <span class="field-label ellipsis"><i class="fas fa-star"></i>&nbsp;{{ localize 'COF.attributes.fp.abbrev' }}</span>
     </div>
     <div class="flex3 center cell readonly">
-        <input class="field-value" name="data.attributes.fp.base" readonly="true" type="text" value="{{actor.data.attributes.fp.base}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.fp.base" readonly="true" type="text" value="{{actor.system.attributes.fp.base}}" data-dtype="Number"/>
     </div>
     <div class="flex3 center cell">
-        <input class="field-value" name="data.attributes.fp.bonus" type="text" value="{{numberFormat actor.data.attributes.fp.bonus decimals=0 sign=true}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.fp.bonus" type="text" value="{{numberFormat actor.system.attributes.fp.bonus decimals=0 sign=true}}" data-dtype="Number"/>
     </div>
     <div class="flex3 center cell readonly">
-        <input class="field-value" name="data.attributes.fp.max" type="text" readonly="true" value="{{actor.data.attributes.fp.max}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.fp.max" type="text" readonly="true" value="{{actor.system.attributes.fp.max}}" data-dtype="Number"/>
     </div>
     <div class="flex3 center cell">
-        <input class="field-value" name="data.attributes.fp.value" type="text" value="{{actor.data.attributes.fp.value}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.fp.value" type="text" value="{{actor.system.attributes.fp.value}}" data-dtype="Number"/>
     </div>    
 </div>
 {{/if}}

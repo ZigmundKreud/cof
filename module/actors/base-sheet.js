@@ -31,19 +31,17 @@ export class CofBaseSheet extends ActorSheet {
 
     /** @override */
 	getData(options) {
-        const data = super.getData(options);
-        const actorData = data.data;
-        data.logoPath = this.getPathRoot() + this.getLogoPath();
-		data.isGm = game.user.isGM;
-        data.effects = data.actor.effects;
-        data.folded = {
-            "combat": (actorData.data.settings?.combat) ? actorData.data.settings?.combat.folded : [],
-            "inventory": (actorData.data.settings?.inventory) ? actorData.data.settings?.inventory.folded : [],
-            "capacities": (actorData.data.settings?.capacities) ? actorData.data.settings?.capacities.folded : [],
-            "effects": (actorData.data.settings?.effects) ? actorData.data.settings?.effects.folded : []
+        const context = super.getData(options);
+        context.system = context.actor.system;
+        context.logoPath = this.getPathRoot() + this.getLogoPath();
+		context.isGm = game.user.isGM;
+        context.effects = context.actor.effects;
+        context.folded = {
+            "combat": (context.system.settings?.combat) ? context.system.settings?.combat.folded : [],
+            "inventory": (context.system.settings?.inventory) ? context.system.settings?.inventory.folded : [],
+            "capacities": (context.system.settings?.capacities) ? context.system.settings?.capacities.folded : [],
+            "effects": (context.system.settings?.effects) ? context.system.settings?.effects.folded : []
         };        
-        data.actor = actorData;
-        data.data = actorData.data;       
-        return data;
+        return context;
 	}
 }

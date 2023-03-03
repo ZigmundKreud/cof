@@ -2,7 +2,7 @@
 
 <img src="https://github.com/ZigmundKreud/cof/raw/master/ui/logo-banner.webp">
 
-Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://foundryvtt.com/).
+Ce système est fait pour être exécuté dans le moteur [Foundry VTT](https://foundryvtt.com/).
 
 ---
 ### Installation automatique
@@ -17,20 +17,19 @@ Ce programme est fait pour être exécuté dans le moteur [Foundry VTT](https://
 
 ---
 ### Fonctionnalités
+
 Le détail des fonctionnalités par version est dans le [changelog](https://github.com/ZigmundKreud/cof/blob/master/CHANGELOG).
----
+
+
 ### Mentions Légales
 
-#### DRS Chroniques Oubliées Fantasy
-La plupart des données intégrées dans ce programme proviennent du site [DRS de Chroniques oubliées](http://co-drs.org/), merci à eux pour le travail de numérisation.
+CHRONIQUES OUBLIÉES™ FANTASY/CONTEMPORAIN est un jeu de Black Book Éditions/Casus Belli. Tous droits réservés.
 
-### Chroniques Oubliées Fantasy
-[Chroniques Oubliées Fantasy](http://www.black-book-editions.fr/catalogue.php?id=477) est un jeu de rôle simple et ludique créé par [Black Book Editions](http://www.black-book-editions.fr/) en 2009 comme jeu d’initiation.
-Il a pleinement joué son rôle et a permis aussi à de nombreux « vieux » joueurs de se remettre au jeu de rôle. Ses règles ont par la suite été reprises en enrichies dans le magazine Casus Belli et un hors-série regroupant toutes les règles avancées est sorti en 2014.
+Identité du produit (Product Identity) : Les éléments suivants sont identifiés comme l’Identité du Produit (Product Identity) et sont donc considérés comme du closed content tel que défini dans la version 1.0a section 1(e) de l’Open Game License (OGL) : les noms et gammes de produits, les logos et marques d’identification y compris la présentation commerciale ; les noms propres, les voies et capacités, les profils, les règles ( exemple : magie, gestion de domaine etc), les objets magiques, les scénarios, personnages et histoires, les symboles, illustrations et dessins, les représentations graphiques ; et plus généralement toutes les descriptions, les marques commerciales ou déposées clairement identifiées comme Identité du Produit (Product Identity) par le propriétaire et qui exclut spécifiquement l’Open Game Content.  
+Le contenu libre de ce livre (Open Content) comprend uniquement le matériel extrait du Document Relatif au Système (SRD). Toute utilisation du contenu libre doit être réalisée dans les conditions de l’Open Game Licence version 1.0a.  
+Toute reproduction partielle ou totale de ce livre ainsi que son traitement informatique et sa transcription sous n’importe quelle forme et par n’importe quel moyen électronique, photocopie, enregistrement ou autre sont rigoureusement interdits sans l’autorisation préalable de Black Book Editions.
 
-Ce jeu est une dérivé des règles DD3/DD3.5 et à ce titre il est soumis à la licence OGL de Wizards of the Coast.
-
-#### OPEN GAME LICENCE version 1.0a
+### OPEN GAME LICENCE version 1.0a
 
 The following text is the property of Wizards of the Coast, Inc. and is Copyright 2000 Wizards of the Coast, Inc (“Wizards”).
 All Rights Reserved.
@@ -113,36 +112,13 @@ Chroniques Oubliées™ DRS. Auteurs : Benjamin Lupu, Benjamin « xben » Thibau
 
 ---
 
-#### Conditions d’utilisations Black Book Editions
-Conformément aux conditions d’utilisation décrites sur le site de Black Book Editions.
-Ce site utilise des marques déposées et/ou des droits d’auteurs qui sont la propriété de Black Book Editions comme l’y autorisent les conditions d’utilisation de Black Book Editions. Ce site n’est pas publié par Black Book Editions et n’a pas reçu son aval ni une quelconque approbation de sa part. Pour de plus amples informations sur Black Book Editions, consultez www.black-book-editions.fr.
+### Conditions d’utilisation Black Book Editions
+Ce système est publié avec l'aimable autorisation exceptionnelle de Black Book Éditions.  
+Ce système utilise des marques déposées et/ou des droits d’auteurs qui sont la propriété de Black Book Éditions.  
+CHRONIQUES OUBLIÉES™ FANTASY/CONTEMPORAIN est un jeu de Black Book Éditions/Casus Belli. Tous droits réservés.  
 
 ---
 
 ### LICENCE
-Ce programme est open-source sous [licence AGPL 3.0](https://opensource.org/licenses/AGPL-3.0).
+Ce système est protégé par une licence [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-La [licence AGPL 3.0](https://opensource.org/licenses/AGPL-3.0) est une licence de type [copyleft fort](https://fr.wikipedia.org/wiki/Copyleft#Copyleft_fort_/_Copyleft_standard).
-
-L'auteur refuse donc que l'évolution possible de son travail soit accompagnée d'une restriction du droit à la copie, à l'étude, ou à de nouvelles évolutions. De ce fait, le contributeur apportant une modification (correction, ajout, réutilisation, etc.) est contraint de redistribuer ses propres contributions avec les mêmes libertés que l'original. Autrement dit, les nouvelles créations réalisées à partir d'œuvres sous copyleft héritent de fait de ce statut de copyleft : ainsi, ce type de licence permet un partage de la création ou de la connaissance, comme bien commun, qui permet aux œuvres culturelles d'être développées librement.
-
-On parle de copyleft fort lorsque les redistributions du logiciel ou de l'œuvre en question, modifiés ou non, ainsi que de tous les composants ajoutés, ne peuvent se faire que sous la licence initiale.
-
---- 
-
-### SOFTWARE LICENCE (AGPL)
-
-Copyright (C) 2020 Nicolas "Zigmund" DELAFORGE (zigmund.razzia@gmail.com)
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.

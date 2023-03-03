@@ -7,20 +7,19 @@ export class Hitpoints {
             ui.notifications.error(game.i18n.localize("COF.notification.HitPointsNoTarget"));
         } else {
             for(let target of targets){
-                let data = duplicate(target.actor.data);
-                let hp = data.data.attributes.hp;
+                let hp = duplicate(target.actor.system.attributes.hp);
 
                 let finalAmount = amount;
                 // Dommages
                 if (amount < 0) {
                     // Application de la RD si c'est cochée
-                    finalAmount += (dr ? data.data.attributes.dr.value : 0) ;
+                    finalAmount += (dr ? target.actor.system.attributes.dr.value : 0) ;
                     if (finalAmount > 0) finalAmount = 0;
                 }
 
                 hp.value += finalAmount;
 
-                target.actor.update(data);
+                target.actor.update({"system.attributes.hp": hp});
             }
         }
     }

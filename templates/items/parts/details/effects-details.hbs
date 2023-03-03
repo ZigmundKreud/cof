@@ -2,43 +2,43 @@
 <div class="form-group">
     <label>{{localize "COF.ui.properties"}}</label>
     <div class="form-fields">
-        <label class="checkbox"> <input type="checkbox" name="data.properties.heal" {{checked data.properties.heal}}> {{localize "COF.properties.heal"}}</label>
-        <label class="checkbox"> <input type="checkbox" name="data.properties.buff" {{checked data.properties.buff}}> {{localize "COF.properties.buff"}}</label>
-        <label class="checkbox"> <input type="checkbox" name="data.properties.temporary" {{checked data.properties.temporary}}> {{localize "COF.properties.temporary"}}</label>
-        <label class="checkbox"> <input type="checkbox" name="data.properties.persistent" {{checked data.properties.persistent}}> {{localize "COF.properties.persistent"}}</label>
-        <label class="checkbox"><input type="checkbox" name="data.properties.spell" {{checked data.properties.spell}}> {{localize "COF.properties.spell"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="system.properties.heal" {{checked system.properties.heal}}> {{localize "COF.properties.heal"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="system.properties.buff" {{checked system.properties.buff}}> {{localize "COF.properties.buff"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="system.properties.temporary" {{checked system.properties.temporary}}> {{localize "COF.properties.temporary"}}</label>
+        <label class="checkbox"> <input type="checkbox" name="system.properties.persistent" {{checked system.properties.persistent}}> {{localize "COF.properties.persistent"}}</label>
+        <label class="checkbox"><input type="checkbox" name="system.properties.spell" {{checked system.properties.spell}}> {{localize "COF.properties.spell"}}</label>
     </div>
 </div>
 
-{{#if data.properties.heal}}
+{{#if system.properties.heal}}
     <div class="form-group">
         <label>{{ localize "COF.ui.heal" }}</label>
         <div class="form-fields">
-            <input type="text" name="data.effects.heal.formula" value="{{data.effects.heal.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
+            <input type="text" name="system.effects.heal.formula" value="{{system.effects.heal.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
         </div>
     </div>
 {{/if}}
 
-{{#if data.properties.buff}}
+{{#if system.properties.buff}}
     <div class="form-group">
         <label>{{ localize "COF.ui.buff" }}</label>
         <div class="form-fields">
-            <input type="text" name="data.effects.buff.formula" value="{{data.effects.buff.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
+            <input type="text" name="system.effects.buff.formula" value="{{system.effects.buff.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="String"/>
         </div>
     </div>
 {{/if}}
 
-{{#if data.properties.temporary}}
+{{#if system.properties.temporary}}
     <div class="form-group">
         <label>{{ localize "COF.ui.duration" }}</label>
         <div class="form-fields">
-            <input type="number" name="data.properties.duration.formula" value="{{data.properties.duration.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="Number"/>
+            <input type="number" name="system.properties.duration.formula" value="{{system.properties.duration.formula}}" placeholder="{{localize "COF.ui.formula"}}" data-dtype="Number"/>
         </div>
     </div>
     <div class="form-group">
         <label>{{ localize "COF.ui.units" }}</label>&nbsp;
-        <select name="data.properties.duration.units" data-type="String" style="width:100%">
-        {{#select data.properties.duration.units}}
+        <select name="system.properties.duration.units" data-type="String" style="width:100%">
+        {{#select system.properties.duration.units}}
             <option value="">{{localize "COF.None"}}</option>
             <option value="rounds">{{localize "COF.ui.rounds"}}</option>
             <option value="minutes">{{localize "COF.ui.minutes"}}</option>

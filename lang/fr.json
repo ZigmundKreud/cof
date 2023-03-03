@@ -148,6 +148,7 @@
   "COF.capacity.add": "Ajouter une capacité",
   "COF.capacity.delete": "Supprimer la capacité",
   "COF.capacity.edit": "Editer la capacité",  
+  "COF.capacity.sendToChat": "Envoyer la capacité dans le chat",
   "COF.capacity.useMacro": "Gestion par macro",
   "COF.capacity.macroName": "Nom de la macro",
   "COF.capacity.macroId": "Id de la macro",
@@ -155,9 +156,10 @@
   "COF.capacity.activated": "Activée",
 
   "COF.combat.defense": "Def",
-  "COF.combat.range": "Portée(m)",
+  "COF.combat.range": "Portée",
   "COF.combat.usage": "Usage",
   "COF.combat.critical": "Critique",
+  "COF.combat.crit": "Crit.",
   "COF.combat.mod": "Mod",
   "COF.combat.dm": "DM",
   "COF.combat.attacks": "Attaques",
@@ -503,6 +505,7 @@
   "COF.item.add": "Ajouter un objet",
   "COF.item.edit": "Editer l'objet",
   "COF.item.delete": "Supprimer l'objet",
+  "COF.item.sendToChat": "Envoyer l'objet dans le chat",
 
   "COF.inventory.purse": "Bourse",
 
@@ -584,6 +587,8 @@
   "SETTINGS.checkArmorSlotAvailability.hint": "Vérifier la disponibilité d'un emplacement avant d'équiper une armure (Maintenir MAJ pour ignorer le contrôle)",
   "SETTINGS.checkArmorSlotAvailability.none": "Ne pas vérifier",
   "SETTINGS.checkArmorSlotAvailability.all": "Vérification (ignorable par tous)",
-  "SETTINGS.checkArmorSlotAvailability.gm": "Vérification (ignorable uniquement par le MJ)"    
+  "SETTINGS.checkArmorSlotAvailability.gm": "Vérification (ignorable uniquement par le MJ)",
+  "SETTINGS.useActionSound.name": "Son des actions",
+  "SETTINGS.useActionSound.hint": "Joue un son pour certaines actions (équiper, consommer)"     
 
 }

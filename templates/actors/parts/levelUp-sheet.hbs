@@ -39,7 +39,8 @@
             <tr>
                 <td>{{rank.rank}}</td>
                 {{#each capacities as |capacity|}}
-                    <td class="capacity {{#if enabled}}selectable{{/if}}{{#if disabled}}grey{{/if}}" path-id={{pathId}} capacity-id={{id}} capacity-rank="{{capacity.rank}}">
+                    {{log 'levelUp capacity' this}}
+                    <td class="capacity {{#if enabled}}selectable{{/if}}{{#if disabled}}grey{{/if}}" path-id={{pathId}} capacity-id={{id}} capacity-uuid="{{uuid}}" capacity-rank="{{capacity.rank}}">
                         <input type="checkbox" class="select" {{#if checked}}checked{{/if}} {{#if disabled}}disabled{{/if}} />
                         <span class="capacity-label{{#if @root.reduceDisplay}} reduced{{/if}}" loaded="false">{{capacity.capacity.name}}</span>
                         <span class="tooltip hidden">Veuillez patienter, chargement de la description</span>

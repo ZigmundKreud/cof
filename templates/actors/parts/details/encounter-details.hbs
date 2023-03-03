@@ -17,7 +17,7 @@
                     <span class="field-label">{{ localize 'COF.attributes.nc.abbrev' }}</span>
                 </div>
                 <div class="flex2 center cell">
-                    <input class="field-value" name="data.nc.value" type="text" value="{{actor.data.nc.value}}" placeholder="{{ localize 'COF.attributes.nc.label' }}" data-dtype="Number"/>
+                    <input class="field-value" name="system.nc.value" type="text" value="{{actor.system.nc.value}}" placeholder="{{ localize 'COF.attributes.nc.label' }}" data-dtype="Number"/>
                 </div>
             </div>
             <!-- /NC -->
@@ -28,8 +28,8 @@
                 <span class="field-label">{{ localize 'COF.details.size' }}</span>
             </div>
             <div class="flex2 center cell">
-                <select name="data.details.size" data-type="String" style="width:100%">
-                    {{#select data.details.size}}
+                <select name="system.details.size" data-type="String" style="width:100%">
+                    {{#select system.details.size}}
                         {{#each config.actorSizes as |label size|}}
                                 <option value="{{size}}">{{label}}</option>
                         {{/each}}
@@ -48,8 +48,8 @@
                     <span class="field-label">{{ localize 'COF.ui.archetype' }}</span>
                 </div>
                 <div class="flex2 center cell">
-                    <select name="data.archetype" data-type="String" style="width:100%">
-                        {{#select data.archetype}}
+                    <select name="system.archetype" data-type="String" style="width:100%">
+                        {{#select system.archetype}}
                             <option value="">{{localize "COF.None"}}</option>
                             {{#each config.encounterArchetypes as |label archetype|}}
                                     <option value="{{archetype}}">{{label}}</option>
@@ -65,8 +65,8 @@
                     <span class="field-label">{{ localize 'COF.ui.category' }}</span>
                 </div>
                 <div class="flex2 center cell">
-                    <select name="data.category" data-type="String" style="width:100%">
-                        {{#select data.category}}
+                    <select name="system.category" data-type="String" style="width:100%">
+                        {{#select system.category}}
                             <option value="">{{localize "COF.None"}}</option>
                             {{#each config.encounterCategories as |label category|}}
                                     <option value="{{category}}">{{label}}</option>
@@ -83,8 +83,8 @@
                     <span class="field-label">{{ localize 'COF.ui.boss' }}</span>
                 </div>
                 <div class="flex1 center cell">
-                    <select name="data.boss.rank" data-type="String" style="width:100%">
-                        {{#select data.boss.rank}}
+                    <select name="system.boss.rank" data-type="String" style="width:100%">
+                        {{#select system.boss.rank}}
                             <option value="">{{localize "COF.None"}}</option>   
                             {{#each config.encounterBossRanks as |label rank|}}
                                     <option value="{{rank}}">{{label}}</option>
@@ -93,8 +93,8 @@
                     </select>
                 </div>
                 <div class="flex1 center cell">
-                    <select name="data.boss.type" data-type="String" style="width:100%">
-                        {{#select data.boss.type}}
+                    <select name="system.boss.type" data-type="String" style="width:100%">
+                        {{#select system.boss.type}}
                             <option value="">{{localize "COF.None"}}</option>
                             {{#each config.encounterBossTypes as |label type|}}
                                     <option value="{{type}}">{{label}}</option>

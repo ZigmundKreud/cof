@@ -1,5 +1,5 @@
 <div class="flexrow table-header green no-wrap">
-    <div class="flex2 center rollable" data-rolling="data.attributes.hp" data-roll-type="hp">
+    <div class="flex2 center rollable" data-rolling="system.attributes.hp" data-roll-type="hp">
         <div class="field-label"><i class="fas fa-dice-d6"></i>&nbsp;{{ localize 'COF.attributes.vitality.label' }}</div>
     </div>
     <div class="flex1 center">
@@ -23,8 +23,8 @@
         <span class="field-label"><i class="fas fa-heart"></i>&nbsp;{{ localize 'COF.attributes.hp.abbrev' }}</span>
     </div>
     <div class="center cell readonly" style="flex:0 1 60px">
-        <select name="data.attributes.hd.value" data-type="String" style="font-size:12px; width:100%">
-        {{#select actor.data.attributes.hd.value}}
+        <select name="system.attributes.hd.value" data-type="String" style="font-size:12px; width:100%">
+        {{#select actor.system.attributes.hd.value}}
             <option value="">{{localize "COF.None"}}</option>
             <option value="1d4">1d4</option>
             <option value="1d6">1d6</option>
@@ -36,15 +36,15 @@
         </select>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.hp.base" type="text" value="{{actor.data.attributes.hp.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.hp.base" type="text" value="{{actor.system.attributes.hp.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.hp.bonus" type="text" value="{{numberFormat actor.data.attributes.hp.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.hp.bonus" type="text" value="{{numberFormat actor.system.attributes.hp.bonus decimals=0 sign=true}}" placeholder="{{localize "COF.ui.bonus"}}" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell readonly">
-        <input class="field-value" name="data.attributes.hp.max" type="text" readonly="true" value="{{actor.data.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.hp.max" type="text" readonly="true" value="{{actor.system.attributes.hp.max}}" placeholder="Max" data-dtype="Number"/>
     </div>
     <div class="flex1 center cell">
-        <input class="field-value" name="data.attributes.hp.value" type="text" value="{{actor.data.attributes.hp.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
+        <input class="field-value" name="system.attributes.hp.value" type="text" value="{{actor.system.attributes.hp.value}}" placeholder="{{localize "COF.ui.value"}}" data-dtype="Number"/>
     </div>    
 </div>

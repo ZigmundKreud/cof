@@ -1,6 +1,5 @@
 import { System, COF } from "../system/config.js";
 import { Capacity } from "../controllers/capacity.js";
-import { Traversal } from "../utils/traversal.js";
 
 export class LevelUpSheet extends FormApplication {
     
@@ -10,11 +9,11 @@ export class LevelUpSheet extends FormApplication {
         this.levelData = {
             level: +this.object.getLevel() + 1,
             paths:[],
-            previousBaseHp: +this.object.data.data.attributes.hp.base,
+            previousBaseHp: +this.object.system.attributes.hp.base,
             previousAttacks: {
-                melee: this.object.data.data.attacks.melee.base,
-                ranged: this.object.data.data.attacks.ranged.base,
-                magic: this.object.data.data.attacks.magic.base
+                melee: this.object.system.attacks.melee.base,
+                ranged: this.object.system.attacks.ranged.base,
+                magic: this.object.system.attacks.magic.base
             }
         };
         this.previousTooltip;
@@ -27,7 +26,7 @@ export class LevelUpSheet extends FormApplication {
         let nbPaths = this.object.getEmbeddedCollection('Item').filter(item=>item.type==="path").length;
         this.position.width = Math.clamped(nbPaths*this.pathSize , this.minSize, this.maxSize);
 
-        this.options.title = this.options.title ? this.options.title : game.i18n.format('COF.levelUp.title', {name:object.data.name});  
+        this.options.title = this.options.title ? this.options.title : game.i18n.format('COF.levelUp.title', {name:object.system.name});  
         
         // Si le jet n'as pas été fourni, effectue un jet de dé pour les PV Bonus
         this.hpRoll = this.options.hpRoll;
@@ -62,12 +61,12 @@ export class LevelUpSheet extends FormApplication {
         else {
             levelPath = {
                 id : pathId,
-                name : path?.data.name,
+                name : path?.system.name,
                 capacities : []
             }
             this.levelData.paths.push(levelPath);
         }
-        let pathCapacity = path.data.data.capacities.find(capacity=>capacity._id === CapacityId);
+        let pathCapacity = path.system.capacities.find(capacity=>capacity._id === CapacityId);
 
         let levelCapacity = {
             id : CapacityId,
@@ -109,12 +108,10 @@ export class LevelUpSheet extends FormApplication {
             }
             else {
                 let parent = target.parentNode;
-                let capacityId = parent.getAttribute('capacity-id');
-           
-                let capacity = game.items.get(capacityId)?.data;                
-                if (!capacity) await Traversal.mapItemsOfType("capacity").then(capacities=> capacity = capacities[capacityId]);
+                let capacityUuid = parent.getAttribute('capacity-uuid');
+                let capacity = await fromUuid(capacityUuid);
 
-                let description = capacity.data.description;
+                let description = capacity.system.description;
                 description = this._changeTooltipHeader(description, capacity);
                 tooltip.innerHTML = description;
 
@@ -227,7 +224,7 @@ export class LevelUpSheet extends FormApplication {
             
             let level = this.levelData.level;            
 
-            let hp = actor.data.data.attributes.hp;
+            let hp = actor.system.attributes.hp;
             let baseHp = hp.base + this.levelData.hpBonus.total;
             let currentHp = hp.value + this.levelData.hpBonus.total;
 
@@ -236,7 +233,7 @@ export class LevelUpSheet extends FormApplication {
                 Capacity.toggleCheck(actor, path.capacities[path.capacities.length-1].id, path.id, false);
             };
 
-            let history = actor.data.data.level.history;
+            let history = actor.system.level.history;
             if (!history) history = [];
 
             let levelIndex = history.findIndex(levelData=>levelData.level === level);
@@ -270,7 +267,7 @@ export class LevelUpSheet extends FormApplication {
         let paths = this.object.getEmbeddedCollection('Item').filter(item=>item.type==="path");
         let usedPoints = 0;
         paths.forEach((path=>{
-            path.data.data.capacities.forEach((capacity)=>{
+            path.system.capacities.forEach((capacity)=>{
                 if (capacity.data.checked) usedPoints += capacity.data.rank <= 2 ? 1 : 2;
             });
         }));
@@ -313,7 +310,7 @@ export class LevelUpSheet extends FormApplication {
 
         let maxRank = 0;
         paths.forEach(path=>{
-            maxRank = Math.max(maxRank, path.data.data.capacities.length);
+            maxRank = Math.max(maxRank, path.system.capacities.length);
         });
 
         for(let rankIndex = 0; rankIndex < maxRank; rankIndex++){
@@ -322,9 +319,9 @@ export class LevelUpSheet extends FormApplication {
             for(let pathIndex = 0; pathIndex < paths.length; pathIndex++){
                 
                 // Si la voie ne possède pas de capacité pour le rang demandé, on passe à la voie suivante
-                if (rankIndex >= paths[pathIndex].data.data.capacities.length) continue;
+                if (rankIndex >= paths[pathIndex].system.capacities.length) continue;
 
-                let capacity = { capacity : paths[pathIndex].data.data.capacities[rankIndex] };
+                let capacity = { capacity : paths[pathIndex].system.capacities[rankIndex] };
  
                 capacity.cost =  rankIndex <= 1 ? 1 : 2;
                 
@@ -358,13 +355,14 @@ export class LevelUpSheet extends FormApplication {
 
                 capacity.pathId = paths[pathIndex].id;
                 capacity.id = capacity.capacity._id;
+                capacity.uuid = capacity.capacity.sourceId;
                 capacity.rank = rankIndex+1;
 
                 capacities.push(capacity);
             }
             data.ranks.push({rank:rankIndex+1, capacities:capacities});
-            data.actorIcon = data.object.data.img;
-            data.actorName = data.object.data.name;
+            data.actorIcon = data.object.img;
+            data.actorName = data.object.name;
             data.level = this.levelData.level;
 
             data.remainingPoints = this.remainingPoints;

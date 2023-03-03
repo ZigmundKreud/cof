@@ -1,14 +1,14 @@
 <h3 class="form-header">{{localize "COF.ui.properties"}}</h3>
-<input class="field-value" name="data.key" type="hidden" value="{{item.data.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
+<input class="field-value" name="system.key" type="hidden" value="{{item.system.key}}" placeholder="{{ localize "COF.ui.key" }}" data-dtype="String">
 
 <div class="form-group stacked">
     <label>Type</label>
     <div class="form-fields">
-        <label class="checkbox"><input type="checkbox" name="data.properties.profile" {{checked data.properties.profile}}> {{localize "COF.properties.profile"}}</label>
-        <label class="checkbox"><input type="checkbox" name="data.properties.prestige" {{checked data.properties.prestige}}> {{localize "COF.properties.prestige"}}</label>
-        <label class="checkbox"><input type="checkbox" name="data.properties.alternative" {{checked data.properties.alternative}}> {{localize "COF.properties.alternative"}}</label>
-        <label class="checkbox"><input type="checkbox" name="data.properties.racial" {{checked data.properties.racial}}> {{localize "COF.properties.racial"}}</label>
-        <label class="checkbox"><input type="checkbox" name="data.properties.creature" {{checked data.properties.creature}}> {{localize "COF.properties.creature"}}</label>
+        <label class="checkbox"><input type="checkbox" name="system.properties.profile" {{checked system.properties.profile}}> {{localize "COF.properties.profile"}}</label>
+        <label class="checkbox"><input type="checkbox" name="system.properties.prestige" {{checked system.properties.prestige}}> {{localize "COF.properties.prestige"}}</label>
+        <label class="checkbox"><input type="checkbox" name="system.properties.alternative" {{checked system.properties.alternative}}> {{localize "COF.properties.alternative"}}</label>
+        <label class="checkbox"><input type="checkbox" name="system.properties.racial" {{checked system.properties.racial}}> {{localize "COF.properties.racial"}}</label>
+        <label class="checkbox"><input type="checkbox" name="system.properties.creature" {{checked system.properties.creature}}> {{localize "COF.properties.creature"}}</label>
     </div>
 </div>
 
@@ -21,9 +21,9 @@
             <a class="item-control item-create cof-compendium-pack" data-pack="capacities" data-open="0" title="Ajouter une capacité"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
         </div>
     </li>
-    {{#each data.capacities as |capacity id|}}
+    {{#each system.capacities as |capacity id|}}
     <ol class="item-list">
-        <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-type="capacity" draggable="true">
+        <li class="item flexrow" data-item-id="{{capacity._id}}" data-item-uuid="{{capacity.sourceId}}" data-item-type="capacity" draggable="true">
             <div class="item-name flexrow">
                 <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                 <h4>{{capacity.name}}</h4>

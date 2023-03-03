@@ -3,13 +3,12 @@
         <ol class="inventory-list foldable {{#if (includes ../folded.combat category.id)}}folded{{/if}}" data-tab="combat" data-category="{{category.id}}">
             <li class="inventory-header flexrow">
                 <h3 class="item-name flexrow">{{localize category.label}}</h3>
-                {{#if (isNotLimited @root)}}
-                    {{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">{{localize "COF.combat.defense"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                {{#if (isNotLimited @root)}}                    
                     {{#if (isCategoryIn category.id "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.range"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
                     {{#if (isCategoryIn category.id "melee" "ranged" "shield")}}<div class="item-detail">{{localize "COF.combat.usage"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.critical"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.crit"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
                     {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.mod"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
-                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.dm"}}</div>{{else}}<div class="item-detail"></div>{{/if}}
+                    {{#if (isCategoryIn category.id "melee" "ranged" "spell")}}<div class="item-detail">{{localize "COF.combat.dm"}}</div>{{else}}{{#if (isCategoryIn category.id "armor" "shield" "spell")}}<div class="item-detail">{{localize "COF.combat.defense"}}</div>{{else}}<div class="item-detail"></div>{{/if}}{{/if}}
                     {{#if @root.editable}} <div class="item-controls"></div> {{/if}}
                 {{/if}}
             </li>
@@ -42,10 +41,10 @@
                             <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                             <h4>{{capacity.name}}</h4>
                         </div>
-                        <div class="item-detail">{{#if capacity.data.limited}}L{{/if}}</div>
-                        <div class="item-detail">{{#if capacity.data.spell}}&#10033;{{/if}}</div>
-                        <div class="item-detail">{{#if capacity.data.use}}{{capacity.data.use}}{{/if}}</div>
-                        <div class="item-detail">{{#if capacity.data.activable}}
+                        <div class="item-detail">{{#if capacity.system.limited}}L{{/if}}</div>
+                        <div class="item-detail">{{#if capacity.system.spell}}&#10033;{{/if}}</div>
+                        <div class="item-detail">{{#if capacity.system.use}}{{capacity.system.use}}{{/if}}</div>
+                        <div class="item-detail">{{#if capacity.system.activable}}
                             <a class="item-control capacity-activate" title="{{localize "COF.capacity.activate"}}"><i class="fas fa-check"></i></a>
                         {{/if}}
                         </div>
@@ -56,10 +55,10 @@
                             </div>
                         {{/if}}
                         <div class="item-summary" style="display: none">
-                            {{{capacity.data.description}}}
+                            {{{capacity.system.description}}}
                             <div class="item-properties">
-                                {{#if capacity.data.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
-                                {{#if capacity.data.limited}}<span class="tag">{{localize "COF.ui.limited"}}</span>{{/if}}
+                                {{#if capacity.system.spell}}<span class="tag">{{localize "COF.ui.spell"}}</span>{{/if}}
+                                {{#if capacity.system.limited}}<span class="tag">{{localize "COF.ui.limited"}}</span>{{/if}}
                             </div>
                         </div>
                     </li>

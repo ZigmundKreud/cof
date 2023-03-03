@@ -4,7 +4,6 @@
  */
 import { COF, System } from "../system/config.js";
 import { CofBaseSheet } from "./base-sheet.js";
-import { Traversal } from "../utils/traversal.js";
 import { ArrayUtils } from "../utils/array-utils.js";
 
 export class CofLootSheet extends CofBaseSheet {
@@ -63,16 +62,16 @@ export class CofLootSheet extends CofBaseSheet {
             const actor = this.actor;
             itemList.slideToggle("fast", function () {
                 ol.toggleClass("folded");
-                if (actor.data.data.settings) {
+                if (actor.system.settings) {
                     if (ol.hasClass("folded")) {
-                        if (!actor.data.data.settings[tab].folded.includes(category)) {
-                            actor.data.data.settings[tab].folded.push(category);
+                        if (!actor.system.settings[tab].folded.includes(category)) {
+                            actor.system.settings[tab].folded.push(category);
                         }
                     } else {
-                        ArrayUtils.remove(actor.data.data.settings[tab].folded, category)
+                        ArrayUtils.remove(actor.system.settings[tab].folded, category)
                     }
                 }
-                actor.update({ "data.settings": actor.data.data.settings })
+                actor.update({ "data.settings": actor.system.settings })
             });
         });
     }
@@ -116,12 +115,11 @@ export class CofLootSheet extends CofBaseSheet {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
-        const type = (li.data("itemType")) ? li.data("itemType") : "item";
-        const pack = (li.data("pack")) ? this.getPackPrefix() + "." + li.data("pack") : null;
+        const uuid = li.data("itemUuid");
 
         // look first in actor onwed items
         let entity = this.actor.items.get(id);
-        return (entity) ? entity.sheet.render(true) : Traversal.getDocument(id, type, pack).then(e => e.sheet.render(true));
+        return (entity) ? entity.sheet.render(true) : fromUuid(uuid).then(e => e.sheet.render(true));
     }
 
     /* -------------------------------------------- */
@@ -151,21 +149,18 @@ export class CofLootSheet extends CofBaseSheet {
         if (!this.actor.isOwner) return false;
 
         const item = await Item.fromDropData(data);
-        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+        if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         
-        let itemData = duplicate(item.data);
-        if (!COF.actorsAllowedItems[this.actor.data.type]?.includes(item.data.type)) return;
+        let itemData = foundry.utils.duplicate(item);
+        if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         itemData = itemData instanceof Array ? itemData : [itemData];
-        switch (itemData.type) {
+        switch (item.type) {
             case "path":
             case "profile":
             case "species":
             case "capacity":
                 return false;
             default:
-                // activate the capacity as it is droped on an actor sheet
-                // if (itemData.type === "capacity") itemData.data.checked = true;
-                // Handle item sorting within the same Actor
                 const actor = this.actor;
                 let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
                 if (sameActor) return this._onSortItem(event, itemData);
@@ -204,7 +199,7 @@ export class CofLootSheet extends CofBaseSheet {
             data.inventory.categories.push({
                 id: category,
                 label: "COF.category." + category,
-                items: Object.values(data.items).filter(item => item.type === "item" && item.data.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
+                items: Object.values(data.items).filter(item => item.type === "item" && item.system.subtype === category).sort((a, b) => (a.name > b.name) ? 1 : -1)
             });
         }
         return data;

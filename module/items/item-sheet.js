@@ -6,7 +6,6 @@ import { Capacity } from "../controllers/capacity.js";
 import { Path } from "../controllers/path.js";
 import { COF, System } from "../system/config.js";
 import { ArrayUtils } from "../utils/array-utils.js";
-import { Traversal } from "../utils/traversal.js";
 import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 
 export class CofItemSheet extends ItemSheet {
@@ -128,7 +127,7 @@ export class CofItemSheet extends ItemSheet {
             const effectId = elt.data("itemId");
             let effect = this.item.effects.get(effectId);
             if (effect) {
-                effect.update({ disabled: !effect.data.disabled })
+                effect.update({ disabled: !effect.disabled })
             }
         });
 
@@ -141,17 +140,15 @@ export class CofItemSheet extends ItemSheet {
             // Capacité rattachée à un acteur
             if (this.actor !== null) {
                 this.actor.syncItemActiveEffects(this.item, !isChecked);
-                let data = duplicate(this.item.data);
-                data.data.properties.buff.activated = isChecked;
-                return this.item.update(data);
+                return this.item.update({"system.properties.buff.activated": isChecked});
             }
 
             // Capacité non rattachée à un acteur
             else {
-                let data = duplicate(this.item.data);
+                let data = foundry.utils.duplicate(this.item);
                 if (data.effects.length > 0){        
                     data.effects.forEach(effect => effect.disabled = isChecked ? false : true);
-                    data.data.properties.buff.activated = isChecked;
+                    data.system.properties.buff.activated = isChecked;
                     return this.item.update(data);
                 }
             }
@@ -203,13 +200,12 @@ export class CofItemSheet extends ItemSheet {
      * @private
      */
     _onDropItem(event, data) {
-        Item.fromDropData(data).then(item => {
-            const itemData = duplicate(item.data);
-            switch (itemData.type) {
+        Item.implementation.fromDropData(data).then(item => {
+            switch (item.type) {
                 case "path":
-                    return this._onDropPathItem(event, itemData);
+                    return this._onDropPathItem(event, item);
                 case "capacity":
-                    return this._onDropCapacityItem(event, itemData);
+                    return this._onDropCapacityItem(event, item);
                 case "profile":
                 case "species":
                 default:
@@ -239,18 +235,18 @@ export class CofItemSheet extends ItemSheet {
             if (itemId) {
                 macro = await pack.getDocument(itemId);
             }
-            if (macro && this.object.data.data.useMacro) {
-                this.object.data.data.properties.macro.id = data.id;
-                this.object.data.data.properties.macro.name = macro.name;
-                this.object.data.data.properties.macro.pack = data.pack;
+            if (macro && this.object.system.useMacro) {
+                this.object.system.properties.macro.id = data.id;
+                this.object.system.properties.macro.name = macro.name;
+                this.object.system.properties.macro.pack = data.pack;
                 return this.render(true);
             }
         }
 
         // Macro de la hotbar
-        if (this.object.data.data.useMacro) {
-            this.object.data.data.properties.macro.id = data.id;
-            this.object.data.data.properties.macro.name = game.macros.get(data.id).name;
+        if (this.object.system.useMacro) {
+            this.object.system.properties.macro.id = data.id;
+            this.object.system.properties.macro.name = game.macros.get(data.id).name;
             return this.render(true);
         }
     }
@@ -264,7 +260,7 @@ export class CofItemSheet extends ItemSheet {
      */
     _onDropPathItem(event, itemData) {
         event.preventDefault();
-        if (this.item.data.type === "profile" || this.item.data.type === "species") return Path.addToItem(this.item, itemData);
+        if (this.item.type === "profile" || this.item.type === "species") return Path.addToItem(this.item, itemData);
         else return false;
     }
 
@@ -276,8 +272,8 @@ export class CofItemSheet extends ItemSheet {
      */
     _onDropCapacityItem(event, itemData) {
         event.preventDefault();
-        if (this.item.data.type === "path" || this.item.data.type === "species") return Capacity.addToItem(this.item, itemData);
-        else return false;
+        if (this.item.type === "path" || this.item.type === "species") return Capacity.addToItem(this.item, itemData);
+        return false;
     }
 
     /**
@@ -289,8 +285,9 @@ export class CofItemSheet extends ItemSheet {
         event.preventDefault();
         const li = $(event.currentTarget).parents(".item");
         const id = li.data("itemId");
-        if (id) {
-            return Traversal.find(id).then(e => {
+        const uuid = li.data("itemUuid");
+        if (uuid) {
+            return fromUuid(uuid).then(e => {
                 if (e) return e.sheet.render(true);
                 else {
                     ui.notifications.error(game.i18n.localize("COF.notification.ItemNotFound"));
@@ -308,30 +305,29 @@ export class CofItemSheet extends ItemSheet {
      */
     _onDeleteItem(event) {
         event.preventDefault();
-        let data = duplicate(this.item.data);
+        // let data = foundry.utils.duplicate(this.item.data);
         const li = $(event.currentTarget).closest(".item");
         const id = li.data("itemId");
         const itemType = li.data("itemType");
         let array = null;
         switch (itemType) {
             case "path": {
-                array = data.data.paths;
+                array = this.item.system.paths;
                 const item = array.find(e => e._id === id);
                 if (array && array.includes(item)) {
                     ArrayUtils.remove(array, item);
                 }
+                return this.item.update({'system.paths': array});
             }
-                break;
             case "capacity": {
-                array = data.data.capacities;
+                array = this.item.system.capacities;
                 const item = array.find(e => e._id === id);
                 if (array && array.includes(item)) {
                     ArrayUtils.remove(array, item);
                 }
-            }
-                break;
+                return this.item.update({'system.capacities': array});
+            }            
         }
-        return this.item.update(data);
     }
 
 
@@ -344,104 +340,104 @@ export class CofItemSheet extends ItemSheet {
         const input = $(event.currentTarget).find("input");
         const name = input.attr('name');
         const checked = input.prop('checked')
-        if (name === "data.properties.equipment" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.properties.equipable = false;
-            data.data.slot = "";
-            data.data.properties.stackable = false;
-            data.data.qty = 1;
-            data.data.stacksize = null;
-            data.data.properties.unique = false;
-            data.data.properties.consumable = false;
-            data.data.properties.tailored = false;
-            data.data.properties["2H"] = false;
-            data.data.price = 0;
-            data.data.value = 0;
-            data.data.rarity = "";
-            return this.item.update(data);
+        if (name === "system.properties.equipment" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.properties.equipable = false;
+            system.slot = "";
+            system.properties.stackable = false;
+            system.qty = 1;
+            system.stacksize = null;
+            system.properties.unique = false;
+            system.properties.consumable = false;
+            system.properties.tailored = false;
+            system.properties["2H"] = false;
+            system.price = 0;
+            system.value = 0;
+            system.rarity = "";
+            return this.item.update({"system": system});
         }        
-        if (name === "data.properties.equipable" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.slot = "";
-            return this.item.update(data);
+        if (name === "system.properties.equipable" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.slot = "";
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.stackable" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.qty = 1;
-            data.data.stacksize = null;
-            data.data.deleteWhen0 = false;
-            return this.item.update(data);
+        if (name === "system.properties.stackable" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.qty = 1;
+            system.stacksize = null;
+            system.deleteWhen0 = false;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.weapon" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.skill = "@attacks.melee.mod";
-            data.data.skillBonus = 0;
-            data.data.dmgBase = 0;
-            data.data.dmgStat = "";
-            data.data.dmgBonus = 0;
-            data.data.critrange = "20"
-            data.data.properties.bashing = false;
-            data.data.properties["13strmin"] = false;
-            return this.item.update(data);
+        if (name === "system.properties.weapon" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.skill = "@attacks.melee.mod";
+            system.skillBonus = 0;
+            system.dmgBase = 0;
+            system.dmgStat = "";
+            system.dmgBonus = 0;
+            system.critrange = "20"
+            system.properties.bashing = false;
+            system.properties["13strmin"] = false;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.protection" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.defBase = 0;
-            data.data.defBonus = 0;
-            data.data.properties.dr = false;
-            data.data.dr = 0;
-            return this.item.update(data);
+        if (name === "system.properties.protection" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.defBase = 0;
+            system.defBonus = 0;
+            system.properties.dr = false;
+            system.dr = 0;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.dr" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.dr = 0;
-            return this.item.update(data);
+        if (name === "system.properties.dr" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.dr = 0;
+            return this.item.update({"system": system});
         }        
-        if (name === "data.properties.ranged" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.range = 0;
-            data.data.properties.bow = false;
-            data.data.properties.crossbow = false;
-            data.data.properties.powder = false;            
-            data.data.properties.throwing = false;
-            data.data.properties.sling = false;
-            data.data.properties.spell = false;
-            data.data.properties.reloadable = false;
-            data.data.reload = "";
-            return this.item.update(data);
+        if (name === "system.properties.ranged" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.range = 0;
+            system.properties.bow = false;
+            system.properties.crossbow = false;
+            system.properties.powder = false;            
+            system.properties.throwing = false;
+            system.properties.sling = false;
+            system.properties.spell = false;
+            system.properties.reloadable = false;
+            system.reload = "";
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.reloadable" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.reload = "";
-            return this.item.update(data);
+        if (name === "system.properties.reloadable" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.reload = "";
+            return this.item.update({"system": system});
         }        
          
-        if (name === "data.properties.effects" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.properties.heal = false;
-            data.data.properties.buff = false;
-            data.data.properties.temporary = false;
-            data.data.properties.persistent = false;
-            data.data.properties.spell = false;
-            data.data.effects.heal.formula = null;
-            data.data.effects.buff.formula = null;
-            data.data.properties.activable = false;
-            return this.item.update(data);
+        if (name === "system.properties.effects" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.properties.heal = false;
+            system.properties.buff = false;
+            system.properties.temporary = false;
+            system.properties.persistent = false;
+            system.properties.spell = false;
+            system.effects.heal.formula = null;
+            system.effects.buff.formula = null;
+            system.properties.activable = false;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.heal" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.effects.heal.formula = null;
-            return this.item.update(data);
+        if (name === "system.properties.heal" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.effects.heal.formula = null;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.buff" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.effects.buff.formula = null;
-            return this.item.update(data);
+        if (name === "system.properties.buff" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.effects.buff.formula = null;
+            return this.item.update({"system": system});
         }
-        if (name === "data.properties.spell" && !checked) {
-            let data = duplicate(this.item.data);
-            data.data.properties.activable = false;
-            return this.item.update(data);
+        if (name === "system.properties.spell" && !checked) {
+            let system = foundry.utils.duplicate(this.item.system);
+            system.properties.activable = false;
+            return this.item.update({"system": system});
         }        
     }
 
@@ -453,23 +449,23 @@ export class CofItemSheet extends ItemSheet {
     _getItemProperties(item) {
         const props = [];
         if (item.type === "item") {
-            const entries = Object.entries(item.data.data.properties)
+            const entries = Object.entries(item.system.properties)
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.itemProperties[e[0]]
             }));
         }
         if (item.type === "capacity") {
             let entries = [];
-            entries.push(["limited",item.data.data.limited]);
-            entries.push(["spell", item.data.data.spell]);
-            entries.push(["ranged", item.data.data.ranged]);
-            entries.push(["limitedUsage", item.data.data.limitedUsage]);
-            entries.push(["save", item.data.data.save]);
-            entries.push(["activable", item.data.data.activable]);
-            entries.push(["heal", item.data.data.heal]);
-            entries.push(["attack", item.data.data.attack]);
-            entries.push(["buff", item.data.data.buff]);
-            entries.push(["useMacro", item.data.data.useMacro]);
+            entries.push(["limited",item.system.limited]);
+            entries.push(["spell", item.system.spell]);
+            entries.push(["ranged", item.system.ranged]);
+            entries.push(["limitedUsage", item.system.limitedUsage]);
+            entries.push(["save", item.system.save]);
+            entries.push(["activable", item.system.activable]);
+            entries.push(["heal", item.system.heal]);
+            entries.push(["attack", item.system.attack]);
+            entries.push(["buff", item.system.buff]);
+            entries.push(["useMacro", item.system.useMacro]);
             props.push(...entries.filter(e => e[1] === true).map(e => {
                 return game.cof.config.capacityProperties[e[0]]
             }));
@@ -478,25 +474,25 @@ export class CofItemSheet extends ItemSheet {
     }
 
     /** @override */
-    getData(options) {
-        const data = super.getData(options);
+    async getData(options) {
+        const context = super.getData(options);
+        if (COF.debug) console.log(context);
 
         let lockItems = game.settings.get("cof", "lockItems");
         let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
         options.editable &= (game.user.isGM || (!lockItems && !lockDuringPause));
-
-        const itemData = data.data;
-        if (COF.debug) console.log(data);
-        data.labels = this.item.labels;
-        data.config = game.cof.config;
-        data.itemType = data.item.type.titleCase();
-        data.itemProperties = this._getItemProperties(data.item);
-        data.effects = data.item.effects;
+        context.config = game.cof.config;
+        
+        context.labels = this.item.labels;        
+        context.itemType = context.item.type.titleCase();
+        context.itemProperties = this._getItemProperties(context.item);
+        context.effects = context.item.effects;
         // Gestion de l'affichage des boutons de modification des effets
         // Les boutons sont masqués si l'item appartient à un actor ou est verrouillé
-        data.isEffectsEditable = !this.item.actor && options.editable;
-        data.item = itemData;
-        data.data = itemData.data;
-        return data;
+        context.isEffectsEditable = !this.item.actor && options.editable;
+        context.system = context.item.system;
+        context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, {async: true});
+
+        return context;       
     }
 }

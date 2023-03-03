@@ -1,4 +1,3 @@
-import { Traversal } from "../utils/traversal.js";
 import { Path } from "./path.js";
 
 export class Profile {
@@ -8,32 +7,36 @@ export class Profile {
      * @param {*} itemData 
      * @returns 
      */
-    static addToActor(actor, itemData) {
+    static async addToActor(actor, itemData) {
         if (actor.items.filter(item => item.type === "profile").length > 0) {
             ui.notifications.error(game.i18n.localize("COF.notification.ProfileAlreadyOwned"));
             return false;
         } else {
             itemData = itemData instanceof Array ? itemData : [itemData];
-            // ajoute le profil dans Items
-            return actor.createEmbeddedDocuments("Item", itemData).then(newProfile => {
-                let newProfileData = newProfile[0].data;
-                return Traversal.mapItemsOfType(["path"]).then(paths => {
-                    newProfileData.data.paths = newProfileData.data.paths.map(p => {
-                        let pathData = paths[p._id];
-                        pathData.flags.core = { sourceId: p.sourceId };
-                        pathData.data.profile = {
-                            _id: newProfileData._id,
-                            name: newProfileData.name,
-                            img: newProfileData.img,
-                            key: newProfileData.data.key,
-                            sourceId: newProfileData.flags.core.sourceId,
-                        };
-                        return pathData;
-                    });
-                    // add paths from profile
-                    return Path.addPathsToActor(actor, newProfileData.data.paths)
-                });
-            });
+            // Ajout du profil dans les embedded items
+            let newProfileData = await actor.createEmbeddedDocuments("Item", itemData);
+            let newProfile = newProfileData[0];
+
+            let paths = [];
+//            let newPaths = duplicate(newProfile.system.paths)
+            for (const path of newProfile.system.paths) {
+                let pathData = await fromUuid(path.sourceId);
+                pathData.flags.core = { sourceId: path.sourceId };
+                pathData.system.profile = {
+                    _id: newProfile._id,
+                    name: newProfile.name,
+                    img: newProfile.img,
+                    key: newProfile.system.key,
+                    sourceId: newProfile.flags.core.sourceId,
+                };
+                paths.push(pathData);
+            }
+            
+            const updates = {"_id": newProfile._id, "system.paths": paths};            
+            await actor.updateEmbeddedDocuments("Item", [updates]);
+            
+            // add paths from profile
+            return Path.addPathsToActor(actor, paths);          
         }
     }
     /**
@@ -46,7 +49,7 @@ export class Profile {
      * @returns 
      */
     static removeFromActor(actor, profile) {
-        const paths = actor.items.filter(item => item.type === "path" && item.data.data.profile?._id === profile.id);
+        const paths = actor.items.filter(item => item.type === "path" && item.system.profile?._id === profile.id);
         return Dialog.confirm({
             title: game.i18n.localize("COF.dialog.deleteProfile.title"),
             content: game.i18n.format('COF.dialog.deleteProfile.confirm', {name:actor.name}),

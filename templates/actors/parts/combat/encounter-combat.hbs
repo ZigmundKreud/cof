@@ -9,29 +9,29 @@
                 <a class="item-control item-create weapon-add" title="{{ localize 'COF.combat.addAttack' }}"><i class="fas fa-plus"></i>&nbsp; {{localize "COF.ui.add"}}</a>
             </div>
         </li>
-    {{#each actor.data.weapons as |weapon id|}}
+    {{#each actor.system.weapons as |weapon id|}}
         <ol class="item-list">
             <li class="item flexrow weapon" data-weapon-id="{{id}}" data-item-type="Weapon" draggable="true">
                 <div class="item-name flexrow" data-roll-type="weapon">
                     <div class="item-image weapon-image"></div>
-                    <input class="weapon-name" name="data.weapons.{{id}}.name" type="text" value="{{weapon.name}}" placeholder="{{ localize 'COF.weapons.name.abbrev' }}" data-dtype="String"/>
+                    <input class="weapon-name" name="system.weapons.{{id}}.name" type="text" value="{{weapon.name}}" placeholder="{{ localize 'COF.weapons.name.abbrev' }}" data-dtype="String"/>
                 </div>
                 <div class="item-detail">
                     {{#if (isNull weapon.mod)}}
-                        <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" value="" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
+                        <input class="field-value weapon-mod" name="system.weapons.{{id}}.mod" type="text" value="" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
                     {{else}}
-                        <input class="field-value weapon-mod" name="data.weapons.{{id}}.mod" type="text" value="{{numberFormat weapon.mod decimals=0 sign=true}}" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
+                        <input class="field-value weapon-mod" name="system.weapons.{{id}}.mod" type="text" value="{{numberFormat weapon.mod decimals=0 sign=true}}" placeholder="{{ localize 'COF.weapons.mod.abbrev' }}" data-dtype="Number"/>
                     {{/if}}
                 </div>
                 <div class="item-detail">
                     {{#if (isNull weapon.critrange)}}
-                        <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" value="20" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
+                        <input class="field-value weapon-critrange" name="system.weapons.{{id}}.critrange" type="text" value="20" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
                     {{else}}
-                        <input class="field-value weapon-critrange" name="data.weapons.{{id}}.critrange" type="text" value="{{weapon.critrange}}" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
+                        <input class="field-value weapon-critrange" name="system.weapons.{{id}}.critrange" type="text" value="{{weapon.critrange}}" placeholder="{{ localize 'COF.ui.critrange' }}" data-dtype="String"/>
                     {{/if}}
                 </div>
                 <div class="item-detail">
-                    <input class="field-value weapon-dmg" name="data.weapons.{{id}}.dmg" type="text" value="{{weapon.dmg}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
+                    <input class="field-value weapon-dmg" name="system.weapons.{{id}}.dmg" type="text" value="{{weapon.dmg}}" placeholder="{{ localize 'COF.weapons.dmg.abbrev' }}" data-dtype="String"/>
                 </div>
                 <div class="item-controls-3">
                     <a class="item-control rollable" data-roll-type="encounter-weapon" title="{{ localize 'COF.roll.attackAndDamages' }}"><i class="fas fa-dice-d20"></i></a>

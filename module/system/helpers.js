@@ -1,17 +1,7 @@
-import {Traversal} from "../utils/traversal.js";
-
 export const registerHandlebarsHelpers = function () {
 
-    Handlebars.registerHelper('getEmbeddedItems', function (type, ids) {
-        if (ids) {
-            return Traversal.getItemsOfType([type]).then(items => {
-                return ids.map(id => items.find(i => i._id === id));
-            });
-        } else return null;
-    });
-
     Handlebars.registerHelper('getPath', function (items, pathKey) {
-        return items.filter(item => item.type === "path").find(p => p.data.key === pathKey);
+        return items.filter(item => item.type === "path").find(p => p.system.key === pathKey);
     });
 
     Handlebars.registerHelper('isNull', function (val) {
@@ -107,7 +97,7 @@ export const registerHandlebarsHelpers = function () {
     });
 
     Handlebars.registerHelper('includesKey', function (items, type, key) {
-        return items.filter(i => i.type === type).map(i => i.data.key).includes(key);
+        return items.filter(i => i.type === type).map(i => i.system.key).includes(key);
     });
 
     Handlebars.registerHelper('includes', function (array, val) {

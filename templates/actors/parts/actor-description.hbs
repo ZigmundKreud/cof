@@ -3,7 +3,7 @@
         <span class="field-label">{{ localize 'COF.details.gender' }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value" name="data.details.gender" type="text" value="{{actor.data.details.gender}}" placeholder="" data-dtype="String"/>
+        <input class="field-value" name="system.details.gender" type="text" value="{{actor.system.details.gender}}" placeholder="" data-dtype="String"/>
     </div>
 </div>
 <div class="flexrow">
@@ -11,7 +11,7 @@
         <span class="field-label">{{ localize "COF.details.age" }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value" name="data.details.age" type="text" value="{{actor.data.details.age}}" placeholder="" data-dtype="String"/>
+        <input class="field-value" name="system.details.age" type="text" value="{{actor.system.details.age}}" placeholder="" data-dtype="String"/>
     </div>
 </div>
 <div class="flexrow">
@@ -19,7 +19,7 @@
         <span class="field-label">{{ localize "COF.details.height" }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value" name="data.details.height" type="text" value="{{actor.data.details.height}}" placeholder="" data-dtype="String"/>
+        <input class="field-value" name="system.details.height" type="text" value="{{actor.system.details.height}}" placeholder="" data-dtype="String"/>
     </div>
 </div>
 <div class="flexrow">
@@ -27,7 +27,7 @@
         <span class="field-label">{{ localize "COF.details.weight" }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value" name="data.details.weight" type="text" value="{{actor.data.details.weight}}" placeholder="" data-dtype="String"/>
+        <input class="field-value" name="system.details.weight" type="text" value="{{actor.system.details.weight}}" placeholder="" data-dtype="String"/>
     </div>
 </div>
 <div class="flexrow">
@@ -35,7 +35,7 @@
         <span class="field-label">{{ localize "COF.details.eyes" }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value" name="data.details.eyes" type="text" value="{{actor.data.details.eyes}}" placeholder="" data-dtype="String"/>
+        <input class="field-value" name="system.details.eyes" type="text" value="{{actor.system.details.eyes}}" placeholder="" data-dtype="String"/>
     </div>
 </div>
 <div class="flexrow">
@@ -43,16 +43,16 @@
         <span class="field-label">{{ localize "COF.details.hair" }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value" name="data.details.hair" type="text" value="{{actor.data.details.hair}}" placeholder="" data-dtype="String"/>
+        <input class="field-value" name="system.details.hair" type="text" value="{{actor.system.details.hair}}" placeholder="" data-dtype="String"/>
     </div>
 </div>
-{{#if actor.data.milieu}}
+{{#if actor.system.milieu}}
 <div class="flexrow">
     <div class="flex1 center bg-default">
         <span class="field-label">{{ localize 'COF.ui.milieu' }}</span>
     </div>
     <div class="flex4 cell">
-        <input class="field-value sans" name="data.milieu" type="text" value="{{actor.data.milieu}}" placeholder="{{ localize 'COF.ui.milieu' }}" data-dtype="String"/>
+        <input class="field-value sans" name="system.milieu" type="text" value="{{actor.system.milieu}}" placeholder="{{ localize 'COF.ui.milieu' }}" data-dtype="String"/>
     </div>
 </div>
 {{/if}}
@@ -63,4 +63,4 @@
     </div>
 </div>
 <hr/>
-{{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+{{editor description target="system.description" button=true owner=owner editable=editable}}

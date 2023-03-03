@@ -152,14 +152,14 @@ export class CofAttributesDialog extends FormApplication {
     async _updateObject(event, formData) {
         event.preventDefault();
         const updateData = {
-            data: {
+            system: {
                 stats: {
-                    str: {base: formData["data.stats.str.base"]},
-                    dex: {base: formData["data.stats.dex.base"]},
-                    con: {base: formData["data.stats.con.base"]},
-                    int: {base: formData["data.stats.int.base"]},
-                    wis: {base: formData["data.stats.wis.base"]},
-                    cha: {base: formData["data.stats.cha.base"]}
+                    str: {base: formData["system.stats.str.base"]},
+                    dex: {base: formData["system.stats.dex.base"]},
+                    con: {base: formData["system.stats.con.base"]},
+                    int: {base: formData["system.stats.int.base"]},
+                    wis: {base: formData["system.stats.wis.base"]},
+                    cha: {base: formData["system.stats.cha.base"]}
                 }
             }
         };
@@ -172,7 +172,7 @@ export class CofAttributesDialog extends FormApplication {
     /** @override */
     getData(options) {
         let data = super.getData(options);
-        data.stats = duplicate(this.object.data.data.stats);
+        data.stats = foundry.utils.duplicate(this.object.system.stats);
         for(let stat of Object.values(data.stats)){
             stat.mod = HandlebarsHelpers.numberFormat(Stats.getModFromStatValue(stat.base), {hash: {decimals: 0, sign: true}})
         }

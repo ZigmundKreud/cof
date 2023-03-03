@@ -9,7 +9,7 @@ export class CofHealingRoll {
     }
 
     async roll(actor){
-        const r = new Roll(this._formula,actor.data.data);
+        const r = new Roll(this._formula,actor.system);
         await r.roll({"async": true});
         if (this._isCritical) r._total = r._total * 2;
         this._buildHealingRollMessage().then(msgFlavor => {
