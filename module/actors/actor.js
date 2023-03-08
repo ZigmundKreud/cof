@@ -923,7 +923,7 @@ export class CofActor extends Actor {
     if (equipable) {
       let updates = { _id: item._id, "system.worn": !item.system.worn };
 
-      if (game.settings.get("cof", "useIncompetentPJ") && item.system.worn) {
+      if (game.settings.get("cof", "useIncompetentPJ") && !item.system.worn) {
         // Prend en compte les règles de PJ Incompétent : utilisation d'équipement non maîtrisé par le PJ
         if (item.system.subtype === "armor" || item.system.subtype === "shield") {
           const armorCategory = item.getMartialCategory();
