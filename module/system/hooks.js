@@ -182,7 +182,7 @@ export default function registerHooks() {
   });
 
   Hooks.on("updateSetting", async (setting) => {
-    if (setting.data.key === "cof.lockDuringPause") {
+    if (setting.key === "cof.lockDuringPause") {
       if (!game.user.isGM && game.paused) {
         updateApplicationToLockDuringPause();
       }
