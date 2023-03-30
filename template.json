@@ -481,6 +481,7 @@
         },
         "attack": {
             "skill": "",
+            "skillBonus": "",
             "difficulty": null,
             "dmgBase": "",
             "dmgStat": ""     

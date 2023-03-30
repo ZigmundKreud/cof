@@ -273,8 +273,18 @@ export class Macros {
     }
     // Capacité
     else if (item.type === "capacity") {
+      const options = {
+        bonus: bonus,
+        malus: malus,
+        dmgBonus: dmgBonus,
+        dmgOnly: dmgOnly,
+        customLabel: customLabel,
+        skillDescr: skillDescr,
+        dmgDescr: dmgDescr,
+        dialog: dialog
+      }
       if (item.system.activable && (item.system.heal || item.system.attack || item.system.useMacro || item.system.buff)) {
-        return actor.activateCapacity(item);
+        return actor.activateCapacity(item, options);
       }
     } else return item.sheet.render(true);
   };

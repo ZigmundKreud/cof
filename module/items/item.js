@@ -78,9 +78,10 @@ export class CofItem extends Item {
    * @description Active les effets d'un objet
    *  Pour les types Soin, Attaque, useMacro et Buff
    * @param {*} actor
+   * @param {*} options Options from the macro (bonus, malus, dmgBonus, dmgOnly, customLabel, skillDescr, dmgDescr, dialog) used for attack
    * @returns
    */
-  async applyEffects(actor) {
+  async applyEffects(actor, options) {
 
     // Capacité de buff
     if (this.getProperty("buff")) {
@@ -103,7 +104,7 @@ export class CofItem extends Item {
 
     // Capacité d'attaque
     if (this.getProperty("attack")) {
-      return CofRoll.rollAttackCapacity(actor, this);
+      return CofRoll.rollAttackCapacity(actor, this, options);
     }
 
     // Capacité utilisant une macro

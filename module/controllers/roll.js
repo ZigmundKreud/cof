@@ -70,16 +70,17 @@ export class CofRoll {
      * 
      * @param {*} actor 
      * @param {*} capacity 
+     * @param {Object} options : bonus, malus, dmgBonus, dmgOnly, customLabel, skillDescr, dmgDescr, dialog
      * @returns 
      */
-     static rollAttackCapacity(actor, capacity) {
+     static rollAttackCapacity(actor, capacity, options) {
          
         const attack = capacity.system.properties.attack;
     
         const label = capacity.name;
 
         const critrange = "20";
-        const mod = attack.skill !== "auto" ? eval("actor.system." + attack.skill.split("@")[1]) : 0;
+        const mod = attack.skill !== "auto" ? eval("actor.system." + attack.skill.split("@")[1]) + (parseInt(attack.skillBonus) || 0) : 0;
         const difficulty = (attack.difficulty !== null && attack.difficulty !== "") ? attack.difficulty : null;
 
         // Compute damage
@@ -102,9 +103,9 @@ export class CofRoll {
         }
 
         if (attack.skill !== "auto") {
-            return this.rollWeaponDialog(actor, label, mod, 0, 0, critrange, dmg, 0, "submit", "", dmgDescr, difficulty, actor.isWeakened());
+            return this.rollWeaponDialog(actor, label, mod, options?.bonus ?? 0, options?.malus ?? 0, critrange, dmg, options?.dmgBonus ?? 0, "submit", options?.skillDescr ?? "", options?.dmgDescr ?? 0, difficulty, actor.isWeakened());
         }
-        else return this.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);        
+        else return this.rollDamageDialog(actor, label, dmg, options?.dmgBonus ?? 0, false, "submit", options?.dmgDescr ?? 0);        
     }
 
     static _evaluateSaveDifficulty(formula, actor){

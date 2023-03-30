@@ -1164,9 +1164,10 @@ export class CofActor extends Actor {
   /**
    * Activate a capacity
    * @param {*} capacity
+   * @param {*} options
    * @returns
    */
-  activateCapacity(capacity) {
+  activateCapacity(capacity, options) {
     const capacitySystem = capacity.system;
     const activable = capacitySystem.activable;
     const limitedUsage = capacitySystem.limitedUsage;
@@ -1182,12 +1183,12 @@ export class CofActor extends Actor {
         if (capacitySystem.properties.limitedUsage.use > 0) {
           const newUse = capacitySystem.properties.limitedUsage.use > 0 ? capacitySystem.properties.limitedUsage.use - 1 : 0;
           if (game.settings.get("cof", "useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
-          return capacity.update({ "system.properties.limitedUsage.use": newUse }).then((capacity) => capacity.applyEffects(this));
+          return capacity.update({ "system.properties.limitedUsage.use": newUse }).then((capacity) => capacity.applyEffects(this, options));
         }
         return ui.notifications.warn(game.i18n.localize("COF.notification.ActivateEmptyCapacity"));
       }
       // Capacité à usage illimité
-      return capacity.applyEffects(this);
+      return capacity.applyEffects(this, options);
     }
   }
 

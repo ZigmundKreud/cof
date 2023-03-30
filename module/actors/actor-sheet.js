@@ -391,7 +391,7 @@ export class CofActorSheet extends CofBaseSheet {
     const li = $(event.currentTarget).closest(".item");
     const capacity = this.actor.items.get(li.data("itemId"));
 
-    this.actor.activateCapacity(capacity);
+    this.actor.activateCapacity(capacity, null);
   }
 
   _onIncreaseCapacityUse(event) {
