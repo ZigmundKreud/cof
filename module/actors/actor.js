@@ -267,7 +267,8 @@ export class CofActor extends Actor {
     if (attributes.fp.value < 0) attributes.fp.value = 0;
 
     // Réduction des dommages
-    attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value;
+    // Réduction apportée par les armures portées : rdFromArmor
+    attributes.dr.value = attributes.dr.base.value + attributes.dr.bonus.value + this.rdFromItems;
 
     // Points de récupération
     attributes.rp.base = this.computeBaseRP(actor);
@@ -709,6 +710,24 @@ export class CofActor extends Actor {
     if (protections.length > 0) malus = protections.reduce((acc, curr) => acc + curr, 0);
     return malus;
   }
+
+   /**
+   * @name getRDFromArmor
+   * @description calcule la Résistance aux dégâts lié à l'armure équipée
+   * @returns {Int} 0 ou la RD
+   */
+    get rdFromItems() {
+      let rd = 0;
+      let protections = this.items
+        .filter((i) => {
+          if (i.type === "item" && i.system.properties.equipable && i.system.worn && i.system.properties.protection && i.system.properties.dr) return true;
+          if (i.type === "item" && !i.system.properties.equipable && i.system.properties.protection && i.system.properties.dr) return true;
+          return false;
+        })
+        .map((i) => i.system.dr);
+      if (protections.length > 0) rd = protections.reduce((acc, curr) => acc + curr, 0);
+      return rd;
+    }
 
   /**
    * @name getOverloadedOtherMod
