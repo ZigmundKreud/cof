@@ -148,44 +148,80 @@ export class CofLootSheet extends CofBaseSheet {
     async _onDropItem(event, data) {
         if (!this.actor.isOwner) return false;
 
+        // Get the item from the drop
         const item = await Item.fromDropData(data);
         if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
         
-        let itemData = foundry.utils.duplicate(item);
-        if (!COF.actorsAllowedItems[this.actor.type]?.includes(item.type)) return;
-        itemData = itemData instanceof Array ? itemData : [itemData];
-        switch (item.type) {
-            case "path":
-            case "profile":
-            case "species":
-            case "capacity":
-                return false;
-            default:
-                const actor = this.actor;
-                let sameActor = (data.actorId === actor.id) && ((!actor.isToken && !data.tokenId) || (data.tokenId === actor.token.id));
-                if (sameActor) return this._onSortItem(event, itemData);
-                // Create the owned item
-                return this.actor.createEmbeddedDocuments("Item", itemData).then((item)=>{                    
-                    // Si il n'y as pas d'actor id, il s'agit d'un objet du compendium, on quitte
-                    if (!data.actorId) return item;
-                                        
-                    // Si l'item doit être "move", on le supprime de l'actor précédent
-                    let moveItem = game.settings.get("cof","moveItem");                    
-                    if (moveItem ^ event.shiftKey) {
+        const itemData = item.toObject();
 
-                        if (!data.tokenId){
-                            let originalActor = ActorDirectory.collection.get(data.actorId);
-                            originalActor.deleteEmbeddedDocuments("Item", [data.data._id]);
-                        }
-                        else{
-                            let token = TokenLayer.instance.placeables.find(token=>token.id === data.tokenId);
-                            let oldItem = token?.document.getEmbeddedCollection('Item').get(data.data._id);
-                            oldItem?.delete();
-                        }
-                    }
-                });
-        }
+        // Handle item sorting within the same Actor
+        if (this.actor.uuid === item.parent?.uuid) return this._onSortItem(event, itemData);
+    
+        // Create the owned item
+        return this._onDropItemCreate(itemData, data.uuid, event.shiftKey);
     }
+
+      /**
+   * Handle the final creation of dropped Item data on the Actor.
+   * @param {object[]|object} itemData     The item data requested for creation
+   * @param {String(uuid)} source uuid of the source
+   * From a compendium : "Compendium.cof-srd.items.qg4bkUka4VQXwchl"
+   * From another actor : "Actor.rIfuglFJjCzhkaTg.Item.KIcttA6qTUgXxthB"
+   * From the items Directory : "Item.vf3pOZ4AssSB8Wy4"
+   * @param {boolean} shiftKey Shift key was pressed during the drop
+   * @returns {Promise<Item[]>}
+   * @private
+   */
+  async _onDropItemCreate(itemData, source, shiftKey) {
+    switch (itemData.type) {
+      case "path":
+      case "profile":
+      case "species":
+      case "capacity":
+        return false;
+      default: {
+        const itemId = itemData._id;
+
+        // Faut-il déplacer ou copier l'item ?
+        let moveItem = game.settings.get("cof", "moveItem");
+
+        // Récupération de l'actor d'origine
+        let originalActorID = null;
+        let originalActor = null;
+        if (source.includes("Actor")) {
+          originalActorID = source.split(".")[1];
+          originalActor = ActorDirectory.collection.get(originalActorID);
+        }
+
+        // Si l'item doit être déplacé ET qu'il n'est plus dans l'inventaire d'origine, affichage d'un message d'avertissement et on arrête le traitement
+        if (moveItem && originalActor && !originalActor.items.get(itemData._id)) {
+          ui.notifications.warn(game.i18n.format("COF.notification.ItemNotInInventory", { itemName: itemData.name, actorName: originalActor.name }));
+          return null;
+        }
+
+        // On force le nouvel Item a ne pas être équipé (notamment lors du transfert d'un inventaire à un autre)
+        if (itemData.system.worn) itemData.system.worn = false;
+
+        itemData = itemData instanceof Array ? itemData : [itemData];
+        // Create the owned item
+        return this.actor.createEmbeddedDocuments("Item", itemData).then((item) => {
+          // Si il n'y as pas d'originalActor l'objet ne vient pas d'un autre acteur
+          if (!originalActor) return item;
+
+          // Si l'item doit être "move", on le supprime de l'actor précédent
+          if (moveItem ^ shiftKey) {
+            if (!originalActor.token) {
+              originalActor.deleteEmbeddedDocuments("Item", [itemId]);
+            } else {
+              let token = TokenLayer.instance.placeables.find((token) => token.id === data.tokenId);
+              let oldItem = token?.document.getEmbeddedCollection("Item").get(itemId);
+              oldItem?.delete();
+            }
+          }
+        });
+      }
+    }
+  }
 
     /** @override */
     getData(options = {}) {
