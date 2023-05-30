@@ -133,6 +133,7 @@
   "COF.ui.openCompendium": "Clic droit pour ouvrir le compendium",
   "COF.ui.modifyQuantity": " Clic gauche pour augmenter, clic droit pour diminuer",  
   "COF.ui.add": "Aj.",
+  "COF.ui.sendItemToChat": "Envoyer l'objet dans le chat",
   
   "COF.species.openCompendium": "Clic gauche pour voir le peuple, clic droit pour ouvrir le compendium",
   "COF.path.openCompendium": "Clic gauche pour voir le profil, clic droit pour ouvrir le compendium",

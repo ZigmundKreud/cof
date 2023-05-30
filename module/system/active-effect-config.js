@@ -3,12 +3,12 @@ import { COF } from "./config.js";
 export class COFActiveEffectConfig extends ActiveEffectConfig {
 
     get template() {
-        return "systems/cof/templates/effects/activeEffect-config.hbs";
+        return "systems/cof/templates/effects/active-effect-config.hbs";
     }
 
-    getData(options = {}) {
-        let sheetData = super.getData();
-        sheetData.config = COF;
+    async getData(options = {}) {
+        let context = await super.getData(options);
+        context.config = COF;
 
         let lockDuringPause = game.settings.get("cof", "lockDuringPause") && game.paused;
         options.editable &= (game.user.isGM || !lockDuringPause);
@@ -20,9 +20,9 @@ export class COFActiveEffectConfig extends ActiveEffectConfig {
             targetType = "SelectEffectTarget";
         }
 
-        sheetData.targetType = targetType;
+        context.targetType = targetType;
 
-        return sheetData;
+        return context;
     }
 
     /** @override */
