@@ -90,10 +90,10 @@ export class Path {
    */
   static removeFromActor(actor, path) {
     Dialog.confirm({
-      title: game.i18n.format("COF.dialog.deleteProfile.title"),
+      title: game.i18n.format("COF.dialog.deletePath.title"),
       content: game.i18n.format("COF.dialog.deletePath.confirm", { name: actor.name }),
       yes: () => {
-        let items = actor.items.filter((item) => item.type === "capacity" && item.system.path._id === path.system._id).map((c) => c._id);
+        let items = actor.items.filter((item) => item.type === "capacity" && item.system.path._id === path._id).map((c) => c._id);
         items.push(path.id);
         return actor.deleteEmbeddedDocuments("Item", items);
       },
@@ -111,11 +111,7 @@ export class Path {
     let items = [];
     paths = paths instanceof Array ? paths : [paths];
     paths.map((path) => {
-      let caps = actor.items.filter((item) => {
-        if (item.type === "capacity") {
-          if (item.system.path._id === path.id) return true;
-        }
-      });
+      let caps = actor.items.filter((item) => item.type === "capacity" && item.system.path._id === path._id);
       caps.map((c) => items.push(c.id));
       items.push(path.id);
     });
