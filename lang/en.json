@@ -10,6 +10,22 @@
   "ITEM.TypeProfile": "Profile",
   "ITEM.TypePath": "Path",
 
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC",
+      "encounter": "Encounter",
+      "loot": "Vendor/Loot"
+    },
+    "Item": {
+      "item": "Object",
+      "capacity": "Capacity",
+      "species": "Race",
+      "profile": "Profile",
+      "path": "Path"
+    }
+  },
+
   "COF.title": "Chroniques Oubliées Fantasy",
 
   "COF.ui.na": "N.A.",

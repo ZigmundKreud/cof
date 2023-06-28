@@ -10,6 +10,22 @@
   "ITEM.TypeProfile": "Profil",
   "ITEM.TypePath": "Voie",
 
+  "TYPES": {
+    "Actor": {
+      "character": "Personnage",
+      "npc": "PNJ",
+      "encounter": "Rencontre",
+      "loot": "Vendeur/Coffre"
+    },
+    "Item": {
+      "item": "Objet",
+      "capacity": "Capacité",
+      "species": "Race",
+      "profile": "Profil",
+      "path": "Voie"
+    }
+  },
+
   "COF.title": "Chroniques Oubliées Fantasy",
 
   "COF.ui.na": "N.A.",
