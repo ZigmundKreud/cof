@@ -2,6 +2,7 @@ import { CofSkillRoll } from "./skill-roll.js";
 import { CofDamageRoll } from "./dmg-roll.js";
 import { CofAttributesDialog } from "../dialogs/attributes-dialog.js";
 import { CofHealingRoll } from "./healing-roll.js";
+import { Utils } from "../utils/eval-utils.js";
 
 export class CofRoll {
     static options() {
@@ -75,23 +76,35 @@ export class CofRoll {
      */
      static rollAttackCapacity(actor, capacity, options) {
          
+        const pattern = /d(4|6|8|10|12|20|100)/i; // Vérifie d4, D4, etc...
+
         const attack = capacity.system.properties.attack;
     
         const label = capacity.name;
 
         const critrange = "20";
-        const mod = attack.skill !== "auto" ? eval("actor.system." + attack.skill.split("@")[1]) + (parseInt(attack.skillBonus) || 0) : 0;
+        let mod = 0;
+        if (attack.skill !== "auto") {
+            mod = eval("actor.system." + attack.skill.split("@")[1]);
+            // Gestion du bonus. Par exemple : 2 ou @stats.str.mod ou @str
+            const skillBonusToEvaluate = pattern.test(attack.skillBonus) ? false : true;
+            let skillBonusEvaluated = skillBonusToEvaluate ? Utils.evaluate(actor, attack.skillBonus, true) : "0";
+            mod += eval(skillBonusEvaluated);
+        }
+
         const difficulty = (attack.difficulty !== null && attack.difficulty !== "") ? attack.difficulty : null;
 
         // Compute damage
-        let dmg;
         const dmgBase = attack.dmgBase;
+
+        const dmgBaseToEvaluate = pattern.test(dmgBase) ? false : true;
+        let dmgBaseEvaluated = dmgBaseToEvaluate ? Utils.evaluate(actor, dmgBase, true) : Utils.evaluateWithDice(actor, dmgBase);
+
         const stat = attack.dmgStat.split("@")[1];
         const dmgStat = eval("actor.system." + stat);
-        dmg = dmgBase;
 
-        if (dmgStat < 0) dmg = dmg + " - " + parseInt(-dmgStat);
-        else if (dmgStat > 0) dmg = dmg + " + " + dmgStat;
+        if (dmgStat < 0) dmgBaseEvaluated = dmgBaseEvaluated + " - " + parseInt(-dmgStat);
+        else if (dmgStat > 0) dmgBaseEvaluated = dmgBaseEvaluated + " + " + dmgStat;
         
         let dmgDescr = "";
         if (capacity.system.save) {
@@ -103,7 +116,7 @@ export class CofRoll {
         }
 
         if (attack.skill !== "auto") {
-            return this.rollWeaponDialog(actor, label, mod, options?.bonus ?? 0, options?.malus ?? 0, critrange, dmg, options?.dmgBonus ?? 0, "submit", options?.skillDescr ?? "", options?.dmgDescr ?? 0, difficulty, actor.isWeakened());
+            return this.rollWeaponDialog(actor, label, mod, options?.bonus ?? 0, options?.malus ?? 0, critrange, dmgBaseEvaluated, options?.dmgBonus ?? 0, "submit", options?.skillDescr ?? "", options?.dmgDescr ?? 0, difficulty, actor.isWeakened());
         }
         else return this.rollDamageDialog(actor, label, dmg, options?.dmgBonus ?? 0, false, "submit", options?.dmgDescr ?? 0);        
     }
