@@ -88,7 +88,7 @@ export class CofItem extends Item {
       // Parcourt les effects de l'acteur pour trouver ceux fournis par la capacité
       let effectsData = actor.getEffectsFromItemId(this.id)?.map((effect) => foundry.utils.duplicate(effect.data));
       if (effectsData.length > 0) {
-        effectsData.forEach((effect) => (effect.disabled = !this.this.system.properties.buff.activated));
+        effectsData.forEach((effect) => (effect.disabled = !this.system.properties.buff.activated));
         actor.updateEmbeddedDocuments("ActiveEffect", effectsData);
       }
     }
