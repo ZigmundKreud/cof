@@ -224,31 +224,14 @@ export class CofItemSheet extends ItemSheet {
      */
     async _onDropMacro(event, data) {
         event.preventDefault();
-       if (this.object.type !== "capacity") return false;
+        if (this.object.type !== "capacity") return false;
 
-       // Macro d'un compendium
-        if (data.pack != undefined) {
-            const pack = game.packs.get(data.pack);
-            const item = pack.index.get(data.id);
-            let itemId = item != undefined ? item._id : null;
-            let macro;
-            if (itemId) {
-                macro = await pack.getDocument(itemId);
-            }
-            if (macro && this.object.system.useMacro) {
-                this.object.system.properties.macro.id = data.id;
-                this.object.system.properties.macro.name = macro.name;
-                this.object.system.properties.macro.pack = data.pack;
-                return this.render(true);
-            }
-        }
-
-        // Macro de la hotbar
-        if (this.object.system.useMacro) {
-            this.object.system.properties.macro.id = data.id;
-            this.object.system.properties.macro.name = game.macros.get(data.id).name;
+        fromUuid(data.uuid).then((macro)=>{
+            this.object.system.properties.macro.id = macro.id;
+            this.object.system.properties.macro.name = macro.name;
+            this.object.system.properties.macro.pack = macro.pack;
             return this.render(true);
-        }
+        });       
     }
 
 
