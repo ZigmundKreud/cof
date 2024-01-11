@@ -1,3 +1,7 @@
+11.315.0
+--------
+- Correction drop d'une macro sur une capacité depuis la hotbar
+
 11.313.1
 --------
 - Release technique identique à la 11.313.0
