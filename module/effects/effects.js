@@ -16,7 +16,7 @@ export function customizeStatusEffects() {
 			status = CONFIG.statusEffects[statusIndex];
             let modifications = EffectsModifications[modificationId];
             
-            if (modifications.label) status.label = modifications.label;
+            if (modifications.name) status.name = modifications.name;
             if (modifications.changes) status.changes = modifications.changes;
 			if (modifications.icon) status.icon = modifications.icon;
 
