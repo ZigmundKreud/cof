@@ -45,7 +45,7 @@ export class LevelUpSheet extends FormApplication {
 
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             template: System.templatesPath + "/actors/parts/levelUp-sheet.hbs"
         });
     }

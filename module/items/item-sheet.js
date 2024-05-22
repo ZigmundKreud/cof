@@ -12,7 +12,7 @@ export class CofItemSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", this.type],
             template: System.templatesPath + "/items/item-sheet.hbs",
             width: 600,

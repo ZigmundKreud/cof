@@ -9,7 +9,7 @@ import { ArrayUtils } from "../utils/array-utils.js";
 export class CofLootSheet extends CofBaseSheet {
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "actor"],
             template: System.templatesPath + "/actors/loot-sheet.hbs",
             width: 950,

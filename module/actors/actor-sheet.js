@@ -18,7 +18,7 @@ import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 export class CofActorSheet extends CofBaseSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cof", "sheet", "actor"],
       template: System.templatesPath + "/actors/actor-sheet.hbs",
       width: 1200,
