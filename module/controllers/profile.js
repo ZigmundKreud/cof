@@ -27,7 +27,7 @@ export class Profile {
                     name: newProfile.name,
                     img: newProfile.img,
                     key: newProfile.system.key,
-                    sourceId: newProfile.flags.core.sourceId,
+                    sourceId: newProfile._stats.compendiumSource,
                 };
                 paths.push(pathData);
             }

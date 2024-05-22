@@ -25,7 +25,7 @@
                     <input class="field-value base" name="system.stats.{{id}}.base" type="text" value="{{stat.base}}" data-attr="base" data-dtype="Number"/>
                 </div>
                 <div class="flex1 center cell">
-                    <input class="field-value mod" name="system.stats.{{id}}.mod" type="text" value="{{numberFormat stat.mod decimals=0 sign=true}}" data-attr="mod" data-dtype="Number"/>
+                    <input class="field-value mod" name="system.stats.{{id}}.mod" type="text" value="{{stat.mod}}" data-attr="mod" data-dtype="Number"/>
                 </div>
             </div>
         {{/each}}
