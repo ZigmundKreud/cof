@@ -24,16 +24,8 @@
     </div>
     <div class="center cell readonly" style="flex:0 1 60px">
         <select name="system.attributes.hd.value" data-type="String" style="font-size:12px; width:100%">
-        {{#select actor.system.attributes.hd.value}}
-            <option value="">{{localize "COF.None"}}</option>
-            <option value="1d4">1d4</option>
-            <option value="1d6">1d6</option>
-            <option value="1d8">1d8</option>
-            <option value="1d10">1d10</option>
-            <option value="1d12">1d12</option>
-            <option value="1d20">1d20</option>
-        {{/select}}
-        </select>
+            {{selectOptions diceValues selected=actor.system.attributes.hd.value blank="COF.None" localize=true}}
+        </select> 
     </div>
     <div class="flex1 center cell">
         <input class="field-value" name="system.attributes.hp.base" type="text" value="{{actor.system.attributes.hp.base}}" placeholder="{{localize "COF.ui.base"}}" data-dtype="Number"/>

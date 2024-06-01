@@ -16,6 +16,8 @@ import { CofLootSheet } from "./actors/loot-sheet.js";
 import { COFActiveEffectConfig } from "./system/active-effect-config.js";
 import { EffectsModifications, customizeStatusEffects } from "./effects/effects.js";
 
+globalThis.COF = COF;
+
 Hooks.once("init", async function () {
   console.info("COF | " + System.label + " | System Initializing...");
   console.info(System.ASCII);

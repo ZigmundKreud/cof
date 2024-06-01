@@ -271,3 +271,6 @@ COF.tokenSizes = {
 };
 
 COF.debug = false;
+
+COF.DICE_VALUES = {"1d4": "1d4", "1d6": "1d6", "1d8": "1d8", "1d10": "1d10", "1d12": "1d12", "1d20": "1d20"};
+

@@ -688,6 +688,9 @@ export class CofActorSheet extends CofBaseSheet {
     context.isEffectsEditable = options.editable;
 
     context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, { async: true });
+
+    context.diceValues = COF.DICE_VALUES;
+
     return context;
   }
 
