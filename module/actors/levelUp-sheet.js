@@ -245,7 +245,7 @@ export class LevelUpSheet extends FormApplication {
                 return a.level < b.level ? -1 : a.level > b.level ? 1 : 0;
             });
             
-            await actor.update({"data.level.value":level, "data.level.history":history, "data.attributes.hp.base": baseHp, "data.attributes.hp.value": currentHp});     
+            await actor.update({"system.level.value":level, "system.level.history":history, "system.attributes.hp.base": baseHp, "system.attributes.hp.value": currentHp});     
             this._sendMessageToGM();
             this.close();
         });
@@ -285,7 +285,7 @@ export class LevelUpSheet extends FormApplication {
 
         renderTemplate("systems/cof/templates/chat/levelUp-card.hbs", messageData).then((flavor)=>{
             ChatMessage.create({
-                "type": CONST.CHAT_MESSAGE_TYPES.WHISPER,
+                //"type": CONST.CHAT_MESSAGE_TYPES.WHISPER,
                 "flavor": flavor,
                 "user": game.user.id,
                 "content": "",
