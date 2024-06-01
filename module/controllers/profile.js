@@ -18,7 +18,7 @@ export class Profile {
             let newProfile = newProfileData[0];
 
             let paths = [];
-//            let newPaths = duplicate(newProfile.system.paths)
+//            let newPaths = foundry.utils.duplicate(newProfile.system.paths)
             for (const path of newProfile.system.paths) {
                 let pathData = await fromUuid(path.sourceId);
                 pathData.flags.core = { sourceId: path.sourceId };
