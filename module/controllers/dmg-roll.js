@@ -8,7 +8,7 @@ export class CofDamageRoll {
 
     async roll(actor){
         const r = new Roll(this._formula);
-        await r.roll({"async": true});
+        await r.roll();
         if (this._isCritical) r._total = r._total * 2;
         this._buildDamageRollMessage().then(msgFlavor => {
             r.toMessage({

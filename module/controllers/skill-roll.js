@@ -21,7 +21,7 @@ export class CofSkillRoll {
 
     async roll(actor){
         let r = new Roll(this._formula);
-        await r.roll({"async": true});
+        await r.roll();
         // Getting the dice kept in case of 2d12 or 2d20 rolls
         const result = r.terms[0].results.find(r => r.active).result;
         this._isCritical = ((result >= this._critrange.split("-")[0]) || result == 20);
