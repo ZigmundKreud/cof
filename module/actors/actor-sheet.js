@@ -135,7 +135,7 @@ export class CofActorSheet extends CofBaseSheet {
       return this.actor.createEmbeddedDocuments("ActiveEffect", [
         {
           label: game.i18n.localize("COF.ui.newEffect"),
-          icon: "icons/svg/aura.svg",
+          img: "icons/svg/aura.svg",
           origin: this.actor.uuid,
           "duration.rounds": undefined,
           disabled: true,

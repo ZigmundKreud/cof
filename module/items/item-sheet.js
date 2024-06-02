@@ -98,7 +98,7 @@ export class CofItemSheet extends ItemSheet {
             if (!this.isEditable) return;
             return this.item.createEmbeddedDocuments("ActiveEffect", [{
                 label: game.i18n.localize("COF.ui.newEffect"),
-                icon: "icons/svg/aura.svg",
+                img: "icons/svg/aura.svg",
                 origin: this.item.uuid,
                 tint: "#050505",
                 disabled: true
