@@ -20,25 +20,7 @@
         <label>{{localize "COF.ui.slot"}}</label>
         <div class="form-fields">
             <select name="system.slot" data-type="String" style="width:100%">
-                {{#select system.slot}}
-                    <option value="">{{localize "COF.None"}}</option>
-                    <option value="hand">{{localize "COF.slot.hand"}}</option>
-                    <option value="head">{{localize "COF.slot.head"}}</option>
-                    <option value="ear">{{localize "COF.slot.ear"}}</option>
-                    <option value="neck">{{localize "COF.slot.neck"}}</option>
-                    <option value="shoulders">{{localize "COF.slot.shoulders"}}</option>
-                    <option value="chest">{{localize "COF.slot.chest"}}</option>
-                    <option value="back">{{localize "COF.slot.back"}}</option>
-                    <option value="arm">{{localize "COF.slot.arm"}}</option>
-                    <option value="finger">{{localize "COF.slot.finger"}}</option>
-                    <option value="wrist">{{localize "COF.slot.wrist"}}</option>
-                    <option value="waist">{{localize "COF.slot.waist"}}</option>
-                    <option value="legs">{{localize "COF.slot.legs"}}</option>
-                    <option value="feet">{{localize "COF.slot.feet"}}</option>
-                    <option value="belt">{{localize "COF.slot.belt"}}</option>
-                    <option value="backpack">{{localize "COF.slot.backpack"}}</option>
-                    <option value="quiver">{{localize "COF.slot.quiver"}}</option>
-                {{/select}}
+                {{selectOptions config.itemSlots selected=system.slot localize=true}}
             </select>
         </div>
     </div>
@@ -75,14 +57,12 @@
     <label>{{ localize "COF.ui.stackValue" }}</label>&nbsp; <input type="number" name="system.value" readonly="true" value="{{system.value}}" data-dtype="Number"/>
 </div>
 <div class="form-group">
-    <label>{{ localize "COF.ui.rarity" }}</label>&nbsp; <select name="system.rarity" data-type="String" style="width:100%">
-    {{#select system.rarity}}
-        <option value="">{{localize "COF.None"}}</option>
-        <option value="common">{{localize "COF.rarity.common"}}</option>
-        <option value="moderate">{{localize "COF.rarity.moderate"}}</option>
-        <option value="rare">{{localize "COF.rarity.rare"}}</option>
-        <option value="very-rare">{{localize "COF.rarity.very-rare"}}</option>
-        {{#if (not system.properties.stackable)}}<option value="unique">{{localize "COF.rarity.unique"}}</option>{{/if}}
-    {{/select}}
-</select>
+    <label>{{ localize "COF.ui.rarity" }}</label>&nbsp; 
+    <select name="system.rarity" data-type="String" style="width:100%">
+        {{#if system.properties.stackable}}
+            {{selectOptions config.itemRarityStackable selected=system.rarity localize=true}}
+        {{else}}
+            {{selectOptions config.itemRarity selected=system.rarity localize=true}}
+        {{/if}}
+    </select>
 </div>

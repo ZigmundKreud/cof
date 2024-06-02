@@ -41,11 +41,7 @@
         <label>{{localize "COF.ui.reload"}}</label>
         <div class="form-fields">
             <select name="system.reload" data-type="String" style="width:100%">
-                {{#select system.reload}}
-                    <option value="">{{localize "COF.ui.noAction"}}</option>
-                    <option value="s">{{localize "COF.ui.simpleAction"}}</option>
-                    <option value="l">{{localize "COF.ui.limitedAction"}}</option>
-                {{/select}}
+                {{selectOptions config.RELOAD selected=system.reload localize=true blank="COF.ui.noAction"}}                
             </select>
         </div>
     </div>
