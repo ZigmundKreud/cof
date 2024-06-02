@@ -1,3 +1,7 @@
+11.315.1
+--------
+- Dernière version v11 (avec version maximum de Foundry à 11)
+
 11.315.0
 --------
 - Correction drop d'une macro sur une capacité depuis la hotbar
