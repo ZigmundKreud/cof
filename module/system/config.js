@@ -354,3 +354,15 @@ COF.ATTACK_SKILLS = {
     "@stats.wis.mod": "COF.stats.wis.label",
     "@stats.cha.mod": "COF.stats.cha.label"
 };
+
+COF.SPELLCASTING = {
+    int: "COF.stats.int.label",
+    wis: "COF.stats.wis.label",
+    cha: "COF.stats.cha.label"
+};
+
+COF.MP_FACTOR = {
+    "0": "0",
+    "1": "x1",
+    "2": "x2"
+};

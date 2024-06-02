@@ -4,15 +4,7 @@
     <label>{{localize "COF.ui.hd"}}</label>
     <div class="form-fields">
         <select name="system.dv" data-type="String" style="width:100%">
-            {{#select system.dv}}
-                <option value="">{{localize "COF.None"}}</option>
-                <option value="1d4">d4</option>
-                <option value="1d6">d6</option>
-                <option value="1d8">d8</option>
-                <option value="1d10">d10</option>
-                <option value="1d12">d12</option>
-                <option value="1d20">d20</option>
-            {{/select}}
+            {{selectOptions config.DICE_VALUES selected=system.dv localize=true blank="COF.None"}}
         </select>
     </div>
 </div>
@@ -21,12 +13,7 @@
     <label>{{localize "COF.ui.spellcasting"}}</label>
     <div class="form-fields">
         <select name="system.spellcasting" data-type="String" style="width:100%">
-            {{#select system.spellcasting}}
-                <option value="">{{localize "COF.None"}}</option>
-                <option value="int">{{localize "COF.stats.int.label"}}</option>
-                <option value="wis">{{localize "COF.stats.wis.label"}}</option>
-                <option value="cha">{{localize "COF.stats.cha.label"}}</option>
-            {{/select}}
+            {{selectOptions config.SPELLCASTING selected=system.spellcasting localize=true blank="COF.None"}}
         </select>
     </div>
 </div>
@@ -35,11 +22,7 @@
     <label>{{localize "COF.ui.mpfactor"}}</label>
     <div class="form-fields">
         <select name="system.mpfactor" data-type="Number" style="width:100%">
-            {{#select system.mpfactor}}
-                <option value="0">0</option>
-                <option value="1">x1</option>
-                <option value="2">x2</option>
-            {{/select}}
+            {{selectOptions config.MP_FACTOR selected=system.mpfactor}}
         </select>
     </div>
 </div>
