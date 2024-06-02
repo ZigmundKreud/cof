@@ -341,3 +341,16 @@ COF.RELOAD = {
     s: "COF.ui.simpleAction",
     l: "COF.ui.limitedAction"
 };
+
+COF.ATTACK_SKILLS = {
+    "auto": "COF.ui.automatic",
+    "@attacks.melee.mod": "COF.attacks.melee.label",
+    "@attacks.ranged.mod": "COF.attacks.ranged.label",
+    "@attacks.magic.mod": "COF.attacks.magic.label",
+    "@stats.str.mod": "COF.stats.str.label",
+    "@stats.dex.mod": "COF.stats.dex.label",
+    "@stats.con.mod": "COF.stats.con.label",
+    "@stats.int.mod": "COF.stats.int.label",
+    "@stats.wis.mod": "COF.stats.wis.label",
+    "@stats.cha.mod": "COF.stats.cha.label"
+};
