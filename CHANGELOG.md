@@ -1,3 +1,7 @@
+11.315.2
+--------
+- Corrige le processus de release
+
 11.315.1
 --------
 - Dernière version v11 (avec version maximum de Foundry à 11)

@@ -122,7 +122,7 @@ jobs:
             templates/                           \
             module/                              \
             css/                                 \
-            packs/                               \
+            packs/macros.db                         \
             ui/                                  \
             fonts/                               \
             sounds/                              \
@@ -143,6 +143,16 @@ jobs:
           artifacts: './system.json, ./system.zip'
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
+
+      - name: Deploy Release
+        id: deploy_release
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://api.foundryvtt.com/_api/packages/release_version'
+          method: 'POST'
+          contentType: 'application/json'
+          customHeaders: '{"Authorization": "${{ secrets.FVTT_PACKAGE_RELEASE_TOKEN }}"}'
+          data: '{"id": "cof","dry-run":false,"release":{"version":"${{github.event.release.tag_name}}","manifest":"https://github.com/ZigmundKreud/cof/releases/download/${{github.event.release.tag_name}}/system.json","notes":"https://github.com/ZigmundKreud/cof/blob/master/CHANGELOG.md","compatibility":{"minimum":"10","verified":"11","maximum":"11"}}}'
 
 
       
