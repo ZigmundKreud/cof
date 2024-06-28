@@ -38,13 +38,7 @@
     <div class="form-group">
         <label>{{ localize "COF.ui.units" }}</label>&nbsp;
         <select name="system.properties.duration.units" data-type="String" style="width:100%">
-        {{#select system.properties.duration.units}}
-            <option value="">{{localize "COF.None"}}</option>
-            <option value="rounds">{{localize "COF.ui.rounds"}}</option>
-            <option value="minutes">{{localize "COF.ui.minutes"}}</option>
-            <option value="hours">{{localize "COF.ui.hours"}}</option>
-            <option value="days">{{localize "COF.ui.days"}}</option>
-        {{/select}}
-    </select>
+            {{selectOptions config.DURATION selected=system.properties.duration.units localize=true}}
+        </select>
     </div>
 {{/if}}

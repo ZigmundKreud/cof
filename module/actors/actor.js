@@ -346,10 +346,8 @@ export class CofActor extends Actor {
    * @param {Actor} actor
    */
   computeDef(actor) {
-    let data = actor.system;
-
-    let stats = data.stats;
-    let attributes = data.attributes;
+     let stats = actor.system.stats;
+    let attributes = actor.system.attributes;
 
     const protection = this.getDefenceFromArmorAndShield();
 
@@ -958,7 +956,7 @@ export class CofActor extends Actor {
         }
       }
       await this.updateEmbeddedDocuments("Item", [updates]);
-      if (game.settings.get("cof", "useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+      if (game.settings.get("cof", "useActionSound")) foundry.audio.AudioHelper.play({ src: "/systems/cof/sounds/sword.mp3", volume: 0.8, autoplay: true, loop: false }, false);
       if (!bypassChecks) this.syncItemActiveEffects(item, !item.system.worn);
     }
   }
@@ -1065,7 +1063,7 @@ export class CofActor extends Actor {
     const quantity = item.system.qty;
 
     if (consumable && quantity > 0) {
-      if (game.settings.get("cof", "useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+      if (game.settings.get("cof", "useActionSound")) foundry.audio.AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
       return item.modifyQuantity(1, true).then((item) => item.applyEffects(this));
     }
     return ui.notifications.warn(game.i18n.localize("COF.notification.ConsumeEmptyObject"));
@@ -1201,7 +1199,7 @@ export class CofActor extends Actor {
       if (limitedUsage) {
         if (capacitySystem.properties.limitedUsage.use > 0) {
           const newUse = capacitySystem.properties.limitedUsage.use > 0 ? capacitySystem.properties.limitedUsage.use - 1 : 0;
-          if (game.settings.get("cof", "useActionSound")) AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
+          if (game.settings.get("cof", "useActionSound")) foundry.audio.AudioHelper.play({ src: "/systems/cof/sounds/gulp.mp3", volume: 0.8, autoplay: true, loop: false }, false);
           return capacity.update({ "system.properties.limitedUsage.use": newUse }).then((capacity) => capacity.applyEffects(this, options));
         }
         return ui.notifications.warn(game.i18n.localize("COF.notification.ActivateEmptyCapacity"));

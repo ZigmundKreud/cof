@@ -3,11 +3,7 @@
     <label>Sous-catégorie</label>
     <div class="form-fields">
         <select name="system.subtype" data-type="String" style="width:100%">
-            {{#select system.subtype}}
-                {{#each config.itemCategories as | category id |}}
-                    <option value="{{id}}">{{localize category}}</option>
-                {{/each}}
-            {{/select}}
+            {{selectOptions config.itemCategories selected=system.subtype localize=true}}
         </select>
     </div>
 </div>

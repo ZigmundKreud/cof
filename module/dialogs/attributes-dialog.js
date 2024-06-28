@@ -5,7 +5,7 @@ export class CofAttributesDialog extends FormApplication {
 
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             id: "attributes-dialog",
             title: game.i18n.format("COF.dialog.chooseCharacteristics.title"),
             template: "systems/cof/templates/dialogs/attributes-roll-dialog.hbs",

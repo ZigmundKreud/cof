@@ -76,15 +76,7 @@
             <label>{{localize "COF.ui.stat"}}</label>
             <div class="form-fields">
                 <select name="system.properties.save.stat" data-type="String" style="width:100%">
-                    {{#select system.properties.save.stat}}
-                        <option value="">{{localize "COF.None"}}</option>
-                        <option value="str">{{localize "COF.stats.str.label"}}</option>
-                        <option value="dex">{{localize "COF.stats.dex.label"}}</option>
-                        <option value="con">{{localize "COF.stats.con.label"}}</option>
-                        <option value="int">{{localize "COF.stats.int.label"}}</option>
-                        <option value="wis">{{localize "COF.stats.wis.label"}}</option>
-                        <option value="cha">{{localize "COF.stats.cha.label"}}</option>
-                    {{/select}}
+                    {{selectOptions config.stats selected=system.properties.save.stat localize=true blank="COF.None"}}
                 </select>
             </div>
         </div>
@@ -115,18 +107,7 @@
         <label>{{localize "COF.ui.skill"}}</label>
         <div class="form-fields">
             <select name="system.properties.attack.skill" data-type="String" style="width:100%">
-                {{#select system.properties.attack.skill}}
-                    <option value="auto">{{localize "COF.ui.automatic"}}</option>
-                    <option value="@attacks.melee.mod">{{localize "COF.attacks.melee.label"}}</option>
-                    <option value="@attacks.ranged.mod">{{localize "COF.attacks.ranged.label"}}</option>
-                    <option value="@attacks.magic.mod">{{localize "COF.attacks.magic.label"}}</option>
-                    <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
-                    <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
-                    <option value="@stats.con.mod">{{localize "COF.stats.con.label"}}</option>
-                    <option value="@stats.int.mod">{{localize "COF.stats.int.label"}}</option>
-                    <option value="@stats.wis.mod">{{localize "COF.stats.wis.label"}}</option>
-                    <option value="@stats.cha.mod">{{localize "COF.stats.cha.label"}}</option>
-                {{/select}}
+                {{selectOptions config.ATTACK_SKILLS selected=system.properties.attack.skill localize=true}}
             </select>
         </div>
     </div>
@@ -156,16 +137,8 @@
         <label>{{localize "COF.ui.dmgStat"}}</label>
         <div class="form-fields">
             <select name="system.properties.attack.dmgStat" data-type="String" style="width:100%">
-                {{#select system.properties.attack.dmgStat}}
-                    <option value="">{{localize "COF.None"}}</option>
-                    <option value="@stats.str.mod">{{localize "COF.stats.str.label"}}</option>
-                    <option value="@stats.dex.mod">{{localize "COF.stats.dex.label"}}</option>
-                    <option value="@stats.con.mod">{{localize "COF.stats.con.label"}}</option>
-                    <option value="@stats.int.mod">{{localize "COF.stats.int.label"}}</option>
-                    <option value="@stats.wis.mod">{{localize "COF.stats.wis.label"}}</option>
-                    <option value="@stats.cha.mod">{{localize "COF.stats.cha.label"}}</option>
-                {{/select}}
-            </select>
+                {{selectOptions config.DAMAGE_STAT selected=system.properties.attack.dmgStat localize=true blank="COF.None"}}
+            </select>            
         </div>
     </div>
 {{/if}}    

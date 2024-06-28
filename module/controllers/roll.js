@@ -236,7 +236,7 @@ export class CofRoll {
             const dice2Roll = lvl - 1;
             const formula = `${dice2Roll}d${hdmax} + ${dice2Roll * conMod}`;
             let r = new Roll(formula);
-            await r.roll({ async: true });
+            await r.roll();
             r.toMessage({
               user: game.user.id,
               flavor: "<h2>" + game.i18n.localize("COF.dialog.rollHitPoints.title") + "</h2>",

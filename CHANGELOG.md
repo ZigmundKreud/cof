@@ -1,3 +1,7 @@
+12.328.0
+--------
+- Compatibilité V12
+
 11.315.2
 --------
 - Corrige le processus de release

@@ -12,7 +12,7 @@ export class CofItemSheet extends ItemSheet {
 
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item", this.type],
             template: System.templatesPath + "/items/item-sheet.hbs",
             width: 600,
@@ -98,7 +98,7 @@ export class CofItemSheet extends ItemSheet {
             if (!this.isEditable) return;
             return this.item.createEmbeddedDocuments("ActiveEffect", [{
                 label: game.i18n.localize("COF.ui.newEffect"),
-                icon: "icons/svg/aura.svg",
+                img: "icons/svg/aura.svg",
                 origin: this.item.uuid,
                 tint: "#050505",
                 disabled: true
