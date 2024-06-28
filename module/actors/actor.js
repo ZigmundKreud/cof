@@ -346,10 +346,8 @@ export class CofActor extends Actor {
    * @param {Actor} actor
    */
   computeDef(actor) {
-    let data = actor.system;
-
-    let stats = data.stats;
-    let attributes = data.attributes;
+     let stats = actor.system.stats;
+    let attributes = actor.system.attributes;
 
     const protection = this.getDefenceFromArmorAndShield();
 

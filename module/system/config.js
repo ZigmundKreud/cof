@@ -325,9 +325,9 @@ COF.DAMAGE_STAT = {
 };
 
 COF.SKILL = {
-    "@skills.melee.mod": "COF.attacks.melee.label",
-    "@skills.ranged.mod": "COF.attacks.ranged.label",
-    "@skills.magic.mod": "COF.attacks.magic.label"
+    "@attacks.melee.mod": "COF.attacks.melee.label",
+    "@attacks.ranged.mod": "COF.attacks.ranged.label",
+    "@attacks.magic.mod": "COF.attacks.magic.label"
 };
 
 COF.DURATION = {
