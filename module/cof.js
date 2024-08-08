@@ -116,7 +116,7 @@ function registerWorldCount(registerKey) {
   if (game.user.isGM) {
     let worldKey = game.settings.get(registerKey, "worldKey");
     if (worldKey == undefined || worldKey == "") {
-      worldKey = randomID(32);
+      worldKey = foundry.utils.randomID(32);
       game.settings.set(registerKey, "worldKey", worldKey);
     }
 

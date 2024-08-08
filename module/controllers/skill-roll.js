@@ -2,7 +2,7 @@ import { CofDamageRoll } from "./dmg-roll.js";
 
 export class CofSkillRoll {
 
-    constructor(label, dice, mod, bonus, malus, difficulty, critrange, description){
+    constructor(label, dice, mod, bonus, malus, difficulty, critrange, description, rollMode){
         this._label = label;
         this._dice = dice;
         this._mod = mod;
@@ -17,6 +17,7 @@ export class CofSkillRoll {
         this._isFumble = false;
         this._isSuccess = false;
         this._description = Array.isArray(description) ? description.join("<br>") : description ;
+        this._rollMode = rollMode;
     }
 
     async roll(actor){
@@ -29,12 +30,13 @@ export class CofSkillRoll {
         if(this._difficulty){
             this._isSuccess = r.total >= this._difficulty;
         }
+        const messageOptions = { rollMode: this._rollMode };
         this._buildRollMessage().then(msgFlavor => {
             r.toMessage({
                 user: game.user.id,
                 flavor: msgFlavor,
                 speaker: ChatMessage.getSpeaker({actor: actor})
-            });
+            }, messageOptions);
         })
         return r;
     }
@@ -52,14 +54,14 @@ export class CofSkillRoll {
         await this.roll(actor);
         if (this._difficulty) {
             if(this._isSuccess && game.settings.get("cof", "useComboRolls")){
-                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr);
+                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr, this._rollMode);
                 await r.roll(actor);
                 return r;
             }
         }
         else {
             if(game.settings.get("cof", "useComboRolls")){
-                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr);
+                let r = new CofDamageRoll(this._label, dmgFormula, this._isCritical, dmgDescr, this._rollMode);
                 await r.roll(actor);
                 return r;
             }

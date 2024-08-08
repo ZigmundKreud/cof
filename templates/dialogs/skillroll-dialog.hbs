@@ -1,20 +1,42 @@
+{{log 'skillroll dialog' this}}
 <div class="row flexrow table-header red">
     <div class="flex1 center">
         <h3>{{localize 'COF.ui.skillcheck'}}</h3>
     </div>
 </div>
+
+<div class="flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-default">
+        <label for="rollMode">{{localize "CHAT.RollDefault"}}</label>
+    </div>
+    <div class="flex1 center cell">
+        <select name="rollMode" id="rollMode">
+            {{selectOptions rollModes selected=rollMode localize=true}}            
+        </select>
+    </div>
+</div>
+ <hr/>
 <div class="flexrow" style="margin-bottom: 1px;">
     <div class="flex1 center bg-red">
         <label for="dice">{{localize 'COF.ui.dice.type'}}</label>
     </div>
     <div class="flex1 center cell">
         <select class="flex1" name="dice" id="dice" data-type="String">
-            <option value="1d20" {{#unless (and superior weakened)}}{{else}}selected{{/unless}}>1d20</option>
-            <option value="1d12" {{#if weakened}}selected{{/if}}>1d12</option>
-            <option value="2d12kh">2d12 ({{localize 'COF.ui.kh'}})</option>
-            <option value="2d20kh" {{#if superior}}selected{{/if}}>2d20 ({{localize 'COF.ui.kh'}})</option>
-            <option value="2d12kl">2d12 ({{localize 'COF.ui.kl'}})</option>
-            <option value="2d20kl">2d20 ({{localize 'COF.ui.kl'}})</option>
+            {{#if (eq dice "")}}
+                    <option value="1d20" {{#unless (and superior weakened)}}{{else}}selected{{/unless}}>1d20</option>
+                    <option value="1d12" {{#if weakened}}selected{{/if}}>1d12</option>
+                    <option value="2d12kh">2d12 ({{localize 'COF.ui.kh'}})</option>
+                    <option value="2d20kh" {{#if superior}}selected{{/if}}>2d20 ({{localize 'COF.ui.kh'}})</option>
+                    <option value="2d12kl">2d12 ({{localize 'COF.ui.kl'}})</option>
+                    <option value="2d20kl">2d20 ({{localize 'COF.ui.kl'}})</option>
+            {{else}}
+                    <option value="1d20" {{#if (eq dice "1d20")}}selected{{/if}}>1d20</option>
+                    <option value="1d12" {{#if (eq dice "1d12")}}selected{{/if}}>1d12</option>
+                    <option value="2d12kh" {{#if (eq dice "2d12kh")}}selected{{/if}}>2d12 ({{localize 'COF.ui.kh'}})</option>
+                    <option value="2d20kh" {{#if (eq dice "2d20kh")}}selected{{/if}}>2d20 ({{localize 'COF.ui.kh'}})</option>
+                    <option value="2d12kl" {{#if (eq dice "2d12kl")}}selected{{/if}}>2d12 ({{localize 'COF.ui.kl'}})</option>
+                    <option value="2d20kl" {{#if (eq dice "2d20kl")}}selected{{/if}}>2d20 ({{localize 'COF.ui.kl'}})</option>
+            {{/if}}
         </select>
     </div>
 </div>

@@ -103,17 +103,18 @@ export class Macros {
    *
    * @param {*} actor
    * @param {*} stat
-   * @param {*} bonus
-   * @param {*} malus
-   * @param {*} onEnter
-   * @param {*} label
-   * @param {*} description
-   * @param {*} dialog
-   * @param {*} dice
-   * @param {*} difficulty
+   * @param {String} bonus Saisir par exemple +1
+   * @param {String} malus Saisir par exemple -2
+   * @param {String} onEnter
+   * @param {String} label Saisir "" pour ignorer
+   * @param {String} description Saisir "" pour ignorer
+   * @param {String} dialog
+   * @param {String} dice Saisir la formule du type de dé entre "" (1d20, 1d12, 2d12kh, 2d20kh, 2d12kl, 2d20kl) Si c'est "" c'est le comportement par défaut avec le calcul automatique (par exemple avantage si caractéristique supérieure)
+   * @param {Int} difficulty Si une difficulté est saisie, elle est prise en compte quel que soit l'option système choisie pour la difficulté
+   * @param {String} rollMode "blindroll", "gmroll", "publicroll", "selfroll"
    * @returns
    */
-  static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit", label, description, dialog = true, dice = "1d20", difficulty) {
+  static rollStatMacro = async function (actor, stat, bonus = 0, malus = 0, onEnter = "submit", label, description, dialog = true, dice = "", rollMode = 'publicroll', difficulty) {
     // Plusieurs tokens sélectionnés
     if (actor === null) return;
     // Aucun acteur cible
@@ -186,8 +187,11 @@ export class Macros {
         "20",
         statObj.superior,
         onEnter,
-        description,
-        actor.isWeakened()
+        description,      
+        actor.isWeakened(),
+        dice,
+        rollMode,
+        difficulty
       );
     } else {
       return new CofSkillRoll(label && label.length > 0 ? label : game.i18n.localize(statObj.label), dice, "+" + +mod, bonus, malus, difficulty, "20", description).roll();
@@ -211,7 +215,7 @@ export class Macros {
    * @param {*} dialog
    * @returns
    */
-  static rollItemMacro = async function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus = 0, dmgOnly = false, customLabel, skillDescr, dmgDescr, dialog = true) {
+  static rollItemMacro = async function (itemId, itemName, itemType, bonus = 0, malus = 0, dmgBonus = 0, dmgOnly = false, customLabel, skillDescr, dmgDescr, dialog = true, rollMode = 'publicroll') {
     const actor = this.getSpeakersActor();
     // Several tokens selected
     if (actor === null) return;
@@ -247,7 +251,7 @@ export class Macros {
           let dmg = actor.computeDm(itemDmgBase, itemDmgStat, itemDmgBonus, skillDmgBonus);
 
           if (dialog) {
-            if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr);
+            if (dmgOnly) CofRoll.rollDamageDialog(actor, label, dmg, 0, false, "submit", dmgDescr, rollMode);
             else CofRoll.rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmg, dmgBonus, "submit", skillDescr, dmgDescr, null, actor.isWeakened());
           } else {
             let formula = dmgBonus ? dmg + "+" + dmgBonus : dmg;
@@ -289,17 +293,17 @@ export class Macros {
     } else return item.sheet.render(true);
   };
 
-  static rollHealMacro = async function (label, healFormula, isCritical, title, showButtons = true, description) {
+  static rollHealMacro = async function (label, healFormula, isCritical, title, showButtons = true, description, rollMode = 'publicroll') {
     const actor = this.getSpeakersActor();
     // Several tokens selected
     if (actor === null) return;
     // No token selected
     if (actor === undefined) return ui.notifications.error(game.i18n.localize("COF.notification.MacroNoTokenSelected"));
 
-    return new CofHealingRoll(label, healFormula, isCritical, title, showButtons, description).roll(actor);
+    return new CofHealingRoll(label, healFormula, isCritical, title, showButtons, description, rollMode).roll(actor);
   };
 
-  static rollSkillMacro = async function (label, mod, bonus, malus, critRange, isSuperior = false, description, dialog = true, dice = "1d20", difficulty) {
+  static rollSkillMacro = async function (label, mod, bonus, malus, critRange, isSuperior = false, description, dialog = true, dice = "1d20", difficulty, rollMode = 'publicroll') {
     const actor = this.getSpeakersActor();
 
     // Several tokens selected
@@ -311,13 +315,13 @@ export class Macros {
     crit = !isNaN(crit) ? crit : 20;
 
     if (dialog) {
-      CofRoll.skillRollDialog(actor, label, mod, bonus, malus, crit, isSuperior, "submit", description);
+      CofRoll.skillRollDialog(actor = actor, label = label, mod = mod, bonus = bonus, malus = malus, critrange = crit, superior = isSuperior, onEnter = "submit", description = description, rollMode = rollMode);
     } else {
-      new CofSkillRoll(label, dice, "+" + +mod, bonus, malus, difficulty, critRange, description).roll(actor);
+      new CofSkillRoll(label, dice, "+" + +mod, bonus, malus, difficulty, critRange, description, rollMode).roll(actor);
     }
   };
 
-  static rollDamageMacro = async function (label, dmgFormula, dmgBonus, isCritical, dmgDescr, dialog = true) {
+  static rollDamageMacro = async function (label, dmgFormula, dmgBonus, isCritical, dmgDescr, dialog = true, rollMode = 'publicroll') {
     const actor = this.getSpeakersActor();
 
     // Several tokens selected
@@ -329,7 +333,7 @@ export class Macros {
       CofRoll.rollDamageDialog(actor, label, dmgFormula, dmgBonus, isCritical, "submit", dmgDescr);
     } else {
       let formula = dmgBonus ? `${dmgFormula} + ${dmgBonus}` : dmgFormula;
-      return new CofDamageRoll(label, formula, isCritical, dmgDescr).roll();
+      return new CofDamageRoll(label, formula, isCritical, dmgDescr, rollMode).roll();
     }
   };
 }

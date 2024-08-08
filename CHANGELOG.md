@@ -1,3 +1,12 @@
+12.330.0
+--------
+- Prise en compte du type de dé et de la difficulté pour la macro rollStatMacro
+- Ajout de la visibilité du jet au niveau du dialogue pour tous les types de jet
+
+12.328.1
+--------
+- Fix deprecated message
+
 12.328.0
 --------
 - Compatibilité V12

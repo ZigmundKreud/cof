@@ -4,6 +4,17 @@
     </div>
 </div>
 <div class="flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-default">
+        <label for="rollMode">{{localize "CHAT.RollDefault"}}</label>
+    </div>
+    <div class="flex1 center cell">
+        <select name="rollMode" id="rollMode">
+            {{selectOptions rollModes selected=rollMode localize=true}}            
+        </select>
+    </div>
+</div>
+ <hr/>
+<div class="flexrow" style="margin-bottom: 1px;">
     <div class="flex1 center bg-red">
         <label for="dice">{{localize 'COF.ui.dice.type'}}</label>
     </div>
