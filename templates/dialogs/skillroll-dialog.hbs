@@ -22,7 +22,7 @@
     </div>
     <div class="flex1 center cell">
         <select class="flex1" name="dice" id="dice" data-type="String">
-            {{#if (eq dice "")}}
+            {{#if (or (eq dice "") (eq dice undefined))}}
                     <option value="1d20" {{#unless (and superior weakened)}}{{else}}selected{{/unless}}>1d20</option>
                     <option value="1d12" {{#if weakened}}selected{{/if}}>1d12</option>
                     <option value="2d12kh">2d12 ({{localize 'COF.ui.kh'}})</option>

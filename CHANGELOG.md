@@ -1,3 +1,7 @@
+12.331.0
+--------
+- Correction de la prise en compte de la caractéristique supérieure dans le dialogue de Jet
+
 12.330.0
 --------
 - Prise en compte du type de dé et de la difficulté pour la macro rollStatMacro
