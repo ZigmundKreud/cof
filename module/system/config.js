@@ -99,7 +99,7 @@ COF.itemSlots = {
     legs: "COF.slot.legs",
     feet: "COF.slot.feet",
     belt: "COF.slot.belt",
-    bakpack: "COF.slot.bakpack",
+    bakpack: "COF.slot.backpack",
     quiver: "COF.slot.quiver"
 }
 
