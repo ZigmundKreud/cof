@@ -604,5 +604,9 @@
   "SETTINGS.checkArmorSlotAvailability.all": "Verification (can be ignored by all)",
   "SETTINGS.checkArmorSlotAvailability.gm": "Verification (can only be ignored by the GM)",
   "SETTINGS.useActionSound.name": "Sound for actions",
-  "SETTINGS.useActionSound.hint": "Play a sound for some actions" 
+  "SETTINGS.useActionSound.hint": "Play a sound for some actions",
+  "SETTINGS.defaultVisibilityGMRoll.name": "Default visibility of GM rolls",
+  "SETTINGS.defaultVisibilityGMRoll.hint": "Defines the default visibility of the GM's dice rolls",
+  "SETTINGS.defaultVisibilityGMRoll.private": "Private",
+  "SETTINGS.defaultVisibilityGMRoll.public": "Public"
 }

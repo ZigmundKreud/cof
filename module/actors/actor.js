@@ -27,7 +27,7 @@ export class CofActor extends Actor {
 
     // S'il s'agit d'un actor de type "encounter", on lui ajoute la méthode "rollWeapon"
     if (data.type === "encounter") {
-      this.rollWeapon = async function (weaponId, customLabel = "", dmgOnly = false, bonus = 0, malus = 0, dmgBonus = 0, skillDescr = "", dmgDescr = "", dialog = true) {
+      this.rollWeapon = async function (weaponId, customLabel = "", dmgOnly = false, bonus = 0, malus = 0, dmgBonus = 0, skillDescr = "", dmgDescr = "", dialog = true, rollMode) {
         let weapons = this.system.weapons;
         if ((Array.isArray(weapons) && weapons.length <= weaponId) || !weapons[weaponId]) {
           ui.notifications.warn(`${game.i18n.localize("COF.notification.WeaponIndexMissing")} ${weaponId}`);
@@ -37,18 +37,18 @@ export class CofActor extends Actor {
         let label = customLabel ? customLabel : weapon.name;
 
         if (dialog) {
-          if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr, this.isWeakened());
-          else CofRoll.rollDamageDialog(this, label, weapon.dmg, dmgBonus, false, null, dmgDescr);
+          if (!dmgOnly) CofRoll.rollWeaponDialog(this, label, weapon.mod, bonus, malus, weapon.critrange, weapon.dmg, dmgBonus, null, skillDescr, dmgDescr, null, this.isWeakened(), rollMode);
+          else CofRoll.rollDamageDialog(this, label, weapon.dmg, dmgBonus, false, null, dmgDescr, rollMode);
         } else {
           let formula = dmgBonus ? `${weapon.dmg} + ${dmgBonus}` : weapon.dmg;
-          if (dmgOnly) new CofDamageRoll(label, formula, false, dmgDescr).roll();
+          if (dmgOnly) new CofDamageRoll(label, formula, false, dmgDescr, rollMode).roll();
           else {
-            let skillRoll = await new CofSkillRoll(label, this.isWeakened() ? "1d12" : "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr).roll();
+            let skillRoll = await new CofSkillRoll(label, this.isWeakened() ? "1d12" : "1d20", `+${+weapon.mod}`, bonus, malus, null, weapon.critrange, skillDescr, rollMode).roll();
 
             let result = skillRoll.dice[0].results[0].result;
             let critical = result >= weapon.critrange.split("-")[0] || result == 20;
 
-            new CofDamageRoll(label, formula, critical, dmgDescr).roll();
+            new CofDamageRoll(label, formula, critical, dmgDescr, rollMode).roll();
           }
         }
       };

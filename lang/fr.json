@@ -606,6 +606,9 @@
   "SETTINGS.checkArmorSlotAvailability.all": "Vérification (ignorable par tous)",
   "SETTINGS.checkArmorSlotAvailability.gm": "Vérification (ignorable uniquement par le MJ)",
   "SETTINGS.useActionSound.name": "Son des actions",
-  "SETTINGS.useActionSound.hint": "Joue un son pour certaines actions (équiper, consommer)"     
-
+  "SETTINGS.useActionSound.hint": "Joue un son pour certaines actions (équiper, consommer)",
+  "SETTINGS.defaultVisibilityGMRoll.name": "Visibilité par défaut des jets de dés du MJ",
+  "SETTINGS.defaultVisibilityGMRoll.hint": "Définit la visibilité par défaut des jets de dés du MJ",
+  "SETTINGS.defaultVisibilityGMRoll.private": "Privé",
+  "SETTINGS.defaultVisibilityGMRoll.public": "Public"
 }

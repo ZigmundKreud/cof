@@ -1,3 +1,9 @@
+12.331.1
+--------
+- Correction type sur le slot Sac à dos
+- Ajout d'une option pour la visibilité par défaut des jets d'un MJ : public ou privé
+- Correction pour la prise en compte du rollMode pour l'attaque des adversaires
+
 12.331.0
 --------
 - Correction de la prise en compte de la caractéristique supérieure dans le dialogue de Jet

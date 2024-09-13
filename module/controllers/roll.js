@@ -346,6 +346,14 @@ export class CofRoll {
       }
     }    
     const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
+
+    // rollMode : Par défaut pour un MJ, c'est l'option configurée, sauf si elle est différente lors de l'appel    
+    let dialogRollMode
+    if (game.user.isGM) {
+      dialogRollMode = game.settings.get("cof", "defaultVisibilityGMRoll");      
+    }
+    if (rollMode) dialogRollMode = rollMode;
+
     const rollOptionContent = await renderTemplate(rollOptionTpl, {
       mod,
       bonus,
@@ -358,7 +366,7 @@ export class CofRoll {
       skillDescr: description,
       weakened,
       dice,
-      rollMode,
+      rollMode: dialogRollMode,
       rollModes: CONFIG.Dice.rollModes
     });
     let d = new Dialog(
@@ -407,7 +415,7 @@ export class CofRoll {
    * @param {*} onEnter
    * @returns
    */
-  static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null, weakened = false, rollMode = "publicroll") {
+  static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null, weakened = false, rollMode) {
     const rollOptionTpl = "systems/cof/templates/dialogs/roll-weapon-dialog.hbs";
     let diff = null;
     let isDifficultyDisplayed = true;
@@ -421,6 +429,13 @@ export class CofRoll {
       }
       isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
     }
+
+    // rollMode : Par défaut pour un MJ, c'est l'option configurée, sauf si elle est différente lors de l'appel    
+    let dialogRollMode
+    if (game.user.isGM) {
+      dialogRollMode = game.settings.get("cof", "defaultVisibilityGMRoll");      
+    }
+    if (rollMode) dialogRollMode = rollMode;
 
     const rollOptionContent = await renderTemplate(rollOptionTpl, {
       mod: mod,
@@ -437,7 +452,7 @@ export class CofRoll {
       hasDmgDescr: dmgDescr && dmgDescr.length > 0,
       dmgDescr: dmgDescr,
       weakened: weakened,
-      rollMode: rollMode,
+      rollMode: dialogRollMode,
       rollModes: CONFIG.Dice.rollModes
     });
 
@@ -503,6 +518,14 @@ export class CofRoll {
 
   static async rollDamageDialog(actor, label, formula, dmgBonus, critical = false, onEnter = "submit", dmgDescr, rollMode) {
     const rollOptionTpl = "systems/cof/templates/dialogs/roll-dmg-dialog.hbs";
+
+    // rollMode : Par défaut pour un MJ, c'est l'option configurée, sauf si elle est différente lors de l'appel    
+    let dialogRollMode
+    if (game.user.isGM) {
+      dialogRollMode = game.settings.get("cof", "defaultVisibilityGMRoll");      
+    }
+    if (rollMode) dialogRollMode = rollMode;
+
     const rollOptionContent = await renderTemplate(rollOptionTpl, {
       dmgFormula: formula,
       dmgBonus: dmgBonus,
@@ -510,7 +533,7 @@ export class CofRoll {
       isCritical: critical,
       hasDescription: dmgDescr && dmgDescr.length > 0,
       dmgDescr: dmgDescr,
-      rollMode: rollMode,
+      rollMode: dialogRollMode,
       rollModes: CONFIG.Dice.rollModes
     });
 

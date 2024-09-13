@@ -24,7 +24,7 @@ export class LevelUpSheet extends FormApplication {
         this.maxPaths = 6;
 
         let nbPaths = this.object.getEmbeddedCollection('Item').filter(item=>item.type==="path").length;
-        this.position.width = Math.clamped(nbPaths*this.pathSize , this.minSize, this.maxSize);
+        this.position.width = Math.clamp(nbPaths*this.pathSize , this.minSize, this.maxSize);
 
         this.options.title = this.options.title ? this.options.title : game.i18n.format('COF.levelUp.title', {name:object.system.name});  
         
