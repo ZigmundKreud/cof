@@ -71,7 +71,7 @@ export class CofLootSheet extends CofBaseSheet {
                         ArrayUtils.remove(actor.system.settings[tab].folded, category)
                     }
                 }
-                actor.update({ "data.settings": actor.system.settings })
+                actor.update({ "system.settings": actor.system.settings })
             });
         });
     }

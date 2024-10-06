@@ -246,7 +246,7 @@ export class CofRoll {
             hp.max = hp.base + hp.bonus;
             hp.value = hp.max;
           }
-          actor.update({ "data.attributes.hp": hp });
+          actor.update({ "system.attributes.hp": hp });
         } else ui.notifications.error(game.i18n.localize("COF.dialog.rollHitPoints.error"));
       },
       defaultYes: false,
@@ -283,7 +283,7 @@ export class CofRoll {
 
     if (!withHPrecovery) {
       rp.value -= 1;
-      actor.update({ "data.attributes.rp": rp });
+      actor.update({ "system.attributes.rp": rp });
     } else {
       Dialog.confirm({
         title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
@@ -299,7 +299,7 @@ export class CofRoll {
 
           hp.value += result.total;
           rp.value -= 1;
-          actor.update({ "data.attributes.hp": hp, "data.attributes.rp": rp });
+          actor.update({ "system.attributes.hp": hp, "system.attributes.rp": rp });
         },
         defaultYes: false,
       });

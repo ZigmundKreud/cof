@@ -1,3 +1,7 @@
+12.331.2
+--------
+- Correction du remplacement des points de vie via le bouton Vitalité
+
 12.331.1
 --------
 - Correction type sur le slot Sac à dos
