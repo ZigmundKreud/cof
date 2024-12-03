@@ -1,3 +1,11 @@
+12.331.4
+--------
+- Release avec la fonctionnalité (oubliée) de la 12.331.3
+
+12.331.3
+--------
+- Ajout d'un attribut pour les capacités : coût à 0 points d'expérience dans le calcul total des points dépensés.
+
 12.331.2
 --------
 - Correction du remplacement des points de vie via le bouton Vitalité

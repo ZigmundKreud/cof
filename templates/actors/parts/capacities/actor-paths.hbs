@@ -24,9 +24,10 @@
                         <div class="gridcell gridcell-sm item capacity left color-default no-wrap" data-item-id="{{capacity._id}}" data-item-type="capacity" data-pack="capacities" data-path-id="{{path._id}}" data-key="{{capacity.data.key}}" data-uuid="{{capacity.sourceId}}">
                             {{#if capacity.data.checked}}
                                 <a class="capacity-control capacity-checked" title="{{capacity.name}}"><i class="fas fa-square"></i></a>&nbsp;
-                                <a class="capacity-control item-edit ellipsis">{{capacity.name}}</a>
+                                <a class="capacity-control item-edit ellipsis">{{capacity.name}}</a>{{#if capacity.data.checked}}{{/if}}
                             {{else}}
-                            <a class="capacity-control capacity-unchecked" title="{{capacity.name}}"><i class="far fa-square"></i>&nbsp;<a class="capacity-control item-edit ellipsis">{{capacity.name}}</a>
+                                <a class="capacity-control capacity-unchecked" title="{{capacity.name}}"><i class="far fa-square"></i>&nbsp;
+                                <a class="capacity-control item-edit ellipsis">{{capacity.name}}</a>
                             {{/if}}
                         </div>
                     {{/each}}

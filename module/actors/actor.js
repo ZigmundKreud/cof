@@ -377,7 +377,7 @@ export class CofActor extends Actor {
       .map((cap) => {
         const path = this.getItemByName(cap.system.path.name);
         const isPrestige = path?.system.properties.prestige ? true : false;
-        const cost = isPrestige ? 2 : cap.system.rank > 2 ? 2 : 1;
+        let cost = cap.system.noXpCost ? 0 : ((isPrestige || cap.system.rank > 2) ? 2 : 1);
         return cost;
       })
       .reduce((acc, curr) => acc + curr, 0);
@@ -1185,6 +1185,7 @@ export class CofActor extends Actor {
    * @returns
    */
   activateCapacity(capacity, options) {
+
     const capacitySystem = capacity.system;
     const activable = capacitySystem.activable;
     const limitedUsage = capacitySystem.limitedUsage;
@@ -1204,7 +1205,7 @@ export class CofActor extends Actor {
         }
         return ui.notifications.warn(game.i18n.localize("COF.notification.ActivateEmptyCapacity"));
       }
-      // Capacité à usage illimité
+      // Capacité à usage illimité      
       return capacity.applyEffects(this, options);
     }
   }

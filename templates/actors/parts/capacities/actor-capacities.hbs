@@ -24,7 +24,7 @@
                             <div class="item-image" style="background-image: url('{{capacity.img}}')"></div>
                             <h4>{{capacity.name}}</h4>
                         </div>
-                        <div class="item-detail">{{#if capacity.system.rank}}{{capacity.system.rank}}{{/if}}</div>
+                        <div class="item-detail" {{#if capacity.system.noXpCost}}data-tooltip='{{localize "COF.ui.noXpCost"}}'{{/if}}>{{#if capacity.system.rank}}{{capacity.system.rank}}{{#if capacity.system.noXpCost}}*{{/if}}{{/if}}</div>
                         <div class="item-detail">{{#if capacity.system.limited}}L{{/if}}</div>
                         <div class="item-detail">{{#if capacity.system.spell}}&#10033;{{/if}}</div>
                         <div class="item-detail capacity-qty" title="{{localize "COF.ui.modifyQuantity"}}">{{#if capacity.system.limitedUsage}}{{capacity.system.properties.limitedUsage.use}} / {{capacity.system.properties.limitedUsage.maxUse}}{{/if}}</div>
