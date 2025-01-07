@@ -4,7 +4,7 @@ export class EntitySummary {
             _id : itemData._id,
             name: itemData.name,
             img: itemData.img,
-            sourceId : itemData.flags.core.sourceId
+            sourceId : itemData._stats.compendiumSource
         }
     }
 

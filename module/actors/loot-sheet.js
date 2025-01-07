@@ -9,7 +9,7 @@ import { ArrayUtils } from "../utils/array-utils.js";
 export class CofLootSheet extends CofBaseSheet {
     /** @override */
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "actor"],
             template: System.templatesPath + "/actors/loot-sheet.hbs",
             width: 950,
@@ -71,7 +71,7 @@ export class CofLootSheet extends CofBaseSheet {
                         ArrayUtils.remove(actor.system.settings[tab].folded, category)
                     }
                 }
-                actor.update({ "data.settings": actor.system.settings })
+                actor.update({ "system.settings": actor.system.settings })
             });
         });
     }

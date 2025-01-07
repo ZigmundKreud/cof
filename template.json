@@ -462,6 +462,7 @@
       "attack": false,
       "useMacro": false,
       "buff": false,
+      "noXpCost": false,
       "properties": {
         "ranged": {
           "range": "",

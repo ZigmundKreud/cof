@@ -150,6 +150,7 @@
   "COF.ui.modifyQuantity": " Clic gauche pour augmenter, clic droit pour diminuer",  
   "COF.ui.add": "Aj.",
   "COF.ui.sendItemToChat": "Envoyer l'objet dans le chat",
+  "COF.ui.noXpCost": "Pas de coût en expérience",
   
   "COF.species.openCompendium": "Clic gauche pour voir le peuple, clic droit pour ouvrir le compendium",
   "COF.path.openCompendium": "Clic gauche pour voir le profil, clic droit pour ouvrir le compendium",
@@ -606,6 +607,9 @@
   "SETTINGS.checkArmorSlotAvailability.all": "Vérification (ignorable par tous)",
   "SETTINGS.checkArmorSlotAvailability.gm": "Vérification (ignorable uniquement par le MJ)",
   "SETTINGS.useActionSound.name": "Son des actions",
-  "SETTINGS.useActionSound.hint": "Joue un son pour certaines actions (équiper, consommer)"     
-
+  "SETTINGS.useActionSound.hint": "Joue un son pour certaines actions (équiper, consommer)",
+  "SETTINGS.defaultVisibilityGMRoll.name": "Visibilité par défaut des jets de dés du MJ",
+  "SETTINGS.defaultVisibilityGMRoll.hint": "Définit la visibilité par défaut des jets de dés du MJ",
+  "SETTINGS.defaultVisibilityGMRoll.private": "Privé",
+  "SETTINGS.defaultVisibilityGMRoll.public": "Public"
 }

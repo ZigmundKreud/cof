@@ -28,7 +28,7 @@ export class Species {
           name: newRace[0].name,
           img: newRace[0].img,
           key: newRace[0].system.key,
-          sourceId: newRace[0].flags.core.sourceId,
+          sourceId: newRace[0]._stats.compendiumSource,
         };
         capacities.push(capacityData);
       }
@@ -47,7 +47,7 @@ export class Species {
           name: newRace[0].name,
           img: newRace[0].img,
           key: newRace[0].system.key,
-          sourceId: newRace[0].flags.core.sourceId,
+          sourceId: newRace[0]._stats.compendiumSource,
         };
         paths.push(pathData);
       }

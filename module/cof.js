@@ -16,6 +16,8 @@ import { CofLootSheet } from "./actors/loot-sheet.js";
 import { COFActiveEffectConfig } from "./system/active-effect-config.js";
 import { EffectsModifications, customizeStatusEffects } from "./effects/effects.js";
 
+globalThis.COF = COF;
+
 Hooks.once("init", async function () {
   console.info("COF | " + System.label + " | System Initializing...");
   console.info(System.ASCII);
@@ -114,7 +116,7 @@ function registerWorldCount(registerKey) {
   if (game.user.isGM) {
     let worldKey = game.settings.get(registerKey, "worldKey");
     if (worldKey == undefined || worldKey == "") {
-      worldKey = randomID(32);
+      worldKey = foundry.utils.randomID(32);
       game.settings.set(registerKey, "worldKey", worldKey);
     }
 

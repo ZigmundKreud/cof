@@ -7,7 +7,7 @@ export class Hitpoints {
             ui.notifications.error(game.i18n.localize("COF.notification.HitPointsNoTarget"));
         } else {
             for(let target of targets){
-                let hp = duplicate(target.actor.system.attributes.hp);
+                let hp = foundry.utils.duplicate(target.actor.system.attributes.hp);
 
                 let finalAmount = amount;
                 // Dommages

@@ -84,6 +84,40 @@ COF.itemProperties = {
     "creature": "COF.properties.creature"
 };
 
+COF.itemSlots = {
+    hand: "COF.slot.hand",
+    head: "COF.slot.head",
+    ear: "COF.slot.ear",
+    neck: "COF.slot.neck",
+    shoulders: "COF.slot.shoulders",
+    chest: "COF.slot.chest",
+    back: "COF.slot.back",
+    arm: "COF.slot.arm",
+    finger: "COF.slot.finger",
+    wrist: "COF.slot.wrist",
+    waist: "COF.slot.waist",
+    legs: "COF.slot.legs",
+    feet: "COF.slot.feet",
+    belt: "COF.slot.belt",
+    bakpack: "COF.slot.backpack",
+    quiver: "COF.slot.quiver"
+}
+
+COF.itemRarityStackable = {
+    common: "COF.rarity.common",
+    moderate: "COF.rarity.moderate",
+    rare: "COF.rarity.rare",
+    "very-rare": "COF.rarity.very-rare"
+}
+
+COF.itemRarity = {
+    common: "COF.rarity.common",
+    moderate: "COF.rarity.moderate",
+    rare: "COF.rarity.rare",
+    "very-rare": "COF.rarity.very-rare",
+    unique: "COF.rarity.unique"
+}
+
 COF.itemCategories = {
     "other": "COF.category.other",
     "armor": "COF.category.armor",
@@ -155,12 +189,12 @@ COF.actorsAllowedItems = {
 }
 
 COF.diceIcon = {
-    "d4":"icons/dice/d4black.svg",
-    "d6":"icons/dice/d6black.svg",
-    "d8":"icons/dice/d8black.svg",
-    "d10":"icons/dice/d10black.svg",
-    "d12":"icons/dice/d12black.svg",
-    "d20":"icons/dice/d20black.svg"
+    "d4": "icons/dice/d4black.svg",
+    "d6": "icons/dice/d6black.svg",
+    "d8": "icons/dice/d8black.svg",
+    "d10": "icons/dice/d10black.svg",
+    "d12": "icons/dice/d12black.svg",
+    "d20": "icons/dice/d20black.svg"
 }
 
 COF.activeEffectChanges = {
@@ -184,7 +218,7 @@ COF.activeEffectChanges = {
     "system.attacks.magic.dmBonus": "COF.attacks.magic.dmBonus",
     "system.attributes.hp.bonus": "COF.attributes.hp.max.label",
     "system.attributes.def.bonus": "COF.attributes.def.label",
-    "system.attributes.init.bonus": "COF.attributes.init.label",    
+    "system.attributes.init.bonus": "COF.attributes.init.label",
     "system.attributes.dr.bonus.value": "COF.attributes.dr.label",
     "system.attributes.rp.bonus": "COF.attributes.rp.label",
     "system.attributes.fp.bonus": "COF.attributes.fp.label",
@@ -201,7 +235,7 @@ COF.applicationsToLockDuringPause = [
  * Creature sizes.
  * @enum {string}
  */
- COF.actorSizes = {
+COF.actorSizes = {
     tiny: "COF.encounter.size.tiny",
     small: "COF.encounter.size.small",
     short: "COF.encounter.size.short",
@@ -210,7 +244,7 @@ COF.applicationsToLockDuringPause = [
     huge: "COF.encounter.size.huge",
     colossal: "COF.encounter.size.colossal"
 };
-  
+
 /**
  * Default token image size for the values of `COF.actorSizes`.
  * @enum {number}
@@ -229,7 +263,7 @@ COF.tokenSizes = {
  * Encounter archetype.
  * @enum {string}
  */
- COF.encounterArchetypes = {
+COF.encounterArchetypes = {
     standard: "COF.encounter.archetype.standard",
     fast: "COF.encounter.archetype.fast",
     powerful: "COF.encounter.archetype.powerful",
@@ -240,7 +274,7 @@ COF.tokenSizes = {
  * Encounter category.
  * @enum {string}
  */
- COF.encounterCategories = {
+COF.encounterCategories = {
     living: "COF.encounter.category.living",
     humanoid: "COF.encounter.category.humanoid",
     plant: "COF.encounter.category.plant",
@@ -251,7 +285,7 @@ COF.tokenSizes = {
  * Encounter Boss Rank.
  * @enum {string}
  */
- COF.encounterBossRanks = {
+COF.encounterBossRanks = {
     "1": "COF.encounter.boss.rank.remarkable",
     "2": "COF.encounter.boss.rank.superior",
     "3": "COF.encounter.boss.rank.major",
@@ -263,7 +297,7 @@ COF.tokenSizes = {
  * Encounter Boss Type.
  * @enum {string}
  */
- COF.encounterBossTypes = {
+COF.encounterBossTypes = {
     fast: "COF.encounter.boss.type.fast",
     powerful: "COF.encounter.boss.type.powerful",
     berserk: "COF.encounter.boss.type.berserk",
@@ -271,3 +305,64 @@ COF.tokenSizes = {
 };
 
 COF.debug = false;
+
+COF.DICE_VALUES = {
+    "1d4": "1d4",
+    "1d6": "1d6",
+    "1d8": "1d8",
+    "1d10": "1d10",
+    "1d12": "1d12",
+    "1d20": "1d20"
+};
+
+COF.DAMAGE_STAT = {
+    "@stats.str.mod": "COF.stats.str.label",
+    "@stats.dex.mod": "COF.stats.dex.label",
+    "@stats.con.mod": "COF.stats.con.label",
+    "@stats.int.mod": "COF.stats.int.label",
+    "@stats.wis.mod": "COF.stats.wis.label",
+    "@stats.cha.mod": "COF.stats.cha.label"
+};
+
+COF.SKILL = {
+    "@attacks.melee.mod": "COF.attacks.melee.label",
+    "@attacks.ranged.mod": "COF.attacks.ranged.label",
+    "@attacks.magic.mod": "COF.attacks.magic.label"
+};
+
+COF.DURATION = {
+    rounds: "COF.ui.rounds",
+    minutes: "COF.ui.minutes",
+    hours: "COF.ui.hours",
+    days: "COF.ui.days"
+};
+
+COF.RELOAD = {
+    s: "COF.ui.simpleAction",
+    l: "COF.ui.limitedAction"
+};
+
+COF.ATTACK_SKILLS = {
+    "auto": "COF.ui.automatic",
+    "@attacks.melee.mod": "COF.attacks.melee.label",
+    "@attacks.ranged.mod": "COF.attacks.ranged.label",
+    "@attacks.magic.mod": "COF.attacks.magic.label",
+    "@stats.str.mod": "COF.stats.str.label",
+    "@stats.dex.mod": "COF.stats.dex.label",
+    "@stats.con.mod": "COF.stats.con.label",
+    "@stats.int.mod": "COF.stats.int.label",
+    "@stats.wis.mod": "COF.stats.wis.label",
+    "@stats.cha.mod": "COF.stats.cha.label"
+};
+
+COF.SPELLCASTING = {
+    int: "COF.stats.int.label",
+    wis: "COF.stats.wis.label",
+    cha: "COF.stats.cha.label"
+};
+
+COF.MP_FACTOR = {
+    "0": "0",
+    "1": "x1",
+    "2": "x2"
+};

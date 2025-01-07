@@ -150,6 +150,7 @@
   "COF.ui.modifyQuantity": " Left click to increase, right click to decrease",  
   "COF.ui.add": "Add",
   "COF.ui.sendItemToChat": "Send item to chat",
+  "COF.ui.noXpCost": "No experience cost",
 
   "COF.species.openCompendium": "Left click to see the specie, right click to open the compendium",
   "COF.path.openCompendium": "Left click to see the path, right click to open the compendium",  
@@ -604,5 +605,9 @@
   "SETTINGS.checkArmorSlotAvailability.all": "Verification (can be ignored by all)",
   "SETTINGS.checkArmorSlotAvailability.gm": "Verification (can only be ignored by the GM)",
   "SETTINGS.useActionSound.name": "Sound for actions",
-  "SETTINGS.useActionSound.hint": "Play a sound for some actions" 
+  "SETTINGS.useActionSound.hint": "Play a sound for some actions",
+  "SETTINGS.defaultVisibilityGMRoll.name": "Default visibility of GM rolls",
+  "SETTINGS.defaultVisibilityGMRoll.hint": "Defines the default visibility of the GM's dice rolls",
+  "SETTINGS.defaultVisibilityGMRoll.private": "Private",
+  "SETTINGS.defaultVisibilityGMRoll.public": "Public"
 }

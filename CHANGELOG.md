@@ -1,3 +1,42 @@
+12.331.4
+--------
+- Release avec la fonctionnalité (oubliée) de la 12.331.3
+
+12.331.3
+--------
+- Ajout d'un attribut pour les capacités : coût à 0 points d'expérience dans le calcul total des points dépensés.
+
+12.331.2
+--------
+- Correction du remplacement des points de vie via le bouton Vitalité
+
+12.331.1
+--------
+- Correction type sur le slot Sac à dos
+- Ajout d'une option pour la visibilité par défaut des jets d'un MJ : public ou privé
+- Correction pour la prise en compte du rollMode pour l'attaque des adversaires
+
+12.331.0
+--------
+- Correction de la prise en compte de la caractéristique supérieure dans le dialogue de Jet
+
+12.330.0
+--------
+- Prise en compte du type de dé et de la difficulté pour la macro rollStatMacro
+- Ajout de la visibilité du jet au niveau du dialogue pour tous les types de jet
+
+12.328.1
+--------
+- Fix deprecated message
+
+12.328.0
+--------
+- Compatibilité V12
+
+11.315.2
+--------
+- Corrige le processus de release
+
 11.315.1
 --------
 - Dernière version v11 (avec version maximum de Foundry à 11)

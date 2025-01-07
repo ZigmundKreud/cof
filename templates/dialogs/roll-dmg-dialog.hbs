@@ -1,3 +1,14 @@
+<div class="flexrow" style="margin-bottom: 1px;">
+    <div class="flex1 center bg-default">
+        <label for="rollMode">{{localize "CHAT.RollDefault"}}</label>
+    </div>
+    <div class="flex1 center cell">
+        <select name="rollMode" id="rollMode">
+            {{selectOptions rollModes selected=rollMode localize=true}}            
+        </select>
+    </div>
+</div>
+ <hr/>
 <div class="row flexrow table-header red">
     <div class="flex1 center">
         <h3>{{localize "COF.dialog.rollDamage.title"}}</h3>

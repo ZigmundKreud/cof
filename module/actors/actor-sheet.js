@@ -18,7 +18,7 @@ import { COFActiveEffectConfig } from "../system/active-effect-config.js";
 export class CofActorSheet extends CofBaseSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cof", "sheet", "actor"],
       template: System.templatesPath + "/actors/actor-sheet.hbs",
       width: 1200,
@@ -96,7 +96,7 @@ export class CofActorSheet extends CofBaseSheet {
             ArrayUtils.remove(actor.system.settings[tab].folded, category);
           }
         }
-        actor.update({ "data.settings": actor.system.settings });
+        actor.update({ "system.settings": actor.system.settings });
       });
     });
     // Check/Uncheck capacities
@@ -135,7 +135,7 @@ export class CofActorSheet extends CofBaseSheet {
       return this.actor.createEmbeddedDocuments("ActiveEffect", [
         {
           label: game.i18n.localize("COF.ui.newEffect"),
-          icon: "icons/svg/aura.svg",
+          img: "icons/svg/aura.svg",
           origin: this.actor.uuid,
           "duration.rounds": undefined,
           disabled: true,
@@ -688,6 +688,9 @@ export class CofActorSheet extends CofBaseSheet {
     context.isEffectsEditable = options.editable;
 
     context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, { async: true });
+
+    context.diceValues = COF.DICE_VALUES;
+
     return context;
   }
 

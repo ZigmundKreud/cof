@@ -236,7 +236,7 @@ export class CofRoll {
             const dice2Roll = lvl - 1;
             const formula = `${dice2Roll}d${hdmax} + ${dice2Roll * conMod}`;
             let r = new Roll(formula);
-            await r.roll({ async: true });
+            await r.roll();
             r.toMessage({
               user: game.user.id,
               flavor: "<h2>" + game.i18n.localize("COF.dialog.rollHitPoints.title") + "</h2>",
@@ -246,7 +246,7 @@ export class CofRoll {
             hp.max = hp.base + hp.bonus;
             hp.value = hp.max;
           }
-          actor.update({ "data.attributes.hp": hp });
+          actor.update({ "system.attributes.hp": hp });
         } else ui.notifications.error(game.i18n.localize("COF.dialog.rollHitPoints.error"));
       },
       defaultYes: false,
@@ -283,7 +283,7 @@ export class CofRoll {
 
     if (!withHPrecovery) {
       rp.value -= 1;
-      actor.update({ "data.attributes.rp": rp });
+      actor.update({ "system.attributes.rp": rp });
     } else {
       Dialog.confirm({
         title: game.i18n.format("COF.dialog.spendRecoveryPoint.title"),
@@ -299,7 +299,7 @@ export class CofRoll {
 
           hp.value += result.total;
           rp.value -= 1;
-          actor.update({ "data.attributes.hp": hp, "data.attributes.rp": rp });
+          actor.update({ "system.attributes.hp": hp, "system.attributes.rp": rp });
         },
         defaultYes: false,
       });
@@ -335,25 +335,39 @@ export class CofRoll {
    * @param {*} description
    * @returns
    */
-  static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description, weakened = false) {
+  static async skillRollDialog(actor, label, mod, bonus, malus, critrange, superior = false, onEnter = "submit", description, weakened = false, dice, rollMode, difficulty) {
     const rollOptionTpl = "systems/cof/templates/dialogs/skillroll-dialog.hbs";
     let diff = null;
     const displayDifficulty = game.settings.get("cof", "displayDifficulty");
-    if (displayDifficulty !== "none" && game.user.targets.size > 0) {
-      diff = [...game.user.targets][0].actor.system.attributes.def.value;
-    }
+    if (!foundry.utils.isEmpty(difficulty)) diff = difficulty;
+    else {
+      if (displayDifficulty !== "none" && game.user.targets.size > 0) {
+        diff = [...game.user.targets][0].actor.system.attributes.def.value;
+      }
+    }    
     const isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
+
+    // rollMode : Par défaut pour un MJ, c'est l'option configurée, sauf si elle est différente lors de l'appel    
+    let dialogRollMode
+    if (game.user.isGM) {
+      dialogRollMode = game.settings.get("cof", "defaultVisibilityGMRoll");      
+    }
+    if (rollMode) dialogRollMode = rollMode;
+
     const rollOptionContent = await renderTemplate(rollOptionTpl, {
-      mod: mod,
-      bonus: bonus,
-      malus: malus,
-      critrange: critrange,
+      mod,
+      bonus,
+      malus,
+      critrange,
       difficulty: diff,
       displayDifficulty: isDifficultyDisplayed,
-      superior: superior,
+      superior,
       hasDescription: description && description.length > 0,
       skillDescr: description,
-      weakened: weakened,
+      weakened,
+      dice,
+      rollMode: dialogRollMode,
+      rollModes: CONFIG.Dice.rollModes
     });
     let d = new Dialog(
       {
@@ -375,7 +389,8 @@ export class CofRoll {
               const mod = html.find("input#mod").val();
               const bonus = html.find("input#bonus").val();
               const malus = html.find("input#malus").val();
-              let r = new CofSkillRoll(label, dice, mod, bonus, malus, difficulty, critrange, description);
+              const rollMode = html.find("#rollMode").val();
+              let r = new CofSkillRoll(label, dice, mod, bonus, malus, difficulty, critrange, description, rollMode);
               r.roll(actor);
             },
           },
@@ -400,7 +415,7 @@ export class CofRoll {
    * @param {*} onEnter
    * @returns
    */
-  static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null, weakened = false) {
+  static async rollWeaponDialog(actor, label, mod, bonus, malus, critrange, dmgFormula, dmgBonus, onEnter = "submit", skillDescr, dmgDescr, difficulty = null, weakened = false, rollMode) {
     const rollOptionTpl = "systems/cof/templates/dialogs/roll-weapon-dialog.hbs";
     let diff = null;
     let isDifficultyDisplayed = true;
@@ -414,6 +429,13 @@ export class CofRoll {
       }
       isDifficultyDisplayed = displayDifficulty === "all" || (displayDifficulty === "gm" && game.user.isGM);
     }
+
+    // rollMode : Par défaut pour un MJ, c'est l'option configurée, sauf si elle est différente lors de l'appel    
+    let dialogRollMode
+    if (game.user.isGM) {
+      dialogRollMode = game.settings.get("cof", "defaultVisibilityGMRoll");      
+    }
+    if (rollMode) dialogRollMode = rollMode;
 
     const rollOptionContent = await renderTemplate(rollOptionTpl, {
       mod: mod,
@@ -430,6 +452,8 @@ export class CofRoll {
       hasDmgDescr: dmgDescr && dmgDescr.length > 0,
       dmgDescr: dmgDescr,
       weakened: weakened,
+      rollMode: dialogRollMode,
+      rollModes: CONFIG.Dice.rollModes
     });
 
     let d = new Dialog(
@@ -453,10 +477,11 @@ export class CofRoll {
               const bonus = html.find("input#bonus").val();
               let malus = html.find("input#malus").val();
               if (!malus) malus = 0;
+              const rollMode = html.find("#rollMode").val();
 
               // Jet d'attaque uniquement
               if (!game.settings.get("cof", "useComboRolls")) {
-                let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
+                let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr, rollMode);
                 r.weaponRoll(actor, "", dmgDescr);
               } else {
                 // Jet combiné attaque et dommages
@@ -477,8 +502,8 @@ export class CofRoll {
                     dmgFormula = dmgFormula.concat(" ", dmgBonus);
                   }
                 }
-                let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr);
-                r.weaponRoll(actor, dmgFormula, dmgDescr);
+                let r = new CofSkillRoll(label, dice, mod, bonus, malus, diff, critrange, skillDescr, rollMode);
+                r.weaponRoll(actor, dmgFormula, dmgDescr, rollMode);
               }
             },
           },
@@ -491,8 +516,16 @@ export class CofRoll {
     return d.render(true);
   }
 
-  static async rollDamageDialog(actor, label, formula, dmgBonus, critical = false, onEnter = "submit", dmgDescr) {
+  static async rollDamageDialog(actor, label, formula, dmgBonus, critical = false, onEnter = "submit", dmgDescr, rollMode) {
     const rollOptionTpl = "systems/cof/templates/dialogs/roll-dmg-dialog.hbs";
+
+    // rollMode : Par défaut pour un MJ, c'est l'option configurée, sauf si elle est différente lors de l'appel    
+    let dialogRollMode
+    if (game.user.isGM) {
+      dialogRollMode = game.settings.get("cof", "defaultVisibilityGMRoll");      
+    }
+    if (rollMode) dialogRollMode = rollMode;
+
     const rollOptionContent = await renderTemplate(rollOptionTpl, {
       dmgFormula: formula,
       dmgBonus: dmgBonus,
@@ -500,6 +533,8 @@ export class CofRoll {
       isCritical: critical,
       hasDescription: dmgDescr && dmgDescr.length > 0,
       dmgDescr: dmgDescr,
+      rollMode: dialogRollMode,
+      rollModes: CONFIG.Dice.rollModes
     });
 
     let d = new Dialog(
@@ -535,7 +570,8 @@ export class CofRoll {
                 }
               }
 
-              let r = new CofDamageRoll(label, dmgFormula, isCritical, dmgDescr);
+              const rollMode = html.find("#rollMode").val();
+              let r = new CofDamageRoll(label, dmgFormula, isCritical, dmgDescr, rollMode);
               r.roll(actor);
             },
           },

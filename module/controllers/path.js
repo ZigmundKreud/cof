@@ -41,7 +41,7 @@ export class Path {
                         name: updatedPath.name,
                         img: updatedPath.img,
                         key: updatedPath.system.key,
-                        sourceId: pathsData[index].flags.core.sourceId,
+                        sourceId: pathsData[index]._stats.compendiumSource,
                     }
                 };
                 return cap;

@@ -29,11 +29,7 @@
             </div>
             <div class="flex2 center cell">
                 <select name="system.details.size" data-type="String" style="width:100%">
-                    {{#select system.details.size}}
-                        {{#each config.actorSizes as |label size|}}
-                                <option value="{{size}}">{{label}}</option>
-                        {{/each}}
-                    {{/select}}
+                    {{selectOptions config.actorSizes selected=system.details.size localize=true}}
                 </select>
         </select>
             </div>
@@ -49,12 +45,7 @@
                 </div>
                 <div class="flex2 center cell">
                     <select name="system.archetype" data-type="String" style="width:100%">
-                        {{#select system.archetype}}
-                            <option value="">{{localize "COF.None"}}</option>
-                            {{#each config.encounterArchetypes as |label archetype|}}
-                                    <option value="{{archetype}}">{{label}}</option>
-                            {{/each}}                            
-                        {{/select}}
+                        {{selectOptions config.encounterArchetypes selected=system.archetype localize=true blank="COF.None"}}
                     </select>
                 </div>
             </div>
@@ -66,12 +57,7 @@
                 </div>
                 <div class="flex2 center cell">
                     <select name="system.category" data-type="String" style="width:100%">
-                        {{#select system.category}}
-                            <option value="">{{localize "COF.None"}}</option>
-                            {{#each config.encounterCategories as |label category|}}
-                                    <option value="{{category}}">{{label}}</option>
-                            {{/each}}                              
-                        {{/select}}
+                        {{selectOptions config.encounterCategories selected=system.category localize=true blank="COF.None"}}
                     </select>
 
                 </div>
@@ -84,24 +70,13 @@
                 </div>
                 <div class="flex1 center cell">
                     <select name="system.boss.rank" data-type="String" style="width:100%">
-                        {{#select system.boss.rank}}
-                            <option value="">{{localize "COF.None"}}</option>   
-                            {{#each config.encounterBossRanks as |label rank|}}
-                                    <option value="{{rank}}">{{label}}</option>
-                            {{/each}}                             
-                        {{/select}}
+                        {{selectOptions config.encounterBossRanks selected=system.boss.rank localize=true blank="COF.None"}}
                     </select>
                 </div>
                 <div class="flex1 center cell">
                     <select name="system.boss.type" data-type="String" style="width:100%">
-                        {{#select system.boss.type}}
-                            <option value="">{{localize "COF.None"}}</option>
-                            {{#each config.encounterBossTypes as |label type|}}
-                                    <option value="{{type}}">{{label}}</option>
-                            {{/each}}  
-                        {{/select}}
+                        {{selectOptions config.encounterBossTypes selected=system.boss.type localize=true blank="COF.None"}}
                     </select>
-
                 </div>
             </div>
             <!-- /BOSS RANK -->

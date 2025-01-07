@@ -25,7 +25,7 @@ export class CharacterGeneration {
         let stats = [];
         for(let i=0; i<6; i++){
             let r = new Roll("4d6kh3");
-            await r.roll({"async": true});
+            await r.roll();
             stats[i] = {
                 formula : r.formula,
                 result : r.result,
