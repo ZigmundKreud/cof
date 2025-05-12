@@ -1,3 +1,7 @@
+12.343.1
+--------
+- Correction sur l'application des dégâts (pour permettre la modification du maximum par effet)
+
 12.331.4
 --------
 - Release avec la fonctionnalité (oubliée) de la 12.331.3
