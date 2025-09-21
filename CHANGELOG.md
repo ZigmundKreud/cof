@@ -1,3 +1,6 @@
+13.348.2
+--------
+- CONFIG.ActiveEffect.legacyTransferral = true pour conserver l'ancien fonctionnement des Active Effects (comme Foundry V12)
 
 13.348.1
 --------

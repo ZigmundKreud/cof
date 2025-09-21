@@ -49,6 +49,9 @@ Hooks.once("init", async function () {
   CONFIG.Item.documentClass = CofItem;
   CONFIG.ActiveEffect.sheetClass = COFActiveEffectConfig;
 
+  // On conserve le fonctionnement des Active Effects de base
+  CONFIG.ActiveEffect.legacyTransferral = true
+
   // Create a namespace within the game global
   game.cof = {
     skin: "base",
